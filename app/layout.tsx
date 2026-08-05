@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import "./globals.css";
 
@@ -16,6 +17,21 @@ export default function RootLayout({
     <html lang="zh-CN">
       <body>
         <GoogleAnalytics />
+        <Script
+          id="baidu-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              var _hmt = _hmt || [];
+              (function() {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?072b7b23348c5fd6257647672986cc45";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+              })();
+            `,
+          }}
+        />
         {children}
       </body>
     </html>
