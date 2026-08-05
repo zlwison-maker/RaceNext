@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import type { ReactNode } from "react";
 import Link from "next/link";
-import { getTrafficSource, trackEvent } from "@/lib/analytics";
+import { trackEvent } from "@/lib/analytics";
 import type { RaceDecisionPage as RaceDecisionPageViewModel } from "@/lib/raceDecision";
 import { formatDistance } from "@/lib/raceDecision";
 
@@ -14,7 +14,10 @@ type Props = {
 type AccommodationArea = {
   id: string;
   type: "distance" | "transportation" | "balance";
+  trackingCategory: AccommodationTrackingCategory;
   areaName: string;
+  hotelName: string;
+  hotelUrl: string;
   label: string;
   reason: string;
   advantages: string;
@@ -29,12 +32,11 @@ export function RaceEventServicePage({ race }: Props) {
   const accommodationAreas = buildAccommodationAreas(race);
 
   useEffect(() => {
-    trackEvent("event_page_view", {
-      event_id: race.analyticsEventId,
-      event_slug: race.id,
-      source: getTrafficSource(),
+    trackEvent("race_detail_view", {
+      race_slug: race.id,
+      race_name: race.name,
     });
-  }, [race.analyticsEventId, race.id]);
+  }, [race.id, race.name]);
 
   return (
     <main className="min-h-screen bg-[#f7f5ef] text-[#1A1A1A]">
@@ -99,23 +101,48 @@ function HeroFact({ label, value, accent = false }: { label: string; value: stri
 }
 
 function AccommodationGuide({ race, areas }: { race: RaceDecisionPageViewModel; areas: AccommodationArea[] }) {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
   useEffect(() => {
-    areas.forEach((area) => {
-      trackEvent("accommodation_impression", {
-        event_id: race.analyticsEventId,
-        event_slug: race.id,
-        area_type: area.type,
-        source: "event_page_accommodation",
-      });
-    });
-  }, [areas, race.analyticsEventId, race.id]);
+    if (!containerRef.current || typeof IntersectionObserver === "undefined") return;
+
+    const viewedCategories = new Set<string>();
+    const targets = Array.from(containerRef.current.querySelectorAll<HTMLElement>("[data-accommodation-category]"));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          const category = entry.target.getAttribute("data-accommodation-category");
+          if (!category || viewedCategories.has(category)) return;
+
+          viewedCategories.add(category);
+          trackEvent("accommodation_view", {
+            race_slug: race.id,
+            category,
+          });
+          observer.unobserve(entry.target);
+        });
+
+        if (viewedCategories.size >= targets.length) observer.disconnect();
+      },
+      {
+        rootMargin: "0px 0px -10% 0px",
+        threshold: 0.25,
+      },
+    );
+
+    targets.forEach((target) => observer.observe(target));
+    return () => observer.disconnect();
+  }, [areas, race.id]);
 
   return (
     <Section id="参赛住宿指南" eyebrow="Accommodation" title="参赛住宿指南" bare>
-      <div className="grid gap-6 lg:grid-cols-3">
+      <div ref={containerRef} className="grid gap-6 lg:grid-cols-3">
         {areas.map((area, index) => (
           <article
             key={area.id}
+            data-accommodation-category={area.trackingCategory}
             className={`relative flex min-h-[285px] flex-col overflow-hidden rounded-lg border bg-[#f0ebe3] p-7 text-[#1A1A1A] ${
               index === 0 ? "border-[#d8cfc0] shadow-[0_14px_34px_rgba(26,26,26,0.06)]" : "border-[#e0d8ca] shadow-sm"
             }`}
@@ -133,13 +160,11 @@ function AccommodationGuide({ race, areas }: { race: RaceDecisionPageViewModel; 
               <a
                 href={area.affiliateUrl}
                 onClick={() => {
-                  trackEvent("accommodation_click", {
-                    event_id: race.analyticsEventId,
-                    event_slug: race.id,
-                    area_type: area.type,
-                    provider: area.provider,
-                    source: "event_page_accommodation",
-                    transport_type: "beacon",
+                  trackEvent("hotel_click", {
+                    race_slug: race.id,
+                    category: area.trackingCategory,
+                    hotel_name: area.hotelName,
+                    hotel_url: area.hotelUrl,
                   });
                 }}
                 className="block rounded-full bg-[#435044] px-5 py-3 text-center text-sm font-semibold text-white transition hover:bg-[#354037]"
@@ -263,6 +288,14 @@ function RecommendedFact({ label, value }: { label: string; value: string }) {
   );
 }
 
+type AccommodationTrackingCategory = "distance_priority" | "transport_priority" | "value_priority";
+
+const accommodationTrackingCategories: Record<AccommodationArea["type"], AccommodationTrackingCategory> = {
+  distance: "distance_priority",
+  transportation: "transport_priority",
+  balance: "value_priority",
+};
+
 function getRecommendationImage(type: RaceDecisionPageViewModel["type"]) {
   if (type === "trail" || type === "ultra_trail") {
     return "https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1200&q=85";
@@ -275,7 +308,10 @@ function buildAccommodationAreas(race: RaceDecisionPageViewModel): Accommodation
     return race.accommodationAreas.map((area, index) => ({
       id: `${area.priorityType}-${index}`,
       type: area.priorityType,
+      trackingCategory: accommodationTrackingCategories[area.priorityType],
       areaName: area.areaName,
+      hotelName: area.areaName,
+      hotelUrl: area.affiliateLinks.ctrip[area.priorityType],
       label: accommodationPriorityLabels[area.priorityType],
       reason: area.recommendationReason,
       advantages: area.coreAdvantage,
@@ -292,7 +328,10 @@ function buildAccommodationAreas(race: RaceDecisionPageViewModel): Accommodation
     {
       id: "near-event",
       type: "distance",
+      trackingCategory: accommodationTrackingCategories.distance,
       areaName: "住在比赛附近",
+      hotelName: "住在比赛附近",
+      hotelUrl: buildAffiliatePlaceholder(race.id, "distance"),
       label: "距离优先",
       reason: "适合希望减少比赛日通勤不确定性的跑者。",
       advantages: "离比赛区域近，检录和存包更从容。",
@@ -303,7 +342,10 @@ function buildAccommodationAreas(race: RaceDecisionPageViewModel): Accommodation
     {
       id: "transport",
       type: "transportation",
+      trackingCategory: accommodationTrackingCategories.transportation,
       areaName: "住交通方便的位置",
+      hotelName: "住交通方便的位置",
+      hotelUrl: buildAffiliatePlaceholder(race.id, "transportation"),
       label: "交通优先",
       reason: "适合兼顾高铁、机场和市内公共交通的跑者。",
       advantages: "到达和离开更顺，换乘成本更低。",
@@ -314,7 +356,10 @@ function buildAccommodationAreas(race: RaceDecisionPageViewModel): Accommodation
     {
       id: "value",
       type: "balance",
+      trackingCategory: accommodationTrackingCategories.balance,
       areaName: "平衡距离与成本",
+      hotelName: "平衡距离与成本",
+      hotelUrl: buildAffiliatePlaceholder(race.id, "balance"),
       label: "综合优先",
       reason: "适合在便利性和住宿成本之间取得平衡的跑者。",
       advantages: "兼顾距离、交通和价格，整体参赛成本更可控。",
