@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import type { ReactNode } from "react";
 import Link from "next/link";
+import { SiteFooter } from "@/components/SiteFooter";
 import { trackEvent } from "@/lib/analytics";
 import type { RaceDecisionPage as RaceDecisionPageViewModel } from "@/lib/raceDecision";
 import { formatDistance } from "@/lib/raceDecision";
@@ -39,7 +40,7 @@ export function RaceEventServicePage({ race }: Props) {
   }, [race.id, race.name]);
 
   return (
-    <main className="min-h-screen bg-[#f7f5ef] text-[#1A1A1A]">
+    <main className="min-h-screen bg-white text-[#1A1A1A]">
       <EventHero race={race} locationText={locationText} categoryLabels={categoryLabels} />
 
       <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
@@ -49,6 +50,7 @@ export function RaceEventServicePage({ race }: Props) {
           {race.nextRaces.length ? <NextRaces races={race.nextRaces} /> : null}
         </div>
       </div>
+      <SiteFooter />
     </main>
   );
 }
@@ -143,8 +145,8 @@ function AccommodationGuide({ race, areas }: { race: RaceDecisionPageViewModel; 
           <article
             key={area.id}
             data-accommodation-category={area.trackingCategory}
-            className={`relative flex min-h-[285px] flex-col overflow-hidden rounded-lg border bg-[#f0ebe3] p-7 text-[#1A1A1A] ${
-              index === 0 ? "border-[#d8cfc0] shadow-[0_14px_34px_rgba(26,26,26,0.06)]" : "border-[#e0d8ca] shadow-sm"
+            className={`relative flex min-h-[285px] flex-col overflow-hidden rounded-lg border bg-[#fbfaf7] p-7 text-[#1A1A1A] ${
+              index === 0 ? "border-[#ded6c8] shadow-[0_14px_34px_rgba(26,26,26,0.045)]" : "border-[#e6dfd3] shadow-sm"
             }`}
           >
             <AccommodationVisual type={area.type} />
@@ -270,7 +272,7 @@ function NextRaces({ races }: { races: RaceDecisionPageViewModel["nextRaces"] })
 
 function Section({ id, eyebrow, title, children, bare = false }: { id: string; eyebrow: string; title: string; children: ReactNode; bare?: boolean }) {
   return (
-    <section id={id} className={bare ? "py-2" : "rounded-lg border border-[#e2ddd2] bg-white p-5 shadow-sm sm:p-7"}>
+    <section id={id} className={bare ? "py-2" : "py-2"}>
       <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#888888]">{eyebrow}</p>
       <h2 className="mt-2 text-2xl font-bold tracking-normal text-[#1A1A1A] sm:text-3xl">{title}</h2>
       <div className="mt-6">{children}</div>

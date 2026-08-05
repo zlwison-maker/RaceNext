@@ -58,6 +58,14 @@ const ctripLinks = (distance: string, transportation: string, balance: string): 
   },
 });
 
+const coverImages = {
+  shanghai: "https://images.unsplash.com/photo-1538428494232-9c0d8a3ab403?auto=format&fit=crop&w=1800&q=90",
+  beijing: "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=1800&q=90",
+  xiamen: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=90",
+  hk100: "https://images.unsplash.com/photo-1536599018102-9f803c140fc1?auto=format&fit=crop&w=1800&q=90",
+  gongga: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1800&q=90",
+};
+
 const cityMarathonAreas = (affiliateLinks: AffiliateLinks): MvpAccommodationArea[] => [
   {
     areaName: "赛事地点附近",
@@ -121,7 +129,7 @@ export const FIRST5_MVP_EVENTS: First5MvpEvent[] = [
       eventDate: "2026-12-06",
       eventLocation: "上海市黄浦区外滩金牛广场",
       eventStatus: "报名已截止",
-      coverImage: "",
+      coverImage: coverImages.shanghai,
       categories: ["马拉松", "竞速轮椅马拉松"],
       source: {
         name: "上海市人民政府 / 上海马拉松",
@@ -144,7 +152,7 @@ export const FIRST5_MVP_EVENTS: First5MvpEvent[] = [
       eventDate: "2026-10-18",
       eventLocation: "北京市天安门广场",
       eventStatus: "待官方开放",
-      coverImage: "",
+      coverImage: coverImages.beijing,
       categories: ["马拉松"],
       source: {
         name: "AIMS / 中国马拉松",
@@ -167,7 +175,7 @@ export const FIRST5_MVP_EVENTS: First5MvpEvent[] = [
       eventDate: "2027-01-10",
       eventLocation: "福建省厦门市",
       eventStatus: "待官方开放",
-      coverImage: "",
+      coverImage: coverImages.xiamen,
       categories: ["马拉松"],
       source: {
         name: "AIMS / 厦门马拉松组委会公开信息",
@@ -190,7 +198,7 @@ export const FIRST5_MVP_EVENTS: First5MvpEvent[] = [
       eventDate: "2027-01-21/2027-01-24",
       eventLocation: "香港西贡北潭涌",
       eventStatus: "报名中",
-      coverImage: "",
+      coverImage: coverImages.hk100,
       categories: ["The Third", "The Half", "HK100", "The Grand Sam"],
       source: {
         name: "Hong Kong 100 Ultra Marathon",
@@ -213,7 +221,7 @@ export const FIRST5_MVP_EVENTS: First5MvpEvent[] = [
       eventDate: "2026-09-25/2026-09-27",
       eventLocation: "四川省甘孜州泸定县磨西镇海螺沟游客中心",
       eventStatus: "报名中",
-      coverImage: "",
+      coverImage: coverImages.gongga,
       categories: ["100km", "60km", "40km"],
       source: {
         name: "朗途体育 / Gongga 100",
