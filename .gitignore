@@ -1,0 +1,16 @@
+# dependencies
+node_modules
+
+# next build
+.next
+
+# environment
+.env
+.env.local
+
+# macOS
+.DS_Store
+
+# logs
+*.log
+

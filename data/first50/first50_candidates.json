@@ -1,0 +1,5214 @@
+{
+  "version": "first50-candidates-v1",
+  "updatedAt": "2026-07-31",
+  "source": {
+    "seedPath": "data/seed/future_top100_seed.json",
+    "seedGeneratedAt": "2026-07-08T02:21:53.561Z",
+    "scoringDate": "2026-07-31",
+    "note": "Scores are heuristic proxy scores based only on current seed fields. They are not real popularity, search volume, or revenue data."
+  },
+  "records": [
+    {
+      "raceId": "future-zuicool-86332",
+      "sourceRecordId": "future-zuicool-86332",
+      "name": "2026凯乐石贡嘎100冰川极限挑战赛",
+      "raceName": "2026凯乐石贡嘎100冰川极限挑战赛",
+      "raceType": "ultra_trail",
+      "location": {
+        "province": "四川",
+        "city": "甘孜藏族自治州",
+        "district": "泸定县",
+        "text": "四川 · 甘孜藏族自治州 · 泸定县"
+      },
+      "raceDate": "2026-09-26",
+      "categoryCount": 3,
+      "existingDataCompleteness": {
+        "p0": 10,
+        "p1": 4,
+        "p2": 0,
+        "summary": "P0 10/10, P1 4/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.92,
+        "summary": "sources: zuicool; confidence 0.92; single-source; registration path present"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 29,
+        "searchValue": 25,
+        "commercialValue": 20,
+        "decisionComplexity": 15,
+        "dataCompleteness": 9,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 29,
+        "searchValue": 25,
+        "commercialValue": 20,
+        "decisionComplexity": 15,
+        "dataCompleteness": 9,
+        "contentDifficulty": 0
+      },
+      "totalScore": 98,
+      "reason": "跑者认知或赛事品牌信号较强；赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强；用户报名决策复杂，需要 RaceNext 提供判断",
+      "biggestGap": "官方来源校验和路线信息仍需补充",
+      "estimatedCompletionCost": "low",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-33844",
+      "sourceRecordId": "future-zuicool-33844",
+      "name": "2026“阿尔1198”阿尔山马拉松",
+      "raceName": "2026“阿尔1198”阿尔山马拉松",
+      "raceType": "marathon",
+      "location": {
+        "province": "内蒙古",
+        "city": "兴安盟",
+        "district": "阿尔山市",
+        "text": "内蒙古 · 兴安盟 · 阿尔山市"
+      },
+      "raceDate": "2026-08-09",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 9,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 9/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 25,
+        "searchValue": 25,
+        "commercialValue": 18,
+        "decisionComplexity": 9,
+        "dataCompleteness": 6,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 25,
+        "searchValue": 25,
+        "commercialValue": 18,
+        "decisionComplexity": 9,
+        "dataCompleteness": 6,
+        "contentDifficulty": 0
+      },
+      "totalScore": 83,
+      "reason": "跑者认知或赛事品牌信号较强；赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-runchina-1000420190",
+      "sourceRecordId": "future-runchina-1000420190",
+      "name": "2026阿尔山马拉松",
+      "raceName": "2026阿尔山马拉松",
+      "raceType": "marathon",
+      "location": {
+        "province": "内蒙古自治区",
+        "city": "兴安盟",
+        "district": null,
+        "text": "内蒙古自治区 · 兴安盟"
+      },
+      "raceDate": "2026-08-09",
+      "categoryCount": 2,
+      "existingDataCompleteness": {
+        "p0": 9,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 9/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "runchina"
+        ],
+        "confidence": 0.9,
+        "summary": "sources: runchina; confidence 0.9; single-source; registration path weak"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 25,
+        "searchValue": 25,
+        "commercialValue": 18,
+        "decisionComplexity": 9,
+        "dataCompleteness": 6,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 25,
+        "searchValue": 25,
+        "commercialValue": 18,
+        "decisionComplexity": 9,
+        "dataCompleteness": 6,
+        "contentDifficulty": 0
+      },
+      "totalScore": 83,
+      "reason": "跑者认知或赛事品牌信号较强；赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-70165",
+      "sourceRecordId": "future-zuicool-70165",
+      "name": "2026吉木萨尔天山马拉松",
+      "raceName": "2026吉木萨尔天山马拉松",
+      "raceType": "marathon",
+      "location": {
+        "province": "新疆",
+        "city": "昌吉回族自治州",
+        "district": "吉木萨尔县",
+        "text": "新疆 · 昌吉回族自治州 · 吉木萨尔县"
+      },
+      "raceDate": "2026-08-16",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 9,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 9/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 25,
+        "searchValue": 25,
+        "commercialValue": 18,
+        "decisionComplexity": 9,
+        "dataCompleteness": 6,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 25,
+        "searchValue": 25,
+        "commercialValue": 18,
+        "decisionComplexity": 9,
+        "dataCompleteness": 6,
+        "contentDifficulty": 0
+      },
+      "totalScore": 83,
+      "reason": "跑者认知或赛事品牌信号较强；赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-14601",
+      "sourceRecordId": "future-zuicool-14601",
+      "name": "耐克ACG 2026崇礼168超级越野赛",
+      "raceName": "耐克ACG 2026崇礼168超级越野赛",
+      "raceType": "trail",
+      "location": {
+        "province": "河北",
+        "city": "张家口市",
+        "district": "崇礼区",
+        "text": "河北 · 张家口市 · 崇礼区"
+      },
+      "raceDate": "2026-07-10",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 24,
+        "searchValue": 20,
+        "commercialValue": 20,
+        "decisionComplexity": 13,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 24,
+        "searchValue": 20,
+        "commercialValue": 20,
+        "decisionComplexity": 13,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 82,
+      "reason": "跑者认知或赛事品牌信号较强；赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强；用户报名决策复杂，需要 RaceNext 提供判断",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "high",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-30550",
+      "sourceRecordId": "future-zuicool-30550",
+      "name": "2026第一届阿尔山168超级越野赛",
+      "raceName": "2026第一届阿尔山168超级越野赛",
+      "raceType": "trail",
+      "location": {
+        "province": "内蒙古",
+        "city": "兴安盟",
+        "district": "阿尔山市",
+        "text": "内蒙古 · 兴安盟 · 阿尔山市"
+      },
+      "raceDate": "2026-07-10",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 24,
+        "searchValue": 20,
+        "commercialValue": 20,
+        "decisionComplexity": 13,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 24,
+        "searchValue": 20,
+        "commercialValue": 20,
+        "decisionComplexity": 13,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 82,
+      "reason": "跑者认知或赛事品牌信号较强；赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强；用户报名决策复杂，需要 RaceNext 提供判断",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "high",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-59855",
+      "sourceRecordId": "future-zuicool-59855",
+      "name": "2026多彩贵州马拉松超级联赛（第四站）暨“恒维地产”六盘水马拉松",
+      "raceName": "2026多彩贵州马拉松超级联赛（第四站）暨“恒维地产”六盘水马拉松",
+      "raceType": "marathon",
+      "location": {
+        "province": "贵州",
+        "city": "六盘水市",
+        "district": "钟山区",
+        "text": "贵州 · 六盘水市 · 钟山区"
+      },
+      "raceDate": "2026-07-19",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 9,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 9/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 25,
+        "searchValue": 25,
+        "commercialValue": 18,
+        "decisionComplexity": 8,
+        "dataCompleteness": 6,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 25,
+        "searchValue": 25,
+        "commercialValue": 18,
+        "decisionComplexity": 8,
+        "dataCompleteness": 6,
+        "contentDifficulty": 0
+      },
+      "totalScore": 82,
+      "reason": "跑者认知或赛事品牌信号较强；赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-18644",
+      "sourceRecordId": "future-zuicool-18644",
+      "name": "2026斯巴达勇士越野周末-崇礼站",
+      "raceName": "2026斯巴达勇士越野周末-崇礼站",
+      "raceType": "trail",
+      "location": {
+        "province": "河北",
+        "city": "张家口市",
+        "district": "崇礼区",
+        "text": "河北 · 张家口市 · 崇礼区"
+      },
+      "raceDate": "2026-08-07",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 24,
+        "searchValue": 20,
+        "commercialValue": 20,
+        "decisionComplexity": 13,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 24,
+        "searchValue": 20,
+        "commercialValue": 20,
+        "decisionComplexity": 13,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 82,
+      "reason": "跑者认知或赛事品牌信号较强；赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强；用户报名决策复杂，需要 RaceNext 提供判断",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "high",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-84911",
+      "sourceRecordId": "future-zuicool-84911",
+      "name": "2026斯巴达勇士赛-崇礼站",
+      "raceName": "2026斯巴达勇士赛-崇礼站",
+      "raceType": "trail",
+      "location": {
+        "province": "河北",
+        "city": "张家口市",
+        "district": "崇礼区",
+        "text": "河北 · 张家口市 · 崇礼区"
+      },
+      "raceDate": "2026-08-15",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 24,
+        "searchValue": 20,
+        "commercialValue": 20,
+        "decisionComplexity": 13,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 24,
+        "searchValue": 20,
+        "commercialValue": 20,
+        "decisionComplexity": 13,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 82,
+      "reason": "跑者认知或赛事品牌信号较强；赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强；用户报名决策复杂，需要 RaceNext 提供判断",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "high",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-75940",
+      "sourceRecordId": "future-zuicool-75940",
+      "name": "户外特工第十一届崇礼翠云山50公里越野赛暨崇礼·她山径女子越野赛",
+      "raceName": "户外特工第十一届崇礼翠云山50公里越野赛暨崇礼·她山径女子越野赛",
+      "raceType": "ultra_trail",
+      "location": {
+        "province": "河北",
+        "city": "张家口市",
+        "district": "崇礼区",
+        "text": "河北 · 张家口市 · 崇礼区"
+      },
+      "raceDate": "2026-08-16",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 9,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 9/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 16,
+        "searchValue": 25,
+        "commercialValue": 20,
+        "decisionComplexity": 15,
+        "dataCompleteness": 6,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 16,
+        "searchValue": 25,
+        "commercialValue": 20,
+        "decisionComplexity": 15,
+        "dataCompleteness": 6,
+        "contentDifficulty": 0
+      },
+      "totalScore": 82,
+      "reason": "赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强；用户报名决策复杂，需要 RaceNext 提供判断；可验证越野赛事高决策成本场景",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-58535",
+      "sourceRecordId": "future-zuicool-58535",
+      "name": "2026青海同德第七届“宗日杯”高原越野跑挑战赛",
+      "raceName": "2026青海同德第七届“宗日杯”高原越野跑挑战赛",
+      "raceType": "trail",
+      "location": {
+        "province": "青海",
+        "city": "海南藏族自治州",
+        "district": "同德县",
+        "text": "青海 · 海南藏族自治州 · 同德县"
+      },
+      "raceDate": "2026-07-12",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 24,
+        "searchValue": 20,
+        "commercialValue": 20,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 24,
+        "searchValue": 20,
+        "commercialValue": 20,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 81,
+      "reason": "跑者认知或赛事品牌信号较强；赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强；可验证越野赛事高决策成本场景",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "high",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-13686",
+      "sourceRecordId": "future-zuicool-13686",
+      "name": "奔跑贵阳・2026阳明问道100越野赛",
+      "raceName": "奔跑贵阳・2026阳明问道100越野赛",
+      "raceType": "trail",
+      "location": {
+        "province": "贵州",
+        "city": "贵阳市",
+        "district": "修文县",
+        "text": "贵州 · 贵阳市 · 修文县"
+      },
+      "raceDate": "2026-07-25",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 24,
+        "searchValue": 20,
+        "commercialValue": 20,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 24,
+        "searchValue": 20,
+        "commercialValue": 20,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 81,
+      "reason": "跑者认知或赛事品牌信号较强；赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强；可验证越野赛事高决策成本场景",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "high",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-27830",
+      "sourceRecordId": "future-zuicool-27830",
+      "name": "奔跑贵阳·2026双龙城市生态越野跑",
+      "raceName": "奔跑贵阳·2026双龙城市生态越野跑",
+      "raceType": "trail",
+      "location": {
+        "province": "贵州",
+        "city": "贵阳市",
+        "district": "贵州双龙航空港经济区",
+        "text": "贵州 · 贵阳市 · 贵州双龙航空港经济区"
+      },
+      "raceDate": "2026-08-16",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 24,
+        "searchValue": 20,
+        "commercialValue": 20,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 24,
+        "searchValue": 20,
+        "commercialValue": 20,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 81,
+      "reason": "跑者认知或赛事品牌信号较强；赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强；可验证越野赛事高决策成本场景",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "high",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-24150",
+      "sourceRecordId": "future-zuicool-24150",
+      "name": "2026FUGA西湖青芝坞隆冬跑山赛",
+      "raceName": "2026FUGA西湖青芝坞隆冬跑山赛",
+      "raceType": "trail",
+      "location": {
+        "province": "浙江",
+        "city": "杭州市",
+        "district": "西湖区",
+        "text": "浙江 · 杭州市 · 西湖区"
+      },
+      "raceDate": "2026-12-12",
+      "categoryCount": 3,
+      "existingDataCompleteness": {
+        "p0": 10,
+        "p1": 3,
+        "p2": 0,
+        "summary": "P0 10/10, P1 3/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.92,
+        "summary": "sources: zuicool; confidence 0.92; single-source; registration path present"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 17,
+        "searchValue": 20,
+        "commercialValue": 20,
+        "decisionComplexity": 15,
+        "dataCompleteness": 9,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 17,
+        "searchValue": 20,
+        "commercialValue": 20,
+        "decisionComplexity": 15,
+        "dataCompleteness": 9,
+        "contentDifficulty": 0
+      },
+      "totalScore": 81,
+      "reason": "赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强；用户报名决策复杂，需要 RaceNext 提供判断；现有 P0/P1 字段基础较好",
+      "biggestGap": "越野爬升数据不足",
+      "estimatedCompletionCost": "low",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-55206",
+      "sourceRecordId": "future-zuicool-55206",
+      "name": "2026金沙茶马古道穿越赛",
+      "raceName": "2026金沙茶马古道穿越赛",
+      "raceType": "ultra_trail",
+      "location": {
+        "province": "贵州",
+        "city": "毕节市",
+        "district": "金沙县",
+        "text": "贵州 · 毕节市 · 金沙县"
+      },
+      "raceDate": "2026-07-12",
+      "categoryCount": 6,
+      "existingDataCompleteness": {
+        "p0": 10,
+        "p1": 4,
+        "p2": 0,
+        "summary": "P0 10/10, P1 4/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path present"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 19,
+        "searchValue": 17,
+        "commercialValue": 20,
+        "decisionComplexity": 15,
+        "dataCompleteness": 9,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 19,
+        "searchValue": 17,
+        "commercialValue": 20,
+        "decisionComplexity": 15,
+        "dataCompleteness": 9,
+        "contentDifficulty": 0
+      },
+      "totalScore": 80,
+      "reason": "住宿、交通、装备或旅行商业场景较强；用户报名决策复杂，需要 RaceNext 提供判断；现有 P0/P1 字段基础较好；可验证越野赛事高决策成本场景",
+      "biggestGap": "官方来源校验和路线信息仍需补充",
+      "estimatedCompletionCost": "low",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-35292",
+      "sourceRecordId": "future-zuicool-35292",
+      "name": "2026穿越西乌旗草原“99号公路”美丽乡村跑暨西乌旗草原越野跑（草原王挑战赛）",
+      "raceName": "2026穿越西乌旗草原“99号公路”美丽乡村跑暨西乌旗草原越野跑（草原王挑战赛）",
+      "raceType": "trail",
+      "location": {
+        "province": "内蒙古",
+        "city": "锡林郭勒盟",
+        "district": "西乌珠穆沁旗",
+        "text": "内蒙古 · 锡林郭勒盟 · 西乌珠穆沁旗"
+      },
+      "raceDate": "2026-07-11",
+      "categoryCount": 3,
+      "existingDataCompleteness": {
+        "p0": 10,
+        "p1": 1,
+        "p2": 0,
+        "summary": "P0 10/10, P1 1/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path present"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 17,
+        "searchValue": 20,
+        "commercialValue": 20,
+        "decisionComplexity": 14,
+        "dataCompleteness": 8,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 17,
+        "searchValue": 20,
+        "commercialValue": 20,
+        "decisionComplexity": 14,
+        "dataCompleteness": 8,
+        "contentDifficulty": 0
+      },
+      "totalScore": 79,
+      "reason": "赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强；用户报名决策复杂，需要 RaceNext 提供判断；现有 P0/P1 字段基础较好",
+      "biggestGap": "越野爬升数据不足",
+      "estimatedCompletionCost": "low",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-64803",
+      "sourceRecordId": "future-zuicool-64803",
+      "name": "2026斯巴达勇士赛-长春站",
+      "raceName": "2026斯巴达勇士赛-长春站",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "吉林",
+        "city": "长春市",
+        "district": "（详细地点后续公布）",
+        "text": "吉林 · 长春市 · （详细地点后续公布）"
+      },
+      "raceDate": "2026-07-18",
+      "categoryCount": 3,
+      "existingDataCompleteness": {
+        "p0": 10,
+        "p1": 1,
+        "p2": 0,
+        "summary": "P0 10/10, P1 1/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.92,
+        "summary": "sources: zuicool; confidence 0.92; single-source; registration path present"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 25,
+        "searchValue": 20,
+        "commercialValue": 14,
+        "decisionComplexity": 9,
+        "dataCompleteness": 8,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 25,
+        "searchValue": 20,
+        "commercialValue": 14,
+        "decisionComplexity": 9,
+        "dataCompleteness": 8,
+        "contentDifficulty": 0
+      },
+      "totalScore": 76,
+      "reason": "跑者认知或赛事品牌信号较强；赛事名和类型具备明确搜索价值；现有 P0/P1 字段基础较好",
+      "biggestGap": "官方来源校验和路线信息仍需补充",
+      "estimatedCompletionCost": "low",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-35798",
+      "sourceRecordId": "future-zuicool-35798",
+      "name": "2026北京积分越野跑-香山站",
+      "raceName": "2026北京积分越野跑-香山站",
+      "raceType": "trail",
+      "location": {
+        "province": "北京",
+        "city": "海淀区",
+        "district": "北京香山北门停车场",
+        "text": "北京 · 海淀区 · 北京香山北门停车场"
+      },
+      "raceDate": "2026-07-19",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 24,
+        "searchValue": 20,
+        "commercialValue": 15,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 24,
+        "searchValue": 20,
+        "commercialValue": 15,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 76,
+      "reason": "跑者认知或赛事品牌信号较强；赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强；可验证越野赛事高决策成本场景",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "high",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-merged-楚雄马拉松-楚雄彝族自治州-2026",
+      "sourceRecordId": "future-merged-楚雄马拉松-楚雄彝族自治州-2026",
+      "name": "2026楚雄马拉松",
+      "raceName": "2026楚雄马拉松",
+      "raceType": "marathon",
+      "location": {
+        "province": "云南省",
+        "city": "楚雄彝族自治州",
+        "district": "楚雄市",
+        "text": "云南省 · 楚雄彝族自治州 · 楚雄市"
+      },
+      "raceDate": "2026-08-02",
+      "categoryCount": 3,
+      "existingDataCompleteness": {
+        "p0": 9,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 9/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "runchina",
+          "zuicool"
+        ],
+        "confidence": 0.93,
+        "summary": "sources: runchina, zuicool; confidence 0.93; multi-source; registration path weak"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 18,
+        "searchValue": 25,
+        "commercialValue": 18,
+        "decisionComplexity": 9,
+        "dataCompleteness": 6,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 18,
+        "searchValue": 25,
+        "commercialValue": 18,
+        "decisionComplexity": 9,
+        "dataCompleteness": 6,
+        "contentDifficulty": 0
+      },
+      "totalScore": 76,
+      "reason": "赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-90146",
+      "sourceRecordId": "future-zuicool-90146",
+      "name": "2026凯乐石莫干山跑山赛训练赛专场暨2026虞山追光跑",
+      "raceName": "2026凯乐石莫干山跑山赛训练赛专场暨2026虞山追光跑",
+      "raceType": "trail",
+      "location": {
+        "province": "江苏",
+        "city": "苏州市",
+        "district": "常熟市",
+        "text": "江苏 · 苏州市 · 常熟市"
+      },
+      "raceDate": "2026-07-11",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 10,
+        "p1": 4,
+        "p2": 0,
+        "summary": "P0 10/10, P1 4/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path present"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 17,
+        "searchValue": 20,
+        "commercialValue": 15,
+        "decisionComplexity": 14,
+        "dataCompleteness": 9,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 17,
+        "searchValue": 20,
+        "commercialValue": 15,
+        "decisionComplexity": 14,
+        "dataCompleteness": 9,
+        "contentDifficulty": 0
+      },
+      "totalScore": 75,
+      "reason": "赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强；用户报名决策复杂，需要 RaceNext 提供判断；现有 P0/P1 字段基础较好",
+      "biggestGap": "官方来源校验和路线信息仍需补充",
+      "estimatedCompletionCost": "low",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-89580",
+      "sourceRecordId": "future-zuicool-89580",
+      "name": "2026崇礼喜鹊梁越野赛（去撒野赛事）",
+      "raceName": "2026崇礼喜鹊梁越野赛（去撒野赛事）",
+      "raceType": "trail",
+      "location": {
+        "province": "河北",
+        "city": "张家口市",
+        "district": "崇礼区",
+        "text": "河北 · 张家口市 · 崇礼区"
+      },
+      "raceDate": "2026-07-26",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 14,
+        "searchValue": 20,
+        "commercialValue": 20,
+        "decisionComplexity": 13,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 14,
+        "searchValue": 20,
+        "commercialValue": 20,
+        "decisionComplexity": 13,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 72,
+      "reason": "赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强；用户报名决策复杂，需要 RaceNext 提供判断；可验证越野赛事高决策成本场景",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "high",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-80608",
+      "sourceRecordId": "future-zuicool-80608",
+      "name": "2026崇礼云巅之径越野赛（去撒野赛事）",
+      "raceName": "2026崇礼云巅之径越野赛（去撒野赛事）",
+      "raceType": "trail",
+      "location": {
+        "province": "河北",
+        "city": "张家口市",
+        "district": "崇礼区",
+        "text": "河北 · 张家口市 · 崇礼区"
+      },
+      "raceDate": "2026-07-26",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 14,
+        "searchValue": 20,
+        "commercialValue": 20,
+        "decisionComplexity": 13,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 14,
+        "searchValue": 20,
+        "commercialValue": 20,
+        "decisionComplexity": 13,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 72,
+      "reason": "赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强；用户报名决策复杂，需要 RaceNext 提供判断；可验证越野赛事高决策成本场景",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "high",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-59606",
+      "sourceRecordId": "future-zuicool-59606",
+      "name": "第三届挑战2100·羚跑山野 云顶家庭越野挑战赛",
+      "raceName": "第三届挑战2100·羚跑山野 云顶家庭越野挑战赛",
+      "raceType": "trail",
+      "location": {
+        "province": "河北",
+        "city": "张家口市",
+        "district": "崇礼区",
+        "text": "河北 · 张家口市 · 崇礼区"
+      },
+      "raceDate": "2026-08-02",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 14,
+        "searchValue": 20,
+        "commercialValue": 20,
+        "decisionComplexity": 13,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 14,
+        "searchValue": 20,
+        "commercialValue": 20,
+        "decisionComplexity": 13,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 72,
+      "reason": "赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强；用户报名决策复杂，需要 RaceNext 提供判断；可验证越野赛事高决策成本场景",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "high",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-44349",
+      "sourceRecordId": "future-zuicool-44349",
+      "name": "2026崇礼山野越陟环山赛（去撒野赛事）",
+      "raceName": "2026崇礼山野越陟环山赛（去撒野赛事）",
+      "raceType": "trail",
+      "location": {
+        "province": "河北",
+        "city": "张家口市",
+        "district": "崇礼区",
+        "text": "河北 · 张家口市 · 崇礼区"
+      },
+      "raceDate": "2026-08-09",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 14,
+        "searchValue": 20,
+        "commercialValue": 20,
+        "decisionComplexity": 13,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 14,
+        "searchValue": 20,
+        "commercialValue": 20,
+        "decisionComplexity": 13,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 72,
+      "reason": "赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强；用户报名决策复杂，需要 RaceNext 提供判断；可验证越野赛事高决策成本场景",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "high",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-92877",
+      "sourceRecordId": "future-zuicool-92877",
+      "name": "拓路者2026云南茶马1000里越野赛（安宁站）",
+      "raceName": "拓路者2026云南茶马1000里越野赛（安宁站）",
+      "raceType": "trail",
+      "location": {
+        "province": "云南",
+        "city": "昆明市",
+        "district": "安宁市",
+        "text": "云南 · 昆明市 · 安宁市"
+      },
+      "raceDate": "2026-07-25",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 14,
+        "searchValue": 20,
+        "commercialValue": 20,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 14,
+        "searchValue": 20,
+        "commercialValue": 20,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 71,
+      "reason": "赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强；可验证越野赛事高决策成本场景",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "high",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-22654",
+      "sourceRecordId": "future-zuicool-22654",
+      "name": "2026云南方山森林越野赛",
+      "raceName": "2026云南方山森林越野赛",
+      "raceType": "trail",
+      "location": {
+        "province": "云南",
+        "city": "楚雄彝族自治州",
+        "district": "永仁县",
+        "text": "云南 · 楚雄彝族自治州 · 永仁县"
+      },
+      "raceDate": "2026-07-25",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 14,
+        "searchValue": 20,
+        "commercialValue": 20,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 14,
+        "searchValue": 20,
+        "commercialValue": 20,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 71,
+      "reason": "赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强；可验证越野赛事高决策成本场景",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "high",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-62804",
+      "sourceRecordId": "future-zuicool-62804",
+      "name": "2026凉都六盘水城市山地越野赛",
+      "raceName": "2026凉都六盘水城市山地越野赛",
+      "raceType": "trail",
+      "location": {
+        "province": "贵州",
+        "city": "六盘水市",
+        "district": "六盘水明湖欢乐世界",
+        "text": "贵州 · 六盘水市 · 六盘水明湖欢乐世界"
+      },
+      "raceDate": "2026-07-25",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 14,
+        "searchValue": 20,
+        "commercialValue": 20,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 14,
+        "searchValue": 20,
+        "commercialValue": 20,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 71,
+      "reason": "赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强；可验证越野赛事高决策成本场景",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "high",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-87806",
+      "sourceRecordId": "future-zuicool-87806",
+      "name": "2026道孚·墨石星际跑越野赛",
+      "raceName": "2026道孚·墨石星际跑越野赛",
+      "raceType": "trail",
+      "location": {
+        "province": "四川",
+        "city": "甘孜藏族自治州",
+        "district": "道孚县",
+        "text": "四川 · 甘孜藏族自治州 · 道孚县"
+      },
+      "raceDate": "2026-07-26",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 14,
+        "searchValue": 20,
+        "commercialValue": 20,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 14,
+        "searchValue": 20,
+        "commercialValue": 20,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 71,
+      "reason": "赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强；可验证越野赛事高决策成本场景",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "high",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-21030",
+      "sourceRecordId": "future-zuicool-21030",
+      "name": "2026百里杜鹃越野跑精英挑战赛",
+      "raceName": "2026百里杜鹃越野跑精英挑战赛",
+      "raceType": "trail",
+      "location": {
+        "province": "贵州",
+        "city": "毕节市",
+        "district": "索玛大道（百里杜鹃轮滑场）",
+        "text": "贵州 · 毕节市 · 索玛大道（百里杜鹃轮滑场）"
+      },
+      "raceDate": "2026-07-26",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 14,
+        "searchValue": 20,
+        "commercialValue": 20,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 14,
+        "searchValue": 20,
+        "commercialValue": 20,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 71,
+      "reason": "赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强；可验证越野赛事高决策成本场景",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "high",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-64123",
+      "sourceRecordId": "future-zuicool-64123",
+      "name": "2026七星关·蝴蝶径越野赛",
+      "raceName": "2026七星关·蝴蝶径越野赛",
+      "raceType": "trail",
+      "location": {
+        "province": "贵州",
+        "city": "毕节市",
+        "district": "七星关区",
+        "text": "贵州 · 毕节市 · 七星关区"
+      },
+      "raceDate": "2026-08-02",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 14,
+        "searchValue": 20,
+        "commercialValue": 20,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 14,
+        "searchValue": 20,
+        "commercialValue": 20,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 71,
+      "reason": "赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强；可验证越野赛事高决策成本场景",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "high",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-62262",
+      "sourceRecordId": "future-zuicool-62262",
+      "name": "2026第七届海坨山超级越野赛",
+      "raceName": "2026第七届海坨山超级越野赛",
+      "raceType": "trail",
+      "location": {
+        "province": "河北",
+        "city": "张家口市",
+        "district": "赤城县",
+        "text": "河北 · 张家口市 · 赤城县"
+      },
+      "raceDate": "2026-08-14",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 14,
+        "searchValue": 20,
+        "commercialValue": 20,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 14,
+        "searchValue": 20,
+        "commercialValue": 20,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 71,
+      "reason": "赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强；可验证越野赛事高决策成本场景",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "high",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-11557",
+      "sourceRecordId": "future-zuicool-11557",
+      "name": "2026 UTO助力首百越野训练赛·北京香山站",
+      "raceName": "2026 UTO助力首百越野训练赛·北京香山站",
+      "raceType": "trail",
+      "location": {
+        "province": "北京",
+        "city": "海淀区",
+        "district": "北京西山国家森林公园东门-栾树草坪",
+        "text": "北京 · 海淀区 · 北京西山国家森林公园东门-栾树草坪"
+      },
+      "raceDate": "2026-07-19",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 17,
+        "searchValue": 20,
+        "commercialValue": 15,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 17,
+        "searchValue": 20,
+        "commercialValue": 15,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 69,
+      "reason": "赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强；可验证越野赛事高决策成本场景",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "high",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-93752",
+      "sourceRecordId": "future-zuicool-93752",
+      "name": "2026凯乐石FUGA训练赛·北京香山站",
+      "raceName": "2026凯乐石FUGA训练赛·北京香山站",
+      "raceType": "trail",
+      "location": {
+        "province": "北京",
+        "city": "海淀区",
+        "district": "北京香山玉皇百果生态园",
+        "text": "北京 · 海淀区 · 北京香山玉皇百果生态园"
+      },
+      "raceDate": "2026-07-26",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 17,
+        "searchValue": 20,
+        "commercialValue": 15,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 17,
+        "searchValue": 20,
+        "commercialValue": 15,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 69,
+      "reason": "赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强；可验证越野赛事高决策成本场景",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "high",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-44032",
+      "sourceRecordId": "future-zuicool-44032",
+      "name": "2026国际垂直马拉松公开赛广州盈凯广场站",
+      "raceName": "2026国际垂直马拉松公开赛广州盈凯广场站",
+      "raceType": "marathon",
+      "location": {
+        "province": "广东",
+        "city": "广州市",
+        "district": "天河区",
+        "text": "广东 · 广州市 · 天河区"
+      },
+      "raceDate": "2026-08-08",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 9,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 9/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 15,
+        "searchValue": 25,
+        "commercialValue": 13,
+        "decisionComplexity": 8,
+        "dataCompleteness": 6,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 15,
+        "searchValue": 25,
+        "commercialValue": 13,
+        "decisionComplexity": 8,
+        "dataCompleteness": 6,
+        "contentDifficulty": 0
+      },
+      "totalScore": 67,
+      "reason": "赛事名和类型具备明确搜索价值",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-34270",
+      "sourceRecordId": "future-zuicool-34270",
+      "name": "2026阿尼南迦跑山赛",
+      "raceName": "2026阿尼南迦跑山赛",
+      "raceType": "trail",
+      "location": {
+        "province": "甘肃",
+        "city": "武威市",
+        "district": "天祝藏族自治县",
+        "text": "甘肃 · 武威市 · 天祝藏族自治县"
+      },
+      "raceDate": "2026-08-08",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 14,
+        "searchValue": 20,
+        "commercialValue": 15,
+        "decisionComplexity": 13,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 14,
+        "searchValue": 20,
+        "commercialValue": 15,
+        "decisionComplexity": 13,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 67,
+      "reason": "赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强；用户报名决策复杂，需要 RaceNext 提供判断；可验证越野赛事高决策成本场景",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "high",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-58394",
+      "sourceRecordId": "future-zuicool-58394",
+      "name": "2026铁岭山野荣耀越野赛暨UTO助力首百越野训练赛·铁岭站",
+      "raceName": "2026铁岭山野荣耀越野赛暨UTO助力首百越野训练赛·铁岭站",
+      "raceType": "trail",
+      "location": {
+        "province": "辽宁",
+        "city": "铁岭市",
+        "district": "银州区",
+        "text": "辽宁 · 铁岭市 · 银州区"
+      },
+      "raceDate": "2026-07-12",
+      "categoryCount": 3,
+      "existingDataCompleteness": {
+        "p0": 10,
+        "p1": 1,
+        "p2": 0,
+        "summary": "P0 10/10, P1 1/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path present"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 10,
+        "searchValue": 20,
+        "commercialValue": 15,
+        "decisionComplexity": 13,
+        "dataCompleteness": 8,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 10,
+        "searchValue": 20,
+        "commercialValue": 15,
+        "decisionComplexity": 13,
+        "dataCompleteness": 8,
+        "contentDifficulty": 0
+      },
+      "totalScore": 66,
+      "reason": "赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强；用户报名决策复杂，需要 RaceNext 提供判断；现有 P0/P1 字段基础较好",
+      "biggestGap": "越野爬升数据不足",
+      "estimatedCompletionCost": "low",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-18618",
+      "sourceRecordId": "future-zuicool-18618",
+      "name": "2026第二届六盘山超级越野赛",
+      "raceName": "2026第二届六盘山超级越野赛",
+      "raceType": "trail",
+      "location": {
+        "province": "宁夏",
+        "city": "固原市",
+        "district": "六盘山",
+        "text": "宁夏 · 固原市 · 六盘山"
+      },
+      "raceDate": "2026-07-24",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 14,
+        "searchValue": 20,
+        "commercialValue": 15,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 14,
+        "searchValue": 20,
+        "commercialValue": 15,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 66,
+      "reason": "赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强；可验证越野赛事高决策成本场景",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "high",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-43224",
+      "sourceRecordId": "future-zuicool-43224",
+      "name": "户外特工·2026西宏越野系列赛之木坑竹海站",
+      "raceName": "户外特工·2026西宏越野系列赛之木坑竹海站",
+      "raceType": "trail",
+      "location": {
+        "province": "安徽",
+        "city": "黄山市",
+        "district": "黟县",
+        "text": "安徽 · 黄山市 · 黟县"
+      },
+      "raceDate": "2026-07-26",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 14,
+        "searchValue": 20,
+        "commercialValue": 15,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 14,
+        "searchValue": 20,
+        "commercialValue": 15,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 66,
+      "reason": "赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强；可验证越野赛事高决策成本场景",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "high",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-62257",
+      "sourceRecordId": "future-zuicool-62257",
+      "name": "2026野性祁连越野跑",
+      "raceName": "2026野性祁连越野跑",
+      "raceType": "trail",
+      "location": {
+        "province": "甘肃",
+        "city": "武威市",
+        "district": "天祝藏族自治县",
+        "text": "甘肃 · 武威市 · 天祝藏族自治县"
+      },
+      "raceDate": "2026-07-26",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 14,
+        "searchValue": 20,
+        "commercialValue": 15,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 14,
+        "searchValue": 20,
+        "commercialValue": 15,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 66,
+      "reason": "赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强；可验证越野赛事高决策成本场景",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "high",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-91124",
+      "sourceRecordId": "future-zuicool-91124",
+      "name": "2026第二届保康尧治河清凉越野赛",
+      "raceName": "2026第二届保康尧治河清凉越野赛",
+      "raceType": "trail",
+      "location": {
+        "province": "湖北",
+        "city": "襄阳市",
+        "district": "保康县",
+        "text": "湖北 · 襄阳市 · 保康县"
+      },
+      "raceDate": "2026-08-22",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 14,
+        "searchValue": 20,
+        "commercialValue": 15,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 14,
+        "searchValue": 20,
+        "commercialValue": 15,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 66,
+      "reason": "赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强；可验证越野赛事高决策成本场景",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "high",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-94539",
+      "sourceRecordId": "future-zuicool-94539",
+      "name": "2026环五台山超级越野赛",
+      "raceName": "2026环五台山超级越野赛",
+      "raceType": "trail",
+      "location": {
+        "province": "山西",
+        "city": "忻州市",
+        "district": "繁峙县",
+        "text": "山西 · 忻州市 · 繁峙县"
+      },
+      "raceDate": "2026-08-22",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 14,
+        "searchValue": 20,
+        "commercialValue": 15,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 14,
+        "searchValue": 20,
+        "commercialValue": 15,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 66,
+      "reason": "赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强；可验证越野赛事高决策成本场景",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "high",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-87836",
+      "sourceRecordId": "future-zuicool-87836",
+      "name": "2026“恒维地产”六盘水马拉松系列活动大众欢乐跑/大众亲子跑",
+      "raceName": "2026“恒维地产”六盘水马拉松系列活动大众欢乐跑/大众亲子跑",
+      "raceType": "marathon",
+      "location": {
+        "province": "贵州",
+        "city": "六盘水市",
+        "district": "钟山区",
+        "text": "贵州 · 六盘水市 · 钟山区"
+      },
+      "raceDate": "2026-07-18",
+      "categoryCount": 2,
+      "existingDataCompleteness": {
+        "p0": 9,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 9/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "candidate",
+      "scoreBreakdown": {
+        "runnerAttention": 18,
+        "searchValue": 20,
+        "commercialValue": 13,
+        "decisionComplexity": 8,
+        "dataCompleteness": 6,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 18,
+        "searchValue": 20,
+        "commercialValue": 13,
+        "decisionComplexity": 8,
+        "dataCompleteness": 6,
+        "contentDifficulty": 0
+      },
+      "totalScore": 65,
+      "reason": "赛事名和类型具备明确搜索价值",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-56063",
+      "sourceRecordId": "future-zuicool-56063",
+      "name": "户外特工·2026山顶见系列赛-深圳中轴线站",
+      "raceName": "户外特工·2026山顶见系列赛-深圳中轴线站",
+      "raceType": "trail",
+      "location": {
+        "province": "广东",
+        "city": "深圳市",
+        "district": "南山区",
+        "text": "广东 · 深圳市 · 南山区"
+      },
+      "raceDate": "2026-07-12",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 10,
+        "p1": 4,
+        "p2": 0,
+        "summary": "P0 10/10, P1 4/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path present"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 14,
+        "searchValue": 12,
+        "commercialValue": 15,
+        "decisionComplexity": 13,
+        "dataCompleteness": 9,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 14,
+        "searchValue": 12,
+        "commercialValue": 15,
+        "decisionComplexity": 13,
+        "dataCompleteness": 9,
+        "contentDifficulty": 0
+      },
+      "totalScore": 63,
+      "reason": "住宿、交通、装备或旅行商业场景较强；用户报名决策复杂，需要 RaceNext 提供判断；现有 P0/P1 字段基础较好；可验证越野赛事高决策成本场景",
+      "biggestGap": "官方来源校验和路线信息仍需补充",
+      "estimatedCompletionCost": "low",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-75350",
+      "sourceRecordId": "future-zuicool-75350",
+      "name": "北京模式口站 | 拓路者2026龙脊梯田百公里跑山赛—赛前训练赛",
+      "raceName": "北京模式口站 | 拓路者2026龙脊梯田百公里跑山赛—赛前训练赛",
+      "raceType": "trail",
+      "location": {
+        "province": "北京",
+        "city": "石景山区",
+        "district": "模式口公园",
+        "text": "北京 · 石景山区 · 模式口公园"
+      },
+      "raceDate": "2026-07-19",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 7,
+        "searchValue": 20,
+        "commercialValue": 15,
+        "decisionComplexity": 13,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 7,
+        "searchValue": 20,
+        "commercialValue": 15,
+        "decisionComplexity": 13,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 60,
+      "reason": "赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强；用户报名决策复杂，需要 RaceNext 提供判断；可验证越野赛事高决策成本场景",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "high",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-84776",
+      "sourceRecordId": "future-zuicool-84776",
+      "name": "2026马尔康半程马拉松",
+      "raceName": "2026马尔康半程马拉松",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "四川",
+        "city": "阿坝藏族羌族自治州",
+        "district": "马尔康市",
+        "text": "四川 · 阿坝藏族羌族自治州 · 马尔康市"
+      },
+      "raceDate": "2026-08-09",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 9,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 9/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 12,
+        "searchValue": 20,
+        "commercialValue": 14,
+        "decisionComplexity": 8,
+        "dataCompleteness": 6,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 12,
+        "searchValue": 20,
+        "commercialValue": 14,
+        "decisionComplexity": 8,
+        "dataCompleteness": 6,
+        "contentDifficulty": 0
+      },
+      "totalScore": 60,
+      "reason": "赛事名和类型具备明确搜索价值",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-54438",
+      "sourceRecordId": "future-zuicool-54438",
+      "name": "2026 WSE 10KM OPEN 六盘水站",
+      "raceName": "2026 WSE 10KM OPEN 六盘水站",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "贵州",
+        "city": "六盘水市",
+        "district": "钟山区",
+        "text": "贵州 · 六盘水市 · 钟山区"
+      },
+      "raceDate": "2026-08-09",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 9,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 9/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 12,
+        "searchValue": 20,
+        "commercialValue": 14,
+        "decisionComplexity": 8,
+        "dataCompleteness": 6,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 12,
+        "searchValue": 20,
+        "commercialValue": 14,
+        "decisionComplexity": 8,
+        "dataCompleteness": 6,
+        "contentDifficulty": 0
+      },
+      "totalScore": 60,
+      "reason": "赛事名和类型具备明确搜索价值",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-merged-鹤庆半程马拉松-大理白族自治州-2026",
+      "sourceRecordId": "future-merged-鹤庆半程马拉松-大理白族自治州-2026",
+      "name": "2026鹤庆半程马拉松",
+      "raceName": "2026鹤庆半程马拉松",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "云南省",
+        "city": "大理白族自治州",
+        "district": "鹤庆县",
+        "text": "云南省 · 大理白族自治州 · 鹤庆县"
+      },
+      "raceDate": "2026-08-16",
+      "categoryCount": 2,
+      "existingDataCompleteness": {
+        "p0": 9,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 9/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "runchina",
+          "zuicool"
+        ],
+        "confidence": 0.93,
+        "summary": "sources: runchina, zuicool; confidence 0.93; multi-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 12,
+        "searchValue": 20,
+        "commercialValue": 14,
+        "decisionComplexity": 8,
+        "dataCompleteness": 6,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 12,
+        "searchValue": 20,
+        "commercialValue": 14,
+        "decisionComplexity": 8,
+        "dataCompleteness": 6,
+        "contentDifficulty": 0
+      },
+      "totalScore": 60,
+      "reason": "赛事名和类型具备明确搜索价值",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-60437",
+      "sourceRecordId": "future-zuicool-60437",
+      "name": "2026户外特工“山顶见”越野跑训练赛——黑龙江五常凤凰山站",
+      "raceName": "2026户外特工“山顶见”越野跑训练赛——黑龙江五常凤凰山站",
+      "raceType": "trail",
+      "location": {
+        "province": "黑龙江",
+        "city": "哈尔滨市",
+        "district": "五常市",
+        "text": "黑龙江 · 哈尔滨市 · 五常市"
+      },
+      "raceDate": "2026-07-19",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 7,
+        "searchValue": 20,
+        "commercialValue": 15,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 7,
+        "searchValue": 20,
+        "commercialValue": 15,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 59,
+      "reason": "赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强；可验证越野赛事高决策成本场景",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "high",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-63801",
+      "sourceRecordId": "future-zuicool-63801",
+      "name": "凯乐石FUGA训练赛2026深圳凤凰山越野挑战赛",
+      "raceName": "凯乐石FUGA训练赛2026深圳凤凰山越野挑战赛",
+      "raceType": "trail",
+      "location": {
+        "province": "广东",
+        "city": "深圳市",
+        "district": "宝安区",
+        "text": "广东 · 深圳市 · 宝安区"
+      },
+      "raceDate": "2026-07-26",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 7,
+        "searchValue": 20,
+        "commercialValue": 15,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 7,
+        "searchValue": 20,
+        "commercialValue": 15,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 59,
+      "reason": "赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强；可验证越野赛事高决策成本场景",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "high",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-81256",
+      "sourceRecordId": "future-zuicool-81256",
+      "name": "2026趣野少年山径赛·状元岭站",
+      "raceName": "2026趣野少年山径赛·状元岭站",
+      "raceType": "trail",
+      "location": {
+        "province": "福建",
+        "city": "福州市",
+        "district": "状元岭古道",
+        "text": "福建 · 福州市 · 状元岭古道"
+      },
+      "raceDate": "2026-07-26",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 14,
+        "searchValue": 12,
+        "commercialValue": 15,
+        "decisionComplexity": 13,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 14,
+        "searchValue": 12,
+        "commercialValue": 15,
+        "decisionComplexity": 13,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 59,
+      "reason": "住宿、交通、装备或旅行商业场景较强；用户报名决策复杂，需要 RaceNext 提供判断；可验证越野赛事高决策成本场景",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "high",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-24599",
+      "sourceRecordId": "future-zuicool-24599",
+      "name": "2026 UTO助力首百越野训练赛-宜兴龙山站",
+      "raceName": "2026 UTO助力首百越野训练赛-宜兴龙山站",
+      "raceType": "trail",
+      "location": {
+        "province": "江苏",
+        "city": "无锡市",
+        "district": "宜兴市",
+        "text": "江苏 · 无锡市 · 宜兴市"
+      },
+      "raceDate": "2026-08-15",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 7,
+        "searchValue": 20,
+        "commercialValue": 15,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 7,
+        "searchValue": 20,
+        "commercialValue": 15,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 59,
+      "reason": "赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强；可验证越野赛事高决策成本场景",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "high",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-20013",
+      "sourceRecordId": "future-zuicool-20013",
+      "name": "露露杯·第五届长城毅行暨UTO助力首百越野训练赛·蟠龙山站",
+      "raceName": "露露杯·第五届长城毅行暨UTO助力首百越野训练赛·蟠龙山站",
+      "raceType": "trail",
+      "location": {
+        "province": "北京",
+        "city": "密云区",
+        "district": "古北口长城抗战纪念馆广场",
+        "text": "北京 · 密云区 · 古北口长城抗战纪念馆广场"
+      },
+      "raceDate": "2026-08-16",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 7,
+        "searchValue": 20,
+        "commercialValue": 15,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 7,
+        "searchValue": 20,
+        "commercialValue": 15,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 59,
+      "reason": "赛事名和类型具备明确搜索价值；住宿、交通、装备或旅行商业场景较强；可验证越野赛事高决策成本场景",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "high",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-48026",
+      "sourceRecordId": "future-zuicool-48026",
+      "name": "2026第六届蜜桃成熟时·GAME01",
+      "raceName": "2026第六届蜜桃成熟时·GAME01",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "四川",
+        "city": "成都市",
+        "district": "龙泉驿区",
+        "text": "四川 · 成都市 · 龙泉驿区"
+      },
+      "raceDate": "2026-07-11",
+      "categoryCount": 3,
+      "existingDataCompleteness": {
+        "p0": 10,
+        "p1": 1,
+        "p2": 0,
+        "summary": "P0 10/10, P1 1/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path present"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 15,
+        "searchValue": 12,
+        "commercialValue": 14,
+        "decisionComplexity": 9,
+        "dataCompleteness": 8,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 15,
+        "searchValue": 12,
+        "commercialValue": 14,
+        "decisionComplexity": 9,
+        "dataCompleteness": 8,
+        "contentDifficulty": 0
+      },
+      "totalScore": 58,
+      "reason": "现有 P0/P1 字段基础较好",
+      "biggestGap": "官方来源校验和路线信息仍需补充",
+      "estimatedCompletionCost": "low",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-58264",
+      "sourceRecordId": "future-zuicool-58264",
+      "name": "2026中国辉煌足迹火炬传承跑（四川巴中站）暨“米仓道”夏季欢乐健康跑",
+      "raceName": "2026中国辉煌足迹火炬传承跑（四川巴中站）暨“米仓道”夏季欢乐健康跑",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "四川",
+        "city": "巴中市",
+        "district": "南江县",
+        "text": "四川 · 巴中市 · 南江县"
+      },
+      "raceDate": "2026-07-12",
+      "categoryCount": 3,
+      "existingDataCompleteness": {
+        "p0": 10,
+        "p1": 1,
+        "p2": 0,
+        "summary": "P0 10/10, P1 1/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.92,
+        "summary": "sources: zuicool; confidence 0.92; single-source; registration path present"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 15,
+        "searchValue": 12,
+        "commercialValue": 14,
+        "decisionComplexity": 9,
+        "dataCompleteness": 8,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 15,
+        "searchValue": 12,
+        "commercialValue": 14,
+        "decisionComplexity": 9,
+        "dataCompleteness": 8,
+        "contentDifficulty": 0
+      },
+      "totalScore": 58,
+      "reason": "现有 P0/P1 字段基础较好",
+      "biggestGap": "官方来源校验和路线信息仍需补充",
+      "estimatedCompletionCost": "low",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-16413",
+      "sourceRecordId": "future-zuicool-16413",
+      "name": "永不止&2026八一·喻家山第16届山野拉练",
+      "raceName": "永不止&2026八一·喻家山第16届山野拉练",
+      "raceType": "trail",
+      "location": {
+        "province": "湖北",
+        "city": "武汉市",
+        "district": "洪山区",
+        "text": "湖北 · 武汉市 · 洪山区"
+      },
+      "raceDate": "2026-08-01",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 14,
+        "searchValue": 12,
+        "commercialValue": 15,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 14,
+        "searchValue": 12,
+        "commercialValue": 15,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 58,
+      "reason": "住宿、交通、装备或旅行商业场景较强；可验证越野赛事高决策成本场景",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "high",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-79237",
+      "sourceRecordId": "future-zuicool-79237",
+      "name": "澳康达·2026天津武清半程马拉松",
+      "raceName": "澳康达·2026天津武清半程马拉松",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "天津",
+        "city": "武清区",
+        "district": "武清体育中心南广场",
+        "text": "天津 · 武清区 · 武清体育中心南广场"
+      },
+      "raceDate": "2026-10-06",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 10,
+        "p1": 1,
+        "p2": 0,
+        "summary": "P0 10/10, P1 1/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.92,
+        "summary": "sources: zuicool; confidence 0.92; single-source; registration path present"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 12,
+        "searchValue": 20,
+        "commercialValue": 9,
+        "decisionComplexity": 8,
+        "dataCompleteness": 8,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 12,
+        "searchValue": 20,
+        "commercialValue": 9,
+        "decisionComplexity": 8,
+        "dataCompleteness": 8,
+        "contentDifficulty": 0
+      },
+      "totalScore": 57,
+      "reason": "赛事名和类型具备明确搜索价值；现有 P0/P1 字段基础较好",
+      "biggestGap": "官方来源校验和路线信息仍需补充",
+      "estimatedCompletionCost": "low",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-39192",
+      "sourceRecordId": "future-zuicool-39192",
+      "name": "2026「石榴杯」夏河甘加秘境高原半程马拉松",
+      "raceName": "2026「石榴杯」夏河甘加秘境高原半程马拉松",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "甘肃",
+        "city": "甘南藏族自治州",
+        "district": "夏河县",
+        "text": "甘肃 · 甘南藏族自治州 · 夏河县"
+      },
+      "raceDate": "2026-07-26",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 9,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 9/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 12,
+        "searchValue": 20,
+        "commercialValue": 9,
+        "decisionComplexity": 8,
+        "dataCompleteness": 6,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 12,
+        "searchValue": 20,
+        "commercialValue": 9,
+        "decisionComplexity": 8,
+        "dataCompleteness": 6,
+        "contentDifficulty": 0
+      },
+      "totalScore": 55,
+      "reason": "赛事名和类型具备明确搜索价值",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-84557",
+      "sourceRecordId": "future-zuicool-84557",
+      "name": "2026巴东野三关半程马拉松",
+      "raceName": "2026巴东野三关半程马拉松",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "湖北",
+        "city": "恩施土家族苗族自治州",
+        "district": "巴东县",
+        "text": "湖北 · 恩施土家族苗族自治州 · 巴东县"
+      },
+      "raceDate": "2026-08-16",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 9,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 9/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 12,
+        "searchValue": 20,
+        "commercialValue": 9,
+        "decisionComplexity": 8,
+        "dataCompleteness": 6,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 12,
+        "searchValue": 20,
+        "commercialValue": 9,
+        "decisionComplexity": 8,
+        "dataCompleteness": 6,
+        "contentDifficulty": 0
+      },
+      "totalScore": 55,
+      "reason": "赛事名和类型具备明确搜索价值",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-50124",
+      "sourceRecordId": "future-zuicool-50124",
+      "name": "2026比优特鹤岗半程马拉松",
+      "raceName": "2026比优特鹤岗半程马拉松",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "黑龙江",
+        "city": "鹤岗市",
+        "district": "人民广场",
+        "text": "黑龙江 · 鹤岗市 · 人民广场"
+      },
+      "raceDate": null,
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.76,
+        "summary": "sources: zuicool; confidence 0.76; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 12,
+        "searchValue": 20,
+        "commercialValue": 9,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 12,
+        "searchValue": 20,
+        "commercialValue": 9,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 54,
+      "reason": "赛事名和类型具备明确搜索价值",
+      "biggestGap": "缺少比赛日期",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-57002",
+      "sourceRecordId": "future-zuicool-57002",
+      "name": "2026北京中轴线旅行跑（第八期）",
+      "raceName": "2026北京中轴线旅行跑（第八期）",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "北京",
+        "city": "东城区",
+        "district": "燕墩西望公园",
+        "text": "北京 · 东城区 · 燕墩西望公园"
+      },
+      "raceDate": "2026-07-12",
+      "categoryCount": 3,
+      "existingDataCompleteness": {
+        "p0": 10,
+        "p1": 1,
+        "p2": 0,
+        "summary": "P0 10/10, P1 1/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path present"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 15,
+        "searchValue": 12,
+        "commercialValue": 9,
+        "decisionComplexity": 9,
+        "dataCompleteness": 8,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 15,
+        "searchValue": 12,
+        "commercialValue": 9,
+        "decisionComplexity": 9,
+        "dataCompleteness": 8,
+        "contentDifficulty": 0
+      },
+      "totalScore": 53,
+      "reason": "现有 P0/P1 字段基础较好",
+      "biggestGap": "官方来源校验和路线信息仍需补充",
+      "estimatedCompletionCost": "low",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-merged-北京环城跑北京中轴线旅行跑-东城区-2026",
+      "sourceRecordId": "future-merged-北京环城跑北京中轴线旅行跑-东城区-2026",
+      "name": "2026北京环城跑·北京中轴线旅行跑（第七期）",
+      "raceName": "2026北京环城跑·北京中轴线旅行跑（第七期）",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "北京",
+        "city": "东城区",
+        "district": "燕墩西望公园",
+        "text": "北京 · 东城区 · 燕墩西望公园"
+      },
+      "raceDate": "2026-07-18",
+      "categoryCount": 4,
+      "existingDataCompleteness": {
+        "p0": 10,
+        "p1": 1,
+        "p2": 0,
+        "summary": "P0 10/10, P1 1/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.9,
+        "summary": "sources: zuicool; confidence 0.9; single-source; registration path present"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 15,
+        "searchValue": 12,
+        "commercialValue": 9,
+        "decisionComplexity": 9,
+        "dataCompleteness": 8,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 15,
+        "searchValue": 12,
+        "commercialValue": 9,
+        "decisionComplexity": 9,
+        "dataCompleteness": 8,
+        "contentDifficulty": 0
+      },
+      "totalScore": 53,
+      "reason": "现有 P0/P1 字段基础较好",
+      "biggestGap": "官方来源校验和路线信息仍需补充",
+      "estimatedCompletionCost": "low",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-68086",
+      "sourceRecordId": "future-zuicool-68086",
+      "name": "2026冲峰赛-广州火凤火站",
+      "raceName": "2026冲峰赛-广州火凤火站",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "广东",
+        "city": "广州市",
+        "district": "天河区",
+        "text": "广东 · 广州市 · 天河区"
+      },
+      "raceDate": "2026-07-18",
+      "categoryCount": 5,
+      "existingDataCompleteness": {
+        "p0": 10,
+        "p1": 1,
+        "p2": 0,
+        "summary": "P0 10/10, P1 1/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path present"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 15,
+        "searchValue": 12,
+        "commercialValue": 9,
+        "decisionComplexity": 9,
+        "dataCompleteness": 8,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 15,
+        "searchValue": 12,
+        "commercialValue": 9,
+        "decisionComplexity": 9,
+        "dataCompleteness": 8,
+        "contentDifficulty": 0
+      },
+      "totalScore": 53,
+      "reason": "现有 P0/P1 字段基础较好",
+      "biggestGap": "官方来源校验和路线信息仍需补充",
+      "estimatedCompletionCost": "low",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-40594",
+      "sourceRecordId": "future-zuicool-40594",
+      "name": "2026第七季武汉喻家五攀山径训练赛第83期",
+      "raceName": "2026第七季武汉喻家五攀山径训练赛第83期",
+      "raceType": "trail",
+      "location": {
+        "province": "湖北",
+        "city": "武汉市",
+        "district": "洪山区",
+        "text": "湖北 · 武汉市 · 洪山区"
+      },
+      "raceDate": "2026-07-19",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 7,
+        "searchValue": 12,
+        "commercialValue": 15,
+        "decisionComplexity": 13,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 7,
+        "searchValue": 12,
+        "commercialValue": 15,
+        "decisionComplexity": 13,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 52,
+      "reason": "住宿、交通、装备或旅行商业场景较强；用户报名决策复杂，需要 RaceNext 提供判断；可验证越野赛事高决策成本场景",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "high",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-59416",
+      "sourceRecordId": "future-zuicool-59416",
+      "name": "2026爱徒野跑世界大理站“浪漫夏天”21公里",
+      "raceName": "2026爱徒野跑世界大理站“浪漫夏天”21公里",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "云南",
+        "city": "大理白族自治州",
+        "district": "大理市",
+        "text": "云南 · 大理白族自治州 · 大理市"
+      },
+      "raceDate": "2026-07-19",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 9,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 9/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 12,
+        "searchValue": 12,
+        "commercialValue": 14,
+        "decisionComplexity": 8,
+        "dataCompleteness": 6,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 12,
+        "searchValue": 12,
+        "commercialValue": 14,
+        "decisionComplexity": 8,
+        "dataCompleteness": 6,
+        "contentDifficulty": 0
+      },
+      "totalScore": 52,
+      "reason": "当前候选主要优势来自 commercialValue。",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-27857",
+      "sourceRecordId": "future-zuicool-27857",
+      "name": "2026 WSE 10KM OPEN 昆明站",
+      "raceName": "2026 WSE 10KM OPEN 昆明站",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "云南",
+        "city": "昆明市",
+        "district": "西山区",
+        "text": "云南 · 昆明市 · 西山区"
+      },
+      "raceDate": "2026-07-19",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 9,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 9/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 12,
+        "searchValue": 12,
+        "commercialValue": 14,
+        "decisionComplexity": 8,
+        "dataCompleteness": 6,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 12,
+        "searchValue": 12,
+        "commercialValue": 14,
+        "decisionComplexity": 8,
+        "dataCompleteness": 6,
+        "contentDifficulty": 0
+      },
+      "totalScore": 52,
+      "reason": "当前候选主要优势来自 commercialValue。",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-46382",
+      "sourceRecordId": "future-zuicool-46382",
+      "name": "2026爱徒野跑世界大理站“燃情夏天”21公里",
+      "raceName": "2026爱徒野跑世界大理站“燃情夏天”21公里",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "云南",
+        "city": "大理白族自治州",
+        "district": "大理市",
+        "text": "云南 · 大理白族自治州 · 大理市"
+      },
+      "raceDate": "2026-08-09",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 9,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 9/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 12,
+        "searchValue": 12,
+        "commercialValue": 14,
+        "decisionComplexity": 8,
+        "dataCompleteness": 6,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 12,
+        "searchValue": 12,
+        "commercialValue": 14,
+        "decisionComplexity": 8,
+        "dataCompleteness": 6,
+        "contentDifficulty": 0
+      },
+      "totalScore": 52,
+      "reason": "当前候选主要优势来自 commercialValue。",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-32698",
+      "sourceRecordId": "future-zuicool-32698",
+      "name": "2026 WSE 10KM OPEN 毕节站",
+      "raceName": "2026 WSE 10KM OPEN 毕节站",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "贵州",
+        "city": "毕节市",
+        "district": "毕节金海湖湿地公园",
+        "text": "贵州 · 毕节市 · 毕节金海湖湿地公园"
+      },
+      "raceDate": "2026-08-16",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 9,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 9/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 12,
+        "searchValue": 12,
+        "commercialValue": 14,
+        "decisionComplexity": 8,
+        "dataCompleteness": 6,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 12,
+        "searchValue": 12,
+        "commercialValue": 14,
+        "decisionComplexity": 8,
+        "dataCompleteness": 6,
+        "contentDifficulty": 0
+      },
+      "totalScore": 52,
+      "reason": "当前候选主要优势来自 commercialValue。",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-66577",
+      "sourceRecordId": "future-zuicool-66577",
+      "name": "2026第六届蜜桃成熟时·GAME02",
+      "raceName": "2026第六届蜜桃成熟时·GAME02",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "四川",
+        "city": "成都市",
+        "district": "金堂县",
+        "text": "四川 · 成都市 · 金堂县"
+      },
+      "raceDate": "2026-08-15",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 12,
+        "searchValue": 12,
+        "commercialValue": 14,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 12,
+        "searchValue": 12,
+        "commercialValue": 14,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 51,
+      "reason": "当前候选主要优势来自 commercialValue。",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-57940",
+      "sourceRecordId": "future-zuicool-57940",
+      "name": "2026爱徒野昆明滇池“爱跑夏天”生态跑",
+      "raceName": "2026爱徒野昆明滇池“爱跑夏天”生态跑",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "云南",
+        "city": "昆明市",
+        "district": "西山区",
+        "text": "云南 · 昆明市 · 西山区"
+      },
+      "raceDate": "2026-08-16",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 12,
+        "searchValue": 12,
+        "commercialValue": 14,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 12,
+        "searchValue": 12,
+        "commercialValue": 14,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 51,
+      "reason": "当前候选主要优势来自 commercialValue。",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-84595",
+      "sourceRecordId": "future-zuicool-84595",
+      "name": "2026深圳KidsTrail青少年越野赛（夏季赛）",
+      "raceName": "2026深圳KidsTrail青少年越野赛（夏季赛）",
+      "raceType": "trail",
+      "location": {
+        "province": "广东",
+        "city": "深圳市",
+        "district": "龙华区",
+        "text": "广东 · 深圳市 · 龙华区"
+      },
+      "raceDate": "2026-07-19",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 7,
+        "searchValue": 15,
+        "commercialValue": 10,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 7,
+        "searchValue": 15,
+        "commercialValue": 10,
+        "decisionComplexity": 12,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 49,
+      "reason": "可验证越野赛事高决策成本场景",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "high",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-58123",
+      "sourceRecordId": "future-zuicool-58123",
+      "name": "2026 WSE 10KM OPEN 兰州站",
+      "raceName": "2026 WSE 10KM OPEN 兰州站",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "甘肃",
+        "city": "兰州市",
+        "district": "七里河区",
+        "text": "甘肃 · 兰州市 · 七里河区"
+      },
+      "raceDate": "2026-08-02",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 9,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 9/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 12,
+        "searchValue": 12,
+        "commercialValue": 9,
+        "decisionComplexity": 8,
+        "dataCompleteness": 6,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 12,
+        "searchValue": 12,
+        "commercialValue": 9,
+        "decisionComplexity": 8,
+        "dataCompleteness": 6,
+        "contentDifficulty": 0
+      },
+      "totalScore": 47,
+      "reason": "当前候选主要优势来自 runnerAttention。",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-64818",
+      "sourceRecordId": "future-zuicool-64818",
+      "name": "2026“森呼吸 林距离\"--寻找江苏最美森林步道暨纵情山野青少年系列赛-老母猪沟站",
+      "raceName": "2026“森呼吸 林距离\"--寻找江苏最美森林步道暨纵情山野青少年系列赛-老母猪沟站",
+      "raceType": "trail",
+      "location": {
+        "province": "江苏",
+        "city": "南京市",
+        "district": "浦口区",
+        "text": "江苏 · 南京市 · 浦口区"
+      },
+      "raceDate": "2026-07-18",
+      "categoryCount": 2,
+      "existingDataCompleteness": {
+        "p0": 10,
+        "p1": 3,
+        "p2": 0,
+        "summary": "P0 10/10, P1 3/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.92,
+        "summary": "sources: zuicool; confidence 0.92; single-source; registration path present"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 7,
+        "searchValue": 7,
+        "commercialValue": 10,
+        "decisionComplexity": 13,
+        "dataCompleteness": 9,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 7,
+        "searchValue": 7,
+        "commercialValue": 10,
+        "decisionComplexity": 13,
+        "dataCompleteness": 9,
+        "contentDifficulty": 0
+      },
+      "totalScore": 46,
+      "reason": "用户报名决策复杂，需要 RaceNext 提供判断；现有 P0/P1 字段基础较好；可验证越野赛事高决策成本场景",
+      "biggestGap": "关门时间不足",
+      "estimatedCompletionCost": "low",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-88238",
+      "sourceRecordId": "future-zuicool-88238",
+      "name": "神旅集团·2026UTSS小野人森林奇遇记暨神农架四季小镇康养季启动仪式",
+      "raceName": "神旅集团·2026UTSS小野人森林奇遇记暨神农架四季小镇康养季启动仪式",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "湖北",
+        "city": "神农架林区",
+        "district": "神农架四季小镇营销中心",
+        "text": "湖北 · 神农架林区 · 神农架四季小镇营销中心"
+      },
+      "raceDate": "2026-07-19",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 12,
+        "searchValue": 12,
+        "commercialValue": 9,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 12,
+        "searchValue": 12,
+        "commercialValue": 9,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 46,
+      "reason": "当前候选主要优势来自 runnerAttention。",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-92457",
+      "sourceRecordId": "future-zuicool-92457",
+      "name": "2026第二届\"鹰你而来\"雄鹰线挑战赛",
+      "raceName": "2026第二届\"鹰你而来\"雄鹰线挑战赛",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "江苏",
+        "city": "苏州市",
+        "district": "常熟市",
+        "text": "江苏 · 苏州市 · 常熟市"
+      },
+      "raceDate": "2026-07-19",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 12,
+        "searchValue": 12,
+        "commercialValue": 9,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 12,
+        "searchValue": 12,
+        "commercialValue": 9,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 46,
+      "reason": "当前候选主要优势来自 runnerAttention。",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-75428",
+      "sourceRecordId": "future-zuicool-75428",
+      "name": "2026野门FKT硬核局",
+      "raceName": "2026野门FKT硬核局",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "江苏",
+        "city": "南京市",
+        "district": "玄武区",
+        "text": "江苏 · 南京市 · 玄武区"
+      },
+      "raceDate": "2026-07-25",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 12,
+        "searchValue": 12,
+        "commercialValue": 9,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 12,
+        "searchValue": 12,
+        "commercialValue": 9,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 46,
+      "reason": "当前候选主要优势来自 runnerAttention。",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-73925",
+      "sourceRecordId": "future-zuicool-73925",
+      "name": "2026武汉九峰日落跑",
+      "raceName": "2026武汉九峰日落跑",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "湖北",
+        "city": "武汉市",
+        "district": "洪山区",
+        "text": "湖北 · 武汉市 · 洪山区"
+      },
+      "raceDate": "2026-07-25",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 12,
+        "searchValue": 12,
+        "commercialValue": 9,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 12,
+        "searchValue": 12,
+        "commercialValue": 9,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 46,
+      "reason": "当前候选主要优势来自 runnerAttention。",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-57122",
+      "sourceRecordId": "future-zuicool-57122",
+      "name": "2026第二届京西古道消夏泡泡跑",
+      "raceName": "2026第二届京西古道消夏泡泡跑",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "北京",
+        "city": "门头沟区",
+        "district": "京西古道风景区博物馆东北停车场",
+        "text": "北京 · 门头沟区 · 京西古道风景区博物馆东北停车场"
+      },
+      "raceDate": "2026-08-01",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 12,
+        "searchValue": 12,
+        "commercialValue": 9,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 12,
+        "searchValue": 12,
+        "commercialValue": 9,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 46,
+      "reason": "当前候选主要优势来自 runnerAttention。",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-47722",
+      "sourceRecordId": "future-zuicool-47722",
+      "name": "2026北京环城跑·城市五星跑",
+      "raceName": "2026北京环城跑·城市五星跑",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "北京",
+        "city": "西城区",
+        "district": "北海北地铁站",
+        "text": "北京 · 西城区 · 北海北地铁站"
+      },
+      "raceDate": "2026-08-01",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 12,
+        "searchValue": 12,
+        "commercialValue": 9,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 12,
+        "searchValue": 12,
+        "commercialValue": 9,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 46,
+      "reason": "当前候选主要优势来自 runnerAttention。",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-62127",
+      "sourceRecordId": "future-zuicool-62127",
+      "name": "2026北京城市中国地图旅行跑第六期",
+      "raceName": "2026北京城市中国地图旅行跑第六期",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "北京",
+        "city": "东城区",
+        "district": "五四大街",
+        "text": "北京 · 东城区 · 五四大街"
+      },
+      "raceDate": "2026-08-02",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 12,
+        "searchValue": 12,
+        "commercialValue": 9,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 12,
+        "searchValue": 12,
+        "commercialValue": 9,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 46,
+      "reason": "当前候选主要优势来自 runnerAttention。",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-37961",
+      "sourceRecordId": "future-zuicool-37961",
+      "name": "2026武汉东湖日落跑",
+      "raceName": "2026武汉东湖日落跑",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "湖北",
+        "city": "武汉市",
+        "district": "洪山区",
+        "text": "湖北 · 武汉市 · 洪山区"
+      },
+      "raceDate": "2026-08-08",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 12,
+        "searchValue": 12,
+        "commercialValue": 9,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 12,
+        "searchValue": 12,
+        "commercialValue": 9,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 46,
+      "reason": "当前候选主要优势来自 runnerAttention。",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-54283",
+      "sourceRecordId": "future-zuicool-54283",
+      "name": "2026年第三届福建柘荣鸳鸯草场翻越挑战赛暨宁德市户外全域系列赛CROSS NINGDE（柘荣站）",
+      "raceName": "2026年第三届福建柘荣鸳鸯草场翻越挑战赛暨宁德市户外全域系列赛CROSS NINGDE（柘荣站）",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "福建",
+        "city": "宁德市",
+        "district": "柘荣县",
+        "text": "福建 · 宁德市 · 柘荣县"
+      },
+      "raceDate": "2026-08-09",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 12,
+        "searchValue": 12,
+        "commercialValue": 9,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 12,
+        "searchValue": 12,
+        "commercialValue": 9,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 46,
+      "reason": "当前候选主要优势来自 runnerAttention。",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-32866",
+      "sourceRecordId": "future-zuicool-32866",
+      "name": "锐进四季一2026七夕为爱奔跑",
+      "raceName": "锐进四季一2026七夕为爱奔跑",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "北京",
+        "city": "朝阳区",
+        "district": "北京奥林匹克森林公园北园南门广场",
+        "text": "北京 · 朝阳区 · 北京奥林匹克森林公园北园南门广场"
+      },
+      "raceDate": "2026-08-16",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 12,
+        "searchValue": 12,
+        "commercialValue": 9,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 12,
+        "searchValue": 12,
+        "commercialValue": 9,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 46,
+      "reason": "当前候选主要优势来自 runnerAttention。",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-99513",
+      "sourceRecordId": "future-zuicool-99513",
+      "name": "第二届全国全民健身大赛（华北区）兴隆站---天子山彩色徒步大会",
+      "raceName": "第二届全国全民健身大赛（华北区）兴隆站---天子山彩色徒步大会",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "河北",
+        "city": "承德市",
+        "district": "兴隆县",
+        "text": "河北 · 承德市 · 兴隆县"
+      },
+      "raceDate": "2026-07-11",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 10,
+        "p1": 1,
+        "p2": 0,
+        "summary": "P0 10/10, P1 1/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.92,
+        "summary": "sources: zuicool; confidence 0.92; single-source; registration path present"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 5,
+        "searchValue": 7,
+        "commercialValue": 14,
+        "decisionComplexity": 8,
+        "dataCompleteness": 8,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 5,
+        "searchValue": 7,
+        "commercialValue": 14,
+        "decisionComplexity": 8,
+        "dataCompleteness": 8,
+        "contentDifficulty": 0
+      },
+      "totalScore": 42,
+      "reason": "现有 P0/P1 字段基础较好",
+      "biggestGap": "官方来源校验和路线信息仍需补充",
+      "estimatedCompletionCost": "low",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-20809",
+      "sourceRecordId": "future-zuicool-20809",
+      "name": "2026杭州空谷长滩青少年多项挑战赛",
+      "raceName": "2026杭州空谷长滩青少年多项挑战赛",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "浙江",
+        "city": "杭州市",
+        "district": "余杭区",
+        "text": "浙江 · 杭州市 · 余杭区"
+      },
+      "raceDate": "2026-07-18",
+      "categoryCount": 7,
+      "existingDataCompleteness": {
+        "p0": 10,
+        "p1": 1,
+        "p2": 0,
+        "summary": "P0 10/10, P1 1/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.92,
+        "summary": "sources: zuicool; confidence 0.92; single-source; registration path present"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 8,
+        "searchValue": 7,
+        "commercialValue": 9,
+        "decisionComplexity": 9,
+        "dataCompleteness": 8,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 8,
+        "searchValue": 7,
+        "commercialValue": 9,
+        "decisionComplexity": 9,
+        "dataCompleteness": 8,
+        "contentDifficulty": 0
+      },
+      "totalScore": 41,
+      "reason": "现有 P0/P1 字段基础较好",
+      "biggestGap": "官方来源校验和路线信息仍需补充",
+      "estimatedCompletionCost": "low",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-78600",
+      "sourceRecordId": "future-zuicool-78600",
+      "name": "2026永不止训练营第14届湖北·武汉喻家山",
+      "raceName": "2026永不止训练营第14届湖北·武汉喻家山",
+      "raceType": "other",
+      "location": {
+        "province": "湖北",
+        "city": "武汉市",
+        "district": "洪山区",
+        "text": "湖北 · 武汉市 · 洪山区"
+      },
+      "raceDate": "2026-07-12",
+      "categoryCount": 6,
+      "existingDataCompleteness": {
+        "p0": 10,
+        "p1": 1,
+        "p2": 0,
+        "summary": "P0 10/10, P1 1/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path present"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 4,
+        "searchValue": 12,
+        "commercialValue": 9,
+        "decisionComplexity": 6,
+        "dataCompleteness": 8,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 4,
+        "searchValue": 12,
+        "commercialValue": 9,
+        "decisionComplexity": 6,
+        "dataCompleteness": 8,
+        "contentDifficulty": 0
+      },
+      "totalScore": 39,
+      "reason": "现有 P0/P1 字段基础较好",
+      "biggestGap": "官方来源校验和路线信息仍需补充",
+      "estimatedCompletionCost": "low",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-95152",
+      "sourceRecordId": "future-zuicool-95152",
+      "name": "永不止训练营NO.15届｜湖北·武汉马鞍山站",
+      "raceName": "永不止训练营NO.15届｜湖北·武汉马鞍山站",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "湖北",
+        "city": "武汉市",
+        "district": "洪山区",
+        "text": "湖北 · 武汉市 · 洪山区"
+      },
+      "raceDate": "2026-07-19",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 5,
+        "searchValue": 12,
+        "commercialValue": 9,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 5,
+        "searchValue": 12,
+        "commercialValue": 9,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 39,
+      "reason": "当前候选主要优势来自 searchValue。",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-76436",
+      "sourceRecordId": "future-zuicool-76436",
+      "name": "永不止训练营｜第17届武汉龟山常规例跑",
+      "raceName": "永不止训练营｜第17届武汉龟山常规例跑",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "湖北",
+        "city": "武汉市",
+        "district": "龟山风景区东门停车场附近",
+        "text": "湖北 · 武汉市 · 龟山风景区东门停车场附近"
+      },
+      "raceDate": "2026-08-16",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 5,
+        "searchValue": 12,
+        "commercialValue": 9,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 5,
+        "searchValue": 12,
+        "commercialValue": 9,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 39,
+      "reason": "当前候选主要优势来自 searchValue。",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-45842",
+      "sourceRecordId": "future-zuicool-45842",
+      "name": "2026锐进四季第二届仲夏亲子跑",
+      "raceName": "2026锐进四季第二届仲夏亲子跑",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "北京",
+        "city": "朝阳区",
+        "district": "北京奥林匹克森林公园北园南门广场",
+        "text": "北京 · 朝阳区 · 北京奥林匹克森林公园北园南门广场"
+      },
+      "raceDate": "2026-07-12",
+      "categoryCount": 4,
+      "existingDataCompleteness": {
+        "p0": 10,
+        "p1": 1,
+        "p2": 0,
+        "summary": "P0 10/10, P1 1/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.92,
+        "summary": "sources: zuicool; confidence 0.92; single-source; registration path present"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 8,
+        "searchValue": 7,
+        "commercialValue": 4,
+        "decisionComplexity": 9,
+        "dataCompleteness": 8,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 8,
+        "searchValue": 7,
+        "commercialValue": 4,
+        "decisionComplexity": 9,
+        "dataCompleteness": 8,
+        "contentDifficulty": 0
+      },
+      "totalScore": 36,
+      "reason": "现有 P0/P1 字段基础较好",
+      "biggestGap": "官方来源校验和路线信息仍需补充",
+      "estimatedCompletionCost": "low",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-99550",
+      "sourceRecordId": "future-zuicool-99550",
+      "name": "2026日新月异仲夏亲子荧光跑",
+      "raceName": "2026日新月异仲夏亲子荧光跑",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "北京",
+        "city": "朝阳区",
+        "district": "北京奥森公园南园南门外广场",
+        "text": "北京 · 朝阳区 · 北京奥森公园南园南门外广场"
+      },
+      "raceDate": "2026-07-18",
+      "categoryCount": 6,
+      "existingDataCompleteness": {
+        "p0": 10,
+        "p1": 1,
+        "p2": 0,
+        "summary": "P0 10/10, P1 1/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.92,
+        "summary": "sources: zuicool; confidence 0.92; single-source; registration path present"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 8,
+        "searchValue": 7,
+        "commercialValue": 4,
+        "decisionComplexity": 9,
+        "dataCompleteness": 8,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 8,
+        "searchValue": 7,
+        "commercialValue": 4,
+        "decisionComplexity": 9,
+        "dataCompleteness": 8,
+        "contentDifficulty": 0
+      },
+      "totalScore": 36,
+      "reason": "现有 P0/P1 字段基础较好",
+      "biggestGap": "官方来源校验和路线信息仍需补充",
+      "estimatedCompletionCost": "low",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-16355",
+      "sourceRecordId": "future-zuicool-16355",
+      "name": "2026 Colorful Songkran 彩色湿身节·北京站",
+      "raceName": "2026 Colorful Songkran 彩色湿身节·北京站",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "北京",
+        "city": "海淀区",
+        "district": "北京西山国家森林公园东门-栾树草坪",
+        "text": "北京 · 海淀区 · 北京西山国家森林公园东门-栾树草坪"
+      },
+      "raceDate": "2026-07-18",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 5,
+        "searchValue": 7,
+        "commercialValue": 9,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 5,
+        "searchValue": 7,
+        "commercialValue": 9,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 34,
+      "reason": "当前候选主要优势来自 commercialValue。",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-98808",
+      "sourceRecordId": "future-zuicool-98808",
+      "name": "2026日新月异仲夏荧光跑",
+      "raceName": "2026日新月异仲夏荧光跑",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "北京",
+        "city": "朝阳区",
+        "district": "北京奥森公园南园南门外广场",
+        "text": "北京 · 朝阳区 · 北京奥森公园南园南门外广场"
+      },
+      "raceDate": "2026-07-18",
+      "categoryCount": 2,
+      "existingDataCompleteness": {
+        "p0": 9,
+        "p1": 1,
+        "p2": 0,
+        "summary": "P0 9/10, P1 1/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.92,
+        "summary": "sources: zuicool; confidence 0.92; single-source; registration path present"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 5,
+        "searchValue": 7,
+        "commercialValue": 4,
+        "decisionComplexity": 8,
+        "dataCompleteness": 7,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 5,
+        "searchValue": 7,
+        "commercialValue": 4,
+        "decisionComplexity": 8,
+        "dataCompleteness": 7,
+        "contentDifficulty": 0
+      },
+      "totalScore": 31,
+      "reason": "当前候选主要优势来自 decisionComplexity。",
+      "biggestGap": "组别距离不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-29013",
+      "sourceRecordId": "future-zuicool-29013",
+      "name": "2026锐进四季荧光夜跑",
+      "raceName": "2026锐进四季荧光夜跑",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "北京",
+        "city": "朝阳区",
+        "district": "北京奥森公园南园森林小剧场",
+        "text": "北京 · 朝阳区 · 北京奥森公园南园森林小剧场"
+      },
+      "raceDate": "2026-07-25",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 5,
+        "searchValue": 7,
+        "commercialValue": 4,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 5,
+        "searchValue": 7,
+        "commercialValue": 4,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 29,
+      "reason": "当前候选主要优势来自 decisionComplexity。",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-58315",
+      "sourceRecordId": "future-zuicool-58315",
+      "name": "京西香巴拉系列活动-2026西山荧光跑",
+      "raceName": "京西香巴拉系列活动-2026西山荧光跑",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "北京",
+        "city": "海淀区",
+        "district": "北京西山国家森林公园门口",
+        "text": "北京 · 海淀区 · 北京西山国家森林公园门口"
+      },
+      "raceDate": "2026-07-26",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 5,
+        "searchValue": 7,
+        "commercialValue": 4,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 5,
+        "searchValue": 7,
+        "commercialValue": 4,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 29,
+      "reason": "当前候选主要优势来自 decisionComplexity。",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-51763",
+      "sourceRecordId": "future-zuicool-51763",
+      "name": "国缘杯2026枣庄东湖公园首届荧光跑",
+      "raceName": "国缘杯2026枣庄东湖公园首届荧光跑",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "山东",
+        "city": "枣庄市",
+        "district": "市中区",
+        "text": "山东 · 枣庄市 · 市中区"
+      },
+      "raceDate": "2026-08-08",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 5,
+        "searchValue": 7,
+        "commercialValue": 4,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 5,
+        "searchValue": 7,
+        "commercialValue": 4,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 29,
+      "reason": "当前候选主要优势来自 decisionComplexity。",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-97939",
+      "sourceRecordId": "future-zuicool-97939",
+      "name": "2026石景山区欢乐荧光跑",
+      "raceName": "2026石景山区欢乐荧光跑",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "北京",
+        "city": "石景山区",
+        "district": "首钢园滑雪大跳台（南门）",
+        "text": "北京 · 石景山区 · 首钢园滑雪大跳台（南门）"
+      },
+      "raceDate": "2026-08-09",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 5,
+        "searchValue": 7,
+        "commercialValue": 4,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 5,
+        "searchValue": 7,
+        "commercialValue": 4,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 29,
+      "reason": "当前候选主要优势来自 decisionComplexity。",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-51242",
+      "sourceRecordId": "future-zuicool-51242",
+      "name": "2026天成悦行第三届荧光跑",
+      "raceName": "2026天成悦行第三届荧光跑",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "北京",
+        "city": "朝阳区",
+        "district": "北京奥林匹克森林公园北园南门",
+        "text": "北京 · 朝阳区 · 北京奥林匹克森林公园北园南门"
+      },
+      "raceDate": "2026-08-16",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.84,
+        "summary": "sources: zuicool; confidence 0.84; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 5,
+        "searchValue": 7,
+        "commercialValue": 4,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 5,
+        "searchValue": 7,
+        "commercialValue": 4,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 29,
+      "reason": "当前候选主要优势来自 decisionComplexity。",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-28391",
+      "sourceRecordId": "future-zuicool-28391",
+      "name": "2026探秘兵马俑线上赛-今生",
+      "raceName": "2026探秘兵马俑线上赛-今生",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "不限地点",
+        "city": null,
+        "district": null,
+        "text": "不限地点"
+      },
+      "raceDate": "2026-07-09",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 1,
+        "p2": 0,
+        "summary": "P0 7/10, P1 1/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.88,
+        "summary": "sources: zuicool; confidence 0.88; single-source; registration path present"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 5,
+        "searchValue": 7,
+        "commercialValue": 0,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 5,
+        "searchValue": 7,
+        "commercialValue": 0,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 25,
+      "reason": "当前候选主要优势来自 decisionComplexity。",
+      "biggestGap": "组别距离不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-74115",
+      "sourceRecordId": "future-zuicool-74115",
+      "name": "2026以热血敬山河线上赛",
+      "raceName": "2026以热血敬山河线上赛",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "不限地点",
+        "city": null,
+        "district": null,
+        "text": "不限地点"
+      },
+      "raceDate": "2026-07-16",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 1,
+        "p2": 0,
+        "summary": "P0 7/10, P1 1/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.88,
+        "summary": "sources: zuicool; confidence 0.88; single-source; registration path present"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 5,
+        "searchValue": 7,
+        "commercialValue": 0,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 5,
+        "searchValue": 7,
+        "commercialValue": 0,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 25,
+      "reason": "当前候选主要优势来自 decisionComplexity。",
+      "biggestGap": "组别距离不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-25994",
+      "sourceRecordId": "future-zuicool-25994",
+      "name": "2026 AHA急救培训7月全国社招班",
+      "raceName": "2026 AHA急救培训7月全国社招班",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "全国73个城市同步开课",
+        "city": null,
+        "district": null,
+        "text": "全国73个城市同步开课"
+      },
+      "raceDate": "2026-07-18",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 7,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 7/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.8,
+        "summary": "sources: zuicool; confidence 0.8; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 5,
+        "searchValue": 7,
+        "commercialValue": 0,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 5,
+        "searchValue": 7,
+        "commercialValue": 0,
+        "decisionComplexity": 8,
+        "dataCompleteness": 5,
+        "contentDifficulty": 0
+      },
+      "totalScore": 25,
+      "reason": "当前候选主要优势来自 decisionComplexity。",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    },
+    {
+      "raceId": "future-zuicool-80403",
+      "sourceRecordId": "future-zuicool-80403",
+      "name": "2026云跑东方国韵线上系列赛-簪花",
+      "raceName": "2026云跑东方国韵线上系列赛-簪花",
+      "raceType": "half_marathon",
+      "location": {
+        "province": "不限地点",
+        "city": null,
+        "district": null,
+        "text": "不限地点"
+      },
+      "raceDate": "2026-07-23",
+      "categoryCount": 1,
+      "existingDataCompleteness": {
+        "p0": 6,
+        "p1": 0,
+        "p2": 0,
+        "summary": "P0 6/10, P1 0/5, P2 0/5"
+      },
+      "sourceQuality": {
+        "sourceIds": [
+          "zuicool"
+        ],
+        "confidence": 0.8,
+        "summary": "sources: zuicool; confidence 0.8; single-source; registration path weak"
+      },
+      "status": "deferred",
+      "scoreBreakdown": {
+        "runnerAttention": 5,
+        "searchValue": 7,
+        "commercialValue": 0,
+        "decisionComplexity": 8,
+        "dataCompleteness": 4,
+        "contentDifficulty": 0
+      },
+      "scores": {
+        "runnerAttention": 5,
+        "searchValue": 7,
+        "commercialValue": 0,
+        "decisionComplexity": 8,
+        "dataCompleteness": 4,
+        "contentDifficulty": 0
+      },
+      "totalScore": 24,
+      "reason": "当前候选主要优势来自 decisionComplexity。",
+      "biggestGap": "报名入口不足",
+      "estimatedCompletionCost": "medium",
+      "owner": "manual",
+      "reviewStatus": "pending",
+      "updatedAt": "2026-07-31"
+    }
+  ]
+}

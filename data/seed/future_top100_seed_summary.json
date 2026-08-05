@@ -1,0 +1,25 @@
+{
+  "total": 100,
+  "runchinaSourceCount": 3,
+  "zuicoolSourceCount": 99,
+  "mergedCount": 2,
+  "duplicateGroupCount": 2,
+  "fetched": {
+    "runchina": 100,
+    "zuicool": 120
+  },
+  "statusCounts": {
+    "registration_open": 72,
+    "lottery": 0,
+    "upcoming": 0,
+    "unknown": 28
+  },
+  "missingFieldCounts": {
+    "city": 4,
+    "registrationUrl": 87,
+    "raceDate": 1
+  },
+  "warnings": [
+    "Zuicool list fetch failed on page 4: restricted response body detected"
+  ]
+}

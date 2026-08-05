@@ -1,0 +1,3993 @@
+{
+  "pipelineVersion": "data-poc-v0.3",
+  "generatedAt": "2026-06-26T09:52:42.444Z",
+  "canonicalRaces": [
+    {
+      "id": "canonical-zuicool-s3tem3",
+      "canonicalName": "东京马拉松",
+      "aliases": [
+        "东京马拉松"
+      ],
+      "type": "marathon",
+      "status": "unknown",
+      "year": null,
+      "month": null,
+      "date": null,
+      "country": "中国",
+      "province": "unknown",
+      "city": "unknown",
+      "region": "unknown",
+      "categories": [
+        {
+          "id": "zuicool-s3tem3-main",
+          "name": "全程马拉松",
+          "distanceKm": 42.2,
+          "elevationGain": 0,
+          "difficultyLevel": "L1",
+          "difficultyScore": 0,
+          "beginnerFriendly": false
+        }
+      ],
+      "sources": [
+        {
+          "source": "zuicool",
+          "sourceUrl": "https://zuicool.com/#",
+          "confidence": 35,
+          "lastUpdatedAt": "2026-06-26T09:53:25.199Z"
+        }
+      ],
+      "fieldSources": {
+        "name": "zuicool",
+        "type": "zuicool",
+        "status": "placeholder",
+        "summary": "placeholder",
+        "year": "placeholder",
+        "month": "placeholder",
+        "date": "placeholder",
+        "country": "placeholder",
+        "province": "placeholder",
+        "city": "placeholder",
+        "region": "placeholder",
+        "distanceKm": "zuicool",
+        "elevationGain": "placeholder",
+        "officialUrl": "placeholder",
+        "registrationUrl": "placeholder",
+        "categories": "zuicool",
+        "tags": "placeholder",
+        "decision": "placeholder"
+      },
+      "dataQuality": "unverified",
+      "verified": false,
+      "missingFields": [
+        "date",
+        "province",
+        "city",
+        "elevationGain",
+        "registrationUrl",
+        "officialUrl"
+      ],
+      "mergeNotes": [],
+      "mergeTrace": [
+        {
+          "field": "canonicalName",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "东京马拉松",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceType",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "marathon",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "registrationStatus",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "Latest Timestamp Wins",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "Latest Timestamp Wins: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "editionId",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "Ignore External",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "Ignore External: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceDate",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceDate",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "country",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "中国",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "province",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "city",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "region",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "officialWebsite",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "registrationUrl",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        }
+      ],
+      "updatedAt": "2026-06-26T09:53:25.202Z"
+    },
+    {
+      "id": "canonical-108-zuicool-dfut50",
+      "canonicalName": "杭州百公里！物资超丰厚！ 杭州大宋108越野赛报名",
+      "aliases": [
+        "杭州百公里！物资超丰厚！ 杭州大宋108越野赛报名"
+      ],
+      "type": "ultra_trail",
+      "status": "unknown",
+      "year": null,
+      "month": null,
+      "date": null,
+      "country": "中国",
+      "province": "unknown",
+      "city": "unknown",
+      "region": "unknown",
+      "categories": [
+        {
+          "id": "108-zuicool-dfut50-main",
+          "name": "越野组别待补全",
+          "distanceKm": 0,
+          "elevationGain": 0,
+          "difficultyLevel": "L1",
+          "difficultyScore": 0,
+          "beginnerFriendly": false
+        }
+      ],
+      "sources": [
+        {
+          "source": "zuicool",
+          "sourceUrl": "javascript:void(0)",
+          "confidence": 20,
+          "lastUpdatedAt": "2026-06-26T09:53:25.200Z"
+        }
+      ],
+      "fieldSources": {
+        "name": "zuicool",
+        "type": "zuicool",
+        "status": "placeholder",
+        "summary": "placeholder",
+        "year": "placeholder",
+        "month": "placeholder",
+        "date": "placeholder",
+        "country": "placeholder",
+        "province": "placeholder",
+        "city": "placeholder",
+        "region": "placeholder",
+        "distanceKm": "placeholder",
+        "elevationGain": "placeholder",
+        "officialUrl": "placeholder",
+        "registrationUrl": "placeholder",
+        "categories": "placeholder",
+        "tags": "placeholder",
+        "decision": "placeholder"
+      },
+      "dataQuality": "unverified",
+      "verified": false,
+      "missingFields": [
+        "date",
+        "province",
+        "city",
+        "distanceKm",
+        "elevationGain",
+        "registrationUrl",
+        "officialUrl"
+      ],
+      "mergeNotes": [],
+      "mergeTrace": [
+        {
+          "field": "canonicalName",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "杭州百公里！物资超丰厚！ 杭州大宋108越野赛报名",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceType",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "ultra_trail",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "registrationStatus",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "Latest Timestamp Wins",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "Latest Timestamp Wins: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "editionId",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "Ignore External",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "Ignore External: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceDate",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceDate",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "country",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "中国",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "province",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "city",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "region",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "officialWebsite",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "registrationUrl",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        }
+      ],
+      "updatedAt": "2026-06-26T09:53:25.202Z"
+    },
+    {
+      "id": "canonical-zuicool-1k3pe5",
+      "canonicalName": "金山岭长城越野赛黄金联赛世界系列赛 报名开启",
+      "aliases": [
+        "金山岭长城越野赛黄金联赛世界系列赛 报名开启"
+      ],
+      "type": "trail",
+      "status": "unknown",
+      "year": null,
+      "month": null,
+      "date": null,
+      "country": "中国",
+      "province": "unknown",
+      "city": "unknown",
+      "region": "unknown",
+      "categories": [
+        {
+          "id": "zuicool-1k3pe5-main",
+          "name": "越野组别待补全",
+          "distanceKm": 0,
+          "elevationGain": 0,
+          "difficultyLevel": "L1",
+          "difficultyScore": 0,
+          "beginnerFriendly": false
+        }
+      ],
+      "sources": [
+        {
+          "source": "zuicool",
+          "sourceUrl": "javascript:void(0)",
+          "confidence": 20,
+          "lastUpdatedAt": "2026-06-26T09:53:25.200Z"
+        }
+      ],
+      "fieldSources": {
+        "name": "zuicool",
+        "type": "zuicool",
+        "status": "placeholder",
+        "summary": "placeholder",
+        "year": "placeholder",
+        "month": "placeholder",
+        "date": "placeholder",
+        "country": "placeholder",
+        "province": "placeholder",
+        "city": "placeholder",
+        "region": "placeholder",
+        "distanceKm": "placeholder",
+        "elevationGain": "placeholder",
+        "officialUrl": "placeholder",
+        "registrationUrl": "placeholder",
+        "categories": "placeholder",
+        "tags": "placeholder",
+        "decision": "placeholder"
+      },
+      "dataQuality": "unverified",
+      "verified": false,
+      "missingFields": [
+        "date",
+        "province",
+        "city",
+        "distanceKm",
+        "elevationGain",
+        "registrationUrl",
+        "officialUrl"
+      ],
+      "mergeNotes": [],
+      "mergeTrace": [
+        {
+          "field": "canonicalName",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "金山岭长城越野赛黄金联赛世界系列赛 报名开启",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceType",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "trail",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "registrationStatus",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "Latest Timestamp Wins",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "Latest Timestamp Wins: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "editionId",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "Ignore External",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "Ignore External: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceDate",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceDate",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "country",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "中国",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "province",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "city",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "region",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "officialWebsite",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "registrationUrl",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        }
+      ],
+      "updatedAt": "2026-06-26T09:53:25.202Z"
+    },
+    {
+      "id": "canonical-zuicool-kllex8",
+      "canonicalName": "两场云南百公里越野赛 报名开启",
+      "aliases": [
+        "两场云南百公里越野赛 报名开启"
+      ],
+      "type": "ultra_trail",
+      "status": "unknown",
+      "year": null,
+      "month": null,
+      "date": null,
+      "country": "中国",
+      "province": "云南",
+      "city": "unknown",
+      "region": "southwest_china",
+      "categories": [
+        {
+          "id": "zuicool-kllex8-main",
+          "name": "越野组别待补全",
+          "distanceKm": 0,
+          "elevationGain": 0,
+          "difficultyLevel": "L1",
+          "difficultyScore": 0,
+          "beginnerFriendly": false
+        }
+      ],
+      "sources": [
+        {
+          "source": "zuicool",
+          "sourceUrl": "javascript:void(0)",
+          "confidence": 20,
+          "lastUpdatedAt": "2026-06-26T09:53:25.200Z"
+        }
+      ],
+      "fieldSources": {
+        "name": "zuicool",
+        "type": "zuicool",
+        "status": "placeholder",
+        "summary": "placeholder",
+        "year": "placeholder",
+        "month": "placeholder",
+        "date": "placeholder",
+        "country": "zuicool",
+        "province": "zuicool",
+        "city": "placeholder",
+        "region": "zuicool",
+        "distanceKm": "placeholder",
+        "elevationGain": "placeholder",
+        "officialUrl": "placeholder",
+        "registrationUrl": "placeholder",
+        "categories": "placeholder",
+        "tags": "placeholder",
+        "decision": "placeholder"
+      },
+      "dataQuality": "unverified",
+      "verified": false,
+      "missingFields": [
+        "date",
+        "city",
+        "distanceKm",
+        "elevationGain",
+        "registrationUrl",
+        "officialUrl"
+      ],
+      "mergeNotes": [],
+      "mergeTrace": [
+        {
+          "field": "canonicalName",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "两场云南百公里越野赛 报名开启",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceType",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "ultra_trail",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "registrationStatus",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "Latest Timestamp Wins",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "Latest Timestamp Wins: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "editionId",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "Ignore External",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "Ignore External: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceDate",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceDate",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "country",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "中国",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "province",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "云南",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "city",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "region",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "southwest_china",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "officialWebsite",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "registrationUrl",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        }
+      ],
+      "updatedAt": "2026-06-26T09:53:25.202Z"
+    },
+    {
+      "id": "canonical-zuicool-1sejs9",
+      "canonicalName": "河南百公里！ 中岳嵩山越野赛 报名开启",
+      "aliases": [
+        "河南百公里！ 中岳嵩山越野赛 报名开启"
+      ],
+      "type": "ultra_trail",
+      "status": "unknown",
+      "year": null,
+      "month": null,
+      "date": null,
+      "country": "中国",
+      "province": "河南",
+      "city": "unknown",
+      "region": "central_china",
+      "categories": [
+        {
+          "id": "zuicool-1sejs9-main",
+          "name": "越野组别待补全",
+          "distanceKm": 0,
+          "elevationGain": 0,
+          "difficultyLevel": "L1",
+          "difficultyScore": 0,
+          "beginnerFriendly": false
+        }
+      ],
+      "sources": [
+        {
+          "source": "zuicool",
+          "sourceUrl": "javascript:void(0)",
+          "confidence": 20,
+          "lastUpdatedAt": "2026-06-26T09:53:25.200Z"
+        }
+      ],
+      "fieldSources": {
+        "name": "zuicool",
+        "type": "zuicool",
+        "status": "placeholder",
+        "summary": "placeholder",
+        "year": "placeholder",
+        "month": "placeholder",
+        "date": "placeholder",
+        "country": "zuicool",
+        "province": "zuicool",
+        "city": "placeholder",
+        "region": "zuicool",
+        "distanceKm": "placeholder",
+        "elevationGain": "placeholder",
+        "officialUrl": "placeholder",
+        "registrationUrl": "placeholder",
+        "categories": "placeholder",
+        "tags": "placeholder",
+        "decision": "placeholder"
+      },
+      "dataQuality": "unverified",
+      "verified": false,
+      "missingFields": [
+        "date",
+        "city",
+        "distanceKm",
+        "elevationGain",
+        "registrationUrl",
+        "officialUrl"
+      ],
+      "mergeNotes": [],
+      "mergeTrace": [
+        {
+          "field": "canonicalName",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "河南百公里！ 中岳嵩山越野赛 报名开启",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceType",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "ultra_trail",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "registrationStatus",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "Latest Timestamp Wins",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "Latest Timestamp Wins: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "editionId",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "Ignore External",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "Ignore External: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceDate",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceDate",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "country",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "中国",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "province",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "河南",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "city",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "region",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "central_china",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "officialWebsite",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "registrationUrl",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        }
+      ],
+      "updatedAt": "2026-06-26T09:53:25.202Z"
+    },
+    {
+      "id": "canonical-a75-zuicool-1noeq1",
+      "canonicalName": "A类认证！最低仅75元的全程马拉松，报名了！",
+      "aliases": [
+        "A类认证！最低仅75元的全程马拉松，报名了！"
+      ],
+      "type": "marathon",
+      "status": "unknown",
+      "year": null,
+      "month": null,
+      "date": null,
+      "country": "中国",
+      "province": "unknown",
+      "city": "unknown",
+      "region": "unknown",
+      "categories": [
+        {
+          "id": "a75-zuicool-1noeq1-main",
+          "name": "全程马拉松",
+          "distanceKm": 42.2,
+          "elevationGain": 0,
+          "difficultyLevel": "L1",
+          "difficultyScore": 0,
+          "beginnerFriendly": false
+        }
+      ],
+      "sources": [
+        {
+          "source": "zuicool",
+          "sourceUrl": "javascript:void(0)",
+          "confidence": 35,
+          "lastUpdatedAt": "2026-06-26T09:53:25.200Z"
+        }
+      ],
+      "fieldSources": {
+        "name": "zuicool",
+        "type": "zuicool",
+        "status": "placeholder",
+        "summary": "placeholder",
+        "year": "placeholder",
+        "month": "placeholder",
+        "date": "placeholder",
+        "country": "placeholder",
+        "province": "placeholder",
+        "city": "placeholder",
+        "region": "placeholder",
+        "distanceKm": "zuicool",
+        "elevationGain": "placeholder",
+        "officialUrl": "placeholder",
+        "registrationUrl": "placeholder",
+        "categories": "zuicool",
+        "tags": "placeholder",
+        "decision": "placeholder"
+      },
+      "dataQuality": "unverified",
+      "verified": false,
+      "missingFields": [
+        "date",
+        "province",
+        "city",
+        "elevationGain",
+        "registrationUrl",
+        "officialUrl"
+      ],
+      "mergeNotes": [],
+      "mergeTrace": [
+        {
+          "field": "canonicalName",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "A类认证！最低仅75元的全程马拉松，报名了！",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceType",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "marathon",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "registrationStatus",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "Latest Timestamp Wins",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "Latest Timestamp Wins: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "editionId",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "Ignore External",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "Ignore External: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceDate",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceDate",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "country",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "中国",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "province",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "city",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "region",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "officialWebsite",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "registrationUrl",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        }
+      ],
+      "updatedAt": "2026-06-26T09:53:25.202Z"
+    },
+    {
+      "id": "canonical-zuicool-1a5mwz",
+      "canonicalName": "报名 | 国家级百公里越野赛，登陆南京！",
+      "aliases": [
+        "报名 | 国家级百公里越野赛，登陆南京！"
+      ],
+      "type": "ultra_trail",
+      "status": "unknown",
+      "year": null,
+      "month": null,
+      "date": null,
+      "country": "中国",
+      "province": "unknown",
+      "city": "unknown",
+      "region": "unknown",
+      "categories": [
+        {
+          "id": "zuicool-1a5mwz-main",
+          "name": "越野组别待补全",
+          "distanceKm": 0,
+          "elevationGain": 0,
+          "difficultyLevel": "L1",
+          "difficultyScore": 0,
+          "beginnerFriendly": false
+        }
+      ],
+      "sources": [
+        {
+          "source": "zuicool",
+          "sourceUrl": "javascript:void(0)",
+          "confidence": 20,
+          "lastUpdatedAt": "2026-06-26T09:53:25.200Z"
+        }
+      ],
+      "fieldSources": {
+        "name": "zuicool",
+        "type": "zuicool",
+        "status": "placeholder",
+        "summary": "placeholder",
+        "year": "placeholder",
+        "month": "placeholder",
+        "date": "placeholder",
+        "country": "placeholder",
+        "province": "placeholder",
+        "city": "placeholder",
+        "region": "placeholder",
+        "distanceKm": "placeholder",
+        "elevationGain": "placeholder",
+        "officialUrl": "placeholder",
+        "registrationUrl": "placeholder",
+        "categories": "placeholder",
+        "tags": "placeholder",
+        "decision": "placeholder"
+      },
+      "dataQuality": "unverified",
+      "verified": false,
+      "missingFields": [
+        "date",
+        "province",
+        "city",
+        "distanceKm",
+        "elevationGain",
+        "registrationUrl",
+        "officialUrl"
+      ],
+      "mergeNotes": [],
+      "mergeTrace": [
+        {
+          "field": "canonicalName",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "报名 | 国家级百公里越野赛，登陆南京！",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceType",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "ultra_trail",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "registrationStatus",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "Latest Timestamp Wins",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "Latest Timestamp Wins: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "editionId",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "Ignore External",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "Ignore External: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceDate",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceDate",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "country",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "中国",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "province",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "city",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "region",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "officialWebsite",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "registrationUrl",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        }
+      ],
+      "updatedAt": "2026-06-26T09:53:25.202Z"
+    },
+    {
+      "id": "canonical-zuicool-1uq07v",
+      "canonicalName": "毗邻北京！全新升级百英里越野赛 报名开启",
+      "aliases": [
+        "毗邻北京！全新升级百英里越野赛 报名开启"
+      ],
+      "type": "trail",
+      "status": "unknown",
+      "year": null,
+      "month": null,
+      "date": null,
+      "country": "中国",
+      "province": "北京",
+      "city": "北京",
+      "region": "north_china",
+      "categories": [
+        {
+          "id": "zuicool-1uq07v-main",
+          "name": "越野组别待补全",
+          "distanceKm": 0,
+          "elevationGain": 0,
+          "difficultyLevel": "L1",
+          "difficultyScore": 0,
+          "beginnerFriendly": false
+        }
+      ],
+      "sources": [
+        {
+          "source": "zuicool",
+          "sourceUrl": "javascript:void(0)",
+          "confidence": 35,
+          "lastUpdatedAt": "2026-06-26T09:53:25.200Z"
+        }
+      ],
+      "fieldSources": {
+        "name": "zuicool",
+        "type": "zuicool",
+        "status": "placeholder",
+        "summary": "placeholder",
+        "year": "placeholder",
+        "month": "placeholder",
+        "date": "placeholder",
+        "country": "zuicool",
+        "province": "zuicool",
+        "city": "zuicool",
+        "region": "zuicool",
+        "distanceKm": "placeholder",
+        "elevationGain": "placeholder",
+        "officialUrl": "placeholder",
+        "registrationUrl": "placeholder",
+        "categories": "placeholder",
+        "tags": "placeholder",
+        "decision": "placeholder"
+      },
+      "dataQuality": "unverified",
+      "verified": false,
+      "missingFields": [
+        "date",
+        "distanceKm",
+        "elevationGain",
+        "registrationUrl",
+        "officialUrl"
+      ],
+      "mergeNotes": [],
+      "mergeTrace": [
+        {
+          "field": "canonicalName",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "毗邻北京！全新升级百英里越野赛 报名开启",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceType",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "trail",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "registrationStatus",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "Latest Timestamp Wins",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "Latest Timestamp Wins: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "editionId",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "Ignore External",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "Ignore External: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceDate",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.202Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceDate",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "country",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "中国",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "province",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "北京",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "city",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "北京",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "region",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "north_china",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "officialWebsite",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "registrationUrl",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        }
+      ],
+      "updatedAt": "2026-06-26T09:53:25.203Z"
+    },
+    {
+      "id": "canonical-zuicool-136q61",
+      "canonicalName": "今年西藏首场百公里越野赛 报名开启",
+      "aliases": [
+        "今年西藏首场百公里越野赛 报名开启"
+      ],
+      "type": "ultra_trail",
+      "status": "unknown",
+      "year": null,
+      "month": null,
+      "date": null,
+      "country": "中国",
+      "province": "西藏",
+      "city": "unknown",
+      "region": "southwest_china",
+      "categories": [
+        {
+          "id": "zuicool-136q61-main",
+          "name": "越野组别待补全",
+          "distanceKm": 0,
+          "elevationGain": 0,
+          "difficultyLevel": "L1",
+          "difficultyScore": 0,
+          "beginnerFriendly": false
+        }
+      ],
+      "sources": [
+        {
+          "source": "zuicool",
+          "sourceUrl": "javascript:void(0)",
+          "confidence": 20,
+          "lastUpdatedAt": "2026-06-26T09:53:25.200Z"
+        }
+      ],
+      "fieldSources": {
+        "name": "zuicool",
+        "type": "zuicool",
+        "status": "placeholder",
+        "summary": "placeholder",
+        "year": "placeholder",
+        "month": "placeholder",
+        "date": "placeholder",
+        "country": "zuicool",
+        "province": "zuicool",
+        "city": "placeholder",
+        "region": "zuicool",
+        "distanceKm": "placeholder",
+        "elevationGain": "placeholder",
+        "officialUrl": "placeholder",
+        "registrationUrl": "placeholder",
+        "categories": "placeholder",
+        "tags": "placeholder",
+        "decision": "placeholder"
+      },
+      "dataQuality": "unverified",
+      "verified": false,
+      "missingFields": [
+        "date",
+        "city",
+        "distanceKm",
+        "elevationGain",
+        "registrationUrl",
+        "officialUrl"
+      ],
+      "mergeNotes": [],
+      "mergeTrace": [
+        {
+          "field": "canonicalName",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "今年西藏首场百公里越野赛 报名开启",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceType",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "ultra_trail",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "registrationStatus",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "Latest Timestamp Wins",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "Latest Timestamp Wins: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "editionId",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "Ignore External",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "Ignore External: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceDate",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceDate",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "country",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "中国",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "province",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "西藏",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "city",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "region",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "southwest_china",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "officialWebsite",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "registrationUrl",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        }
+      ],
+      "updatedAt": "2026-06-26T09:53:25.203Z"
+    },
+    {
+      "id": "canonical-5a--zuicool-1neovf",
+      "canonicalName": "贵州5A景区百公里越野赛 报名开启",
+      "aliases": [
+        "贵州5A景区百公里越野赛 报名开启"
+      ],
+      "type": "ultra_trail",
+      "status": "unknown",
+      "year": null,
+      "month": null,
+      "date": null,
+      "country": "中国",
+      "province": "贵州",
+      "city": "unknown",
+      "region": "southwest_china",
+      "categories": [
+        {
+          "id": "5a--zuicool-1neovf-main",
+          "name": "越野组别待补全",
+          "distanceKm": 0,
+          "elevationGain": 0,
+          "difficultyLevel": "L1",
+          "difficultyScore": 0,
+          "beginnerFriendly": false
+        }
+      ],
+      "sources": [
+        {
+          "source": "zuicool",
+          "sourceUrl": "javascript:void(0)",
+          "confidence": 20,
+          "lastUpdatedAt": "2026-06-26T09:53:25.201Z"
+        }
+      ],
+      "fieldSources": {
+        "name": "zuicool",
+        "type": "zuicool",
+        "status": "placeholder",
+        "summary": "placeholder",
+        "year": "placeholder",
+        "month": "placeholder",
+        "date": "placeholder",
+        "country": "zuicool",
+        "province": "zuicool",
+        "city": "placeholder",
+        "region": "zuicool",
+        "distanceKm": "placeholder",
+        "elevationGain": "placeholder",
+        "officialUrl": "placeholder",
+        "registrationUrl": "placeholder",
+        "categories": "placeholder",
+        "tags": "placeholder",
+        "decision": "placeholder"
+      },
+      "dataQuality": "unverified",
+      "verified": false,
+      "missingFields": [
+        "date",
+        "city",
+        "distanceKm",
+        "elevationGain",
+        "registrationUrl",
+        "officialUrl"
+      ],
+      "mergeNotes": [],
+      "mergeTrace": [
+        {
+          "field": "canonicalName",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "贵州5A景区百公里越野赛 报名开启",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceType",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "ultra_trail",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "registrationStatus",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "Latest Timestamp Wins",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "Latest Timestamp Wins: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "editionId",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "Ignore External",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "Ignore External: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceDate",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceDate",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "country",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "中国",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "province",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "贵州",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "city",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "region",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "southwest_china",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "officialWebsite",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "registrationUrl",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        }
+      ],
+      "updatedAt": "2026-06-26T09:53:25.203Z"
+    },
+    {
+      "id": "canonical-zuicool-47uwhp",
+      "canonicalName": "渣打香港马拉松 直通报名",
+      "aliases": [
+        "渣打香港马拉松 直通报名"
+      ],
+      "type": "marathon",
+      "status": "unknown",
+      "year": null,
+      "month": null,
+      "date": null,
+      "country": "中国",
+      "province": "香港",
+      "city": "unknown",
+      "region": "hongkong_macao_taiwan",
+      "categories": [
+        {
+          "id": "zuicool-47uwhp-main",
+          "name": "全程马拉松",
+          "distanceKm": 42.2,
+          "elevationGain": 0,
+          "difficultyLevel": "L1",
+          "difficultyScore": 0,
+          "beginnerFriendly": false
+        }
+      ],
+      "sources": [
+        {
+          "source": "zuicool",
+          "sourceUrl": "javascript:void(0)",
+          "confidence": 35,
+          "lastUpdatedAt": "2026-06-26T09:53:25.201Z"
+        }
+      ],
+      "fieldSources": {
+        "name": "zuicool",
+        "type": "zuicool",
+        "status": "placeholder",
+        "summary": "placeholder",
+        "year": "placeholder",
+        "month": "placeholder",
+        "date": "placeholder",
+        "country": "zuicool",
+        "province": "zuicool",
+        "city": "placeholder",
+        "region": "zuicool",
+        "distanceKm": "zuicool",
+        "elevationGain": "placeholder",
+        "officialUrl": "placeholder",
+        "registrationUrl": "placeholder",
+        "categories": "zuicool",
+        "tags": "placeholder",
+        "decision": "placeholder"
+      },
+      "dataQuality": "unverified",
+      "verified": false,
+      "missingFields": [
+        "date",
+        "city",
+        "elevationGain",
+        "registrationUrl",
+        "officialUrl"
+      ],
+      "mergeNotes": [],
+      "mergeTrace": [
+        {
+          "field": "canonicalName",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "渣打香港马拉松 直通报名",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceType",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "marathon",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "registrationStatus",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "Latest Timestamp Wins",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "Latest Timestamp Wins: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "editionId",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "Ignore External",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "Ignore External: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceDate",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceDate",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "country",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "中国",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "province",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "香港",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "city",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "region",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "hongkong_macao_taiwan",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "officialWebsite",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "registrationUrl",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        }
+      ],
+      "updatedAt": "2026-06-26T09:53:25.203Z"
+    },
+    {
+      "id": "canonical-zuicool-1r4fat",
+      "canonicalName": "天际线越野系列",
+      "aliases": [
+        "天际线越野系列"
+      ],
+      "type": "trail",
+      "status": "unknown",
+      "year": null,
+      "month": null,
+      "date": null,
+      "country": "中国",
+      "province": "unknown",
+      "city": "unknown",
+      "region": "unknown",
+      "categories": [
+        {
+          "id": "zuicool-1r4fat-main",
+          "name": "越野组别待补全",
+          "distanceKm": 0,
+          "elevationGain": 0,
+          "difficultyLevel": "L1",
+          "difficultyScore": 0,
+          "beginnerFriendly": false
+        }
+      ],
+      "sources": [
+        {
+          "source": "zuicool",
+          "sourceUrl": "https://zuicool.com/tag/1999733858",
+          "confidence": 20,
+          "lastUpdatedAt": "2026-06-26T09:53:25.201Z"
+        }
+      ],
+      "fieldSources": {
+        "name": "zuicool",
+        "type": "zuicool",
+        "status": "placeholder",
+        "summary": "placeholder",
+        "year": "placeholder",
+        "month": "placeholder",
+        "date": "placeholder",
+        "country": "placeholder",
+        "province": "placeholder",
+        "city": "placeholder",
+        "region": "placeholder",
+        "distanceKm": "placeholder",
+        "elevationGain": "placeholder",
+        "officialUrl": "placeholder",
+        "registrationUrl": "placeholder",
+        "categories": "placeholder",
+        "tags": "placeholder",
+        "decision": "placeholder"
+      },
+      "dataQuality": "unverified",
+      "verified": false,
+      "missingFields": [
+        "date",
+        "province",
+        "city",
+        "distanceKm",
+        "elevationGain",
+        "registrationUrl",
+        "officialUrl"
+      ],
+      "mergeNotes": [],
+      "mergeTrace": [
+        {
+          "field": "canonicalName",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "天际线越野系列",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceType",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "trail",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "registrationStatus",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "Latest Timestamp Wins",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "Latest Timestamp Wins: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "editionId",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "Ignore External",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "Ignore External: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceDate",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceDate",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "country",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "中国",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "province",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "city",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "region",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "officialWebsite",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "registrationUrl",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        }
+      ],
+      "updatedAt": "2026-06-26T09:53:25.203Z"
+    },
+    {
+      "id": "canonical-zuicool-1cp2mv",
+      "canonicalName": "成都马拉松",
+      "aliases": [
+        "成都马拉松"
+      ],
+      "type": "marathon",
+      "status": "unknown",
+      "year": null,
+      "month": null,
+      "date": null,
+      "country": "中国",
+      "province": "unknown",
+      "city": "unknown",
+      "region": "unknown",
+      "categories": [
+        {
+          "id": "zuicool-1cp2mv-main",
+          "name": "全程马拉松",
+          "distanceKm": 42.2,
+          "elevationGain": 0,
+          "difficultyLevel": "L1",
+          "difficultyScore": 0,
+          "beginnerFriendly": false
+        }
+      ],
+      "sources": [
+        {
+          "source": "zuicool",
+          "sourceUrl": "https://zuicool.com/event/67025",
+          "confidence": 35,
+          "lastUpdatedAt": "2026-06-26T09:53:25.201Z"
+        }
+      ],
+      "fieldSources": {
+        "name": "zuicool",
+        "type": "zuicool",
+        "status": "placeholder",
+        "summary": "placeholder",
+        "year": "placeholder",
+        "month": "placeholder",
+        "date": "placeholder",
+        "country": "placeholder",
+        "province": "placeholder",
+        "city": "placeholder",
+        "region": "placeholder",
+        "distanceKm": "zuicool",
+        "elevationGain": "placeholder",
+        "officialUrl": "placeholder",
+        "registrationUrl": "placeholder",
+        "categories": "zuicool",
+        "tags": "placeholder",
+        "decision": "placeholder"
+      },
+      "dataQuality": "unverified",
+      "verified": false,
+      "missingFields": [
+        "date",
+        "province",
+        "city",
+        "elevationGain",
+        "registrationUrl",
+        "officialUrl"
+      ],
+      "mergeNotes": [],
+      "mergeTrace": [
+        {
+          "field": "canonicalName",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "成都马拉松",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceType",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "marathon",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "registrationStatus",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "Latest Timestamp Wins",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "Latest Timestamp Wins: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "editionId",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "Ignore External",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "Ignore External: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceDate",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceDate",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "country",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "中国",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "province",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "city",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "region",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "officialWebsite",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "registrationUrl",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        }
+      ],
+      "updatedAt": "2026-06-26T09:53:25.203Z"
+    },
+    {
+      "id": "canonical-zuicool-5g0ydt",
+      "canonicalName": "澳康达· 天津武清半程马拉松",
+      "aliases": [
+        "澳康达· 天津武清半程马拉松"
+      ],
+      "type": "half_marathon",
+      "status": "unknown",
+      "year": null,
+      "month": null,
+      "date": null,
+      "country": "中国",
+      "province": "天津",
+      "city": "天津",
+      "region": "north_china",
+      "categories": [
+        {
+          "id": "zuicool-5g0ydt-main",
+          "name": "半程马拉松",
+          "distanceKm": 21.1,
+          "elevationGain": 0,
+          "difficultyLevel": "L1",
+          "difficultyScore": 0,
+          "beginnerFriendly": false
+        }
+      ],
+      "sources": [
+        {
+          "source": "zuicool",
+          "sourceUrl": "https://zuicool.com/event/79237",
+          "confidence": 50,
+          "lastUpdatedAt": "2026-06-26T09:53:25.201Z"
+        }
+      ],
+      "fieldSources": {
+        "name": "zuicool",
+        "type": "zuicool",
+        "status": "placeholder",
+        "summary": "placeholder",
+        "year": "placeholder",
+        "month": "placeholder",
+        "date": "placeholder",
+        "country": "zuicool",
+        "province": "zuicool",
+        "city": "zuicool",
+        "region": "zuicool",
+        "distanceKm": "zuicool",
+        "elevationGain": "placeholder",
+        "officialUrl": "placeholder",
+        "registrationUrl": "placeholder",
+        "categories": "zuicool",
+        "tags": "placeholder",
+        "decision": "placeholder"
+      },
+      "dataQuality": "unverified",
+      "verified": false,
+      "missingFields": [
+        "date",
+        "elevationGain",
+        "registrationUrl",
+        "officialUrl"
+      ],
+      "mergeNotes": [],
+      "mergeTrace": [
+        {
+          "field": "canonicalName",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "澳康达· 天津武清半程马拉松",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceType",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "half_marathon",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "registrationStatus",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "Latest Timestamp Wins",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "Latest Timestamp Wins: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "editionId",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "Ignore External",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "Ignore External: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceDate",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceDate",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "country",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "中国",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "province",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "天津",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "city",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "天津",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "region",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "north_china",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "officialWebsite",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "registrationUrl",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        }
+      ],
+      "updatedAt": "2026-06-26T09:53:25.203Z"
+    },
+    {
+      "id": "canonical-zuicool-12z4mk",
+      "canonicalName": "西湖青芝坞隆冬跑山",
+      "aliases": [
+        "西湖青芝坞隆冬跑山"
+      ],
+      "type": "road_running",
+      "status": "unknown",
+      "year": null,
+      "month": null,
+      "date": null,
+      "country": "中国",
+      "province": "unknown",
+      "city": "unknown",
+      "region": "unknown",
+      "categories": [
+        {
+          "id": "zuicool-12z4mk-main",
+          "name": "组别待补全",
+          "distanceKm": 0,
+          "elevationGain": 0,
+          "difficultyLevel": "L1",
+          "difficultyScore": 0,
+          "beginnerFriendly": false
+        }
+      ],
+      "sources": [
+        {
+          "source": "zuicool",
+          "sourceUrl": "https://zuicool.com/event/24150",
+          "confidence": 20,
+          "lastUpdatedAt": "2026-06-26T09:53:25.201Z"
+        }
+      ],
+      "fieldSources": {
+        "name": "zuicool",
+        "type": "zuicool",
+        "status": "placeholder",
+        "summary": "placeholder",
+        "year": "placeholder",
+        "month": "placeholder",
+        "date": "placeholder",
+        "country": "placeholder",
+        "province": "placeholder",
+        "city": "placeholder",
+        "region": "placeholder",
+        "distanceKm": "placeholder",
+        "elevationGain": "placeholder",
+        "officialUrl": "placeholder",
+        "registrationUrl": "placeholder",
+        "categories": "placeholder",
+        "tags": "placeholder",
+        "decision": "placeholder"
+      },
+      "dataQuality": "unverified",
+      "verified": false,
+      "missingFields": [
+        "date",
+        "province",
+        "city",
+        "distanceKm",
+        "elevationGain",
+        "registrationUrl",
+        "officialUrl"
+      ],
+      "mergeNotes": [],
+      "mergeTrace": [
+        {
+          "field": "canonicalName",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "西湖青芝坞隆冬跑山",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceType",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "road_running",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "registrationStatus",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "Latest Timestamp Wins",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "Latest Timestamp Wins: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "editionId",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "Ignore External",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "Ignore External: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceDate",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceDate",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "country",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "中国",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "province",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "city",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "region",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "officialWebsite",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "registrationUrl",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        }
+      ],
+      "updatedAt": "2026-06-26T09:53:25.203Z"
+    },
+    {
+      "id": "canonical-zuicool-6kxrvw",
+      "canonicalName": "霞路相逢·三山五岳 庐山越野",
+      "aliases": [
+        "霞路相逢·三山五岳 庐山越野"
+      ],
+      "type": "trail",
+      "status": "unknown",
+      "year": null,
+      "month": null,
+      "date": null,
+      "country": "中国",
+      "province": "unknown",
+      "city": "unknown",
+      "region": "unknown",
+      "categories": [
+        {
+          "id": "zuicool-6kxrvw-main",
+          "name": "越野组别待补全",
+          "distanceKm": 0,
+          "elevationGain": 0,
+          "difficultyLevel": "L1",
+          "difficultyScore": 0,
+          "beginnerFriendly": false
+        }
+      ],
+      "sources": [
+        {
+          "source": "zuicool",
+          "sourceUrl": "https://zuicool.com/event/39593",
+          "confidence": 20,
+          "lastUpdatedAt": "2026-06-26T09:53:25.201Z"
+        }
+      ],
+      "fieldSources": {
+        "name": "zuicool",
+        "type": "zuicool",
+        "status": "placeholder",
+        "summary": "placeholder",
+        "year": "placeholder",
+        "month": "placeholder",
+        "date": "placeholder",
+        "country": "placeholder",
+        "province": "placeholder",
+        "city": "placeholder",
+        "region": "placeholder",
+        "distanceKm": "placeholder",
+        "elevationGain": "placeholder",
+        "officialUrl": "placeholder",
+        "registrationUrl": "placeholder",
+        "categories": "placeholder",
+        "tags": "placeholder",
+        "decision": "placeholder"
+      },
+      "dataQuality": "unverified",
+      "verified": false,
+      "missingFields": [
+        "date",
+        "province",
+        "city",
+        "distanceKm",
+        "elevationGain",
+        "registrationUrl",
+        "officialUrl"
+      ],
+      "mergeNotes": [],
+      "mergeTrace": [
+        {
+          "field": "canonicalName",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "霞路相逢·三山五岳 庐山越野",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceType",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "trail",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "registrationStatus",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "Latest Timestamp Wins",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "Latest Timestamp Wins: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "editionId",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "Ignore External",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "Ignore External: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceDate",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceDate",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "country",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "中国",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "province",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "city",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "region",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "officialWebsite",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "registrationUrl",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        }
+      ],
+      "updatedAt": "2026-06-26T09:53:25.203Z"
+    },
+    {
+      "id": "canonical-zuicool-1n6hf9",
+      "canonicalName": "“好运山东” 威海半程马拉松暨山东省马拉松联赛 威海站",
+      "aliases": [
+        "“好运山东” 威海半程马拉松暨山东省马拉松联赛 威海站"
+      ],
+      "type": "half_marathon",
+      "status": "unknown",
+      "year": null,
+      "month": null,
+      "date": null,
+      "country": "中国",
+      "province": "山东",
+      "city": "unknown",
+      "region": "east_china",
+      "categories": [
+        {
+          "id": "zuicool-1n6hf9-main",
+          "name": "半程马拉松",
+          "distanceKm": 21.1,
+          "elevationGain": 0,
+          "difficultyLevel": "L1",
+          "difficultyScore": 0,
+          "beginnerFriendly": false
+        }
+      ],
+      "sources": [
+        {
+          "source": "zuicool",
+          "sourceUrl": "https://zuicool.com/event/74836",
+          "confidence": 35,
+          "lastUpdatedAt": "2026-06-26T09:53:25.201Z"
+        }
+      ],
+      "fieldSources": {
+        "name": "zuicool",
+        "type": "zuicool",
+        "status": "placeholder",
+        "summary": "placeholder",
+        "year": "placeholder",
+        "month": "placeholder",
+        "date": "placeholder",
+        "country": "zuicool",
+        "province": "zuicool",
+        "city": "placeholder",
+        "region": "zuicool",
+        "distanceKm": "zuicool",
+        "elevationGain": "placeholder",
+        "officialUrl": "placeholder",
+        "registrationUrl": "placeholder",
+        "categories": "zuicool",
+        "tags": "placeholder",
+        "decision": "placeholder"
+      },
+      "dataQuality": "unverified",
+      "verified": false,
+      "missingFields": [
+        "date",
+        "city",
+        "elevationGain",
+        "registrationUrl",
+        "officialUrl"
+      ],
+      "mergeNotes": [],
+      "mergeTrace": [
+        {
+          "field": "canonicalName",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "“好运山东” 威海半程马拉松暨山东省马拉松联赛 威海站",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceType",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "half_marathon",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "registrationStatus",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "Latest Timestamp Wins",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "Latest Timestamp Wins: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "editionId",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "Ignore External",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "Ignore External: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceDate",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceDate",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "country",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "中国",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "province",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "山东",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "city",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "region",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "east_china",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "officialWebsite",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "registrationUrl",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        }
+      ],
+      "updatedAt": "2026-06-26T09:53:25.203Z"
+    },
+    {
+      "id": "canonical-zuicool-16xhru",
+      "canonicalName": "南非开普敦马拉松",
+      "aliases": [
+        "南非开普敦马拉松"
+      ],
+      "type": "marathon",
+      "status": "unknown",
+      "year": null,
+      "month": null,
+      "date": null,
+      "country": "中国",
+      "province": "unknown",
+      "city": "unknown",
+      "region": "unknown",
+      "categories": [
+        {
+          "id": "zuicool-16xhru-main",
+          "name": "全程马拉松",
+          "distanceKm": 42.2,
+          "elevationGain": 0,
+          "difficultyLevel": "L1",
+          "difficultyScore": 0,
+          "beginnerFriendly": false
+        }
+      ],
+      "sources": [
+        {
+          "source": "zuicool",
+          "sourceUrl": "https://zuicool.com/event/31591",
+          "confidence": 35,
+          "lastUpdatedAt": "2026-06-26T09:53:25.201Z"
+        }
+      ],
+      "fieldSources": {
+        "name": "zuicool",
+        "type": "zuicool",
+        "status": "placeholder",
+        "summary": "placeholder",
+        "year": "placeholder",
+        "month": "placeholder",
+        "date": "placeholder",
+        "country": "placeholder",
+        "province": "placeholder",
+        "city": "placeholder",
+        "region": "placeholder",
+        "distanceKm": "zuicool",
+        "elevationGain": "placeholder",
+        "officialUrl": "placeholder",
+        "registrationUrl": "placeholder",
+        "categories": "zuicool",
+        "tags": "placeholder",
+        "decision": "placeholder"
+      },
+      "dataQuality": "unverified",
+      "verified": false,
+      "missingFields": [
+        "date",
+        "province",
+        "city",
+        "elevationGain",
+        "registrationUrl",
+        "officialUrl"
+      ],
+      "mergeNotes": [],
+      "mergeTrace": [
+        {
+          "field": "canonicalName",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "南非开普敦马拉松",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceType",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "marathon",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "registrationStatus",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "Latest Timestamp Wins",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "Latest Timestamp Wins: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "editionId",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "Ignore External",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "Ignore External: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceDate",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceDate",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "country",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "中国",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "province",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "city",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "region",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "officialWebsite",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "registrationUrl",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        }
+      ],
+      "updatedAt": "2026-06-26T09:53:25.203Z"
+    },
+    {
+      "id": "canonical-zuicool-1lwvor",
+      "canonicalName": "中国万达·黄河口 东营 马拉松",
+      "aliases": [
+        "中国万达·黄河口 东营 马拉松"
+      ],
+      "type": "marathon",
+      "status": "unknown",
+      "year": null,
+      "month": null,
+      "date": null,
+      "country": "中国",
+      "province": "unknown",
+      "city": "unknown",
+      "region": "unknown",
+      "categories": [
+        {
+          "id": "zuicool-1lwvor-main",
+          "name": "全程马拉松",
+          "distanceKm": 42.2,
+          "elevationGain": 0,
+          "difficultyLevel": "L1",
+          "difficultyScore": 0,
+          "beginnerFriendly": false
+        }
+      ],
+      "sources": [
+        {
+          "source": "zuicool",
+          "sourceUrl": "https://zuicool.com/event/14392",
+          "confidence": 35,
+          "lastUpdatedAt": "2026-06-26T09:53:25.201Z"
+        }
+      ],
+      "fieldSources": {
+        "name": "zuicool",
+        "type": "zuicool",
+        "status": "placeholder",
+        "summary": "placeholder",
+        "year": "placeholder",
+        "month": "placeholder",
+        "date": "placeholder",
+        "country": "placeholder",
+        "province": "placeholder",
+        "city": "placeholder",
+        "region": "placeholder",
+        "distanceKm": "zuicool",
+        "elevationGain": "placeholder",
+        "officialUrl": "placeholder",
+        "registrationUrl": "placeholder",
+        "categories": "zuicool",
+        "tags": "placeholder",
+        "decision": "placeholder"
+      },
+      "dataQuality": "unverified",
+      "verified": false,
+      "missingFields": [
+        "date",
+        "province",
+        "city",
+        "elevationGain",
+        "registrationUrl",
+        "officialUrl"
+      ],
+      "mergeNotes": [],
+      "mergeTrace": [
+        {
+          "field": "canonicalName",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "中国万达·黄河口 东营 马拉松",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceType",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "marathon",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "registrationStatus",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "Latest Timestamp Wins",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "Latest Timestamp Wins: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "editionId",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "Ignore External",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "Ignore External: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceDate",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceDate",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "country",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "中国",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "province",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "city",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "region",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "officialWebsite",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "registrationUrl",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        }
+      ],
+      "updatedAt": "2026-06-26T09:53:25.203Z"
+    },
+    {
+      "id": "canonical-zuicool-15mp26",
+      "canonicalName": "中国银行天津团泊湖半程马拉松",
+      "aliases": [
+        "中国银行天津团泊湖半程马拉松"
+      ],
+      "type": "half_marathon",
+      "status": "unknown",
+      "year": null,
+      "month": null,
+      "date": null,
+      "country": "中国",
+      "province": "天津",
+      "city": "天津",
+      "region": "north_china",
+      "categories": [
+        {
+          "id": "zuicool-15mp26-main",
+          "name": "半程马拉松",
+          "distanceKm": 21.1,
+          "elevationGain": 0,
+          "difficultyLevel": "L1",
+          "difficultyScore": 0,
+          "beginnerFriendly": false
+        }
+      ],
+      "sources": [
+        {
+          "source": "zuicool",
+          "sourceUrl": "https://zuicool.com/event/72137",
+          "confidence": 50,
+          "lastUpdatedAt": "2026-06-26T09:53:25.201Z"
+        }
+      ],
+      "fieldSources": {
+        "name": "zuicool",
+        "type": "zuicool",
+        "status": "placeholder",
+        "summary": "placeholder",
+        "year": "placeholder",
+        "month": "placeholder",
+        "date": "placeholder",
+        "country": "zuicool",
+        "province": "zuicool",
+        "city": "zuicool",
+        "region": "zuicool",
+        "distanceKm": "zuicool",
+        "elevationGain": "placeholder",
+        "officialUrl": "placeholder",
+        "registrationUrl": "placeholder",
+        "categories": "zuicool",
+        "tags": "placeholder",
+        "decision": "placeholder"
+      },
+      "dataQuality": "unverified",
+      "verified": false,
+      "missingFields": [
+        "date",
+        "elevationGain",
+        "registrationUrl",
+        "officialUrl"
+      ],
+      "mergeNotes": [],
+      "mergeTrace": [
+        {
+          "field": "canonicalName",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "中国银行天津团泊湖半程马拉松",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceType",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "half_marathon",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "registrationStatus",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "unknown",
+          "strategy": "Latest Timestamp Wins",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "Latest Timestamp Wins: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "editionId",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "Ignore External",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "Ignore External: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceDate",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "raceDate",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": null,
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "country",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "中国",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "province",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "天津",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "city",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "天津",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "region",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "newValue": "north_china",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "officialWebsite",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        },
+        {
+          "field": "registrationUrl",
+          "source": "zuicool",
+          "selectedSource": "zuicool",
+          "selectedSourceName": "zuicool",
+          "strategy": "First Available",
+          "timestamp": "2026-06-26T09:53:25.203Z",
+          "operator": "Merge Engine",
+          "reason": "First Available: selected zuicool by source priority and non-empty value."
+        }
+      ],
+      "updatedAt": "2026-06-26T09:53:25.203Z"
+    }
+  ],
+  "mergeSummary": {
+    "normalizedRaceTotal": 20,
+    "canonicalRaceTotal": 20,
+    "autoMergedGroups": 0,
+    "autoMergedRaceCount": 0,
+    "reviewRequiredTotal": 0
+  },
+  "mergeReviewList": []
+}

@@ -1,0 +1,4198 @@
+{
+  "generatedAt": "2026-06-30T09:27:57.502Z",
+  "summary": {
+    "normalizedCount": 40,
+    "mergedCount": 40,
+    "conflictCount": 0,
+    "mergedGroups": 0
+  },
+  "records": [
+    {
+      "id": "merged-天津团泊湖半程马拉松-天津市-2026",
+      "normalizedName": "天津团泊湖半程马拉松",
+      "originalNames": [
+        "2026天津团泊湖半程马拉松"
+      ],
+      "editionYear": 2026,
+      "raceDate": "2026-09-27",
+      "province": "天津市",
+      "city": "天津市",
+      "district": "静海区",
+      "venue": null,
+      "registrationStatus": "1",
+      "registrationUrl": null,
+      "coverImage": null,
+      "categories": [
+        {
+          "categoryName": "半程",
+          "distanceKm": 21.1,
+          "elevationGain": null,
+          "cutoffTime": null,
+          "registrationFee": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "runchina"
+      ],
+      "sources": [
+        {
+          "sourceId": "runchina",
+          "rawId": "1000419209",
+          "sourceUrl": "https://www.runchina.org.cn/#/race/v/detail/1000419209"
+        }
+      ],
+      "fieldSources": {
+        "raceDate": "runchina",
+        "registrationUrl": "runchina",
+        "coverImage": "runchina",
+        "normalizedName": "runchina",
+        "editionYear": "runchina",
+        "province": "runchina",
+        "city": "runchina",
+        "district": "runchina",
+        "venue": "runchina",
+        "registrationStatus": "runchina"
+      },
+      "conflicts": [],
+      "mergeTrace": [
+        {
+          "field": "raceDate",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for raceDate"
+        },
+        {
+          "field": "registrationUrl",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for registrationUrl"
+        },
+        {
+          "field": "coverImage",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for coverImage"
+        },
+        {
+          "field": "normalizedName",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for normalizedName"
+        },
+        {
+          "field": "editionYear",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for editionYear"
+        },
+        {
+          "field": "province",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for province"
+        },
+        {
+          "field": "city",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for city"
+        },
+        {
+          "field": "district",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for district"
+        },
+        {
+          "field": "venue",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for venue"
+        },
+        {
+          "field": "registrationStatus",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for registrationStatus"
+        }
+      ],
+      "missingFields": [
+        "registrationUrl"
+      ],
+      "confidence": 0.86
+    },
+    {
+      "id": "merged-长春莲花山半程马拉松-长春市-2026",
+      "normalizedName": "长春莲花山半程马拉松",
+      "originalNames": [
+        "2026长春莲花山半程马拉松"
+      ],
+      "editionYear": 2026,
+      "raceDate": "2026-09-06",
+      "province": "吉林省",
+      "city": "长春市",
+      "district": null,
+      "venue": null,
+      "registrationStatus": "1",
+      "registrationUrl": null,
+      "coverImage": null,
+      "categories": [
+        {
+          "categoryName": "半程",
+          "distanceKm": 21.1,
+          "elevationGain": null,
+          "cutoffTime": null,
+          "registrationFee": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "runchina"
+      ],
+      "sources": [
+        {
+          "sourceId": "runchina",
+          "rawId": "1000419212",
+          "sourceUrl": "https://www.runchina.org.cn/#/race/v/detail/1000419212"
+        }
+      ],
+      "fieldSources": {
+        "raceDate": "runchina",
+        "registrationUrl": "runchina",
+        "coverImage": "runchina",
+        "normalizedName": "runchina",
+        "editionYear": "runchina",
+        "province": "runchina",
+        "city": "runchina",
+        "district": "runchina",
+        "venue": "runchina",
+        "registrationStatus": "runchina"
+      },
+      "conflicts": [],
+      "mergeTrace": [
+        {
+          "field": "raceDate",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for raceDate"
+        },
+        {
+          "field": "registrationUrl",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for registrationUrl"
+        },
+        {
+          "field": "coverImage",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for coverImage"
+        },
+        {
+          "field": "normalizedName",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for normalizedName"
+        },
+        {
+          "field": "editionYear",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for editionYear"
+        },
+        {
+          "field": "province",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for province"
+        },
+        {
+          "field": "city",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for city"
+        },
+        {
+          "field": "district",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for district"
+        },
+        {
+          "field": "venue",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for venue"
+        },
+        {
+          "field": "registrationStatus",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for registrationStatus"
+        }
+      ],
+      "missingFields": [
+        "registrationUrl"
+      ],
+      "confidence": 0.86
+    },
+    {
+      "id": "merged-多彩贵州半程马拉松超级联赛暨威宁半程马拉松-毕节市-2026",
+      "normalizedName": "多彩贵州半程马拉松超级联赛暨威宁半程马拉松",
+      "originalNames": [
+        "2026多彩贵州半程马拉松超级联赛（第三站）暨威宁半程马拉松"
+      ],
+      "editionYear": 2026,
+      "raceDate": "2026-08-23",
+      "province": "贵州省",
+      "city": "毕节市",
+      "district": null,
+      "venue": null,
+      "registrationStatus": "1",
+      "registrationUrl": null,
+      "coverImage": null,
+      "categories": [
+        {
+          "categoryName": "半程",
+          "distanceKm": 21.1,
+          "elevationGain": null,
+          "cutoffTime": null,
+          "registrationFee": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "runchina"
+      ],
+      "sources": [
+        {
+          "sourceId": "runchina",
+          "rawId": "1000419216",
+          "sourceUrl": "https://www.runchina.org.cn/#/race/v/detail/1000419216"
+        }
+      ],
+      "fieldSources": {
+        "raceDate": "runchina",
+        "registrationUrl": "runchina",
+        "coverImage": "runchina",
+        "normalizedName": "runchina",
+        "editionYear": "runchina",
+        "province": "runchina",
+        "city": "runchina",
+        "district": "runchina",
+        "venue": "runchina",
+        "registrationStatus": "runchina"
+      },
+      "conflicts": [],
+      "mergeTrace": [
+        {
+          "field": "raceDate",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for raceDate"
+        },
+        {
+          "field": "registrationUrl",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for registrationUrl"
+        },
+        {
+          "field": "coverImage",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for coverImage"
+        },
+        {
+          "field": "normalizedName",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for normalizedName"
+        },
+        {
+          "field": "editionYear",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for editionYear"
+        },
+        {
+          "field": "province",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for province"
+        },
+        {
+          "field": "city",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for city"
+        },
+        {
+          "field": "district",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for district"
+        },
+        {
+          "field": "venue",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for venue"
+        },
+        {
+          "field": "registrationStatus",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for registrationStatus"
+        }
+      ],
+      "missingFields": [
+        "registrationUrl"
+      ],
+      "confidence": 0.86
+    },
+    {
+      "id": "merged-鹤庆半程马拉松-大理白族自治州-2026",
+      "normalizedName": "鹤庆半程马拉松",
+      "originalNames": [
+        "2026鹤庆半程马拉松"
+      ],
+      "editionYear": 2026,
+      "raceDate": "2026-08-16",
+      "province": "云南省",
+      "city": "大理白族自治州",
+      "district": null,
+      "venue": null,
+      "registrationStatus": "1",
+      "registrationUrl": null,
+      "coverImage": null,
+      "categories": [
+        {
+          "categoryName": "半程",
+          "distanceKm": 21.1,
+          "elevationGain": null,
+          "cutoffTime": null,
+          "registrationFee": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "runchina"
+      ],
+      "sources": [
+        {
+          "sourceId": "runchina",
+          "rawId": "1000419218",
+          "sourceUrl": "https://www.runchina.org.cn/#/race/v/detail/1000419218"
+        }
+      ],
+      "fieldSources": {
+        "raceDate": "runchina",
+        "registrationUrl": "runchina",
+        "coverImage": "runchina",
+        "normalizedName": "runchina",
+        "editionYear": "runchina",
+        "province": "runchina",
+        "city": "runchina",
+        "district": "runchina",
+        "venue": "runchina",
+        "registrationStatus": "runchina"
+      },
+      "conflicts": [],
+      "mergeTrace": [
+        {
+          "field": "raceDate",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for raceDate"
+        },
+        {
+          "field": "registrationUrl",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for registrationUrl"
+        },
+        {
+          "field": "coverImage",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for coverImage"
+        },
+        {
+          "field": "normalizedName",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for normalizedName"
+        },
+        {
+          "field": "editionYear",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for editionYear"
+        },
+        {
+          "field": "province",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for province"
+        },
+        {
+          "field": "city",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for city"
+        },
+        {
+          "field": "district",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for district"
+        },
+        {
+          "field": "venue",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for venue"
+        },
+        {
+          "field": "registrationStatus",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for registrationStatus"
+        }
+      ],
+      "missingFields": [
+        "registrationUrl"
+      ],
+      "confidence": 0.86
+    },
+    {
+      "id": "merged-阿尔山马拉松-兴安盟-2026",
+      "normalizedName": "阿尔山马拉松",
+      "originalNames": [
+        "2026阿尔山马拉松"
+      ],
+      "editionYear": 2026,
+      "raceDate": "2026-08-09",
+      "province": "内蒙古自治区",
+      "city": "兴安盟",
+      "district": null,
+      "venue": null,
+      "registrationStatus": "1",
+      "registrationUrl": null,
+      "coverImage": null,
+      "categories": [
+        {
+          "categoryName": "全程",
+          "distanceKm": 42.2,
+          "elevationGain": null,
+          "cutoffTime": null,
+          "registrationFee": null,
+          "categoryRegistrationUrl": null
+        },
+        {
+          "categoryName": "半程",
+          "distanceKm": 21.1,
+          "elevationGain": null,
+          "cutoffTime": null,
+          "registrationFee": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "runchina"
+      ],
+      "sources": [
+        {
+          "sourceId": "runchina",
+          "rawId": "1000420190",
+          "sourceUrl": "https://www.runchina.org.cn/#/race/v/detail/1000420190"
+        }
+      ],
+      "fieldSources": {
+        "raceDate": "runchina",
+        "registrationUrl": "runchina",
+        "coverImage": "runchina",
+        "normalizedName": "runchina",
+        "editionYear": "runchina",
+        "province": "runchina",
+        "city": "runchina",
+        "district": "runchina",
+        "venue": "runchina",
+        "registrationStatus": "runchina"
+      },
+      "conflicts": [],
+      "mergeTrace": [
+        {
+          "field": "raceDate",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for raceDate"
+        },
+        {
+          "field": "registrationUrl",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for registrationUrl"
+        },
+        {
+          "field": "coverImage",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for coverImage"
+        },
+        {
+          "field": "normalizedName",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for normalizedName"
+        },
+        {
+          "field": "editionYear",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for editionYear"
+        },
+        {
+          "field": "province",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for province"
+        },
+        {
+          "field": "city",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for city"
+        },
+        {
+          "field": "district",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for district"
+        },
+        {
+          "field": "venue",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for venue"
+        },
+        {
+          "field": "registrationStatus",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for registrationStatus"
+        }
+      ],
+      "missingFields": [
+        "registrationUrl"
+      ],
+      "confidence": 0.86
+    },
+    {
+      "id": "merged-楚雄马拉松-楚雄彝族自治州-2026",
+      "normalizedName": "楚雄马拉松",
+      "originalNames": [
+        "2026楚雄马拉松"
+      ],
+      "editionYear": 2026,
+      "raceDate": "2026-08-02",
+      "province": "云南省",
+      "city": "楚雄彝族自治州",
+      "district": null,
+      "venue": null,
+      "registrationStatus": null,
+      "registrationUrl": null,
+      "coverImage": null,
+      "categories": [
+        {
+          "categoryName": "全程",
+          "distanceKm": 42.2,
+          "elevationGain": null,
+          "cutoffTime": null,
+          "registrationFee": null,
+          "categoryRegistrationUrl": null
+        },
+        {
+          "categoryName": "半程",
+          "distanceKm": 21.1,
+          "elevationGain": null,
+          "cutoffTime": null,
+          "registrationFee": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "runchina"
+      ],
+      "sources": [
+        {
+          "sourceId": "runchina",
+          "rawId": "1000418254",
+          "sourceUrl": "https://www.runchina.org.cn/#/race/v/detail/1000418254"
+        }
+      ],
+      "fieldSources": {
+        "raceDate": "runchina",
+        "registrationUrl": "runchina",
+        "coverImage": "runchina",
+        "normalizedName": "runchina",
+        "editionYear": "runchina",
+        "province": "runchina",
+        "city": "runchina",
+        "district": "runchina",
+        "venue": "runchina",
+        "registrationStatus": "runchina"
+      },
+      "conflicts": [],
+      "mergeTrace": [
+        {
+          "field": "raceDate",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for raceDate"
+        },
+        {
+          "field": "registrationUrl",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for registrationUrl"
+        },
+        {
+          "field": "coverImage",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for coverImage"
+        },
+        {
+          "field": "normalizedName",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for normalizedName"
+        },
+        {
+          "field": "editionYear",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for editionYear"
+        },
+        {
+          "field": "province",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for province"
+        },
+        {
+          "field": "city",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for city"
+        },
+        {
+          "field": "district",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for district"
+        },
+        {
+          "field": "venue",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for venue"
+        },
+        {
+          "field": "registrationStatus",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for registrationStatus"
+        }
+      ],
+      "missingFields": [
+        "registrationStatus",
+        "registrationUrl"
+      ],
+      "confidence": 0.73
+    },
+    {
+      "id": "merged-临泽马拉松-张掖市-2026",
+      "normalizedName": "临泽马拉松",
+      "originalNames": [
+        "2026临泽马拉松"
+      ],
+      "editionYear": 2026,
+      "raceDate": "2026-06-28",
+      "province": "甘肃省",
+      "city": "张掖市",
+      "district": "临泽县",
+      "venue": null,
+      "registrationStatus": null,
+      "registrationUrl": null,
+      "coverImage": null,
+      "categories": [
+        {
+          "categoryName": "全程",
+          "distanceKm": 42.2,
+          "elevationGain": null,
+          "cutoffTime": null,
+          "registrationFee": null,
+          "categoryRegistrationUrl": null
+        },
+        {
+          "categoryName": "半程",
+          "distanceKm": 21.1,
+          "elevationGain": null,
+          "cutoffTime": null,
+          "registrationFee": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "runchina"
+      ],
+      "sources": [
+        {
+          "sourceId": "runchina",
+          "rawId": "1000427003",
+          "sourceUrl": "https://www.runchina.org.cn/#/race/v/detail/1000427003"
+        }
+      ],
+      "fieldSources": {
+        "raceDate": "runchina",
+        "registrationUrl": "runchina",
+        "coverImage": "runchina",
+        "normalizedName": "runchina",
+        "editionYear": "runchina",
+        "province": "runchina",
+        "city": "runchina",
+        "district": "runchina",
+        "venue": "runchina",
+        "registrationStatus": "runchina"
+      },
+      "conflicts": [],
+      "mergeTrace": [
+        {
+          "field": "raceDate",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for raceDate"
+        },
+        {
+          "field": "registrationUrl",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for registrationUrl"
+        },
+        {
+          "field": "coverImage",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for coverImage"
+        },
+        {
+          "field": "normalizedName",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for normalizedName"
+        },
+        {
+          "field": "editionYear",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for editionYear"
+        },
+        {
+          "field": "province",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for province"
+        },
+        {
+          "field": "city",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for city"
+        },
+        {
+          "field": "district",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for district"
+        },
+        {
+          "field": "venue",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for venue"
+        },
+        {
+          "field": "registrationStatus",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for registrationStatus"
+        }
+      ],
+      "missingFields": [
+        "registrationStatus",
+        "registrationUrl"
+      ],
+      "confidence": 0.73
+    },
+    {
+      "id": "merged-西宁半程马拉松-西宁市-2026",
+      "normalizedName": "西宁半程马拉松",
+      "originalNames": [
+        "2026西宁半程马拉松"
+      ],
+      "editionYear": 2026,
+      "raceDate": "2026-06-28",
+      "province": "青海省",
+      "city": "西宁市",
+      "district": "城西区",
+      "venue": null,
+      "registrationStatus": null,
+      "registrationUrl": null,
+      "coverImage": null,
+      "categories": [
+        {
+          "categoryName": "半程",
+          "distanceKm": 21.1,
+          "elevationGain": null,
+          "cutoffTime": null,
+          "registrationFee": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "runchina"
+      ],
+      "sources": [
+        {
+          "sourceId": "runchina",
+          "rawId": "1000418037",
+          "sourceUrl": "https://www.runchina.org.cn/#/race/v/detail/1000418037"
+        }
+      ],
+      "fieldSources": {
+        "raceDate": "runchina",
+        "registrationUrl": "runchina",
+        "coverImage": "runchina",
+        "normalizedName": "runchina",
+        "editionYear": "runchina",
+        "province": "runchina",
+        "city": "runchina",
+        "district": "runchina",
+        "venue": "runchina",
+        "registrationStatus": "runchina"
+      },
+      "conflicts": [],
+      "mergeTrace": [
+        {
+          "field": "raceDate",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for raceDate"
+        },
+        {
+          "field": "registrationUrl",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for registrationUrl"
+        },
+        {
+          "field": "coverImage",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for coverImage"
+        },
+        {
+          "field": "normalizedName",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for normalizedName"
+        },
+        {
+          "field": "editionYear",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for editionYear"
+        },
+        {
+          "field": "province",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for province"
+        },
+        {
+          "field": "city",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for city"
+        },
+        {
+          "field": "district",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for district"
+        },
+        {
+          "field": "venue",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for venue"
+        },
+        {
+          "field": "registrationStatus",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for registrationStatus"
+        }
+      ],
+      "missingFields": [
+        "registrationStatus",
+        "registrationUrl"
+      ],
+      "confidence": 0.73
+    },
+    {
+      "id": "merged-多彩贵州半程马拉松超级联赛暨贵州镇宁黄果树半程马拉松-安顺市-2026",
+      "normalizedName": "多彩贵州半程马拉松超级联赛暨贵州镇宁黄果树半程马拉松",
+      "originalNames": [
+        "2026多彩贵州半程马拉松超级联赛（第二站）暨贵州 ·镇宁黄果树半程马拉松"
+      ],
+      "editionYear": 2026,
+      "raceDate": "2026-06-28",
+      "province": "贵州省",
+      "city": "安顺市",
+      "district": "镇宁布依族苗族自治县",
+      "venue": null,
+      "registrationStatus": null,
+      "registrationUrl": null,
+      "coverImage": null,
+      "categories": [
+        {
+          "categoryName": "半程",
+          "distanceKm": 21.1,
+          "elevationGain": null,
+          "cutoffTime": null,
+          "registrationFee": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "runchina"
+      ],
+      "sources": [
+        {
+          "sourceId": "runchina",
+          "rawId": "1000418017",
+          "sourceUrl": "https://www.runchina.org.cn/#/race/v/detail/1000418017"
+        }
+      ],
+      "fieldSources": {
+        "raceDate": "runchina",
+        "registrationUrl": "runchina",
+        "coverImage": "runchina",
+        "normalizedName": "runchina",
+        "editionYear": "runchina",
+        "province": "runchina",
+        "city": "runchina",
+        "district": "runchina",
+        "venue": "runchina",
+        "registrationStatus": "runchina"
+      },
+      "conflicts": [],
+      "mergeTrace": [
+        {
+          "field": "raceDate",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for raceDate"
+        },
+        {
+          "field": "registrationUrl",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for registrationUrl"
+        },
+        {
+          "field": "coverImage",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for coverImage"
+        },
+        {
+          "field": "normalizedName",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for normalizedName"
+        },
+        {
+          "field": "editionYear",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for editionYear"
+        },
+        {
+          "field": "province",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for province"
+        },
+        {
+          "field": "city",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for city"
+        },
+        {
+          "field": "district",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for district"
+        },
+        {
+          "field": "venue",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for venue"
+        },
+        {
+          "field": "registrationStatus",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for registrationStatus"
+        }
+      ],
+      "missingFields": [
+        "registrationStatus",
+        "registrationUrl"
+      ],
+      "confidence": 0.73
+    },
+    {
+      "id": "merged-宁夏中卫沙漠星空半程马拉松-中卫市-2026",
+      "normalizedName": "宁夏中卫沙漠星空半程马拉松",
+      "originalNames": [
+        "2026宁夏中卫沙漠星空半程马拉松"
+      ],
+      "editionYear": 2026,
+      "raceDate": "2026-06-27",
+      "province": "宁夏回族自治区",
+      "city": "中卫市",
+      "district": "沙坡头区",
+      "venue": null,
+      "registrationStatus": null,
+      "registrationUrl": null,
+      "coverImage": null,
+      "categories": [
+        {
+          "categoryName": "半程",
+          "distanceKm": 21.1,
+          "elevationGain": null,
+          "cutoffTime": null,
+          "registrationFee": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "runchina"
+      ],
+      "sources": [
+        {
+          "sourceId": "runchina",
+          "rawId": "1000419142",
+          "sourceUrl": "https://www.runchina.org.cn/#/race/v/detail/1000419142"
+        }
+      ],
+      "fieldSources": {
+        "raceDate": "runchina",
+        "registrationUrl": "runchina",
+        "coverImage": "runchina",
+        "normalizedName": "runchina",
+        "editionYear": "runchina",
+        "province": "runchina",
+        "city": "runchina",
+        "district": "runchina",
+        "venue": "runchina",
+        "registrationStatus": "runchina"
+      },
+      "conflicts": [],
+      "mergeTrace": [
+        {
+          "field": "raceDate",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for raceDate"
+        },
+        {
+          "field": "registrationUrl",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for registrationUrl"
+        },
+        {
+          "field": "coverImage",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for coverImage"
+        },
+        {
+          "field": "normalizedName",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for normalizedName"
+        },
+        {
+          "field": "editionYear",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for editionYear"
+        },
+        {
+          "field": "province",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for province"
+        },
+        {
+          "field": "city",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for city"
+        },
+        {
+          "field": "district",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for district"
+        },
+        {
+          "field": "venue",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for venue"
+        },
+        {
+          "field": "registrationStatus",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for registrationStatus"
+        }
+      ],
+      "missingFields": [
+        "registrationStatus",
+        "registrationUrl"
+      ],
+      "confidence": 0.73
+    },
+    {
+      "id": "merged-塔城半程马拉松-塔城地区-2026",
+      "normalizedName": "塔城半程马拉松",
+      "originalNames": [
+        "2026塔城半程马拉松"
+      ],
+      "editionYear": 2026,
+      "raceDate": "2026-06-21",
+      "province": "新疆维吾尔自治区",
+      "city": "塔城地区",
+      "district": "塔城市",
+      "venue": null,
+      "registrationStatus": null,
+      "registrationUrl": null,
+      "coverImage": null,
+      "categories": [
+        {
+          "categoryName": "半程",
+          "distanceKm": 21.1,
+          "elevationGain": null,
+          "cutoffTime": null,
+          "registrationFee": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "runchina"
+      ],
+      "sources": [
+        {
+          "sourceId": "runchina",
+          "rawId": "1000420034",
+          "sourceUrl": "https://www.runchina.org.cn/#/race/v/detail/1000420034"
+        }
+      ],
+      "fieldSources": {
+        "raceDate": "runchina",
+        "registrationUrl": "runchina",
+        "coverImage": "runchina",
+        "normalizedName": "runchina",
+        "editionYear": "runchina",
+        "province": "runchina",
+        "city": "runchina",
+        "district": "runchina",
+        "venue": "runchina",
+        "registrationStatus": "runchina"
+      },
+      "conflicts": [],
+      "mergeTrace": [
+        {
+          "field": "raceDate",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for raceDate"
+        },
+        {
+          "field": "registrationUrl",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for registrationUrl"
+        },
+        {
+          "field": "coverImage",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for coverImage"
+        },
+        {
+          "field": "normalizedName",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for normalizedName"
+        },
+        {
+          "field": "editionYear",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for editionYear"
+        },
+        {
+          "field": "province",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for province"
+        },
+        {
+          "field": "city",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for city"
+        },
+        {
+          "field": "district",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for district"
+        },
+        {
+          "field": "venue",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for venue"
+        },
+        {
+          "field": "registrationStatus",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for registrationStatus"
+        }
+      ],
+      "missingFields": [
+        "registrationStatus",
+        "registrationUrl"
+      ],
+      "confidence": 0.73
+    },
+    {
+      "id": "merged-昆明半程马拉松-昆明市-2026",
+      "normalizedName": "昆明半程马拉松",
+      "originalNames": [
+        "2026昆明半程马拉松"
+      ],
+      "editionYear": 2026,
+      "raceDate": "2026-06-21",
+      "province": "云南省",
+      "city": "昆明市",
+      "district": null,
+      "venue": null,
+      "registrationStatus": null,
+      "registrationUrl": null,
+      "coverImage": null,
+      "categories": [
+        {
+          "categoryName": "半程",
+          "distanceKm": 21.1,
+          "elevationGain": null,
+          "cutoffTime": null,
+          "registrationFee": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "runchina"
+      ],
+      "sources": [
+        {
+          "sourceId": "runchina",
+          "rawId": "1000419039",
+          "sourceUrl": "https://www.runchina.org.cn/#/race/v/detail/1000419039"
+        }
+      ],
+      "fieldSources": {
+        "raceDate": "runchina",
+        "registrationUrl": "runchina",
+        "coverImage": "runchina",
+        "normalizedName": "runchina",
+        "editionYear": "runchina",
+        "province": "runchina",
+        "city": "runchina",
+        "district": "runchina",
+        "venue": "runchina",
+        "registrationStatus": "runchina"
+      },
+      "conflicts": [],
+      "mergeTrace": [
+        {
+          "field": "raceDate",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for raceDate"
+        },
+        {
+          "field": "registrationUrl",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for registrationUrl"
+        },
+        {
+          "field": "coverImage",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for coverImage"
+        },
+        {
+          "field": "normalizedName",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for normalizedName"
+        },
+        {
+          "field": "editionYear",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for editionYear"
+        },
+        {
+          "field": "province",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for province"
+        },
+        {
+          "field": "city",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for city"
+        },
+        {
+          "field": "district",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for district"
+        },
+        {
+          "field": "venue",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for venue"
+        },
+        {
+          "field": "registrationStatus",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for registrationStatus"
+        }
+      ],
+      "missingFields": [
+        "registrationStatus",
+        "registrationUrl"
+      ],
+      "confidence": 0.73
+    },
+    {
+      "id": "merged-嘉峪关长城马拉松-嘉峪关市-2026",
+      "normalizedName": "嘉峪关长城马拉松",
+      "originalNames": [
+        "2026嘉峪关长城马拉松"
+      ],
+      "editionYear": 2026,
+      "raceDate": "2026-06-21",
+      "province": "甘肃省",
+      "city": "嘉峪关市",
+      "district": "市辖区",
+      "venue": null,
+      "registrationStatus": null,
+      "registrationUrl": null,
+      "coverImage": null,
+      "categories": [
+        {
+          "categoryName": "全程",
+          "distanceKm": 42.2,
+          "elevationGain": null,
+          "cutoffTime": null,
+          "registrationFee": null,
+          "categoryRegistrationUrl": null
+        },
+        {
+          "categoryName": "半程",
+          "distanceKm": 21.1,
+          "elevationGain": null,
+          "cutoffTime": null,
+          "registrationFee": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "runchina"
+      ],
+      "sources": [
+        {
+          "sourceId": "runchina",
+          "rawId": "1000385021",
+          "sourceUrl": "https://www.runchina.org.cn/#/race/v/detail/1000385021"
+        }
+      ],
+      "fieldSources": {
+        "raceDate": "runchina",
+        "registrationUrl": "runchina",
+        "coverImage": "runchina",
+        "normalizedName": "runchina",
+        "editionYear": "runchina",
+        "province": "runchina",
+        "city": "runchina",
+        "district": "runchina",
+        "venue": "runchina",
+        "registrationStatus": "runchina"
+      },
+      "conflicts": [],
+      "mergeTrace": [
+        {
+          "field": "raceDate",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for raceDate"
+        },
+        {
+          "field": "registrationUrl",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for registrationUrl"
+        },
+        {
+          "field": "coverImage",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for coverImage"
+        },
+        {
+          "field": "normalizedName",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for normalizedName"
+        },
+        {
+          "field": "editionYear",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for editionYear"
+        },
+        {
+          "field": "province",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for province"
+        },
+        {
+          "field": "city",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for city"
+        },
+        {
+          "field": "district",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for district"
+        },
+        {
+          "field": "venue",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for venue"
+        },
+        {
+          "field": "registrationStatus",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for registrationStatus"
+        }
+      ],
+      "missingFields": [
+        "registrationStatus",
+        "registrationUrl"
+      ],
+      "confidence": 0.73
+    },
+    {
+      "id": "merged-中俄跨境马拉松暨黑河马拉松-黑河市-2026",
+      "normalizedName": "中俄跨境马拉松暨黑河马拉松",
+      "originalNames": [
+        "2026中俄跨境马拉松暨黑河马拉松"
+      ],
+      "editionYear": 2026,
+      "raceDate": "2026-06-20",
+      "province": "黑龙江省",
+      "city": "黑河市",
+      "district": "爱辉区",
+      "venue": null,
+      "registrationStatus": null,
+      "registrationUrl": null,
+      "coverImage": null,
+      "categories": [
+        {
+          "categoryName": "全程",
+          "distanceKm": 42.2,
+          "elevationGain": null,
+          "cutoffTime": null,
+          "registrationFee": null,
+          "categoryRegistrationUrl": null
+        },
+        {
+          "categoryName": "半程",
+          "distanceKm": 21.1,
+          "elevationGain": null,
+          "cutoffTime": null,
+          "registrationFee": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "runchina"
+      ],
+      "sources": [
+        {
+          "sourceId": "runchina",
+          "rawId": "1000442001",
+          "sourceUrl": "https://www.runchina.org.cn/#/race/v/detail/1000442001"
+        }
+      ],
+      "fieldSources": {
+        "raceDate": "runchina",
+        "registrationUrl": "runchina",
+        "coverImage": "runchina",
+        "normalizedName": "runchina",
+        "editionYear": "runchina",
+        "province": "runchina",
+        "city": "runchina",
+        "district": "runchina",
+        "venue": "runchina",
+        "registrationStatus": "runchina"
+      },
+      "conflicts": [],
+      "mergeTrace": [
+        {
+          "field": "raceDate",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for raceDate"
+        },
+        {
+          "field": "registrationUrl",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for registrationUrl"
+        },
+        {
+          "field": "coverImage",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for coverImage"
+        },
+        {
+          "field": "normalizedName",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for normalizedName"
+        },
+        {
+          "field": "editionYear",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for editionYear"
+        },
+        {
+          "field": "province",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for province"
+        },
+        {
+          "field": "city",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for city"
+        },
+        {
+          "field": "district",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for district"
+        },
+        {
+          "field": "venue",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for venue"
+        },
+        {
+          "field": "registrationStatus",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for registrationStatus"
+        }
+      ],
+      "missingFields": [
+        "registrationStatus",
+        "registrationUrl"
+      ],
+      "confidence": 0.73
+    },
+    {
+      "id": "merged-乌兰察布马拉松-乌兰察布市-2026",
+      "normalizedName": "乌兰察布马拉松",
+      "originalNames": [
+        "2026乌兰察布马拉松"
+      ],
+      "editionYear": 2026,
+      "raceDate": "2026-06-14",
+      "province": "内蒙古自治区",
+      "city": "乌兰察布市",
+      "district": "集宁区",
+      "venue": null,
+      "registrationStatus": null,
+      "registrationUrl": null,
+      "coverImage": null,
+      "categories": [
+        {
+          "categoryName": "全程",
+          "distanceKm": 42.2,
+          "elevationGain": null,
+          "cutoffTime": null,
+          "registrationFee": null,
+          "categoryRegistrationUrl": null
+        },
+        {
+          "categoryName": "半程",
+          "distanceKm": 21.1,
+          "elevationGain": null,
+          "cutoffTime": null,
+          "registrationFee": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "runchina"
+      ],
+      "sources": [
+        {
+          "sourceId": "runchina",
+          "rawId": "1000419192",
+          "sourceUrl": "https://www.runchina.org.cn/#/race/v/detail/1000419192"
+        }
+      ],
+      "fieldSources": {
+        "raceDate": "runchina",
+        "registrationUrl": "runchina",
+        "coverImage": "runchina",
+        "normalizedName": "runchina",
+        "editionYear": "runchina",
+        "province": "runchina",
+        "city": "runchina",
+        "district": "runchina",
+        "venue": "runchina",
+        "registrationStatus": "runchina"
+      },
+      "conflicts": [],
+      "mergeTrace": [
+        {
+          "field": "raceDate",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for raceDate"
+        },
+        {
+          "field": "registrationUrl",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for registrationUrl"
+        },
+        {
+          "field": "coverImage",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for coverImage"
+        },
+        {
+          "field": "normalizedName",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for normalizedName"
+        },
+        {
+          "field": "editionYear",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for editionYear"
+        },
+        {
+          "field": "province",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for province"
+        },
+        {
+          "field": "city",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for city"
+        },
+        {
+          "field": "district",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for district"
+        },
+        {
+          "field": "venue",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for venue"
+        },
+        {
+          "field": "registrationStatus",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for registrationStatus"
+        }
+      ],
+      "missingFields": [
+        "registrationStatus",
+        "registrationUrl"
+      ],
+      "confidence": 0.73
+    },
+    {
+      "id": "merged-嫩江半程马拉松-黑河市-2026",
+      "normalizedName": "嫩江半程马拉松",
+      "originalNames": [
+        "2026嫩江半程马拉松"
+      ],
+      "editionYear": 2026,
+      "raceDate": "2026-06-14",
+      "province": "黑龙江省",
+      "city": "黑河市",
+      "district": "嫩江市",
+      "venue": null,
+      "registrationStatus": null,
+      "registrationUrl": null,
+      "coverImage": null,
+      "categories": [
+        {
+          "categoryName": "半程",
+          "distanceKm": 21.1,
+          "elevationGain": null,
+          "cutoffTime": null,
+          "registrationFee": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "runchina"
+      ],
+      "sources": [
+        {
+          "sourceId": "runchina",
+          "rawId": "1000419137",
+          "sourceUrl": "https://www.runchina.org.cn/#/race/v/detail/1000419137"
+        }
+      ],
+      "fieldSources": {
+        "raceDate": "runchina",
+        "registrationUrl": "runchina",
+        "coverImage": "runchina",
+        "normalizedName": "runchina",
+        "editionYear": "runchina",
+        "province": "runchina",
+        "city": "runchina",
+        "district": "runchina",
+        "venue": "runchina",
+        "registrationStatus": "runchina"
+      },
+      "conflicts": [],
+      "mergeTrace": [
+        {
+          "field": "raceDate",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for raceDate"
+        },
+        {
+          "field": "registrationUrl",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for registrationUrl"
+        },
+        {
+          "field": "coverImage",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for coverImage"
+        },
+        {
+          "field": "normalizedName",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for normalizedName"
+        },
+        {
+          "field": "editionYear",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for editionYear"
+        },
+        {
+          "field": "province",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for province"
+        },
+        {
+          "field": "city",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for city"
+        },
+        {
+          "field": "district",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for district"
+        },
+        {
+          "field": "venue",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for venue"
+        },
+        {
+          "field": "registrationStatus",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for registrationStatus"
+        }
+      ],
+      "missingFields": [
+        "registrationStatus",
+        "registrationUrl"
+      ],
+      "confidence": 0.73
+    },
+    {
+      "id": "merged-沁水半程马拉松-晋城市-2026",
+      "normalizedName": "沁水半程马拉松",
+      "originalNames": [
+        "2026沁水半程马拉松"
+      ],
+      "editionYear": 2026,
+      "raceDate": "2026-06-14",
+      "province": "山西省",
+      "city": "晋城市",
+      "district": "沁水县",
+      "venue": null,
+      "registrationStatus": null,
+      "registrationUrl": null,
+      "coverImage": null,
+      "categories": [
+        {
+          "categoryName": "半程",
+          "distanceKm": 21.1,
+          "elevationGain": null,
+          "cutoffTime": null,
+          "registrationFee": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "runchina"
+      ],
+      "sources": [
+        {
+          "sourceId": "runchina",
+          "rawId": "1000419119",
+          "sourceUrl": "https://www.runchina.org.cn/#/race/v/detail/1000419119"
+        }
+      ],
+      "fieldSources": {
+        "raceDate": "runchina",
+        "registrationUrl": "runchina",
+        "coverImage": "runchina",
+        "normalizedName": "runchina",
+        "editionYear": "runchina",
+        "province": "runchina",
+        "city": "runchina",
+        "district": "runchina",
+        "venue": "runchina",
+        "registrationStatus": "runchina"
+      },
+      "conflicts": [],
+      "mergeTrace": [
+        {
+          "field": "raceDate",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for raceDate"
+        },
+        {
+          "field": "registrationUrl",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for registrationUrl"
+        },
+        {
+          "field": "coverImage",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for coverImage"
+        },
+        {
+          "field": "normalizedName",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for normalizedName"
+        },
+        {
+          "field": "editionYear",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for editionYear"
+        },
+        {
+          "field": "province",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for province"
+        },
+        {
+          "field": "city",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for city"
+        },
+        {
+          "field": "district",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for district"
+        },
+        {
+          "field": "venue",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for venue"
+        },
+        {
+          "field": "registrationStatus",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for registrationStatus"
+        }
+      ],
+      "missingFields": [
+        "registrationStatus",
+        "registrationUrl"
+      ],
+      "confidence": 0.73
+    },
+    {
+      "id": "merged-多彩贵州马拉松超级联赛暨贵阳马拉松-贵阳市-2026",
+      "normalizedName": "多彩贵州马拉松超级联赛暨贵阳马拉松",
+      "originalNames": [
+        "2026多彩贵州马拉松超级联赛（第三站）暨贵阳马拉松"
+      ],
+      "editionYear": 2026,
+      "raceDate": "2026-06-14",
+      "province": "贵州省",
+      "city": "贵阳市",
+      "district": "观山湖区",
+      "venue": null,
+      "registrationStatus": null,
+      "registrationUrl": null,
+      "coverImage": null,
+      "categories": [
+        {
+          "categoryName": "全程",
+          "distanceKm": 42.2,
+          "elevationGain": null,
+          "cutoffTime": null,
+          "registrationFee": null,
+          "categoryRegistrationUrl": null
+        },
+        {
+          "categoryName": "半程",
+          "distanceKm": 21.1,
+          "elevationGain": null,
+          "cutoffTime": null,
+          "registrationFee": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "runchina"
+      ],
+      "sources": [
+        {
+          "sourceId": "runchina",
+          "rawId": "1000419044",
+          "sourceUrl": "https://www.runchina.org.cn/#/race/v/detail/1000419044"
+        }
+      ],
+      "fieldSources": {
+        "raceDate": "runchina",
+        "registrationUrl": "runchina",
+        "coverImage": "runchina",
+        "normalizedName": "runchina",
+        "editionYear": "runchina",
+        "province": "runchina",
+        "city": "runchina",
+        "district": "runchina",
+        "venue": "runchina",
+        "registrationStatus": "runchina"
+      },
+      "conflicts": [],
+      "mergeTrace": [
+        {
+          "field": "raceDate",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for raceDate"
+        },
+        {
+          "field": "registrationUrl",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for registrationUrl"
+        },
+        {
+          "field": "coverImage",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for coverImage"
+        },
+        {
+          "field": "normalizedName",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for normalizedName"
+        },
+        {
+          "field": "editionYear",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for editionYear"
+        },
+        {
+          "field": "province",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for province"
+        },
+        {
+          "field": "city",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for city"
+        },
+        {
+          "field": "district",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for district"
+        },
+        {
+          "field": "venue",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for venue"
+        },
+        {
+          "field": "registrationStatus",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for registrationStatus"
+        }
+      ],
+      "missingFields": [
+        "registrationStatus",
+        "registrationUrl"
+      ],
+      "confidence": 0.73
+    },
+    {
+      "id": "merged-避暑天堂康养临夏马拉松-临夏回族自治州-2026",
+      "normalizedName": "避暑天堂康养临夏马拉松",
+      "originalNames": [
+        "2026“避暑天堂·康养临夏”马拉松"
+      ],
+      "editionYear": 2026,
+      "raceDate": "2026-06-14",
+      "province": "甘肃省",
+      "city": "临夏回族自治州",
+      "district": "临夏市",
+      "venue": null,
+      "registrationStatus": null,
+      "registrationUrl": null,
+      "coverImage": null,
+      "categories": [
+        {
+          "categoryName": "全程",
+          "distanceKm": 42.2,
+          "elevationGain": null,
+          "cutoffTime": null,
+          "registrationFee": null,
+          "categoryRegistrationUrl": null
+        },
+        {
+          "categoryName": "半程",
+          "distanceKm": 21.1,
+          "elevationGain": null,
+          "cutoffTime": null,
+          "registrationFee": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "runchina"
+      ],
+      "sources": [
+        {
+          "sourceId": "runchina",
+          "rawId": "1000418019",
+          "sourceUrl": "https://www.runchina.org.cn/#/race/v/detail/1000418019"
+        }
+      ],
+      "fieldSources": {
+        "raceDate": "runchina",
+        "registrationUrl": "runchina",
+        "coverImage": "runchina",
+        "normalizedName": "runchina",
+        "editionYear": "runchina",
+        "province": "runchina",
+        "city": "runchina",
+        "district": "runchina",
+        "venue": "runchina",
+        "registrationStatus": "runchina"
+      },
+      "conflicts": [],
+      "mergeTrace": [
+        {
+          "field": "raceDate",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for raceDate"
+        },
+        {
+          "field": "registrationUrl",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for registrationUrl"
+        },
+        {
+          "field": "coverImage",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for coverImage"
+        },
+        {
+          "field": "normalizedName",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for normalizedName"
+        },
+        {
+          "field": "editionYear",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for editionYear"
+        },
+        {
+          "field": "province",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for province"
+        },
+        {
+          "field": "city",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for city"
+        },
+        {
+          "field": "district",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for district"
+        },
+        {
+          "field": "venue",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for venue"
+        },
+        {
+          "field": "registrationStatus",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for registrationStatus"
+        }
+      ],
+      "missingFields": [
+        "registrationStatus",
+        "registrationUrl"
+      ],
+      "confidence": 0.73
+    },
+    {
+      "id": "merged-呼和浩特半程马拉松-呼和浩特市-2026",
+      "normalizedName": "呼和浩特半程马拉松",
+      "originalNames": [
+        "2026呼和浩特半程马拉松"
+      ],
+      "editionYear": 2026,
+      "raceDate": "2026-05-31",
+      "province": "内蒙古自治区",
+      "city": "呼和浩特市",
+      "district": "赛罕区",
+      "venue": null,
+      "registrationStatus": null,
+      "registrationUrl": null,
+      "coverImage": null,
+      "categories": [
+        {
+          "categoryName": "半程",
+          "distanceKm": 21.1,
+          "elevationGain": null,
+          "cutoffTime": null,
+          "registrationFee": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "runchina"
+      ],
+      "sources": [
+        {
+          "sourceId": "runchina",
+          "rawId": "1000420081",
+          "sourceUrl": "https://www.runchina.org.cn/#/race/v/detail/1000420081"
+        }
+      ],
+      "fieldSources": {
+        "raceDate": "runchina",
+        "registrationUrl": "runchina",
+        "coverImage": "runchina",
+        "normalizedName": "runchina",
+        "editionYear": "runchina",
+        "province": "runchina",
+        "city": "runchina",
+        "district": "runchina",
+        "venue": "runchina",
+        "registrationStatus": "runchina"
+      },
+      "conflicts": [],
+      "mergeTrace": [
+        {
+          "field": "raceDate",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for raceDate"
+        },
+        {
+          "field": "registrationUrl",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for registrationUrl"
+        },
+        {
+          "field": "coverImage",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for coverImage"
+        },
+        {
+          "field": "normalizedName",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for normalizedName"
+        },
+        {
+          "field": "editionYear",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for editionYear"
+        },
+        {
+          "field": "province",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for province"
+        },
+        {
+          "field": "city",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for city"
+        },
+        {
+          "field": "district",
+          "selectedSource": "runchina",
+          "reason": "runchina -> zuicool priority for district"
+        },
+        {
+          "field": "venue",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for venue"
+        },
+        {
+          "field": "registrationStatus",
+          "selectedSource": "runchina",
+          "reason": "zuicool -> runchina priority for registrationStatus"
+        }
+      ],
+      "missingFields": [
+        "registrationStatus",
+        "registrationUrl"
+      ],
+      "confidence": 0.73
+    },
+    {
+      "id": "merged-凯乐石贡嘎100冰川极限挑战-甘孜藏族自治州-2026",
+      "normalizedName": "凯乐石贡嘎100冰川极限挑战",
+      "originalNames": [
+        "2026凯乐石贡嘎100冰川极限挑战赛"
+      ],
+      "editionYear": 2026,
+      "raceDate": "2026-09-26",
+      "province": "四川",
+      "city": "甘孜藏族自治州",
+      "district": "泸定县",
+      "venue": "海螺沟游客中心",
+      "registrationStatus": "registration_open",
+      "registrationUrl": "https://reg.zuicool.com/33836",
+      "coverImage": "https://s.pro.zuicool.com/events/86332/logo-01KVSCWP62Q73RHGVFM3JJFN9E.jpg",
+      "categories": [
+        {
+          "categoryName": "冰川极境100km组",
+          "distanceKm": 100,
+          "elevationGain": 7025,
+          "cutoffTime": "关门时间2026年9月27日06:00（30小时）",
+          "registrationFee": 2300,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/33836/206309"
+        },
+        {
+          "categoryName": "雪域逐峰60km组",
+          "distanceKm": 60,
+          "elevationGain": 5129,
+          "cutoffTime": "关门时间2026年9月26日16:00（20小时）",
+          "registrationFee": 1200,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/33836/214074"
+        },
+        {
+          "categoryName": "野径觉醒40km组",
+          "distanceKm": 40,
+          "elevationGain": 2771,
+          "cutoffTime": "关门时间2026年9月26日18:00（12小时）",
+          "registrationFee": 700,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/33836/261615"
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "sources": [
+        {
+          "sourceId": "zuicool",
+          "rawId": "86332",
+          "sourceUrl": "https://zuicool.com/event/86332"
+        }
+      ],
+      "fieldSources": {
+        "raceDate": "zuicool",
+        "registrationUrl": "zuicool",
+        "coverImage": "zuicool",
+        "normalizedName": "zuicool",
+        "editionYear": "zuicool",
+        "province": "zuicool",
+        "city": "zuicool",
+        "district": "zuicool",
+        "venue": "zuicool",
+        "registrationStatus": "zuicool"
+      },
+      "conflicts": [],
+      "mergeTrace": [
+        {
+          "field": "raceDate",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for raceDate"
+        },
+        {
+          "field": "registrationUrl",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for registrationUrl"
+        },
+        {
+          "field": "coverImage",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for coverImage"
+        },
+        {
+          "field": "normalizedName",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for normalizedName"
+        },
+        {
+          "field": "editionYear",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for editionYear"
+        },
+        {
+          "field": "province",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for province"
+        },
+        {
+          "field": "city",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for city"
+        },
+        {
+          "field": "district",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for district"
+        },
+        {
+          "field": "venue",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for venue"
+        },
+        {
+          "field": "registrationStatus",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for registrationStatus"
+        }
+      ],
+      "missingFields": [],
+      "confidence": 0.78
+    },
+    {
+      "id": "merged-澳康达2026天津武清半程马拉松-武清区-2026",
+      "normalizedName": "澳康达2026天津武清半程马拉松",
+      "originalNames": [
+        "澳康达·2026天津武清半程马拉松"
+      ],
+      "editionYear": 2026,
+      "raceDate": "2026-10-06",
+      "province": "天津",
+      "city": "武清区",
+      "district": "武清体育中心南广场",
+      "venue": null,
+      "registrationStatus": "registration_open",
+      "registrationUrl": "https://reg.zuicool.com/31881",
+      "coverImage": "https://s.pro.zuicool.com/events/79237/logo-01KCYC06PKS9AQ6D4BZ48GJC7X.jpg",
+      "categories": [
+        {
+          "categoryName": "半程马拉松（21.0975公里）",
+          "distanceKm": 21.1,
+          "elevationGain": null,
+          "cutoffTime": null,
+          "registrationFee": 150,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/31881/202417"
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "sources": [
+        {
+          "sourceId": "zuicool",
+          "rawId": "79237",
+          "sourceUrl": "https://zuicool.com/event/79237"
+        }
+      ],
+      "fieldSources": {
+        "raceDate": "zuicool",
+        "registrationUrl": "zuicool",
+        "coverImage": "zuicool",
+        "normalizedName": "zuicool",
+        "editionYear": "zuicool",
+        "province": "zuicool",
+        "city": "zuicool",
+        "district": "zuicool",
+        "venue": "zuicool",
+        "registrationStatus": "zuicool"
+      },
+      "conflicts": [],
+      "mergeTrace": [
+        {
+          "field": "raceDate",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for raceDate"
+        },
+        {
+          "field": "registrationUrl",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for registrationUrl"
+        },
+        {
+          "field": "coverImage",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for coverImage"
+        },
+        {
+          "field": "normalizedName",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for normalizedName"
+        },
+        {
+          "field": "editionYear",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for editionYear"
+        },
+        {
+          "field": "province",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for province"
+        },
+        {
+          "field": "city",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for city"
+        },
+        {
+          "field": "district",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for district"
+        },
+        {
+          "field": "venue",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for venue"
+        },
+        {
+          "field": "registrationStatus",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for registrationStatus"
+        }
+      ],
+      "missingFields": [],
+      "confidence": 0.78
+    },
+    {
+      "id": "merged-fuga西湖青芝坞隆冬跑山-杭州市-2026",
+      "normalizedName": "fuga西湖青芝坞隆冬跑山",
+      "originalNames": [
+        "2026FUGA西湖青芝坞隆冬跑山赛"
+      ],
+      "editionYear": 2026,
+      "raceDate": "2026-12-12",
+      "province": "浙江",
+      "city": "杭州市",
+      "district": "西湖区",
+      "venue": "黄龙体育中心(东广场)",
+      "registrationStatus": "registration_open",
+      "registrationUrl": "https://reg.zuicool.com/76044",
+      "coverImage": "https://s.pro.zuicool.com/events/24150/logo-01KVQTRM7NSRGP5D1KPEHV3T98.jpg",
+      "categories": [
+        {
+          "categoryName": "西湖42K",
+          "distanceKm": 42,
+          "elevationGain": null,
+          "cutoffTime": "关门时间12月12日17:00",
+          "registrationFee": 558,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/76044/288880"
+        },
+        {
+          "categoryName": "黄龙32K",
+          "distanceKm": 33.5,
+          "elevationGain": null,
+          "cutoffTime": "关门时间12月12日14:40",
+          "registrationFee": 468,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/76044/214745"
+        },
+        {
+          "categoryName": "灵隐20K",
+          "distanceKm": 20.5,
+          "elevationGain": null,
+          "cutoffTime": "关门时间12月12日12:30",
+          "registrationFee": 388,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/76044/269339"
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "sources": [
+        {
+          "sourceId": "zuicool",
+          "rawId": "24150",
+          "sourceUrl": "https://zuicool.com/event/24150"
+        }
+      ],
+      "fieldSources": {
+        "raceDate": "zuicool",
+        "registrationUrl": "zuicool",
+        "coverImage": "zuicool",
+        "normalizedName": "zuicool",
+        "editionYear": "zuicool",
+        "province": "zuicool",
+        "city": "zuicool",
+        "district": "zuicool",
+        "venue": "zuicool",
+        "registrationStatus": "zuicool"
+      },
+      "conflicts": [],
+      "mergeTrace": [
+        {
+          "field": "raceDate",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for raceDate"
+        },
+        {
+          "field": "registrationUrl",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for registrationUrl"
+        },
+        {
+          "field": "coverImage",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for coverImage"
+        },
+        {
+          "field": "normalizedName",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for normalizedName"
+        },
+        {
+          "field": "editionYear",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for editionYear"
+        },
+        {
+          "field": "province",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for province"
+        },
+        {
+          "field": "city",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for city"
+        },
+        {
+          "field": "district",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for district"
+        },
+        {
+          "field": "venue",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for venue"
+        },
+        {
+          "field": "registrationStatus",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for registrationStatus"
+        }
+      ],
+      "missingFields": [],
+      "confidence": 0.75
+    },
+    {
+      "id": "merged-佳木斯半程马拉松-佳木斯市-2026",
+      "normalizedName": "佳木斯半程马拉松",
+      "originalNames": [
+        "2026佳木斯半程马拉松"
+      ],
+      "editionYear": 2026,
+      "raceDate": null,
+      "province": "黑龙江",
+      "city": "佳木斯市",
+      "district": "文体会展中心",
+      "venue": null,
+      "registrationStatus": null,
+      "registrationUrl": null,
+      "coverImage": "https://s.pro.zuicool.com/events/37456/logo-01KD35P5FMGPDXXE3SGPKS540G.jpeg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "sources": [
+        {
+          "sourceId": "zuicool",
+          "rawId": "37456",
+          "sourceUrl": "https://zuicool.com/event/37456"
+        }
+      ],
+      "fieldSources": {
+        "raceDate": "zuicool",
+        "registrationUrl": "zuicool",
+        "coverImage": "zuicool",
+        "normalizedName": "zuicool",
+        "editionYear": "zuicool",
+        "province": "zuicool",
+        "city": "zuicool",
+        "district": "zuicool",
+        "venue": "zuicool",
+        "registrationStatus": "zuicool"
+      },
+      "conflicts": [],
+      "mergeTrace": [
+        {
+          "field": "raceDate",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for raceDate"
+        },
+        {
+          "field": "registrationUrl",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for registrationUrl"
+        },
+        {
+          "field": "coverImage",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for coverImage"
+        },
+        {
+          "field": "normalizedName",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for normalizedName"
+        },
+        {
+          "field": "editionYear",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for editionYear"
+        },
+        {
+          "field": "province",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for province"
+        },
+        {
+          "field": "city",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for city"
+        },
+        {
+          "field": "district",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for district"
+        },
+        {
+          "field": "venue",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for venue"
+        },
+        {
+          "field": "registrationStatus",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for registrationStatus"
+        }
+      ],
+      "missingFields": [
+        "raceDate",
+        "registrationStatus",
+        "registrationUrl",
+        "categories"
+      ],
+      "confidence": 0.59
+    },
+    {
+      "id": "merged-九成宫杯陕西宝鸡麟游夏季半程马拉松-宝鸡市-2026",
+      "normalizedName": "九成宫杯陕西宝鸡麟游夏季半程马拉松",
+      "originalNames": [
+        "2026“九成宫杯”陕西宝鸡・麟游夏季半程马拉松"
+      ],
+      "editionYear": 2026,
+      "raceDate": null,
+      "province": "陕西",
+      "city": "宝鸡市",
+      "district": "麟游县",
+      "venue": null,
+      "registrationStatus": null,
+      "registrationUrl": null,
+      "coverImage": "https://zc3-op.bkt.zuicool.com/poster_tmp_head.jpg",
+      "categories": [],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "sources": [
+        {
+          "sourceId": "zuicool",
+          "rawId": "75522",
+          "sourceUrl": "https://zuicool.com/event/75522"
+        }
+      ],
+      "fieldSources": {
+        "raceDate": "zuicool",
+        "registrationUrl": "zuicool",
+        "coverImage": "zuicool",
+        "normalizedName": "zuicool",
+        "editionYear": "zuicool",
+        "province": "zuicool",
+        "city": "zuicool",
+        "district": "zuicool",
+        "venue": "zuicool",
+        "registrationStatus": "zuicool"
+      },
+      "conflicts": [],
+      "mergeTrace": [
+        {
+          "field": "raceDate",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for raceDate"
+        },
+        {
+          "field": "registrationUrl",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for registrationUrl"
+        },
+        {
+          "field": "coverImage",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for coverImage"
+        },
+        {
+          "field": "normalizedName",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for normalizedName"
+        },
+        {
+          "field": "editionYear",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for editionYear"
+        },
+        {
+          "field": "province",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for province"
+        },
+        {
+          "field": "city",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for city"
+        },
+        {
+          "field": "district",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for district"
+        },
+        {
+          "field": "venue",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for venue"
+        },
+        {
+          "field": "registrationStatus",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for registrationStatus"
+        }
+      ],
+      "missingFields": [
+        "raceDate",
+        "registrationStatus",
+        "registrationUrl",
+        "categories"
+      ],
+      "confidence": 0.59
+    },
+    {
+      "id": "merged-香港回归线上马拉松-unknown-2026",
+      "normalizedName": "香港回归线上马拉松",
+      "originalNames": [
+        "2026香港回归线上马拉松"
+      ],
+      "editionYear": 2026,
+      "raceDate": "2026-07-02",
+      "province": "不限地点",
+      "city": null,
+      "district": null,
+      "venue": null,
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "coverImage": "https://s.pro.zuicool.com/events/81703/logo-01KV4X513JWPKE0P8TG9VQRP5W.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "sources": [
+        {
+          "sourceId": "zuicool",
+          "rawId": "81703",
+          "sourceUrl": "https://zuicool.com/event/81703"
+        }
+      ],
+      "fieldSources": {
+        "raceDate": "zuicool",
+        "registrationUrl": "zuicool",
+        "coverImage": "zuicool",
+        "normalizedName": "zuicool",
+        "editionYear": "zuicool",
+        "province": "zuicool",
+        "city": "zuicool",
+        "district": "zuicool",
+        "venue": "zuicool",
+        "registrationStatus": "zuicool"
+      },
+      "conflicts": [],
+      "mergeTrace": [
+        {
+          "field": "raceDate",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for raceDate"
+        },
+        {
+          "field": "registrationUrl",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for registrationUrl"
+        },
+        {
+          "field": "coverImage",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for coverImage"
+        },
+        {
+          "field": "normalizedName",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for normalizedName"
+        },
+        {
+          "field": "editionYear",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for editionYear"
+        },
+        {
+          "field": "province",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for province"
+        },
+        {
+          "field": "city",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for city"
+        },
+        {
+          "field": "district",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for district"
+        },
+        {
+          "field": "venue",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for venue"
+        },
+        {
+          "field": "registrationStatus",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for registrationStatus"
+        }
+      ],
+      "missingFields": [
+        "city",
+        "registrationUrl",
+        "categories"
+      ],
+      "confidence": 0.59
+    },
+    {
+      "id": "merged-户外特工第三届伊春九峰山越野-伊春市-2026",
+      "normalizedName": "户外特工第三届伊春九峰山越野",
+      "originalNames": [
+        "2026户外特工第三届伊春九峰山越野赛"
+      ],
+      "editionYear": 2026,
+      "raceDate": "2026-07-03",
+      "province": "黑龙江",
+      "city": "伊春市",
+      "district": "金林区",
+      "venue": "九峰山养心谷景区大舞台",
+      "registrationStatus": null,
+      "registrationUrl": null,
+      "coverImage": "https://s.pro.zuicool.com/events/75629/logo-01KHBV7SEEY0XN0287V7NMCZFE.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "sources": [
+        {
+          "sourceId": "zuicool",
+          "rawId": "75629",
+          "sourceUrl": "https://zuicool.com/event/75629"
+        }
+      ],
+      "fieldSources": {
+        "raceDate": "zuicool",
+        "registrationUrl": "zuicool",
+        "coverImage": "zuicool",
+        "normalizedName": "zuicool",
+        "editionYear": "zuicool",
+        "province": "zuicool",
+        "city": "zuicool",
+        "district": "zuicool",
+        "venue": "zuicool",
+        "registrationStatus": "zuicool"
+      },
+      "conflicts": [],
+      "mergeTrace": [
+        {
+          "field": "raceDate",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for raceDate"
+        },
+        {
+          "field": "registrationUrl",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for registrationUrl"
+        },
+        {
+          "field": "coverImage",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for coverImage"
+        },
+        {
+          "field": "normalizedName",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for normalizedName"
+        },
+        {
+          "field": "editionYear",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for editionYear"
+        },
+        {
+          "field": "province",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for province"
+        },
+        {
+          "field": "city",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for city"
+        },
+        {
+          "field": "district",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for district"
+        },
+        {
+          "field": "venue",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for venue"
+        },
+        {
+          "field": "registrationStatus",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for registrationStatus"
+        }
+      ],
+      "missingFields": [
+        "registrationStatus",
+        "registrationUrl",
+        "categories"
+      ],
+      "confidence": 0.59
+    },
+    {
+      "id": "merged-内蒙古户外运动休闲产业大会系列活动万里茶道2026健康十英里-呼和浩特市-2026",
+      "normalizedName": "内蒙古户外运动休闲产业大会系列活动万里茶道2026健康十英里",
+      "originalNames": [
+        "内蒙古户外运动休闲产业大会系列活动“万里茶道”2026健康十英里（呼和浩特站）"
+      ],
+      "editionYear": 2026,
+      "raceDate": "2026-07-04",
+      "province": "内蒙古",
+      "city": "呼和浩特市",
+      "district": "赛罕区",
+      "venue": "大黑河军事主题公园",
+      "registrationStatus": null,
+      "registrationUrl": null,
+      "coverImage": "https://s.pro.zuicool.com/events/60978/logo-01KVQQEVEX9S4KAAD49TCMMFD9.png?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "sources": [
+        {
+          "sourceId": "zuicool",
+          "rawId": "60978",
+          "sourceUrl": "https://zuicool.com/event/60978"
+        }
+      ],
+      "fieldSources": {
+        "raceDate": "zuicool",
+        "registrationUrl": "zuicool",
+        "coverImage": "zuicool",
+        "normalizedName": "zuicool",
+        "editionYear": "zuicool",
+        "province": "zuicool",
+        "city": "zuicool",
+        "district": "zuicool",
+        "venue": "zuicool",
+        "registrationStatus": "zuicool"
+      },
+      "conflicts": [],
+      "mergeTrace": [
+        {
+          "field": "raceDate",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for raceDate"
+        },
+        {
+          "field": "registrationUrl",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for registrationUrl"
+        },
+        {
+          "field": "coverImage",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for coverImage"
+        },
+        {
+          "field": "normalizedName",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for normalizedName"
+        },
+        {
+          "field": "editionYear",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for editionYear"
+        },
+        {
+          "field": "province",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for province"
+        },
+        {
+          "field": "city",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for city"
+        },
+        {
+          "field": "district",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for district"
+        },
+        {
+          "field": "venue",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for venue"
+        },
+        {
+          "field": "registrationStatus",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for registrationStatus"
+        }
+      ],
+      "missingFields": [
+        "registrationStatus",
+        "registrationUrl",
+        "categories"
+      ],
+      "confidence": 0.59
+    },
+    {
+      "id": "merged-fhfn2026极速宝安城市超跑-深圳市-2026",
+      "normalizedName": "fhfn2026极速宝安城市超跑",
+      "originalNames": [
+        "FHFN·2026“极速宝安”城市超跑（松岗赛场）"
+      ],
+      "editionYear": 2026,
+      "raceDate": "2026-07-04",
+      "province": "广东",
+      "city": "深圳市",
+      "district": "宝安区",
+      "venue": "松岗街道五指耙森林公园",
+      "registrationStatus": null,
+      "registrationUrl": null,
+      "coverImage": "https://s.pro.zuicool.com/events/54441/logo-01KRBHT9W35KEXMW3FG24CEX8K.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "sources": [
+        {
+          "sourceId": "zuicool",
+          "rawId": "54441",
+          "sourceUrl": "https://zuicool.com/event/54441"
+        }
+      ],
+      "fieldSources": {
+        "raceDate": "zuicool",
+        "registrationUrl": "zuicool",
+        "coverImage": "zuicool",
+        "normalizedName": "zuicool",
+        "editionYear": "zuicool",
+        "province": "zuicool",
+        "city": "zuicool",
+        "district": "zuicool",
+        "venue": "zuicool",
+        "registrationStatus": "zuicool"
+      },
+      "conflicts": [],
+      "mergeTrace": [
+        {
+          "field": "raceDate",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for raceDate"
+        },
+        {
+          "field": "registrationUrl",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for registrationUrl"
+        },
+        {
+          "field": "coverImage",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for coverImage"
+        },
+        {
+          "field": "normalizedName",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for normalizedName"
+        },
+        {
+          "field": "editionYear",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for editionYear"
+        },
+        {
+          "field": "province",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for province"
+        },
+        {
+          "field": "city",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for city"
+        },
+        {
+          "field": "district",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for district"
+        },
+        {
+          "field": "venue",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for venue"
+        },
+        {
+          "field": "registrationStatus",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for registrationStatus"
+        }
+      ],
+      "missingFields": [
+        "registrationStatus",
+        "registrationUrl",
+        "categories"
+      ],
+      "confidence": 0.59
+    },
+    {
+      "id": "merged-黄金海岸马拉松-昆士兰州-2026",
+      "normalizedName": "黄金海岸马拉松",
+      "originalNames": [
+        "2026黄金海岸马拉松"
+      ],
+      "editionYear": 2026,
+      "raceDate": "2026-07-04",
+      "province": "澳大利亚",
+      "city": "昆士兰州",
+      "district": "黄金海岸",
+      "venue": null,
+      "registrationStatus": null,
+      "registrationUrl": null,
+      "coverImage": "https://s.pro.zuicool.com/events/76638/logo-01K7DT3AGE8RJFS7B6M78TVE91.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "sources": [
+        {
+          "sourceId": "zuicool",
+          "rawId": "76638",
+          "sourceUrl": "https://zuicool.com/event/76638"
+        }
+      ],
+      "fieldSources": {
+        "raceDate": "zuicool",
+        "registrationUrl": "zuicool",
+        "coverImage": "zuicool",
+        "normalizedName": "zuicool",
+        "editionYear": "zuicool",
+        "province": "zuicool",
+        "city": "zuicool",
+        "district": "zuicool",
+        "venue": "zuicool",
+        "registrationStatus": "zuicool"
+      },
+      "conflicts": [],
+      "mergeTrace": [
+        {
+          "field": "raceDate",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for raceDate"
+        },
+        {
+          "field": "registrationUrl",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for registrationUrl"
+        },
+        {
+          "field": "coverImage",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for coverImage"
+        },
+        {
+          "field": "normalizedName",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for normalizedName"
+        },
+        {
+          "field": "editionYear",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for editionYear"
+        },
+        {
+          "field": "province",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for province"
+        },
+        {
+          "field": "city",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for city"
+        },
+        {
+          "field": "district",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for district"
+        },
+        {
+          "field": "venue",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for venue"
+        },
+        {
+          "field": "registrationStatus",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for registrationStatus"
+        }
+      ],
+      "missingFields": [
+        "registrationStatus",
+        "registrationUrl",
+        "categories"
+      ],
+      "confidence": 0.59
+    },
+    {
+      "id": "merged-野门追光派-南京市-2026",
+      "normalizedName": "野门追光派",
+      "originalNames": [
+        "2026野门追光派"
+      ],
+      "editionYear": 2026,
+      "raceDate": "2026-07-04",
+      "province": "江苏",
+      "city": "南京市",
+      "district": "浦口区",
+      "venue": "南京",
+      "registrationStatus": null,
+      "registrationUrl": null,
+      "coverImage": "https://s.pro.zuicool.com/events/50553/logo-01KTTTX38K5A34P4MC87B1HZAA.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "sources": [
+        {
+          "sourceId": "zuicool",
+          "rawId": "50553",
+          "sourceUrl": "https://zuicool.com/event/50553"
+        }
+      ],
+      "fieldSources": {
+        "raceDate": "zuicool",
+        "registrationUrl": "zuicool",
+        "coverImage": "zuicool",
+        "normalizedName": "zuicool",
+        "editionYear": "zuicool",
+        "province": "zuicool",
+        "city": "zuicool",
+        "district": "zuicool",
+        "venue": "zuicool",
+        "registrationStatus": "zuicool"
+      },
+      "conflicts": [],
+      "mergeTrace": [
+        {
+          "field": "raceDate",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for raceDate"
+        },
+        {
+          "field": "registrationUrl",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for registrationUrl"
+        },
+        {
+          "field": "coverImage",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for coverImage"
+        },
+        {
+          "field": "normalizedName",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for normalizedName"
+        },
+        {
+          "field": "editionYear",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for editionYear"
+        },
+        {
+          "field": "province",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for province"
+        },
+        {
+          "field": "city",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for city"
+        },
+        {
+          "field": "district",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for district"
+        },
+        {
+          "field": "venue",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for venue"
+        },
+        {
+          "field": "registrationStatus",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for registrationStatus"
+        }
+      ],
+      "missingFields": [
+        "registrationStatus",
+        "registrationUrl",
+        "categories"
+      ],
+      "confidence": 0.59
+    },
+    {
+      "id": "merged-第二届鸟巢小勇士挑战-朝阳区-2026",
+      "normalizedName": "第二届鸟巢小勇士挑战",
+      "originalNames": [
+        "2026第二届鸟巢小勇士挑战赛"
+      ],
+      "editionYear": 2026,
+      "raceDate": "2026-07-04",
+      "province": "北京",
+      "city": "朝阳区",
+      "district": "国家体育场（鸟巢）",
+      "venue": null,
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "coverImage": "https://s.pro.zuicool.com/events/62453/logo-01KV01VVBX6XPXSPCF5YR6J6SN.jpeg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "sources": [
+        {
+          "sourceId": "zuicool",
+          "rawId": "62453",
+          "sourceUrl": "https://zuicool.com/event/62453"
+        }
+      ],
+      "fieldSources": {
+        "raceDate": "zuicool",
+        "registrationUrl": "zuicool",
+        "coverImage": "zuicool",
+        "normalizedName": "zuicool",
+        "editionYear": "zuicool",
+        "province": "zuicool",
+        "city": "zuicool",
+        "district": "zuicool",
+        "venue": "zuicool",
+        "registrationStatus": "zuicool"
+      },
+      "conflicts": [],
+      "mergeTrace": [
+        {
+          "field": "raceDate",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for raceDate"
+        },
+        {
+          "field": "registrationUrl",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for registrationUrl"
+        },
+        {
+          "field": "coverImage",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for coverImage"
+        },
+        {
+          "field": "normalizedName",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for normalizedName"
+        },
+        {
+          "field": "editionYear",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for editionYear"
+        },
+        {
+          "field": "province",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for province"
+        },
+        {
+          "field": "city",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for city"
+        },
+        {
+          "field": "district",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for district"
+        },
+        {
+          "field": "venue",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for venue"
+        },
+        {
+          "field": "registrationStatus",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for registrationStatus"
+        }
+      ],
+      "missingFields": [
+        "registrationUrl",
+        "categories"
+      ],
+      "confidence": 0.59
+    },
+    {
+      "id": "merged-第二届越西大凉山超级越野跑-凉山彝族自治州-2026",
+      "normalizedName": "第二届越西大凉山超级越野跑",
+      "originalNames": [
+        "2026第二届越西大凉山超级越野跑"
+      ],
+      "editionYear": 2026,
+      "raceDate": "2026-07-04",
+      "province": "四川",
+      "city": "凉山彝族自治州",
+      "district": "越西县",
+      "venue": "神龟广场",
+      "registrationStatus": null,
+      "registrationUrl": null,
+      "coverImage": "https://s.pro.zuicool.com/events/24423/logo-01KRG6870X0HZVJ9R1J2XKNSTD.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "sources": [
+        {
+          "sourceId": "zuicool",
+          "rawId": "24423",
+          "sourceUrl": "https://zuicool.com/event/24423"
+        }
+      ],
+      "fieldSources": {
+        "raceDate": "zuicool",
+        "registrationUrl": "zuicool",
+        "coverImage": "zuicool",
+        "normalizedName": "zuicool",
+        "editionYear": "zuicool",
+        "province": "zuicool",
+        "city": "zuicool",
+        "district": "zuicool",
+        "venue": "zuicool",
+        "registrationStatus": "zuicool"
+      },
+      "conflicts": [],
+      "mergeTrace": [
+        {
+          "field": "raceDate",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for raceDate"
+        },
+        {
+          "field": "registrationUrl",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for registrationUrl"
+        },
+        {
+          "field": "coverImage",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for coverImage"
+        },
+        {
+          "field": "normalizedName",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for normalizedName"
+        },
+        {
+          "field": "editionYear",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for editionYear"
+        },
+        {
+          "field": "province",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for province"
+        },
+        {
+          "field": "city",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for city"
+        },
+        {
+          "field": "district",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for district"
+        },
+        {
+          "field": "venue",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for venue"
+        },
+        {
+          "field": "registrationStatus",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for registrationStatus"
+        }
+      ],
+      "missingFields": [
+        "registrationStatus",
+        "registrationUrl",
+        "categories"
+      ],
+      "confidence": 0.59
+    },
+    {
+      "id": "merged-璀璨迪荡荧光夜马挑战-绍兴市-2026",
+      "normalizedName": "璀璨迪荡荧光夜马挑战",
+      "originalNames": [
+        "2026璀璨迪荡荧光夜马挑战赛"
+      ],
+      "editionYear": 2026,
+      "raceDate": "2026-07-04",
+      "province": "浙江",
+      "city": "绍兴市",
+      "district": "越城区",
+      "venue": "迪荡街道（西施山路西面）",
+      "registrationStatus": null,
+      "registrationUrl": null,
+      "coverImage": "https://s.pro.zuicool.com/events/17195/logo-01KTNK31CR0QJ919DYMN9KBMZA.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "sources": [
+        {
+          "sourceId": "zuicool",
+          "rawId": "17195",
+          "sourceUrl": "https://zuicool.com/event/17195"
+        }
+      ],
+      "fieldSources": {
+        "raceDate": "zuicool",
+        "registrationUrl": "zuicool",
+        "coverImage": "zuicool",
+        "normalizedName": "zuicool",
+        "editionYear": "zuicool",
+        "province": "zuicool",
+        "city": "zuicool",
+        "district": "zuicool",
+        "venue": "zuicool",
+        "registrationStatus": "zuicool"
+      },
+      "conflicts": [],
+      "mergeTrace": [
+        {
+          "field": "raceDate",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for raceDate"
+        },
+        {
+          "field": "registrationUrl",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for registrationUrl"
+        },
+        {
+          "field": "coverImage",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for coverImage"
+        },
+        {
+          "field": "normalizedName",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for normalizedName"
+        },
+        {
+          "field": "editionYear",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for editionYear"
+        },
+        {
+          "field": "province",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for province"
+        },
+        {
+          "field": "city",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for city"
+        },
+        {
+          "field": "district",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for district"
+        },
+        {
+          "field": "venue",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for venue"
+        },
+        {
+          "field": "registrationStatus",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for registrationStatus"
+        }
+      ],
+      "missingFields": [
+        "registrationStatus",
+        "registrationUrl",
+        "categories"
+      ],
+      "confidence": 0.59
+    },
+    {
+      "id": "merged-户外特工山顶见越野赛杭州落日追风-杭州市-2026",
+      "normalizedName": "户外特工山顶见越野赛杭州落日追风",
+      "originalNames": [
+        "2026户外特工“山顶见”越野赛·杭州落日追风"
+      ],
+      "editionYear": 2026,
+      "raceDate": "2026-07-04",
+      "province": "浙江",
+      "city": "杭州市",
+      "district": "西湖区",
+      "venue": "上城埭许家埭80号茶源谷户外营地",
+      "registrationStatus": null,
+      "registrationUrl": null,
+      "coverImage": "https://s.pro.zuicool.com/events/65932/logo-01KTR23C34AF56CX522ZCX5MYE.png?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "sources": [
+        {
+          "sourceId": "zuicool",
+          "rawId": "65932",
+          "sourceUrl": "https://zuicool.com/event/65932"
+        }
+      ],
+      "fieldSources": {
+        "raceDate": "zuicool",
+        "registrationUrl": "zuicool",
+        "coverImage": "zuicool",
+        "normalizedName": "zuicool",
+        "editionYear": "zuicool",
+        "province": "zuicool",
+        "city": "zuicool",
+        "district": "zuicool",
+        "venue": "zuicool",
+        "registrationStatus": "zuicool"
+      },
+      "conflicts": [],
+      "mergeTrace": [
+        {
+          "field": "raceDate",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for raceDate"
+        },
+        {
+          "field": "registrationUrl",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for registrationUrl"
+        },
+        {
+          "field": "coverImage",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for coverImage"
+        },
+        {
+          "field": "normalizedName",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for normalizedName"
+        },
+        {
+          "field": "editionYear",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for editionYear"
+        },
+        {
+          "field": "province",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for province"
+        },
+        {
+          "field": "city",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for city"
+        },
+        {
+          "field": "district",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for district"
+        },
+        {
+          "field": "venue",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for venue"
+        },
+        {
+          "field": "registrationStatus",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for registrationStatus"
+        }
+      ],
+      "missingFields": [
+        "registrationStatus",
+        "registrationUrl",
+        "categories"
+      ],
+      "confidence": 0.59
+    },
+    {
+      "id": "merged-巴中光雾山半程马拉松-巴中市-2026",
+      "normalizedName": "巴中光雾山半程马拉松",
+      "originalNames": [
+        "2026巴中光雾山半程马拉松"
+      ],
+      "editionYear": 2026,
+      "raceDate": "2026-07-04",
+      "province": "四川",
+      "city": "巴中市",
+      "district": "南江县",
+      "venue": null,
+      "registrationStatus": null,
+      "registrationUrl": null,
+      "coverImage": "https://zc3-op.bkt.zuicool.com/poster_tmp_head.jpg",
+      "categories": [],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "sources": [
+        {
+          "sourceId": "zuicool",
+          "rawId": "18331",
+          "sourceUrl": "https://zuicool.com/event/18331"
+        }
+      ],
+      "fieldSources": {
+        "raceDate": "zuicool",
+        "registrationUrl": "zuicool",
+        "coverImage": "zuicool",
+        "normalizedName": "zuicool",
+        "editionYear": "zuicool",
+        "province": "zuicool",
+        "city": "zuicool",
+        "district": "zuicool",
+        "venue": "zuicool",
+        "registrationStatus": "zuicool"
+      },
+      "conflicts": [],
+      "mergeTrace": [
+        {
+          "field": "raceDate",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for raceDate"
+        },
+        {
+          "field": "registrationUrl",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for registrationUrl"
+        },
+        {
+          "field": "coverImage",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for coverImage"
+        },
+        {
+          "field": "normalizedName",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for normalizedName"
+        },
+        {
+          "field": "editionYear",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for editionYear"
+        },
+        {
+          "field": "province",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for province"
+        },
+        {
+          "field": "city",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for city"
+        },
+        {
+          "field": "district",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for district"
+        },
+        {
+          "field": "venue",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for venue"
+        },
+        {
+          "field": "registrationStatus",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for registrationStatus"
+        }
+      ],
+      "missingFields": [
+        "registrationStatus",
+        "registrationUrl",
+        "categories"
+      ],
+      "confidence": 0.59
+    },
+    {
+      "id": "merged-山野moon行-无锡市-2026",
+      "normalizedName": "山野moon行",
+      "originalNames": [
+        "2026山野moon行"
+      ],
+      "editionYear": 2026,
+      "raceDate": "2026-07-04",
+      "province": "江苏",
+      "city": "无锡市",
+      "district": "江阴市",
+      "venue": "南闸街道观山乐谷",
+      "registrationStatus": null,
+      "registrationUrl": null,
+      "coverImage": "https://s.pro.zuicool.com/events/27520/logo-01KV799D9M7TQFMX5JNMHT42C9.png?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "sources": [
+        {
+          "sourceId": "zuicool",
+          "rawId": "27520",
+          "sourceUrl": "https://zuicool.com/event/27520"
+        }
+      ],
+      "fieldSources": {
+        "raceDate": "zuicool",
+        "registrationUrl": "zuicool",
+        "coverImage": "zuicool",
+        "normalizedName": "zuicool",
+        "editionYear": "zuicool",
+        "province": "zuicool",
+        "city": "zuicool",
+        "district": "zuicool",
+        "venue": "zuicool",
+        "registrationStatus": "zuicool"
+      },
+      "conflicts": [],
+      "mergeTrace": [
+        {
+          "field": "raceDate",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for raceDate"
+        },
+        {
+          "field": "registrationUrl",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for registrationUrl"
+        },
+        {
+          "field": "coverImage",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for coverImage"
+        },
+        {
+          "field": "normalizedName",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for normalizedName"
+        },
+        {
+          "field": "editionYear",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for editionYear"
+        },
+        {
+          "field": "province",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for province"
+        },
+        {
+          "field": "city",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for city"
+        },
+        {
+          "field": "district",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for district"
+        },
+        {
+          "field": "venue",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for venue"
+        },
+        {
+          "field": "registrationStatus",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for registrationStatus"
+        }
+      ],
+      "missingFields": [
+        "registrationStatus",
+        "registrationUrl",
+        "categories"
+      ],
+      "confidence": 0.59
+    },
+    {
+      "id": "merged-启航越野训练赛第42期北尖站十二生肖系列奖牌任选-海淀区-2026",
+      "normalizedName": "启航越野训练赛第42期北尖站十二生肖系列奖牌任选",
+      "originalNames": [
+        "2026启航越野训练赛第42期——北尖站（ITRA/UTMB积分赛）十二生肖系列奖牌任选"
+      ],
+      "editionYear": 2026,
+      "raceDate": "2026-07-04",
+      "province": "北京",
+      "city": "海淀区",
+      "district": "北京大觉寺停车场",
+      "venue": null,
+      "registrationStatus": null,
+      "registrationUrl": null,
+      "coverImage": "https://s.pro.zuicool.com/events/23831/logo-01KTK7F055ARDMDFCXR18K342V.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "sources": [
+        {
+          "sourceId": "zuicool",
+          "rawId": "23831",
+          "sourceUrl": "https://zuicool.com/event/23831"
+        }
+      ],
+      "fieldSources": {
+        "raceDate": "zuicool",
+        "registrationUrl": "zuicool",
+        "coverImage": "zuicool",
+        "normalizedName": "zuicool",
+        "editionYear": "zuicool",
+        "province": "zuicool",
+        "city": "zuicool",
+        "district": "zuicool",
+        "venue": "zuicool",
+        "registrationStatus": "zuicool"
+      },
+      "conflicts": [],
+      "mergeTrace": [
+        {
+          "field": "raceDate",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for raceDate"
+        },
+        {
+          "field": "registrationUrl",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for registrationUrl"
+        },
+        {
+          "field": "coverImage",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for coverImage"
+        },
+        {
+          "field": "normalizedName",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for normalizedName"
+        },
+        {
+          "field": "editionYear",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for editionYear"
+        },
+        {
+          "field": "province",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for province"
+        },
+        {
+          "field": "city",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for city"
+        },
+        {
+          "field": "district",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for district"
+        },
+        {
+          "field": "venue",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for venue"
+        },
+        {
+          "field": "registrationStatus",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for registrationStatus"
+        }
+      ],
+      "missingFields": [
+        "registrationStatus",
+        "registrationUrl",
+        "categories"
+      ],
+      "confidence": 0.59
+    },
+    {
+      "id": "merged-北京城市中国地图旅行跑-东城区-2026",
+      "normalizedName": "北京城市中国地图旅行跑",
+      "originalNames": [
+        "2026北京城市中国地图旅行跑"
+      ],
+      "editionYear": 2026,
+      "raceDate": "2026-07-04",
+      "province": "北京",
+      "city": "东城区",
+      "district": "五四大街",
+      "venue": null,
+      "registrationStatus": null,
+      "registrationUrl": null,
+      "coverImage": "https://s.pro.zuicool.com/events/13734/logo-01KV5N0XG4S0M5C91VQMHKHVSM.png?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "sources": [
+        {
+          "sourceId": "zuicool",
+          "rawId": "13734",
+          "sourceUrl": "https://zuicool.com/event/13734"
+        }
+      ],
+      "fieldSources": {
+        "raceDate": "zuicool",
+        "registrationUrl": "zuicool",
+        "coverImage": "zuicool",
+        "normalizedName": "zuicool",
+        "editionYear": "zuicool",
+        "province": "zuicool",
+        "city": "zuicool",
+        "district": "zuicool",
+        "venue": "zuicool",
+        "registrationStatus": "zuicool"
+      },
+      "conflicts": [],
+      "mergeTrace": [
+        {
+          "field": "raceDate",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for raceDate"
+        },
+        {
+          "field": "registrationUrl",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for registrationUrl"
+        },
+        {
+          "field": "coverImage",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for coverImage"
+        },
+        {
+          "field": "normalizedName",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for normalizedName"
+        },
+        {
+          "field": "editionYear",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for editionYear"
+        },
+        {
+          "field": "province",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for province"
+        },
+        {
+          "field": "city",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for city"
+        },
+        {
+          "field": "district",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for district"
+        },
+        {
+          "field": "venue",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for venue"
+        },
+        {
+          "field": "registrationStatus",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for registrationStatus"
+        }
+      ],
+      "missingFields": [
+        "registrationStatus",
+        "registrationUrl",
+        "categories"
+      ],
+      "confidence": 0.59
+    },
+    {
+      "id": "merged-中国山地越野公开赛暨第二届六盘山越野-固原市-2026",
+      "normalizedName": "中国山地越野公开赛暨第二届六盘山越野",
+      "originalNames": [
+        "2026中国山地越野公开赛 (固原站) 暨第二届六盘山越野赛"
+      ],
+      "editionYear": 2026,
+      "raceDate": "2026-07-04",
+      "province": "宁夏",
+      "city": "固原市",
+      "district": "固原市青少年示范性综合实践基地",
+      "venue": null,
+      "registrationStatus": null,
+      "registrationUrl": null,
+      "coverImage": "https://s.pro.zuicool.com/events/92267/logo-01KTE22YMH5340E4AMQB62KXMJ.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "sources": [
+        {
+          "sourceId": "zuicool",
+          "rawId": "92267",
+          "sourceUrl": "https://zuicool.com/event/92267"
+        }
+      ],
+      "fieldSources": {
+        "raceDate": "zuicool",
+        "registrationUrl": "zuicool",
+        "coverImage": "zuicool",
+        "normalizedName": "zuicool",
+        "editionYear": "zuicool",
+        "province": "zuicool",
+        "city": "zuicool",
+        "district": "zuicool",
+        "venue": "zuicool",
+        "registrationStatus": "zuicool"
+      },
+      "conflicts": [],
+      "mergeTrace": [
+        {
+          "field": "raceDate",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for raceDate"
+        },
+        {
+          "field": "registrationUrl",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for registrationUrl"
+        },
+        {
+          "field": "coverImage",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for coverImage"
+        },
+        {
+          "field": "normalizedName",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for normalizedName"
+        },
+        {
+          "field": "editionYear",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for editionYear"
+        },
+        {
+          "field": "province",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for province"
+        },
+        {
+          "field": "city",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for city"
+        },
+        {
+          "field": "district",
+          "selectedSource": "zuicool",
+          "reason": "runchina -> zuicool priority for district"
+        },
+        {
+          "field": "venue",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for venue"
+        },
+        {
+          "field": "registrationStatus",
+          "selectedSource": "zuicool",
+          "reason": "zuicool -> runchina priority for registrationStatus"
+        }
+      ],
+      "missingFields": [
+        "registrationStatus",
+        "registrationUrl",
+        "categories"
+      ],
+      "confidence": 0.59
+    }
+  ]
+}

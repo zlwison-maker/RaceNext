@@ -1,0 +1,28 @@
+import type { SourceRegistryItem } from "../types/sourceGovernance.ts";
+
+export const sourceRegistry: SourceRegistryItem[] = [
+  { id: "official", displayName: "官方赛事官网", type: "Official", coverage: "全部赛事", authorityLevel: 5, mvp: true, status: "Planned", description: "官方事实第一来源，负责比赛日期、规程、官网等核心事实。" },
+  { id: "official_registration", displayName: "官方报名入口", type: "Official", coverage: "报名信息", authorityLevel: 5, mvp: false, status: "Planned", description: "官方报名状态、报名链接、名额和报名规则来源。" },
+  { id: "official_wechat", displayName: "官方公众号", type: "Official", coverage: "公告资讯", authorityLevel: 5, mvp: false, status: "Planned", description: "官方公告与临时变更补充来源。" },
+  { id: "runchina", displayName: "中国马拉松信息平台", type: "Aggregator", coverage: "马拉松", authorityLevel: 4, mvp: true, status: "Planned", description: "国内马拉松聚合与认证赛事发现来源。" },
+  { id: "zuicool", displayName: "最酷", type: "Aggregator", coverage: "马拉松 / 越野", authorityLevel: 4, mvp: true, status: "Planned", description: "公开网页补充源，用于赛事发现、名称和部分距离信息验证。" },
+  { id: "iranshao", displayName: "爱燃烧", type: "Aggregator", coverage: "马拉松", authorityLevel: 4, mvp: false, status: "Planned", description: "国内赛事聚合补充源。" },
+  { id: "gudong", displayName: "咕咚赛事", type: "Aggregator", coverage: "路跑", authorityLevel: 3, mvp: false, status: "Planned", description: "路跑赛事聚合补充源。" },
+  { id: "joyrun", displayName: "悦跑圈", type: "Aggregator", coverage: "路跑", authorityLevel: 3, mvp: false, status: "Planned", description: "路跑赛事聚合补充源。" },
+  { id: "itra", displayName: "ITRA", type: "International", coverage: "越野", authorityLevel: 5, mvp: true, status: "Planned", description: "越野积分、爬升、难度和资格体系核心来源。" },
+  { id: "utmb", displayName: "UTMB Index", type: "International", coverage: "越野", authorityLevel: 5, mvp: false, status: "Planned", description: "UTMB Index、Running Stones 和越野资格体系来源。" },
+  { id: "ultrasignup", displayName: "UltraSignup", type: "International", coverage: "越野", authorityLevel: 4, mvp: false, status: "Planned", description: "海外越野赛事补充来源。" },
+  { id: "xiaohongshu", displayName: "小红书", type: "Community", coverage: "用户体验", authorityLevel: 2, mvp: false, status: "Planned", description: "用户体验、风景、补给和住宿体验参考，不负责官方事实。" },
+  { id: "bilibili", displayName: "B站", type: "Community", coverage: "视频体验", authorityLevel: 2, mvp: false, status: "Planned", description: "视频体验与赛事氛围参考来源。" },
+  { id: "douyin", displayName: "抖音", type: "Community", coverage: "视频体验", authorityLevel: 2, mvp: false, status: "Planned", description: "短视频体验与赛事氛围参考来源。" },
+  { id: "strava", displayName: "Strava", type: "Community", coverage: "全球赛事", authorityLevel: 2, mvp: false, status: "Planned", description: "路线与用户运动数据参考来源。" },
+  { id: "amap", displayName: "高德地图", type: "Map", coverage: "POI", authorityLevel: 5, mvp: false, status: "Planned", description: "经纬度、POI、交通与周边位置来源。" },
+  { id: "baidu_map", displayName: "百度地图", type: "Map", coverage: "POI", authorityLevel: 4, mvp: false, status: "Planned", description: "地图 POI 与位置补充来源。" },
+  { id: "ctrip", displayName: "携程", type: "Commercial", coverage: "酒店", authorityLevel: 5, mvp: false, status: "Planned", description: "酒店和旅行商业服务来源。" },
+  { id: "fliggy", displayName: "飞猪", type: "Commercial", coverage: "酒店", authorityLevel: 4, mvp: false, status: "Planned", description: "酒店和旅行商业服务补充来源。" },
+  { id: "jd_union", displayName: "京东联盟", type: "Commercial", coverage: "装备", authorityLevel: 4, mvp: false, status: "Planned", description: "装备商业服务来源。" },
+  { id: "taobao_union", displayName: "淘宝联盟", type: "Commercial", coverage: "装备", authorityLevel: 4, mvp: false, status: "Planned", description: "装备商业服务来源。" },
+  { id: "pdd_union", displayName: "拼多多联盟", type: "Commercial", coverage: "装备", authorityLevel: 3, mvp: false, status: "Planned", description: "装备商业服务补充来源。" },
+  { id: "racenext_ai", displayName: "RaceNext AI", type: "Internal", coverage: "推荐系统", authorityLevel: 5, mvp: true, status: "Planned", description: "推荐、标签、风险、训练建议和 AI Summary 来源。" },
+  { id: "racenext_manual", displayName: "人工维护", type: "Internal", coverage: "全部", authorityLevel: 5, mvp: true, status: "Planned", description: "人工确认和修正来源，拥有最高人工覆盖优先级。" },
+];

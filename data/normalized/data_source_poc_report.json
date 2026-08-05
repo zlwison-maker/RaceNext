@@ -1,0 +1,454 @@
+{
+  "generatedAt": "2026-06-26T09:52:42.444Z",
+  "pipelineVersion": "data-poc-v0.3",
+  "sourceResults": [
+    {
+      "source": "runchina",
+      "label": "中国马拉松信息平台 / 田协",
+      "enabled": true,
+      "sampleLimit": 20,
+      "sampleCount": 0,
+      "durationMs": 28594,
+      "candidatePages": [
+        "https://www.runchina.org.cn/#/race/v/list",
+        "https://www.runchina.org.cn",
+        "https://www.runchina.org.cn/portal.php?mod=list&catid=2",
+        "https://www.runchina.org.cn/portal.php?mod=list&catid=3",
+        "https://www.athletics.org.cn",
+        "https://www.athletics.org.cn/marathon/"
+      ],
+      "accessiblePages": [
+        "https://www.athletics.org.cn/"
+      ],
+      "failedPages": [
+        {
+          "url": "https://www.runchina.org.cn/#/race/v/list",
+          "reason": "HTTP 567 / Tencent Cloud EdgeOne access restricted"
+        },
+        {
+          "url": "https://www.runchina.org.cn",
+          "reason": "HTTP 567 / Tencent Cloud EdgeOne access restricted"
+        },
+        {
+          "url": "https://www.runchina.org.cn/portal.php?mod=list&catid=2",
+          "reason": "fetch failed"
+        },
+        {
+          "url": "https://www.runchina.org.cn/portal.php?mod=list&catid=3",
+          "reason": "fetch failed"
+        },
+        {
+          "url": "https://www.athletics.org.cn/marathon/",
+          "reason": "fetch failed"
+        }
+      ],
+      "failureCategories": [
+        "HTTP 访问失败",
+        "反爬限制",
+        "页面需要 JS 渲染",
+        "页面结构变化",
+        "找不到稳定列表页"
+      ],
+      "notes": [
+        "未从候选公开页面解析到可用赛事条目，可能需要 JS 渲染、页面结构变化或公开列表入口调整。"
+      ],
+      "score": {
+        "dataCompleteness": 1,
+        "updateFrequency": 4,
+        "officialTrust": 5,
+        "crawlStability": 1,
+        "requiresJsRendering": "未知",
+        "hasPublicApi": "未知",
+        "requiresLogin": "未知",
+        "antiCrawlRisk": "高",
+        "commercialSustainability": 3,
+        "mvpRecommendationLevel": "D"
+      },
+      "recommendedUse": [
+        "官方赛事基准源",
+        "用于认证赛事、赛事名录、权威校验"
+      ],
+      "updateStrategy": "手动确认"
+    },
+    {
+      "source": "zuicool",
+      "label": "最酷 Zuicool",
+      "enabled": true,
+      "sampleLimit": 20,
+      "sampleCount": 20,
+      "durationMs": 1927,
+      "candidatePages": [
+        "https://www.zuicool.com",
+        "https://www.zuicool.com/event",
+        "https://www.zuicool.com/events",
+        "https://www.zuicool.com/marathon",
+        "https://www.zuicool.com/trail"
+      ],
+      "accessiblePages": [
+        "https://zuicool.com/"
+      ],
+      "failedPages": [],
+      "failureCategories": [],
+      "notes": [],
+      "score": {
+        "dataCompleteness": 2,
+        "updateFrequency": 4,
+        "officialTrust": 3,
+        "crawlStability": 4,
+        "requiresJsRendering": "否",
+        "hasPublicApi": "未知",
+        "requiresLogin": "否",
+        "antiCrawlRisk": "中",
+        "commercialSustainability": 4,
+        "mvpRecommendationLevel": "B"
+      },
+      "recommendedUse": [
+        "公开网页补充源",
+        "用于赛事名称、链接、部分距离信息验证"
+      ],
+      "updateStrategy": "周更"
+    },
+    {
+      "source": "itra",
+      "label": "ITRA",
+      "enabled": true,
+      "sampleLimit": 20,
+      "sampleCount": 0,
+      "durationMs": 12228,
+      "candidatePages": [
+        "https://itra.run",
+        "https://itra.run/Races/RaceCalendar",
+        "https://itra.run/Races",
+        "https://itra.run/Calendar"
+      ],
+      "accessiblePages": [
+        "https://itra.run/",
+        "https://itra.run/Races/RaceCalendar"
+      ],
+      "failedPages": [
+        {
+          "url": "https://itra.run/Races",
+          "reason": "HTTP 404"
+        },
+        {
+          "url": "https://itra.run/Calendar",
+          "reason": "HTTP 404"
+        }
+      ],
+      "failureCategories": [
+        "HTTP 访问失败",
+        "页面需要 JS 渲染"
+      ],
+      "notes": [
+        "未从 ITRA 候选公开页面解析到赛事样本，Race Calendar 可能需要 JS/API 渲染。"
+      ],
+      "score": {
+        "dataCompleteness": 1,
+        "updateFrequency": 4,
+        "officialTrust": 5,
+        "crawlStability": 1,
+        "requiresJsRendering": "是",
+        "hasPublicApi": "未知",
+        "requiresLogin": "未知",
+        "antiCrawlRisk": "中",
+        "commercialSustainability": 3,
+        "mvpRecommendationLevel": "D"
+      },
+      "recommendedUse": [
+        "越野难度和积分体系源",
+        "用于未来越野赛事难度模型"
+      ],
+      "updateStrategy": "暂不自动更新"
+    }
+  ],
+  "fieldCoverage": [
+    {
+      "field": "rawName",
+      "totalPresent": 20,
+      "total": 20,
+      "bySource": {
+        "runchina": {
+          "present": 0,
+          "total": 0
+        },
+        "zuicool": {
+          "present": 20,
+          "total": 20
+        },
+        "itra": {
+          "present": 0,
+          "total": 0
+        }
+      },
+      "primarySources": [
+        "zuicool"
+      ],
+      "missingReason": "部分公开页面提供该字段，当前解析可覆盖一部分样本。",
+      "manualAction": "暂不强制补全，保留 rawData 供后续解析。"
+    },
+    {
+      "field": "rawDate",
+      "totalPresent": 0,
+      "total": 20,
+      "bySource": {
+        "runchina": {
+          "present": 0,
+          "total": 0
+        },
+        "zuicool": {
+          "present": 0,
+          "total": 20
+        },
+        "itra": {
+          "present": 0,
+          "total": 0
+        }
+      },
+      "primarySources": [],
+      "missingReason": "字段未出现在已解析的公开列表文本中，可能需要详情页、JS/API 或人工补全。",
+      "manualAction": "进入详情页或人工校验赛事公告。"
+    },
+    {
+      "field": "rawLocation",
+      "totalPresent": 0,
+      "total": 20,
+      "bySource": {
+        "runchina": {
+          "present": 0,
+          "total": 0
+        },
+        "zuicool": {
+          "present": 0,
+          "total": 20
+        },
+        "itra": {
+          "present": 0,
+          "total": 0
+        }
+      },
+      "primarySources": [],
+      "missingReason": "字段未出现在已解析的公开列表文本中，可能需要详情页、JS/API 或人工补全。",
+      "manualAction": "暂不强制补全，保留 rawData 供后续解析。"
+    },
+    {
+      "field": "rawCity",
+      "totalPresent": 0,
+      "total": 20,
+      "bySource": {
+        "runchina": {
+          "present": 0,
+          "total": 0
+        },
+        "zuicool": {
+          "present": 0,
+          "total": 20
+        },
+        "itra": {
+          "present": 0,
+          "total": 0
+        }
+      },
+      "primarySources": [],
+      "missingReason": "字段未出现在已解析的公开列表文本中，可能需要详情页、JS/API 或人工补全。",
+      "manualAction": "进入详情页或人工校验赛事公告。"
+    },
+    {
+      "field": "rawProvince",
+      "totalPresent": 0,
+      "total": 20,
+      "bySource": {
+        "runchina": {
+          "present": 0,
+          "total": 0
+        },
+        "zuicool": {
+          "present": 0,
+          "total": 20
+        },
+        "itra": {
+          "present": 0,
+          "total": 0
+        }
+      },
+      "primarySources": [],
+      "missingReason": "字段未出现在已解析的公开列表文本中，可能需要详情页、JS/API 或人工补全。",
+      "manualAction": "进入详情页或人工校验赛事公告。"
+    },
+    {
+      "field": "rawType",
+      "totalPresent": 0,
+      "total": 20,
+      "bySource": {
+        "runchina": {
+          "present": 0,
+          "total": 0
+        },
+        "zuicool": {
+          "present": 0,
+          "total": 20
+        },
+        "itra": {
+          "present": 0,
+          "total": 0
+        }
+      },
+      "primarySources": [],
+      "missingReason": "页面没有提供稳定结构化字段，或当前解析规则未覆盖。",
+      "manualAction": "暂不强制补全，保留 rawData 供后续解析。"
+    },
+    {
+      "field": "rawDistance",
+      "totalPresent": 9,
+      "total": 20,
+      "bySource": {
+        "runchina": {
+          "present": 0,
+          "total": 0
+        },
+        "zuicool": {
+          "present": 9,
+          "total": 20
+        },
+        "itra": {
+          "present": 0,
+          "total": 0
+        }
+      },
+      "primarySources": [
+        "zuicool"
+      ],
+      "missingReason": "部分公开页面提供该字段，当前解析可覆盖一部分样本。",
+      "manualAction": "暂不强制补全，保留 rawData 供后续解析。"
+    },
+    {
+      "field": "rawElevationGain",
+      "totalPresent": 0,
+      "total": 20,
+      "bySource": {
+        "runchina": {
+          "present": 0,
+          "total": 0
+        },
+        "zuicool": {
+          "present": 0,
+          "total": 20
+        },
+        "itra": {
+          "present": 0,
+          "total": 0
+        }
+      },
+      "primarySources": [],
+      "missingReason": "页面没有提供稳定结构化字段，或当前解析规则未覆盖。",
+      "manualAction": "越野赛事需人工或 ITRA/官方详情补充爬升。"
+    },
+    {
+      "field": "rawRegistrationStatus",
+      "totalPresent": 0,
+      "total": 20,
+      "bySource": {
+        "runchina": {
+          "present": 0,
+          "total": 0
+        },
+        "zuicool": {
+          "present": 0,
+          "total": 20
+        },
+        "itra": {
+          "present": 0,
+          "total": 0
+        }
+      },
+      "primarySources": [],
+      "missingReason": "字段未出现在已解析的公开列表文本中，可能需要详情页、JS/API 或人工补全。",
+      "manualAction": "需要结合报名页状态或官方公告人工确认。"
+    },
+    {
+      "field": "rawRegistrationUrl",
+      "totalPresent": 0,
+      "total": 20,
+      "bySource": {
+        "runchina": {
+          "present": 0,
+          "total": 0
+        },
+        "zuicool": {
+          "present": 0,
+          "total": 20
+        },
+        "itra": {
+          "present": 0,
+          "total": 0
+        }
+      },
+      "primarySources": [],
+      "missingReason": "当前仅解析到列表链接或锚文本，未能稳定区分官方链接和报名链接。",
+      "manualAction": "需要人工区分官网链接与报名平台链接。"
+    },
+    {
+      "field": "rawOfficialUrl",
+      "totalPresent": 0,
+      "total": 20,
+      "bySource": {
+        "runchina": {
+          "present": 0,
+          "total": 0
+        },
+        "zuicool": {
+          "present": 0,
+          "total": 20
+        },
+        "itra": {
+          "present": 0,
+          "total": 0
+        }
+      },
+      "primarySources": [],
+      "missingReason": "当前仅解析到列表链接或锚文本，未能稳定区分官方链接和报名链接。",
+      "manualAction": "需要人工区分官网链接与报名平台链接。"
+    }
+  ],
+  "dataQuality": {
+    "unverified": 20
+  },
+  "dedupeSummary": {
+    "rawTotal": 20,
+    "dedupedTotal": 20,
+    "possibleDuplicateTotal": 0,
+    "duplicateRaces": [],
+    "possibleDuplicateRaces": []
+  },
+  "duplicateGroups": [],
+  "mergeSummary": {
+    "normalizedRaceTotal": 20,
+    "canonicalRaceTotal": 20,
+    "autoMergedGroups": 0,
+    "autoMergedRaceCount": 0,
+    "reviewRequiredTotal": 0
+  },
+  "mergeReviewList": [],
+  "recommendations": [
+    {
+      "source": "runchina",
+      "label": "中国马拉松信息平台 / 田协",
+      "recommendation": "暂不建议继续自动接入，先人工确认公开入口、API 或白名单访问方式。",
+      "updateStrategy": "手动确认",
+      "mvpRecommendationLevel": "D"
+    },
+    {
+      "source": "zuicool",
+      "label": "最酷 Zuicool",
+      "recommendation": "建议作为补充数据源继续验证。",
+      "updateStrategy": "周更",
+      "mvpRecommendationLevel": "B"
+    },
+    {
+      "source": "itra",
+      "label": "ITRA",
+      "recommendation": "暂不建议继续自动接入，先人工确认公开入口、API 或白名单访问方式。",
+      "updateStrategy": "暂不自动更新",
+      "mvpRecommendationLevel": "D"
+    }
+  ]
+}

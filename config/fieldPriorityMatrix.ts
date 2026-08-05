@@ -1,0 +1,76 @@
+import type { FieldPriorityRule } from "../types/sourceGovernance.ts";
+
+export const fieldPriorityMatrix: FieldPriorityRule[] = [
+  rule("canonicalName", "Official", ["Official", "Aggregator"], ["Official", "runchina", "zuicool"], "First Available", false),
+  rule("originalNames", "Aggregator", ["Official", "Aggregator"], ["official", "runchina", "zuicool"], "Merge All", false),
+  rule("aliases", "Aggregator", ["Community", "Aggregator"], ["xiaohongshu", "runchina", "zuicool"], "Merge All", false),
+  rule("eventId", "RaceNext", [], ["racenext_manual"], "Ignore External", false),
+  rule("editionId", "RaceNext", [], ["racenext_manual"], "Ignore External", false),
+  rule("categoryId", "RaceNext", [], ["racenext_manual"], "Ignore External", false),
+  rule("slug", "RaceNext", [], ["racenext_manual"], "Derived", true),
+  rule("lifecycleStatus", "RaceNext", ["Official"], ["official"], "First Available", false),
+
+  rule("raceDate", "Official", ["Official", "Aggregator", "International"], ["official", "runchina", "zuicool", "itra"], "First Available", false),
+  rule("registrationStatus", "Official", ["Official", "Aggregator"], ["official", "zuicool", "runchina"], "Latest Timestamp Wins", false),
+  rule("province", "Official", ["Official", "Aggregator"], ["official", "runchina", "zuicool"], "First Available", false),
+  rule("city", "Official", ["Official", "Aggregator"], ["official", "runchina", "zuicool"], "First Available", false),
+  rule("venue", "Official", ["Official", "Aggregator"], ["official", "runchina"], "First Available", false),
+  rule("latitude", "Map", ["Map", "Official"], ["amap", "baidu_map", "official"], "Highest Confidence", false),
+  rule("longitude", "Map", ["Map", "Official"], ["amap", "baidu_map", "official"], "Highest Confidence", false),
+  rule("raceWeekday", "RaceNext", [], ["racenext_ai"], "Derived", true),
+  rule("season", "RaceNext", [], ["racenext_ai"], "Derived", true),
+
+  rule("raceType", "Official", ["Official", "Aggregator"], ["official", "runchina"], "First Available", false),
+  rule("categoryName", "Official", ["Official", "Aggregator"], ["official", "runchina"], "First Available", false),
+  rule("distanceKm", "Official", ["Official", "International", "Aggregator"], ["official", "itra", "runchina"], "First Available", false),
+  rule("raceDistances", "Official", ["Official", "Aggregator"], ["official", "runchina", "zuicool"], "Merge All", false),
+  rule("elevationGain", "International", ["International", "Official"], ["itra", "official"], "Highest Confidence", false),
+  rule("elevationLoss", "International", ["International", "Official"], ["itra", "official"], "Highest Confidence", false),
+  rule("terrainType", "International", ["International", "Community"], ["itra", "xiaohongshu"], "Highest Confidence", false),
+  rule("surfaceType", "Official", ["Official", "Community"], ["official", "xiaohongshu"], "First Available", false),
+  rule("courseType", "Official", ["Official", "Community"], ["official", "xiaohongshu"], "First Available", false),
+  rule("cutoffTime", "Official", ["Official", "Aggregator"], ["official", "runchina"], "First Available", false),
+  rule("qualification", "Official", ["Official", "International"], ["official", "itra"], "First Available", false),
+  rule("mandatoryGear", "Official", ["Official", "International"], ["official", "itra"], "Merge All", false),
+  rule("ITRAPoints", "International", ["International"], ["itra"], "Ignore External", false),
+  rule("UTMBIndex", "International", ["International"], ["utmb"], "Ignore External", false),
+  rule("aidStationSpacingKm", "RaceNext", [], ["racenext_ai"], "Derived", true),
+
+  rule("officialWebsite", "Official", ["Official", "Aggregator"], ["official", "runchina"], "First Available", false),
+  rule("registrationUrl", "Official", ["Official", "Aggregator"], ["official", "zuicool", "runchina"], "First Available", false),
+  rule("registrationPlatform", "Official", ["Official", "Aggregator"], ["official", "zuicool"], "First Available", false),
+  rule("registrationFee", "Official", ["Official", "Aggregator"], ["official", "zuicool"], "First Available", false),
+  rule("capacity", "Official", ["Official", "Aggregator"], ["official", "runchina"], "First Available", false),
+  rule("remainingQuota", "Official", ["Official"], ["official"], "Latest Timestamp Wins", false),
+  rule("lotteryRequired", "Official", ["Official"], ["official"], "First Available", false),
+  rule("lotteryDate", "Official", ["Official"], ["official"], "First Available", false),
+  rule("rulebookUrl", "Official", ["Official"], ["official"], "First Available", false),
+
+  rule("difficultyLevel", "RaceNext", ["International"], ["racenext_ai"], "Ignore External", true),
+  rule("difficultyScore", "RaceNext", ["International", "Official"], ["racenext_ai"], "Derived", true),
+  rule("beginnerFriendly", "RaceNext", ["Community"], ["racenext_ai"], "Derived", true),
+  rule("recommendedFor", "RaceNext", ["Community"], ["racenext_ai"], "Derived", true),
+  rule("recommendationReasons", "RaceNext", ["Community"], ["racenext_ai"], "Derived", true),
+  rule("recommendationTags", "RaceNext", ["Community"], ["racenext_ai"], "Derived", true),
+  rule("riskWarnings", "RaceNext", ["Community"], ["racenext_ai"], "Derived", true),
+  rule("raceNextScore", "RaceNext", ["International", "Community"], ["racenext_ai"], "Derived", true),
+
+  rule("confidence", "RaceNext", [], ["racenext_ai"], "Derived", true),
+  rule("mergeTrace", "RaceNext", [], ["racenext_ai"], "Derived", true),
+  rule("fieldSources", "RaceNext", [], ["racenext_ai"], "Derived", true),
+  rule("verificationStatus", "RaceNext", [], ["racenext_manual"], "Manual Review", true),
+  rule("missingFields", "RaceNext", [], ["racenext_ai"], "Derived", true),
+  rule("dataQuality", "RaceNext", [], ["racenext_ai"], "Derived", true),
+  rule("lastUpdatedAt", "RaceNext", [], ["racenext_ai"], "Latest Timestamp Wins", true),
+];
+
+function rule(
+  field: string,
+  owner: FieldPriorityRule["owner"],
+  contributors: FieldPriorityRule["contributors"],
+  priority: FieldPriorityRule["priority"],
+  strategy: FieldPriorityRule["strategy"],
+  derived: boolean,
+): FieldPriorityRule {
+  return { field, owner, contributors, priority, strategy, derived };
+}

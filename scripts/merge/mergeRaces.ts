@@ -1,0 +1,209 @@
+import type { CanonicalRace } from "../../types/canonicalRace.ts";
+import type { DataQuality, RaceCategory } from "../../types/race.ts";
+import type { RawRaceSource } from "../../types/rawRace.ts";
+import { fieldPriorityMatrix } from "../../config/fieldPriorityMatrix.ts";
+import type { MergeTrace, ResolutionStrategy } from "../../types/sourceGovernance.ts";
+import type { DuplicateGroup } from "../normalize/dedupeRace.ts";
+import type { NormalizedRace } from "../normalize/normalizeRace.ts";
+
+export type MergeReviewItem = {
+  groupKey: string;
+  raceIds: string[];
+  confidence: number;
+  reason: string;
+};
+
+export type MergeSummary = {
+  normalizedRaceTotal: number;
+  canonicalRaceTotal: number;
+  autoMergedGroups: number;
+  autoMergedRaceCount: number;
+  reviewRequiredTotal: number;
+};
+
+export function mergeRaces(
+  normalizedRaces: NormalizedRace[],
+  duplicateGroups: DuplicateGroup[],
+): {
+  canonicalRaces: CanonicalRace[];
+  mergeSummary: MergeSummary;
+  mergeReviewList: MergeReviewItem[];
+} {
+  const exactGroups = duplicateGroups.filter((group) => group.type === "exact");
+  const possibleGroups = duplicateGroups.filter((group) => group.type === "possible");
+  const raceById = new Map(normalizedRaces.map((race) => [race.id, race]));
+  const consumed = new Set<string>();
+  const canonicalRaces: CanonicalRace[] = [];
+
+  for (const group of exactGroups) {
+    const members = group.raceIds.map((id) => raceById.get(id)).filter((race): race is NormalizedRace => Boolean(race));
+    if (members.length < 2) continue;
+    canonicalRaces.push(mergeGroup(members));
+    members.forEach((race) => consumed.add(race.id));
+  }
+
+  for (const race of normalizedRaces) {
+    if (consumed.has(race.id)) continue;
+    canonicalRaces.push(mergeGroup([race]));
+  }
+
+  return {
+    canonicalRaces,
+    mergeSummary: {
+      normalizedRaceTotal: normalizedRaces.length,
+      canonicalRaceTotal: canonicalRaces.length,
+      autoMergedGroups: exactGroups.length,
+      autoMergedRaceCount: exactGroups.reduce((sum, group) => sum + Math.max(group.raceIds.length - 1, 0), 0),
+      reviewRequiredTotal: possibleGroups.length,
+    },
+    mergeReviewList: possibleGroups.map((group) => ({
+      groupKey: group.key,
+      raceIds: group.raceIds,
+      confidence: group.confidence,
+      reason: group.reason,
+    })),
+  };
+}
+
+function mergeGroup(races: NormalizedRace[]): CanonicalRace {
+  const sorted = [...races].sort((a, b) => b.sourcePriority - a.sourcePriority || b.confidence - a.confidence);
+  const base = sorted[0];
+  const mergeNotes: string[] = [];
+  const mergeTrace: MergeTrace[] = [];
+  const officialUrlRace = pickUrlRace(sorted, ["runchina", "itra"]);
+  const registrationUrlRace = pickUrlRace(sorted, ["zuicool"]);
+
+  const canonical: CanonicalRace = {
+    id: `canonical-${base.slug}`,
+    canonicalName: pickField(sorted, "name", "canonicalName", mergeNotes, mergeTrace),
+    aliases: unique(sorted.flatMap((race) => [race.name].filter(Boolean))),
+    type: pickField(sorted, "type", "raceType", mergeNotes, mergeTrace),
+    status: pickField(sorted, "status", "registrationStatus", mergeNotes, mergeTrace),
+    year: pickField(sorted, "year", "editionId", mergeNotes, mergeTrace),
+    month: pickField(sorted, "month", "raceDate", mergeNotes, mergeTrace),
+    date: pickField(sorted, "date", "raceDate", mergeNotes, mergeTrace),
+    country: pickField(sorted, "country", "country", mergeNotes, mergeTrace),
+    province: pickField(sorted, "province", "province", mergeNotes, mergeTrace),
+    city: pickField(sorted, "city", "city", mergeNotes, mergeTrace),
+    region: pickField(sorted, "region", "region", mergeNotes, mergeTrace),
+    categories: mergeCategories(sorted.flatMap((race) => race.categories)),
+    officialUrl: officialUrlRace?.officialUrl ?? pickField(sorted, "officialUrl", "officialWebsite", mergeNotes, mergeTrace),
+    registrationUrl: registrationUrlRace?.registrationUrl ?? pickField(sorted, "registrationUrl", "registrationUrl", mergeNotes, mergeTrace),
+    sources: sorted.map((race) => ({
+      source: race.source,
+      sourceUrl: race.sourceUrl,
+      sourceRawId: race.sourceRawId,
+      confidence: race.confidence,
+      lastUpdatedAt: race.lastUpdatedAt,
+    })),
+    fieldSources: mergeFieldSources(sorted),
+    dataQuality: pickDataQuality(sorted),
+    verified: sorted.some((race) => race.verified),
+    missingFields: unique(sorted.flatMap((race) => race.missingFields)),
+    mergeNotes,
+    mergeTrace,
+    updatedAt: new Date().toISOString(),
+  };
+
+  return canonical;
+}
+
+function pickField<K extends keyof NormalizedRace>(
+  races: NormalizedRace[],
+  field: K,
+  governanceField: string,
+  mergeNotes: string[],
+  mergeTrace: MergeTrace[],
+): NormalizedRace[K] {
+  const rule = fieldPriorityMatrix.find((item) => item.field === governanceField);
+  if (rule?.derived && races.some((race) => !isInternalSource(race.source))) {
+    mergeNotes.push(`derived field guard: ${governanceField} must be generated by RaceNext, external values ignored when present`);
+  }
+  if (isRaceNextRecommendationField(governanceField) && races.some((race) => !isInternalSource(race.source))) {
+    mergeNotes.push(`recommendation guard: ${governanceField} cannot be overwritten by external source`);
+  }
+  const candidates = races.filter((race) => hasValue(race[field]));
+  const picked = candidates[0] ?? races[0];
+  const conflicts = unique(candidates.map((race) => String(race[field])));
+  if (conflicts.length > 1) {
+    mergeNotes.push(`field conflict: ${String(field)} from ${candidates.map((race) => race.source).join(" vs ")}`);
+  }
+  mergeTrace.push({
+    field: governanceField,
+    source: picked.source,
+    selectedSource: picked.source,
+    selectedSourceName: picked.source,
+    previousValue: undefined,
+    newValue: picked[field],
+    strategy: rule?.strategy ?? "First Available",
+    timestamp: new Date().toISOString(),
+    operator: "Merge Engine",
+    reason: buildTraceReason(rule?.strategy ?? "First Available", picked.source, conflicts.length > 1),
+  });
+  return picked[field];
+}
+
+function pickUrlRace(races: NormalizedRace[], preferredSources: RawRaceSource[]): NormalizedRace | undefined {
+  return races.find((race) => preferredSources.includes(race.source) && (race.officialUrl || race.registrationUrl));
+}
+
+function mergeCategories(categories: RaceCategory[]): RaceCategory[] {
+  const byDistance = new Map<number, RaceCategory>();
+  for (const category of categories) {
+    const key = category.distanceKm || -1;
+    if (!byDistance.has(key)) {
+      byDistance.set(key, category);
+      continue;
+    }
+    const existing = byDistance.get(key);
+    if (existing && category.elevationGain > existing.elevationGain) {
+      byDistance.set(key, category);
+    }
+  }
+  return [...byDistance.values()];
+}
+
+function mergeFieldSources(races: NormalizedRace[]): CanonicalRace["fieldSources"] {
+  const result: CanonicalRace["fieldSources"] = {};
+  const fields = new Set(races.flatMap((race) => Object.keys(race.fieldSources)));
+  for (const field of fields) {
+    const sources = unique(races.map((race) => race.fieldSources[field]).filter(Boolean));
+    result[field] = sources.length > 1 ? "merged" : sources[0] ?? "placeholder";
+  }
+  return result;
+}
+
+function pickDataQuality(races: NormalizedRace[]): DataQuality {
+  const order: DataQuality[] = ["verified", "partially_verified", "unverified", "placeholder"];
+  return [...races].sort((a, b) => order.indexOf(a.dataQuality) - order.indexOf(b.dataQuality))[0].dataQuality;
+}
+
+function hasValue(value: unknown): boolean {
+  return value !== undefined && value !== null && value !== "" && value !== "unknown";
+}
+
+function unique<T>(items: T[]): T[] {
+  return [...new Set(items)];
+}
+
+function buildTraceReason(strategy: ResolutionStrategy, source: RawRaceSource, conflict: boolean): string {
+  const conflictText = conflict ? " conflict recorded" : "";
+  return `${strategy}: selected ${source} by source priority and non-empty value.${conflictText}`;
+}
+
+function isInternalSource(source: RawRaceSource): boolean {
+  return source === "runchina" ? false : source === "zuicool" ? false : source === "itra" ? false : false;
+}
+
+function isRaceNextRecommendationField(field: string): boolean {
+  return [
+    "difficultyLevel",
+    "difficultyScore",
+    "beginnerFriendly",
+    "recommendedFor",
+    "recommendationReasons",
+    "recommendationTags",
+    "riskWarnings",
+    "raceNextScore",
+  ].includes(field);
+}

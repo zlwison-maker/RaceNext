@@ -1,0 +1,3454 @@
+{
+  "generatedAt": "2026-07-08T02:21:53.561Z",
+  "sourcePolicy": {
+    "sources": [
+      "runchina",
+      "zuicool"
+    ],
+    "maxRecords": 100,
+    "futureOnly": true,
+    "noLogin": true,
+    "noImageDownload": true
+  },
+  "summary": {
+    "total": 100,
+    "runchinaSourceCount": 3,
+    "zuicoolSourceCount": 99,
+    "mergedCount": 2,
+    "duplicateGroupCount": 2,
+    "fetched": {
+      "runchina": 100,
+      "zuicool": 120
+    },
+    "statusCounts": {
+      "registration_open": 72,
+      "lottery": 0,
+      "upcoming": 0,
+      "unknown": 28
+    },
+    "missingFieldCounts": {
+      "city": 4,
+      "registrationUrl": 87,
+      "raceDate": 1
+    },
+    "warnings": [
+      "Zuicool list fetch failed on page 4: restricted response body detected"
+    ]
+  },
+  "records": [
+    {
+      "id": "future-zuicool-28391",
+      "name": "2026探秘兵马俑线上赛-今生",
+      "type": "half_marathon",
+      "province": "不限地点",
+      "city": null,
+      "district": null,
+      "raceDate": "2026-07-09",
+      "registrationStatus": "registration_open",
+      "registrationUrl": "https://reg.zuicool.com/34903",
+      "sourceUrl": "https://zuicool.com/event/28391",
+      "coverImage": "https://s.pro.zuicool.com/events/28391/logo-01KVQ60K706JWM94Y05WZGC1H2.jpg",
+      "categories": [
+        {
+          "categoryName": "套餐一：奖牌",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": 39,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/34903/205876"
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.88,
+      "missingFields": [
+        "city"
+      ]
+    },
+    {
+      "id": "future-zuicool-14601",
+      "name": "耐克ACG 2026崇礼168超级越野赛",
+      "type": "trail",
+      "province": "河北",
+      "city": "张家口市",
+      "district": "崇礼区",
+      "raceDate": "2026-07-10",
+      "registrationStatus": "unknown",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/14601",
+      "coverImage": "https://s.pro.zuicool.com/events/14601/logo-01KER6D6ZN2MD1KP4C12NEH5V2.jpg",
+      "categories": [
+        {
+          "categoryName": "耐克ACG 2026崇礼168超级越野赛",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-30550",
+      "name": "2026第一届阿尔山168超级越野赛",
+      "type": "trail",
+      "province": "内蒙古",
+      "city": "兴安盟",
+      "district": "阿尔山市",
+      "raceDate": "2026-07-10",
+      "registrationStatus": "unknown",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/30550",
+      "coverImage": "https://zc3-op.bkt.zuicool.com/poster_tmp_head.jpg",
+      "categories": [
+        {
+          "categoryName": "2026第一届阿尔山168超级越野赛",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-99513",
+      "name": "第二届全国全民健身大赛（华北区）兴隆站---天子山彩色徒步大会",
+      "type": "half_marathon",
+      "province": "河北",
+      "city": "承德市",
+      "district": "兴隆县",
+      "raceDate": "2026-07-11",
+      "registrationStatus": "registration_open",
+      "registrationUrl": "https://reg.zuicool.com/12731",
+      "sourceUrl": "https://zuicool.com/event/99513",
+      "coverImage": "https://s.pro.zuicool.com/events/99513/logo-01KSYP535GTP06KWYZQH4E2ZXZ.jpg",
+      "categories": [
+        {
+          "categoryName": "7.5公里大众组",
+          "distanceKm": 7.5,
+          "elevationGain": null,
+          "registrationFee": 38,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/12731/281600"
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.92,
+      "missingFields": []
+    },
+    {
+      "id": "future-zuicool-90146",
+      "name": "2026凯乐石莫干山跑山赛训练赛专场暨2026虞山追光跑",
+      "type": "trail",
+      "province": "江苏",
+      "city": "苏州市",
+      "district": "常熟市",
+      "raceDate": "2026-07-11",
+      "registrationStatus": "unknown",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/90146",
+      "coverImage": "https://s.pro.zuicool.com/events/90146/logo-01KPGBW0W8VY0J9RZXPWGS78NH.png",
+      "categories": [
+        {
+          "categoryName": "15公里",
+          "distanceKm": 15,
+          "elevationGain": 800,
+          "registrationFee": 198,
+          "cutoffTime": "关门时间3小时",
+          "categoryRegistrationUrl": "https://reg.zuicool.com/10943/250510"
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-48026",
+      "name": "2026第六届蜜桃成熟时·GAME01",
+      "type": "half_marathon",
+      "province": "四川",
+      "city": "成都市",
+      "district": "龙泉驿区",
+      "raceDate": "2026-07-11",
+      "registrationStatus": "unknown",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/48026",
+      "coverImage": "https://s.pro.zuicool.com/events/48026/logo-01KV7C36W0GYSTH0EW2NGXQYZ3.jpeg",
+      "categories": [
+        {
+          "categoryName": "15公里组",
+          "distanceKm": 15,
+          "elevationGain": null,
+          "registrationFee": 299,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/59157/235423"
+        },
+        {
+          "categoryName": "8公里组",
+          "distanceKm": 8,
+          "elevationGain": null,
+          "registrationFee": 249,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/59157/244026"
+        },
+        {
+          "categoryName": "8公里亲子组（1名儿童+1名陪跑家长）",
+          "distanceKm": 8,
+          "elevationGain": null,
+          "registrationFee": 299,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/59157/283164"
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-35292",
+      "name": "2026穿越西乌旗草原“99号公路”美丽乡村跑暨西乌旗草原越野跑（草原王挑战赛）",
+      "type": "trail",
+      "province": "内蒙古",
+      "city": "锡林郭勒盟",
+      "district": "西乌珠穆沁旗",
+      "raceDate": "2026-07-11",
+      "registrationStatus": "unknown",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/35292",
+      "coverImage": "https://s.pro.zuicool.com/events/35292/logo-01KS765T5GDV7ZPP7F02482NB1.jpeg",
+      "categories": [
+        {
+          "categoryName": "23KM草原跑",
+          "distanceKm": 23,
+          "elevationGain": null,
+          "registrationFee": 150,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/16748/233164"
+        },
+        {
+          "categoryName": "10KM美丽乡村跑",
+          "distanceKm": 10,
+          "elevationGain": null,
+          "registrationFee": 100,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/16748/294703"
+        },
+        {
+          "categoryName": "5KM小小草原王亲子跑（一大一小）",
+          "distanceKm": 5,
+          "elevationGain": null,
+          "registrationFee": 160,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/16748/240801"
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-55206",
+      "name": "2026金沙茶马古道穿越赛",
+      "type": "marathon",
+      "province": "贵州",
+      "city": "毕节市",
+      "district": "金沙县",
+      "raceDate": "2026-07-12",
+      "registrationStatus": "unknown",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/55206",
+      "coverImage": "https://s.pro.zuicool.com/events/55206/logo-01KW23PE8XTM8BWQ4H60PT4BYB.jpg",
+      "categories": [
+        {
+          "categoryName": "金沙50K",
+          "distanceKm": 50,
+          "elevationGain": 2851,
+          "registrationFee": 539,
+          "cutoffTime": "关门时间7月12日20:00",
+          "categoryRegistrationUrl": "https://reg.zuicool.com/13951/236782"
+        },
+        {
+          "categoryName": "玉簪30K",
+          "distanceKm": 30,
+          "elevationGain": 1530,
+          "registrationFee": 359,
+          "cutoffTime": "关门时间7月12日14:00",
+          "categoryRegistrationUrl": "https://reg.zuicool.com/13951/296656"
+        },
+        {
+          "categoryName": "古道18K",
+          "distanceKm": 18,
+          "elevationGain": 851,
+          "registrationFee": 239,
+          "cutoffTime": "关门时间7月12日11:30",
+          "categoryRegistrationUrl": "https://reg.zuicool.com/13951/272975"
+        },
+        {
+          "categoryName": "古道18K（一大一小）",
+          "distanceKm": 42.2,
+          "elevationGain": 851,
+          "registrationFee": 478,
+          "cutoffTime": "关门时间7月12日11:30",
+          "categoryRegistrationUrl": "https://reg.zuicool.com/13951/204871"
+        },
+        {
+          "categoryName": "寻迹12K",
+          "distanceKm": 12,
+          "elevationGain": 516,
+          "registrationFee": 119,
+          "cutoffTime": "关门时间7月12日9:30",
+          "categoryRegistrationUrl": "https://reg.zuicool.com/13951/251655"
+        },
+        {
+          "categoryName": "寻迹12K（一大一小）",
+          "distanceKm": 42.2,
+          "elevationGain": 516,
+          "registrationFee": 238,
+          "cutoffTime": "关门时间7月12日9:30",
+          "categoryRegistrationUrl": "https://reg.zuicool.com/13951/270865"
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-45842",
+      "name": "2026锐进四季第二届仲夏亲子跑",
+      "type": "half_marathon",
+      "province": "北京",
+      "city": "朝阳区",
+      "district": "北京奥林匹克森林公园北园南门广场",
+      "raceDate": "2026-07-12",
+      "registrationStatus": "registration_open",
+      "registrationUrl": "https://reg.zuicool.com/14369",
+      "sourceUrl": "https://zuicool.com/event/45842",
+      "coverImage": "https://s.pro.zuicool.com/events/45842/logo-01KQ6P9529CEB6DGK1NKMJ9M7V.jpg",
+      "categories": [
+        {
+          "categoryName": "两圈组",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": 129,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/14369/266247"
+        },
+        {
+          "categoryName": "一圈组（约5.5公里）",
+          "distanceKm": 5.5,
+          "elevationGain": null,
+          "registrationFee": 119,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/14369/246696"
+        },
+        {
+          "categoryName": "亲子2人一圈组（约5.5公里）",
+          "distanceKm": 5.5,
+          "elevationGain": null,
+          "registrationFee": 238,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/14369/267517"
+        },
+        {
+          "categoryName": "亲子3人一圈组（约5.5公里）",
+          "distanceKm": 5.5,
+          "elevationGain": null,
+          "registrationFee": 357,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/14369/250052"
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.92,
+      "missingFields": []
+    },
+    {
+      "id": "future-zuicool-58264",
+      "name": "2026中国辉煌足迹火炬传承跑（四川巴中站）暨“米仓道”夏季欢乐健康跑",
+      "type": "half_marathon",
+      "province": "四川",
+      "city": "巴中市",
+      "district": "南江县",
+      "raceDate": "2026-07-12",
+      "registrationStatus": "registration_open",
+      "registrationUrl": "https://reg.zuicool.com/47715",
+      "sourceUrl": "https://zuicool.com/event/58264",
+      "coverImage": "https://s.pro.zuicool.com/events/58264/logo-01KW77Y2AY4QX58G87Z9GMY0DC.png",
+      "categories": [
+        {
+          "categoryName": "10公里新长征组（13周岁以上）",
+          "distanceKm": 10,
+          "elevationGain": null,
+          "registrationFee": 69,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/47715/231591"
+        },
+        {
+          "categoryName": "5公里复兴组（13周岁以上）",
+          "distanceKm": 5,
+          "elevationGain": null,
+          "registrationFee": 49,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/47715/268505"
+        },
+        {
+          "categoryName": "5公里复兴组（1名8~13周岁儿童+1名成人）",
+          "distanceKm": 5,
+          "elevationGain": null,
+          "registrationFee": 98,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/47715/260522"
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.92,
+      "missingFields": []
+    },
+    {
+      "id": "future-zuicool-78600",
+      "name": "2026永不止训练营第14届湖北·武汉喻家山",
+      "type": "other",
+      "province": "湖北",
+      "city": "武汉市",
+      "district": "洪山区",
+      "raceDate": "2026-07-12",
+      "registrationStatus": "unknown",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/78600",
+      "coverImage": "https://s.pro.zuicool.com/events/78600/logo-01KTSEMX1NT1JEG6535W8C70Y4.jpg",
+      "categories": [
+        {
+          "categoryName": "五攀精英组（23km）",
+          "distanceKm": 23,
+          "elevationGain": null,
+          "registrationFee": 68,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/18723/202834"
+        },
+        {
+          "categoryName": "四攀挑战组（18.4km）",
+          "distanceKm": 18.4,
+          "elevationGain": null,
+          "registrationFee": 68,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/18723/285447"
+        },
+        {
+          "categoryName": "三攀进阶组（13.8km）",
+          "distanceKm": 13.8,
+          "elevationGain": null,
+          "registrationFee": 68,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/18723/234392"
+        },
+        {
+          "categoryName": "二攀体验组（9.2km）",
+          "distanceKm": 9.2,
+          "elevationGain": null,
+          "registrationFee": 68,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/18723/207498"
+        },
+        {
+          "categoryName": "一攀趣味组（4.6km）",
+          "distanceKm": 4.6,
+          "elevationGain": null,
+          "registrationFee": 68,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/18723/241728"
+        },
+        {
+          "categoryName": "亲子组（4.6-9.2km）一大一小",
+          "distanceKm": 9.2,
+          "elevationGain": null,
+          "registrationFee": 136,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/18723/298379"
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-56063",
+      "name": "户外特工·2026山顶见系列赛-深圳中轴线站",
+      "type": "half_marathon",
+      "province": "广东",
+      "city": "深圳市",
+      "district": "南山区",
+      "raceDate": "2026-07-12",
+      "registrationStatus": "unknown",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/56063",
+      "coverImage": "https://s.pro.zuicool.com/events/56063/logo-01KVCDV04CFFY0NQ9KGWGDPXNB.png",
+      "categories": [
+        {
+          "categoryName": "20KM",
+          "distanceKm": 20,
+          "elevationGain": 1450,
+          "registrationFee": 248,
+          "cutoffTime": "关门时间7月12日下午13:00",
+          "categoryRegistrationUrl": "https://reg.zuicool.com/89450/237226"
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-57002",
+      "name": "2026北京中轴线旅行跑（第八期）",
+      "type": "half_marathon",
+      "province": "北京",
+      "city": "东城区",
+      "district": "燕墩西望公园",
+      "raceDate": "2026-07-12",
+      "registrationStatus": "unknown",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/57002",
+      "coverImage": "https://s.pro.zuicool.com/events/57002/logo-01KVAYF85SDRS4TRWVGMSQ3C2B.jpg",
+      "categories": [
+        {
+          "categoryName": "单人组 15km",
+          "distanceKm": 15,
+          "elevationGain": null,
+          "registrationFee": 138,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/75162/276119"
+        },
+        {
+          "categoryName": "双人组（2大或1大1小） 15km",
+          "distanceKm": 15,
+          "elevationGain": null,
+          "registrationFee": 268,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/75162/221146"
+        },
+        {
+          "categoryName": "家庭组（3大或2大1小） 15km",
+          "distanceKm": 15,
+          "elevationGain": null,
+          "registrationFee": 398,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/75162/253895"
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-58535",
+      "name": "2026青海同德第七届“宗日杯”高原越野跑挑战赛",
+      "type": "trail",
+      "province": "青海",
+      "city": "海南藏族自治州",
+      "district": "同德县",
+      "raceDate": "2026-07-12",
+      "registrationStatus": "unknown",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/58535",
+      "coverImage": "https://s.pro.zuicool.com/events/58535/logo-01KTS2ND6WBG6G0DPNAYTPE8G6.jpg",
+      "categories": [
+        {
+          "categoryName": "2026青海同德第七届“宗日杯”高原越野跑挑战赛",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-58394",
+      "name": "2026铁岭山野荣耀越野赛暨UTO助力首百越野训练赛·铁岭站",
+      "type": "trail",
+      "province": "辽宁",
+      "city": "铁岭市",
+      "district": "银州区",
+      "raceDate": "2026-07-12",
+      "registrationStatus": "unknown",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/58394",
+      "coverImage": "https://s.pro.zuicool.com/events/58394/logo-01KTXEJJHT6HGXWY7G2SFNQQ69.jpg",
+      "categories": [
+        {
+          "categoryName": "27KM组",
+          "distanceKm": 21.1,
+          "elevationGain": null,
+          "registrationFee": 329,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/86937/293990"
+        },
+        {
+          "categoryName": "12KM组",
+          "distanceKm": 12,
+          "elevationGain": null,
+          "registrationFee": 229,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/86937/222907"
+        },
+        {
+          "categoryName": "6KM亲子组（一大一小）",
+          "distanceKm": 6,
+          "elevationGain": null,
+          "registrationFee": 259,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/86937/219512"
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-74115",
+      "name": "2026以热血敬山河线上赛",
+      "type": "half_marathon",
+      "province": "不限地点",
+      "city": null,
+      "district": null,
+      "raceDate": "2026-07-16",
+      "registrationStatus": "registration_open",
+      "registrationUrl": "https://reg.zuicool.com/78947",
+      "sourceUrl": "https://zuicool.com/event/74115",
+      "coverImage": "https://s.pro.zuicool.com/events/74115/logo-01KW8PPRF9Q8HM2QQ04ZADRH4Q.jpg",
+      "categories": [
+        {
+          "categoryName": "套餐一：奖牌",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": 39,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/78947/289392"
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.88,
+      "missingFields": [
+        "city"
+      ]
+    },
+    {
+      "id": "future-zuicool-87836",
+      "name": "2026“恒维地产”六盘水马拉松系列活动大众欢乐跑/大众亲子跑",
+      "type": "marathon",
+      "province": "贵州",
+      "city": "六盘水市",
+      "district": "钟山区",
+      "raceDate": "2026-07-18",
+      "registrationStatus": "unknown",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/87836",
+      "coverImage": "https://s.pro.zuicool.com/events/87836/logo-01KRDDJ40CQ7XGH4V6GX1ZW5J2.jpg",
+      "categories": [
+        {
+          "categoryName": "2026“恒维地产”六盘水马拉松系列活动大众欢乐跑",
+          "distanceKm": 42.2,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        },
+        {
+          "categoryName": "大众亲子跑",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-20809",
+      "name": "2026杭州空谷长滩青少年多项挑战赛",
+      "type": "half_marathon",
+      "province": "浙江",
+      "city": "杭州市",
+      "district": "余杭区",
+      "raceDate": "2026-07-18",
+      "registrationStatus": "registration_open",
+      "registrationUrl": "https://reg.zuicool.com/29278",
+      "sourceUrl": "https://zuicool.com/event/20809",
+      "coverImage": "https://s.pro.zuicool.com/events/20809/logo-01KWNXZ8D22GFY1DNWKQAQMXK3.jpg",
+      "categories": [
+        {
+          "categoryName": "竞速赛-凌云组（5-7岁需家长陪同/4km（含山地））",
+          "distanceKm": 4,
+          "elevationGain": null,
+          "registrationFee": 308,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/29278/278474"
+        },
+        {
+          "categoryName": "竞速赛-御辰组（8-10岁/6km（含山地））",
+          "distanceKm": 6,
+          "elevationGain": null,
+          "registrationFee": 268,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/29278/225516"
+        },
+        {
+          "categoryName": "竞速赛-沧澜组（11-14岁/8km（含山地））",
+          "distanceKm": 8,
+          "elevationGain": null,
+          "registrationFee": 268,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/29278/239096"
+        },
+        {
+          "categoryName": "竞速赛-九霄组（15周岁以上包括成人/10km（含山地））",
+          "distanceKm": 10,
+          "elevationGain": null,
+          "registrationFee": 268,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/29278/204341"
+        },
+        {
+          "categoryName": "挑战赛-幼麟组（5-7岁需家长陪同/4km（含山地）+8处关卡）",
+          "distanceKm": 4,
+          "elevationGain": null,
+          "registrationFee": 348,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/29278/238012"
+        },
+        {
+          "categoryName": "挑战赛-青螭组（8-10岁/4km（含山地）+10处关卡）",
+          "distanceKm": 4,
+          "elevationGain": null,
+          "registrationFee": 298,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/29278/237082"
+        },
+        {
+          "categoryName": "挑战赛-玄龙组（11-14岁/4km（含山地）+10处关卡）",
+          "distanceKm": 4,
+          "elevationGain": null,
+          "registrationFee": 298,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/29278/273874"
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.92,
+      "missingFields": []
+    },
+    {
+      "id": "future-zuicool-64818",
+      "name": "2026“森呼吸 林距离\"--寻找江苏最美森林步道暨纵情山野青少年系列赛-老母猪沟站",
+      "type": "half_marathon",
+      "province": "江苏",
+      "city": "南京市",
+      "district": "浦口区",
+      "raceDate": "2026-07-18",
+      "registrationStatus": "registration_open",
+      "registrationUrl": "https://reg.zuicool.com/38943",
+      "sourceUrl": "https://zuicool.com/event/64818",
+      "coverImage": "https://s.pro.zuicool.com/events/64818/logo-01KW8QS1HFH4KGKFGAGEYWCGZG.jpg",
+      "categories": [
+        {
+          "categoryName": "6公里组（一大一小）",
+          "distanceKm": 6,
+          "elevationGain": 300,
+          "registrationFee": 358,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/38943/272762"
+        },
+        {
+          "categoryName": "10公里组（一大一小）",
+          "distanceKm": 10,
+          "elevationGain": 450,
+          "registrationFee": 398,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/38943/253674"
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.92,
+      "missingFields": []
+    },
+    {
+      "id": "future-zuicool-98808",
+      "name": "2026日新月异仲夏荧光跑",
+      "type": "half_marathon",
+      "province": "北京",
+      "city": "朝阳区",
+      "district": "北京奥森公园南园南门外广场",
+      "raceDate": "2026-07-18",
+      "registrationStatus": "registration_open",
+      "registrationUrl": "https://reg.zuicool.com/19099",
+      "sourceUrl": "https://zuicool.com/event/98808",
+      "coverImage": "https://s.pro.zuicool.com/events/98808/logo-01KTV1NH2XSHES0DNAB98F6D7B.jpg",
+      "categories": [
+        {
+          "categoryName": "南园两圈组",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": 149,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/19099/266323"
+        },
+        {
+          "categoryName": "南园一圈组",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": 149,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/19099/202030"
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.92,
+      "missingFields": []
+    },
+    {
+      "id": "future-zuicool-99550",
+      "name": "2026日新月异仲夏亲子荧光跑",
+      "type": "half_marathon",
+      "province": "北京",
+      "city": "朝阳区",
+      "district": "北京奥森公园南园南门外广场",
+      "raceDate": "2026-07-18",
+      "registrationStatus": "registration_open",
+      "registrationUrl": "https://reg.zuicool.com/68240",
+      "sourceUrl": "https://zuicool.com/event/99550",
+      "coverImage": "https://s.pro.zuicool.com/events/99550/logo-01KWBFJG1TR7NYSZF0HH9X49S3.jpg",
+      "categories": [
+        {
+          "categoryName": "南园两圈组（约10公里）亲子二人组",
+          "distanceKm": 10,
+          "elevationGain": null,
+          "registrationFee": 278,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/68240/223039"
+        },
+        {
+          "categoryName": "南园两圈组（约10公里）亲子三人组",
+          "distanceKm": 10,
+          "elevationGain": null,
+          "registrationFee": 399,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/68240/202461"
+        },
+        {
+          "categoryName": "南园两圈组（约10公里）亲子四人组",
+          "distanceKm": 10,
+          "elevationGain": null,
+          "registrationFee": 499,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/68240/208747"
+        },
+        {
+          "categoryName": "南园一圈组（约5公里）亲子二人组",
+          "distanceKm": 5,
+          "elevationGain": null,
+          "registrationFee": 278,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/68240/242250"
+        },
+        {
+          "categoryName": "南园一圈组（约5公里）亲子三人组",
+          "distanceKm": 5,
+          "elevationGain": null,
+          "registrationFee": 399,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/68240/299163"
+        },
+        {
+          "categoryName": "南园一圈组（约5公里）亲子四人组",
+          "distanceKm": 5,
+          "elevationGain": null,
+          "registrationFee": 499,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/68240/266585"
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.92,
+      "missingFields": []
+    },
+    {
+      "id": "future-zuicool-64803",
+      "name": "2026斯巴达勇士赛-长春站",
+      "type": "half_marathon",
+      "province": "吉林",
+      "city": "长春市",
+      "district": "（详细地点后续公布）",
+      "raceDate": "2026-07-18",
+      "registrationStatus": "registration_open",
+      "registrationUrl": "https://reg.zuicool.com/15580",
+      "sourceUrl": "https://zuicool.com/event/64803",
+      "coverImage": "https://s.pro.zuicool.com/events/64803/logo-01KKPYJFXSEKBKMVA2WMTS3PN3.jpg",
+      "categories": [
+        {
+          "categoryName": "竞速赛-精英组（5公里+20障碍）",
+          "distanceKm": 5,
+          "elevationGain": null,
+          "registrationFee": 529,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/15580/255648"
+        },
+        {
+          "categoryName": "竞速赛-年龄段组（5公里+20障碍）",
+          "distanceKm": 5,
+          "elevationGain": null,
+          "registrationFee": 469,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/15580/283512"
+        },
+        {
+          "categoryName": "竞速赛-公开组（5公里+20障碍）",
+          "distanceKm": 5,
+          "elevationGain": null,
+          "registrationFee": 439,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/15580/266683"
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.92,
+      "missingFields": []
+    },
+    {
+      "id": "future-merged-北京环城跑北京中轴线旅行跑-东城区-2026",
+      "name": "2026北京环城跑·北京中轴线旅行跑（第七期）",
+      "type": "half_marathon",
+      "province": "北京",
+      "city": "东城区",
+      "district": "燕墩西望公园",
+      "raceDate": "2026-07-18",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/31327",
+      "coverImage": "https://s.pro.zuicool.com/events/31327/logo-01KVYQHE1BBD414RGX0XER08KM.jpg",
+      "categories": [
+        {
+          "categoryName": "单人组 15km",
+          "distanceKm": 15,
+          "elevationGain": null,
+          "registrationFee": 138,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/27379/297966"
+        },
+        {
+          "categoryName": "双人组（2大或1大1小） 15km",
+          "distanceKm": 15,
+          "elevationGain": null,
+          "registrationFee": 268,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/27379/207336"
+        },
+        {
+          "categoryName": "家庭组（3大或2大1小） 15km",
+          "distanceKm": 15,
+          "elevationGain": null,
+          "registrationFee": 398,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/27379/229560"
+        },
+        {
+          "categoryName": "2026北京环城跑·北京中轴线旅行跑（第九期）",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.9,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-25994",
+      "name": "2026 AHA急救培训7月全国社招班",
+      "type": "half_marathon",
+      "province": "全国73个城市同步开课",
+      "city": null,
+      "district": null,
+      "raceDate": "2026-07-18",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/25994",
+      "coverImage": "https://s.pro.zuicool.com/events/25994/logo-01KVAXNAMYBX1P1ZYY0MZACJPV.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026 AHA急救培训7月全国社招班",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.8,
+      "missingFields": [
+        "city",
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-68086",
+      "name": "2026冲峰赛-广州火凤火站",
+      "type": "half_marathon",
+      "province": "广东",
+      "city": "广州市",
+      "district": "天河区",
+      "raceDate": "2026-07-18",
+      "registrationStatus": "unknown",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/68086",
+      "coverImage": "https://s.pro.zuicool.com/events/68086/logo-01KN8RBP39DD0969A71HECVDAM.jpg",
+      "categories": [
+        {
+          "categoryName": "咸鱼20KM组",
+          "distanceKm": 20,
+          "elevationGain": null,
+          "registrationFee": 389,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/17346/222850"
+        },
+        {
+          "categoryName": "白饭鱼10KM组",
+          "distanceKm": 10,
+          "elevationGain": null,
+          "registrationFee": 269,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/17346/208424"
+        },
+        {
+          "categoryName": "鱼苗亲子10KM组（1大1小）",
+          "distanceKm": 10,
+          "elevationGain": null,
+          "registrationFee": 504,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/17346/243935"
+        },
+        {
+          "categoryName": "鱼苗亲子10KM组（2大1小或1大2小）",
+          "distanceKm": 10,
+          "elevationGain": null,
+          "registrationFee": 756,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/17346/276734"
+        },
+        {
+          "categoryName": "鱼苗MINI-5KM组",
+          "distanceKm": 5,
+          "elevationGain": null,
+          "registrationFee": 178,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/17346/294476"
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-16355",
+      "name": "2026 Colorful Songkran 彩色湿身节·北京站",
+      "type": "half_marathon",
+      "province": "北京",
+      "city": "海淀区",
+      "district": "北京西山国家森林公园东门-栾树草坪",
+      "raceDate": "2026-07-18",
+      "registrationStatus": "unknown",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/16355",
+      "coverImage": "https://s.pro.zuicool.com/events/16355/logo-01KNKM34Y8T3R6ZTAQPWHQGEQ9.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026 Colorful Songkran 彩色湿身节·北京站",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-59855",
+      "name": "2026多彩贵州马拉松超级联赛（第四站）暨“恒维地产”六盘水马拉松",
+      "type": "marathon",
+      "province": "贵州",
+      "city": "六盘水市",
+      "district": "钟山区",
+      "raceDate": "2026-07-19",
+      "registrationStatus": "unknown",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/59855",
+      "coverImage": "https://s.pro.zuicool.com/events/59855/logo-01KRDCH5XYKZWHT1HS2NBDV3T3.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026多彩贵州马拉松超级联赛（第四站）暨“恒维地产”六盘水马拉松",
+          "distanceKm": 42.2,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-95152",
+      "name": "永不止训练营NO.15届｜湖北·武汉马鞍山站",
+      "type": "half_marathon",
+      "province": "湖北",
+      "city": "武汉市",
+      "district": "洪山区",
+      "raceDate": "2026-07-19",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/95152",
+      "coverImage": "https://s.pro.zuicool.com/events/95152/logo-01KTSGF9XVNMQT1XRQAQ8JFZE2.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "永不止训练营NO.15届｜湖北·武汉马鞍山站",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-84595",
+      "name": "2026深圳KidsTrail青少年越野赛（夏季赛）",
+      "type": "trail",
+      "province": "广东",
+      "city": "深圳市",
+      "district": "龙华区",
+      "raceDate": "2026-07-19",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/84595",
+      "coverImage": "https://s.pro.zuicool.com/events/84595/logo-01KVYJ5MK2DGRMPBYR6DY9THWC.png?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026深圳KidsTrail青少年越野赛（夏季赛）",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-35798",
+      "name": "2026北京积分越野跑-香山站",
+      "type": "trail",
+      "province": "北京",
+      "city": "海淀区",
+      "district": "北京香山北门停车场",
+      "raceDate": "2026-07-19",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/35798",
+      "coverImage": "https://s.pro.zuicool.com/events/35798/logo-01KWNW2TKATN7M7A5J6DQPXJYC.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026北京积分越野跑-香山站",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-11557",
+      "name": "2026 UTO助力首百越野训练赛·北京香山站",
+      "type": "trail",
+      "province": "北京",
+      "city": "海淀区",
+      "district": "北京西山国家森林公园东门-栾树草坪",
+      "raceDate": "2026-07-19",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/11557",
+      "coverImage": "https://s.pro.zuicool.com/events/11557/logo-01KRZ5GGK2R90EZX6Q09XWWV05.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026 UTO助力首百越野训练赛·北京香山站",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-40594",
+      "name": "2026第七季武汉喻家五攀山径训练赛第83期",
+      "type": "trail",
+      "province": "湖北",
+      "city": "武汉市",
+      "district": "洪山区",
+      "raceDate": "2026-07-19",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/40594",
+      "coverImage": "https://s.pro.zuicool.com/events/40594/logo-01KWXPM6STG7RR0EJHKAA7A9YS.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026第七季武汉喻家五攀山径训练赛第83期",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-60437",
+      "name": "2026户外特工“山顶见”越野跑训练赛——黑龙江五常凤凰山站",
+      "type": "trail",
+      "province": "黑龙江",
+      "city": "哈尔滨市",
+      "district": "五常市",
+      "raceDate": "2026-07-19",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/60437",
+      "coverImage": "https://s.pro.zuicool.com/events/60437/logo-01KVQC16Z4RBN1F307GKECV6TB.jpeg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026户外特工“山顶见”越野跑训练赛——黑龙江五常凤凰山站",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-88238",
+      "name": "神旅集团·2026UTSS小野人森林奇遇记暨神农架四季小镇康养季启动仪式",
+      "type": "half_marathon",
+      "province": "湖北",
+      "city": "神农架林区",
+      "district": "神农架四季小镇营销中心",
+      "raceDate": "2026-07-19",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/88238",
+      "coverImage": "https://s.pro.zuicool.com/events/88238/logo-01KVYT5550SBQ5NCREZWTQVZQ8.jpeg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "神旅集团·2026UTSS小野人森林奇遇记暨神农架四季小镇康养季启动仪式",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-59416",
+      "name": "2026爱徒野跑世界大理站“浪漫夏天”21公里",
+      "type": "half_marathon",
+      "province": "云南",
+      "city": "大理白族自治州",
+      "district": "大理市",
+      "raceDate": "2026-07-19",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/59416",
+      "coverImage": "https://s.pro.zuicool.com/events/59416/logo-01KCS7M2QNJWQ2HAM00DM1A9VZ.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026爱徒野跑世界大理站“浪漫夏天”21公里",
+          "distanceKm": 21,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-27857",
+      "name": "2026 WSE 10KM OPEN 昆明站",
+      "type": "half_marathon",
+      "province": "云南",
+      "city": "昆明市",
+      "district": "西山区",
+      "raceDate": "2026-07-19",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/27857",
+      "coverImage": "https://s.pro.zuicool.com/events/27857/logo-01KT6FYT0Z4NNYE0DRBJ6T14Z9.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026 WSE 10KM OPEN 昆明站",
+          "distanceKm": 10,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-75350",
+      "name": "北京模式口站 | 拓路者2026龙脊梯田百公里跑山赛—赛前训练赛",
+      "type": "trail",
+      "province": "北京",
+      "city": "石景山区",
+      "district": "模式口公园",
+      "raceDate": "2026-07-19",
+      "registrationStatus": "unknown",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/75350",
+      "coverImage": "https://s.pro.zuicool.com/events/75350/logo-01KWM5XNVZZXSM9GDF3Y7VEMR7.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "北京模式口站 | 拓路者2026龙脊梯田百公里跑山赛—赛前训练赛",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-92457",
+      "name": "2026第二届\"鹰你而来\"雄鹰线挑战赛",
+      "type": "half_marathon",
+      "province": "江苏",
+      "city": "苏州市",
+      "district": "常熟市",
+      "raceDate": "2026-07-19",
+      "registrationStatus": "unknown",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/92457",
+      "coverImage": "https://s.pro.zuicool.com/events/92457/logo-01KR1KCCWHXFRXX36RMCBQ0EYY.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026第二届\"鹰你而来\"雄鹰线挑战赛",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-80403",
+      "name": "2026云跑东方国韵线上系列赛-簪花",
+      "type": "half_marathon",
+      "province": "不限地点",
+      "city": null,
+      "district": null,
+      "raceDate": "2026-07-23",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/80403",
+      "coverImage": "https://s.pro.zuicool.com/events/80403/logo-01KWTXC8EN0H80BGPYM30AC0Q4.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026云跑东方国韵线上系列赛-簪花",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.8,
+      "missingFields": [
+        "city",
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-18618",
+      "name": "2026第二届六盘山超级越野赛",
+      "type": "trail",
+      "province": "宁夏",
+      "city": "固原市",
+      "district": "六盘山",
+      "raceDate": "2026-07-24",
+      "registrationStatus": "unknown",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/18618",
+      "coverImage": "https://zc3-op.bkt.zuicool.com/poster_tmp_head.jpg",
+      "categories": [
+        {
+          "categoryName": "2026第二届六盘山超级越野赛",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-75428",
+      "name": "2026野门FKT硬核局",
+      "type": "half_marathon",
+      "province": "江苏",
+      "city": "南京市",
+      "district": "玄武区",
+      "raceDate": "2026-07-25",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/75428",
+      "coverImage": "https://s.pro.zuicool.com/events/75428/logo-01KTTT7G5RQ6VRQHKFGX6VGF31.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026野门FKT硬核局",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-73925",
+      "name": "2026武汉九峰日落跑",
+      "type": "half_marathon",
+      "province": "湖北",
+      "city": "武汉市",
+      "district": "洪山区",
+      "raceDate": "2026-07-25",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/73925",
+      "coverImage": "https://s.pro.zuicool.com/events/73925/logo-01KVSAECPWM2XBAQTBW1T2YB2N.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026武汉九峰日落跑",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-92877",
+      "name": "拓路者2026云南茶马1000里越野赛（安宁站）",
+      "type": "trail",
+      "province": "云南",
+      "city": "昆明市",
+      "district": "安宁市",
+      "raceDate": "2026-07-25",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/92877",
+      "coverImage": "https://s.pro.zuicool.com/events/92877/logo-01KV89KPBZ37EB59SEZ4AGAHGT.png?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "拓路者2026云南茶马1000里越野赛（安宁站）",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-22654",
+      "name": "2026云南方山森林越野赛",
+      "type": "trail",
+      "province": "云南",
+      "city": "楚雄彝族自治州",
+      "district": "永仁县",
+      "raceDate": "2026-07-25",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/22654",
+      "coverImage": "https://s.pro.zuicool.com/events/22654/logo-01KV7GRWN3QFS0TP68DYWG97MQ.jpeg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026云南方山森林越野赛",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-29013",
+      "name": "2026锐进四季荧光夜跑",
+      "type": "half_marathon",
+      "province": "北京",
+      "city": "朝阳区",
+      "district": "北京奥森公园南园森林小剧场",
+      "raceDate": "2026-07-25",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/29013",
+      "coverImage": "https://s.pro.zuicool.com/events/29013/logo-01KR3TDXS320VET8QKYZ6G0MZ5.png?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026锐进四季荧光夜跑",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-13686",
+      "name": "奔跑贵阳・2026阳明问道100越野赛",
+      "type": "trail",
+      "province": "贵州",
+      "city": "贵阳市",
+      "district": "修文县",
+      "raceDate": "2026-07-25",
+      "registrationStatus": "unknown",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/13686",
+      "coverImage": "https://s.pro.zuicool.com/events/13686/logo-01KSFYG25RA08N98X4P2T6NDBH.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "奔跑贵阳・2026阳明问道100越野赛",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-62804",
+      "name": "2026凉都六盘水城市山地越野赛",
+      "type": "trail",
+      "province": "贵州",
+      "city": "六盘水市",
+      "district": "六盘水明湖欢乐世界",
+      "raceDate": "2026-07-25",
+      "registrationStatus": "unknown",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/62804",
+      "coverImage": "https://s.pro.zuicool.com/events/62804/logo-01KSPCXNH4Z3ZW9KCAQ1YXWY8C.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026凉都六盘水城市山地越野赛",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-63801",
+      "name": "凯乐石FUGA训练赛2026深圳凤凰山越野挑战赛",
+      "type": "trail",
+      "province": "广东",
+      "city": "深圳市",
+      "district": "宝安区",
+      "raceDate": "2026-07-26",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/63801",
+      "coverImage": "https://s.pro.zuicool.com/events/63801/logo-01KWBGT2MD5T37X2ZNVYJW5AV3.jpeg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "凯乐石FUGA训练赛2026深圳凤凰山越野挑战赛",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-93752",
+      "name": "2026凯乐石FUGA训练赛·北京香山站",
+      "type": "trail",
+      "province": "北京",
+      "city": "海淀区",
+      "district": "北京香山玉皇百果生态园",
+      "raceDate": "2026-07-26",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/93752",
+      "coverImage": "https://s.pro.zuicool.com/events/93752/logo-01KVCW9YJWJJKYCWACEWHSGXHV.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026凯乐石FUGA训练赛·北京香山站",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-43224",
+      "name": "户外特工·2026西宏越野系列赛之木坑竹海站",
+      "type": "trail",
+      "province": "安徽",
+      "city": "黄山市",
+      "district": "黟县",
+      "raceDate": "2026-07-26",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/43224",
+      "coverImage": "https://s.pro.zuicool.com/events/43224/logo-01KSSJMME6YGN4XGTX2TZB2E9P.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "户外特工·2026西宏越野系列赛之木坑竹海站",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-87806",
+      "name": "2026道孚·墨石星际跑越野赛",
+      "type": "trail",
+      "province": "四川",
+      "city": "甘孜藏族自治州",
+      "district": "道孚县",
+      "raceDate": "2026-07-26",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/87806",
+      "coverImage": "https://s.pro.zuicool.com/events/87806/logo-01KTB9X1WMD40E0PD1ZEQTZQ39.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026道孚·墨石星际跑越野赛",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-89580",
+      "name": "2026崇礼喜鹊梁越野赛（去撒野赛事）",
+      "type": "trail",
+      "province": "河北",
+      "city": "张家口市",
+      "district": "崇礼区",
+      "raceDate": "2026-07-26",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/89580",
+      "coverImage": "https://s.pro.zuicool.com/events/89580/logo-01KMB6G3QW904J1MFKCBKYXGFJ.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026崇礼喜鹊梁越野赛（去撒野赛事）",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-80608",
+      "name": "2026崇礼云巅之径越野赛（去撒野赛事）",
+      "type": "trail",
+      "province": "河北",
+      "city": "张家口市",
+      "district": "崇礼区",
+      "raceDate": "2026-07-26",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/80608",
+      "coverImage": "https://s.pro.zuicool.com/events/80608/logo-01KR3C3AQPKDZ7QWB28M59MWY4.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026崇礼云巅之径越野赛（去撒野赛事）",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-39192",
+      "name": "2026「石榴杯」夏河甘加秘境高原半程马拉松",
+      "type": "half_marathon",
+      "province": "甘肃",
+      "city": "甘南藏族自治州",
+      "district": "夏河县",
+      "raceDate": "2026-07-26",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/39192",
+      "coverImage": "https://s.pro.zuicool.com/events/39192/logo-01KVQ2BSDDR9A2V3ADCVT7XYJA.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026「石榴杯」夏河甘加秘境高原半程马拉松",
+          "distanceKm": 21.1,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-81256",
+      "name": "2026趣野少年山径赛·状元岭站",
+      "type": "trail",
+      "province": "福建",
+      "city": "福州市",
+      "district": "状元岭古道",
+      "raceDate": "2026-07-26",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/81256",
+      "coverImage": "https://s.pro.zuicool.com/events/81256/logo-01KVSQXG5YZ3PZKQXKF7DW8KEQ.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026趣野少年山径赛·状元岭站",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-58315",
+      "name": "京西香巴拉系列活动-2026西山荧光跑",
+      "type": "half_marathon",
+      "province": "北京",
+      "city": "海淀区",
+      "district": "北京西山国家森林公园门口",
+      "raceDate": "2026-07-26",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/58315",
+      "coverImage": "https://s.pro.zuicool.com/events/58315/logo-01KVAEDB3D9BHJEFD0VGZR51Z1.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "京西香巴拉系列活动-2026西山荧光跑",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-62257",
+      "name": "2026野性祁连越野跑",
+      "type": "trail",
+      "province": "甘肃",
+      "city": "武威市",
+      "district": "天祝藏族自治县",
+      "raceDate": "2026-07-26",
+      "registrationStatus": "unknown",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/62257",
+      "coverImage": "https://s.pro.zuicool.com/events/62257/logo-01KVB4W075E7DPQPRBYHM4PK2P.png?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026野性祁连越野跑",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-21030",
+      "name": "2026百里杜鹃越野跑精英挑战赛",
+      "type": "trail",
+      "province": "贵州",
+      "city": "毕节市",
+      "district": "索玛大道（百里杜鹃轮滑场）",
+      "raceDate": "2026-07-26",
+      "registrationStatus": "unknown",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/21030",
+      "coverImage": "https://s.pro.zuicool.com/events/21030/logo-01KVPP84AP31FJ7YHVJSG54PCP.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026百里杜鹃越野跑精英挑战赛",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-16413",
+      "name": "永不止&2026八一·喻家山第16届山野拉练",
+      "type": "half_marathon",
+      "province": "湖北",
+      "city": "武汉市",
+      "district": "洪山区",
+      "raceDate": "2026-08-01",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/16413",
+      "coverImage": "https://s.pro.zuicool.com/events/16413/logo-01KVSKASC8CYS728WC7RJWJWHJ.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "永不止&2026八一·喻家山第16届山野拉练",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-57122",
+      "name": "2026第二届京西古道消夏泡泡跑",
+      "type": "half_marathon",
+      "province": "北京",
+      "city": "门头沟区",
+      "district": "京西古道风景区博物馆东北停车场",
+      "raceDate": "2026-08-01",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/57122",
+      "coverImage": "https://s.pro.zuicool.com/events/57122/logo-01KW3M6H27ND1VKBSTZYEWT69Z.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026第二届京西古道消夏泡泡跑",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-47722",
+      "name": "2026北京环城跑·城市五星跑",
+      "type": "half_marathon",
+      "province": "北京",
+      "city": "西城区",
+      "district": "北海北地铁站",
+      "raceDate": "2026-08-01",
+      "registrationStatus": "unknown",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/47722",
+      "coverImage": "https://s.pro.zuicool.com/events/47722/logo-01KVYPJDVZEAK4YN3AF29WW972.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026北京环城跑·城市五星跑",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-merged-楚雄马拉松-楚雄彝族自治州-2026",
+      "name": "2026楚雄马拉松",
+      "type": "marathon",
+      "province": "云南省",
+      "city": "楚雄彝族自治州",
+      "district": "楚雄市",
+      "raceDate": "2026-08-02",
+      "registrationStatus": "unknown",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/14034",
+      "categories": [
+        {
+          "categoryName": "全程",
+          "distanceKm": 42.2,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        },
+        {
+          "categoryName": "半程",
+          "distanceKm": 21.1,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        },
+        {
+          "categoryName": "2026楚雄马拉松",
+          "distanceKm": 42.2,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "runchina",
+        "zuicool"
+      ],
+      "confidence": 0.93,
+      "missingFields": [
+        "registrationUrl"
+      ],
+      "coverImage": "https://s.pro.zuicool.com/events/14034/logo-01KRRN3JXNBDE6MX8YCQ2916CV.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1"
+    },
+    {
+      "id": "future-zuicool-62127",
+      "name": "2026北京城市中国地图旅行跑第六期",
+      "type": "half_marathon",
+      "province": "北京",
+      "city": "东城区",
+      "district": "五四大街",
+      "raceDate": "2026-08-02",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/62127",
+      "coverImage": "https://s.pro.zuicool.com/events/62127/logo-01KVZJYZ13EXG4DMC4M7EH06X5.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026北京城市中国地图旅行跑第六期",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-58123",
+      "name": "2026 WSE 10KM OPEN 兰州站",
+      "type": "half_marathon",
+      "province": "甘肃",
+      "city": "兰州市",
+      "district": "七里河区",
+      "raceDate": "2026-08-02",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/58123",
+      "coverImage": "https://s.pro.zuicool.com/events/58123/logo-01KTNQYK8VGK612915VXKYE7R0.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026 WSE 10KM OPEN 兰州站",
+          "distanceKm": 10,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-59606",
+      "name": "第三届挑战2100·羚跑山野 云顶家庭越野挑战赛",
+      "type": "trail",
+      "province": "河北",
+      "city": "张家口市",
+      "district": "崇礼区",
+      "raceDate": "2026-08-02",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/59606",
+      "coverImage": "https://s.pro.zuicool.com/events/59606/logo-01KVYXPZ4MF4CS17X4GCCSW0YZ.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "第三届挑战2100·羚跑山野 云顶家庭越野挑战赛",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-64123",
+      "name": "2026七星关·蝴蝶径越野赛",
+      "type": "trail",
+      "province": "贵州",
+      "city": "毕节市",
+      "district": "七星关区",
+      "raceDate": "2026-08-02",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/64123",
+      "coverImage": "https://s.pro.zuicool.com/events/64123/logo-01KRMX2YPK5KXC3A41SPGHPTXD.png?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026七星关·蝴蝶径越野赛",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-18644",
+      "name": "2026斯巴达勇士越野周末-崇礼站",
+      "type": "trail",
+      "province": "河北",
+      "city": "张家口市",
+      "district": "崇礼区",
+      "raceDate": "2026-08-07",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/18644",
+      "coverImage": "https://s.pro.zuicool.com/events/18644/logo-01KKGQTTG508EX5QPGGGXD7CGD.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026斯巴达勇士越野周末-崇礼站",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-44032",
+      "name": "2026国际垂直马拉松公开赛广州盈凯广场站",
+      "type": "marathon",
+      "province": "广东",
+      "city": "广州市",
+      "district": "天河区",
+      "raceDate": "2026-08-08",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/44032",
+      "coverImage": "https://s.pro.zuicool.com/events/44032/logo-01KV4Y0ZPKK2SV1NV259Q5KBF6.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026国际垂直马拉松公开赛广州盈凯广场站",
+          "distanceKm": 42.2,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-37961",
+      "name": "2026武汉东湖日落跑",
+      "type": "half_marathon",
+      "province": "湖北",
+      "city": "武汉市",
+      "district": "洪山区",
+      "raceDate": "2026-08-08",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/37961",
+      "coverImage": "https://s.pro.zuicool.com/events/37961/logo-01KWH1ZDP9S20X7RR8473N6ANS.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026武汉东湖日落跑",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-34270",
+      "name": "2026阿尼南迦跑山赛",
+      "type": "trail",
+      "province": "甘肃",
+      "city": "武威市",
+      "district": "天祝藏族自治县",
+      "raceDate": "2026-08-08",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/34270",
+      "coverImage": "https://s.pro.zuicool.com/events/34270/logo-01KWYQVZQRMBWX30XEPN16TWS5.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026阿尼南迦跑山赛",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-51763",
+      "name": "国缘杯2026枣庄东湖公园首届荧光跑",
+      "type": "half_marathon",
+      "province": "山东",
+      "city": "枣庄市",
+      "district": "市中区",
+      "raceDate": "2026-08-08",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/51763",
+      "coverImage": "https://s.pro.zuicool.com/events/51763/logo-01KS2MMS4RR6RAR08755A5984N.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "国缘杯2026枣庄东湖公园首届荧光跑",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-33844",
+      "name": "2026“阿尔1198”阿尔山马拉松",
+      "type": "marathon",
+      "province": "内蒙古",
+      "city": "兴安盟",
+      "district": "阿尔山市",
+      "raceDate": "2026-08-09",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/33844",
+      "coverImage": "https://s.pro.zuicool.com/events/33844/logo-01KD0ZZ20A68JVCQ3ZBVZM4KS8.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026“阿尔1198”阿尔山马拉松",
+          "distanceKm": 42.2,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-runchina-1000420190",
+      "name": "2026阿尔山马拉松",
+      "type": "marathon",
+      "province": "内蒙古自治区",
+      "city": "兴安盟",
+      "district": null,
+      "raceDate": "2026-08-09",
+      "registrationStatus": "unknown",
+      "registrationUrl": null,
+      "sourceUrl": "https://www.runchina.org.cn/#/race/v/detail/1000420190",
+      "categories": [
+        {
+          "categoryName": "全程",
+          "distanceKm": 42.2,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        },
+        {
+          "categoryName": "半程",
+          "distanceKm": 21.1,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "runchina"
+      ],
+      "confidence": 0.9,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-84776",
+      "name": "2026马尔康半程马拉松",
+      "type": "half_marathon",
+      "province": "四川",
+      "city": "阿坝藏族羌族自治州",
+      "district": "马尔康市",
+      "raceDate": "2026-08-09",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/84776",
+      "coverImage": "https://s.pro.zuicool.com/events/84776/logo-01KWYCQZNAV95F474RACBKP6S9.png?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026马尔康半程马拉松",
+          "distanceKm": 21.1,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-44349",
+      "name": "2026崇礼山野越陟环山赛（去撒野赛事）",
+      "type": "half_marathon",
+      "province": "河北",
+      "city": "张家口市",
+      "district": "崇礼区",
+      "raceDate": "2026-08-09",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/44349",
+      "coverImage": "https://s.pro.zuicool.com/events/44349/logo-01KV5SDXFHGJBFW1RY7W2CVPXH.png?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026崇礼山野越陟环山赛（去撒野赛事）",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-97939",
+      "name": "2026石景山区欢乐荧光跑",
+      "type": "half_marathon",
+      "province": "北京",
+      "city": "石景山区",
+      "district": "首钢园滑雪大跳台（南门）",
+      "raceDate": "2026-08-09",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/97939",
+      "coverImage": "https://s.pro.zuicool.com/events/97939/logo-01KVWCN6HCPQWTD8RXHR73RKRM.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026石景山区欢乐荧光跑",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-46382",
+      "name": "2026爱徒野跑世界大理站“燃情夏天”21公里",
+      "type": "half_marathon",
+      "province": "云南",
+      "city": "大理白族自治州",
+      "district": "大理市",
+      "raceDate": "2026-08-09",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/46382",
+      "coverImage": "https://s.pro.zuicool.com/events/46382/logo-01KDMG8AZENQXEFWWTG01QBJST.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026爱徒野跑世界大理站“燃情夏天”21公里",
+          "distanceKm": 21,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-54283",
+      "name": "2026年第三届福建柘荣鸳鸯草场翻越挑战赛暨宁德市户外全域系列赛CROSS NINGDE（柘荣站）",
+      "type": "half_marathon",
+      "province": "福建",
+      "city": "宁德市",
+      "district": "柘荣县",
+      "raceDate": "2026-08-09",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/54283",
+      "coverImage": "https://s.pro.zuicool.com/events/54283/logo-01KPAJ28JBWEX9V6X7H1TDS4SE.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026年第三届福建柘荣鸳鸯草场翻越挑战赛暨宁德市户外全域系列赛CROSS NINGDE（柘荣站）",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-54438",
+      "name": "2026 WSE 10KM OPEN 六盘水站",
+      "type": "half_marathon",
+      "province": "贵州",
+      "city": "六盘水市",
+      "district": "钟山区",
+      "raceDate": "2026-08-09",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/54438",
+      "coverImage": "https://s.pro.zuicool.com/events/54438/logo-01KV0GHBC86X1J46WFDYS7E9J1.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026 WSE 10KM OPEN 六盘水站",
+          "distanceKm": 10,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-62262",
+      "name": "2026第七届海坨山超级越野赛",
+      "type": "trail",
+      "province": "河北",
+      "city": "张家口市",
+      "district": "赤城县",
+      "raceDate": "2026-08-14",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/62262",
+      "coverImage": "https://s.pro.zuicool.com/events/62262/logo-01KS09YH3J4ZMT9FER2W0GF2XE.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026第七届海坨山超级越野赛",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-24599",
+      "name": "2026 UTO助力首百越野训练赛-宜兴龙山站",
+      "type": "trail",
+      "province": "江苏",
+      "city": "无锡市",
+      "district": "宜兴市",
+      "raceDate": "2026-08-15",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/24599",
+      "coverImage": "https://s.pro.zuicool.com/events/24599/logo-01KTNNNK1KV8Y1YC8EMG9T4GGH.png?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026 UTO助力首百越野训练赛-宜兴龙山站",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-66577",
+      "name": "2026第六届蜜桃成熟时·GAME02",
+      "type": "half_marathon",
+      "province": "四川",
+      "city": "成都市",
+      "district": "金堂县",
+      "raceDate": "2026-08-15",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/66577",
+      "coverImage": "https://s.pro.zuicool.com/events/66577/logo-01KW983SST3M4XARDJQVNA17BM.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026第六届蜜桃成熟时·GAME02",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-84911",
+      "name": "2026斯巴达勇士赛-崇礼站",
+      "type": "half_marathon",
+      "province": "河北",
+      "city": "张家口市",
+      "district": "崇礼区",
+      "raceDate": "2026-08-15",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/84911",
+      "coverImage": "https://s.pro.zuicool.com/events/84911/logo-01KKGV8K09ZJ5HVQST9XJFMNZN.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026斯巴达勇士赛-崇礼站",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-70165",
+      "name": "2026吉木萨尔天山马拉松",
+      "type": "marathon",
+      "province": "新疆",
+      "city": "昌吉回族自治州",
+      "district": "吉木萨尔县",
+      "raceDate": "2026-08-16",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/70165",
+      "coverImage": "https://s.pro.zuicool.com/events/70165/logo-01KWHM7Z5NF9JEAKEJ0A8SVGXH.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026吉木萨尔天山马拉松",
+          "distanceKm": 42.2,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-75940",
+      "name": "户外特工第十一届崇礼翠云山50公里越野赛暨崇礼·她山径女子越野赛",
+      "type": "ultra_trail",
+      "province": "河北",
+      "city": "张家口市",
+      "district": "崇礼区",
+      "raceDate": "2026-08-16",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/75940",
+      "coverImage": "https://s.pro.zuicool.com/events/75940/logo-01KTTYY8R62S3DPM7K597BYCR3.png?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "户外特工第十一届崇礼翠云山50公里越野赛暨崇礼·她山径女子越野赛",
+          "distanceKm": 50,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-76436",
+      "name": "永不止训练营｜第17届武汉龟山常规例跑",
+      "type": "half_marathon",
+      "province": "湖北",
+      "city": "武汉市",
+      "district": "龟山风景区东门停车场附近",
+      "raceDate": "2026-08-16",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/76436",
+      "coverImage": "https://s.pro.zuicool.com/events/76436/logo-01KVSMC4QRWP43CR5FVHG3GAGC.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "永不止训练营｜第17届武汉龟山常规例跑",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-20013",
+      "name": "露露杯·第五届长城毅行暨UTO助力首百越野训练赛·蟠龙山站",
+      "type": "trail",
+      "province": "北京",
+      "city": "密云区",
+      "district": "古北口长城抗战纪念馆广场",
+      "raceDate": "2026-08-16",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/20013",
+      "coverImage": "https://s.pro.zuicool.com/events/20013/logo-01KVCSH9CW0JDNFC6703HNB3N4.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "露露杯·第五届长城毅行暨UTO助力首百越野训练赛·蟠龙山站",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-merged-鹤庆半程马拉松-大理白族自治州-2026",
+      "name": "2026鹤庆半程马拉松",
+      "type": "half_marathon",
+      "province": "云南省",
+      "city": "大理白族自治州",
+      "district": "鹤庆县",
+      "raceDate": "2026-08-16",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/81174",
+      "categories": [
+        {
+          "categoryName": "半程",
+          "distanceKm": 21.1,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        },
+        {
+          "categoryName": "2026鹤庆半程马拉松",
+          "distanceKm": 21.1,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "runchina",
+        "zuicool"
+      ],
+      "confidence": 0.93,
+      "missingFields": [
+        "registrationUrl"
+      ],
+      "coverImage": "https://s.pro.zuicool.com/events/81174/logo-01KV9SW182VJ1K0K6NXJ6853WY.png?imageMogr2/thumbnail/!42x42r/sharpen/1"
+    },
+    {
+      "id": "future-zuicool-84557",
+      "name": "2026巴东野三关半程马拉松",
+      "type": "half_marathon",
+      "province": "湖北",
+      "city": "恩施土家族苗族自治州",
+      "district": "巴东县",
+      "raceDate": "2026-08-16",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/84557",
+      "coverImage": "https://s.pro.zuicool.com/events/84557/logo-01KTNZJ1X6BHZ1T7SZQCCPHT5J.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026巴东野三关半程马拉松",
+          "distanceKm": 21.1,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-32866",
+      "name": "锐进四季一2026七夕为爱奔跑",
+      "type": "half_marathon",
+      "province": "北京",
+      "city": "朝阳区",
+      "district": "北京奥林匹克森林公园北园南门广场",
+      "raceDate": "2026-08-16",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/32866",
+      "coverImage": "https://s.pro.zuicool.com/events/32866/logo-01KWME729DG5FKERV0GK0B7RSA.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "锐进四季一2026七夕为爱奔跑",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-57940",
+      "name": "2026爱徒野昆明滇池“爱跑夏天”生态跑",
+      "type": "half_marathon",
+      "province": "云南",
+      "city": "昆明市",
+      "district": "西山区",
+      "raceDate": "2026-08-16",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/57940",
+      "coverImage": "https://s.pro.zuicool.com/events/57940/logo-01KMDBAW2YWTAFRWHEWNQA6CFR.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026爱徒野昆明滇池“爱跑夏天”生态跑",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-51242",
+      "name": "2026天成悦行第三届荧光跑",
+      "type": "half_marathon",
+      "province": "北京",
+      "city": "朝阳区",
+      "district": "北京奥林匹克森林公园北园南门",
+      "raceDate": "2026-08-16",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/51242",
+      "coverImage": "https://s.pro.zuicool.com/events/51242/logo-01KTBK9SQ0Y9XXV37224C0GFQ6.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026天成悦行第三届荧光跑",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-32698",
+      "name": "2026 WSE 10KM OPEN 毕节站",
+      "type": "half_marathon",
+      "province": "贵州",
+      "city": "毕节市",
+      "district": "毕节金海湖湿地公园",
+      "raceDate": "2026-08-16",
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/32698",
+      "coverImage": "https://s.pro.zuicool.com/events/32698/logo-01KVCXHGHCBH879SVJHPM0WCKA.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026 WSE 10KM OPEN 毕节站",
+          "distanceKm": 10,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-27830",
+      "name": "奔跑贵阳·2026双龙城市生态越野跑",
+      "type": "trail",
+      "province": "贵州",
+      "city": "贵阳市",
+      "district": "贵州双龙航空港经济区",
+      "raceDate": "2026-08-16",
+      "registrationStatus": "unknown",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/27830",
+      "coverImage": "https://s.pro.zuicool.com/events/27830/logo-01KSFYSEEC1Z85NEKYGD4NNXE7.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "奔跑贵阳·2026双龙城市生态越野跑",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-91124",
+      "name": "2026第二届保康尧治河清凉越野赛",
+      "type": "trail",
+      "province": "湖北",
+      "city": "襄阳市",
+      "district": "保康县",
+      "raceDate": "2026-08-22",
+      "registrationStatus": "unknown",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/91124",
+      "coverImage": "https://zc3-op.bkt.zuicool.com/poster_tmp_head.jpg",
+      "categories": [
+        {
+          "categoryName": "2026第二届保康尧治河清凉越野赛",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-94539",
+      "name": "2026环五台山超级越野赛",
+      "type": "trail",
+      "province": "山西",
+      "city": "忻州市",
+      "district": "繁峙县",
+      "raceDate": "2026-08-22",
+      "registrationStatus": "unknown",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/94539",
+      "coverImage": "https://s.pro.zuicool.com/events/94539/logo-01KWDNH60M2XNABWPQJTW7CJ3T.png?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026环五台山超级越野赛",
+          "distanceKm": null,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.84,
+      "missingFields": [
+        "registrationUrl"
+      ]
+    },
+    {
+      "id": "future-zuicool-86332",
+      "name": "2026凯乐石贡嘎100冰川极限挑战赛",
+      "type": "ultra_trail",
+      "province": "四川",
+      "city": "甘孜藏族自治州",
+      "district": "泸定县",
+      "raceDate": "2026-09-26",
+      "registrationStatus": "registration_open",
+      "registrationUrl": "https://reg.zuicool.com/33836",
+      "sourceUrl": "https://zuicool.com/event/86332",
+      "coverImage": "https://s.pro.zuicool.com/events/86332/logo-01KVSCWP62Q73RHGVFM3JJFN9E.jpg",
+      "categories": [
+        {
+          "categoryName": "冰川极境100km组",
+          "distanceKm": 100,
+          "elevationGain": 7025,
+          "registrationFee": 2300,
+          "cutoffTime": "关门时间2026年9月27日06:00（30小时）",
+          "categoryRegistrationUrl": "https://reg.zuicool.com/33836/206309"
+        },
+        {
+          "categoryName": "雪域逐峰60km组",
+          "distanceKm": 60,
+          "elevationGain": 5129,
+          "registrationFee": 1200,
+          "cutoffTime": "关门时间2026年9月26日16:00（20小时）",
+          "categoryRegistrationUrl": "https://reg.zuicool.com/33836/214074"
+        },
+        {
+          "categoryName": "野径觉醒40km组",
+          "distanceKm": 40,
+          "elevationGain": 2771,
+          "registrationFee": 700,
+          "cutoffTime": "关门时间2026年9月26日18:00（12小时）",
+          "categoryRegistrationUrl": "https://reg.zuicool.com/33836/261615"
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.92,
+      "missingFields": []
+    },
+    {
+      "id": "future-zuicool-79237",
+      "name": "澳康达·2026天津武清半程马拉松",
+      "type": "half_marathon",
+      "province": "天津",
+      "city": "武清区",
+      "district": "武清体育中心南广场",
+      "raceDate": "2026-10-06",
+      "registrationStatus": "registration_open",
+      "registrationUrl": "https://reg.zuicool.com/31881",
+      "sourceUrl": "https://zuicool.com/event/79237",
+      "coverImage": "https://s.pro.zuicool.com/events/79237/logo-01KCYC06PKS9AQ6D4BZ48GJC7X.jpg",
+      "categories": [
+        {
+          "categoryName": "半程马拉松（21.0975公里）",
+          "distanceKm": 21.1,
+          "elevationGain": null,
+          "registrationFee": 150,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": "https://reg.zuicool.com/31881/202417"
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.92,
+      "missingFields": []
+    },
+    {
+      "id": "future-zuicool-24150",
+      "name": "2026FUGA西湖青芝坞隆冬跑山赛",
+      "type": "trail",
+      "province": "浙江",
+      "city": "杭州市",
+      "district": "西湖区",
+      "raceDate": "2026-12-12",
+      "registrationStatus": "registration_open",
+      "registrationUrl": "https://reg.zuicool.com/76044",
+      "sourceUrl": "https://zuicool.com/event/24150",
+      "coverImage": "https://s.pro.zuicool.com/events/24150/logo-01KVQTRM7NSRGP5D1KPEHV3T98.jpg",
+      "categories": [
+        {
+          "categoryName": "西湖42K",
+          "distanceKm": 42,
+          "elevationGain": null,
+          "registrationFee": 558,
+          "cutoffTime": "关门时间12月12日17:00",
+          "categoryRegistrationUrl": "https://reg.zuicool.com/76044/288880"
+        },
+        {
+          "categoryName": "黄龙32K",
+          "distanceKm": 32,
+          "elevationGain": null,
+          "registrationFee": 468,
+          "cutoffTime": "关门时间12月12日14:40",
+          "categoryRegistrationUrl": "https://reg.zuicool.com/76044/214745"
+        },
+        {
+          "categoryName": "灵隐20K",
+          "distanceKm": 20,
+          "elevationGain": null,
+          "registrationFee": 388,
+          "cutoffTime": "关门时间12月12日12:30",
+          "categoryRegistrationUrl": "https://reg.zuicool.com/76044/269339"
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.92,
+      "missingFields": []
+    },
+    {
+      "id": "future-zuicool-50124",
+      "name": "2026比优特鹤岗半程马拉松",
+      "type": "half_marathon",
+      "province": "黑龙江",
+      "city": "鹤岗市",
+      "district": "人民广场",
+      "raceDate": null,
+      "registrationStatus": "registration_open",
+      "registrationUrl": null,
+      "sourceUrl": "https://zuicool.com/event/50124",
+      "coverImage": "https://s.pro.zuicool.com/events/50124/logo-01KD369SM21GWF6NE1F1QKZVQY.jpg?imageMogr2/thumbnail/!42x42r/sharpen/1",
+      "categories": [
+        {
+          "categoryName": "2026比优特鹤岗半程马拉松",
+          "distanceKm": 21.1,
+          "elevationGain": null,
+          "registrationFee": null,
+          "cutoffTime": null,
+          "categoryRegistrationUrl": null
+        }
+      ],
+      "sourceIds": [
+        "zuicool"
+      ],
+      "confidence": 0.76,
+      "missingFields": [
+        "raceDate",
+        "registrationUrl"
+      ]
+    }
+  ]
+}
