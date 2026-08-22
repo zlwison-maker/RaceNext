@@ -6,6 +6,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "下一场",
   description: "帮你找到最适合的下一场比赛",
+  other: {
+    "baidu-site-verification": "codeva-bP7mbE3lOL",
+  },
 };
 
 export default function RootLayout({
