@@ -145,9 +145,10 @@ function RaceNextPhilosophy() {
         <div className="max-w-3xl">
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#888888]">RaceNext Philosophy</p>
           <h2 className="mt-3 text-3xl font-bold leading-tight text-[#1A1A1A] sm:text-5xl">为下一次奔赴做好准备</h2>
-          <p className="mt-6 text-base font-normal leading-8 text-[#666666]">
-            RaceNext 从赛事出发，但不止于赛事信息。我们关注跑者真正要完成的选择：去哪一场，如何准备，如何更从容地站上起点。
-          </p>
+          <div className="mt-6 max-w-2xl space-y-2 text-base font-normal leading-8 text-[#666666]">
+            <p>RaceNext 从赛事出发，但不止于赛事信息。</p>
+            <p>我们关注跑者真正要完成的选择：去哪一场，如何准备，如何更从容地站上起点。</p>
+          </div>
         </div>
         <div className="mt-12 grid gap-8 sm:grid-cols-3">
           {values.map((value) => (
