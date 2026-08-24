@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { GoogleAnalytics } from "@/components/GoogleAnalytics";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="zh-CN">
       <body>
-        <GoogleAnalytics />
+        <GoogleAnalytics gaId="G-1H3MG4508B" />
         <Script
           id="baidu-analytics"
           strategy="afterInteractive"
