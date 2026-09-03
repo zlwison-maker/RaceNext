@@ -116,5 +116,5 @@ function buildJsonLd(race: NonNullable<ReturnType<typeof getRaceDecisionPage>>) 
     ],
   };
 
-  return [eventSchema, faqSchema, breadcrumbSchema];
+  return race.faq.length ? [eventSchema, faqSchema, breadcrumbSchema] : [eventSchema, breadcrumbSchema];
 }

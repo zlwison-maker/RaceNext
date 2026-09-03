@@ -1,8 +1,11 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import type { ReactNode } from "react";
 import Link from "next/link";
+import { DetailSection } from "@/components/race-detail/DetailSection";
+import { RaceGuide } from "@/components/race-detail/RaceGuide";
+import { RaceStrategy } from "@/components/race-detail/RaceStrategy";
+import { detailPageV1 } from "@/components/race-detail/styles";
 import { SiteFooter } from "@/components/SiteFooter";
 import { trackEvent } from "@/lib/analytics";
 import type { RaceDecisionPage as RaceDecisionPageViewModel } from "@/lib/raceDecision";
@@ -31,6 +34,7 @@ export function RaceEventServicePage({ race }: Props) {
   const locationText = formatLocationText(race);
   const categoryLabels = formatCategoryLabels(race);
   const accommodationAreas = buildAccommodationAreas(race);
+  const usesDetailPageSystemV1 = Boolean(race.editorialContent);
 
   useEffect(() => {
     trackEvent("race_detail_view", {
@@ -41,13 +45,15 @@ export function RaceEventServicePage({ race }: Props) {
 
   return (
     <main className="min-h-screen bg-white text-[#1A1A1A]">
-      <EventHero race={race} locationText={locationText} categoryLabels={categoryLabels} />
+      <EventHero race={race} locationText={locationText} categoryLabels={categoryLabels} detailPageTypography={usesDetailPageSystemV1} />
 
-      <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
-        <div className="grid gap-12">
-          {accommodationAreas.length ? <AccommodationGuide race={race} areas={accommodationAreas} /> : null}
+      <div className={usesDetailPageSystemV1 ? detailPageV1.contentContainer : "mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14"}>
+        <div className={usesDetailPageSystemV1 ? detailPageV1.moduleStack : "grid gap-12"}>
+          {race.editorialContent ? <RaceGuide content={race.editorialContent} /> : null}
+          {race.editorialContent?.raceStrategy ? <RaceStrategy content={race.editorialContent.raceStrategy} /> : null}
+          {accommodationAreas.length ? <AccommodationGuide race={race} areas={accommodationAreas} systemV1={usesDetailPageSystemV1} /> : null}
           {race.faq.length ? <FaqSection faq={race.faq} /> : null}
-          {race.nextRaces.length ? <NextRaces races={race.nextRaces} /> : null}
+          {race.nextRaces.length ? <NextRaces races={race.nextRaces} systemV1={usesDetailPageSystemV1} /> : null}
         </div>
       </div>
       <SiteFooter />
@@ -63,10 +69,12 @@ function EventHero({
   race,
   locationText,
   categoryLabels,
+  detailPageTypography = false,
 }: {
   race: RaceDecisionPageViewModel;
   locationText: string;
   categoryLabels: string[];
+  detailPageTypography?: boolean;
 }) {
   const categoryText = categoryLabels.length ? categoryLabels.join(" / ") : "待官方更新";
 
@@ -81,11 +89,11 @@ function EventHero({
       <div className="relative mx-auto flex min-h-[310px] max-w-6xl flex-col justify-end px-4 pb-6 pt-8 sm:min-h-[420px] sm:px-6 sm:pb-10">
         <div className="max-w-4xl">
           <h1 className="text-4xl font-bold leading-[1.04] sm:text-5xl lg:text-6xl">{race.name}</h1>
-          <div className="mt-5 grid gap-2.5 text-sm font-medium sm:text-base">
-            <HeroFact label="比赛时间" value={race.dateText ?? "待官方更新"} />
-            <HeroFact label="比赛地点" value={locationText} />
-            <HeroFact label="赛事组别" value={categoryText} />
-            <HeroFact label="报名状态" value={race.registrationStatusText} accent />
+          <div className={detailPageTypography ? "mt-5 grid gap-2.5 text-sm font-light sm:text-base" : "mt-5 grid gap-2.5 text-sm font-medium sm:text-base"}>
+            <HeroFact label="比赛时间" value={race.dateText ?? "待官方更新"} detailPageTypography={detailPageTypography} />
+            <HeroFact label="比赛地点" value={locationText} detailPageTypography={detailPageTypography} />
+            <HeroFact label="赛事组别" value={categoryText} detailPageTypography={detailPageTypography} />
+            <HeroFact label="报名状态" value={race.registrationStatusText} accent detailPageTypography={detailPageTypography} />
           </div>
         </div>
       </div>
@@ -93,16 +101,26 @@ function EventHero({
   );
 }
 
-function HeroFact({ label, value, accent = false }: { label: string; value: string; accent?: boolean }) {
+function HeroFact({
+  label,
+  value,
+  accent = false,
+  detailPageTypography = false,
+}: {
+  label: string;
+  value: string;
+  accent?: boolean;
+  detailPageTypography?: boolean;
+}) {
   return (
     <p className={accent ? "text-[#f1773d]" : "text-white/90"}>
-      <span className="mr-3 text-white/55">{label}</span>
-      <span>{value}</span>
+      <span className={detailPageTypography ? "mr-3 font-normal text-white/55" : "mr-3 text-white/55"}>{label}</span>
+      <span className={detailPageTypography && accent ? "font-normal" : undefined}>{value}</span>
     </p>
   );
 }
 
-function AccommodationGuide({ race, areas }: { race: RaceDecisionPageViewModel; areas: AccommodationArea[] }) {
+function AccommodationGuide({ race, areas, systemV1 = false }: { race: RaceDecisionPageViewModel; areas: AccommodationArea[]; systemV1?: boolean }) {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -139,26 +157,30 @@ function AccommodationGuide({ race, areas }: { race: RaceDecisionPageViewModel; 
   }, [areas, race.id]);
 
   return (
-    <Section id="参赛住宿指南" eyebrow="Accommodation" title="参赛住宿指南" bare>
-      <div ref={containerRef} className="grid gap-6 lg:grid-cols-3">
+    <DetailSection id="参赛住宿指南" eyebrow="Accommodation" title="参赛住宿指南" systemV1={systemV1}>
+      <div ref={containerRef} className={systemV1 ? "grid gap-3 lg:grid-cols-3" : "grid gap-6 lg:grid-cols-3"}>
         {areas.map((area, index) => (
           <article
             key={area.id}
             data-accommodation-category={area.trackingCategory}
-            className={`relative flex min-h-[285px] flex-col overflow-hidden rounded-lg border bg-[#fbfaf7] p-7 text-[#1A1A1A] ${
-              index === 0 ? "border-[#ded6c8] shadow-[0_14px_34px_rgba(26,26,26,0.045)]" : "border-[#e6dfd3] shadow-sm"
-            }`}
+            className={
+              systemV1
+                ? `relative flex min-h-[235px] flex-col p-6 text-[#1A1A1A] ${detailPageV1.cardFrame}`
+                : `relative flex min-h-[285px] flex-col overflow-hidden rounded-lg border bg-[#fbfaf7] p-7 text-[#1A1A1A] ${
+                    index === 0 ? "border-[#ded6c8] shadow-[0_14px_34px_rgba(26,26,26,0.045)]" : "border-[#e6dfd3] shadow-sm"
+                  }`
+            }
           >
-            <AccommodationVisual type={area.type} />
+            {systemV1 ? null : <AccommodationVisual type={area.type} />}
             <div className="relative z-10 flex items-start justify-between gap-5">
               <div className="min-w-0">
-                <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#9d9386]">{area.label}</p>
-                <h3 className="mt-4 text-2xl font-bold leading-tight">{area.areaName}</h3>
+                <p className={systemV1 ? "text-[11px] font-medium uppercase tracking-[0.18em] text-[#9d9386]" : "text-xs font-medium uppercase tracking-[0.2em] text-[#9d9386]"}>{area.label}</p>
+                <h3 className={systemV1 ? "mt-3 text-xl font-semibold leading-[1.3]" : "mt-4 text-2xl font-bold leading-tight"}>{area.areaName}</h3>
               </div>
             </div>
-            <p className="relative z-10 mt-7 text-sm font-normal leading-7 text-[#666666]">{area.reason}</p>
-            <p className="relative z-10 mt-5 text-sm font-medium leading-7 text-[#1A1A1A]">{area.advantages}</p>
-            <div className="relative z-10 mt-auto pt-8">
+            <p className={systemV1 ? "relative z-10 mt-5 text-[15px] font-light leading-6 text-[#666666]" : "relative z-10 mt-7 text-sm font-normal leading-7 text-[#666666]"}>{area.reason}</p>
+            <p className={systemV1 ? "relative z-10 mt-4 text-[15px] font-normal leading-6 text-[#1A1A1A]" : "relative z-10 mt-5 text-sm font-medium leading-7 text-[#1A1A1A]"}>{area.advantages}</p>
+            <div className={systemV1 ? "relative z-10 mt-auto pt-5" : "relative z-10 mt-auto pt-8"}>
               <a
                 href={area.affiliateUrl}
                 onClick={() => {
@@ -169,7 +191,11 @@ function AccommodationGuide({ race, areas }: { race: RaceDecisionPageViewModel; 
                     hotel_url: area.hotelUrl,
                   });
                 }}
-                className="block rounded-full bg-[#435044] px-5 py-3 text-center text-sm font-semibold text-white transition hover:bg-[#354037]"
+                className={
+                  systemV1
+                    ? `w-fit ${detailPageV1.accommodationCta}`
+                    : "block rounded-full bg-[#435044] px-5 py-3 text-center text-sm font-semibold text-white transition hover:bg-[#354037]"
+                }
                 style={{ color: "#ffffff" }}
               >
                 {area.cta}
@@ -178,7 +204,7 @@ function AccommodationGuide({ race, areas }: { race: RaceDecisionPageViewModel; 
           </article>
         ))}
       </div>
-    </Section>
+    </DetailSection>
   );
 }
 
@@ -227,7 +253,7 @@ function AccommodationVisual({ type }: { type: AccommodationArea["type"] }) {
 
 function FaqSection({ faq }: { faq: RaceDecisionPageViewModel["faq"] }) {
   return (
-    <Section id="FAQ" eyebrow="Search FAQ" title="常见问题">
+    <DetailSection id="FAQ" eyebrow="Search FAQ" title="常见问题">
       <div className="divide-y divide-[#ded6c5]">
         {faq.map((item) => (
           <details key={item.question} className="group py-5">
@@ -236,54 +262,48 @@ function FaqSection({ faq }: { faq: RaceDecisionPageViewModel["faq"] }) {
           </details>
         ))}
       </div>
-    </Section>
+    </DetailSection>
   );
 }
 
-function NextRaces({ races }: { races: RaceDecisionPageViewModel["nextRaces"] }) {
+function NextRaces({ races, systemV1 = false }: { races: RaceDecisionPageViewModel["nextRaces"]; systemV1?: boolean }) {
   return (
-    <Section id="下一场推荐" eyebrow="Next" title="下一场推荐">
+    <DetailSection id="下一场推荐" eyebrow="Next" title="下一场推荐" systemV1={systemV1}>
       <div className="grid gap-3">
         {races.map((race) => (
-          <Link key={race.id} href={`/races/${race.id}`} className="grid overflow-hidden rounded-lg border border-[#e2ddd2] bg-white transition hover:border-[#1A1A1A]/20 sm:grid-cols-[240px_minmax(0,1fr)]">
+          <Link
+            key={race.id}
+            href={`/races/${race.id}`}
+            className={systemV1 ? `grid sm:grid-cols-[240px_minmax(0,1fr)] ${detailPageV1.cardFrame}` : "grid overflow-hidden rounded-lg border border-[#e2ddd2] bg-white transition hover:border-[#1A1A1A]/20 sm:grid-cols-[240px_minmax(0,1fr)]"}
+          >
             <div className="relative h-40 bg-[#1e2b26] sm:h-full sm:min-h-[190px]">
               <img src={race.coverImage ?? getRecommendationImage(race.type)} alt={`${race.name}赛事图片`} className="h-full w-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#101815]/50 to-transparent" />
             </div>
             <div className="grid gap-5 p-5 sm:grid-cols-[minmax(0,1fr)_150px] sm:items-end sm:p-6">
               <div className="min-w-0 self-start">
-                <h3 className="text-lg font-bold leading-7 text-[#1A1A1A]">{race.name}</h3>
-                <div className="mt-5 grid gap-2 text-sm font-normal leading-6 text-[#666666]">
-                  <RecommendedFact label="比赛时间" value={race.dateText ?? "待官方更新"} />
-                  <RecommendedFact label="比赛地点" value={race.locationText ?? "地点待官方更新"} />
-                  <RecommendedFact label="报名状态" value={race.registrationStatusText} />
+                <h3 className={systemV1 ? "text-xl font-semibold leading-[1.3] text-[#1A1A1A]" : "text-lg font-bold leading-7 text-[#1A1A1A]"}>{race.name}</h3>
+                <div className={systemV1 ? "mt-5 grid gap-2 text-[15px] font-light leading-6 text-[#666666]" : "mt-5 grid gap-2 text-sm font-normal leading-6 text-[#666666]"}>
+                  <RecommendedFact label="比赛时间" value={race.dateText ?? "待官方更新"} detailPageTypography={systemV1} />
+                  <RecommendedFact label="比赛地点" value={race.locationText ?? "地点待官方更新"} detailPageTypography={systemV1} />
+                  <RecommendedFact label="报名状态" value={race.registrationStatusText} detailPageTypography={systemV1} />
                 </div>
               </div>
-              <span className="rounded-full border border-[#435044]/35 px-4 py-2 text-center text-sm font-semibold text-[#435044]">
+              <span className={systemV1 ? detailPageV1.nextCta : "rounded-full border border-[#435044]/35 px-4 py-2 text-center text-sm font-semibold text-[#435044]"}>
                 查看住宿指南
               </span>
             </div>
           </Link>
         ))}
       </div>
-    </Section>
+    </DetailSection>
   );
 }
 
-function Section({ id, eyebrow, title, children, bare = false }: { id: string; eyebrow: string; title: string; children: ReactNode; bare?: boolean }) {
-  return (
-    <section id={id} className={bare ? "py-2" : "py-2"}>
-      <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#888888]">{eyebrow}</p>
-      <h2 className="mt-2 text-2xl font-bold tracking-normal text-[#1A1A1A] sm:text-3xl">{title}</h2>
-      <div className="mt-6">{children}</div>
-    </section>
-  );
-}
-
-function RecommendedFact({ label, value }: { label: string; value: string }) {
+function RecommendedFact({ label, value, detailPageTypography = false }: { label: string; value: string; detailPageTypography?: boolean }) {
   return (
     <p>
-      <span className="font-medium text-[#888888]">{label}</span>
+      <span className={detailPageTypography ? "font-normal text-[#777777]" : "font-medium text-[#888888]"}>{label}</span>
       <span className="mx-1.5 text-[#9d9888]">/</span>
       <span>{value}</span>
     </p>
@@ -398,7 +418,12 @@ function formatLocationText(race: RaceDecisionPageViewModel) {
 
 function formatCategoryLabels(race: RaceDecisionPageViewModel) {
   const labels = race.categories
-    .map((category) => category.name || (category.distanceKm ? formatDistance(category.distanceKm) : null))
+    .map((category) => {
+      if ((race.id === "xiamen-marathon" || race.id === "beijing-marathon") && category.name && category.distanceKm) {
+        return `${category.name}（${category.distanceKm}KM）`;
+      }
+      return category.name || (category.distanceKm ? formatDistance(category.distanceKm) : null);
+    })
     .filter((label): label is string => Boolean(label));
   return [...new Set(labels)];
 }

@@ -1,7 +1,9 @@
 import { getRecommendationCards } from "@/lib/raceAdapter";
 import { getRaceSourceRecords } from "@/lib/raceDataSource";
+import { getRaceEditorialContent } from "@/data/race-guides";
 import { FIRST5_EVENT_IDS, findFirst5MvpEvent } from "@/data/events/first5-events";
 import type { MvpAccommodationArea } from "@/data/events/first5-events";
+import type { RaceEditorialContent } from "@/types/raceDetail";
 import type { MergedConnectorRecord } from "@/types/sourceRecord";
 
 export type DecisionCategory = {
@@ -47,6 +49,7 @@ export type RaceDecisionPage = {
   raceCountdownText: string | null;
   categories: DecisionCategory[];
   accommodationAreas: MvpAccommodationArea[];
+  editorialContent: RaceEditorialContent | null;
   faq: Array<{ question: string; answer: string }>;
   nextRaces: Array<{
     id: string;
@@ -118,11 +121,18 @@ function toRaceDecisionPage(record: MergedConnectorRecord, allRecords: MergedCon
   const primaryCategoryText = formatCategorySummary(categories);
   const first5MvpEvent = findFirst5MvpEvent(record.id, readableName(record));
   const analyticsEventId = first5MvpEvent?.base.eventId ?? record.id;
+  const isBeijingMarathon = record.id === "beijing-marathon";
+  const isGongga100 = record.id === "kailas-gongga-100";
+  const isHk100 = record.id === "hk100";
+  const isShanghaiMarathon = record.id === "shanghai-marathon";
+  const isXiamenMarathon = record.id === "xiamen-marathon";
+  const editorialContent = getRaceEditorialContent(record.id);
+  const name = readableName(record);
 
   return {
     id: record.id,
     analyticsEventId,
-    name: readableName(record),
+    name,
     type,
     sourceUrl: record.sources[0]?.sourceUrl ?? null,
     registrationUrl: record.registrationUrl,
@@ -134,14 +144,18 @@ function toRaceDecisionPage(record: MergedConnectorRecord, allRecords: MergedCon
     raceDate: record.raceDate,
     dateText,
     registrationStatus,
-    registrationStatusText: statusLabels[registrationStatus],
+    registrationStatusText:
+      (isBeijingMarathon || isXiamenMarathon) && record.registrationStatus ? record.registrationStatus : statusLabels[registrationStatus],
     registrationStartDate: null,
     registrationEndDate: null,
     registrationCountdownText: null,
     raceCountdownText: formatRaceCountdown(record.raceDate),
     categories,
     accommodationAreas: first5MvpEvent?.decision.accommodationAreas ?? [],
-    faq: buildFaq(readableName(record), registrationStatus, record.registrationUrl, record.sources[0]?.sourceUrl ?? null, primaryCategoryText),
+    editorialContent,
+    faq: editorialContent
+      ? []
+      : buildFaq(name, registrationStatus, record.registrationUrl, record.sources[0]?.sourceUrl ?? null, primaryCategoryText),
     nextRaces: buildNextRaces(record, allRecords),
     about: {
       introduction: null,
@@ -150,8 +164,28 @@ function toRaceDecisionPage(record: MergedConnectorRecord, allRecords: MergedCon
       officialLink: record.sources[0]?.sourceUrl ?? null,
     },
     seo: {
-      title: `${readableName(record)}住宿指南与赛事信息 - RaceNext`,
-      description: `${titleLocation}${dateText ?? "比赛日期待更新"}。${primaryCategoryText ? `${primaryCategoryText}。` : ""}查看报名状态、赛事组别与参赛住宿区域建议。`,
+      title: isBeijingMarathon
+        ? "2026北京马拉松｜比赛时间、报名、住宿与参赛指南 - RaceNext"
+        : isGongga100
+          ? "2026凯乐石贡嘎100冰川极限挑战赛｜路线、爬升、住宿与参赛指南 - RaceNext"
+          : isHk100
+            ? "2027香港HK100越野赛｜比赛时间、路线、住宿与参赛指南 - RaceNext"
+            : isShanghaiMarathon
+              ? "2026上海马拉松｜比赛时间、报名、住宿与参赛指南 - RaceNext"
+              : isXiamenMarathon
+                ? "2027厦门马拉松｜比赛时间、报名、住宿与参赛指南 - RaceNext"
+                : `${name}住宿指南与赛事信息 - RaceNext`,
+      description: isBeijingMarathon
+        ? "查看2026北京马拉松比赛时间、地点、报名状态及住宿建议，了解北马天安门起跑、赛道特点、PB潜力与真实跑者反馈，帮助你判断这场比赛是否适合自己。"
+        : isGongga100
+          ? "查看2026凯乐石贡嘎100冰川极限挑战赛时间、路线、爬升及住宿建议，了解100K高海拔垭口、冰川赛道、比赛难点与RaceNext策略判断，帮助你判断这场高山百公里是否适合自己。"
+          : isHk100
+            ? "查看2027香港HK100越野赛比赛时间、路线、爬升与住宿建议，了解港百后半程爬升、台阶、山海赛道、CP补给策略与真实跑者反馈，帮助你判断这场百公里越野是否适合自己。"
+            : isShanghaiMarathon
+              ? "查看2026上海马拉松比赛时间、地点、报名状态及住宿建议，了解上马赛道特点、PB潜力、城市体验与真实跑者反馈，帮助你判断这场比赛是否适合自己。"
+              : isXiamenMarathon
+                ? "查看2027厦门马拉松比赛时间、地点、报名状态、赛事特点及住宿建议。了解厦马海滨赛道、演武大桥、比赛体验与参赛准备，帮助跑者判断这场比赛是否适合自己。"
+                : `${titleLocation}${dateText ?? "比赛日期待更新"}。${primaryCategoryText ? `${primaryCategoryText}。` : ""}查看报名状态、赛事组别与参赛住宿区域建议。`,
     },
   };
 }
