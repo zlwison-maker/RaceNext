@@ -1,0 +1,263 @@
+{
+  "schemaVersion": "race-graph-v1",
+  "generatedAt": "2026-08-04",
+  "records": [
+    {
+      "event": {
+        "eventId": "shanghai-marathon",
+        "canonicalName": "上海马拉松",
+        "aliases": ["上马", "Shanghai Marathon"],
+        "eventType": "marathon",
+        "homeCountry": "中国",
+        "homeProvince": "上海市",
+        "homeCity": "上海市",
+        "officialWebsite": null,
+        "organizer": null,
+        "lifecycleStatus": "active",
+        "createdAt": "2026-08-04",
+        "updatedAt": "2026-08-04",
+        "governance": {
+          "sources": [{
+            "sourceType": "official",
+            "sourceName": "上海市人民政府 / 上海马拉松",
+            "sourceUrl": "https://english.shanghai.gov.cn/en-SportsEvents/20260427/8152288074a44b44a7efbfd4b0b67797.html",
+            "sourceRecordId": "first5:shanghai-marathon:2026",
+            "crawledAt": "2026-08-04",
+            "confidence": 0.9
+          }],
+          "fieldSources": {},
+          "sourcePriority": { "official": 100 },
+          "confidence": 0.9,
+          "verified": true,
+          "verificationStatus": "verified",
+          "verifiedAt": "2026-08-04",
+          "missingFields": ["registrationUrl", "startAt", "startLocation", "finishLocation"],
+          "lastCrawledAt": "2026-08-04",
+          "lastUpdatedAt": "2026-08-04",
+          "schemaVersion": "race-graph-v1",
+          "dataQualityLevel": "A"
+        }
+      },
+      "edition": {
+        "editionId": "shanghai-marathon-2026",
+        "eventId": "shanghai-marathon",
+        "editionName": "2026上海马拉松",
+        "editionYear": 2026,
+        "raceDate": "2026-12-06",
+        "endDate": null,
+        "coverImage": "https://images.unsplash.com/photo-1538428494232-9c0d8a3ab403?auto=format&fit=crop&w=1800&q=90",
+        "primaryCategoryId": "shanghai-marathon-2026-marathon",
+        "primaryCategoryName": "马拉松",
+        "country": "中国",
+        "province": "上海市",
+        "city": "上海市",
+        "district": "黄浦区",
+        "venue": "上海市黄浦区外滩金牛广场",
+        "region": "east_china",
+        "timezone": "Asia/Shanghai",
+        "registrationStatus": "registration_closed",
+        "officialWebsite": null,
+        "lifecycleStatus": "active",
+        "raceDistanceKm": 42.195,
+        "raceDistances": [42.195],
+        "createdAt": "2026-08-04",
+        "updatedAt": "2026-08-04",
+        "governance": {
+          "sources": [{
+            "sourceType": "official",
+            "sourceName": "上海市人民政府 / 上海马拉松",
+            "sourceUrl": "https://english.shanghai.gov.cn/en-SportsEvents/20260427/8152288074a44b44a7efbfd4b0b67797.html",
+            "sourceRecordId": "first5:shanghai-marathon:2026",
+            "crawledAt": "2026-08-04",
+            "confidence": 0.9
+          }],
+          "fieldSources": {},
+          "sourcePriority": { "official": 100 },
+          "confidence": 0.9,
+          "verified": true,
+          "verificationStatus": "verified",
+          "verifiedAt": "2026-08-04",
+          "missingFields": ["registrationUrl", "startAt", "startLocation", "finishLocation"],
+          "lastCrawledAt": "2026-08-04",
+          "lastUpdatedAt": "2026-08-04",
+          "schemaVersion": "race-graph-v1",
+          "dataQualityLevel": "A"
+        }
+      },
+      "categories": [{
+        "categoryId": "shanghai-marathon-2026-marathon",
+        "editionId": "shanghai-marathon-2026",
+        "categoryName": "马拉松",
+        "shortName": "全马",
+        "startAt": null,
+        "startLocation": null,
+        "finishLocation": null,
+        "registrationUrl": null,
+        "displayOrder": 1,
+        "distanceKm": 42.195,
+        "createdAt": "2026-08-04",
+        "updatedAt": "2026-08-04",
+        "governance": {
+          "sources": [{
+            "sourceType": "official",
+            "sourceName": "上海市人民政府 / 上海马拉松",
+            "sourceUrl": "https://english.shanghai.gov.cn/en-SportsEvents/20260427/8152288074a44b44a7efbfd4b0b67797.html",
+            "sourceRecordId": "first5:shanghai-marathon:2026",
+            "crawledAt": "2026-08-04",
+            "confidence": 0.9
+          }],
+          "fieldSources": {},
+          "sourcePriority": { "official": 100 },
+          "confidence": 0.9,
+          "verified": true,
+          "verificationStatus": "verified",
+          "verifiedAt": "2026-08-04",
+          "missingFields": ["startAt", "startLocation", "finishLocation", "registrationUrl"],
+          "lastCrawledAt": "2026-08-04",
+          "lastUpdatedAt": "2026-08-04",
+          "schemaVersion": "race-graph-v1",
+          "dataQualityLevel": "A"
+        }
+      }]
+    },
+    {
+      "event": {
+        "eventId": "kailas-gongga-100",
+        "canonicalName": "凯乐石贡嘎100冰川极限挑战赛",
+        "aliases": ["贡嘎100", "Gongga 100"],
+        "eventType": "ultra_trail",
+        "homeCountry": "中国",
+        "homeProvince": "四川省",
+        "homeCity": "甘孜州",
+        "officialWebsite": "https://www.letoursports.net/gongga-100",
+        "organizer": "朗途体育",
+        "lifecycleStatus": "active",
+        "createdAt": "2026-08-04",
+        "updatedAt": "2026-08-04",
+        "governance": {
+          "sources": [{
+            "sourceType": "official",
+            "sourceName": "朗途体育 / Gongga 100",
+            "sourceUrl": "https://www.letoursports.net/gongga-100",
+            "sourceRecordId": "first5:kailas-gongga-100:2026",
+            "crawledAt": "2026-08-04",
+            "confidence": 0.9
+          }],
+          "fieldSources": {},
+          "sourcePriority": { "official": 100 },
+          "confidence": 0.9,
+          "verified": true,
+          "verificationStatus": "verified",
+          "verifiedAt": "2026-08-04",
+          "missingFields": [],
+          "lastCrawledAt": "2026-08-04",
+          "lastUpdatedAt": "2026-08-04",
+          "schemaVersion": "race-graph-v1",
+          "dataQualityLevel": "A"
+        }
+      },
+      "edition": {
+        "editionId": "kailas-gongga-100-2026",
+        "eventId": "kailas-gongga-100",
+        "editionName": "2026凯乐石贡嘎100冰川极限挑战赛",
+        "editionYear": 2026,
+        "raceDate": "2026-09-25",
+        "endDate": "2026-09-27",
+        "coverImage": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1800&q=90",
+        "primaryCategoryId": "kailas-gongga-100-2026-glacier-100",
+        "primaryCategoryName": "100km",
+        "country": "中国",
+        "province": "四川省",
+        "city": "甘孜州",
+        "district": "泸定县",
+        "venue": "磨西镇海螺沟游客中心",
+        "region": "southwest_china",
+        "timezone": "Asia/Shanghai",
+        "registrationStatus": "registration_open",
+        "officialWebsite": "https://www.letoursports.net/gongga-100",
+        "lifecycleStatus": "active",
+        "raceDistanceKm": 100,
+        "raceDistances": [100, 60, 40],
+        "createdAt": "2026-08-04",
+        "updatedAt": "2026-08-04",
+        "governance": {
+          "sources": [{
+            "sourceType": "official",
+            "sourceName": "朗途体育 / Gongga 100",
+            "sourceUrl": "https://www.letoursports.net/gongga-100",
+            "sourceRecordId": "first5:kailas-gongga-100:2026",
+            "crawledAt": "2026-08-04",
+            "confidence": 0.9
+          }],
+          "fieldSources": {},
+          "sourcePriority": { "official": 100 },
+          "confidence": 0.9,
+          "verified": true,
+          "verificationStatus": "verified",
+          "verifiedAt": "2026-08-04",
+          "missingFields": ["registrationUrl", "startAt", "startLocation", "finishLocation"],
+          "lastCrawledAt": "2026-08-04",
+          "lastUpdatedAt": "2026-08-04",
+          "schemaVersion": "race-graph-v1",
+          "dataQualityLevel": "A"
+        }
+      },
+      "categories": [
+        {
+          "categoryId": "kailas-gongga-100-2026-glacier-100",
+          "editionId": "kailas-gongga-100-2026",
+          "categoryName": "100km",
+          "shortName": "100K",
+          "startAt": null,
+          "startLocation": null,
+          "finishLocation": null,
+          "registrationUrl": null,
+          "displayOrder": 1,
+          "distanceKm": 100,
+          "createdAt": "2026-08-04",
+          "updatedAt": "2026-08-04",
+          "governance": {
+            "sources": [{ "sourceType": "official", "sourceName": "朗途体育 / Gongga 100", "sourceUrl": "https://www.letoursports.net/gongga-100", "sourceRecordId": "first5:kailas-gongga-100:2026", "crawledAt": "2026-08-04", "confidence": 0.9 }],
+            "fieldSources": {}, "sourcePriority": { "official": 100 }, "confidence": 0.9, "verified": true, "verificationStatus": "verified", "verifiedAt": "2026-08-04", "missingFields": ["startAt", "startLocation", "finishLocation", "registrationUrl"], "lastCrawledAt": "2026-08-04", "lastUpdatedAt": "2026-08-04", "schemaVersion": "race-graph-v1", "dataQualityLevel": "A"
+          }
+        },
+        {
+          "categoryId": "kailas-gongga-100-2026-snow-60",
+          "editionId": "kailas-gongga-100-2026",
+          "categoryName": "60km",
+          "shortName": "60K",
+          "startAt": null,
+          "startLocation": null,
+          "finishLocation": null,
+          "registrationUrl": null,
+          "displayOrder": 2,
+          "distanceKm": 60,
+          "createdAt": "2026-08-04",
+          "updatedAt": "2026-08-04",
+          "governance": {
+            "sources": [{ "sourceType": "official", "sourceName": "朗途体育 / Gongga 100", "sourceUrl": "https://www.letoursports.net/gongga-100", "sourceRecordId": "first5:kailas-gongga-100:2026", "crawledAt": "2026-08-04", "confidence": 0.9 }],
+            "fieldSources": {}, "sourcePriority": { "official": 100 }, "confidence": 0.9, "verified": true, "verificationStatus": "verified", "verifiedAt": "2026-08-04", "missingFields": ["startAt", "startLocation", "finishLocation", "registrationUrl"], "lastCrawledAt": "2026-08-04", "lastUpdatedAt": "2026-08-04", "schemaVersion": "race-graph-v1", "dataQualityLevel": "A"
+          }
+        },
+        {
+          "categoryId": "kailas-gongga-100-2026-trail-40",
+          "editionId": "kailas-gongga-100-2026",
+          "categoryName": "40km",
+          "shortName": "40K",
+          "startAt": null,
+          "startLocation": null,
+          "finishLocation": null,
+          "registrationUrl": null,
+          "displayOrder": 3,
+          "distanceKm": 40,
+          "createdAt": "2026-08-04",
+          "updatedAt": "2026-08-04",
+          "governance": {
+            "sources": [{ "sourceType": "official", "sourceName": "朗途体育 / Gongga 100", "sourceUrl": "https://www.letoursports.net/gongga-100", "sourceRecordId": "first5:kailas-gongga-100:2026", "crawledAt": "2026-08-04", "confidence": 0.9 }],
+            "fieldSources": {}, "sourcePriority": { "official": 100 }, "confidence": 0.9, "verified": true, "verificationStatus": "verified", "verifiedAt": "2026-08-04", "missingFields": ["startAt", "startLocation", "finishLocation", "registrationUrl"], "lastCrawledAt": "2026-08-04", "lastUpdatedAt": "2026-08-04", "schemaVersion": "race-graph-v1", "dataQualityLevel": "A"
+          }
+        }
+      ]
+    }
+  ]
+}

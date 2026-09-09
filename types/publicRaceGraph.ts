@@ -1,0 +1,66 @@
+import type { RaceType, RegistrationStatus } from "./event.ts";
+
+export const PUBLIC_RACE_GRAPH_SCHEMA_VERSION = "race-graph-public-v1" as const;
+
+export type PublicRaceLocation = {
+  country: string;
+  province: string | null;
+  city: string | null;
+  district: string | null;
+  venue: string | null;
+};
+
+export type RaceListItem = {
+  editionId: string;
+  eventId: string;
+  slug: string;
+  name: string;
+  raceType: RaceType;
+  raceDate: string;
+  endDate: string | null;
+  dateDisplay: string;
+  location: PublicRaceLocation;
+  locationDisplay: string;
+  coverImage: string | null;
+  registrationStatus: RegistrationStatus;
+  registrationUrl: string | null;
+};
+
+export type PublicRaceCategory = {
+  categoryId: string;
+  name: string;
+  shortName: string | null;
+  distanceKm: number | null;
+  elevationGain: number | null;
+  cutoffTimeHours: number | null;
+  startAt: string | null;
+  startLocation: string | null;
+  finishLocation: string | null;
+  registrationUrl: string | null;
+  displayOrder: number;
+  isPrimaryCategory: boolean;
+};
+
+export type PublicRaceDetail = RaceListItem & {
+  categories: PublicRaceCategory[];
+};
+
+export type PublicRaceListResponse = {
+  schemaVersion: typeof PUBLIC_RACE_GRAPH_SCHEMA_VERSION;
+  dataUpdatedAt: string;
+  races: RaceListItem[];
+};
+
+export type PublicRaceDetailResponse = {
+  schemaVersion: typeof PUBLIC_RACE_GRAPH_SCHEMA_VERSION;
+  dataUpdatedAt: string;
+  race: PublicRaceDetail;
+};
+
+export type PublicRaceErrorResponse = {
+  schemaVersion: typeof PUBLIC_RACE_GRAPH_SCHEMA_VERSION;
+  error: {
+    code: "canonical_unavailable" | "race_not_found";
+    message: string;
+  };
+};
