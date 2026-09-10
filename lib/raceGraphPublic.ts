@@ -7,11 +7,14 @@ import {
   type PublicRaceListResponse,
   type PublicRaceLocation,
 } from "../types/publicRaceGraph.ts";
+import { evaluatePrePublishFactGate, type PrePublishRaceGraphRecord } from "./prePublishFactGate.ts";
 
 type CanonicalGovernance = {
   verified?: boolean | null;
   verificationStatus?: string | null;
   internalFlags?: string[] | null;
+  publicationGate?: import("../types/event.ts").PrePublishFactGate | null;
+  sources: import("../types/event.ts").SourceRecord[];
 };
 
 type CanonicalEvent = {
@@ -26,9 +29,11 @@ type CanonicalEdition = {
   editionId: string;
   eventId: string;
   editionName: string;
+  editionYear: number;
   raceDate?: string | null;
   endDate?: string | null;
   coverImage?: string | null;
+  heroImage?: string | null;
   primaryCategoryId?: string | null;
   country: string;
   province?: string | null;
@@ -140,11 +145,12 @@ export function isEditionPublishable(record: CanonicalRecord): boolean {
   if (!isNonEmptyString(event.eventId) || !isNonEmptyString(edition.editionId)) return false;
   if (edition.eventId !== event.eventId || !isNonEmptyString(edition.editionName)) return false;
   if (event.lifecycleStatus !== "active" || edition.lifecycleStatus !== "active") return false;
-  if (!isValidDateOnly(edition.raceDate)) return false;
+  if (edition.raceDate !== null && edition.raceDate !== undefined && !isValidDateOnly(edition.raceDate)) return false;
   if (edition.endDate !== null && edition.endDate !== undefined) {
-    if (!isValidDateOnly(edition.endDate) || edition.endDate < edition.raceDate) return false;
+    if (!isValidDateOnly(edition.raceDate) || !isValidDateOnly(edition.endDate) || edition.endDate < edition.raceDate) return false;
   }
   if (!isGovernancePublishable(event.governance) || !isGovernancePublishable(edition.governance)) return false;
+  if (!evaluatePrePublishFactGate(record as PrePublishRaceGraphRecord).publishable) return false;
 
   const publicCategories = categories.filter((category) => isCategoryPublishable(category, edition.editionId));
   if (edition.primaryCategoryId && !publicCategories.some(({ categoryId }) => categoryId === edition.primaryCategoryId)) {
@@ -172,7 +178,8 @@ export function formatLocationDisplay(location: PublicRaceLocation): string {
   return segments.join(" · ");
 }
 
-export function formatDateDisplay(raceDate: string, endDate: string | null): string {
+export function formatDateDisplay(raceDate: string | null, endDate: string | null): string {
+  if (!raceDate) return "日期待公布";
   const start = parseDateParts(raceDate);
   const end = endDate ? parseDateParts(endDate) : null;
   if (!start || (endDate && !end)) return raceDate;
@@ -212,12 +219,13 @@ function toPublicRaceDetail(record: CanonicalRecord): PublicRaceDetail {
     slug: edition.editionId,
     name: edition.editionName,
     raceType: event.eventType,
-    raceDate: edition.raceDate as string,
+    raceDate: edition.raceDate ?? null,
     endDate: edition.endDate ?? null,
-    dateDisplay: formatDateDisplay(edition.raceDate as string, edition.endDate ?? null),
+    dateDisplay: formatDateDisplay(edition.raceDate ?? null, edition.endDate ?? null),
     location,
     locationDisplay: formatLocationDisplay(location),
     coverImage: edition.coverImage ?? null,
+    heroImage: edition.heroImage ?? null,
     registrationStatus: edition.registrationStatus,
     registrationUrl: edition.registrationUrl ?? null,
     categories: record.categories
@@ -273,7 +281,8 @@ function compareRaceListItems(
   left: PublicRaceDetail | Omit<PublicRaceDetail, "categories">,
   right: PublicRaceDetail | Omit<PublicRaceDetail, "categories">,
 ): number {
-  return left.raceDate.localeCompare(right.raceDate) || left.editionId.localeCompare(right.editionId);
+  return (left.raceDate ?? "9999-12-31").localeCompare(right.raceDate ?? "9999-12-31")
+    || left.editionId.localeCompare(right.editionId);
 }
 
 function canonicalUnavailable(): PublicResult<never> {

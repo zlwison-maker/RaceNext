@@ -6,6 +6,8 @@ Status: Frozen
 
 Project: RaceNext（下一场）
 
+Current State: Architecture Frozen; Public Distribution Ready; Real AI Provider Adapter Ready with Runtime Verification Deferred.
+
 ⸻
 
 1. Background
@@ -914,7 +916,7 @@ RaceNext 还能帮助用户完成什么？
 - sources：该赛事来自哪些数据源。
 - fieldSources：每个字段最终来自哪个数据源。
 - sourcePriority：数据源优先级。
-- confidence：整条赛事数据可信度，0-100。
+- confidence：正式 Event / Edition / Category 模型中的整条数据可信度统一为 0–1；旧链路中的 0–100 值须在后续迁移边界转换，不能直接混用。
 - verified：是否人工确认。
 - verificationStatus：pending / verified / rejected / auto_verified。
 - missingFields：当前缺失的重要字段。
@@ -996,3 +998,25 @@ Race Schema v1.0 已冻结。
 均必须遵循本 Schema。
 
 任何修改均通过版本升级完成，不允许直接修改 v1.0。
+
+⸻
+
+12. Race Graph V1 Foundation 增量同步（v1.1）
+
+本节是对已冻结 v1.0 的 additive minor update，只同步正式 Event / Edition / Category 实体所需的最小字段；实体归属与完整语义以 `EVENT_MODEL_V1.md` v1.1 为准。
+
+新增字段：
+
+* Edition：`endDate`、`coverImage`、`primaryCategoryId`
+* Category：`startAt`、`startLocation`、`finishLocation`、`registrationUrl`、`displayOrder`
+* Category P1 可选字段：`shortName`
+* Data Governance：`verifiedAt`
+
+同步规则：
+
+* `eventType` 是 Road / Trail 类型的唯一正式事实来源，不在 Edition 新增 `raceType`。
+* `primaryCategoryId` 是核心组别正式关系；`primaryCategoryName` 仅保留为兼容展示摘要。
+* `raceDate` 表示首个赛事日，`endDate` 表示最后一个赛事日，单日赛 endDate 为 null。
+* `startAt` 按来源精度保存：只确认组别日期时使用 ISO date-only；确认准确时间时使用带时区的完整 ISO 8601 日期时间。禁止补猜时间。
+* `displayOrder` 只控制展示，不能参与 categoryId 生成。
+* 正式治理 confidence 使用 0–1。

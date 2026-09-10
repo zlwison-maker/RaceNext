@@ -17,6 +17,7 @@ export type EventBaseData = {
   eventLocation: string;
   eventStatus: string;
   coverImage: string;
+  heroImage: string;
   categories: string[];
   source: EventBaseSource;
   lastUpdated: string;
@@ -58,12 +59,27 @@ const ctripLinks = (distance: string, transportation: string, balance: string): 
   },
 });
 
-const coverImages = {
-  shanghai: "https://images.unsplash.com/photo-1538428494232-9c0d8a3ab403?auto=format&fit=crop&w=1800&q=90",
-  beijing: "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=1800&q=90",
-  xiamen: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=90",
-  hk100: "https://images.unsplash.com/photo-1536599018102-9f803c140fc1?auto=format&fit=crop&w=1800&q=90",
-  gongga: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1800&q=90",
+const imageAssets = {
+  shanghai: {
+    cover: "/races/shanghai-marathon/2026/cover-original.jpg",
+    hero: "/races/shanghai-marathon/2026/hero-original.png",
+  },
+  beijing: {
+    cover: "/races/beijing-marathon/2026/cover-homepage-16x9.png",
+    hero: "/races/beijing-marathon/2026/hero-original.webp",
+  },
+  xiamen: {
+    cover: "/races/xiamen-marathon/2027/cover-hero-original.png",
+    hero: "/races/xiamen-marathon/2027/cover-hero-original.png",
+  },
+  hk100: {
+    cover: "/races/hk100/2027/cover-homepage-16x9.jpg",
+    hero: "/races/hk100/2027/hero-original.png",
+  },
+  gongga: {
+    cover: "/races/kailas-gongga-100/2026/cover-original.png",
+    hero: "/races/kailas-gongga-100/2026/hero-original.jpeg",
+  },
 };
 
 const cityMarathonAreas = (affiliateLinks: AffiliateLinks): MvpAccommodationArea[] => [
@@ -129,7 +145,8 @@ export const FIRST5_MVP_EVENTS: First5MvpEvent[] = [
       eventDate: "2026-12-06",
       eventLocation: "上海市黄浦区外滩金牛广场",
       eventStatus: "报名已截止",
-      coverImage: coverImages.shanghai,
+      coverImage: imageAssets.shanghai.cover,
+      heroImage: imageAssets.shanghai.hero,
       categories: ["马拉松", "竞速轮椅马拉松"],
       source: {
         name: "上海市人民政府 / 上海马拉松",
@@ -150,17 +167,18 @@ export const FIRST5_MVP_EVENTS: First5MvpEvent[] = [
       eventYear: 2026,
       eventName: eventTitle(2026, "北京马拉松"),
       eventDate: "2026-10-18",
-      eventLocation: "北京市天安门广场",
-      eventStatus: "待官方开放",
-      coverImage: coverImages.beijing,
+      eventLocation: "北京市",
+      eventStatus: "待官方确认",
+      coverImage: imageAssets.beijing.cover,
+      heroImage: imageAssets.beijing.hero,
       categories: ["马拉松"],
       source: {
-        name: "AIMS / 中国马拉松",
+        name: "AIMS / World Athletics（官网确认赛事身份）",
         url: "https://aims-worldrunning.org/zh-CN/races/852.html",
-        verifiedAt: "2026-08-04",
-        note: "AIMS 收录 2026 北京马拉松日期为 2026-10-18；中国马拉松信息为拟定日期，仍需上线前复核官方公告。",
+        verifiedAt: "2026-09-10",
+        note: "AIMS 与 World Athletics 均列出 2026 北京马拉松比赛日为 2026-10-18；北京马拉松官网用于赛事身份确认。",
       },
-      lastUpdated: "2026-08-04",
+      lastUpdated: "2026-09-10",
     },
     decision: {
       eventId: "beijing-marathon",
@@ -175,15 +193,16 @@ export const FIRST5_MVP_EVENTS: First5MvpEvent[] = [
       eventDate: "2027-01-10",
       eventLocation: "福建省厦门市",
       eventStatus: "待官方开放",
-      coverImage: coverImages.xiamen,
+      coverImage: imageAssets.xiamen.cover,
+      heroImage: imageAssets.xiamen.hero,
       categories: ["马拉松"],
       source: {
-        name: "AIMS / 厦门马拉松组委会公开信息",
+        name: "AIMS / 中国马拉松赛事目录（官网确认赛事身份）",
         url: "https://aims-worldrunning.org/zh-CN/races/632.html",
-        verifiedAt: "2026-08-04",
-        note: "2026 厦门马拉松已于 2026-01-11 举办；当前可验证的下一届为 2027-01-10。",
+        verifiedAt: "2026-09-10",
+        note: "AIMS 与中国马拉松赛事目录均列出 2027 厦门马拉松比赛日为 2027-01-10；厦门马拉松官网用于赛事身份确认。",
       },
-      lastUpdated: "2026-08-04",
+      lastUpdated: "2026-09-10",
     },
     decision: {
       eventId: "xiamen-marathon",
@@ -197,16 +216,17 @@ export const FIRST5_MVP_EVENTS: First5MvpEvent[] = [
       eventName: eventTitle(2027, "香港HK100越野赛"),
       eventDate: "2027-01-21/2027-01-24",
       eventLocation: "香港西贡北潭涌",
-      eventStatus: "报名中",
-      coverImage: coverImages.hk100,
+      eventStatus: "待官方开放",
+      coverImage: imageAssets.hk100.cover,
+      heroImage: imageAssets.hk100.hero,
       categories: ["The Third", "The Half", "HK100", "The Grand Sam"],
       source: {
         name: "Hong Kong 100 Ultra Marathon",
-        url: "https://hk100ultra.com/",
-        verifiedAt: "2026-08-04",
-        note: "官网当前展示 2027 Edition，公众抽签 7月30日开放，赛事日期覆盖 2027-01-21 至 2027-01-24。",
+        url: "https://hk100ultra.com/zh-hant/",
+        verifiedAt: "2026-09-10",
+        note: "官网明确为 2027 Edition：赛事窗口为 2027-01-21 至 2027-01-24，HK100 100K 主赛日期为 2027-01-23。",
       },
-      lastUpdated: "2026-08-04",
+      lastUpdated: "2026-09-10",
     },
     decision: {
       eventId: "hk100",
@@ -221,7 +241,8 @@ export const FIRST5_MVP_EVENTS: First5MvpEvent[] = [
       eventDate: "2026-09-25/2026-09-27",
       eventLocation: "四川省甘孜州泸定县磨西镇海螺沟游客中心",
       eventStatus: "报名中",
-      coverImage: coverImages.gongga,
+      coverImage: imageAssets.gongga.cover,
+      heroImage: imageAssets.gongga.hero,
       categories: ["100km", "60km", "40km"],
       source: {
         name: "朗途体育 / Gongga 100",

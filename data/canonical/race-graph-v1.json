@@ -1,37 +1,55 @@
 {
   "schemaVersion": "race-graph-v1",
-  "generatedAt": "2026-08-04",
+  "generatedAt": "2026-09-10",
   "records": [
     {
       "event": {
         "eventId": "shanghai-marathon",
         "canonicalName": "上海马拉松",
-        "aliases": ["上马", "Shanghai Marathon"],
+        "aliases": [
+          "上马",
+          "Shanghai Marathon"
+        ],
         "eventType": "marathon",
         "homeCountry": "中国",
         "homeProvince": "上海市",
         "homeCity": "上海市",
-        "officialWebsite": null,
+        "officialWebsite": "https://static.shang-ma.com/web/index.html",
         "organizer": null,
         "lifecycleStatus": "active",
         "createdAt": "2026-08-04",
-        "updatedAt": "2026-08-04",
+        "updatedAt": "2026-09-10",
         "governance": {
-          "sources": [{
-            "sourceType": "official",
-            "sourceName": "上海市人民政府 / 上海马拉松",
-            "sourceUrl": "https://english.shanghai.gov.cn/en-SportsEvents/20260427/8152288074a44b44a7efbfd4b0b67797.html",
-            "sourceRecordId": "first5:shanghai-marathon:2026",
-            "crawledAt": "2026-08-04",
-            "confidence": 0.9
-          }],
+          "sources": [
+            {
+              "sourceType": "official",
+              "sourceName": "上海市人民政府 / 上海马拉松",
+              "sourceUrl": "https://english.shanghai.gov.cn/en-SportsEvents/20260427/8152288074a44b44a7efbfd4b0b67797.html",
+              "sourceRecordId": "shanghai-marathon-official-notice-2026",
+              "crawledAt": "2026-08-04",
+              "confidence": 0.9,
+              "rawData": {
+                "editionYear": 2026,
+                "latestRelevantOfficialEditionYear": 2026,
+                "raceDate": "2026-12-06",
+                "evidenceLocator": "Shanghai government sports event notice"
+              }
+            }
+          ],
           "fieldSources": {},
-          "sourcePriority": { "official": 100 },
+          "sourcePriority": {
+            "official": 100
+          },
           "confidence": 0.9,
           "verified": true,
           "verificationStatus": "verified",
           "verifiedAt": "2026-08-04",
-          "missingFields": ["registrationUrl", "startAt", "startLocation", "finishLocation"],
+          "missingFields": [
+            "registrationUrl",
+            "startAt",
+            "startLocation",
+            "finishLocation"
+          ],
           "lastCrawledAt": "2026-08-04",
           "lastUpdatedAt": "2026-08-04",
           "schemaVersion": "race-graph-v1",
@@ -45,7 +63,7 @@
         "editionYear": 2026,
         "raceDate": "2026-12-06",
         "endDate": null,
-        "coverImage": "https://images.unsplash.com/photo-1538428494232-9c0d8a3ab403?auto=format&fit=crop&w=1800&q=90",
+        "coverImage": "/races/shanghai-marathon/2026/cover-original.jpg",
         "primaryCategoryId": "shanghai-marathon-2026-marathon",
         "primaryCategoryName": "马拉松",
         "country": "中国",
@@ -59,72 +77,805 @@
         "officialWebsite": null,
         "lifecycleStatus": "active",
         "raceDistanceKm": 42.195,
-        "raceDistances": [42.195],
+        "raceDistances": [
+          42.195
+        ],
         "createdAt": "2026-08-04",
-        "updatedAt": "2026-08-04",
+        "updatedAt": "2026-09-10",
         "governance": {
-          "sources": [{
-            "sourceType": "official",
-            "sourceName": "上海市人民政府 / 上海马拉松",
-            "sourceUrl": "https://english.shanghai.gov.cn/en-SportsEvents/20260427/8152288074a44b44a7efbfd4b0b67797.html",
-            "sourceRecordId": "first5:shanghai-marathon:2026",
-            "crawledAt": "2026-08-04",
-            "confidence": 0.9
-          }],
-          "fieldSources": {},
-          "sourcePriority": { "official": 100 },
+          "sources": [
+            {
+              "sourceType": "official",
+              "sourceName": "上海市人民政府 / 上海马拉松",
+              "sourceUrl": "https://english.shanghai.gov.cn/en-SportsEvents/20260427/8152288074a44b44a7efbfd4b0b67797.html",
+              "sourceRecordId": "shanghai-marathon-official-notice-2026",
+              "crawledAt": "2026-08-04",
+              "confidence": 0.9,
+              "rawData": {
+                "editionYear": 2026,
+                "latestRelevantOfficialEditionYear": 2026,
+                "raceDate": "2026-12-06",
+                "evidenceLocator": "Shanghai government sports event notice"
+              }
+            },
+            {
+              "sourceType": "manual",
+              "sourceName": "RaceNext human-reviewed First5 image input",
+              "sourceRecordId": "first5-images:2026-09-10",
+              "crawledAt": "2026-09-10",
+              "confidence": 1
+            }
+          ],
+          "fieldSources": {
+            "coverImage": {
+              "field": "coverImage",
+              "sourceType": "manual",
+              "sourceName": "RaceNext human-reviewed First5 image input",
+              "confidence": 1,
+              "updatedAt": "2026-09-10"
+            },
+            "heroImage": {
+              "field": "heroImage",
+              "sourceType": "manual",
+              "sourceName": "RaceNext human-reviewed First5 image input",
+              "confidence": 1,
+              "updatedAt": "2026-09-10"
+            }
+          },
+          "sourcePriority": {
+            "official": 100
+          },
           "confidence": 0.9,
           "verified": true,
           "verificationStatus": "verified",
           "verifiedAt": "2026-08-04",
-          "missingFields": ["registrationUrl", "startAt", "startLocation", "finishLocation"],
+          "missingFields": [
+            "registrationUrl",
+            "startAt",
+            "startLocation",
+            "finishLocation"
+          ],
           "lastCrawledAt": "2026-08-04",
-          "lastUpdatedAt": "2026-08-04",
+          "lastUpdatedAt": "2026-09-10",
           "schemaVersion": "race-graph-v1",
-          "dataQualityLevel": "A"
+          "dataQualityLevel": "A",
+          "publicationGate": {
+            "requestedEditionYear": 2026,
+            "latestRelevantOfficialEditionYear": 2026,
+            "latestOfficialEditionSourceRecordId": "shanghai-marathon-official-notice-2026",
+            "primarySourceRecordId": "shanghai-marathon-official-notice-2026",
+            "secondarySourceRecordId": null,
+            "raceDateSourceRecordIds": [
+              "shanghai-marathon-official-notice-2026"
+            ],
+            "dateEvidenceStatus": "verified",
+            "conflictStatus": "none",
+            "publishable": true,
+            "checkedAt": "2026-09-10"
+          }
+        },
+        "heroImage": "/races/shanghai-marathon/2026/hero-original.png"
+      },
+      "categories": [
+        {
+          "categoryId": "shanghai-marathon-2026-marathon",
+          "editionId": "shanghai-marathon-2026",
+          "categoryName": "马拉松",
+          "shortName": "全马",
+          "startAt": null,
+          "startLocation": null,
+          "finishLocation": null,
+          "registrationUrl": null,
+          "displayOrder": 1,
+          "distanceKm": 42.195,
+          "createdAt": "2026-08-04",
+          "updatedAt": "2026-08-04",
+          "governance": {
+            "sources": [
+              {
+                "sourceType": "official",
+                "sourceName": "上海市人民政府 / 上海马拉松",
+                "sourceUrl": "https://english.shanghai.gov.cn/en-SportsEvents/20260427/8152288074a44b44a7efbfd4b0b67797.html",
+                "sourceRecordId": "first5:shanghai-marathon:2026",
+                "crawledAt": "2026-08-04",
+                "confidence": 0.9
+              }
+            ],
+            "fieldSources": {},
+            "sourcePriority": {
+              "official": 100
+            },
+            "confidence": 0.9,
+            "verified": true,
+            "verificationStatus": "verified",
+            "verifiedAt": "2026-08-04",
+            "missingFields": [
+              "startAt",
+              "startLocation",
+              "finishLocation",
+              "registrationUrl"
+            ],
+            "lastCrawledAt": "2026-08-04",
+            "lastUpdatedAt": "2026-08-04",
+            "schemaVersion": "race-graph-v1",
+            "dataQualityLevel": "A"
+          }
+        }
+      ]
+    },
+    {
+      "event": {
+        "eventId": "beijing-marathon",
+        "canonicalName": "北京马拉松",
+        "aliases": [
+          "北马",
+          "Beijing Marathon"
+        ],
+        "eventType": "marathon",
+        "homeCountry": "中国",
+        "homeProvince": "北京市",
+        "homeCity": "北京市",
+        "officialWebsite": "https://www.beijing-marathon.com/",
+        "organizer": null,
+        "lifecycleStatus": "active",
+        "createdAt": "2026-09-10",
+        "updatedAt": "2026-09-10",
+        "governance": {
+          "sources": [
+            {
+              "sourceType": "official",
+              "sourceName": "北京马拉松官方网站",
+              "sourceUrl": "https://www.beijing-marathon.com/",
+              "sourceRecordId": "beijing-marathon-official-home",
+              "crawledAt": "2026-09-10",
+              "confidence": 0.95
+            }
+          ],
+          "fieldSources": {},
+          "sourcePriority": {
+            "official": 100,
+            "manual": 100
+          },
+          "confidence": 0.95,
+          "verified": true,
+          "verificationStatus": "verified",
+          "verifiedAt": "2026-09-10",
+          "missingFields": [
+            "organizer"
+          ],
+          "lastCrawledAt": "2026-09-10",
+          "lastUpdatedAt": "2026-09-10",
+          "schemaVersion": "race-graph-v1",
+          "dataQualityLevel": "B",
+          "reviewNotes": "Official site confirms the Beijing Marathon event identity. Edition date is governed separately by reviewed edition-specific evidence."
         }
       },
-      "categories": [{
-        "categoryId": "shanghai-marathon-2026-marathon",
-        "editionId": "shanghai-marathon-2026",
-        "categoryName": "马拉松",
-        "shortName": "全马",
-        "startAt": null,
-        "startLocation": null,
-        "finishLocation": null,
+      "edition": {
+        "editionId": "beijing-marathon-2026",
+        "eventId": "beijing-marathon",
+        "editionName": "2026北京马拉松",
+        "editionYear": 2026,
+        "raceDate": "2026-10-18",
+        "endDate": null,
+        "coverImage": "/races/beijing-marathon/2026/cover-homepage-16x9.png",
+        "heroImage": "/races/beijing-marathon/2026/hero-original.webp",
+        "primaryCategoryId": "beijing-marathon-2026-marathon",
+        "primaryCategoryName": "马拉松",
+        "country": "中国",
+        "province": "北京市",
+        "city": "北京市",
+        "district": null,
+        "venue": null,
+        "region": "north_china",
+        "timezone": "Asia/Shanghai",
+        "registrationStatus": "unknown",
         "registrationUrl": null,
-        "displayOrder": 1,
-        "distanceKm": 42.195,
-        "createdAt": "2026-08-04",
-        "updatedAt": "2026-08-04",
+        "officialWebsite": "https://www.beijing-marathon.com/",
+        "lifecycleStatus": "active",
+        "createdAt": "2026-09-10",
+        "updatedAt": "2026-09-10",
         "governance": {
-          "sources": [{
-            "sourceType": "official",
-            "sourceName": "上海市人民政府 / 上海马拉松",
-            "sourceUrl": "https://english.shanghai.gov.cn/en-SportsEvents/20260427/8152288074a44b44a7efbfd4b0b67797.html",
-            "sourceRecordId": "first5:shanghai-marathon:2026",
-            "crawledAt": "2026-08-04",
-            "confidence": 0.9
-          }],
-          "fieldSources": {},
-          "sourcePriority": { "official": 100 },
-          "confidence": 0.9,
+          "sources": [
+            {
+              "sourceType": "official",
+              "sourceName": "北京马拉松官方网站",
+              "sourceUrl": "https://www.beijing-marathon.com/",
+              "sourceRecordId": "beijing-marathon-official-home",
+              "crawledAt": "2026-09-10",
+              "confidence": 0.95
+            },
+            {
+              "sourceType": "partner",
+              "sourceName": "AIMS race information — Beijing Marathon",
+              "sourceUrl": "https://aims-worldrunning.org/zh-CN/races/852.html",
+              "sourceRecordId": "beijing-marathon-aims-2026",
+              "crawledAt": "2026-09-10",
+              "confidence": 0.9,
+              "rawData": {
+                "editionYear": 2026,
+                "latestRelevantOfficialEditionYear": 2026,
+                "raceDate": "2026-10-18",
+                "evidenceLocator": "Forthcoming events: Beijing Marathon, Sun 18 October 2026"
+              }
+            },
+            {
+              "sourceType": "partner",
+              "sourceName": "World Athletics competition calendar",
+              "sourceUrl": "https://worldathletics.org/competition/calendar-results?disciplineId=2&offset=100",
+              "sourceRecordId": "beijing-marathon-world-athletics-2026",
+              "crawledAt": "2026-09-10",
+              "confidence": 0.9,
+              "rawData": {
+                "editionYear": 2026,
+                "raceDate": "2026-10-18",
+                "evidenceLocator": "18 OCT 2026: Bank of China Beijing Marathon, Beijing"
+              }
+            },
+            {
+              "sourceType": "manual",
+              "sourceName": "RaceNext human-reviewed First5 image input",
+              "sourceRecordId": "first5-images:2026-09-10",
+              "crawledAt": "2026-09-10",
+              "confidence": 1
+            }
+          ],
+          "fieldSources": {
+            "raceDate": {
+              "field": "raceDate",
+              "sourceType": "merged",
+              "sourceName": "AIMS + World Athletics",
+              "confidence": 0.9,
+              "updatedAt": "2026-09-10"
+            }
+          },
+          "sourcePriority": {
+            "official": 100,
+            "manual": 100
+          },
+          "confidence": 0.95,
           "verified": true,
           "verificationStatus": "verified",
-          "verifiedAt": "2026-08-04",
-          "missingFields": ["startAt", "startLocation", "finishLocation", "registrationUrl"],
-          "lastCrawledAt": "2026-08-04",
-          "lastUpdatedAt": "2026-08-04",
+          "verifiedAt": "2026-09-10",
+          "missingFields": [
+            "venue",
+            "registrationStatus",
+            "startAt",
+            "startLocation",
+            "finishLocation"
+          ],
+          "lastCrawledAt": "2026-09-10",
+          "lastUpdatedAt": "2026-09-10",
           "schemaVersion": "race-graph-v1",
-          "dataQualityLevel": "A"
+          "dataQualityLevel": "B",
+          "reviewNotes": "Race date is supported by matching AIMS and World Athletics 2026 calendar entries; the official event home remains the primary identity source.",
+          "publicationGate": {
+            "requestedEditionYear": 2026,
+            "latestRelevantOfficialEditionYear": 2026,
+            "latestOfficialEditionSourceRecordId": "beijing-marathon-aims-2026",
+            "primarySourceRecordId": "beijing-marathon-official-home",
+            "secondarySourceRecordId": "beijing-marathon-world-athletics-2026",
+            "raceDateSourceRecordIds": [
+              "beijing-marathon-aims-2026",
+              "beijing-marathon-world-athletics-2026"
+            ],
+            "dateEvidenceStatus": "verified",
+            "conflictStatus": "none",
+            "publishable": true,
+            "checkedAt": "2026-09-10"
+          }
         }
-      }]
+      },
+      "categories": [
+        {
+          "categoryId": "beijing-marathon-2026-marathon",
+          "editionId": "beijing-marathon-2026",
+          "categoryName": "马拉松",
+          "shortName": "全马",
+          "startAt": null,
+          "startLocation": null,
+          "finishLocation": null,
+          "registrationUrl": null,
+          "displayOrder": 1,
+          "distanceKm": 42.195,
+          "createdAt": "2026-09-10",
+          "updatedAt": "2026-09-10",
+          "governance": {
+            "sources": [
+              {
+                "sourceType": "partner",
+                "sourceName": "AIMS race information — Beijing Marathon",
+                "sourceUrl": "https://aims-worldrunning.org/zh-CN/races/852.html",
+                "sourceRecordId": "beijing-marathon-aims-2026",
+                "crawledAt": "2026-09-10",
+                "confidence": 0.9
+              }
+            ],
+            "fieldSources": {},
+            "sourcePriority": {
+              "partner": 80
+            },
+            "confidence": 0.9,
+            "verified": true,
+            "verificationStatus": "verified",
+            "verifiedAt": "2026-09-10",
+            "missingFields": [
+              "startAt",
+              "startLocation",
+              "finishLocation",
+              "registrationUrl"
+            ],
+            "lastCrawledAt": "2026-09-10",
+            "lastUpdatedAt": "2026-09-10",
+            "schemaVersion": "race-graph-v1",
+            "dataQualityLevel": "B"
+          }
+        }
+      ]
+    },
+    {
+      "event": {
+        "eventId": "xiamen-marathon",
+        "canonicalName": "厦门马拉松",
+        "aliases": [
+          "厦马",
+          "Xiamen Marathon"
+        ],
+        "eventType": "marathon",
+        "homeCountry": "中国",
+        "homeProvince": "福建省",
+        "homeCity": "厦门市",
+        "officialWebsite": "https://www.xmim.org/",
+        "organizer": null,
+        "lifecycleStatus": "active",
+        "createdAt": "2026-09-10",
+        "updatedAt": "2026-09-10",
+        "governance": {
+          "sources": [
+            {
+              "sourceType": "official",
+              "sourceName": "厦门马拉松官方网站",
+              "sourceUrl": "https://www.xmim.org/",
+              "sourceRecordId": "xiamen-marathon-official-home",
+              "crawledAt": "2026-09-10",
+              "confidence": 0.95
+            }
+          ],
+          "fieldSources": {},
+          "sourcePriority": {
+            "official": 100,
+            "manual": 100
+          },
+          "confidence": 0.95,
+          "verified": true,
+          "verificationStatus": "verified",
+          "verifiedAt": "2026-09-10",
+          "missingFields": [
+            "organizer"
+          ],
+          "lastCrawledAt": "2026-09-10",
+          "lastUpdatedAt": "2026-09-10",
+          "schemaVersion": "race-graph-v1",
+          "dataQualityLevel": "B",
+          "reviewNotes": "Official site confirms event identity; no 2027 edition facts were copied from a different year."
+        }
+      },
+      "edition": {
+        "editionId": "xiamen-marathon-2027",
+        "eventId": "xiamen-marathon",
+        "editionName": "2027厦门马拉松",
+        "editionYear": 2027,
+        "raceDate": "2027-01-10",
+        "endDate": null,
+        "coverImage": "/races/xiamen-marathon/2027/cover-hero-original.png",
+        "heroImage": "/races/xiamen-marathon/2027/cover-hero-original.png",
+        "primaryCategoryId": "xiamen-marathon-2027-marathon",
+        "primaryCategoryName": "马拉松",
+        "country": "中国",
+        "province": "福建省",
+        "city": "厦门市",
+        "district": null,
+        "venue": null,
+        "region": "east_china",
+        "timezone": "Asia/Shanghai",
+        "registrationStatus": "unknown",
+        "registrationUrl": null,
+        "officialWebsite": "https://www.xmim.org/",
+        "lifecycleStatus": "active",
+        "createdAt": "2026-09-10",
+        "updatedAt": "2026-09-10",
+        "governance": {
+          "sources": [
+            {
+              "sourceType": "official",
+              "sourceName": "厦门马拉松官方网站",
+              "sourceUrl": "https://www.xmim.org/",
+              "sourceRecordId": "xiamen-marathon-official-home",
+              "crawledAt": "2026-09-10",
+              "confidence": 0.95
+            },
+            {
+              "sourceType": "partner",
+              "sourceName": "AIMS race information — C&D Xiamen Marathon",
+              "sourceUrl": "https://aims-worldrunning.org/zh-CN/races/632.html",
+              "sourceRecordId": "xiamen-marathon-aims-2027",
+              "crawledAt": "2026-09-10",
+              "confidence": 0.9,
+              "rawData": {
+                "editionYear": 2027,
+                "latestRelevantOfficialEditionYear": 2027,
+                "raceDate": "2027-01-10",
+                "evidenceLocator": "Forthcoming events: C&D Xiamen Marathon, Sun 10 January 2027"
+              }
+            },
+            {
+              "sourceType": "media",
+              "sourceName": "中国马拉松赛事目录",
+              "sourceUrl": "https://chinamarathon.com/events/86038",
+              "sourceRecordId": "xiamen-marathon-china-marathon-2027",
+              "crawledAt": "2026-09-10",
+              "confidence": 0.8,
+              "rawData": {
+                "editionYear": 2027,
+                "raceDate": "2027-01-10",
+                "evidenceLocator": "2027 C&D Xiamen Marathon event listing"
+              }
+            },
+            {
+              "sourceType": "manual",
+              "sourceName": "RaceNext human-reviewed First5 image input",
+              "sourceRecordId": "first5-images:2026-09-10",
+              "crawledAt": "2026-09-10",
+              "confidence": 1
+            }
+          ],
+          "fieldSources": {
+            "raceDate": {
+              "field": "raceDate",
+              "sourceType": "merged",
+              "sourceName": "AIMS + 中国马拉松赛事目录",
+              "confidence": 0.85,
+              "updatedAt": "2026-09-10"
+            }
+          },
+          "sourcePriority": {
+            "official": 100,
+            "manual": 100
+          },
+          "confidence": 0.95,
+          "verified": true,
+          "verificationStatus": "verified",
+          "verifiedAt": "2026-09-10",
+          "missingFields": [
+            "venue",
+            "registrationStatus",
+            "startAt",
+            "startLocation",
+            "finishLocation"
+          ],
+          "lastCrawledAt": "2026-09-10",
+          "lastUpdatedAt": "2026-09-10",
+          "schemaVersion": "race-graph-v1",
+          "dataQualityLevel": "B",
+          "reviewNotes": "Race date is supported by matching AIMS and China Marathon event listings; the official event home remains the primary identity source.",
+          "publicationGate": {
+            "requestedEditionYear": 2027,
+            "latestRelevantOfficialEditionYear": 2027,
+            "latestOfficialEditionSourceRecordId": "xiamen-marathon-aims-2027",
+            "primarySourceRecordId": "xiamen-marathon-official-home",
+            "secondarySourceRecordId": "xiamen-marathon-china-marathon-2027",
+            "raceDateSourceRecordIds": [
+              "xiamen-marathon-aims-2027",
+              "xiamen-marathon-china-marathon-2027"
+            ],
+            "dateEvidenceStatus": "verified",
+            "conflictStatus": "none",
+            "publishable": true,
+            "checkedAt": "2026-09-10"
+          }
+        }
+      },
+      "categories": [
+        {
+          "categoryId": "xiamen-marathon-2027-marathon",
+          "editionId": "xiamen-marathon-2027",
+          "categoryName": "马拉松",
+          "shortName": "全马",
+          "startAt": null,
+          "startLocation": null,
+          "finishLocation": null,
+          "registrationUrl": null,
+          "displayOrder": 1,
+          "distanceKm": 42.195,
+          "createdAt": "2026-09-10",
+          "updatedAt": "2026-09-10",
+          "governance": {
+            "sources": [
+              {
+                "sourceType": "partner",
+                "sourceName": "AIMS race information — C&D Xiamen Marathon",
+                "sourceUrl": "https://aims-worldrunning.org/zh-CN/races/632.html",
+                "sourceRecordId": "xiamen-marathon-aims-2027",
+                "crawledAt": "2026-09-10",
+                "confidence": 0.9
+              }
+            ],
+            "fieldSources": {},
+            "sourcePriority": {
+              "partner": 80
+            },
+            "confidence": 0.9,
+            "verified": true,
+            "verificationStatus": "verified",
+            "verifiedAt": "2026-09-10",
+            "missingFields": [
+              "startAt",
+              "startLocation",
+              "finishLocation",
+              "registrationUrl"
+            ],
+            "lastCrawledAt": "2026-09-10",
+            "lastUpdatedAt": "2026-09-10",
+            "schemaVersion": "race-graph-v1",
+            "dataQualityLevel": "B"
+          }
+        }
+      ]
+    },
+    {
+      "event": {
+        "eventId": "hk100",
+        "canonicalName": "香港HK100越野赛",
+        "aliases": [
+          "香港100",
+          "港百",
+          "Hong Kong 100"
+        ],
+        "eventType": "ultra_trail",
+        "homeCountry": "中国",
+        "homeProvince": "香港特别行政区",
+        "homeCity": "香港",
+        "officialWebsite": "https://hk100ultra.com/zh-hant/",
+        "organizer": null,
+        "lifecycleStatus": "active",
+        "createdAt": "2026-09-10",
+        "updatedAt": "2026-09-10",
+        "governance": {
+          "sources": [
+            {
+              "sourceType": "official",
+              "sourceName": "Hong Kong 100 Ultra Marathon",
+              "sourceUrl": "https://hk100ultra.com/zh-hant/",
+              "sourceRecordId": "hk100-official-home",
+              "crawledAt": "2026-09-10",
+              "confidence": 0.95
+            }
+          ],
+          "fieldSources": {},
+          "sourcePriority": {
+            "official": 100,
+            "manual": 100
+          },
+          "confidence": 0.95,
+          "verified": true,
+          "verificationStatus": "verified",
+          "verifiedAt": "2026-09-10",
+          "missingFields": [
+            "organizer"
+          ],
+          "lastCrawledAt": "2026-09-10",
+          "lastUpdatedAt": "2026-09-10",
+          "schemaVersion": "race-graph-v1",
+          "dataQualityLevel": "B",
+          "reviewNotes": "Official HK100 pages identify the event brand and explicitly present the 2027 edition."
+        }
+      },
+      "edition": {
+        "editionId": "hk100-2027",
+        "eventId": "hk100",
+        "editionName": "2027香港HK100越野赛",
+        "editionYear": 2027,
+        "raceDate": "2027-01-21",
+        "endDate": "2027-01-24",
+        "coverImage": "/races/hk100/2027/cover-homepage-16x9.jpg",
+        "heroImage": "/races/hk100/2027/hero-original.png",
+        "primaryCategoryId": "hk100-2027-hk100-100k",
+        "primaryCategoryName": "HK100",
+        "country": "中国",
+        "province": "香港特别行政区",
+        "city": "香港",
+        "district": "西贡",
+        "venue": "北潭涌",
+        "region": "hongkong_macao_taiwan",
+        "timezone": "Asia/Hong_Kong",
+        "registrationStatus": "unknown",
+        "registrationUrl": null,
+        "officialWebsite": "https://hk100ultra.com/zh-hant/",
+        "lifecycleStatus": "active",
+        "createdAt": "2026-09-10",
+        "updatedAt": "2026-09-10",
+        "governance": {
+          "sources": [
+            {
+              "sourceType": "official",
+              "sourceName": "Hong Kong 100 Ultra Marathon",
+              "sourceUrl": "https://hk100ultra.com/zh-hant/",
+              "sourceRecordId": "hk100-official-home",
+              "crawledAt": "2026-09-10",
+              "confidence": 0.98,
+              "rawData": {
+                "editionYear": 2027,
+                "latestRelevantOfficialEditionYear": 2027,
+                "raceDate": "2027-01-21",
+                "endDate": "2027-01-24",
+                "primaryCategoryDate": "2027-01-23",
+                "evidenceLocator": "2027 Events overview"
+              }
+            },
+            {
+              "sourceType": "official",
+              "sourceName": "Hong Kong 100 Ultra — HK100 category",
+              "sourceUrl": "https://hk100ultra.com/zh-hant/hk100/",
+              "sourceRecordId": "hk100-official-hk100-category-2027",
+              "crawledAt": "2026-09-10",
+              "confidence": 0.98,
+              "rawData": {
+                "editionYear": 2027,
+                "raceDate": "2027-01-23",
+                "distanceKm": 100,
+                "elevationGain": 5142,
+                "cutoffTimeHours": 30,
+                "evidenceLocator": "HK100 category heading and facts"
+              }
+            },
+            {
+              "sourceType": "official",
+              "sourceName": "Hong Kong 100 Ultra — World Trail Majors",
+              "sourceUrl": "https://hk100ultra.com/zh-hant/world-trail-majors/",
+              "sourceRecordId": "hk100-official-world-trail-majors-2027",
+              "crawledAt": "2026-09-10",
+              "confidence": 0.95,
+              "rawData": {
+                "editionYear": 2027,
+                "raceDate": "2027-01-21",
+                "endDate": "2027-01-24",
+                "evidenceLocator": "Hong Kong 100 Ultra Marathon event window"
+              }
+            },
+            {
+              "sourceType": "manual",
+              "sourceName": "RaceNext human-reviewed First5 image input",
+              "sourceRecordId": "first5-images:2026-09-10",
+              "crawledAt": "2026-09-10",
+              "confidence": 1
+            }
+          ],
+          "fieldSources": {
+            "raceDate": {
+              "field": "raceDate",
+              "sourceType": "official",
+              "sourceName": "Hong Kong 100 Ultra — World Trail Majors",
+              "confidence": 0.95,
+              "updatedAt": "2026-09-10"
+            },
+            "endDate": {
+              "field": "endDate",
+              "sourceType": "official",
+              "sourceName": "Hong Kong 100 Ultra — World Trail Majors",
+              "confidence": 0.95,
+              "updatedAt": "2026-09-10"
+            },
+            "primaryCategoryId": {
+              "field": "primaryCategoryId",
+              "sourceType": "official",
+              "sourceName": "Hong Kong 100 Ultra — HK100 category",
+              "confidence": 0.98,
+              "updatedAt": "2026-09-10"
+            }
+          },
+          "sourcePriority": {
+            "official": 100,
+            "manual": 100
+          },
+          "confidence": 0.95,
+          "verified": true,
+          "verificationStatus": "verified",
+          "verifiedAt": "2026-09-10",
+          "missingFields": [
+            "registrationStatus"
+          ],
+          "lastCrawledAt": "2026-09-10",
+          "lastUpdatedAt": "2026-09-10",
+          "schemaVersion": "race-graph-v1",
+          "dataQualityLevel": "B",
+          "reviewNotes": "Edition window is 2027-01-21 through 2027-01-24. The primary HK100 100K category is dated 2027-01-23; no unverified start time was inferred.",
+          "publicationGate": {
+            "requestedEditionYear": 2027,
+            "latestRelevantOfficialEditionYear": 2027,
+            "latestOfficialEditionSourceRecordId": "hk100-official-home",
+            "primarySourceRecordId": "hk100-official-home",
+            "secondarySourceRecordId": "hk100-official-world-trail-majors-2027",
+            "raceDateSourceRecordIds": [
+              "hk100-official-home",
+              "hk100-official-world-trail-majors-2027"
+            ],
+            "dateEvidenceStatus": "verified",
+            "conflictStatus": "none",
+            "publishable": true,
+            "checkedAt": "2026-09-10"
+          }
+        }
+      },
+      "categories": [
+        {
+          "categoryId": "hk100-2027-hk100-100k",
+          "editionId": "hk100-2027",
+          "categoryName": "HK100",
+          "shortName": "100K",
+          "startAt": "2027-01-23",
+          "startLocation": "北潭涌",
+          "finishLocation": "大帽山扶轮公园",
+          "registrationUrl": null,
+          "displayOrder": 1,
+          "distanceKm": 100,
+          "elevationGain": 5142,
+          "cutoffTimeHours": 30,
+          "createdAt": "2026-09-10",
+          "updatedAt": "2026-09-10",
+          "governance": {
+            "sources": [
+              {
+                "sourceType": "official",
+                "sourceName": "Hong Kong 100 Ultra — HK100 category",
+                "sourceUrl": "https://hk100ultra.com/zh-hant/hk100/",
+                "sourceRecordId": "hk100-official-hk100-category-2027",
+                "crawledAt": "2026-09-10",
+                "confidence": 0.98,
+                "rawData": {
+                  "editionYear": 2027,
+                  "raceDate": "2027-01-23",
+                  "distanceKm": 100,
+                  "elevationGain": 5142,
+                  "cutoffTimeHours": 30
+                }
+              }
+            ],
+            "fieldSources": {
+              "startAt": {
+                "field": "startAt",
+                "sourceType": "official",
+                "sourceName": "Hong Kong 100 Ultra — HK100 category",
+                "confidence": 0.98,
+                "updatedAt": "2026-09-10"
+              }
+            },
+            "sourcePriority": {
+              "official": 100
+            },
+            "confidence": 0.98,
+            "verified": true,
+            "verificationStatus": "verified",
+            "verifiedAt": "2026-09-10",
+            "missingFields": [
+              "startTime",
+              "registrationUrl"
+            ],
+            "lastCrawledAt": "2026-09-10",
+            "lastUpdatedAt": "2026-09-10",
+            "schemaVersion": "race-graph-v1",
+            "dataQualityLevel": "A",
+            "reviewNotes": "startAt intentionally stores date precision only because the official source confirms the date but not an exact start time."
+          }
+        }
+      ]
     },
     {
       "event": {
         "eventId": "kailas-gongga-100",
         "canonicalName": "凯乐石贡嘎100冰川极限挑战赛",
-        "aliases": ["贡嘎100", "Gongga 100"],
+        "aliases": [
+          "贡嘎100",
+          "Gongga 100"
+        ],
         "eventType": "ultra_trail",
         "homeCountry": "中国",
         "homeProvince": "四川省",
@@ -135,16 +886,27 @@
         "createdAt": "2026-08-04",
         "updatedAt": "2026-08-04",
         "governance": {
-          "sources": [{
-            "sourceType": "official",
-            "sourceName": "朗途体育 / Gongga 100",
-            "sourceUrl": "https://www.letoursports.net/gongga-100",
-            "sourceRecordId": "first5:kailas-gongga-100:2026",
-            "crawledAt": "2026-08-04",
-            "confidence": 0.9
-          }],
+          "sources": [
+            {
+              "sourceType": "official",
+              "sourceName": "朗途体育 / Gongga 100",
+              "sourceUrl": "https://www.letoursports.net/gongga-100",
+              "sourceRecordId": "kailas-gongga-100-official",
+              "crawledAt": "2026-08-04",
+              "confidence": 0.9,
+              "rawData": {
+                "editionYear": 2026,
+                "latestRelevantOfficialEditionYear": 2026,
+                "raceDate": "2026-09-25",
+                "endDate": "2026-09-27",
+                "evidenceLocator": "Gongga 100 official event page"
+              }
+            }
+          ],
           "fieldSources": {},
-          "sourcePriority": { "official": 100 },
+          "sourcePriority": {
+            "official": 100
+          },
           "confidence": 0.9,
           "verified": true,
           "verificationStatus": "verified",
@@ -163,7 +925,7 @@
         "editionYear": 2026,
         "raceDate": "2026-09-25",
         "endDate": "2026-09-27",
-        "coverImage": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1800&q=90",
+        "coverImage": "/races/kailas-gongga-100/2026/cover-original.png",
         "primaryCategoryId": "kailas-gongga-100-2026-glacier-100",
         "primaryCategoryName": "100km",
         "country": "中国",
@@ -177,30 +939,87 @@
         "officialWebsite": "https://www.letoursports.net/gongga-100",
         "lifecycleStatus": "active",
         "raceDistanceKm": 100,
-        "raceDistances": [100, 60, 40],
+        "raceDistances": [
+          100,
+          60,
+          40
+        ],
         "createdAt": "2026-08-04",
-        "updatedAt": "2026-08-04",
+        "updatedAt": "2026-09-10",
         "governance": {
-          "sources": [{
-            "sourceType": "official",
-            "sourceName": "朗途体育 / Gongga 100",
-            "sourceUrl": "https://www.letoursports.net/gongga-100",
-            "sourceRecordId": "first5:kailas-gongga-100:2026",
-            "crawledAt": "2026-08-04",
-            "confidence": 0.9
-          }],
-          "fieldSources": {},
-          "sourcePriority": { "official": 100 },
+          "sources": [
+            {
+              "sourceType": "official",
+              "sourceName": "朗途体育 / Gongga 100",
+              "sourceUrl": "https://www.letoursports.net/gongga-100",
+              "sourceRecordId": "kailas-gongga-100-official",
+              "crawledAt": "2026-08-04",
+              "confidence": 0.9,
+              "rawData": {
+                "editionYear": 2026,
+                "latestRelevantOfficialEditionYear": 2026,
+                "raceDate": "2026-09-25",
+                "endDate": "2026-09-27",
+                "evidenceLocator": "Gongga 100 official event page"
+              }
+            },
+            {
+              "sourceType": "manual",
+              "sourceName": "RaceNext human-reviewed First5 image input",
+              "sourceRecordId": "first5-images:2026-09-10",
+              "crawledAt": "2026-09-10",
+              "confidence": 1
+            }
+          ],
+          "fieldSources": {
+            "coverImage": {
+              "field": "coverImage",
+              "sourceType": "manual",
+              "sourceName": "RaceNext human-reviewed First5 image input",
+              "confidence": 1,
+              "updatedAt": "2026-09-10"
+            },
+            "heroImage": {
+              "field": "heroImage",
+              "sourceType": "manual",
+              "sourceName": "RaceNext human-reviewed First5 image input",
+              "confidence": 1,
+              "updatedAt": "2026-09-10"
+            }
+          },
+          "sourcePriority": {
+            "official": 100
+          },
           "confidence": 0.9,
           "verified": true,
           "verificationStatus": "verified",
           "verifiedAt": "2026-08-04",
-          "missingFields": ["registrationUrl", "startAt", "startLocation", "finishLocation"],
+          "missingFields": [
+            "registrationUrl",
+            "startAt",
+            "startLocation",
+            "finishLocation"
+          ],
           "lastCrawledAt": "2026-08-04",
-          "lastUpdatedAt": "2026-08-04",
+          "lastUpdatedAt": "2026-09-10",
           "schemaVersion": "race-graph-v1",
-          "dataQualityLevel": "A"
-        }
+          "dataQualityLevel": "A",
+          "publicationGate": {
+            "requestedEditionYear": 2026,
+            "latestRelevantOfficialEditionYear": 2026,
+            "latestOfficialEditionSourceRecordId": "kailas-gongga-100-official",
+            "primarySourceRecordId": "kailas-gongga-100-official",
+            "secondarySourceRecordId": null,
+            "raceDateSourceRecordIds": [
+              "kailas-gongga-100-official"
+            ],
+            "dateEvidenceStatus": "verified",
+            "conflictStatus": "none",
+            "publishable": true,
+            "checkedAt": "2026-09-10"
+          }
+        },
+        "heroImage": "/races/kailas-gongga-100/2026/hero-original.jpeg"
       },
       "categories": [
         {
@@ -217,8 +1036,34 @@
           "createdAt": "2026-08-04",
           "updatedAt": "2026-08-04",
           "governance": {
-            "sources": [{ "sourceType": "official", "sourceName": "朗途体育 / Gongga 100", "sourceUrl": "https://www.letoursports.net/gongga-100", "sourceRecordId": "first5:kailas-gongga-100:2026", "crawledAt": "2026-08-04", "confidence": 0.9 }],
-            "fieldSources": {}, "sourcePriority": { "official": 100 }, "confidence": 0.9, "verified": true, "verificationStatus": "verified", "verifiedAt": "2026-08-04", "missingFields": ["startAt", "startLocation", "finishLocation", "registrationUrl"], "lastCrawledAt": "2026-08-04", "lastUpdatedAt": "2026-08-04", "schemaVersion": "race-graph-v1", "dataQualityLevel": "A"
+            "sources": [
+              {
+                "sourceType": "official",
+                "sourceName": "朗途体育 / Gongga 100",
+                "sourceUrl": "https://www.letoursports.net/gongga-100",
+                "sourceRecordId": "first5:kailas-gongga-100:2026",
+                "crawledAt": "2026-08-04",
+                "confidence": 0.9
+              }
+            ],
+            "fieldSources": {},
+            "sourcePriority": {
+              "official": 100
+            },
+            "confidence": 0.9,
+            "verified": true,
+            "verificationStatus": "verified",
+            "verifiedAt": "2026-08-04",
+            "missingFields": [
+              "startAt",
+              "startLocation",
+              "finishLocation",
+              "registrationUrl"
+            ],
+            "lastCrawledAt": "2026-08-04",
+            "lastUpdatedAt": "2026-08-04",
+            "schemaVersion": "race-graph-v1",
+            "dataQualityLevel": "A"
           }
         },
         {
@@ -235,8 +1080,34 @@
           "createdAt": "2026-08-04",
           "updatedAt": "2026-08-04",
           "governance": {
-            "sources": [{ "sourceType": "official", "sourceName": "朗途体育 / Gongga 100", "sourceUrl": "https://www.letoursports.net/gongga-100", "sourceRecordId": "first5:kailas-gongga-100:2026", "crawledAt": "2026-08-04", "confidence": 0.9 }],
-            "fieldSources": {}, "sourcePriority": { "official": 100 }, "confidence": 0.9, "verified": true, "verificationStatus": "verified", "verifiedAt": "2026-08-04", "missingFields": ["startAt", "startLocation", "finishLocation", "registrationUrl"], "lastCrawledAt": "2026-08-04", "lastUpdatedAt": "2026-08-04", "schemaVersion": "race-graph-v1", "dataQualityLevel": "A"
+            "sources": [
+              {
+                "sourceType": "official",
+                "sourceName": "朗途体育 / Gongga 100",
+                "sourceUrl": "https://www.letoursports.net/gongga-100",
+                "sourceRecordId": "first5:kailas-gongga-100:2026",
+                "crawledAt": "2026-08-04",
+                "confidence": 0.9
+              }
+            ],
+            "fieldSources": {},
+            "sourcePriority": {
+              "official": 100
+            },
+            "confidence": 0.9,
+            "verified": true,
+            "verificationStatus": "verified",
+            "verifiedAt": "2026-08-04",
+            "missingFields": [
+              "startAt",
+              "startLocation",
+              "finishLocation",
+              "registrationUrl"
+            ],
+            "lastCrawledAt": "2026-08-04",
+            "lastUpdatedAt": "2026-08-04",
+            "schemaVersion": "race-graph-v1",
+            "dataQualityLevel": "A"
           }
         },
         {
@@ -253,8 +1124,34 @@
           "createdAt": "2026-08-04",
           "updatedAt": "2026-08-04",
           "governance": {
-            "sources": [{ "sourceType": "official", "sourceName": "朗途体育 / Gongga 100", "sourceUrl": "https://www.letoursports.net/gongga-100", "sourceRecordId": "first5:kailas-gongga-100:2026", "crawledAt": "2026-08-04", "confidence": 0.9 }],
-            "fieldSources": {}, "sourcePriority": { "official": 100 }, "confidence": 0.9, "verified": true, "verificationStatus": "verified", "verifiedAt": "2026-08-04", "missingFields": ["startAt", "startLocation", "finishLocation", "registrationUrl"], "lastCrawledAt": "2026-08-04", "lastUpdatedAt": "2026-08-04", "schemaVersion": "race-graph-v1", "dataQualityLevel": "A"
+            "sources": [
+              {
+                "sourceType": "official",
+                "sourceName": "朗途体育 / Gongga 100",
+                "sourceUrl": "https://www.letoursports.net/gongga-100",
+                "sourceRecordId": "first5:kailas-gongga-100:2026",
+                "crawledAt": "2026-08-04",
+                "confidence": 0.9
+              }
+            ],
+            "fieldSources": {},
+            "sourcePriority": {
+              "official": 100
+            },
+            "confidence": 0.9,
+            "verified": true,
+            "verificationStatus": "verified",
+            "verifiedAt": "2026-08-04",
+            "missingFields": [
+              "startAt",
+              "startLocation",
+              "finishLocation",
+              "registrationUrl"
+            ],
+            "lastCrawledAt": "2026-08-04",
+            "lastUpdatedAt": "2026-08-04",
+            "schemaVersion": "race-graph-v1",
+            "dataQualityLevel": "A"
           }
         }
       ]

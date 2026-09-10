@@ -94,6 +94,27 @@ export interface MergeTrace {
   }>;
 }
 
+export type DateEvidenceStatus = "verified" | "exhausted_no_reliable_date" | "pending_review";
+export type FactConflictStatus = "none" | "needs_review";
+
+/**
+ * Minimal release gate metadata. Product planning supplies requestedEditionYear;
+ * source review supplies latestRelevantOfficialEditionYear and evidence bindings.
+ * The validator derives the final publishable result instead of trusting this flag.
+ */
+export interface PrePublishFactGate {
+  requestedEditionYear: number;
+  latestRelevantOfficialEditionYear: number;
+  latestOfficialEditionSourceRecordId: string;
+  primarySourceRecordId: string;
+  secondarySourceRecordId?: string | null;
+  raceDateSourceRecordIds: string[];
+  dateEvidenceStatus: DateEvidenceStatus;
+  conflictStatus: FactConflictStatus;
+  publishable: boolean;
+  checkedAt: string;
+}
+
 export interface DataGovernance {
   sources: SourceRecord[];
   fieldSources: Record<string, FieldSource>;
@@ -101,6 +122,8 @@ export interface DataGovernance {
   confidence: number;
   verified?: boolean | null;
   verificationStatus?: VerificationStatus | null;
+  /** When the represented facts were last explicitly verified. */
+  verifiedAt?: string | null;
   missingFields: string[];
   mergeNotes?: string[] | null;
   mergeTrace?: MergeTrace[] | null;
@@ -114,6 +137,7 @@ export interface DataGovernance {
   dataQualityLevel?: DataQualityLevel | null;
   reviewNotes?: string | null;
   internalFlags?: string[] | null;
+  publicationGate?: PrePublishFactGate | null;
 }
 
 export interface Event {
@@ -139,7 +163,15 @@ export interface Edition {
   eventId: string;
   editionName: string;
   editionYear: number;
+  /** First event day. Also the display fallback when endDate is null. */
   raceDate?: string | null;
+  /** Last event day. Null means the edition is single-day. */
+  endDate?: string | null;
+  coverImage?: string | null;
+  /** Large-format edition visual. The source asset is shared across clients. */
+  heroImage?: string | null;
+  /** Formal relation to the default Category; primaryCategoryName is compatibility-only. */
+  primaryCategoryId?: string | null;
   raceWeekday?: string | null;
   season?: Season | null;
   country: string;
@@ -190,6 +222,14 @@ export interface Category {
   categoryId: string;
   editionId: string;
   categoryName: string;
+  shortName?: string | null;
+  /** ISO 8601 date or date-time including timezone/offset for this category's actual start. */
+  startAt?: string | null;
+  startLocation?: string | null;
+  finishLocation?: string | null;
+  registrationUrl?: string | null;
+  /** Stable presentation order; never use this value to derive categoryId. */
+  displayOrder: number;
   distanceKm: number | null;
   elevationGain?: number | null;
   elevationLoss?: number | null;

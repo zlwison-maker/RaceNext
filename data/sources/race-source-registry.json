@@ -1,0 +1,180 @@
+{
+  "schemaVersion": "race-source-registry-v1",
+  "editions": [
+    {
+      "editionId": "shanghai-marathon-2026",
+      "sources": [
+        {
+          "sourceId": "shanghai-marathon-official-home",
+          "url": "https://static.shang-ma.com/web/index.html",
+          "domain": "static.shang-ma.com",
+          "tier": "primary_official",
+          "sourceType": "event_home",
+          "status": "active",
+          "isPrimary": true,
+          "notes": "Tier 1 official home. Current page content must still pass target edition identity and year validation before fact ingestion."
+        },
+        {
+          "sourceId": "shanghai-marathon-official-notice-2026",
+          "url": "https://english.shanghai.gov.cn/en-SportsEvents/20260427/8152288074a44b44a7efbfd4b0b67797.html",
+          "domain": "english.shanghai.gov.cn",
+          "tier": "primary_official",
+          "sourceType": "notice",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Existing reviewed First5 source; registry stores only where to check, not race facts."
+        },
+        {
+          "sourceId": "runchina",
+          "url": "https://www.runchina.org.cn/#/race/v/list",
+          "domain": "www.runchina.org.cn",
+          "tier": "trusted_structured",
+          "sourceType": "structured_connector",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Trusted structured discovery and cross-check source."
+        }
+      ]
+    },
+    {
+      "editionId": "beijing-marathon-2026",
+      "sources": [
+        {
+          "sourceId": "beijing-marathon-official-home",
+          "url": "https://www.beijing-marathon.com/",
+          "domain": "www.beijing-marathon.com",
+          "tier": "primary_official",
+          "sourceType": "event_home",
+          "status": "active",
+          "isPrimary": true,
+          "notes": "Tier 1 official event identity source. The edition date is verified through active structured calendar sources below."
+        },
+        {
+          "sourceId": "beijing-marathon-aims-2026",
+          "url": "https://aims-worldrunning.org/zh-CN/races/852.html",
+          "domain": "aims-worldrunning.org",
+          "tier": "trusted_structured",
+          "sourceType": "calendar",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "AIMS forthcoming event entry identifies Beijing Marathon on 2026-10-18."
+        },
+        {
+          "sourceId": "beijing-marathon-world-athletics-2026",
+          "url": "https://worldathletics.org/competition/calendar-results?disciplineId=2&offset=100",
+          "domain": "worldathletics.org",
+          "tier": "trusted_structured",
+          "sourceType": "calendar",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "World Athletics calendar independently lists Bank of China Beijing Marathon on 2026-10-18."
+        }
+      ]
+    },
+    {
+      "editionId": "xiamen-marathon-2027",
+      "sources": [
+        {
+          "sourceId": "xiamen-marathon-official-home",
+          "url": "https://www.xmim.org/",
+          "domain": "www.xmim.org",
+          "tier": "primary_official",
+          "sourceType": "event_home",
+          "status": "active",
+          "isPrimary": true,
+          "notes": "Tier 1 official event identity source. The edition date is verified through active structured sources below."
+        },
+        {
+          "sourceId": "xiamen-marathon-aims-2027",
+          "url": "https://aims-worldrunning.org/zh-CN/races/632.html",
+          "domain": "aims-worldrunning.org",
+          "tier": "trusted_structured",
+          "sourceType": "calendar",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "AIMS forthcoming event entry identifies C&D Xiamen Marathon on 2027-01-10."
+        },
+        {
+          "sourceId": "xiamen-marathon-china-marathon-2027",
+          "url": "https://chinamarathon.com/events/86038",
+          "domain": "chinamarathon.com",
+          "tier": "trusted_structured",
+          "sourceType": "event_directory",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Reviewed cross-check listing identifies the 2027 C&D Xiamen Marathon on 2027-01-10."
+        }
+      ]
+    },
+    {
+      "editionId": "hk100-2027",
+      "sources": [
+        {
+          "sourceId": "hk100-official-home",
+          "url": "https://hk100ultra.com/zh-hant/",
+          "domain": "hk100ultra.com",
+          "tier": "primary_official",
+          "sourceType": "event_home",
+          "status": "active",
+          "isPrimary": true,
+          "notes": "Tier 1 official home explicitly presents the 2027 edition and its three race days."
+        },
+        {
+          "sourceId": "hk100-official-hk100-category-2027",
+          "url": "https://hk100ultra.com/zh-hant/hk100/",
+          "domain": "hk100ultra.com",
+          "tier": "primary_official",
+          "sourceType": "category_page",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Official HK100 category page identifies the 100K main race date as 2027-01-23."
+        },
+        {
+          "sourceId": "hk100-official-world-trail-majors-2027",
+          "url": "https://hk100ultra.com/zh-hant/world-trail-majors/",
+          "domain": "hk100ultra.com",
+          "tier": "primary_official",
+          "sourceType": "official_calendar",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Official HK100 page identifies the 2027 event window as 2027-01-21 through 2027-01-24."
+        }
+      ]
+    },
+    {
+      "editionId": "kailas-gongga-100-2026",
+      "sources": [
+        {
+          "sourceId": "kailas-gongga-100-official-registration-home",
+          "url": "https://moganshan.saihuitong.com/",
+          "domain": "moganshan.saihuitong.com",
+          "tier": "primary_official",
+          "sourceType": "event_home",
+          "status": "active",
+          "isPrimary": true,
+          "notes": "Tier 1 organizer registration home listing the 2026 Gongga 100 event. Edition-specific identity validation remains required."
+        },
+        {
+          "sourceId": "kailas-gongga-100-official",
+          "url": "https://www.letoursports.net/gongga-100",
+          "domain": "www.letoursports.net",
+          "tier": "primary_official",
+          "sourceType": "event_home",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Existing reviewed official event website."
+        },
+        {
+          "sourceId": "zuicool",
+          "url": "https://zuicool.com/event/86332",
+          "domain": "zuicool.com",
+          "tier": "trusted_structured",
+          "sourceType": "structured_connector",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Reviewed edition-specific trusted source record."
+        }
+      ]
+    }
+  ]
+}

@@ -1,8 +1,10 @@
-# Event Model v1.0
+# Event Model v1.1 — Race Graph V1 Foundation
 
-Version: v1.0
-Status: Draft
+Version: v1.1
+Status: Frozen
 Project: RaceNext（下一场）
+
+Current State: Architecture Frozen; Public Distribution Ready; Real AI Provider Adapter Ready with Runtime Verification Deferred.
 
 ---
 
@@ -10,7 +12,7 @@ Project: RaceNext（下一场）
 
 Race Schema v1.0 定义了 RaceNext 赛事数据的字段分层。
 
-Event Model v1.0 进一步定义：
+Event Model v1.1 进一步定义：
 
 这些字段分别属于哪个实体。
 
@@ -31,6 +33,8 @@ Edition
 Category
 
 三层模型。
+
+Road 与 Trail 共用同一套三层实体和字段归属。类型差异只由 Event.eventType 表达；Edition 不重复存储 raceType，前端可按 eventType 条件展示不同字段。
 
 ---
 
@@ -204,7 +208,10 @@ Edition 表示某一年具体赛事。
 | eventId | Event ID | 所属 Event |
 | editionName | 届次名称 | 例如 2026 上海马拉松 |
 | editionYear | 赛事年份 | 例如 2026 |
-| raceDate | 比赛日期 | 正式比赛日 |
+| raceDate | 开始日期 | 首个赛事日；单日赛也是唯一赛事日 |
+| endDate | 结束日期 | 多日赛最后一个赛事日；单日赛为 null，展示回退到 raceDate |
+| coverImage | 本届封面图 | Edition 级封面；允许为空 |
+| primaryCategoryId | 核心组别 ID | 指向本 Edition 下默认展示的 Category |
 | raceWeekday | 星期 | 系统自动计算 |
 | season | 赛事季节 | 春夏秋冬 |
 | country | 国家 | 举办国家 |
@@ -261,6 +268,12 @@ Category 表示某一届赛事下的具体组别。
 | categoryId | Category ID | 系统唯一 ID |
 | editionId | Edition ID | 所属 Edition |
 | categoryName | 组别名称 | 全马 / 半马 / 30K / 50K |
+| shortName | 组别简称 | 可选 P1 展示字段 |
+| startAt | 组别起跑时间 | 含日期、时间、时区偏移的 ISO 8601 字符串 |
+| startLocation | 组别起点 | 当前组别的实际起点 |
+| finishLocation | 组别终点 | 当前组别的实际终点 |
+| registrationUrl | 组别报名链接 | 仅在组别有独立入口时使用 |
+| displayOrder | 展示顺序 | 必填；仅控制展示，不参与 categoryId 生成 |
 | distanceKm | 组别距离 | 单位 KM |
 | elevationGain | 累计爬升 | 单位米 |
 | elevationLoss | 累计下降 | 单位米 |
@@ -297,6 +310,9 @@ Category 表示某一届赛事下的具体组别。
 - 距离
 - 爬升
 - 关门时间
+- 组别起跑时间与起终点
+- 组别独立报名入口
+- 展示顺序
 - 报名费
 - 组别名额
 - 资格要求
@@ -307,7 +323,7 @@ Category 表示某一届赛事下的具体组别。
 ### Category 不应该存放
 
 - 赛事品牌名称
-- 比赛日期
+- Edition 的总体日期范围（Category.startAt 只表达该组别的实际起跑时刻）
 - 举办城市
 - 总体报名状态
 
@@ -420,6 +436,7 @@ Category
 - confidence
 - verified
 - verificationStatus
+- verifiedAt
 - missingFields
 - mergeNotes
 - mergeTrace
@@ -442,13 +459,21 @@ Category
 
 不能只在最外层记录来源。
 
+时间字段语义：
+
+- `verifiedAt`：当前实体所表达事实最后一次被明确核验的时间；未核验时为 null。
+- `lastUpdatedAt`：治理记录最后一次发生变更的时间，不代表事实已被核验。
+- `sources[].crawledAt`：某条来源记录被抓取或获取的时间；若上游称为 fetchedAt，应在适配边界归一到这一语义。
+- Event / Edition / Category 的 `updatedAt`：实体自身最后一次更新的时间。
+- 正式模型中的 `confidence` 与 `sources[].confidence` 统一使用 0–1。旧 First5 的 90 在后续迁移时应转换为 0.9；本轮不迁移旧数据。
+
 ---
 
 ## 11. Layer to Entity Mapping
 
 Race Schema v1.0 是字段全集。
 
-Event Model v1.0 负责决定字段归属。
+Event Model v1.1 负责决定字段归属。
 
 ### Layer 1 Identity
 
@@ -534,7 +559,7 @@ ViewModel 不是数据库表，而是前端展示聚合结构。前端不直接�
 
 - canonicalName ← Event
 - editionName ← Edition
-- raceType ← Event / Edition
+- raceType ← Event
 - raceDate ← Edition
 - city ← Edition
 - region ← Edition
@@ -586,7 +611,9 @@ Edition 可以冗余少量 Category 汇总字段，用于赛事日历与卡片�
 
 规则：
 
-- 默认使用 Primary Category 作为卡片主展示组别。
+- `primaryCategoryId` 是正式关系；其值必须指向当前 Edition 下存在的 Category。
+- 默认使用 `primaryCategoryId` 指向的 Primary Category 作为卡片主展示组别。
+- `primaryCategoryName` 只作为兼容期展示冗余，不是正式关系来源。
 - 如果用户来自推荐页，则使用被推荐的 Category。
 - Edition 级字段不得覆盖 Category 原始事实。
 - 冗余字段只用于展示和筛选，不作为真实数据源。
@@ -594,7 +621,27 @@ Edition 可以冗余少量 Category 汇总字段，用于赛事日历与卡片�
 
 ---
 
-## 14. MVP Implementation Scope
+## 14. Stable IDs and Time Semantics
+
+四类标识必须分开：
+
+- `sourceRecordId`：外部来源或 Pipeline 输入记录的标识，只用于来源追踪，不作为正式实体主键。
+- `eventId`：跨年份稳定的赛事品牌键，使用人工治理的 lowercase kebab-case，例如 `shanghai-marathon`、`ninghai-ultra-trail`。
+- `editionId`：`eventId + editionYear`，例如 `shanghai-marathon-2026`。
+- `categoryId`：`editionId + stableCategoryKey`，例如 `shanghai-marathon-2026-marathon`。stableCategoryKey 必须是稳定业务键，不得使用数组索引或 displayOrder。
+- `slug`：URL/SEO 展示标识，属于路由层；可与某个实体 ID 相同，但语义和生命周期独立。本 Foundation 不修改现有 URL 行为。
+
+时间规则：
+
+- `raceDate` 是 Edition 的第一个赛事日。
+- `endDate` 是最后一个赛事日；单日赛为 null，展示时回退到 raceDate。
+- `startAt` 是 Category 的实际起跑日期或时刻。来源只确认日期时保存 ISO date-only；来源确认准确时间时保存包含时区/UTC 偏移的 ISO date-time。不得为了满足格式而猜测起跑时间。
+- 不持久化 `locationDisplay`；展示层按 Edition 与 Category 地点字段组合。
+- `cutoffTimeHours` 是数值时长；不额外存储 cutoffMinutes。
+
+---
+
+## 15. MVP Implementation Scope
 
 MVP 阶段必须实现三层实体：
 
@@ -614,10 +661,12 @@ MVP 必须保证：
 4. 推荐逻辑优先作用在 Category。
 5. 赛事日历展示以 Edition 为主。
 6. 赛事推荐展示以 Category 为主。
+7. 多日 Edition 使用 raceDate + endDate；不同 Category 可有不同 startAt 和起终点。
+8. Road / Trail 使用同一 Schema，差异由 Event.eventType 和字段是否有值表达。
 
 ---
 
-## 15. Example
+## 16. Example
 
 ### 上海马拉松
 
@@ -660,9 +709,9 @@ Categories：
 
 ---
 
-## 16. Freeze
+## 17. Freeze
 
-Event Model v1.0 确认后，后续所有：
+Event Model v1.1（Race Graph V1 Foundation）已冻结，后续所有：
 
 - 数据抓取
 - Normalize

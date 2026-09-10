@@ -16,12 +16,13 @@ export type RaceListItem = {
   slug: string;
   name: string;
   raceType: RaceType;
-  raceDate: string;
+  raceDate: string | null;
   endDate: string | null;
   dateDisplay: string;
   location: PublicRaceLocation;
   locationDisplay: string;
   coverImage: string | null;
+  heroImage: string | null;
   registrationStatus: RegistrationStatus;
   registrationUrl: string | null;
 };
