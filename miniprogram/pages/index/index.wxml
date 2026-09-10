@@ -1,0 +1,65 @@
+<view class="page">
+  <view class="brand-header">
+    <image
+      class="brand-logo"
+      src="/assets/brand/next-logo-mini-header-black.png"
+      mode="widthFix"
+      aria-label="RaceNext"
+    />
+    <text class="brand-tagline">决定你的下一场比赛</text>
+  </view>
+
+  <view wx:if="{{loadState === 'loading'}}" class="page-state">
+    <text class="state-title">正在加载赛事…</text>
+  </view>
+
+  <view wx:elif="{{loadState === 'error'}}" class="page-state page-state--error">
+    <text class="state-title">赛事加载失败</text>
+    <text class="state-copy">请稍后再试</text>
+    <button class="retry-button" bindtap="handleRetry">重新加载</button>
+  </view>
+
+  <view wx:else class="race-list">
+    <view wx:if="{{races.length === 0}}" class="page-state">
+      <text class="state-title">赛事信息正在整理</text>
+    </view>
+
+    <view
+      wx:for="{{races}}"
+      wx:key="editionId"
+      class="race-card"
+      data-edition-id="{{item.editionId}}"
+      bindtap="handleRaceTap"
+      hover-class="race-card--pressed"
+      aria-role="button"
+      aria-label="查看{{item.name}}"
+    >
+      <view class="race-cover">
+        <image
+          wx:if="{{item.coverImage && !item.imageFailed}}"
+          class="race-cover__image"
+          src="{{item.coverImage}}"
+          mode="aspectFill"
+          lazy-load="true"
+          data-index="{{index}}"
+          binderror="handleImageError"
+          aria-label="{{item.name}}赛事图片"
+        />
+        <view wx:else class="race-cover__fallback">
+          <image
+            class="fallback-logo"
+            src="/assets/brand/next-logo-mini-header-black.png"
+            mode="widthFix"
+            aria-label="RaceNext"
+          />
+        </view>
+
+        <view class="race-scrim"></view>
+        <view class="race-content">
+          <text class="race-name">{{item.name}}</text>
+          <text class="race-meta">{{item.meta}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

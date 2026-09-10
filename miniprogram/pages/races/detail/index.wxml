@@ -1,0 +1,88 @@
+<view class="detail-page">
+  <view wx:if="{{loadState === 'loading'}}" class="page-state">
+    <text class="state-title">正在加载赛事信息…</text>
+  </view>
+
+  <view wx:elif="{{loadState === 'error'}}" class="page-state page-state--error">
+    <text class="state-title">赛事信息加载失败</text>
+    <text class="state-copy">请稍后再试</text>
+    <button class="retry-button" bindtap="handleRetry">重新加载</button>
+  </view>
+
+  <block wx:elif="{{detail}}">
+    <view class="hero">
+      <image
+        wx:if="{{detail.heroImage && !heroImageFailed}}"
+        class="hero-image"
+        src="{{detail.heroImage}}"
+        mode="{{detail.heroMode}}"
+        style="object-position: {{detail.heroFocalPoint}};"
+        binderror="handleHeroImageError"
+        aria-label="{{detail.name}}赛事图片"
+      />
+      <view wx:else class="hero-fallback">
+        <image
+          class="fallback-logo"
+          src="/assets/brand/next-logo-mini-header-black.png"
+          mode="widthFix"
+          aria-label="RaceNext"
+        />
+      </view>
+    </view>
+
+    <view class="detail-content">
+      <view class="title-section">
+        <view class="race-title">{{detail.name}}</view>
+      </view>
+
+      <view class="edition-meta">
+        <text class="edition-meta__primary">{{detail.dateDisplay}}</text>
+        <text class="edition-meta__primary">{{detail.locationDisplay}}</text>
+        <text wx:if="{{detail.summaryDisplay}}" class="edition-meta__summary">{{detail.summaryDisplay}}</text>
+        <text wx:if="{{detail.registrationDisplay}}" class="edition-meta__registration">
+          {{detail.registrationDisplay}}
+        </text>
+      </view>
+
+      <view wx:if="{{detail.showCategorySelector && detail.selectedCategory}}" class="category-section">
+        <text class="category-heading">组别</text>
+
+        <view class="category-selector">
+          <view
+            wx:for="{{detail.categories}}"
+            wx:key="categoryId"
+            class="category-option {{item.categoryId === detail.selectedCategoryId ? 'category-option--active' : ''}}"
+            data-category-id="{{item.categoryId}}"
+            bindtap="handleCategoryTap"
+            hover-class="category-option--pressed"
+            aria-role="button"
+          >
+            {{item.label}}
+          </view>
+        </view>
+
+        <view wx:if="{{detail.selectedCategory.coreFacts.length}}" class="core-facts">
+          <view
+            wx:for="{{detail.selectedCategory.coreFacts}}"
+            wx:key="key"
+            class="core-fact"
+          >
+            <text class="core-fact__value">{{item.value}}</text>
+            <text class="core-fact__label">{{item.label}}</text>
+          </view>
+        </view>
+
+        <view wx:if="{{detail.selectedCategory.executionFacts.length}}" class="execution-facts">
+          <view
+            wx:for="{{detail.selectedCategory.executionFacts}}"
+            wx:key="key"
+            class="execution-fact"
+          >
+            <text class="execution-fact__label">{{item.label}}</text>
+            <text class="execution-fact__value">{{item.value}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

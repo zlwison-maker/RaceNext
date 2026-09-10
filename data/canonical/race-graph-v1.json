@@ -708,7 +708,81 @@
                 "raceDate": "2027-01-21",
                 "endDate": "2027-01-24",
                 "primaryCategoryDate": "2027-01-23",
+                "physicalCategories": [
+                  {
+                    "categoryName": "The Third",
+                    "raceDate": "2027-01-21",
+                    "distanceKm": 34,
+                    "elevationGain": 1558,
+                    "cutoffTimeHours": 10
+                  },
+                  {
+                    "categoryName": "The Half",
+                    "raceDate": "2027-01-22",
+                    "distanceKm": 53,
+                    "elevationGain": 2263,
+                    "cutoffTimeHours": 14
+                  },
+                  {
+                    "categoryName": "HK100",
+                    "raceDate": "2027-01-23",
+                    "distanceKm": 100,
+                    "elevationGain": 5142,
+                    "cutoffTimeHours": 30
+                  }
+                ],
+                "compositeChallenges": [
+                  {
+                    "name": "The Grand Sam",
+                    "raceDate": "2027-01-21",
+                    "endDate": "2027-01-24",
+                    "distanceKm": 183,
+                    "elevationGain": 8963,
+                    "cutoffTimeHours": 54,
+                    "components": [
+                      "The Third",
+                      "The Half",
+                      "HK100"
+                    ]
+                  }
+                ],
                 "evidenceLocator": "2027 Events overview"
+              }
+            },
+            {
+              "sourceType": "official",
+              "sourceName": "Hong Kong 100 Ultra — The Third",
+              "sourceUrl": "https://hk100ultra.com/zh-hant/the-third/",
+              "sourceRecordId": "hk100-official-the-third-2027",
+              "crawledAt": "2026-09-10",
+              "confidence": 0.98,
+              "rawData": {
+                "editionYear": 2027,
+                "raceDate": "2027-01-21",
+                "categoryName": "The Third",
+                "distanceKm": 34,
+                "elevationGain": 1558,
+                "startLocation": "北潭涌",
+                "finishLocation": "北潭涌",
+                "evidenceLocator": "The Third heading and course overview"
+              }
+            },
+            {
+              "sourceType": "official",
+              "sourceName": "Hong Kong 100 Ultra — The Half",
+              "sourceUrl": "https://hk100ultra.com/zh-hant/the-half/",
+              "sourceRecordId": "hk100-official-the-half-2027",
+              "crawledAt": "2026-09-10",
+              "confidence": 0.98,
+              "rawData": {
+                "editionYear": 2027,
+                "raceDate": "2027-01-22",
+                "categoryName": "The Half",
+                "distanceKm": 53,
+                "elevationGainMinimum": 2200,
+                "startLocation": "北潭涌",
+                "finishLocation": "北潭涌",
+                "evidenceLocator": "The Half heading and course overview"
               }
             },
             {
@@ -725,6 +799,30 @@
                 "elevationGain": 5142,
                 "cutoffTimeHours": 30,
                 "evidenceLocator": "HK100 category heading and facts"
+              }
+            },
+            {
+              "sourceType": "official",
+              "sourceName": "Hong Kong 100 Ultra — The Grand Sam",
+              "sourceUrl": "https://hk100ultra.com/zh-hant/the-grand-sam/",
+              "sourceRecordId": "hk100-official-grand-sam-2027",
+              "crawledAt": "2026-09-10",
+              "confidence": 0.98,
+              "rawData": {
+                "editionYear": 2027,
+                "raceDate": "2027-01-21",
+                "endDate": "2027-01-24",
+                "challengeName": "The Grand Sam",
+                "challengeType": "composite_challenge",
+                "distanceKm": 183,
+                "elevationGain": 8963,
+                "cutoffTimeHours": 54,
+                "components": [
+                  "The Third",
+                  "The Half",
+                  "HK100"
+                ],
+                "evidenceLocator": "The Grand Sam heading, overview and rules"
               }
             },
             {
@@ -787,7 +885,7 @@
           "lastUpdatedAt": "2026-09-10",
           "schemaVersion": "race-graph-v1",
           "dataQualityLevel": "B",
-          "reviewNotes": "Edition window is 2027-01-21 through 2027-01-24. The primary HK100 100K category is dated 2027-01-23; no unverified start time was inferred.",
+          "reviewNotes": "Edition window is 2027-01-21 through 2027-01-24. The three official physical races are The Third, The Half and HK100; the primary HK100 100K category is dated 2027-01-23. The Grand Sam is retained as an evidenced composite challenge and is not modeled as a regular Category. No unverified start time was inferred.",
           "publicationGate": {
             "requestedEditionYear": 2027,
             "latestRelevantOfficialEditionYear": 2027,
@@ -807,6 +905,150 @@
       },
       "categories": [
         {
+          "categoryId": "hk100-2027-the-third-34k",
+          "editionId": "hk100-2027",
+          "categoryName": "The Third",
+          "shortName": "34K",
+          "startAt": "2027-01-21",
+          "startLocation": "北潭涌",
+          "finishLocation": "北潭涌",
+          "registrationUrl": null,
+          "displayOrder": 1,
+          "distanceKm": 34,
+          "elevationGain": 1558,
+          "cutoffTimeHours": 10,
+          "createdAt": "2026-09-10",
+          "updatedAt": "2026-09-10",
+          "governance": {
+            "sources": [
+              {
+                "sourceType": "official",
+                "sourceName": "Hong Kong 100 Ultra — The Third",
+                "sourceUrl": "https://hk100ultra.com/zh-hant/the-third/",
+                "sourceRecordId": "hk100-official-the-third-2027",
+                "crawledAt": "2026-09-10",
+                "confidence": 0.98,
+                "rawData": {
+                  "editionYear": 2027,
+                  "raceDate": "2027-01-21",
+                  "categoryName": "The Third",
+                  "distanceKm": 34,
+                  "elevationGain": 1558,
+                  "startLocation": "北潭涌",
+                  "finishLocation": "北潭涌",
+                  "evidenceLocator": "The Third heading and course overview"
+                }
+              },
+              {
+                "sourceType": "official",
+                "sourceName": "Hong Kong 100 Ultra Marathon",
+                "sourceUrl": "https://hk100ultra.com/zh-hant/",
+                "sourceRecordId": "hk100-official-home",
+                "crawledAt": "2026-09-10",
+                "confidence": 0.98,
+                "rawData": {
+                  "editionYear": 2027,
+                  "raceDate": "2027-01-21",
+                  "categoryName": "The Third",
+                  "distanceKm": 34,
+                  "elevationGain": 1558,
+                  "cutoffTimeHours": 10,
+                  "evidenceLocator": "2027 Events overview — The Third"
+                }
+              }
+            ],
+            "fieldSources": {},
+            "sourcePriority": {
+              "official": 100
+            },
+            "confidence": 0.98,
+            "verified": true,
+            "verificationStatus": "verified",
+            "verifiedAt": "2026-09-10",
+            "missingFields": [
+              "startTime",
+              "registrationUrl"
+            ],
+            "lastCrawledAt": "2026-09-10",
+            "lastUpdatedAt": "2026-09-10",
+            "schemaVersion": "race-graph-v1",
+            "dataQualityLevel": "A",
+            "reviewNotes": "Official 2027 category page confirms the date, distance, elevation and North Tam Chung start/finish; the official 2027 event overview confirms the 10-hour cutoff. startAt intentionally stores date precision only."
+          }
+        },
+        {
+          "categoryId": "hk100-2027-the-half-53k",
+          "editionId": "hk100-2027",
+          "categoryName": "The Half",
+          "shortName": "53K",
+          "startAt": "2027-01-22",
+          "startLocation": "北潭涌",
+          "finishLocation": "北潭涌",
+          "registrationUrl": null,
+          "displayOrder": 2,
+          "distanceKm": 53,
+          "elevationGain": 2263,
+          "cutoffTimeHours": 14,
+          "createdAt": "2026-09-10",
+          "updatedAt": "2026-09-10",
+          "governance": {
+            "sources": [
+              {
+                "sourceType": "official",
+                "sourceName": "Hong Kong 100 Ultra — The Half",
+                "sourceUrl": "https://hk100ultra.com/zh-hant/the-half/",
+                "sourceRecordId": "hk100-official-the-half-2027",
+                "crawledAt": "2026-09-10",
+                "confidence": 0.98,
+                "rawData": {
+                  "editionYear": 2027,
+                  "raceDate": "2027-01-22",
+                  "categoryName": "The Half",
+                  "distanceKm": 53,
+                  "elevationGainMinimum": 2200,
+                  "startLocation": "北潭涌",
+                  "finishLocation": "北潭涌",
+                  "evidenceLocator": "The Half heading and course overview"
+                }
+              },
+              {
+                "sourceType": "official",
+                "sourceName": "Hong Kong 100 Ultra Marathon",
+                "sourceUrl": "https://hk100ultra.com/zh-hant/",
+                "sourceRecordId": "hk100-official-home",
+                "crawledAt": "2026-09-10",
+                "confidence": 0.98,
+                "rawData": {
+                  "editionYear": 2027,
+                  "raceDate": "2027-01-22",
+                  "categoryName": "The Half",
+                  "distanceKm": 53,
+                  "elevationGain": 2263,
+                  "cutoffTimeHours": 14,
+                  "evidenceLocator": "2027 Events overview — The Half"
+                }
+              }
+            ],
+            "fieldSources": {},
+            "sourcePriority": {
+              "official": 100
+            },
+            "confidence": 0.98,
+            "verified": true,
+            "verificationStatus": "verified",
+            "verifiedAt": "2026-09-10",
+            "missingFields": [
+              "startTime",
+              "registrationUrl"
+            ],
+            "lastCrawledAt": "2026-09-10",
+            "lastUpdatedAt": "2026-09-10",
+            "schemaVersion": "race-graph-v1",
+            "dataQualityLevel": "A",
+            "reviewNotes": "Official 2027 category page confirms the date, distance and North Tam Chung start/finish; the official 2027 event overview confirms exact elevation and the 14-hour cutoff. startAt intentionally stores date precision only."
+          }
+        },
+        {
           "categoryId": "hk100-2027-hk100-100k",
           "editionId": "hk100-2027",
           "categoryName": "HK100",
@@ -815,7 +1057,7 @@
           "startLocation": "北潭涌",
           "finishLocation": "大帽山扶轮公园",
           "registrationUrl": null,
-          "displayOrder": 1,
+          "displayOrder": 3,
           "distanceKm": 100,
           "elevationGain": 5142,
           "cutoffTimeHours": 30,
@@ -835,7 +1077,27 @@
                   "raceDate": "2027-01-23",
                   "distanceKm": 100,
                   "elevationGain": 5142,
-                  "cutoffTimeHours": 30
+                  "cutoffTimeHours": 30,
+                  "startLocation": "北潭涌",
+                  "finishLocation": "大帽山扶轮公园",
+                  "evidenceLocator": "HK100 category heading and course overview"
+                }
+              },
+              {
+                "sourceType": "official",
+                "sourceName": "Hong Kong 100 Ultra Marathon",
+                "sourceUrl": "https://hk100ultra.com/zh-hant/",
+                "sourceRecordId": "hk100-official-home",
+                "crawledAt": "2026-09-10",
+                "confidence": 0.98,
+                "rawData": {
+                  "editionYear": 2027,
+                  "raceDate": "2027-01-23",
+                  "categoryName": "HK100",
+                  "distanceKm": 100,
+                  "elevationGain": 5142,
+                  "cutoffTimeHours": 30,
+                  "evidenceLocator": "2027 Events overview — HK100"
                 }
               }
             ],
@@ -863,7 +1125,7 @@
             "lastUpdatedAt": "2026-09-10",
             "schemaVersion": "race-graph-v1",
             "dataQualityLevel": "A",
-            "reviewNotes": "startAt intentionally stores date precision only because the official source confirms the date but not an exact start time."
+            "reviewNotes": "Official 2027 category page confirms the date and course endpoints; the official 2027 event overview confirms exact distance, elevation and the 30-hour cutoff. startAt intentionally stores date precision only."
           }
         }
       ]
@@ -935,14 +1197,14 @@
         "venue": "磨西镇海螺沟游客中心",
         "region": "southwest_china",
         "timezone": "Asia/Shanghai",
-        "registrationStatus": "registration_open",
+        "registrationStatus": "registration_closed",
         "officialWebsite": "https://www.letoursports.net/gongga-100",
         "lifecycleStatus": "active",
-        "raceDistanceKm": 100,
+        "raceDistanceKm": 100.1,
         "raceDistances": [
-          100,
-          60,
-          40
+          100.1,
+          58.6,
+          40.5
         ],
         "createdAt": "2026-08-04",
         "updatedAt": "2026-09-10",
@@ -961,6 +1223,27 @@
                 "raceDate": "2026-09-25",
                 "endDate": "2026-09-27",
                 "evidenceLocator": "Gongga 100 official event page"
+              }
+            },
+            {
+              "sourceType": "official",
+              "sourceName": "朗途体育 — 2026凯乐石贡嘎100竞赛规程",
+              "sourceUrl": "https://moganshan.saihuitong.com/article?id=70868&mid=57201",
+              "sourceRecordId": "kailas-gongga-100-official-regulations-2026",
+              "crawledAt": "2026-09-10",
+              "confidence": 0.99,
+              "rawData": {
+                "editionYear": 2026,
+                "registrationStatus": "registration_closed",
+                "registrationOpenAt": "2026-06-30T10:00:00+08:00",
+                "registrationCloseAt": "2026-07-20T10:00:00+08:00",
+                "raceDistanceKm": 100.1,
+                "raceDistances": [
+                  100.1,
+                  58.6,
+                  40.5
+                ],
+                "evidenceLocator": "赛事路线及赛事报名章节"
               }
             },
             {
@@ -985,6 +1268,27 @@
               "sourceName": "RaceNext human-reviewed First5 image input",
               "confidence": 1,
               "updatedAt": "2026-09-10"
+            },
+            "registrationStatus": {
+              "field": "registrationStatus",
+              "sourceType": "official",
+              "sourceName": "朗途体育 — 2026凯乐石贡嘎100竞赛规程",
+              "confidence": 0.99,
+              "updatedAt": "2026-09-10"
+            },
+            "raceDistanceKm": {
+              "field": "raceDistanceKm",
+              "sourceType": "official",
+              "sourceName": "朗途体育 — 2026凯乐石贡嘎100竞赛规程",
+              "confidence": 0.99,
+              "updatedAt": "2026-09-10"
+            },
+            "raceDistances": {
+              "field": "raceDistances",
+              "sourceType": "official",
+              "sourceName": "朗途体育 — 2026凯乐石贡嘎100竞赛规程",
+              "confidence": 0.99,
+              "updatedAt": "2026-09-10"
             }
           },
           "sourcePriority": {
@@ -993,17 +1297,15 @@
           "confidence": 0.9,
           "verified": true,
           "verificationStatus": "verified",
-          "verifiedAt": "2026-08-04",
+          "verifiedAt": "2026-09-10",
           "missingFields": [
-            "registrationUrl",
-            "startAt",
-            "startLocation",
-            "finishLocation"
+            "registrationUrl"
           ],
-          "lastCrawledAt": "2026-08-04",
+          "lastCrawledAt": "2026-09-10",
           "lastUpdatedAt": "2026-09-10",
           "schemaVersion": "race-graph-v1",
           "dataQualityLevel": "A",
+          "reviewNotes": "Official 2026 competition regulations confirm the exact Category distances and the registration window ending 2026-07-20. Category start times, cutoff durations and endpoints are stored on their Category records.",
           "publicationGate": {
             "requestedEditionYear": 2026,
             "latestRelevantOfficialEditionYear": 2026,
@@ -1027,43 +1329,99 @@
           "editionId": "kailas-gongga-100-2026",
           "categoryName": "100km",
           "shortName": "100K",
-          "startAt": null,
-          "startLocation": null,
-          "finishLocation": null,
+          "startAt": "2026-09-26T00:00:00+08:00",
+          "startLocation": "杉树坪",
+          "finishLocation": "海螺沟游客中心",
           "registrationUrl": null,
           "displayOrder": 1,
-          "distanceKm": 100,
+          "distanceKm": 100.1,
+          "elevationGain": 7025,
+          "cutoffTimeHours": 30,
           "createdAt": "2026-08-04",
-          "updatedAt": "2026-08-04",
+          "updatedAt": "2026-09-10",
           "governance": {
             "sources": [
               {
                 "sourceType": "official",
-                "sourceName": "朗途体育 / Gongga 100",
-                "sourceUrl": "https://www.letoursports.net/gongga-100",
-                "sourceRecordId": "first5:kailas-gongga-100:2026",
-                "crawledAt": "2026-08-04",
-                "confidence": 0.9
+                "sourceName": "朗途体育 — 2026凯乐石贡嘎100竞赛规程",
+                "sourceUrl": "https://moganshan.saihuitong.com/article?id=70868&mid=57201",
+                "sourceRecordId": "kailas-gongga-100-official-regulations-2026",
+                "crawledAt": "2026-09-10",
+                "confidence": 0.99,
+                "rawData": {
+                  "editionYear": 2026,
+                  "categoryName": "100km组",
+                  "raceDate": "2026-09-26",
+                  "distanceKm": 100.1,
+                  "elevationGain": 7025,
+                  "startAt": "2026-09-26T00:00:00+08:00",
+                  "cutoffAt": "2026-09-27T06:00:00+08:00",
+                  "cutoffTimeHours": 30,
+                  "startLocation": "杉树坪",
+                  "finishLocation": "海螺沟游客中心",
+                  "evidenceLocator": "二、赛事路线（一）100km组"
+                }
               }
             ],
-            "fieldSources": {},
+            "fieldSources": {
+              "distanceKm": {
+                "field": "distanceKm",
+                "sourceType": "official",
+                "sourceName": "朗途体育 — 2026凯乐石贡嘎100竞赛规程",
+                "confidence": 0.99,
+                "updatedAt": "2026-09-10"
+              },
+              "elevationGain": {
+                "field": "elevationGain",
+                "sourceType": "official",
+                "sourceName": "朗途体育 — 2026凯乐石贡嘎100竞赛规程",
+                "confidence": 0.99,
+                "updatedAt": "2026-09-10"
+              },
+              "cutoffTimeHours": {
+                "field": "cutoffTimeHours",
+                "sourceType": "official",
+                "sourceName": "朗途体育 — 2026凯乐石贡嘎100竞赛规程",
+                "confidence": 0.99,
+                "updatedAt": "2026-09-10"
+              },
+              "startAt": {
+                "field": "startAt",
+                "sourceType": "official",
+                "sourceName": "朗途体育 — 2026凯乐石贡嘎100竞赛规程",
+                "confidence": 0.99,
+                "updatedAt": "2026-09-10"
+              },
+              "startLocation": {
+                "field": "startLocation",
+                "sourceType": "official",
+                "sourceName": "朗途体育 — 2026凯乐石贡嘎100竞赛规程",
+                "confidence": 0.99,
+                "updatedAt": "2026-09-10"
+              },
+              "finishLocation": {
+                "field": "finishLocation",
+                "sourceType": "official",
+                "sourceName": "朗途体育 — 2026凯乐石贡嘎100竞赛规程",
+                "confidence": 0.99,
+                "updatedAt": "2026-09-10"
+              }
+            },
             "sourcePriority": {
               "official": 100
             },
-            "confidence": 0.9,
+            "confidence": 0.99,
             "verified": true,
             "verificationStatus": "verified",
-            "verifiedAt": "2026-08-04",
+            "verifiedAt": "2026-09-10",
             "missingFields": [
-              "startAt",
-              "startLocation",
-              "finishLocation",
               "registrationUrl"
             ],
-            "lastCrawledAt": "2026-08-04",
-            "lastUpdatedAt": "2026-08-04",
+            "lastCrawledAt": "2026-09-10",
+            "lastUpdatedAt": "2026-09-10",
             "schemaVersion": "race-graph-v1",
-            "dataQualityLevel": "A"
+            "dataQualityLevel": "A",
+            "reviewNotes": "High-impact distance, elevation, start time, cutoff duration and route endpoints were manually verified against the organizer-published 2026 competition regulations."
           }
         },
         {
@@ -1071,43 +1429,99 @@
           "editionId": "kailas-gongga-100-2026",
           "categoryName": "60km",
           "shortName": "60K",
-          "startAt": null,
-          "startLocation": null,
-          "finishLocation": null,
+          "startAt": "2026-09-25T20:00:00+08:00",
+          "startLocation": "海螺沟游客中心",
+          "finishLocation": "四号营地",
           "registrationUrl": null,
           "displayOrder": 2,
-          "distanceKm": 60,
+          "distanceKm": 58.6,
+          "elevationGain": 5129,
+          "cutoffTimeHours": 20,
           "createdAt": "2026-08-04",
-          "updatedAt": "2026-08-04",
+          "updatedAt": "2026-09-10",
           "governance": {
             "sources": [
               {
                 "sourceType": "official",
-                "sourceName": "朗途体育 / Gongga 100",
-                "sourceUrl": "https://www.letoursports.net/gongga-100",
-                "sourceRecordId": "first5:kailas-gongga-100:2026",
-                "crawledAt": "2026-08-04",
-                "confidence": 0.9
+                "sourceName": "朗途体育 — 2026凯乐石贡嘎100竞赛规程",
+                "sourceUrl": "https://moganshan.saihuitong.com/article?id=70868&mid=57201",
+                "sourceRecordId": "kailas-gongga-100-official-regulations-2026",
+                "crawledAt": "2026-09-10",
+                "confidence": 0.99,
+                "rawData": {
+                  "editionYear": 2026,
+                  "categoryName": "60km组",
+                  "raceDate": "2026-09-25",
+                  "distanceKm": 58.6,
+                  "elevationGain": 5129,
+                  "startAt": "2026-09-25T20:00:00+08:00",
+                  "cutoffAt": "2026-09-26T16:00:00+08:00",
+                  "cutoffTimeHours": 20,
+                  "startLocation": "海螺沟游客中心",
+                  "finishLocation": "四号营地",
+                  "evidenceLocator": "二、赛事路线（二）60km组"
+                }
               }
             ],
-            "fieldSources": {},
+            "fieldSources": {
+              "distanceKm": {
+                "field": "distanceKm",
+                "sourceType": "official",
+                "sourceName": "朗途体育 — 2026凯乐石贡嘎100竞赛规程",
+                "confidence": 0.99,
+                "updatedAt": "2026-09-10"
+              },
+              "elevationGain": {
+                "field": "elevationGain",
+                "sourceType": "official",
+                "sourceName": "朗途体育 — 2026凯乐石贡嘎100竞赛规程",
+                "confidence": 0.99,
+                "updatedAt": "2026-09-10"
+              },
+              "cutoffTimeHours": {
+                "field": "cutoffTimeHours",
+                "sourceType": "official",
+                "sourceName": "朗途体育 — 2026凯乐石贡嘎100竞赛规程",
+                "confidence": 0.99,
+                "updatedAt": "2026-09-10"
+              },
+              "startAt": {
+                "field": "startAt",
+                "sourceType": "official",
+                "sourceName": "朗途体育 — 2026凯乐石贡嘎100竞赛规程",
+                "confidence": 0.99,
+                "updatedAt": "2026-09-10"
+              },
+              "startLocation": {
+                "field": "startLocation",
+                "sourceType": "official",
+                "sourceName": "朗途体育 — 2026凯乐石贡嘎100竞赛规程",
+                "confidence": 0.99,
+                "updatedAt": "2026-09-10"
+              },
+              "finishLocation": {
+                "field": "finishLocation",
+                "sourceType": "official",
+                "sourceName": "朗途体育 — 2026凯乐石贡嘎100竞赛规程",
+                "confidence": 0.99,
+                "updatedAt": "2026-09-10"
+              }
+            },
             "sourcePriority": {
               "official": 100
             },
-            "confidence": 0.9,
+            "confidence": 0.99,
             "verified": true,
             "verificationStatus": "verified",
-            "verifiedAt": "2026-08-04",
+            "verifiedAt": "2026-09-10",
             "missingFields": [
-              "startAt",
-              "startLocation",
-              "finishLocation",
               "registrationUrl"
             ],
-            "lastCrawledAt": "2026-08-04",
-            "lastUpdatedAt": "2026-08-04",
+            "lastCrawledAt": "2026-09-10",
+            "lastUpdatedAt": "2026-09-10",
             "schemaVersion": "race-graph-v1",
-            "dataQualityLevel": "A"
+            "dataQualityLevel": "A",
+            "reviewNotes": "High-impact distance, elevation, start time, cutoff duration and route endpoints were manually verified against the organizer-published 2026 competition regulations."
           }
         },
         {
@@ -1115,43 +1529,99 @@
           "editionId": "kailas-gongga-100-2026",
           "categoryName": "40km",
           "shortName": "40K",
-          "startAt": null,
-          "startLocation": null,
-          "finishLocation": null,
+          "startAt": "2026-09-26T06:00:00+08:00",
+          "startLocation": "海螺沟游客中心",
+          "finishLocation": "海螺沟游客中心",
           "registrationUrl": null,
           "displayOrder": 3,
-          "distanceKm": 40,
+          "distanceKm": 40.5,
+          "elevationGain": 2771,
+          "cutoffTimeHours": 12,
           "createdAt": "2026-08-04",
-          "updatedAt": "2026-08-04",
+          "updatedAt": "2026-09-10",
           "governance": {
             "sources": [
               {
                 "sourceType": "official",
-                "sourceName": "朗途体育 / Gongga 100",
-                "sourceUrl": "https://www.letoursports.net/gongga-100",
-                "sourceRecordId": "first5:kailas-gongga-100:2026",
-                "crawledAt": "2026-08-04",
-                "confidence": 0.9
+                "sourceName": "朗途体育 — 2026凯乐石贡嘎100竞赛规程",
+                "sourceUrl": "https://moganshan.saihuitong.com/article?id=70868&mid=57201",
+                "sourceRecordId": "kailas-gongga-100-official-regulations-2026",
+                "crawledAt": "2026-09-10",
+                "confidence": 0.99,
+                "rawData": {
+                  "editionYear": 2026,
+                  "categoryName": "40km组",
+                  "raceDate": "2026-09-26",
+                  "distanceKm": 40.5,
+                  "elevationGain": 2771,
+                  "startAt": "2026-09-26T06:00:00+08:00",
+                  "cutoffAt": "2026-09-26T18:00:00+08:00",
+                  "cutoffTimeHours": 12,
+                  "startLocation": "海螺沟游客中心",
+                  "finishLocation": "海螺沟游客中心",
+                  "evidenceLocator": "二、赛事路线（三）40km组"
+                }
               }
             ],
-            "fieldSources": {},
+            "fieldSources": {
+              "distanceKm": {
+                "field": "distanceKm",
+                "sourceType": "official",
+                "sourceName": "朗途体育 — 2026凯乐石贡嘎100竞赛规程",
+                "confidence": 0.99,
+                "updatedAt": "2026-09-10"
+              },
+              "elevationGain": {
+                "field": "elevationGain",
+                "sourceType": "official",
+                "sourceName": "朗途体育 — 2026凯乐石贡嘎100竞赛规程",
+                "confidence": 0.99,
+                "updatedAt": "2026-09-10"
+              },
+              "cutoffTimeHours": {
+                "field": "cutoffTimeHours",
+                "sourceType": "official",
+                "sourceName": "朗途体育 — 2026凯乐石贡嘎100竞赛规程",
+                "confidence": 0.99,
+                "updatedAt": "2026-09-10"
+              },
+              "startAt": {
+                "field": "startAt",
+                "sourceType": "official",
+                "sourceName": "朗途体育 — 2026凯乐石贡嘎100竞赛规程",
+                "confidence": 0.99,
+                "updatedAt": "2026-09-10"
+              },
+              "startLocation": {
+                "field": "startLocation",
+                "sourceType": "official",
+                "sourceName": "朗途体育 — 2026凯乐石贡嘎100竞赛规程",
+                "confidence": 0.99,
+                "updatedAt": "2026-09-10"
+              },
+              "finishLocation": {
+                "field": "finishLocation",
+                "sourceType": "official",
+                "sourceName": "朗途体育 — 2026凯乐石贡嘎100竞赛规程",
+                "confidence": 0.99,
+                "updatedAt": "2026-09-10"
+              }
+            },
             "sourcePriority": {
               "official": 100
             },
-            "confidence": 0.9,
+            "confidence": 0.99,
             "verified": true,
             "verificationStatus": "verified",
-            "verifiedAt": "2026-08-04",
+            "verifiedAt": "2026-09-10",
             "missingFields": [
-              "startAt",
-              "startLocation",
-              "finishLocation",
               "registrationUrl"
             ],
-            "lastCrawledAt": "2026-08-04",
-            "lastUpdatedAt": "2026-08-04",
+            "lastCrawledAt": "2026-09-10",
+            "lastUpdatedAt": "2026-09-10",
             "schemaVersion": "race-graph-v1",
-            "dataQualityLevel": "A"
+            "dataQualityLevel": "A",
+            "reviewNotes": "High-impact distance, elevation, start time, cutoff duration and route endpoints were manually verified against the organizer-published 2026 competition regulations."
           }
         }
       ]

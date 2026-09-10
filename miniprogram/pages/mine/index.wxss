@@ -1,0 +1,23 @@
+.mine-page {
+  min-height: 100vh;
+  padding: 72rpx 40rpx;
+}
+
+.mine-title,
+.mine-copy {
+  display: block;
+}
+
+.mine-title {
+  color: #111111;
+  font-size: 40rpx;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.mine-copy {
+  margin-top: 16rpx;
+  color: #858585;
+  font-size: 28rpx;
+  line-height: 1.5;
+}

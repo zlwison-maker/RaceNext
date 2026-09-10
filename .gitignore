@@ -14,3 +14,15 @@ node_modules
 # logs
 *.log
 
+# local and CI race update dry-run artifacts
+artifacts
+
+# WeChat DevTools local configuration and generated files
+project.private.config.json
+miniprogram/miniprogram_npm/
+miniprogram/**/*.js
+miniprogram/**/*.js.map
+miniprogram/**/*.tsbuildinfo
+miniprogram/.cache/
+miniprogram/.temp/
+miniprogram/.env*

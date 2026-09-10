@@ -12,6 +12,7 @@ export type LifecycleStatus = "active" | "archived" | "cancelled" | "uncertain";
 
 export type RegistrationStatus =
   | "upcoming"
+  | "registration_not_announced"
   | "registration_open"
   | "lottery"
   | "waiting_list"

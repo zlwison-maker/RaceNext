@@ -117,7 +117,27 @@
           "sourceType": "event_home",
           "status": "active",
           "isPrimary": true,
-          "notes": "Tier 1 official home explicitly presents the 2027 edition and its three race days."
+          "notes": "Tier 1 official home explicitly presents the 2027 edition, the three physical races and the Grand Sam composite challenge with their dates and core metrics."
+        },
+        {
+          "sourceId": "hk100-official-the-third-2027",
+          "url": "https://hk100ultra.com/zh-hant/the-third/",
+          "domain": "hk100ultra.com",
+          "tier": "primary_official",
+          "sourceType": "category_page",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Official 2027 The Third category page confirms the race date, distance, elevation and Pak Tam Chung start and finish."
+        },
+        {
+          "sourceId": "hk100-official-the-half-2027",
+          "url": "https://hk100ultra.com/zh-hant/the-half/",
+          "domain": "hk100ultra.com",
+          "tier": "primary_official",
+          "sourceType": "category_page",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Official 2027 The Half category page confirms the race date, distance and Pak Tam Chung start and finish; the official home supplies the exact elevation and cutoff."
         },
         {
           "sourceId": "hk100-official-hk100-category-2027",
@@ -128,6 +148,16 @@
           "status": "active",
           "isPrimary": false,
           "notes": "Official HK100 category page identifies the 100K main race date as 2027-01-23."
+        },
+        {
+          "sourceId": "hk100-official-grand-sam-2027",
+          "url": "https://hk100ultra.com/zh-hant/the-grand-sam/",
+          "domain": "hk100ultra.com",
+          "tier": "primary_official",
+          "sourceType": "category_page",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Official page defines Grand Sam as the composite challenge of completing The Third, The Half and HK100 consecutively from 2027-01-21 through 2027-01-24; it is evidence, not a physical Category record."
         },
         {
           "sourceId": "hk100-official-world-trail-majors-2027",
@@ -163,6 +193,16 @@
           "status": "active",
           "isPrimary": false,
           "notes": "Existing reviewed official event website."
+        },
+        {
+          "sourceId": "kailas-gongga-100-official-regulations-2026",
+          "url": "https://moganshan.saihuitong.com/article?id=70868&mid=57201",
+          "domain": "moganshan.saihuitong.com",
+          "tier": "primary_official",
+          "sourceType": "regulations",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Organizer-published 2026 competition regulations supporting the three Category distances, elevation gains, start times, cutoff durations and start/finish locations."
         },
         {
           "sourceId": "zuicool",

@@ -46,6 +46,10 @@ npm run data:connectors:poc
 
 [docs/strategy/ROADMAP.md](docs/strategy/ROADMAP.md) 是 RaceNext 当前最高层规划文档，也是项目路线、阶段、Step 和优先级的最高入口。
 
+## Project Context
+
+开始产品或功能开发前，请先阅读 [RaceNext Project Context](docs/project/README.md)。数据技术架构从 [RaceNext Data Foundation V1](docs/data/RACENEXT_DATA_FOUNDATION_V1.md) 进入。
+
 ## Key Documents
 
 ### Strategy
@@ -61,6 +65,7 @@ npm run data:connectors:poc
 
 ### Data Architecture
 
+- [RaceNext Data Foundation V1](docs/data/RACENEXT_DATA_FOUNDATION_V1.md) — 当前数据架构、状态、公开读取层与 Deferred 项总览
 - [docs/data/RACE_SCHEMA_V1.md](docs/data/RACE_SCHEMA_V1.md)
 - [docs/data/EVENT_MODEL_V1.md](docs/data/EVENT_MODEL_V1.md)
 - [docs/data/DIFFICULTY_SYSTEM.md](docs/data/DIFFICULTY_SYSTEM.md)
