@@ -918,7 +918,7 @@
           "elevationGain": 1558,
           "cutoffTimeHours": 10,
           "createdAt": "2026-09-10",
-          "updatedAt": "2026-09-10",
+          "updatedAt": "2026-09-11",
           "governance": {
             "sources": [
               {
@@ -926,7 +926,7 @@
                 "sourceName": "Hong Kong 100 Ultra — The Third",
                 "sourceUrl": "https://hk100ultra.com/zh-hant/the-third/",
                 "sourceRecordId": "hk100-official-the-third-2027",
-                "crawledAt": "2026-09-10",
+                "crawledAt": "2026-09-11",
                 "confidence": 0.98,
                 "rawData": {
                   "editionYear": 2027,
@@ -936,7 +936,42 @@
                   "elevationGain": 1558,
                   "startLocation": "北潭涌",
                   "finishLocation": "北潭涌",
-                  "evidenceLocator": "The Third heading and course overview"
+                  "evidenceLocator": "The Third official checkpoint table image; course overview identifies CP1 East Dam, CP2 Sai Wan Pavilion and Chek Keng water point; 急救护理 states all checkpoints have emergency medical service",
+                  "coursePoints": [
+                    {
+                      "pointId": "hk100-2027-the-third-34k-east-dam",
+                      "type": "checkpoint",
+                      "name": "东坝",
+                      "displayOrder": 1,
+                      "distanceKm": 10,
+                      "cutoffAt": "2027-01-21T10:30:00+08:00"
+                    },
+                    {
+                      "pointId": "hk100-2027-the-third-34k-sai-wan-pavilion",
+                      "type": "checkpoint",
+                      "name": "西湾亭",
+                      "displayOrder": 2,
+                      "distanceKm": 17,
+                      "cutoffAt": "2027-01-21T12:30:00+08:00"
+                    },
+                    {
+                      "pointId": "hk100-2027-the-third-34k-chek-keng",
+                      "type": "water_point",
+                      "name": "赤径",
+                      "displayOrder": 3,
+                      "distanceKm": 26,
+                      "cutoffAt": "2027-01-21T15:15:00+08:00"
+                    },
+                    {
+                      "pointId": "hk100-2027-the-third-34k-pak-tam-chung",
+                      "type": "finish",
+                      "name": "北潭涌",
+                      "displayOrder": 4,
+                      "distanceKm": 34,
+                      "cutoffAt": "2027-01-21T18:00:00+08:00"
+                    }
+                  ],
+                  "allCheckpointsHaveEmergencyMedicalService": true
                 }
               },
               {
@@ -957,24 +992,85 @@
                 }
               }
             ],
-            "fieldSources": {},
+            "fieldSources": {
+              "coursePoints": {
+                "field": "coursePoints",
+                "sourceType": "official",
+                "sourceName": "Hong Kong 100 Ultra — The Third",
+                "confidence": 0.98,
+                "updatedAt": "2026-09-11"
+              },
+              "coursePointDataStatus": {
+                "field": "coursePointDataStatus",
+                "sourceType": "official",
+                "sourceName": "Hong Kong 100 Ultra — The Third",
+                "confidence": 0.98,
+                "updatedAt": "2026-09-11"
+              }
+            },
             "sourcePriority": {
               "official": 100
             },
             "confidence": 0.98,
             "verified": true,
             "verificationStatus": "verified",
-            "verifiedAt": "2026-09-10",
+            "verifiedAt": "2026-09-11",
             "missingFields": [
               "startTime",
-              "registrationUrl"
+              "registrationUrl",
+              "coursePointServices"
             ],
-            "lastCrawledAt": "2026-09-10",
-            "lastUpdatedAt": "2026-09-10",
+            "lastCrawledAt": "2026-09-11",
+            "lastUpdatedAt": "2026-09-11",
             "schemaVersion": "race-graph-v1",
             "dataQualityLevel": "A",
-            "reviewNotes": "Official 2027 category page confirms the date, distance, elevation and North Tam Chung start/finish; the official 2027 event overview confirms the 10-hour cutoff. startAt intentionally stores date precision only."
-          }
+            "reviewNotes": "The current official 2027 The Third page and checkpoint table were manually verified for 2 checkpoints, the Chek Keng water point and Finish, with complete names, route order, cumulative distances and cutoffs. Medical follows the page-wide all-checkpoints rule only for type=checkpoint; Chek Keng is type=water_point with water, and neither rule propagates to Finish. No drop bag is inferred."
+          },
+          "coursePoints": [
+            {
+              "pointId": "hk100-2027-the-third-34k-east-dam",
+              "type": "checkpoint",
+              "name": "东坝",
+              "displayOrder": 1,
+              "distanceKm": 10,
+              "cutoffAt": "2027-01-21T10:30:00+08:00",
+              "services": [
+                "medical"
+              ]
+            },
+            {
+              "pointId": "hk100-2027-the-third-34k-sai-wan-pavilion",
+              "type": "checkpoint",
+              "name": "西湾亭",
+              "displayOrder": 2,
+              "distanceKm": 17,
+              "cutoffAt": "2027-01-21T12:30:00+08:00",
+              "services": [
+                "medical"
+              ]
+            },
+            {
+              "pointId": "hk100-2027-the-third-34k-chek-keng",
+              "type": "water_point",
+              "name": "赤径",
+              "displayOrder": 3,
+              "distanceKm": 26,
+              "cutoffAt": "2027-01-21T15:15:00+08:00",
+              "services": [
+                "water"
+              ]
+            },
+            {
+              "pointId": "hk100-2027-the-third-34k-pak-tam-chung",
+              "type": "finish",
+              "name": "北潭涌",
+              "displayOrder": 4,
+              "distanceKm": 34,
+              "cutoffAt": "2027-01-21T18:00:00+08:00",
+              "services": null
+            }
+          ],
+          "coursePointDataStatus": "available"
         },
         {
           "categoryId": "hk100-2027-the-half-53k",
@@ -990,7 +1086,7 @@
           "elevationGain": 2263,
           "cutoffTimeHours": 14,
           "createdAt": "2026-09-10",
-          "updatedAt": "2026-09-10",
+          "updatedAt": "2026-09-11",
           "governance": {
             "sources": [
               {
@@ -998,7 +1094,7 @@
                 "sourceName": "Hong Kong 100 Ultra — The Half",
                 "sourceUrl": "https://hk100ultra.com/zh-hant/the-half/",
                 "sourceRecordId": "hk100-official-the-half-2027",
-                "crawledAt": "2026-09-10",
+                "crawledAt": "2026-09-11",
                 "confidence": 0.98,
                 "rawData": {
                   "editionYear": 2027,
@@ -1008,7 +1104,58 @@
                   "elevationGainMinimum": 2200,
                   "startLocation": "北潭涌",
                   "finishLocation": "北潭涌",
-                  "evidenceLocator": "The Half heading and course overview"
+                  "evidenceLocator": "The Half official checkpoint table image and course overview; 急救护理 states all checkpoints have emergency medical service",
+                  "coursePoints": [
+                    {
+                      "pointId": "hk100-2027-the-half-53k-east-dam",
+                      "type": "checkpoint",
+                      "name": "东坝",
+                      "displayOrder": 1,
+                      "distanceKm": 10,
+                      "cutoffAt": "2027-01-22T10:15:00+08:00"
+                    },
+                    {
+                      "pointId": "hk100-2027-the-half-53k-sai-wan-pavilion",
+                      "type": "checkpoint",
+                      "name": "西湾亭",
+                      "displayOrder": 2,
+                      "distanceKm": 17,
+                      "cutoffAt": "2027-01-22T12:00:00+08:00"
+                    },
+                    {
+                      "pointId": "hk100-2027-the-half-53k-pak-tam-au",
+                      "type": "checkpoint",
+                      "name": "北潭凹",
+                      "displayOrder": 3,
+                      "distanceKm": 28,
+                      "cutoffAt": "2027-01-22T14:45:00+08:00"
+                    },
+                    {
+                      "pointId": "hk100-2027-the-half-53k-pak-sha-o",
+                      "type": "checkpoint",
+                      "name": "白沙澳",
+                      "displayOrder": 4,
+                      "distanceKm": 36,
+                      "cutoffAt": "2027-01-22T17:00:00+08:00"
+                    },
+                    {
+                      "pointId": "hk100-2027-the-half-53k-yung-shue-o",
+                      "type": "checkpoint",
+                      "name": "榕树澳",
+                      "displayOrder": 5,
+                      "distanceKm": 44,
+                      "cutoffAt": "2027-01-22T19:30:00+08:00"
+                    },
+                    {
+                      "pointId": "hk100-2027-the-half-53k-pak-tam-chung",
+                      "type": "finish",
+                      "name": "北潭涌",
+                      "displayOrder": 6,
+                      "distanceKm": 53,
+                      "cutoffAt": "2027-01-22T22:00:00+08:00"
+                    }
+                  ],
+                  "allCheckpointsHaveEmergencyMedicalService": true
                 }
               },
               {
@@ -1029,24 +1176,107 @@
                 }
               }
             ],
-            "fieldSources": {},
+            "fieldSources": {
+              "coursePoints": {
+                "field": "coursePoints",
+                "sourceType": "official",
+                "sourceName": "Hong Kong 100 Ultra — The Half",
+                "confidence": 0.98,
+                "updatedAt": "2026-09-11"
+              },
+              "coursePointDataStatus": {
+                "field": "coursePointDataStatus",
+                "sourceType": "official",
+                "sourceName": "Hong Kong 100 Ultra — The Half",
+                "confidence": 0.98,
+                "updatedAt": "2026-09-11"
+              }
+            },
             "sourcePriority": {
               "official": 100
             },
             "confidence": 0.98,
             "verified": true,
             "verificationStatus": "verified",
-            "verifiedAt": "2026-09-10",
+            "verifiedAt": "2026-09-11",
             "missingFields": [
               "startTime",
-              "registrationUrl"
+              "registrationUrl",
+              "coursePointServices"
             ],
-            "lastCrawledAt": "2026-09-10",
-            "lastUpdatedAt": "2026-09-10",
+            "lastCrawledAt": "2026-09-11",
+            "lastUpdatedAt": "2026-09-11",
             "schemaVersion": "race-graph-v1",
             "dataQualityLevel": "A",
-            "reviewNotes": "Official 2027 category page confirms the date, distance and North Tam Chung start/finish; the official 2027 event overview confirms exact elevation and the 14-hour cutoff. startAt intentionally stores date precision only."
-          }
+            "reviewNotes": "The current official 2027 The Half page and checkpoint table were manually verified for 5 checkpoints plus Finish, with complete names, route order, cumulative distances and cutoffs. Medical follows the page-wide all-checkpoints rule only for type=checkpoint and does not propagate to Finish. Unpublished food and drink details and unconfirmed drop bags are not inferred."
+          },
+          "coursePoints": [
+            {
+              "pointId": "hk100-2027-the-half-53k-east-dam",
+              "type": "checkpoint",
+              "name": "东坝",
+              "displayOrder": 1,
+              "distanceKm": 10,
+              "cutoffAt": "2027-01-22T10:15:00+08:00",
+              "services": [
+                "medical"
+              ]
+            },
+            {
+              "pointId": "hk100-2027-the-half-53k-sai-wan-pavilion",
+              "type": "checkpoint",
+              "name": "西湾亭",
+              "displayOrder": 2,
+              "distanceKm": 17,
+              "cutoffAt": "2027-01-22T12:00:00+08:00",
+              "services": [
+                "medical"
+              ]
+            },
+            {
+              "pointId": "hk100-2027-the-half-53k-pak-tam-au",
+              "type": "checkpoint",
+              "name": "北潭凹",
+              "displayOrder": 3,
+              "distanceKm": 28,
+              "cutoffAt": "2027-01-22T14:45:00+08:00",
+              "services": [
+                "medical"
+              ]
+            },
+            {
+              "pointId": "hk100-2027-the-half-53k-pak-sha-o",
+              "type": "checkpoint",
+              "name": "白沙澳",
+              "displayOrder": 4,
+              "distanceKm": 36,
+              "cutoffAt": "2027-01-22T17:00:00+08:00",
+              "services": [
+                "medical"
+              ]
+            },
+            {
+              "pointId": "hk100-2027-the-half-53k-yung-shue-o",
+              "type": "checkpoint",
+              "name": "榕树澳",
+              "displayOrder": 5,
+              "distanceKm": 44,
+              "cutoffAt": "2027-01-22T19:30:00+08:00",
+              "services": [
+                "medical"
+              ]
+            },
+            {
+              "pointId": "hk100-2027-the-half-53k-pak-tam-chung",
+              "type": "finish",
+              "name": "北潭涌",
+              "displayOrder": 6,
+              "distanceKm": 53,
+              "cutoffAt": "2027-01-22T22:00:00+08:00",
+              "services": null
+            }
+          ],
+          "coursePointDataStatus": "available"
         },
         {
           "categoryId": "hk100-2027-hk100-100k",
@@ -1988,7 +2218,7 @@
           "elevationGain": 5129,
           "cutoffTimeHours": 20,
           "createdAt": "2026-08-04",
-          "updatedAt": "2026-09-10",
+          "updatedAt": "2026-09-11",
           "governance": {
             "sources": [
               {
@@ -1996,7 +2226,7 @@
                 "sourceName": "朗途体育 — 2026凯乐石贡嘎100竞赛规程",
                 "sourceUrl": "https://moganshan.saihuitong.com/article?id=70868&mid=57201",
                 "sourceRecordId": "kailas-gongga-100-official-regulations-2026",
-                "crawledAt": "2026-09-10",
+                "crawledAt": "2026-09-11",
                 "confidence": 0.99,
                 "rawData": {
                   "editionYear": 2026,
@@ -2009,7 +2239,73 @@
                   "cutoffTimeHours": 20,
                   "startLocation": "海螺沟游客中心",
                   "finishLocation": "四号营地",
-                  "evidenceLocator": "二、赛事路线（二）60km组"
+                  "evidenceLocator": "二、赛事路线（二）60km组线路说明及官方60km路线图；图中逐站累计里程、关门日期与时间",
+                  "coursePoints": [
+                    {
+                      "pointId": "kailas-gongga-100-2026-snow-60-qinggangping",
+                      "type": "checkpoint",
+                      "name": "青岗坪",
+                      "displayOrder": 1,
+                      "distanceKm": 7.9,
+                      "cutoffAt": "2026-09-25T21:30:00+08:00",
+                      "services": null
+                    },
+                    {
+                      "pointId": "kailas-gongga-100-2026-snow-60-gonghe-village",
+                      "type": "checkpoint",
+                      "name": "共和村",
+                      "displayOrder": 2,
+                      "distanceKm": 15.9,
+                      "cutoffAt": "2026-09-26T00:00:00+08:00",
+                      "services": null
+                    },
+                    {
+                      "pointId": "kailas-gongga-100-2026-snow-60-banmu-hot-spring",
+                      "type": "checkpoint",
+                      "name": "半亩温泉",
+                      "displayOrder": 3,
+                      "distanceKm": 27.1,
+                      "cutoffAt": "2026-09-26T03:00:00+08:00",
+                      "services": null
+                    },
+                    {
+                      "pointId": "kailas-gongga-100-2026-snow-60-iron-bridge",
+                      "type": "checkpoint",
+                      "name": "铁桥",
+                      "displayOrder": 4,
+                      "distanceKm": 33.7,
+                      "cutoffAt": "2026-09-26T05:00:00+08:00",
+                      "services": null
+                    },
+                    {
+                      "pointId": "kailas-gongga-100-2026-snow-60-qianghuo-shed",
+                      "type": "checkpoint",
+                      "name": "羌活棚",
+                      "displayOrder": 5,
+                      "distanceKm": 42.6,
+                      "cutoffAt": "2026-09-26T08:30:00+08:00",
+                      "services": null
+                    },
+                    {
+                      "pointId": "kailas-gongga-100-2026-snow-60-4500m-pass",
+                      "type": "checkpoint",
+                      "name": "4500m 垭口",
+                      "displayOrder": 6,
+                      "distanceKm": 54.6,
+                      "cutoffAt": "2026-09-26T14:00:00+08:00",
+                      "services": null
+                    },
+                    {
+                      "pointId": "kailas-gongga-100-2026-snow-60-camp-four",
+                      "type": "finish",
+                      "name": "四号营地",
+                      "displayOrder": 7,
+                      "distanceKm": 58.6,
+                      "cutoffAt": "2026-09-26T16:00:00+08:00",
+                      "services": null
+                    }
+                  ],
+                  "routeChartImageUrl": "https://img.saihuitong.com/4717/richtext/13044845/sht/19f116122e3db65.jpg-w702"
                 }
               }
             ],
@@ -2055,6 +2351,20 @@
                 "sourceName": "朗途体育 — 2026凯乐石贡嘎100竞赛规程",
                 "confidence": 0.99,
                 "updatedAt": "2026-09-10"
+              },
+              "coursePoints": {
+                "field": "coursePoints",
+                "sourceType": "official",
+                "sourceName": "朗途体育 — 2026凯乐石贡嘎100竞赛规程",
+                "confidence": 0.99,
+                "updatedAt": "2026-09-11"
+              },
+              "coursePointDataStatus": {
+                "field": "coursePointDataStatus",
+                "sourceType": "official",
+                "sourceName": "朗途体育 — 2026凯乐石贡嘎100竞赛规程",
+                "confidence": 0.99,
+                "updatedAt": "2026-09-11"
               }
             },
             "sourcePriority": {
@@ -2063,16 +2373,83 @@
             "confidence": 0.99,
             "verified": true,
             "verificationStatus": "verified",
-            "verifiedAt": "2026-09-10",
+            "verifiedAt": "2026-09-11",
             "missingFields": [
-              "registrationUrl"
+              "registrationUrl",
+              "coursePointServices"
             ],
-            "lastCrawledAt": "2026-09-10",
-            "lastUpdatedAt": "2026-09-10",
+            "lastCrawledAt": "2026-09-11",
+            "lastUpdatedAt": "2026-09-11",
             "schemaVersion": "race-graph-v1",
             "dataQualityLevel": "A",
-            "reviewNotes": "High-impact distance, elevation, start time, cutoff duration and route endpoints were manually verified against the organizer-published 2026 competition regulations."
-          }
+            "reviewNotes": "The organizer-published 2026 60km route description and route chart were manually verified for 6 checkpoints plus Finish, with complete names, route order, cumulative distances and cross-midnight cutoffs. The P0 core structure is therefore available. No per-point services or drop bag are inferred."
+          },
+          "coursePoints": [
+            {
+              "pointId": "kailas-gongga-100-2026-snow-60-qinggangping",
+              "type": "checkpoint",
+              "name": "青岗坪",
+              "displayOrder": 1,
+              "distanceKm": 7.9,
+              "cutoffAt": "2026-09-25T21:30:00+08:00",
+              "services": null
+            },
+            {
+              "pointId": "kailas-gongga-100-2026-snow-60-gonghe-village",
+              "type": "checkpoint",
+              "name": "共和村",
+              "displayOrder": 2,
+              "distanceKm": 15.9,
+              "cutoffAt": "2026-09-26T00:00:00+08:00",
+              "services": null
+            },
+            {
+              "pointId": "kailas-gongga-100-2026-snow-60-banmu-hot-spring",
+              "type": "checkpoint",
+              "name": "半亩温泉",
+              "displayOrder": 3,
+              "distanceKm": 27.1,
+              "cutoffAt": "2026-09-26T03:00:00+08:00",
+              "services": null
+            },
+            {
+              "pointId": "kailas-gongga-100-2026-snow-60-iron-bridge",
+              "type": "checkpoint",
+              "name": "铁桥",
+              "displayOrder": 4,
+              "distanceKm": 33.7,
+              "cutoffAt": "2026-09-26T05:00:00+08:00",
+              "services": null
+            },
+            {
+              "pointId": "kailas-gongga-100-2026-snow-60-qianghuo-shed",
+              "type": "checkpoint",
+              "name": "羌活棚",
+              "displayOrder": 5,
+              "distanceKm": 42.6,
+              "cutoffAt": "2026-09-26T08:30:00+08:00",
+              "services": null
+            },
+            {
+              "pointId": "kailas-gongga-100-2026-snow-60-4500m-pass",
+              "type": "checkpoint",
+              "name": "4500m 垭口",
+              "displayOrder": 6,
+              "distanceKm": 54.6,
+              "cutoffAt": "2026-09-26T14:00:00+08:00",
+              "services": null
+            },
+            {
+              "pointId": "kailas-gongga-100-2026-snow-60-camp-four",
+              "type": "finish",
+              "name": "四号营地",
+              "displayOrder": 7,
+              "distanceKm": 58.6,
+              "cutoffAt": "2026-09-26T16:00:00+08:00",
+              "services": null
+            }
+          ],
+          "coursePointDataStatus": "available"
         },
         {
           "categoryId": "kailas-gongga-100-2026-trail-40",
@@ -2088,7 +2465,7 @@
           "elevationGain": 2771,
           "cutoffTimeHours": 12,
           "createdAt": "2026-08-04",
-          "updatedAt": "2026-09-10",
+          "updatedAt": "2026-09-11",
           "governance": {
             "sources": [
               {
@@ -2096,7 +2473,7 @@
                 "sourceName": "朗途体育 — 2026凯乐石贡嘎100竞赛规程",
                 "sourceUrl": "https://moganshan.saihuitong.com/article?id=70868&mid=57201",
                 "sourceRecordId": "kailas-gongga-100-official-regulations-2026",
-                "crawledAt": "2026-09-10",
+                "crawledAt": "2026-09-11",
                 "confidence": 0.99,
                 "rawData": {
                   "editionYear": 2026,
@@ -2109,7 +2486,55 @@
                   "cutoffTimeHours": 12,
                   "startLocation": "海螺沟游客中心",
                   "finishLocation": "海螺沟游客中心",
-                  "evidenceLocator": "二、赛事路线（三）40km组"
+                  "evidenceLocator": "二、赛事路线（三）40km组线路说明及官方40km路线图；图中逐站累计里程、关门日期与时间",
+                  "coursePoints": [
+                    {
+                      "pointId": "kailas-gongga-100-2026-trail-40-yanzi-gully",
+                      "type": "checkpoint",
+                      "name": "燕子沟",
+                      "displayOrder": 1,
+                      "distanceKm": 13.2,
+                      "cutoffAt": "2026-09-26T09:00:00+08:00",
+                      "services": null
+                    },
+                    {
+                      "pointId": "kailas-gongga-100-2026-trail-40-yuejinping-village",
+                      "type": "checkpoint",
+                      "name": "跃进坪村",
+                      "displayOrder": 2,
+                      "distanceKm": 20.2,
+                      "cutoffAt": "2026-09-26T11:00:00+08:00",
+                      "services": null
+                    },
+                    {
+                      "pointId": "kailas-gongga-100-2026-trail-40-shengli-gully",
+                      "type": "checkpoint",
+                      "name": "胜利沟",
+                      "displayOrder": 3,
+                      "distanceKm": 29.5,
+                      "cutoffAt": "2026-09-26T15:00:00+08:00",
+                      "services": null
+                    },
+                    {
+                      "pointId": "kailas-gongga-100-2026-trail-40-kangle-village",
+                      "type": "checkpoint",
+                      "name": "康乐村",
+                      "displayOrder": 4,
+                      "distanceKm": 34.5,
+                      "cutoffAt": "2026-09-26T16:30:00+08:00",
+                      "services": null
+                    },
+                    {
+                      "pointId": "kailas-gongga-100-2026-trail-40-hailuogou-visitor-center",
+                      "type": "finish",
+                      "name": "海螺沟游客中心",
+                      "displayOrder": 5,
+                      "distanceKm": 40.5,
+                      "cutoffAt": "2026-09-26T18:00:00+08:00",
+                      "services": null
+                    }
+                  ],
+                  "routeChartImageUrl": "https://img.saihuitong.com/4717/richtext/13044845/sht/19f1229d0f4d6ae.jpg-w702"
                 }
               }
             ],
@@ -2155,6 +2580,20 @@
                 "sourceName": "朗途体育 — 2026凯乐石贡嘎100竞赛规程",
                 "confidence": 0.99,
                 "updatedAt": "2026-09-10"
+              },
+              "coursePoints": {
+                "field": "coursePoints",
+                "sourceType": "official",
+                "sourceName": "朗途体育 — 2026凯乐石贡嘎100竞赛规程",
+                "confidence": 0.99,
+                "updatedAt": "2026-09-11"
+              },
+              "coursePointDataStatus": {
+                "field": "coursePointDataStatus",
+                "sourceType": "official",
+                "sourceName": "朗途体育 — 2026凯乐石贡嘎100竞赛规程",
+                "confidence": 0.99,
+                "updatedAt": "2026-09-11"
               }
             },
             "sourcePriority": {
@@ -2163,16 +2602,65 @@
             "confidence": 0.99,
             "verified": true,
             "verificationStatus": "verified",
-            "verifiedAt": "2026-09-10",
+            "verifiedAt": "2026-09-11",
             "missingFields": [
-              "registrationUrl"
+              "registrationUrl",
+              "coursePointServices"
             ],
-            "lastCrawledAt": "2026-09-10",
-            "lastUpdatedAt": "2026-09-10",
+            "lastCrawledAt": "2026-09-11",
+            "lastUpdatedAt": "2026-09-11",
             "schemaVersion": "race-graph-v1",
             "dataQualityLevel": "A",
-            "reviewNotes": "High-impact distance, elevation, start time, cutoff duration and route endpoints were manually verified against the organizer-published 2026 competition regulations."
-          }
+            "reviewNotes": "The organizer-published 2026 40km route description and route chart were manually verified for 4 checkpoints plus Finish, with complete names, route order, cumulative distances and cutoffs. The P0 core structure is therefore available. No per-point services are inferred."
+          },
+          "coursePoints": [
+            {
+              "pointId": "kailas-gongga-100-2026-trail-40-yanzi-gully",
+              "type": "checkpoint",
+              "name": "燕子沟",
+              "displayOrder": 1,
+              "distanceKm": 13.2,
+              "cutoffAt": "2026-09-26T09:00:00+08:00",
+              "services": null
+            },
+            {
+              "pointId": "kailas-gongga-100-2026-trail-40-yuejinping-village",
+              "type": "checkpoint",
+              "name": "跃进坪村",
+              "displayOrder": 2,
+              "distanceKm": 20.2,
+              "cutoffAt": "2026-09-26T11:00:00+08:00",
+              "services": null
+            },
+            {
+              "pointId": "kailas-gongga-100-2026-trail-40-shengli-gully",
+              "type": "checkpoint",
+              "name": "胜利沟",
+              "displayOrder": 3,
+              "distanceKm": 29.5,
+              "cutoffAt": "2026-09-26T15:00:00+08:00",
+              "services": null
+            },
+            {
+              "pointId": "kailas-gongga-100-2026-trail-40-kangle-village",
+              "type": "checkpoint",
+              "name": "康乐村",
+              "displayOrder": 4,
+              "distanceKm": 34.5,
+              "cutoffAt": "2026-09-26T16:30:00+08:00",
+              "services": null
+            },
+            {
+              "pointId": "kailas-gongga-100-2026-trail-40-hailuogou-visitor-center",
+              "type": "finish",
+              "name": "海螺沟游客中心",
+              "displayOrder": 5,
+              "distanceKm": 40.5,
+              "cutoffAt": "2026-09-26T18:00:00+08:00",
+              "services": null
+            }
+          ],
+          "coursePointDataStatus": "available"
         }
       ]
     }

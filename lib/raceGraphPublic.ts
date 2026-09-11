@@ -7,12 +7,13 @@ import {
   type PublicRaceListResponse,
   type PublicRaceLocation,
   type PublicRaceGuide,
+  type PublicRaceStrategy,
 } from "../types/publicRaceGraph.ts";
 import type { CoursePoint, CoursePointDataStatus } from "../types/event.ts";
 import { evaluatePrePublishFactGate, type PrePublishRaceGraphRecord } from "./prePublishFactGate.ts";
 import { validateCoursePointDataStatus, validateTrailCoursePoints } from "./trailCoursePoints.ts";
 import { getRaceEditorialContent } from "../data/race-guides/index.ts";
-import type { RaceEditorialContent } from "../types/raceDetail.ts";
+import type { RaceEditorialContent, RaceStrategyContent } from "../types/raceDetail.ts";
 
 type CanonicalGovernance = {
   verified?: boolean | null;
@@ -104,7 +105,7 @@ export function createPublicRaceListResult(input: unknown): PublicResult<PublicR
         races: snapshot.records
           .filter(isEditionPublishable)
           .map(toPublicRaceDetail)
-          .map(({ categories: _categories, raceGuide: _raceGuide, ...race }) => race)
+          .map(({ categories: _categories, raceGuide: _raceGuide, raceStrategy: _raceStrategy, ...race }) => race)
           .sort(compareRaceListItems),
       },
     };
@@ -220,6 +221,10 @@ function toPublicRaceDetail(record: CanonicalRecord): PublicRaceDetail {
     venue: edition.venue ?? null,
   };
 
+  const editorialContent = getRaceEditorialContent(event.eventId);
+  const raceStrategy = editorialContent?.raceStrategy ?? null;
+  const raceStrategyCategoryId = raceStrategy?.categoryId ?? null;
+
   return {
     editionId: edition.editionId,
     eventId: event.eventId,
@@ -239,7 +244,11 @@ function toPublicRaceDetail(record: CanonicalRecord): PublicRaceDetail {
       .filter((category) => isCategoryPublishable(category, edition.editionId))
       .sort((left, right) => left.displayOrder - right.displayOrder || left.categoryId.localeCompare(right.categoryId))
       .map((category) => toPublicCategory(category, edition.primaryCategoryId ?? null)),
-    raceGuide: toPublicRaceGuide(getRaceEditorialContent(event.eventId)),
+    raceGuide: toPublicRaceGuide(editorialContent),
+    raceStrategy: raceStrategyCategoryId === edition.primaryCategoryId
+      && record.categories.some(({ categoryId }) => categoryId === raceStrategyCategoryId)
+      ? toPublicRaceStrategy(raceStrategy)
+      : null,
   };
 }
 
@@ -273,6 +282,26 @@ export function toPublicRaceGuide(content: RaceEditorialContent | null): PublicR
         }
       : null,
     closing: content.transition ?? null,
+  };
+}
+
+export function toPublicRaceStrategy(content: RaceStrategyContent | null): PublicRaceStrategy | null {
+  if (!content) return null;
+
+  return {
+    categoryId: content.categoryId,
+    eyebrow: content.eyebrow,
+    title: content.title,
+    scopeNote: content.scopeNote,
+    items: content.sections.map((section) => ({
+      number: section.number,
+      title: section.title,
+      paragraphs: section.paragraphs.map((paragraph) => ({
+        text: paragraph.text,
+        emphasis: paragraph.emphasis === true,
+      })),
+    })),
+    closing: content.closing ?? null,
   };
 }
 

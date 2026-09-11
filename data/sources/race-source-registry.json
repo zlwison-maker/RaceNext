@@ -127,7 +127,7 @@
           "sourceType": "category_page",
           "status": "active",
           "isPrimary": false,
-          "notes": "Official 2027 The Third category page confirms the race date, distance, elevation and Pak Tam Chung start and finish."
+          "notes": "Official current 2027 The Third category page and checkpoint table confirm 2 checkpoints, the Chek Keng water point and Finish, with cumulative distances and cutoffs. The page-wide emergency-care statement applies medical only to checkpoints."
         },
         {
           "sourceId": "hk100-official-the-half-2027",
@@ -137,7 +137,7 @@
           "sourceType": "category_page",
           "status": "active",
           "isPrimary": false,
-          "notes": "Official 2027 The Half category page confirms the race date, distance and Pak Tam Chung start and finish; the official home supplies the exact elevation and cutoff."
+          "notes": "Official current 2027 The Half category page and checkpoint table confirm 5 checkpoints plus Finish, with cumulative distances and cutoffs. The page-wide emergency-care statement applies medical only to checkpoints; the official home supplies the exact elevation and overall cutoff."
         },
         {
           "sourceId": "hk100-official-hk100-category-2027",
@@ -232,7 +232,7 @@
           "sourceType": "regulations",
           "status": "active",
           "isPrimary": false,
-          "notes": "Organizer-published 2026 competition regulations supporting the three Category facts and the 100km official route table: 13 checkpoints plus Finish, cumulative distances, cross-midnight cutoffs, and CP8 半亩温泉 as the change-clothes/drop-bag point."
+          "notes": "Organizer-published 2026 competition regulations supporting all three Categories and their official route charts: 100K has 13 checkpoints plus Finish, 60K has 6 checkpoints plus Finish, and 40K has 4 checkpoints plus Finish, each with cumulative distances and cutoffs. Only the 100K CP8 半亩温泉 is explicitly marked as the change-clothes/drop-bag point."
         },
         {
           "sourceId": "zuicool",

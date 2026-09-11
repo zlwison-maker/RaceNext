@@ -3,6 +3,7 @@ import { hk100RaceGuide } from "./hk100.ts";
 import { kailasGongga100RaceGuide } from "./kailas-gongga-100.ts";
 import { shanghaiMarathonRaceGuide } from "./shanghai-marathon.ts";
 import { xiamenMarathonRaceGuide } from "./xiamen-marathon.ts";
+import { getRaceStrategyContent } from "../race-strategies/index.ts";
 import type { RaceEditorialContent } from "../../types/raceDetail.ts";
 
 const raceGuidesByEventId = {
@@ -14,5 +15,9 @@ const raceGuidesByEventId = {
 } satisfies Record<string, RaceEditorialContent>;
 
 export function getRaceEditorialContent(eventId: string): RaceEditorialContent | null {
-  return raceGuidesByEventId[eventId as keyof typeof raceGuidesByEventId] ?? null;
+  const raceGuide = raceGuidesByEventId[eventId as keyof typeof raceGuidesByEventId] ?? null;
+  if (!raceGuide) return null;
+
+  const raceStrategy = getRaceStrategyContent(eventId);
+  return raceStrategy ? { ...raceGuide, raceStrategy } : raceGuide;
 }

@@ -1,7 +1,9 @@
 import type {
+  PublicCoursePoint,
   PublicRaceCategory,
   PublicRaceDetail,
   PublicRaceGuide,
+  PublicRaceStrategy,
   RaceType,
   RegistrationStatus,
 } from "../types/races";
@@ -19,6 +21,21 @@ export type CategoryViewModel = {
   isPrimaryCategory: boolean;
   coreFacts: RaceFactViewModel[];
   executionFacts: RaceFactViewModel[];
+  coursePointSection: CoursePointSectionViewModel | null;
+};
+
+export type CoursePointViewModel = {
+  pointId: string;
+  type: PublicCoursePoint["type"];
+  pointLabel: string;
+  name: string;
+  factsDisplay: string | null;
+  serviceDisplay: string | null;
+};
+
+export type CoursePointSectionViewModel = {
+  title: "补给与关门";
+  points: CoursePointViewModel[];
 };
 
 export type RaceGuideSectionViewModel = {
@@ -44,6 +61,8 @@ export type RaceGuideViewModel = {
   closing: string | null;
 };
 
+export type RaceStrategyViewModel = PublicRaceStrategy;
+
 export type RaceDetailViewModel = {
   editionId: string;
   name: string;
@@ -59,6 +78,8 @@ export type RaceDetailViewModel = {
   selectedCategoryId: string;
   selectedCategory: CategoryViewModel | null;
   raceGuide: RaceGuideViewModel | null;
+  raceStrategy: RaceStrategyViewModel | null;
+  showRaceStrategy: boolean;
 };
 
 const HERO_FOCAL_POINTS: Readonly<Record<string, string>> = {
@@ -70,9 +91,10 @@ export function createRaceDetailViewModel(race: PublicRaceDetail): RaceDetailVie
   const categories = race.categories
     .slice()
     .sort((left, right) => left.displayOrder - right.displayOrder)
-    .map(toCategoryViewModel);
+    .map((category) => toCategoryViewModel(category, race.raceType));
   const selectedCategory = categories.find(({ isPrimaryCategory }) => isPrimaryCategory) ?? categories[0] ?? null;
   const showCategorySelector = categories.length > 1;
+  const raceStrategy = toRaceStrategyViewModel(race.raceStrategy);
 
   return {
     editionId: race.editionId,
@@ -89,6 +111,8 @@ export function createRaceDetailViewModel(race: PublicRaceDetail): RaceDetailVie
     selectedCategoryId: selectedCategory?.categoryId ?? "",
     selectedCategory,
     raceGuide: toRaceGuideViewModel(race.raceGuide),
+    raceStrategy,
+    showRaceStrategy: raceStrategy?.categoryId === selectedCategory?.categoryId,
   };
 }
 
@@ -102,10 +126,15 @@ export function selectRaceCategory(
 ): RaceDetailViewModel {
   const selectedCategory = detail.categories.find((category) => category.categoryId === categoryId);
   if (!selectedCategory) return detail;
-  return { ...detail, selectedCategoryId: categoryId, selectedCategory };
+  return {
+    ...detail,
+    selectedCategoryId: categoryId,
+    selectedCategory,
+    showRaceStrategy: detail.raceStrategy?.categoryId === categoryId,
+  };
 }
 
-function toCategoryViewModel(category: PublicRaceCategory): CategoryViewModel {
+function toCategoryViewModel(category: PublicRaceCategory, raceType: RaceType): CategoryViewModel {
   const coreFacts: RaceFactViewModel[] = [];
   const executionFacts: RaceFactViewModel[] = [];
 
@@ -138,7 +167,104 @@ function toCategoryViewModel(category: PublicRaceCategory): CategoryViewModel {
     isPrimaryCategory: category.isPrimaryCategory,
     coreFacts,
     executionFacts,
+    coursePointSection: toCoursePointSectionViewModel(category, raceType),
   };
+}
+
+function toCoursePointSectionViewModel(
+  category: PublicRaceCategory,
+  raceType: RaceType,
+): CoursePointSectionViewModel | null {
+  if (!isTrailRaceType(raceType)
+    || (category.coursePointDataStatus !== "available" && category.coursePointDataStatus !== "partial")
+    || !category.coursePoints?.length) {
+    return null;
+  }
+
+  let checkpointIndex = 0;
+  const points = category.coursePoints
+    .slice()
+    .sort((left, right) => left.displayOrder - right.displayOrder || left.pointId.localeCompare(right.pointId))
+    .map((point) => {
+      if (point.type === "checkpoint") checkpointIndex += 1;
+      return toCoursePointViewModel(point, category.startAt, checkpointIndex);
+    });
+
+  return {
+    title: "补给与关门",
+    points,
+  };
+}
+
+function toCoursePointViewModel(
+  point: PublicCoursePoint,
+  categoryStartAt: string | null,
+  checkpointIndex: number,
+): CoursePointViewModel {
+  const distanceDisplay = point.distanceKm === null ? null : `${formatNumber(point.distanceKm)} km`;
+  const cutoffDisplay = formatCoursePointCutoff(point.cutoffAt, categoryStartAt);
+
+  return {
+    pointId: point.pointId,
+    type: point.type,
+    pointLabel: point.type === "finish"
+      ? "FINISH"
+      : point.type === "water_point"
+        ? "WP"
+        : formatSequence(checkpointIndex - 1),
+    name: point.name,
+    factsDisplay: [distanceDisplay, cutoffDisplay].filter((value): value is string => Boolean(value)).join(" · ") || null,
+    serviceDisplay: formatCoursePointServices(point.services),
+  };
+}
+
+function formatCoursePointCutoff(cutoffAt: string | null, categoryStartAt: string | null): string | null {
+  if (!cutoffAt) return null;
+  const cutoff = parseLocalDateTime(cutoffAt);
+  if (!cutoff) return null;
+
+  const startDate = categoryStartAt ? parseLocalDate(categoryStartAt) : null;
+  if (!startDate) return `关门 ${cutoff.time}`;
+
+  const dayOffset = calendarDayNumber(cutoff) - calendarDayNumber(startDate);
+  if (dayOffset <= 0) return `关门 ${cutoff.time}`;
+  if (dayOffset === 1) return `次日 ${cutoff.time}`;
+  return `第${dayOffset + 1}日 ${cutoff.time}`;
+}
+
+function formatCoursePointServices(services: PublicCoursePoint["services"]): string | null {
+  if (!services?.length) return null;
+  const labels: Record<NonNullable<PublicCoursePoint["services"]>[number], string> = {
+    water: "补水",
+    food: "补给",
+    hot_food: "热食",
+    drop_bag: "换装",
+    medical: "医疗",
+  };
+  return services.map((service) => labels[service]).join(" · ");
+}
+
+type LocalDateParts = { year: number; month: number; day: number };
+
+function parseLocalDate(value: string): LocalDateParts | null {
+  const match = /^(\d{4})-(\d{2})-(\d{2})/.exec(value);
+  if (!match) return null;
+  return { year: Number(match[1]), month: Number(match[2]), day: Number(match[3]) };
+}
+
+function parseLocalDateTime(value: string): (LocalDateParts & { time: string }) | null {
+  const match = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/.exec(value);
+  if (!match) return null;
+  return {
+    year: Number(match[1]),
+    month: Number(match[2]),
+    day: Number(match[3]),
+    time: `${match[4]}:${match[5]}`,
+  };
+}
+
+function calendarDayNumber(value: LocalDateParts): number {
+  return Math.floor(Date.UTC(value.year, value.month - 1, value.day) / 86_400_000);
 }
 
 function toRaceGuideViewModel(guide: PublicRaceGuide | null): RaceGuideViewModel | null {
@@ -161,6 +287,17 @@ function toRaceGuideViewModel(guide: PublicRaceGuide | null): RaceGuideViewModel
         }
       : null,
     closing: guide.closing,
+  };
+}
+
+function toRaceStrategyViewModel(strategy: PublicRaceStrategy | null): RaceStrategyViewModel | null {
+  if (!strategy) return null;
+  return {
+    ...strategy,
+    items: strategy.items.slice(0, 3).map((item) => ({
+      ...item,
+      paragraphs: item.paragraphs.map((paragraph) => ({ ...paragraph })),
+    })),
   };
 }
 

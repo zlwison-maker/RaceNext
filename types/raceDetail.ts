@@ -22,6 +22,7 @@ export type RaceGuideFitItem = {
 };
 
 export type RaceStrategyContent = {
+  categoryId: string;
   eyebrow: string;
   title: string;
   scopeNote: string;
@@ -31,6 +32,13 @@ export type RaceStrategyContent = {
     paragraphs: RaceEditorialParagraph[];
   }>;
   closing?: string;
+  sources: Array<{
+    sourceId: string;
+    type: "official" | "runner_report" | "media_report";
+    title: string;
+    url: string;
+    supports: string;
+  }>;
 };
 
 export type RaceEditorialContent = {

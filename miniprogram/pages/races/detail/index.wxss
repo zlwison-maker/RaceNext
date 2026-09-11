@@ -381,3 +381,160 @@
   font-weight: 600;
   line-height: 1.72;
 }
+
+.course-points {
+  margin-top: 24rpx;
+}
+
+.course-points__label,
+.course-point__label,
+.course-point__name,
+.course-point__facts,
+.course-point__services {
+  display: inline;
+}
+
+.course-points__label {
+  display: block;
+  width: auto;
+}
+
+.course-points__list {
+  margin-top: 10rpx;
+}
+
+.course-point {
+  display: flex;
+  padding: 17rpx 0 18rpx;
+  border-bottom: 1rpx solid #f0f0ed;
+  align-items: baseline;
+}
+
+.course-point__label {
+  width: 80rpx;
+  flex: 0 0 auto;
+  color: #9a9a9a;
+  font-size: 19rpx;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.4rpx;
+}
+
+.course-point--finish .course-point__label {
+  color: #9a9a9a;
+}
+
+.course-point--water_point .course-point__label {
+  color: #6f6f6f;
+}
+
+.course-point__line {
+  display: block;
+  min-width: 0;
+  flex: 1;
+  line-height: 1.5;
+}
+
+.race-strategy {
+  margin-top: 112rpx;
+  padding: 0 0 32rpx;
+}
+
+.race-strategy__eyebrow,
+.race-strategy__title,
+.race-strategy__scope,
+.race-strategy__number,
+.race-strategy__item-title,
+.race-strategy__paragraph,
+.race-strategy__closing {
+  display: block;
+}
+
+.race-strategy__eyebrow {
+  color: #8a8a8a;
+  font-size: 21rpx;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 3.2rpx;
+}
+
+.race-strategy__title {
+  margin-top: 14rpx;
+  color: #111111;
+  font-size: 38rpx;
+  font-weight: 650;
+  line-height: 1.35;
+  letter-spacing: -0.3rpx;
+}
+
+.race-strategy__scope {
+  margin-top: 28rpx;
+  color: #777777;
+  font-size: 25rpx;
+  line-height: 1.72;
+}
+
+.race-strategy__items {
+  margin-top: 88rpx;
+}
+
+.race-strategy__item + .race-strategy__item {
+  margin-top: 84rpx;
+}
+
+.race-strategy__number {
+  color: #9a9a9a;
+  font-size: 21rpx;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 1.4rpx;
+}
+
+.race-strategy__item-title {
+  margin-top: 14rpx;
+  color: #111111;
+  font-size: 31rpx;
+  font-weight: 650;
+  line-height: 1.48;
+}
+
+.race-strategy__paragraphs {
+  margin-top: 34rpx;
+  color: #353535;
+  font-size: 28rpx;
+  line-height: 1.86;
+}
+
+.race-strategy__paragraph + .race-strategy__paragraph {
+  margin-top: 24rpx;
+}
+
+.race-strategy__paragraph--emphasis {
+  color: #111111;
+  font-weight: 550;
+}
+
+.race-strategy__closing {
+  margin-top: 88rpx;
+  color: #111111;
+  font-size: 29rpx;
+  font-weight: 600;
+  line-height: 1.72;
+}
+
+.course-point__name {
+  font-weight: 400;
+}
+
+.course-point__facts {
+  color: #676767;
+  font-size: 24rpx;
+  line-height: 1.5;
+}
+
+.course-point__services {
+  color: #222222;
+  font-size: 24rpx;
+  font-weight: 500;
+  line-height: 1.5;
+}

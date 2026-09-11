@@ -44,42 +44,68 @@
         </text>
       </view>
 
-      <view wx:if="{{detail.showCategorySelector && detail.selectedCategory}}" class="category-section">
-        <text class="category-heading">组别</text>
+      <view wx:if="{{detail.selectedCategory}}" class="category-facts">
+        <view wx:if="{{detail.showCategorySelector}}" class="category-section">
+          <text class="category-heading">组别</text>
 
-        <view class="category-selector">
-          <view
-            wx:for="{{detail.categories}}"
-            wx:key="categoryId"
-            class="category-option {{item.categoryId === detail.selectedCategoryId ? 'category-option--active' : ''}}"
-            data-category-id="{{item.categoryId}}"
-            bindtap="handleCategoryTap"
-            hover-class="category-option--pressed"
-            aria-role="button"
-          >
-            {{item.label}}
+          <view class="category-selector">
+            <view
+              wx:for="{{detail.categories}}"
+              wx:key="categoryId"
+              class="category-option {{item.categoryId === detail.selectedCategoryId ? 'category-option--active' : ''}}"
+              data-category-id="{{item.categoryId}}"
+              bindtap="handleCategoryTap"
+              hover-class="category-option--pressed"
+              aria-role="button"
+            >
+              {{item.label}}
+            </view>
+          </view>
+
+          <view wx:if="{{detail.selectedCategory.coreFacts.length}}" class="core-facts">
+            <view
+              wx:for="{{detail.selectedCategory.coreFacts}}"
+              wx:key="key"
+              class="core-fact"
+            >
+              <text class="core-fact__value">{{item.value}}</text>
+              <text class="core-fact__label">{{item.label}}</text>
+            </view>
+          </view>
+
+          <view wx:if="{{detail.selectedCategory.executionFacts.length}}" class="execution-facts">
+            <view
+              wx:for="{{detail.selectedCategory.executionFacts}}"
+              wx:key="key"
+              class="execution-fact"
+            >
+              <text class="execution-fact__label">{{item.label}}</text>
+              <text class="execution-fact__value">{{item.value}}</text>
+            </view>
           </view>
         </view>
 
-        <view wx:if="{{detail.selectedCategory.coreFacts.length}}" class="core-facts">
-          <view
-            wx:for="{{detail.selectedCategory.coreFacts}}"
-            wx:key="key"
-            class="core-fact"
-          >
-            <text class="core-fact__value">{{item.value}}</text>
-            <text class="core-fact__label">{{item.label}}</text>
-          </view>
-        </view>
+        <view
+          wx:if="{{detail.selectedCategory.coursePointSection}}"
+          class="course-points"
+        >
+          <text class="execution-fact__label course-points__label">
+            {{detail.selectedCategory.coursePointSection.title}}
+          </text>
 
-        <view wx:if="{{detail.selectedCategory.executionFacts.length}}" class="execution-facts">
-          <view
-            wx:for="{{detail.selectedCategory.executionFacts}}"
-            wx:key="key"
-            class="execution-fact"
-          >
-            <text class="execution-fact__label">{{item.label}}</text>
-            <text class="execution-fact__value">{{item.value}}</text>
+          <view class="course-points__list">
+            <view
+              wx:for="{{detail.selectedCategory.coursePointSection.points}}"
+              wx:key="pointId"
+              class="course-point course-point--{{item.type}}"
+            >
+              <text class="course-point__label">{{item.pointLabel}}</text>
+              <text class="course-point__line">
+                <text class="execution-fact__value course-point__name">{{item.name}}</text>
+                <text wx:if="{{item.factsDisplay}}" class="course-point__facts"> · {{item.factsDisplay}}</text>
+                <text wx:if="{{item.serviceDisplay}}" class="course-point__services"> · {{item.serviceDisplay}}</text>
+              </text>
+            </view>
           </view>
         </view>
       </view>
@@ -160,6 +186,38 @@
           {{detail.raceGuide.closing}}
         </text>
       </view>
+
+      <view wx:if="{{detail.showRaceStrategy && detail.raceStrategy}}" class="race-strategy">
+        <view class="race-strategy__header">
+          <text class="race-strategy__eyebrow">{{detail.raceStrategy.eyebrow}}</text>
+          <text class="race-strategy__title">{{detail.raceStrategy.title}}</text>
+          <text class="race-strategy__scope">{{detail.raceStrategy.scopeNote}}</text>
+        </view>
+
+        <view class="race-strategy__items">
+          <view
+            wx:for="{{detail.raceStrategy.items}}"
+            wx:key="number"
+            class="race-strategy__item"
+          >
+            <text class="race-strategy__number">{{item.number}}</text>
+            <text class="race-strategy__item-title">{{item.title}}</text>
+            <view class="race-strategy__paragraphs">
+              <text
+                wx:for="{{item.paragraphs}}"
+                wx:for-item="paragraph"
+                wx:key="text"
+                class="race-strategy__paragraph {{paragraph.emphasis ? 'race-strategy__paragraph--emphasis' : ''}}"
+              >{{paragraph.text}}</text>
+            </view>
+          </view>
+        </view>
+
+        <text wx:if="{{detail.raceStrategy.closing}}" class="race-strategy__closing">
+          {{detail.raceStrategy.closing}}
+        </text>
+      </view>
+
     </view>
   </block>
 </view>

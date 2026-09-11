@@ -79,9 +79,26 @@ export type PublicRaceGuide = {
   closing: string | null;
 };
 
+export type PublicRaceStrategy = {
+  categoryId: string;
+  eyebrow: string;
+  title: string;
+  scopeNote: string;
+  items: Array<{
+    number: string;
+    title: string;
+    paragraphs: Array<{
+      text: string;
+      emphasis: boolean;
+    }>;
+  }>;
+  closing: string | null;
+};
+
 export type PublicRaceDetail = RaceListItem & {
   categories: PublicRaceCategory[];
   raceGuide: PublicRaceGuide | null;
+  raceStrategy: PublicRaceStrategy | null;
 };
 
 export type PublicRaceListResponse = {
