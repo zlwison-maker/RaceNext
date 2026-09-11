@@ -1,6 +1,6 @@
 # RaceNext 微信小程序
 
-原生微信小程序 + TypeScript。当前实现首页 V1、Detail V1.1 与“我的”占位页，不使用云开发、登录、数据库、状态管理库或跨端框架。
+原生微信小程序 + TypeScript。当前实现首页 V1、Detail V1.2（Race Facts + Race Guide）与“我的”占位页，不使用云开发、登录、数据库、状态管理库或跨端框架。
 
 ## 本地开发
 
@@ -12,7 +12,7 @@
 ## 页面
 
 - `pages/index/index`：首页 V1。通过 `getRaces()` 读取 Public API，展示赛事封面、名称、日期和城市。
-- `pages/races/detail/index`：Detail V1.1。通过 `editionId` 调用 `getRace()`，展示统一 Hero 与 Race Facts；多组别赛事支持 Category 切换。
+- `pages/races/detail/index`：Detail V1.2。通过 `editionId` 调用一次 `getRace()`，展示统一 Hero、Race Facts 与可选 Race Guide；多组别赛事支持 Category 切换。
 - `pages/mine/index`：“我的”占位页，仅用于建立正式双 Tab 结构，不包含用户功能。
 
 ## 数据边界

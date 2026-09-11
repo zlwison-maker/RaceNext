@@ -2,6 +2,8 @@
 export type {
   PublicRaceCategory,
   PublicRaceDetail,
+  PublicRaceGuide,
+  PublicRaceGuideParagraphs,
   RaceListItem,
   PublicRaceListResponse,
   PublicRaceDetailResponse,

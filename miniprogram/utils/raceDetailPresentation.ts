@@ -1,6 +1,7 @@
 import type {
   PublicRaceCategory,
   PublicRaceDetail,
+  PublicRaceGuide,
   RaceType,
   RegistrationStatus,
 } from "../types/races";
@@ -20,6 +21,29 @@ export type CategoryViewModel = {
   executionFacts: RaceFactViewModel[];
 };
 
+export type RaceGuideSectionViewModel = {
+  title: string;
+  body: string[];
+};
+
+export type RaceGuideNumberedSectionViewModel = RaceGuideSectionViewModel & {
+  number: string;
+};
+
+export type RaceGuideViewModel = {
+  opening: RaceGuideSectionViewModel;
+  judgment: RaceGuideSectionViewModel;
+  experiences: Array<RaceGuideNumberedSectionViewModel & {
+    conclusion: string | null;
+  }>;
+  runnerFit: {
+    title: string;
+    introduction: string | null;
+    items: RaceGuideNumberedSectionViewModel[];
+  } | null;
+  closing: string | null;
+};
+
 export type RaceDetailViewModel = {
   editionId: string;
   name: string;
@@ -34,6 +58,7 @@ export type RaceDetailViewModel = {
   showCategorySelector: boolean;
   selectedCategoryId: string;
   selectedCategory: CategoryViewModel | null;
+  raceGuide: RaceGuideViewModel | null;
 };
 
 const HERO_FOCAL_POINTS: Readonly<Record<string, string>> = {
@@ -63,6 +88,7 @@ export function createRaceDetailViewModel(race: PublicRaceDetail): RaceDetailVie
     showCategorySelector,
     selectedCategoryId: selectedCategory?.categoryId ?? "",
     selectedCategory,
+    raceGuide: toRaceGuideViewModel(race.raceGuide),
   };
 }
 
@@ -113,6 +139,33 @@ function toCategoryViewModel(category: PublicRaceCategory): CategoryViewModel {
     coreFacts,
     executionFacts,
   };
+}
+
+function toRaceGuideViewModel(guide: PublicRaceGuide | null): RaceGuideViewModel | null {
+  if (!guide) return null;
+
+  return {
+    opening: guide.opening,
+    judgment: guide.judgment,
+    experiences: guide.experiences.slice(0, 3).map((experience, index) => ({
+      ...experience,
+      number: formatSequence(index),
+    })),
+    runnerFit: guide.runnerFit
+      ? {
+          ...guide.runnerFit,
+          items: guide.runnerFit.items.map((item, index) => ({
+            ...item,
+            number: formatSequence(index),
+          })),
+        }
+      : null,
+    closing: guide.closing,
+  };
+}
+
+function formatSequence(index: number): string {
+  return String(index + 1).padStart(2, "0");
 }
 
 function formatEditionSummary(

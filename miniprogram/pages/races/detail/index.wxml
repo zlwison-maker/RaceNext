@@ -83,6 +83,83 @@
           </view>
         </view>
       </view>
+
+      <view wx:if="{{detail.raceGuide}}" class="race-guide">
+        <view class="race-guide__header">
+          <text class="race-guide__eyebrow">RACE GUIDE</text>
+          <text class="race-guide__title">{{detail.raceGuide.opening.title}}</text>
+        </view>
+
+        <view class="race-guide__body race-guide__paragraphs">
+          <text
+            wx:for="{{detail.raceGuide.opening.body}}"
+            wx:key="*this"
+            class="race-guide__paragraph"
+          >{{item}}</text>
+        </view>
+
+        <view class="race-guide__section">
+          <text class="race-guide__section-title">{{detail.raceGuide.judgment.title}}</text>
+          <view class="race-guide__body race-guide__paragraphs">
+            <text
+              wx:for="{{detail.raceGuide.judgment.body}}"
+              wx:key="*this"
+              class="race-guide__paragraph"
+            >{{item}}</text>
+          </view>
+        </view>
+
+        <view class="race-guide__experiences">
+          <view
+            wx:for="{{detail.raceGuide.experiences}}"
+            wx:key="number"
+            class="race-guide__experience"
+          >
+            <text class="race-guide__number">{{item.number}}</text>
+            <text class="race-guide__experience-title">{{item.title}}</text>
+            <view class="race-guide__body race-guide__paragraphs">
+              <text
+                wx:for="{{item.body}}"
+                wx:for-item="paragraph"
+                wx:key="*this"
+                class="race-guide__paragraph"
+              >{{paragraph}}</text>
+              <text wx:if="{{item.conclusion}}" class="race-guide__paragraph race-guide__conclusion">
+                {{item.conclusion}}
+              </text>
+            </view>
+          </view>
+        </view>
+
+        <view wx:if="{{detail.raceGuide.runnerFit}}" class="race-guide__section">
+          <text class="race-guide__section-title">{{detail.raceGuide.runnerFit.title}}</text>
+          <text wx:if="{{detail.raceGuide.runnerFit.introduction}}" class="race-guide__introduction">
+            {{detail.raceGuide.runnerFit.introduction}}
+          </text>
+          <view class="race-guide__fit-list">
+            <view
+              wx:for="{{detail.raceGuide.runnerFit.items}}"
+              wx:key="number"
+              class="race-guide__fit-item"
+            >
+              <text class="race-guide__number">{{item.number}}</text>
+              <view class="race-guide__fit-content">
+                <text class="race-guide__fit-title">{{item.title}}</text>
+                <text
+                  wx:for="{{item.body}}"
+                  wx:for-item="paragraph"
+                  wx:key="*this"
+                  class="race-guide__fit-copy"
+                >{{paragraph}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <text wx:if="{{detail.raceGuide.closing}}" class="race-guide__closing">
+          {{detail.raceGuide.closing}}
+        </text>
+      </view>
     </view>
   </block>
 </view>

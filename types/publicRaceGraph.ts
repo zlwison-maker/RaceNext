@@ -42,8 +42,28 @@ export type PublicRaceCategory = {
   isPrimaryCategory: boolean;
 };
 
+export type PublicRaceGuideParagraphs = {
+  title: string;
+  body: string[];
+};
+
+export type PublicRaceGuide = {
+  opening: PublicRaceGuideParagraphs;
+  judgment: PublicRaceGuideParagraphs;
+  experiences: Array<PublicRaceGuideParagraphs & {
+    conclusion: string | null;
+  }>;
+  runnerFit: {
+    title: string;
+    introduction: string | null;
+    items: PublicRaceGuideParagraphs[];
+  } | null;
+  closing: string | null;
+};
+
 export type PublicRaceDetail = RaceListItem & {
   categories: PublicRaceCategory[];
+  raceGuide: PublicRaceGuide | null;
 };
 
 export type PublicRaceListResponse = {

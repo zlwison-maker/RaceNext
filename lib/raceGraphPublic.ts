@@ -6,8 +6,11 @@ import {
   type PublicRaceErrorResponse,
   type PublicRaceListResponse,
   type PublicRaceLocation,
+  type PublicRaceGuide,
 } from "../types/publicRaceGraph.ts";
 import { evaluatePrePublishFactGate, type PrePublishRaceGraphRecord } from "./prePublishFactGate.ts";
+import { getRaceEditorialContent } from "../data/race-guides/index.ts";
+import type { RaceEditorialContent } from "../types/raceDetail.ts";
 
 type CanonicalGovernance = {
   verified?: boolean | null;
@@ -97,7 +100,7 @@ export function createPublicRaceListResult(input: unknown): PublicResult<PublicR
         races: snapshot.records
           .filter(isEditionPublishable)
           .map(toPublicRaceDetail)
-          .map(({ categories: _categories, ...race }) => race)
+          .map(({ categories: _categories, raceGuide: _raceGuide, ...race }) => race)
           .sort(compareRaceListItems),
       },
     };
@@ -232,6 +235,40 @@ function toPublicRaceDetail(record: CanonicalRecord): PublicRaceDetail {
       .filter((category) => isCategoryPublishable(category, edition.editionId))
       .sort((left, right) => left.displayOrder - right.displayOrder || left.categoryId.localeCompare(right.categoryId))
       .map((category) => toPublicCategory(category, edition.primaryCategoryId ?? null)),
+    raceGuide: toPublicRaceGuide(getRaceEditorialContent(event.eventId)),
+  };
+}
+
+export function toPublicRaceGuide(content: RaceEditorialContent | null): PublicRaceGuide | null {
+  if (!content) return null;
+
+  const runnerFitItems = content.suitability.items.map((item) => ({
+    title: item.title,
+    body: item.paragraphs.map(({ text }) => text),
+  }));
+
+  return {
+    opening: {
+      title: content.impression.title,
+      body: content.impression.paragraphs.map(({ text }) => text),
+    },
+    judgment: {
+      title: content.viewpoint.title,
+      body: content.viewpoint.paragraphs.map(({ text }) => text),
+    },
+    experiences: content.evidence.sections.map((section) => ({
+      title: section.title,
+      body: section.paragraphs,
+      conclusion: section.emphasis || null,
+    })),
+    runnerFit: runnerFitItems.length > 0
+      ? {
+          title: content.suitability.title,
+          introduction: content.suitability.introduction || null,
+          items: runnerFitItems,
+        }
+      : null,
+    closing: content.transition ?? null,
   };
 }
 
@@ -278,8 +315,8 @@ function getDataUpdatedAt(snapshot: CanonicalSnapshot): string {
 }
 
 function compareRaceListItems(
-  left: PublicRaceDetail | Omit<PublicRaceDetail, "categories">,
-  right: PublicRaceDetail | Omit<PublicRaceDetail, "categories">,
+  left: Pick<PublicRaceDetail, "raceDate" | "editionId">,
+  right: Pick<PublicRaceDetail, "raceDate" | "editionId">,
 ): number {
   return (left.raceDate ?? "9999-12-31").localeCompare(right.raceDate ?? "9999-12-31")
     || left.editionId.localeCompare(right.editionId);

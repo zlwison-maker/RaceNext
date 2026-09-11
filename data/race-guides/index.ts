@@ -1,9 +1,9 @@
-import { beijingMarathonRaceGuide } from "@/data/race-guides/beijing-marathon";
-import { hk100RaceGuide } from "@/data/race-guides/hk100";
-import { kailasGongga100RaceGuide } from "@/data/race-guides/kailas-gongga-100";
-import { shanghaiMarathonRaceGuide } from "@/data/race-guides/shanghai-marathon";
-import { xiamenMarathonRaceGuide } from "@/data/race-guides/xiamen-marathon";
-import type { RaceEditorialContent } from "@/types/raceDetail";
+import { beijingMarathonRaceGuide } from "./beijing-marathon.ts";
+import { hk100RaceGuide } from "./hk100.ts";
+import { kailasGongga100RaceGuide } from "./kailas-gongga-100.ts";
+import { shanghaiMarathonRaceGuide } from "./shanghai-marathon.ts";
+import { xiamenMarathonRaceGuide } from "./xiamen-marathon.ts";
+import type { RaceEditorialContent } from "../../types/raceDetail.ts";
 
 const raceGuidesByEventId = {
   "beijing-marathon": beijingMarathonRaceGuide,
