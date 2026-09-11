@@ -8,7 +8,9 @@ import {
   type PublicRaceLocation,
   type PublicRaceGuide,
 } from "../types/publicRaceGraph.ts";
+import type { CoursePoint, CoursePointDataStatus } from "../types/event.ts";
 import { evaluatePrePublishFactGate, type PrePublishRaceGraphRecord } from "./prePublishFactGate.ts";
+import { validateCoursePointDataStatus, validateTrailCoursePoints } from "./trailCoursePoints.ts";
 import { getRaceEditorialContent } from "../data/race-guides/index.ts";
 import type { RaceEditorialContent } from "../types/raceDetail.ts";
 
@@ -63,6 +65,8 @@ type CanonicalCategory = {
   finishLocation?: string | null;
   registrationUrl?: string | null;
   displayOrder: number;
+  coursePoints?: CoursePoint[] | null;
+  coursePointDataStatus?: CoursePointDataStatus | null;
   updatedAt: string;
   governance: CanonicalGovernance;
 };
@@ -286,6 +290,20 @@ function toPublicCategory(category: CanonicalCategory, primaryCategoryId: string
     registrationUrl: category.registrationUrl ?? null,
     displayOrder: category.displayOrder,
     isPrimaryCategory: category.categoryId === primaryCategoryId,
+    coursePoints: category.coursePoints === null || category.coursePoints === undefined
+      ? null
+      : [...category.coursePoints]
+          .sort((left, right) => left.displayOrder - right.displayOrder || left.pointId.localeCompare(right.pointId))
+          .map((point) => ({
+            pointId: point.pointId,
+            type: point.type,
+            name: point.name,
+            displayOrder: point.displayOrder,
+            distanceKm: point.distanceKm,
+            cutoffAt: point.cutoffAt,
+            services: point.services === null ? null : [...point.services],
+          })),
+    coursePointDataStatus: category.coursePointDataStatus ?? "unknown",
   };
 }
 
@@ -296,6 +314,12 @@ function isCategoryPublishable(category: CanonicalCategory, editionId: string): 
       && category.editionId === editionId
       && isNonEmptyString(category.categoryName)
       && Number.isFinite(category.displayOrder)
+      && validateTrailCoursePoints(category.categoryId, category.coursePoints).length === 0
+      && validateCoursePointDataStatus(
+        category.categoryId,
+        category.coursePoints,
+        category.coursePointDataStatus,
+      ).length === 0
       && isGovernancePublishable(category.governance),
   );
 }

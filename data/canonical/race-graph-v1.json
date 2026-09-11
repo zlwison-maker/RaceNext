@@ -1,6 +1,6 @@
 {
   "schemaVersion": "race-graph-v1",
-  "generatedAt": "2026-09-10",
+  "generatedAt": "2026-09-11",
   "records": [
     {
       "event": {
@@ -1061,8 +1061,133 @@
           "distanceKm": 100,
           "elevationGain": 5142,
           "cutoffTimeHours": 30,
+          "coursePoints": [
+            {
+              "pointId": "hk100-2027-hk100-100k-east-dam",
+              "type": "checkpoint",
+              "name": "东坝",
+              "displayOrder": 1,
+              "distanceKm": 10,
+              "cutoffAt": "2027-01-23T09:15:00+08:00",
+              "services": [
+                "medical"
+              ]
+            },
+            {
+              "pointId": "hk100-2027-hk100-100k-sai-wan-pavilion",
+              "type": "checkpoint",
+              "name": "西湾亭",
+              "displayOrder": 2,
+              "distanceKm": 17,
+              "cutoffAt": "2027-01-23T11:00:00+08:00",
+              "services": [
+                "medical"
+              ]
+            },
+            {
+              "pointId": "hk100-2027-hk100-100k-pak-tam-au",
+              "type": "checkpoint",
+              "name": "北潭凹",
+              "displayOrder": 3,
+              "distanceKm": 28,
+              "cutoffAt": "2027-01-23T13:45:00+08:00",
+              "services": [
+                "medical"
+              ]
+            },
+            {
+              "pointId": "hk100-2027-hk100-100k-pak-sha-o",
+              "type": "checkpoint",
+              "name": "白沙澳",
+              "displayOrder": 4,
+              "distanceKm": 36,
+              "cutoffAt": "2027-01-23T16:00:00+08:00",
+              "services": [
+                "medical"
+              ]
+            },
+            {
+              "pointId": "hk100-2027-hk100-100k-yung-shue-o",
+              "type": "checkpoint",
+              "name": "榕树澳",
+              "displayOrder": 5,
+              "distanceKm": 44,
+              "cutoffAt": "2027-01-23T18:30:00+08:00",
+              "services": [
+                "medical"
+              ]
+            },
+            {
+              "pointId": "hk100-2027-hk100-100k-kei-ling-ha",
+              "type": "checkpoint",
+              "name": "企岭下",
+              "displayOrder": 6,
+              "distanceKm": 52,
+              "cutoffAt": "2027-01-23T21:15:00+08:00",
+              "services": [
+                "drop_bag",
+                "medical"
+              ]
+            },
+            {
+              "pointId": "hk100-2027-hk100-100k-gilwell-camp",
+              "type": "checkpoint",
+              "name": "基维尔营地",
+              "displayOrder": 7,
+              "distanceKm": 65,
+              "cutoffAt": "2027-01-24T02:15:00+08:00",
+              "services": [
+                "medical"
+              ]
+            },
+            {
+              "pointId": "hk100-2027-hk100-100k-beacon-hill",
+              "type": "checkpoint",
+              "name": "笔架山",
+              "displayOrder": 8,
+              "distanceKm": 74,
+              "cutoffAt": "2027-01-24T05:00:00+08:00",
+              "services": [
+                "medical"
+              ]
+            },
+            {
+              "pointId": "hk100-2027-hk100-100k-shing-mun",
+              "type": "checkpoint",
+              "name": "城门",
+              "displayOrder": 9,
+              "distanceKm": 80,
+              "cutoffAt": "2027-01-24T07:15:00+08:00",
+              "services": [
+                "medical"
+              ]
+            },
+            {
+              "pointId": "hk100-2027-hk100-100k-lead-mine-pass",
+              "type": "checkpoint",
+              "name": "铅矿坳",
+              "displayOrder": 10,
+              "distanceKm": 87,
+              "cutoffAt": "2027-01-24T10:15:00+08:00",
+              "services": [
+                "medical"
+              ]
+            },
+            {
+              "pointId": "hk100-2027-hk100-100k-tai-mo-shan-rotary-park",
+              "type": "finish",
+              "name": "大帽山扶轮公园",
+              "displayOrder": 11,
+              "distanceKm": 96,
+              "cutoffAt": "2027-01-24T13:00:00+08:00",
+              "services": [
+                "drop_bag"
+              ]
+            }
+          ],
+          "coursePointDataStatus": "available",
           "createdAt": "2026-09-10",
-          "updatedAt": "2026-09-10",
+          "updatedAt": "2026-09-11",
           "governance": {
             "sources": [
               {
@@ -1070,7 +1195,7 @@
                 "sourceName": "Hong Kong 100 Ultra — HK100 category",
                 "sourceUrl": "https://hk100ultra.com/zh-hant/hk100/",
                 "sourceRecordId": "hk100-official-hk100-category-2027",
-                "crawledAt": "2026-09-10",
+                "crawledAt": "2026-09-11",
                 "confidence": 0.98,
                 "rawData": {
                   "editionYear": 2027,
@@ -1080,7 +1205,100 @@
                   "cutoffTimeHours": 30,
                   "startLocation": "北潭涌",
                   "finishLocation": "大帽山扶轮公园",
-                  "evidenceLocator": "HK100 category heading and course overview"
+                  "evidenceLocator": "HK100 course overview and official checkpoint table image",
+                  "coursePoints": [
+                    {
+                      "pointId": "hk100-2027-hk100-100k-east-dam",
+                      "type": "checkpoint",
+                      "name": "东坝",
+                      "displayOrder": 1,
+                      "distanceKm": 10,
+                      "cutoffAt": "2027-01-23T09:15:00+08:00"
+                    },
+                    {
+                      "pointId": "hk100-2027-hk100-100k-sai-wan-pavilion",
+                      "type": "checkpoint",
+                      "name": "西湾亭",
+                      "displayOrder": 2,
+                      "distanceKm": 17,
+                      "cutoffAt": "2027-01-23T11:00:00+08:00"
+                    },
+                    {
+                      "pointId": "hk100-2027-hk100-100k-pak-tam-au",
+                      "type": "checkpoint",
+                      "name": "北潭凹",
+                      "displayOrder": 3,
+                      "distanceKm": 28,
+                      "cutoffAt": "2027-01-23T13:45:00+08:00"
+                    },
+                    {
+                      "pointId": "hk100-2027-hk100-100k-pak-sha-o",
+                      "type": "checkpoint",
+                      "name": "白沙澳",
+                      "displayOrder": 4,
+                      "distanceKm": 36,
+                      "cutoffAt": "2027-01-23T16:00:00+08:00"
+                    },
+                    {
+                      "pointId": "hk100-2027-hk100-100k-yung-shue-o",
+                      "type": "checkpoint",
+                      "name": "榕树澳",
+                      "displayOrder": 5,
+                      "distanceKm": 44,
+                      "cutoffAt": "2027-01-23T18:30:00+08:00"
+                    },
+                    {
+                      "pointId": "hk100-2027-hk100-100k-kei-ling-ha",
+                      "type": "checkpoint",
+                      "name": "企岭下",
+                      "displayOrder": 6,
+                      "distanceKm": 52,
+                      "cutoffAt": "2027-01-23T21:15:00+08:00"
+                    },
+                    {
+                      "pointId": "hk100-2027-hk100-100k-gilwell-camp",
+                      "type": "checkpoint",
+                      "name": "基维尔营地",
+                      "displayOrder": 7,
+                      "distanceKm": 65,
+                      "cutoffAt": "2027-01-24T02:15:00+08:00"
+                    },
+                    {
+                      "pointId": "hk100-2027-hk100-100k-beacon-hill",
+                      "type": "checkpoint",
+                      "name": "笔架山",
+                      "displayOrder": 8,
+                      "distanceKm": 74,
+                      "cutoffAt": "2027-01-24T05:00:00+08:00"
+                    },
+                    {
+                      "pointId": "hk100-2027-hk100-100k-shing-mun",
+                      "type": "checkpoint",
+                      "name": "城门",
+                      "displayOrder": 9,
+                      "distanceKm": 80,
+                      "cutoffAt": "2027-01-24T07:15:00+08:00"
+                    },
+                    {
+                      "pointId": "hk100-2027-hk100-100k-lead-mine-pass",
+                      "type": "checkpoint",
+                      "name": "铅矿坳",
+                      "displayOrder": 10,
+                      "distanceKm": 87,
+                      "cutoffAt": "2027-01-24T10:15:00+08:00"
+                    },
+                    {
+                      "pointId": "hk100-2027-hk100-100k-tai-mo-shan-rotary-park",
+                      "type": "finish",
+                      "name": "大帽山扶轮公园",
+                      "displayOrder": 11,
+                      "distanceKm": 96,
+                      "cutoffAt": "2027-01-24T13:00:00+08:00"
+                    }
+                  ],
+                  "categoryDistanceKm": 100,
+                  "finishTableDistanceKm": 96,
+                  "distanceConflictStatus": "needs_review"
                 }
               },
               {
@@ -1099,6 +1317,43 @@
                   "cutoffTimeHours": 30,
                   "evidenceLocator": "2027 Events overview — HK100"
                 }
+              },
+              {
+                "sourceType": "official",
+                "sourceName": "Hong Kong 100 Ultra — Rules",
+                "sourceUrl": "https://hk100ultra.com/zh-hant/rules/",
+                "sourceRecordId": "hk100-official-rules-2027",
+                "crawledAt": "2026-09-11",
+                "confidence": 0.98,
+                "rawData": {
+                  "allCheckpointsHaveEmergencyMedicalService": true,
+                  "evidenceLocator": "急救护理：各检查站均设紧急救护服务"
+                }
+              },
+              {
+                "sourceType": "official",
+                "sourceName": "Hong Kong 100 Ultra — Transportation",
+                "sourceUrl": "https://hk100ultra.com/zh-hant/transportation/",
+                "sourceRecordId": "hk100-official-transportation-2027",
+                "crawledAt": "2026-09-11",
+                "confidence": 0.98,
+                "rawData": {
+                  "checkpointNamesAndCumulativeDistancesCorroborated": true,
+                  "evidenceLocator": "HK100 Check Point transportation table"
+                }
+              },
+              {
+                "sourceType": "official",
+                "sourceName": "Hong Kong 100 Ultra — Bag Drop",
+                "sourceUrl": "https://hk100ultra.com/zh-hant/bag-drop/",
+                "sourceRecordId": "hk100-official-bag-drop-2027",
+                "crawledAt": "2026-09-11",
+                "confidence": 0.98,
+                "rawData": {
+                  "dropBagCoursePointName": "企岭下",
+                  "finishDropBag": true,
+                  "evidenceLocator": "HK100 寄存行李安排 1–3"
+                }
               }
             ],
             "fieldSources": {
@@ -1108,6 +1363,20 @@
                 "sourceName": "Hong Kong 100 Ultra — HK100 category",
                 "confidence": 0.98,
                 "updatedAt": "2026-09-10"
+              },
+              "coursePoints": {
+                "field": "coursePoints",
+                "sourceType": "merged",
+                "sourceName": "HK100 official category table, Rules and Bag Drop",
+                "confidence": 0.98,
+                "updatedAt": "2026-09-11"
+              },
+              "coursePointDataStatus": {
+                "field": "coursePointDataStatus",
+                "sourceType": "official",
+                "sourceName": "Hong Kong 100 Ultra — HK100 category",
+                "confidence": 0.98,
+                "updatedAt": "2026-09-11"
               }
             },
             "sourcePriority": {
@@ -1116,16 +1385,20 @@
             "confidence": 0.98,
             "verified": true,
             "verificationStatus": "verified",
-            "verifiedAt": "2026-09-10",
+            "verifiedAt": "2026-09-11",
             "missingFields": [
               "startTime",
-              "registrationUrl"
+              "registrationUrl",
+              "coursePointServices"
             ],
-            "lastCrawledAt": "2026-09-10",
-            "lastUpdatedAt": "2026-09-10",
+            "lastCrawledAt": "2026-09-11",
+            "lastUpdatedAt": "2026-09-11",
             "schemaVersion": "race-graph-v1",
             "dataQualityLevel": "A",
-            "reviewNotes": "Official 2027 category page confirms the date and course endpoints; the official 2027 event overview confirms exact distance, elevation and the 30-hour cutoff. startAt intentionally stores date precision only."
+            "reviewNotes": "The official 2027 HK100 checkpoint table was manually verified for 10 checkpoints plus Finish, with complete names, route order, cumulative distances and full cross-midnight cutoffs. The P0 core structure is therefore available. One official Rules statement applies medical to all type=checkpoint points; it is not represented as separate per-point source evidence and does not apply to Finish. Bag Drop separately supports CP6 企岭下 and Finish drop bags. Unpublished food and water details do not affect the Course Point data status. The official table gives Finish as 96km while the Category remains officially represented as 100K; both facts are preserved and the difference remains flagged for review.",
+            "internalFlags": [
+              "course_point_finish_distance_conflict_needs_review"
+            ]
           }
         }
       ]
@@ -1337,8 +1610,139 @@
           "distanceKm": 100.1,
           "elevationGain": 7025,
           "cutoffTimeHours": 30,
+          "coursePoints": [
+            {
+              "pointId": "kailas-gongga-100-2026-glacier-100-iron-bridge",
+              "type": "checkpoint",
+              "name": "铁桥",
+              "displayOrder": 1,
+              "distanceKm": 7.0,
+              "cutoffAt": "2026-09-26T01:30:00+08:00",
+              "services": null
+            },
+            {
+              "pointId": "kailas-gongga-100-2026-glacier-100-qianghuo-shed",
+              "type": "checkpoint",
+              "name": "羌活棚",
+              "displayOrder": 2,
+              "distanceKm": 15.9,
+              "cutoffAt": "2026-09-26T05:00:00+08:00",
+              "services": null
+            },
+            {
+              "pointId": "kailas-gongga-100-2026-glacier-100-4500m-pass",
+              "type": "checkpoint",
+              "name": "4500m 垭口",
+              "displayOrder": 3,
+              "distanceKm": 27.9,
+              "cutoffAt": "2026-09-26T10:30:00+08:00",
+              "services": null
+            },
+            {
+              "pointId": "kailas-gongga-100-2026-glacier-100-camp-four",
+              "type": "checkpoint",
+              "name": "四号营地",
+              "displayOrder": 4,
+              "distanceKm": 31.9,
+              "cutoffAt": "2026-09-26T12:00:00+08:00",
+              "services": null
+            },
+            {
+              "pointId": "kailas-gongga-100-2026-glacier-100-crescent-lake",
+              "type": "checkpoint",
+              "name": "月牙湖",
+              "displayOrder": 5,
+              "distanceKm": 36.1,
+              "cutoffAt": "2026-09-26T13:30:00+08:00",
+              "services": null
+            },
+            {
+              "pointId": "kailas-gongga-100-2026-glacier-100-grass-lake",
+              "type": "checkpoint",
+              "name": "草海子",
+              "displayOrder": 6,
+              "distanceKm": 40.6,
+              "cutoffAt": "2026-09-26T14:30:00+08:00",
+              "services": null
+            },
+            {
+              "pointId": "kailas-gongga-100-2026-glacier-100-camp-one",
+              "type": "checkpoint",
+              "name": "一号营地",
+              "displayOrder": 7,
+              "distanceKm": 49.0,
+              "cutoffAt": "2026-09-26T16:00:00+08:00",
+              "services": null
+            },
+            {
+              "pointId": "kailas-gongga-100-2026-glacier-100-banmu-hot-spring",
+              "type": "checkpoint",
+              "name": "半亩温泉",
+              "displayOrder": 8,
+              "distanceKm": 55.8,
+              "cutoffAt": "2026-09-26T17:30:00+08:00",
+              "services": [
+                "drop_bag"
+              ]
+            },
+            {
+              "pointId": "kailas-gongga-100-2026-glacier-100-qinggangping",
+              "type": "checkpoint",
+              "name": "青岗坪",
+              "displayOrder": 9,
+              "distanceKm": 65.5,
+              "cutoffAt": "2026-09-26T20:30:00+08:00",
+              "services": null
+            },
+            {
+              "pointId": "kailas-gongga-100-2026-glacier-100-yanzi-gully",
+              "type": "checkpoint",
+              "name": "燕子沟",
+              "displayOrder": 10,
+              "distanceKm": 72.8,
+              "cutoffAt": "2026-09-26T22:30:00+08:00",
+              "services": null
+            },
+            {
+              "pointId": "kailas-gongga-100-2026-glacier-100-yuejinping-village",
+              "type": "checkpoint",
+              "name": "跃进坪村",
+              "displayOrder": 11,
+              "distanceKm": 79.8,
+              "cutoffAt": "2026-09-27T00:30:00+08:00",
+              "services": null
+            },
+            {
+              "pointId": "kailas-gongga-100-2026-glacier-100-shengli-gully",
+              "type": "checkpoint",
+              "name": "胜利沟",
+              "displayOrder": 12,
+              "distanceKm": 89.1,
+              "cutoffAt": "2026-09-27T03:30:00+08:00",
+              "services": null
+            },
+            {
+              "pointId": "kailas-gongga-100-2026-glacier-100-kangle-village",
+              "type": "checkpoint",
+              "name": "康乐村",
+              "displayOrder": 13,
+              "distanceKm": 94.1,
+              "cutoffAt": "2026-09-27T05:00:00+08:00",
+              "services": null
+            },
+            {
+              "pointId": "kailas-gongga-100-2026-glacier-100-hailuogou-visitor-center",
+              "type": "finish",
+              "name": "海螺沟游客中心",
+              "displayOrder": 14,
+              "distanceKm": 100.1,
+              "cutoffAt": "2026-09-27T06:00:00+08:00",
+              "services": null
+            }
+          ],
+          "coursePointDataStatus": "available",
           "createdAt": "2026-08-04",
-          "updatedAt": "2026-09-10",
+          "updatedAt": "2026-09-11",
           "governance": {
             "sources": [
               {
@@ -1346,7 +1750,7 @@
                 "sourceName": "朗途体育 — 2026凯乐石贡嘎100竞赛规程",
                 "sourceUrl": "https://moganshan.saihuitong.com/article?id=70868&mid=57201",
                 "sourceRecordId": "kailas-gongga-100-official-regulations-2026",
-                "crawledAt": "2026-09-10",
+                "crawledAt": "2026-09-11",
                 "confidence": 0.99,
                 "rawData": {
                   "editionYear": 2026,
@@ -1359,7 +1763,138 @@
                   "cutoffTimeHours": 30,
                   "startLocation": "杉树坪",
                   "finishLocation": "海螺沟游客中心",
-                  "evidenceLocator": "二、赛事路线（一）100km组"
+                  "evidenceLocator": "二、赛事路线（一）100km组路线表；表中逐站累计里程、关门时间；CP8 半亩温泉标注换装点",
+                  "coursePoints": [
+                    {
+                      "pointId": "kailas-gongga-100-2026-glacier-100-iron-bridge",
+                      "type": "checkpoint",
+                      "name": "铁桥",
+                      "displayOrder": 1,
+                      "distanceKm": 7.0,
+                      "cutoffAt": "2026-09-26T01:30:00+08:00",
+                      "services": null
+                    },
+                    {
+                      "pointId": "kailas-gongga-100-2026-glacier-100-qianghuo-shed",
+                      "type": "checkpoint",
+                      "name": "羌活棚",
+                      "displayOrder": 2,
+                      "distanceKm": 15.9,
+                      "cutoffAt": "2026-09-26T05:00:00+08:00",
+                      "services": null
+                    },
+                    {
+                      "pointId": "kailas-gongga-100-2026-glacier-100-4500m-pass",
+                      "type": "checkpoint",
+                      "name": "4500m 垭口",
+                      "displayOrder": 3,
+                      "distanceKm": 27.9,
+                      "cutoffAt": "2026-09-26T10:30:00+08:00",
+                      "services": null
+                    },
+                    {
+                      "pointId": "kailas-gongga-100-2026-glacier-100-camp-four",
+                      "type": "checkpoint",
+                      "name": "四号营地",
+                      "displayOrder": 4,
+                      "distanceKm": 31.9,
+                      "cutoffAt": "2026-09-26T12:00:00+08:00",
+                      "services": null
+                    },
+                    {
+                      "pointId": "kailas-gongga-100-2026-glacier-100-crescent-lake",
+                      "type": "checkpoint",
+                      "name": "月牙湖",
+                      "displayOrder": 5,
+                      "distanceKm": 36.1,
+                      "cutoffAt": "2026-09-26T13:30:00+08:00",
+                      "services": null
+                    },
+                    {
+                      "pointId": "kailas-gongga-100-2026-glacier-100-grass-lake",
+                      "type": "checkpoint",
+                      "name": "草海子",
+                      "displayOrder": 6,
+                      "distanceKm": 40.6,
+                      "cutoffAt": "2026-09-26T14:30:00+08:00",
+                      "services": null
+                    },
+                    {
+                      "pointId": "kailas-gongga-100-2026-glacier-100-camp-one",
+                      "type": "checkpoint",
+                      "name": "一号营地",
+                      "displayOrder": 7,
+                      "distanceKm": 49.0,
+                      "cutoffAt": "2026-09-26T16:00:00+08:00",
+                      "services": null
+                    },
+                    {
+                      "pointId": "kailas-gongga-100-2026-glacier-100-banmu-hot-spring",
+                      "type": "checkpoint",
+                      "name": "半亩温泉",
+                      "displayOrder": 8,
+                      "distanceKm": 55.8,
+                      "cutoffAt": "2026-09-26T17:30:00+08:00",
+                      "services": [
+                        "drop_bag"
+                      ]
+                    },
+                    {
+                      "pointId": "kailas-gongga-100-2026-glacier-100-qinggangping",
+                      "type": "checkpoint",
+                      "name": "青岗坪",
+                      "displayOrder": 9,
+                      "distanceKm": 65.5,
+                      "cutoffAt": "2026-09-26T20:30:00+08:00",
+                      "services": null
+                    },
+                    {
+                      "pointId": "kailas-gongga-100-2026-glacier-100-yanzi-gully",
+                      "type": "checkpoint",
+                      "name": "燕子沟",
+                      "displayOrder": 10,
+                      "distanceKm": 72.8,
+                      "cutoffAt": "2026-09-26T22:30:00+08:00",
+                      "services": null
+                    },
+                    {
+                      "pointId": "kailas-gongga-100-2026-glacier-100-yuejinping-village",
+                      "type": "checkpoint",
+                      "name": "跃进坪村",
+                      "displayOrder": 11,
+                      "distanceKm": 79.8,
+                      "cutoffAt": "2026-09-27T00:30:00+08:00",
+                      "services": null
+                    },
+                    {
+                      "pointId": "kailas-gongga-100-2026-glacier-100-shengli-gully",
+                      "type": "checkpoint",
+                      "name": "胜利沟",
+                      "displayOrder": 12,
+                      "distanceKm": 89.1,
+                      "cutoffAt": "2026-09-27T03:30:00+08:00",
+                      "services": null
+                    },
+                    {
+                      "pointId": "kailas-gongga-100-2026-glacier-100-kangle-village",
+                      "type": "checkpoint",
+                      "name": "康乐村",
+                      "displayOrder": 13,
+                      "distanceKm": 94.1,
+                      "cutoffAt": "2026-09-27T05:00:00+08:00",
+                      "services": null
+                    },
+                    {
+                      "pointId": "kailas-gongga-100-2026-glacier-100-hailuogou-visitor-center",
+                      "type": "finish",
+                      "name": "海螺沟游客中心",
+                      "displayOrder": 14,
+                      "distanceKm": 100.1,
+                      "cutoffAt": "2026-09-27T06:00:00+08:00",
+                      "services": null
+                    }
+                  ],
+                  "routeChartImageUrl": "https://img.saihuitong.com/4717/richtext/13044845/sht/19f1160a6ca2585.jpg"
                 }
               }
             ],
@@ -1405,6 +1940,20 @@
                 "sourceName": "朗途体育 — 2026凯乐石贡嘎100竞赛规程",
                 "confidence": 0.99,
                 "updatedAt": "2026-09-10"
+              },
+              "coursePoints": {
+                "field": "coursePoints",
+                "sourceType": "official",
+                "sourceName": "朗途体育 — 2026凯乐石贡嘎100竞赛规程",
+                "confidence": 0.99,
+                "updatedAt": "2026-09-11"
+              },
+              "coursePointDataStatus": {
+                "field": "coursePointDataStatus",
+                "sourceType": "official",
+                "sourceName": "朗途体育 — 2026凯乐石贡嘎100竞赛规程",
+                "confidence": 0.99,
+                "updatedAt": "2026-09-11"
               }
             },
             "sourcePriority": {
@@ -1413,15 +1962,16 @@
             "confidence": 0.99,
             "verified": true,
             "verificationStatus": "verified",
-            "verifiedAt": "2026-09-10",
+            "verifiedAt": "2026-09-11",
             "missingFields": [
-              "registrationUrl"
+              "registrationUrl",
+              "coursePointServices"
             ],
-            "lastCrawledAt": "2026-09-10",
-            "lastUpdatedAt": "2026-09-10",
+            "lastCrawledAt": "2026-09-11",
+            "lastUpdatedAt": "2026-09-11",
             "schemaVersion": "race-graph-v1",
             "dataQualityLevel": "A",
-            "reviewNotes": "High-impact distance, elevation, start time, cutoff duration and route endpoints were manually verified against the organizer-published 2026 competition regulations."
+            "reviewNotes": "The organizer-published 2026 100km route table was manually verified for 13 checkpoints plus Finish, with complete names, route order, cumulative distances and full cross-midnight cutoffs. The P0 core structure is therefore available. CP8 半亩温泉 is explicitly the change-clothes/drop-bag point; other per-point services remain unconfirmed and do not affect the Course Point data status."
           }
         },
         {

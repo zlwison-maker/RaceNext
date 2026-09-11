@@ -22,10 +22,12 @@
 4. [RaceNext 越野赛事详情页内容标准 V1](TRAIL_RACE_DETAIL_STANDARD_V1.md) — **CURRENT**
 5. [RaceNext 图片资产标准 V1](RACENEXT_IMAGE_ASSET_STANDARD_V1.md) — **CURRENT / FROZEN**
 6. [First5 图片资产交付报告](FIRST5_IMAGE_ASSET_DELIVERY_REPORT.md) — **CURRENT**
+7. [Trail Course Point Schema V0.1](TRAIL_COURSE_POINT_SCHEMA_V0_1.md) — **CURRENT / MINIMAL**
+8. [Trail CP Data Audit V1](TRAIL_CP_DATA_AUDIT_V1.md) — **ARCHIVED AUDIT**
 
 ### P1｜战略背景
 
-7. [RaceNext Investor BP 202608](reference/RaceNext_Investor_BP_202608.pdf) — **REFERENCE / 2026.08**
+9. [RaceNext Investor BP 202608](reference/RaceNext_Investor_BP_202608.pdf) — **REFERENCE / 2026.08**
 
 Investor BP 用于理解战略与商业背景，不是代码实现约束，也不能自动生成开发需求。
 

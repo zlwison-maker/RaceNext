@@ -1,4 +1,10 @@
-import type { RaceType, RegistrationStatus } from "./event.ts";
+import type {
+  CoursePointDataStatus,
+  CoursePointService,
+  CoursePointType,
+  RaceType,
+  RegistrationStatus,
+} from "./event.ts";
 
 export const PUBLIC_RACE_GRAPH_SCHEMA_VERSION = "race-graph-public-v1" as const;
 
@@ -40,6 +46,18 @@ export type PublicRaceCategory = {
   registrationUrl: string | null;
   displayOrder: number;
   isPrimaryCategory: boolean;
+  coursePoints: PublicCoursePoint[] | null;
+  coursePointDataStatus: CoursePointDataStatus;
+};
+
+export type PublicCoursePoint = {
+  pointId: string;
+  type: CoursePointType;
+  name: string;
+  displayOrder: number;
+  distanceKm: number | null;
+  cutoffAt: string | null;
+  services: CoursePointService[] | null;
 };
 
 export type PublicRaceGuideParagraphs = {

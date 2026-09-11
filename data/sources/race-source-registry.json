@@ -147,7 +147,7 @@
           "sourceType": "category_page",
           "status": "active",
           "isPrimary": false,
-          "notes": "Official HK100 category page identifies the 100K main race date as 2027-01-23."
+          "notes": "Official HK100 category page identifies the 2027-01-23 100K main race and publishes the checkpoint table with 10 checkpoints plus Finish, cumulative distances and cutoffs; its Finish row is 96km."
         },
         {
           "sourceId": "hk100-official-grand-sam-2027",
@@ -168,6 +168,36 @@
           "status": "active",
           "isPrimary": false,
           "notes": "Official HK100 page identifies the 2027 event window as 2027-01-21 through 2027-01-24."
+        },
+        {
+          "sourceId": "hk100-official-rules-2027",
+          "url": "https://hk100ultra.com/zh-hant/rules/",
+          "domain": "hk100ultra.com",
+          "tier": "primary_official",
+          "sourceType": "regulations",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Official rules state that every checkpoint has emergency medical service."
+        },
+        {
+          "sourceId": "hk100-official-transportation-2027",
+          "url": "https://hk100ultra.com/zh-hant/transportation/",
+          "domain": "hk100ultra.com",
+          "tier": "primary_official",
+          "sourceType": "category_page",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Official transportation page corroborates HK100 checkpoint names and cumulative distances."
+        },
+        {
+          "sourceId": "hk100-official-bag-drop-2027",
+          "url": "https://hk100ultra.com/zh-hant/bag-drop/",
+          "domain": "hk100ultra.com",
+          "tier": "primary_official",
+          "sourceType": "category_page",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Official bag-drop page confirms the HK100 CP6 企岭下 and Finish drop-bag arrangements."
         }
       ]
     },
@@ -202,7 +232,7 @@
           "sourceType": "regulations",
           "status": "active",
           "isPrimary": false,
-          "notes": "Organizer-published 2026 competition regulations supporting the three Category distances, elevation gains, start times, cutoff durations and start/finish locations."
+          "notes": "Organizer-published 2026 competition regulations supporting the three Category facts and the 100km official route table: 13 checkpoints plus Finish, cumulative distances, cross-midnight cutoffs, and CP8 半亩温泉 as the change-clothes/drop-bag point."
         },
         {
           "sourceId": "zuicool",

@@ -98,6 +98,25 @@ export interface MergeTrace {
 export type DateEvidenceStatus = "verified" | "exhausted_no_reliable_date" | "pending_review";
 export type FactConflictStatus = "none" | "needs_review";
 
+export type CoursePointType = "checkpoint" | "water_point" | "finish";
+
+export type CoursePointService = "water" | "food" | "hot_food" | "drop_bag" | "medical";
+
+export type CoursePointDataStatus = "available" | "partial" | "not_published" | "unknown";
+
+export interface CoursePoint {
+  /** Stable semantic identity. Never derive this value from displayOrder or an array index. */
+  pointId: string;
+  type: CoursePointType;
+  name: string;
+  displayOrder: number;
+  distanceKm: number | null;
+  /** ISO 8601 date-time with an explicit timezone offset. */
+  cutoffAt: string | null;
+  /** null means unconfirmed; [] means the official source explicitly confirms no listed service. */
+  services: CoursePointService[] | null;
+}
+
 /**
  * Minimal release gate metadata. Product planning supplies requestedEditionYear;
  * source review supplies latestRelevantOfficialEditionYear and evidence bindings.
@@ -274,6 +293,8 @@ export interface Category {
   trainingServices?: Record<string, unknown>[] | null;
   nutritionServices?: Record<string, unknown>[] | null;
   routeServices?: Record<string, unknown>[] | null;
+  coursePoints?: CoursePoint[] | null;
+  coursePointDataStatus?: CoursePointDataStatus | null;
   createdAt: string;
   updatedAt: string;
   governance: DataGovernance;
