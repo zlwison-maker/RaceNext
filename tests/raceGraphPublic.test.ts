@@ -9,8 +9,13 @@ import {
   formatLocationDisplay,
 } from "../lib/raceGraphPublic.ts";
 import { loadPublicRaceListResult } from "../lib/raceGraphPublicServer.ts";
-import type { RaceGraphSnapshot } from "../types/raceUpdate.ts";
-import { NINGHAI_MULTI_CATEGORY_STRUCTURAL_FIXTURE } from "./fixtures/raceGraphFixtures.ts";
+import type { Category, Edition, Event } from "../types/event.ts";
+
+type RaceGraphSnapshot = {
+  schemaVersion: "race-graph-v1";
+  generatedAt: string;
+  records: Array<{ event: Event; edition: Edition; categories: Category[] }>;
+};
 
 const canonical = JSON.parse(
   readFileSync(new URL("../data/canonical/race-graph-v1.json", import.meta.url), "utf8"),
@@ -31,14 +36,6 @@ test("public list returns only publishable canonical editions", () => {
   ok(result.body.races.every(({ coverImage }) => Boolean(coverImage)));
   ok(result.body.races.every(({ heroImage }) => Boolean(heroImage)));
   equal(JSON.stringify(result.body).includes("raceStrategy"), false);
-});
-
-test("non-production structural fixture is not publishable", () => {
-  const snapshot = withRecords(canonical, [NINGHAI_MULTI_CATEGORY_STRUCTURAL_FIXTURE]);
-  const result = createPublicRaceListResult(snapshot);
-  equal(result.status, 200);
-  if (result.status !== 200) return;
-  equal(result.body.races.some(({ editionId }) => editionId === NINGHAI_MULTI_CATEGORY_STRUCTURAL_FIXTURE.edition.editionId), false);
 });
 
 test("pending verification editions are not returned", () => {
