@@ -8,12 +8,14 @@ import {
   type PublicRaceLocation,
   type PublicRaceGuide,
   type PublicRaceStrategy,
+  type PublicAccommodationRecommendation,
 } from "../types/publicRaceGraph.ts";
 import type { CoursePoint, CoursePointDataStatus } from "../types/event.ts";
 import { evaluatePrePublishFactGate, type PrePublishRaceGraphRecord } from "./prePublishFactGate.ts";
 import { validateCoursePointDataStatus, validateTrailCoursePoints } from "./trailCoursePoints.ts";
 import { getRaceEditorialContent } from "../data/race-guides/index.ts";
 import type { RaceEditorialContent, RaceStrategyContent } from "../types/raceDetail.ts";
+import { getRaceAccommodationRecommendations } from "../data/accommodations/index.ts";
 
 type CanonicalGovernance = {
   verified?: boolean | null;
@@ -105,7 +107,7 @@ export function createPublicRaceListResult(input: unknown): PublicResult<PublicR
         races: snapshot.records
           .filter(isEditionPublishable)
           .map(toPublicRaceDetail)
-          .map(({ categories: _categories, raceGuide: _raceGuide, raceStrategy: _raceStrategy, ...race }) => race)
+          .map(({ categories: _categories, raceGuide: _raceGuide, raceStrategy: _raceStrategy, accommodationRecommendations: _accommodationRecommendations, ...race }) => race)
           .sort(compareRaceListItems),
       },
     };
@@ -249,6 +251,18 @@ function toPublicRaceDetail(record: CanonicalRecord): PublicRaceDetail {
       && record.categories.some(({ categoryId }) => categoryId === raceStrategyCategoryId)
       ? toPublicRaceStrategy(raceStrategy)
       : null,
+    accommodationRecommendations: getRaceAccommodationRecommendations(edition.editionId).map(
+      ({ hotel, recommendation }): PublicAccommodationRecommendation => ({
+        recommendationId: recommendation.recommendationId,
+        hotelId: hotel.hotelId,
+        hotelName: hotel.hotelName,
+        reasonType: recommendation.reasonType,
+        recommendationTitle: recommendation.recommendationTitle,
+        recommendationReason: recommendation.recommendationReason,
+        displayOrder: recommendation.displayOrder,
+        actions: hotel.actions,
+      }),
+    ),
   };
 }
 

@@ -5,6 +5,7 @@ import type {
   RaceType,
   RegistrationStatus,
 } from "./event.ts";
+import type { AccommodationReasonType } from "./accommodation.ts";
 
 export const PUBLIC_RACE_GRAPH_SCHEMA_VERSION = "race-graph-public-v1" as const;
 
@@ -95,10 +96,25 @@ export type PublicRaceStrategy = {
   closing: string | null;
 };
 
+export type PublicAccommodationRecommendation = {
+  recommendationId: string;
+  hotelId: string;
+  hotelName: string;
+  reasonType: AccommodationReasonType;
+  recommendationTitle: string;
+  recommendationReason: string;
+  displayOrder: number;
+  actions: {
+    web?: { type: "affiliate_url"; url: string };
+    wechat?: { type: "mini_program"; appId: string; path: string };
+  };
+};
+
 export type PublicRaceDetail = RaceListItem & {
   categories: PublicRaceCategory[];
   raceGuide: PublicRaceGuide | null;
   raceStrategy: PublicRaceStrategy | null;
+  accommodationRecommendations: PublicAccommodationRecommendation[];
 };
 
 export type PublicRaceListResponse = {

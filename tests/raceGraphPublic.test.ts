@@ -36,6 +36,8 @@ test("public list returns only publishable canonical editions", () => {
   ok(result.body.races.every(({ coverImage }) => Boolean(coverImage)));
   ok(result.body.races.every(({ heroImage }) => Boolean(heroImage)));
   equal(JSON.stringify(result.body).includes("raceStrategy"), false);
+  equal(JSON.stringify(result.body).includes("accommodationRecommendations"), false);
+  equal(JSON.stringify(result.body).includes("AllianceID"), false);
 });
 
 test("pending verification editions are not returned", () => {
@@ -59,6 +61,23 @@ test("detail returns the requested canonical edition", () => {
   if (result.status !== 200) return;
   equal(result.body.race.editionId, "shanghai-marathon-2026");
   equal(result.body.race.eventId, "shanghai-marathon");
+});
+
+test("Beijing detail exposes three ordered accommodation recommendations", () => {
+  const result = createPublicRaceDetailResult(canonical, "beijing-marathon-2026");
+  equal(result.status, 200);
+  if (result.status !== 200) return;
+  equal(result.body.race.accommodationRecommendations.length, 3);
+  deepEqual(result.body.race.accommodationRecommendations.map(({ displayOrder }) => displayOrder), [1, 2, 3]);
+  ok(result.body.race.accommodationRecommendations.every(({ actions }) => actions.wechat?.type === "mini_program"));
+});
+
+test("other race details have no accommodation recommendations", () => {
+  for (const editionId of ["shanghai-marathon-2026", "xiamen-marathon-2027", "hk100-2027", "kailas-gongga-100-2026"]) {
+    const result = createPublicRaceDetailResult(canonical, editionId);
+    equal(result.status, 200);
+    if (result.status === 200) deepEqual(result.body.race.accommodationRecommendations, []);
+  }
 });
 
 test("detail categories are sorted by displayOrder", () => {
@@ -177,7 +196,7 @@ test("public DTO exposes only the approved product field set", () => {
   equal(result.status, 200);
   if (result.status !== 200) return;
   deepEqual(Object.keys(result.body.race).sort(), [
-    "categories", "coverImage", "dateDisplay", "editionId", "endDate", "eventId", "heroImage", "location",
+    "accommodationRecommendations", "categories", "coverImage", "dateDisplay", "editionId", "endDate", "eventId", "heroImage", "location",
     "locationDisplay", "name", "raceDate", "raceGuide", "raceStrategy", "raceType", "registrationStatus", "registrationUrl", "slug",
   ]);
   match(result.body.dataUpdatedAt, /^\d{4}-\d{2}-\d{2}/);

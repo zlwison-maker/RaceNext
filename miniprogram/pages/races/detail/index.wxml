@@ -44,6 +44,23 @@
         </text>
       </view>
 
+      <view wx:if="{{detail.hasAccommodation}}" class="guide-tabs">
+        <view
+          class="guide-tab {{activeGuideTab === 'race' ? 'guide-tab--active' : ''}}"
+          data-tab="race"
+          bindtap="handleGuideTabTap"
+          aria-role="button"
+        >赛事指南</view>
+        <view
+          class="guide-tab {{activeGuideTab === 'accommodation' ? 'guide-tab--active' : ''}}"
+          data-tab="accommodation"
+          bindtap="handleGuideTabTap"
+          aria-role="button"
+        >住宿指南</view>
+      </view>
+
+      <block wx:if="{{activeGuideTab === 'race'}}">
+
       <view wx:if="{{detail.selectedCategory}}" class="category-facts">
         <view wx:if="{{detail.showCategorySelector}}" class="category-section">
           <text class="category-heading">组别</text>
@@ -110,7 +127,7 @@
         </view>
       </view>
 
-      <view wx:if="{{detail.raceGuide}}" class="race-guide">
+      <view wx:if="{{detail.raceGuide}}" class="race-guide {{detail.hasAccommodation ? 'race-guide--tabbed' : ''}}">
         <view class="race-guide__header">
           <text class="race-guide__eyebrow">RACE GUIDE</text>
           <text class="race-guide__title">{{detail.raceGuide.opening.title}}</text>
@@ -216,6 +233,34 @@
         <text wx:if="{{detail.raceStrategy.closing}}" class="race-strategy__closing">
           {{detail.raceStrategy.closing}}
         </text>
+      </view>
+
+      </block>
+
+      <view wx:if="{{activeGuideTab === 'accommodation'}}" class="accommodation-guide">
+        <text class="accommodation-guide__intro">RaceNext 为这场比赛挑了几家更适合参赛住的酒店。</text>
+        <view class="hotel-list">
+          <view
+            wx:for="{{detail.accommodationRecommendations}}"
+            wx:key="recommendationId"
+            class="hotel-card"
+          >
+            <text class="hotel-card__title">{{item.recommendationTitle}}</text>
+            <view class="hotel-card__entity">
+              <image class="hotel-card__icon" src="/assets/icons/building.svg" mode="aspectFit" aria-hidden="true" />
+              <text class="hotel-card__name">{{item.hotelName}}</text>
+            </view>
+            <text class="hotel-card__reason">{{item.recommendationReason}}</text>
+            <view
+              wx:if="{{item.wechatAction}}"
+              class="hotel-card__cta"
+              data-recommendation-id="{{item.recommendationId}}"
+              bindtap="handleHotelTap"
+              hover-class="hotel-card__cta--pressed"
+              aria-role="button"
+            >查看酒店 →</view>
+          </view>
+        </view>
       </view>
 
     </view>

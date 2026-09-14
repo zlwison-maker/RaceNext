@@ -4,6 +4,7 @@ import type {
   PublicRaceDetail,
   PublicRaceGuide,
   PublicRaceStrategy,
+  PublicAccommodationRecommendation,
   RaceType,
   RegistrationStatus,
 } from "../types/races";
@@ -63,6 +64,14 @@ export type RaceGuideViewModel = {
 
 export type RaceStrategyViewModel = PublicRaceStrategy;
 
+export type AccommodationRecommendationViewModel = PublicAccommodationRecommendation & {
+  wechatAction: NonNullable<PublicAccommodationRecommendation["actions"]["wechat"]> | null;
+};
+
+type RaceDetailPresentationInput = Omit<PublicRaceDetail, "accommodationRecommendations"> & {
+  accommodationRecommendations?: PublicAccommodationRecommendation[];
+};
+
 export type RaceDetailViewModel = {
   editionId: string;
   name: string;
@@ -80,6 +89,8 @@ export type RaceDetailViewModel = {
   raceGuide: RaceGuideViewModel | null;
   raceStrategy: RaceStrategyViewModel | null;
   showRaceStrategy: boolean;
+  accommodationRecommendations: AccommodationRecommendationViewModel[];
+  hasAccommodation: boolean;
 };
 
 const HERO_FOCAL_POINTS: Readonly<Record<string, string>> = {
@@ -87,7 +98,8 @@ const HERO_FOCAL_POINTS: Readonly<Record<string, string>> = {
   "kailas-gongga-100-2026": "44% 50%",
 };
 
-export function createRaceDetailViewModel(race: PublicRaceDetail): RaceDetailViewModel {
+export function createRaceDetailViewModel(race: RaceDetailPresentationInput): RaceDetailViewModel {
+  const accommodationRecommendations = race.accommodationRecommendations ?? [];
   const categories = race.categories
     .slice()
     .sort((left, right) => left.displayOrder - right.displayOrder)
@@ -113,6 +125,14 @@ export function createRaceDetailViewModel(race: PublicRaceDetail): RaceDetailVie
     raceGuide: toRaceGuideViewModel(race.raceGuide),
     raceStrategy,
     showRaceStrategy: raceStrategy?.categoryId === selectedCategory?.categoryId,
+    accommodationRecommendations: accommodationRecommendations
+      .slice()
+      .sort((left, right) => left.displayOrder - right.displayOrder)
+      .map((recommendation) => ({
+        ...recommendation,
+        wechatAction: recommendation.actions.wechat ?? null,
+      })),
+    hasAccommodation: accommodationRecommendations.length > 0,
   };
 }
 

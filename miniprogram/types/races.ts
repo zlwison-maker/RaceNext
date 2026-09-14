@@ -6,6 +6,7 @@ export type {
   PublicRaceGuide,
   PublicRaceGuideParagraphs,
   PublicRaceStrategy,
+  PublicAccommodationRecommendation,
   RaceListItem,
   PublicRaceListResponse,
   PublicRaceDetailResponse,
