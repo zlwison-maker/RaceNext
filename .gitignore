@@ -19,10 +19,11 @@ artifacts
 
 # WeChat DevTools local configuration and generated files
 project.private.config.json
+/miniprogram/project.config.json
 miniprogram/miniprogram_npm/
 miniprogram/**/*.js
 miniprogram/**/*.js.map
-miniprogram/**/*.tsbuildinfo
+*.tsbuildinfo
 miniprogram/.cache/
 miniprogram/.temp/
 miniprogram/.env*

@@ -42,6 +42,20 @@ http://localhost:3000
 npm run data:connectors:poc
 ```
 
+## Repository Hygiene
+
+### 微信开发者工具
+
+始终打开 repository root，不要直接导入 `miniprogram/`。正式 `project.config.json` 位于仓库根目录；直接导入子目录会生成本地配置，并可能产生或使用 ignored JavaScript 编译产物，导致 TypeScript 源码与实际运行代码不一致。
+
+### Release Worktree
+
+- Release worktree 只能创建在主仓库目录之外，禁止创建在 `RaceNext/` 内部。
+- 每个 release 只保留一个 worktree，并锁定明确的 release commit。
+- 微信开发者工具必须打开该 worktree 的 repository root。
+- Production Release PASS 后，先归档必要 QA evidence，再使用 `git worktree remove` 移除并执行 `git worktree prune`。
+- 主开发目录不得长期承担 release checkout。
+
 ## Project Roadmap
 
 [docs/strategy/ROADMAP.md](docs/strategy/ROADMAP.md) 是 RaceNext 当前最高层规划文档，也是项目路线、阶段、Step 和优先级的最高入口。
