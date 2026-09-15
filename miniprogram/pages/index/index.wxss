@@ -1,6 +1,6 @@
 .page {
   min-height: 100vh;
-  padding: 24rpx 40rpx 64rpx;
+  padding: 24rpx 40rpx calc(64rpx + env(safe-area-inset-bottom));
 }
 
 .brand-header {

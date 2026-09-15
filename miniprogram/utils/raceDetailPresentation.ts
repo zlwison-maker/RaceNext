@@ -74,7 +74,9 @@ type RaceDetailPresentationInput = Omit<PublicRaceDetail, "accommodationRecommen
 
 export type RaceDetailViewModel = {
   editionId: string;
+  raceId: string;
   name: string;
+  coverImage: string | null;
   heroImage: string | null;
   heroMode: "aspectFill";
   heroFocalPoint: string;
@@ -110,7 +112,9 @@ export function createRaceDetailViewModel(race: RaceDetailPresentationInput): Ra
 
   return {
     editionId: race.editionId,
+    raceId: race.eventId,
     name: formatRaceTitle(race.name),
+    coverImage: race.coverImage,
     heroImage: race.heroImage,
     heroMode: "aspectFill",
     heroFocalPoint: HERO_FOCAL_POINTS[race.editionId] ?? "50% 50%",

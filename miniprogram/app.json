@@ -1,29 +1,12 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/races/detail/index",
-    "pages/mine/index"
+    "pages/races/detail/index"
   ],
   "window": {
     "navigationBarTitleText": "RaceNext",
     "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTextStyle": "black"
-  },
-  "tabBar": {
-    "color": "#8a8a8a",
-    "selectedColor": "#111111",
-    "backgroundColor": "#ffffff",
-    "borderStyle": "white",
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "text": "赛事"
-      },
-      {
-        "pagePath": "pages/mine/index",
-        "text": "我的"
-      }
-    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

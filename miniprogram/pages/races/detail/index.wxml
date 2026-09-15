@@ -264,5 +264,15 @@
       </view>
 
     </view>
+
+    <button
+      class="share-action {{shareActionVisible ? '' : 'share-action--hidden'}}"
+      open-type="share"
+      hover-class="share-action--pressed"
+      aria-label="分享{{detail.name}}给朋友"
+    >
+      <image class="share-action__icon" src="/assets/icons/share.svg" mode="aspectFit" aria-hidden="true" />
+      <text class="share-action__label">分享给朋友</text>
+    </button>
   </block>
 </view>

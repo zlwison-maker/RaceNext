@@ -9,12 +9,19 @@ import {
 import { loadRaceDetail } from "./loadRaceDetail";
 import { trackEvent } from "../../../utils/analytics";
 import { openHotelMiniProgram } from "../../../services/accommodation";
+import {
+  SHARE_ACTION_RESTORE_DELAY_MS,
+  createRaceShareAnalyticsData,
+  createRaceShareConfig,
+  getShareActionVisibilityUpdate,
+} from "../../../utils/raceShare";
 
 type DetailPageData = {
   loadState: "loading" | "success" | "error";
   detail: RaceDetailViewModel | null;
   heroImageFailed: boolean;
   activeGuideTab: "race" | "accommodation";
+  shareActionVisible: boolean;
 };
 
 type CategoryTapEvent = WechatMiniprogram.TouchEvent<
@@ -34,6 +41,7 @@ type HotelTapEvent = WechatMiniprogram.TouchEvent<
 type DetailPageCustom = {
   editionId: string;
   accommodationTracked: boolean;
+  shareActionRestoreTimer: ReturnType<typeof setTimeout> | null;
   loadDetail(): void;
   handleRetry(): void;
   handleCategoryTap(event: CategoryTapEvent): void;
@@ -41,26 +49,78 @@ type DetailPageCustom = {
   handleGuideTabTap(event: GuideTabTapEvent): void;
   trackAccommodationView(): void;
   handleHotelTap(event: HotelTapEvent): void;
+  updateShareActionVisibility(visible: boolean): void;
+  clearShareActionRestoreTimer(): void;
 };
 
 Page<DetailPageData, DetailPageCustom>({
   editionId: "",
   accommodationTracked: false,
+  shareActionRestoreTimer: null,
 
   data: {
     loadState: "loading",
     detail: null,
     heroImageFailed: false,
     activeGuideTab: "race",
+    shareActionVisible: true,
   },
 
   onLoad(options: Record<string, string | undefined>) {
+    wx.showShareMenu({
+      menus: ["shareAppMessage", "shareTimeline"],
+    });
     this.editionId = decodeURIComponent(options.editionId ?? "").trim();
     if (!this.editionId) {
       this.setData({ loadState: "error", detail: null, heroImageFailed: false });
       return;
     }
     this.loadDetail();
+  },
+
+  onHide() {
+    this.clearShareActionRestoreTimer();
+    this.updateShareActionVisibility(true);
+  },
+
+  onUnload() {
+    this.clearShareActionRestoreTimer();
+  },
+
+  onPageScroll() {
+    this.updateShareActionVisibility(false);
+    this.clearShareActionRestoreTimer();
+    this.shareActionRestoreTimer = setTimeout(() => {
+      this.shareActionRestoreTimer = null;
+      this.updateShareActionVisibility(true);
+    }, SHARE_ACTION_RESTORE_DELAY_MS);
+  },
+
+  onShareAppMessage(options: WechatMiniprogram.Page.IShareAppMessageOption) {
+    const detail = this.data.detail;
+    if (!detail) return {};
+    const source = options.from === "button" ? "bottom_action" : "native_menu";
+    trackEvent(
+      "race_share_initiated",
+      createRaceShareAnalyticsData(detail, "app_message", source),
+    );
+    return createRaceShareConfig({
+      ...detail,
+      heroImage: this.data.heroImageFailed ? null : detail.heroImage,
+    }).appMessage;
+  },
+
+  onShareTimeline() {
+    const detail = this.data.detail;
+    if (!detail) return {};
+    trackEvent(
+      "race_share_initiated",
+      createRaceShareAnalyticsData(detail, "timeline", "native_menu"),
+    );
+    return createRaceShareConfig({
+      ...detail,
+      heroImage: this.data.heroImageFailed ? null : detail.heroImage,
+    }).timeline;
   },
 
   loadDetail() {
@@ -79,6 +139,7 @@ Page<DetailPageData, DetailPageCustom>({
         loadState: "success",
         detail: {
           ...detail,
+          coverImage: resolveAssetUrl(detail.coverImage),
           heroImage: resolveAssetUrl(detail.heroImage),
         },
         heroImageFailed: false,
@@ -98,6 +159,18 @@ Page<DetailPageData, DetailPageCustom>({
 
   handleHeroImageError() {
     this.setData({ heroImageFailed: true });
+  },
+
+  updateShareActionVisibility(visible: boolean) {
+    const update = getShareActionVisibilityUpdate(this.data.shareActionVisible, visible);
+    if (update === null) return;
+    this.setData({ shareActionVisible: update });
+  },
+
+  clearShareActionRestoreTimer() {
+    if (this.shareActionRestoreTimer === null) return;
+    clearTimeout(this.shareActionRestoreTimer);
+    this.shareActionRestoreTimer = null;
   },
 
   handleGuideTabTap(event: GuideTabTapEvent) {

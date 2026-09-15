@@ -1,6 +1,6 @@
 .detail-page {
   min-height: 100vh;
-  padding-bottom: 96rpx;
+  padding-bottom: calc(176rpx + env(safe-area-inset-bottom));
   background: #ffffff;
 }
 
@@ -519,6 +519,56 @@
 
 .hotel-card__cta--pressed {
   opacity: 0.58;
+}
+
+.share-action {
+  position: fixed;
+  z-index: 20;
+  bottom: calc(24rpx + env(safe-area-inset-bottom));
+  left: 24rpx;
+  display: inline-flex;
+  width: auto;
+  min-height: 88rpx;
+  margin: 0;
+  padding: 0 26rpx;
+  border: 0;
+  border-radius: 999rpx;
+  background: rgba(15, 15, 15, 0.88);
+  color: #ffffff;
+  font-size: 27rpx;
+  font-weight: 550;
+  line-height: 1;
+  opacity: 1;
+  transform: translateX(0);
+  transition: transform 250ms cubic-bezier(0.22, 1, 0.36, 1), opacity 240ms ease-out;
+  align-items: center;
+  justify-content: center;
+  gap: 14rpx;
+}
+
+.share-action::after {
+  border: 0;
+}
+
+.share-action--hidden {
+  opacity: 0;
+  transform: translateX(calc(-100% - 48rpx));
+  transition-duration: 200ms;
+  pointer-events: none;
+}
+
+.share-action--pressed {
+  opacity: 0.58;
+}
+
+.share-action__icon {
+  width: 30rpx;
+  height: 30rpx;
+  flex-shrink: 0;
+}
+
+.share-action__label {
+  display: block;
 }
 
 .course-points__label {

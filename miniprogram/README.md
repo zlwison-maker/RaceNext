@@ -1,19 +1,20 @@
 # RaceNext 微信小程序
 
-原生微信小程序 + TypeScript。当前实现首页 V1、Detail V1.2（Race Facts + Race Guide）与“我的”占位页，不使用云开发、登录、数据库、状态管理库或跨端框架。
+原生微信小程序 + TypeScript。当前实现赛事首页与 Detail V1.4，不使用云开发、登录、数据库、状态管理库或跨端框架。
 
 ## 本地开发
 
 1. 在 RaceNext 仓库根目录运行 `npm install`，安装类型检查依赖。微信开发者工具无需执行“构建 npm”。
 2. 微信开发者工具导入 **RaceNext 仓库根目录**。根目录 `project.config.json` 通过 `miniprogramRoot` 指向 `miniprogram/`。
 3. 正式 AppID 只保留在 Git 忽略的 `project.private.config.json` 中。不要在客户端代码中保存 AppSecret、Token 或服务端密钥。
-4. 点击编译，检查首页真实赛事、封面图、Loading/Error 状态和底部 TabBar。
+4. 点击编译，检查首页真实赛事、封面图、Loading/Error 状态和赛事详情分享能力。
 
 ## 页面
 
 - `pages/index/index`：首页 V1。通过 `getRaces()` 读取 Public API，展示赛事封面、名称、日期和城市。
-- `pages/races/detail/index`：Detail V1.2。通过 `editionId` 调用一次 `getRace()`，展示统一 Hero、Race Facts 与可选 Race Guide；多组别赛事支持 Category 切换。
-- `pages/mine/index`：“我的”占位页，仅用于建立正式双 Tab 结构，不包含用户功能。
+- `pages/races/detail/index`：通过 `editionId` 调用一次 `getRace()`，展示 Race Facts、Category、Race Guide、Race Strategy 和可选住宿指南，并提供赛事级原生分享。
+
+首发版本不配置 Bottom TabBar，也不暴露空壳“我的”入口。用户从赛事首页直接进入赛事详情。
 
 ## 数据边界
 
