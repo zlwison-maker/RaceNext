@@ -20,14 +20,16 @@
 
 3. [RaceNext 赛事详情页内容撰写规范 V1](RACE_DETAIL_CONTENT_STANDARD_V1.md) — **CURRENT**
 4. [RaceNext 越野赛事详情页内容标准 V1](TRAIL_RACE_DETAIL_STANDARD_V1.md) — **CURRENT**
-5. [RaceNext 图片资产标准 V1](RACENEXT_IMAGE_ASSET_STANDARD_V1.md) — **CURRENT / FROZEN**
-6. [First5 图片资产交付报告](FIRST5_IMAGE_ASSET_DELIVERY_REPORT.md) — **CURRENT**
-7. [Trail Course Point Schema V0.1](TRAIL_COURSE_POINT_SCHEMA_V0_1.md) — **CURRENT / MINIMAL**
-8. [Trail CP Data Audit V1](TRAIL_CP_DATA_AUDIT_V1.md) — **ARCHIVED AUDIT**
+5. [RaceNext 赛事住宿推荐与内容生产标准 V1.1](ACCOMMODATION_CONTENT_STANDARD_V1_1.md) — **CURRENT / Source of Truth**；当前赛事住宿推荐、AI Research、Human Approved Set、Final Accommodation Package、Production Board、Ctrip Action 与长期维护标准。
+6. [RaceNext 赛事住宿推荐与内容生产标准 V1](ACCOMMODATION_CONTENT_STANDARD_V1.md) — **HISTORICAL / Superseded by V1.1**；保留历史版本，不再作为当前执行标准。
+7. [RaceNext 图片资产标准 V1](RACENEXT_IMAGE_ASSET_STANDARD_V1.md) — **CURRENT / FROZEN**
+8. [First5 图片资产交付报告](FIRST5_IMAGE_ASSET_DELIVERY_REPORT.md) — **CURRENT**
+9. [Trail Course Point Schema V0.1](TRAIL_COURSE_POINT_SCHEMA_V0_1.md) — **CURRENT / MINIMAL**
+10. [Trail CP Data Audit V1](TRAIL_CP_DATA_AUDIT_V1.md) — **ARCHIVED AUDIT**
 
 ### P1｜战略背景
 
-9. [RaceNext Investor BP 202608](reference/RaceNext_Investor_BP_202608.pdf) — **REFERENCE / 2026.08**
+11. RaceNext Investor BP 202608 (`reference/RaceNext_Investor_BP_202608.pdf`) — **REFERENCE / 2026.08 / Not Found**
 
 Investor BP 用于理解战略与商业背景，不是代码实现约束，也不能自动生成开发需求。
 
@@ -53,11 +55,11 @@ RaceNext 当前不是继续建设数据平台，产品优先级是微信小程�
 - 赛事卡片
 - 赛事详情页框架
 - Hero / Race Facts
+- Accommodation 内容生产与酒店推荐标准已冻结
 
 尚未完全共识：
 
 - RaceNext Content 的小程序呈现
-- Accommodation
 - My Races
 
 已达到 80 分的部分先开发；未达成共识的部分不要擅自设计。
