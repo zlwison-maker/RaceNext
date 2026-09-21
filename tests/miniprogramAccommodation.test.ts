@@ -69,6 +69,42 @@ test("Beijing shows the accommodation tab with three ordered hotel cards", () =>
   ok(detail.accommodationRecommendations.every(({ actions }) => Boolean(actions.wechat?.path)));
 });
 
+test("Race Guide Closing uses the same Accommodation availability as the guide tab", () => {
+  const beijingRace = getPublicRace("beijing-marathon-2026");
+  const xianRace = getPublicRace("xian-marathon-2026");
+  const beijing = createRaceDetailViewModel(beijingRace);
+  const xian = createRaceDetailViewModel(xianRace);
+
+  equal(beijing.hasAccommodation, true);
+  ok(beijing.raceGuide?.closing);
+  for (const editionId of [
+    "xian-marathon-2026",
+    "chengdu-marathon-2026",
+    "tsaigu-kuocang-2026",
+    "ninghai-ultra-trail-2026",
+    "guangzhou-marathon-2026",
+    "shenzhen-100-2026",
+    "chongqing-marathon-2027",
+  ]) {
+    const detail = createRaceDetailViewModel(getPublicRace(editionId));
+    equal(detail.hasAccommodation, false, editionId);
+    ok(detail.raceGuide?.closing, editionId);
+  }
+
+  const futureXian = createRaceDetailViewModel({
+    ...xianRace,
+    accommodationRecommendations: beijingRace.accommodationRecommendations,
+  });
+  equal(futureXian.hasAccommodation, true);
+  equal(futureXian.raceGuide?.closing, xian.raceGuide?.closing);
+
+  const wxml = readFileSync(new URL("../miniprogram/pages/races/detail/index.wxml", import.meta.url), "utf8");
+  ok(wxml.includes('wx:if="{{detail.hasAccommodation && detail.raceGuide.closing}}"'));
+
+  const styles = readFileSync(new URL("../miniprogram/pages/races/detail/index.wxss", import.meta.url), "utf8");
+  ok(/\.race-guide__closing\s*\{[\s\S]*?color:\s*#353535;[\s\S]*?font-size:\s*28rpx;[\s\S]*?font-weight:\s*400;/.test(styles));
+});
+
 test("races without recommendations do not show an accommodation tab", () => {
   for (const editionId of ["shanghai-marathon-2026", "xiamen-marathon-2027", "hk100-2027", "kailas-gongga-100-2026"]) {
     equal(createRaceDetailViewModel(getPublicRace(editionId)).hasAccommodation, false);

@@ -176,7 +176,7 @@ test("raceDate cannot be null before source checks or differ from its evidence",
   ok(evaluatePrePublishFactGate(guessed).issues.includes("race_date_evidence_mismatch"));
 });
 
-test("First5 Public API returns exactly the five reviewed Editions", () => {
+test("First5 and all seven public-ready Batch Seven Editions enter the Public API", () => {
   const result = createPublicRaceListResult(canonical);
   equal(result.status, 200);
   if (result.status !== 200) return;
@@ -186,13 +186,20 @@ test("First5 Public API returns exactly the five reviewed Editions", () => {
     "xiamen-marathon-2027",
     "hk100-2027",
     "kailas-gongga-100-2026",
+    "xian-marathon-2026",
+    "ninghai-ultra-trail-2026",
+    "guangzhou-marathon-2026",
+    "chengdu-marathon-2026",
+    "tsaigu-kuocang-2026",
+    "shenzhen-100-2026",
+    "chongqing-marathon-2027",
   ]));
 });
 
-test("every First5 Public DTO keeps both Cover and Hero image relations", () => {
+test("every public DTO keeps both Cover and Hero image relations", () => {
   const result = createPublicRaceListResult(canonical);
   equal(result.status, 200);
   if (result.status !== 200) return;
-  equal(result.body.races.length, 5);
+  equal(result.body.races.length, 12);
   ok(result.body.races.every(({ coverImage, heroImage }) => Boolean(coverImage) && Boolean(heroImage)));
 });

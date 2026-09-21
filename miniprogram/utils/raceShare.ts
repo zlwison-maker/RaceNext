@@ -27,7 +27,9 @@ export type RaceShareConfig = {
 export function createRaceShareConfig(context: RaceShareContext): RaceShareConfig {
   const title = `${context.name}｜下一场参赛指南`;
   const editionId = encodeURIComponent(context.editionId);
-  const imageUrl = [context.coverImage, context.heroImage].find(isSupportedShareImage);
+  const imageUrl = [context.coverImage, context.heroImage]
+    .map(toShareImageUrl)
+    .find((value): value is string => value !== null);
   const image = imageUrl
     ? { imageUrl }
     : {};
@@ -71,6 +73,13 @@ export function getShareActionVisibilityUpdate(
   return currentVisible === nextVisible ? null : nextVisible;
 }
 
-function isSupportedShareImage(imageUrl: string | null): imageUrl is string {
+function toShareImageUrl(imageUrl: string | null): string | null {
+  if (!imageUrl) return null;
+  const raceAsset = /^(https?:\/\/[^/?#]+)?(\/races\/[^/?#]+\/\d{4}\/)[^/?#]+(?:[?#].*)?$/i.exec(imageUrl);
+  if (raceAsset) return `${raceAsset[1] ?? ""}${raceAsset[2]}share-cover-5x4.jpg`;
+  return isSupportedShareImage(imageUrl) ? imageUrl : null;
+}
+
+function isSupportedShareImage(imageUrl: string): boolean {
   return Boolean(imageUrl && /\.(?:png|jpe?g)(?:[?#].*)?$/i.test(imageUrl));
 }

@@ -11,10 +11,10 @@ const canonical = JSON.parse(
 ) as unknown;
 const publicRaceResult = createPublicRaceListResult(canonical);
 if (publicRaceResult.status !== 200) throw new Error("Public Race Graph is unavailable for tests");
-const first5 = publicRaceResult.body.races;
+const publicRaces = publicRaceResult.body.races;
 
 const getRace = (editionId: string): RaceListItem => {
-  const race = first5.find((item) => item.editionId === editionId);
+  const race = publicRaces.find((item) => item.editionId === editionId);
   if (!race) throw new Error(`Missing test race: ${editionId}`);
   return race;
 };
@@ -29,12 +29,19 @@ test("homepage keeps current and future races ordered by raceDate, with unknown 
   };
 
   deepEqual(
-    sortUpcomingRaces([unknownDate, ...first5.slice().reverse(), pastRace], "2026-09-10")
+    sortUpcomingRaces([unknownDate, ...publicRaces.slice().reverse(), pastRace], "2026-09-10")
       .map(({ editionId }) => editionId),
     [
       "kailas-gongga-100-2026",
       "beijing-marathon-2026",
+      "xian-marathon-2026",
+      "chengdu-marathon-2026",
+      "tsaigu-kuocang-2026",
+      "ninghai-ultra-trail-2026",
       "shanghai-marathon-2026",
+      "guangzhou-marathon-2026",
+      "shenzhen-100-2026",
+      "chongqing-marathon-2027",
       "xiamen-marathon-2027",
       "hk100-2027",
       "unknown-date",

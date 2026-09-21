@@ -42,6 +42,13 @@ const beijing = getPublicRace("beijing-marathon-2026");
 const xiamen = getPublicRace("xiamen-marathon-2027");
 const gongga = getPublicRace("kailas-gongga-100-2026");
 const hk100 = getPublicRace("hk100-2027");
+const xian = getPublicRace("xian-marathon-2026");
+const chengdu = getPublicRace("chengdu-marathon-2026");
+const tsaigu = getPublicRace("tsaigu-kuocang-2026");
+const ninghai = getPublicRace("ninghai-ultra-trail-2026");
+const guangzhou = getPublicRace("guangzhou-marathon-2026");
+const shenzhen = getPublicRace("shenzhen-100-2026");
+const chongqing = getPublicRace("chongqing-marathon-2027");
 
 test("homepage detail navigation uses editionId as the only query identity", () => {
   let navigatedUrl = "";
@@ -79,6 +86,49 @@ test("Primary Category is selected on first load", () => {
 test("multi-Category trail does not repeat the race type", () => {
   const detail = createRaceDetailViewModel(gongga);
   equal(detail.summaryDisplay, null);
+});
+
+test("multi-Category road races do not repeat type or distance in Edition facts", () => {
+  equal(createRaceDetailViewModel(xian).summaryDisplay, null);
+  equal(createRaceDetailViewModel(chengdu).summaryDisplay, null);
+  equal(createRaceDetailViewModel(guangzhou).summaryDisplay, "马拉松 · 42.195 km");
+});
+
+test("multi-start Categories display every official wave without changing single-start formatting", () => {
+  const chengduDetail = createRaceDetailViewModel(chengdu);
+  equal(categoryStart(chengduDetail, "chengdu-marathon-2026-marathon"), "07:30 / 07:50 分枪");
+  equal(categoryStart(chengduDetail, "chengdu-marathon-2026-half-marathon"), "2026.10.25 08:10");
+
+  equal(
+    categoryStart(createRaceDetailViewModel(guangzhou), "guangzhou-marathon-2026-marathon"),
+    "07:00 / 07:10 / 07:20 / 07:30 分枪",
+  );
+
+  const tsaiguDetail = createRaceDetailViewModel(tsaigu);
+  equal(categoryStart(tsaiguDetail, "tsaigu-kuocang-2026-105k"), "05:10 / 05:30 分枪");
+  equal(categoryStart(tsaiguDetail, "tsaigu-kuocang-2026-50k"), "05:40 / 06:00 分枪");
+  equal(categoryStart(tsaiguDetail, "tsaigu-kuocang-2026-25k"), "07:45 / 08:00 分枪");
+
+  const ninghaiDetail = createRaceDetailViewModel(ninghai);
+  equal(categoryStart(ninghaiDetail, "ninghai-ultra-trail-2026-utnh-100"), "2026.11.14 06:00");
+  equal(categoryStart(ninghaiDetail, "ninghai-ultra-trail-2026-cnh-60"), "06:00 / 06:20 分枪");
+  equal(categoryStart(ninghaiDetail, "ninghai-ultra-trail-2026-ynh-25"), "07:00 / 07:20 / 07:40 分枪");
+
+  equal(categoryStart(createRaceDetailViewModel(shenzhen), "shenzhen-100-2026-torx-chn100"), "2026.12.26 06:00");
+  equal(categoryStart(createRaceDetailViewModel(chongqing), "chongqing-marathon-2027-marathon"), "2027.01.10 08:00");
+});
+
+test("multi-start formatting preserves dates when waves cross calendar days", () => {
+  const race = structuredClone(chengdu);
+  race.categories[0].startAt = null;
+  race.categories[0].startTimes = [
+    "2026-10-25T23:50:00+08:00",
+    "2026-10-26T00:10:00+08:00",
+  ];
+  equal(
+    categoryStart(createRaceDetailViewModel(race), "chengdu-marathon-2026-marathon"),
+    "10.25 23:50 / 10.26 00:10 分枪",
+  );
 });
 
 test("Gongga official facts switch with all three Categories", () => {
@@ -145,6 +195,12 @@ test("all First5 share the Canonical Hero asset with independent Mini Program pr
   ok(/\.hero\s*\{[\s\S]*?height:\s*375rpx/.test(styles));
 });
 
+test("Batch launch races keep their finalized Canonical Hero URLs", () => {
+  equal(createRaceDetailViewModel(tsaigu).heroImage, "/races/tsaigu-kuocang/2026/cover-hero-original.png");
+  equal(createRaceDetailViewModel(ninghai).heroImage, "/races/ninghai-ultra-trail/2026/hero-original.jpeg");
+  equal(createRaceDetailViewModel(shenzhen).heroImage, "/races/shenzhen-100/2026/cover-hero.png");
+});
+
 test("Detail H1 is one step above card titles and physically capped at two lines", () => {
   const styles = readFileSync(
     new URL("../miniprogram/pages/races/detail/index.wxss", import.meta.url),
@@ -176,3 +232,8 @@ test("Detail request failure returns a stable Error state", async () => {
   equal(result.race, null);
   ok(result.error instanceof Error);
 });
+
+function categoryStart(detail: ReturnType<typeof createRaceDetailViewModel>, categoryId: string): string | null {
+  const category = detail.categories.find((item) => item.categoryId === categoryId);
+  return category?.executionFacts.find(({ key }) => key === "startAt" || key === "startTimes")?.value ?? null;
+}

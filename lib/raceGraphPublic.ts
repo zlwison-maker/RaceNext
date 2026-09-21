@@ -21,6 +21,13 @@ type CanonicalGovernance = {
   verified?: boolean | null;
   verificationStatus?: string | null;
   internalFlags?: string[] | null;
+  missingFields?: string[] | null;
+  fieldSources?: Record<string, { sourceType?: string | null }> | null;
+  mergeTrace?: Array<{
+    field?: string | null;
+    selectedSource?: string | null;
+    candidates?: unknown[] | null;
+  }> | null;
   publicationGate?: import("../types/event.ts").PrePublishFactGate | null;
   sources: import("../types/event.ts").SourceRecord[];
 };
@@ -64,6 +71,7 @@ type CanonicalCategory = {
   elevationGain?: number | null;
   cutoffTimeHours?: number | null;
   startAt?: string | null;
+  startTimes?: string[] | null;
   startLocation?: string | null;
   finishLocation?: string | null;
   registrationUrl?: string | null;
@@ -328,6 +336,7 @@ function toPublicCategory(category: CanonicalCategory, primaryCategoryId: string
     elevationGain: category.elevationGain ?? null,
     cutoffTimeHours: category.cutoffTimeHours ?? null,
     startAt: category.startAt ?? null,
+    startTimes: category.startTimes?.length ? [...category.startTimes] : null,
     startLocation: category.startLocation ?? null,
     finishLocation: category.finishLocation ?? null,
     registrationUrl: category.registrationUrl ?? null,
@@ -363,8 +372,54 @@ function isCategoryPublishable(category: CanonicalCategory, editionId: string): 
         category.coursePoints,
         category.coursePointDataStatus,
       ).length === 0
-      && isGovernancePublishable(category.governance),
+      && isCategoryGovernancePublishable(category),
   );
+}
+
+function isCategoryGovernancePublishable(category: CanonicalCategory): boolean {
+  const governance = category.governance;
+  if (isGovernancePublishable(governance)) return true;
+  if (!governance || governance.verificationStatus !== "pending") return false;
+
+  const flags = governance.internalFlags ?? [];
+  if (flags.length === 0 || flags.some((flag) => INTERNAL_NON_PRODUCTION_FLAGS.has(flag))) return false;
+  if (flags.some((flag) => !flag.endsWith("_conflict_needs_review"))) return false;
+  if (!governance.sources.some(({ sourceType }) => sourceType === "official")) return false;
+
+  if (!isPositiveFiniteNumber(category.distanceKm) || !isPositiveFiniteNumber(category.cutoffTimeHours)) return false;
+  if (!isNonEmptyString(category.startLocation) || !isNonEmptyString(category.finishLocation)) return false;
+  if (governance.fieldSources?.distanceKm?.sourceType !== "official") return false;
+  if (governance.fieldSources?.cutoffTimeHours?.sourceType !== "official") return false;
+  if (!hasMatchingOfficialRawFact(governance, "startLocation", category.startLocation)) return false;
+  if (!hasMatchingOfficialRawFact(governance, "finishLocation", category.finishLocation)) return false;
+
+  const conflicts = (governance.mergeTrace ?? []).filter(
+    ({ selectedSource, candidates }) => selectedSource === "placeholder" && (candidates?.length ?? 0) > 1,
+  );
+  if (conflicts.length === 0) return false;
+
+  const categoryFacts = category as unknown as Record<string, unknown>;
+  return conflicts.every(({ field }) =>
+    isNonEmptyString(field)
+      && (governance.missingFields ?? []).includes(field)
+      && categoryFacts[field] == null
+      && field !== "distanceKm"
+      && field !== "cutoffTimeHours"
+      && field !== "startLocation"
+      && field !== "finishLocation");
+}
+
+function hasMatchingOfficialRawFact(
+  governance: CanonicalGovernance,
+  field: string,
+  value: string,
+): boolean {
+  return governance.sources.some(({ sourceType, rawData }) =>
+    sourceType === "official" && rawData?.[field] === value);
+}
+
+function isPositiveFiniteNumber(value: unknown): value is number {
+  return typeof value === "number" && Number.isFinite(value) && value > 0;
 }
 
 function isGovernancePublishable(governance: CanonicalGovernance): boolean {

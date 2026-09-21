@@ -1,6 +1,8 @@
 import { deepEqual, equal, ok } from "node:assert/strict";
+import { execFileSync } from "node:child_process";
 import { existsSync, readFileSync } from "node:fs";
 import { test } from "node:test";
+import { fileURLToPath } from "node:url";
 
 import {
   SHARE_ACTION_RESTORE_DELAY_MS,
@@ -49,7 +51,7 @@ test("share config is generic and does not hardcode Beijing", () => {
   equal(source.includes("北京马拉松"), false);
 });
 
-test("share image prefers a compatible Cover over a compatible Hero", () => {
+test("share image prefers the centered Cover derivative over Hero", () => {
   const config = createRaceShareConfig({
     editionId: "hk100-2027",
     raceId: "hk100",
@@ -57,11 +59,11 @@ test("share image prefers a compatible Cover over a compatible Hero", () => {
     coverImage: "https://racenext.run/races/hk100/2027/cover-original.jpg",
     heroImage: "https://racenext.run/races/hk100/2027/hero-original.png",
   });
-  equal(config.appMessage.imageUrl, "https://racenext.run/races/hk100/2027/cover-original.jpg");
-  equal(config.timeline.imageUrl, "https://racenext.run/races/hk100/2027/cover-original.jpg");
+  equal(config.appMessage.imageUrl, "https://racenext.run/races/hk100/2027/share-cover-5x4.jpg");
+  equal(config.timeline.imageUrl, "https://racenext.run/races/hk100/2027/share-cover-5x4.jpg");
 });
 
-test("share image falls back from an incompatible Cover to a compatible Hero", () => {
+test("RaceNext Cover formats are normalized to a JPEG share derivative", () => {
   const config = createRaceShareConfig({
     editionId: "beijing-marathon-2026",
     raceId: "beijing-marathon",
@@ -69,20 +71,47 @@ test("share image falls back from an incompatible Cover to a compatible Hero", (
     coverImage: "https://racenext.run/races/beijing-marathon/2026/cover-original.webp",
     heroImage: "https://racenext.run/races/beijing-marathon/2026/hero-original.jpeg",
   });
-  equal(config.appMessage.imageUrl, "https://racenext.run/races/beijing-marathon/2026/hero-original.jpeg");
-  equal(config.timeline.imageUrl, "https://racenext.run/races/beijing-marathon/2026/hero-original.jpeg");
+  equal(config.appMessage.imageUrl, "https://racenext.run/races/beijing-marathon/2026/share-cover-5x4.jpg");
+  equal(config.timeline.imageUrl, "https://racenext.run/races/beijing-marathon/2026/share-cover-5x4.jpg");
 });
 
-test("share config leaves imageUrl unset when Cover and Hero are incompatible", () => {
+test("share config leaves imageUrl unset when external Cover and Hero are incompatible", () => {
   const config = createRaceShareConfig({
     editionId: "beijing-marathon-2026",
     raceId: "beijing-marathon",
     name: "2026 北京马拉松",
-    coverImage: "https://racenext.run/races/beijing-marathon/2026/cover-original.webp",
+    coverImage: "https://example.com/cover-original.webp",
     heroImage: null,
   });
   equal("imageUrl" in config.appMessage, false);
   equal("imageUrl" in config.timeline, false);
+});
+
+test("all current race Covers have deterministic centered 5:4 JPEG derivatives", () => {
+  const projectRoot = fileURLToPath(new URL("..", import.meta.url));
+  execFileSync(
+    process.execPath,
+    [fileURLToPath(new URL("../scripts/generateMiniShareImages.mjs", import.meta.url)), "--check"],
+    { cwd: projectRoot, stdio: "pipe" },
+  );
+
+  const canonical = JSON.parse(readFileSync(
+    new URL("../data/canonical/race-graph-v1.json", import.meta.url),
+    "utf8",
+  )) as { records: Array<{ edition: { coverImage: string; editionId: string } }> };
+  equal(canonical.records.length, 12);
+  for (const { edition } of canonical.records) {
+    const derivative = new URL(
+      `../public${edition.coverImage.replace(/\/[^/]+$/, "/share-cover-5x4.jpg")}`,
+      import.meta.url,
+    );
+    ok(existsSync(derivative), `Missing share derivative for ${edition.editionId}`);
+    const bytes = readFileSync(derivative);
+    equal(bytes[0], 0xff);
+    equal(bytes[1], 0xd8);
+    equal(bytes[bytes.length - 2], 0xff);
+    equal(bytes[bytes.length - 1], 0xd9);
+  }
 });
 
 test("share config does not introduce a dedicated share image field", () => {

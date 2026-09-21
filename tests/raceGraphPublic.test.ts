@@ -28,11 +28,18 @@ test("public list returns only publishable canonical editions", () => {
   deepEqual(result.body.races.map(({ editionId }) => editionId), [
     "kailas-gongga-100-2026",
     "beijing-marathon-2026",
+    "xian-marathon-2026",
+    "chengdu-marathon-2026",
+    "tsaigu-kuocang-2026",
+    "ninghai-ultra-trail-2026",
     "shanghai-marathon-2026",
+    "guangzhou-marathon-2026",
+    "shenzhen-100-2026",
+    "chongqing-marathon-2027",
     "xiamen-marathon-2027",
     "hk100-2027",
   ]);
-  equal(result.body.races.length, 5);
+  equal(result.body.races.length, 12);
   ok(result.body.races.every(({ coverImage }) => Boolean(coverImage)));
   ok(result.body.races.every(({ heroImage }) => Boolean(heroImage)));
   equal(JSON.stringify(result.body).includes("raceStrategy"), false);
@@ -53,6 +60,34 @@ test("pending verification editions are not returned", () => {
   equal(result.status, 200);
   if (result.status !== 200) return;
   equal(result.body.races.some(({ editionId }) => editionId === "pending-race-2026"), false);
+});
+
+test("a localized optional-field conflict can publish when verified core Category facts remain complete", () => {
+  const snapshot = withLocalizedOptionalConflict(canonical);
+  const result = createPublicRaceDetailResult(snapshot, "kailas-gongga-100-2026");
+  equal(result.status, 200);
+  if (result.status !== 200) return;
+  const primary = result.body.race.categories.find(({ isPrimaryCategory }) => isPrimaryCategory);
+  ok(primary);
+  equal(primary.distanceKm, 100.1);
+  equal(primary.cutoffTimeHours, 30);
+  equal(primary.elevationGain, null);
+});
+
+test("localized-conflict allowance still rejects missing core facts or a selected conflict value", () => {
+  const missingCore = withLocalizedOptionalConflict(canonical);
+  const missingCoreCategory = missingCore.records
+    .find(({ edition }) => edition.editionId === "kailas-gongga-100-2026")!
+    .categories.find(({ categoryId }) => categoryId === "kailas-gongga-100-2026-glacier-100")!;
+  missingCoreCategory.distanceKm = null;
+  equal(createPublicRaceDetailResult(missingCore, "kailas-gongga-100-2026").status, 404);
+
+  const selectedConflict = withLocalizedOptionalConflict(canonical);
+  const selectedConflictCategory = selectedConflict.records
+    .find(({ edition }) => edition.editionId === "kailas-gongga-100-2026")!
+    .categories.find(({ categoryId }) => categoryId === "kailas-gongga-100-2026-glacier-100")!;
+  selectedConflictCategory.elevationGain = 6176;
+  equal(createPublicRaceDetailResult(selectedConflict, "kailas-gongga-100-2026").status, 404);
 });
 
 test("detail returns the requested canonical edition", () => {
@@ -204,4 +239,26 @@ test("public DTO exposes only the approved product field set", () => {
 
 function withRecords(snapshot: RaceGraphSnapshot, records: RaceGraphSnapshot["records"]): RaceGraphSnapshot {
   return { ...structuredClone(snapshot), records: [...structuredClone(snapshot.records), ...structuredClone(records)] };
+}
+
+function withLocalizedOptionalConflict(snapshot: RaceGraphSnapshot): RaceGraphSnapshot {
+  const cloned = structuredClone(snapshot);
+  const record = cloned.records.find(({ edition }) => edition.editionId === "kailas-gongga-100-2026")!;
+  const primary = record.categories.find(({ categoryId }) => categoryId === "kailas-gongga-100-2026-glacier-100")!;
+  primary.elevationGain = null;
+  primary.governance.verified = false;
+  primary.governance.verificationStatus = "pending";
+  primary.governance.missingFields = [...new Set([...primary.governance.missingFields, "elevationGain"])];
+  delete primary.governance.fieldSources.elevationGain;
+  primary.governance.mergeTrace = [{
+    field: "elevationGain",
+    selectedSource: "placeholder",
+    reason: "Two official sources conflict, so no value is selected.",
+    candidates: [
+      { sourceType: "official", sourceName: "Official source A", value: 6176 },
+      { sourceType: "official", sourceName: "Official source B", value: 6200 },
+    ],
+  }];
+  primary.governance.internalFlags = ["elevation_gain_conflict_needs_review"];
+  return cloned;
 }

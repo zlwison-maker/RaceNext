@@ -173,6 +173,12 @@ function toCategoryViewModel(category: PublicRaceCategory, raceType: RaceType): 
   }
   if (category.startAt) {
     executionFacts.push({ key: "startAt", label: "出发时间", value: formatStartAt(category.startAt) });
+  } else if (category.startTimes?.length) {
+    executionFacts.push({
+      key: "startTimes",
+      label: "出发时间",
+      value: formatStartTimes(category.startTimes),
+    });
   }
   if (category.startLocation && category.startLocation === category.finishLocation) {
     executionFacts.push({ key: "startFinish", label: "起终点", value: category.startLocation });
@@ -334,7 +340,7 @@ function formatEditionSummary(
   hasMultipleCategories: boolean,
   category: PublicRaceCategory | null,
 ): string | null {
-  if (hasMultipleCategories && isTrailRaceType(raceType)) return null;
+  if (hasMultipleCategories) return null;
   const values = [formatRaceType(raceType)];
   if (!hasMultipleCategories && category?.distanceKm !== null && category?.distanceKm !== undefined) {
     values.push(`${formatNumber(category.distanceKm)} km`);
@@ -380,6 +386,25 @@ function formatStartAt(value: string): string {
   const dateOnly = value.match(/^(\d{4})-(\d{2})-(\d{2})$/);
   if (dateOnly) return `${dateOnly[1]}.${dateOnly[2]}.${dateOnly[3]}`;
   return value;
+}
+
+function formatStartTimes(values: string[]): string {
+  const parsed = values.map(parseStartTime);
+  if (parsed.some((value) => value === null)) return `${values.join(" / ")} 分枪`;
+
+  const startTimes = parsed as Array<NonNullable<ReturnType<typeof parseStartTime>>>;
+  const dates = new Set(startTimes.map(({ date }) => date));
+  const displays = startTimes.map(({ date, time }) => dates.size > 1 ? `${date} ${time}` : time);
+  return `${displays.join(" / ")} 分枪`;
+}
+
+function parseStartTime(value: string): { date: string; time: string } | null {
+  const dateTime = value.match(/^\d{4}-(\d{2})-(\d{2})[T ](\d{2}):(\d{2})/);
+  if (!dateTime) return null;
+  return {
+    date: `${dateTime[1]}.${dateTime[2]}`,
+    time: `${dateTime[3]}:${dateTime[4]}`,
+  };
 }
 
 function formatNumber(value: number): string {

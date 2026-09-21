@@ -199,7 +199,7 @@
           </view>
         </view>
 
-        <text wx:if="{{detail.raceGuide.closing}}" class="race-guide__closing">
+        <text wx:if="{{detail.hasAccommodation && detail.raceGuide.closing}}" class="race-guide__closing">
           {{detail.raceGuide.closing}}
         </text>
       </view>

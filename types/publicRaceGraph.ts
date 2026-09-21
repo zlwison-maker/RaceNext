@@ -42,6 +42,7 @@ export type PublicRaceCategory = {
   elevationGain: number | null;
   cutoffTimeHours: number | null;
   startAt: string | null;
+  startTimes: string[] | null;
   startLocation: string | null;
   finishLocation: string | null;
   registrationUrl: string | null;

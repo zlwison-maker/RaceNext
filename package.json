@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "images:share": "node scripts/generateMiniShareImages.mjs",
     "data:poc": "node scripts/dataPoc.ts",
     "data:runchina": "node scripts/connectors/runchinaConnector.ts",
     "data:zuicool": "node scripts/connectors/zuicoolConnector.ts",

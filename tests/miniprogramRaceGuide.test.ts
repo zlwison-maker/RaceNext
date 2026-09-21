@@ -146,6 +146,31 @@ test("Race Guide UI follows Opening, Judgment, Experiences, Runner Fit and optio
   }
 });
 
+test("Runner Fit renders explanations at a weaker copy level and tolerates missing explanations", () => {
+  const race = getPublicRace("tsaigu-kuocang-2026");
+  const detail = createRaceDetailViewModel(race);
+  ok(detail.raceGuide?.runnerFit?.items.every((item) => item.body.length > 0));
+
+  const withoutExplanations = structuredClone(race);
+  if (!withoutExplanations.raceGuide?.runnerFit) throw new Error("Missing Runner Fit fixture");
+  withoutExplanations.raceGuide.runnerFit.items.forEach((item) => { item.body = []; });
+  deepEqual(
+    createRaceDetailViewModel(withoutExplanations).raceGuide?.runnerFit?.items.map(({ body }) => body),
+    [[], [], []],
+  );
+
+  const wxml = readFileSync(
+    new URL("../miniprogram/pages/races/detail/index.wxml", import.meta.url),
+    "utf8",
+  );
+  ok(/wx:for="\{\{item\.body\}\}"[\s\S]*?class="race-guide__fit-copy"/.test(wxml));
+  const styles = readFileSync(
+    new URL("../miniprogram/pages/races/detail/index.wxss", import.meta.url),
+    "utf8",
+  );
+  ok(/\.race-guide__fit-copy\s*\{/.test(styles));
+});
+
 function readSourceTree(root: string): string {
   const parts: string[] = [];
   for (const entry of readdirSync(root, { withFileTypes: true })) {

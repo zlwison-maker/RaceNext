@@ -245,6 +245,8 @@ export interface Category {
   shortName?: string | null;
   /** ISO 8601 date or date-time including timezone/offset for this category's actual start. */
   startAt?: string | null;
+  /** Multiple official starts for one category, using the same ISO 8601 semantics as startAt. */
+  startTimes?: string[] | null;
   startLocation?: string | null;
   finishLocation?: string | null;
   registrationUrl?: string | null;

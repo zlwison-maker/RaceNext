@@ -245,6 +245,301 @@
           "notes": "Reviewed edition-specific trusted source record."
         }
       ]
+    },
+    {
+      "editionId": "xian-marathon-2026",
+      "sources": [
+        {
+          "sourceId": "xian-marathon-2026-official-site",
+          "url": "https://xi-ma.com/",
+          "domain": "xi-ma.com",
+          "tier": "primary_official",
+          "sourceType": "event_home",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Official event identity, 2026 Edition, date and 07:30 start evidence. Direct access stability remains an ingestion concern; conditional certification wording is not promoted to a final fact."
+        },
+        {
+          "sourceId": "xian-sports-bureau-2026-announcement",
+          "url": "https://xatyj.xa.gov.cn/xwzx/tzgg/2084571318943485954.html",
+          "domain": "xatyj.xa.gov.cn",
+          "tier": "primary_official",
+          "sourceType": "regulations",
+          "status": "active",
+          "isPrimary": true,
+          "notes": "Government official primary evidence for date, total and Category capacities, shared start location and distinct Marathon and Half Marathon finishes."
+        },
+        {
+          "sourceId": "xian-sports-bureau-2025-post-event",
+          "url": "https://xatyj.xa.gov.cn/xwzx/tpxw/1980111308111515649.html",
+          "domain": "xatyj.xa.gov.cn",
+          "tier": "primary_official",
+          "sourceType": "previous_edition_report",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Previous-edition government report used only for Race Guide evidence and image candidacy, never as 2026 race-fact evidence."
+        }
+      ]
+    },
+    {
+      "editionId": "chengdu-marathon-2026",
+      "sources": [
+        {
+          "sourceId": "chengdu-marathon-2026-rules",
+          "url": "https://chengdumarathon.cn/column/articleDetail/95?column_id=66&lang=cn",
+          "domain": "chengdumarathon.cn",
+          "tier": "primary_official",
+          "sourceType": "regulations",
+          "status": "active",
+          "isPrimary": true,
+          "notes": "Official primary evidence for date, Category facts, capacities, shared start, distinct finishes and the three official wave times. Wave times remain Evidence because the current Category schema cannot losslessly represent multiple starts."
+        },
+        {
+          "sourceId": "chengdu-redstar-2025-post-event",
+          "url": "https://static.cdsb.com/micropub/Articles/202510/9b9ee3f9492594581ce6f0798e2042c8.html",
+          "domain": "static.cdsb.com",
+          "tier": "trusted_secondary",
+          "sourceType": "previous_edition_media",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Tier 2 original-media evidence for Race Guide experience and previous-edition image candidacy; it does not override 2026 official facts."
+        }
+      ]
+    },
+    {
+      "editionId": "tsaigu-kuocang-2026",
+      "sources": [
+        {
+          "sourceId": "tsaigu-2026-rules",
+          "url": "https://tsaigu.com/text?mid=48686",
+          "domain": "tsaigu.com",
+          "tier": "primary_official",
+          "sourceType": "regulations",
+          "status": "active",
+          "isPrimary": true,
+          "notes": "Official primary evidence for the Edition window, three Categories, wave times, cutoffs and the 兴善门 closed-loop start/finish. Its 105K elevation value is 6677m and remains in conflict."
+        },
+        {
+          "sourceId": "tsaigu-2026-basic-info",
+          "url": "https://tsaigu.com/m/text?mid=48684",
+          "domain": "tsaigu.com",
+          "tier": "primary_official",
+          "sourceType": "category_page",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Same-edition official page whose 105K elevation value is 6583m. Retained as active conflict evidence and not silently discarded."
+        },
+        {
+          "sourceId": "xinhua-tsaigu-2025-post-event",
+          "url": "https://www.xinhuanet.com/sports/20251103/375d1499d52842b3941c92438a22425e/c.html",
+          "domain": "www.xinhuanet.com",
+          "tier": "trusted_secondary",
+          "sourceType": "previous_edition_media",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Tier 2 previous-edition Race Guide and image evidence. It does not resolve the two 2026 official elevation values."
+        },
+        {
+          "sourceId": "tsaigu-2026-rules-secondary",
+          "url": "https://www.ttb0571.com/content/2026-06/18/078574.html",
+          "domain": "www.ttb0571.com",
+          "tier": "trusted_secondary",
+          "sourceType": "media_report",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Tier 2 local-media cross-check for the 6677m rules value; it remains lower priority than both official pages."
+        }
+      ]
+    },
+    {
+      "editionId": "ninghai-ultra-trail-2026",
+      "sources": [
+        {
+          "sourceId": "ninghai100-official-gallery",
+          "url": "https://ninghai100.com/gallery",
+          "domain": "ninghai100.com",
+          "tier": "primary_official",
+          "sourceType": "event_home",
+          "status": "active",
+          "isPrimary": true,
+          "notes": "Official event identity and historical gallery only. It does not independently prove the precise 2026 Category metrics."
+        },
+        {
+          "sourceId": "kolon-ninghai-2026-announcement",
+          "url": "https://www.prnasia.com/story/527294-1.shtml",
+          "domain": "www.prnasia.com",
+          "tier": "trusted_secondary",
+          "sourceType": "official_partner_announcement",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Tier 2 official-partner evidence for the Edition window, overall capacity and UTNH-100 / CNH-60 / YNH-25 Category structure."
+        },
+        {
+          "sourceId": "gobichina-ninghai-2026",
+          "url": "https://gobichina.com/events/85637",
+          "domain": "gobichina.com",
+          "tier": "trusted_structured",
+          "sourceType": "registration_platform",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Tier 2 trusted registration evidence for the 2026 Category display values, cutoffs, waves and Ximen Gate venue. Precise fields retain Tier 2 provenance."
+        },
+        {
+          "sourceId": "itra-ninghai-cnh60-2026",
+          "url": "https://itra.run/Races/RaceDetails/KOLON.SPORT.Ultra.Trail%C2%AE.Ninghai.CNH.60/2026/118117",
+          "domain": "itra.run",
+          "tier": "trusted_structured",
+          "sourceType": "certification_platform",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Tier 2 certification evidence for CNH-60 at 59.13km / 2378m. Retained as a pending precision difference from the event display identity 60km / 2400m."
+        },
+        {
+          "sourceId": "ninghai-news-2025-post-event",
+          "url": "https://nh.cnnb.com.cn/system/2025/10/20/012608874.shtml",
+          "domain": "nh.cnnb.com.cn",
+          "tier": "trusted_secondary",
+          "sourceType": "previous_edition_media",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Tier 2 previous-edition Race Guide evidence. Watermarked media images are not final assets."
+        },
+        {
+          "sourceId": "ningbo-daily-ninghai-2024",
+          "url": "https://epaper.cnnb.com.cn/nbrb/pc/content/202410/21/content_180056.html",
+          "domain": "epaper.cnnb.com.cn",
+          "tier": "trusted_secondary",
+          "sourceType": "previous_edition_media",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Tier 2 historical evidence for Race Guide runnability and runner feedback; it does not define 2026 facts."
+        }
+      ]
+    },
+    {
+      "editionId": "guangzhou-marathon-2026",
+      "sources": [
+        {
+          "sourceId": "guangzhou-sports-bureau-2026-announcement",
+          "url": "https://tyj.gz.gov.cn/bmzc/xwbd/content/post_10989208.html",
+          "domain": "tyj.gz.gov.cn",
+          "tier": "primary_official",
+          "sourceType": "notice",
+          "status": "active",
+          "isPrimary": true,
+          "notes": "Government official primary evidence for the 2026 date, Marathon-only Category, capacity, endpoints, four wave times, registration and route structure."
+        },
+        {
+          "sourceId": "guangzhou-sports-bureau-2025-post-event",
+          "url": "https://tyj.gz.gov.cn/gkmlpt/content/10/10604/post_10604434.html",
+          "domain": "tyj.gz.gov.cn",
+          "tier": "primary_official",
+          "sourceType": "previous_edition_report",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Previous-edition government report used only for Race Guide evidence and image candidacy, not 2026 race facts."
+        }
+      ]
+    },
+    {
+      "editionId": "shenzhen-100-2026",
+      "sources": [
+        {
+          "sourceId": "letour-shenzhen100-2026-overview",
+          "url": "https://www.letoursports.com/event?id=887684&mid=75256",
+          "domain": "www.letoursports.com",
+          "tier": "primary_official",
+          "sourceType": "event_home",
+          "status": "active",
+          "isPrimary": true,
+          "notes": "Organizer official evidence for the Edition window, all Categories, current 35K distance and start/finish systems. TLS hostname mismatch remains an ingestion access issue, not a source-tier downgrade."
+        },
+        {
+          "sourceId": "letour-shenzhen100-2026-rules-list",
+          "url": "https://www.letoursports.com/articles?mid=57201",
+          "domain": "www.letoursports.com",
+          "tier": "primary_official",
+          "sourceType": "regulations",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Organizer official Category table supporting all current distances, elevations, start times and cutoffs, including 35K = 36.6km."
+        },
+        {
+          "sourceId": "letour-shenzhen100-2026-original",
+          "url": "https://www.letoursports.com/event?id=885632&mid=72298",
+          "domain": "www.letoursports.com",
+          "tier": "primary_official",
+          "sourceType": "category_page",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Organizer official 100K evidence for 101.3km / 7190m / 06:00 / 30h and the Dapeng Fortress to Dameisha route."
+        },
+        {
+          "sourceId": "yantian-shenzhen100-2025-post-event",
+          "url": "https://www.yantian.gov.cn/cn/zjyt/jjyt/bmxx/content/post_12581016.html",
+          "domain": "www.yantian.gov.cn",
+          "tier": "primary_official",
+          "sourceType": "previous_edition_report",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Previous-edition government report used only for Race Guide evidence and image candidacy."
+        }
+      ]
+    },
+    {
+      "editionId": "chongqing-marathon-2027",
+      "sources": [
+        {
+          "sourceId": "chongqing-marathon-2027-rules",
+          "url": "https://static.cqmarathon.com/News/Detail/21070C87897D1015",
+          "domain": "static.cqmarathon.com",
+          "tier": "primary_official",
+          "sourceType": "regulations",
+          "status": "active",
+          "isPrimary": true,
+          "notes": "Official primary evidence for the Marathon distance, capacity, Haitang Yanyu Park start/finish, route and six-hour cutoff."
+        },
+        {
+          "sourceId": "chongqing-marathon-2027-registration",
+          "url": "https://www.cqmarathon.com/News/Detail/1CB916B2816F6C28",
+          "domain": "www.cqmarathon.com",
+          "tier": "primary_official",
+          "sourceType": "registration_notice",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Official cross-evidence for 2027-01-10 08:00, the route, capacity and qualification process."
+        },
+        {
+          "sourceId": "chongqing-daily-2026-post-event",
+          "url": "https://cqrb.cn/wenlv/shangyou/2026-01-18/2541406_pc.html",
+          "domain": "cqrb.cn",
+          "tier": "trusted_secondary",
+          "sourceType": "previous_edition_media",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Tier 2 previous-edition Race Guide and runner-feedback evidence. Image reuse requires separate permission."
+        },
+        {
+          "sourceId": "rqrun-chongqing-2026-analysis",
+          "url": "https://www.rq.run/article/content?id=414",
+          "domain": "www.rq.run",
+          "tier": "trusted_secondary",
+          "sourceType": "specialist_media",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Tier 2 specialist evidence for historical PB, humidity and long-gradient context; it does not override 2027 official facts."
+        },
+        {
+          "sourceId": "chongqing-gov-date-change-context",
+          "url": "https://www.cq.gov.cn/ywdt/jrcq/202509/t20250905_14970992.html",
+          "domain": "www.cq.gov.cn",
+          "tier": "primary_official",
+          "sourceType": "government_context",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Government background evidence for the date-window change and PB rationale; it does not define the precise 2027 date."
+        }
+      ]
     }
   ]
 }
