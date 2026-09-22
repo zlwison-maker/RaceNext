@@ -93,4 +93,5 @@ export const hk100RaceGuide = {
       },
     ],
   },
+  transition: "如果已经决定跑港百，接下来最值得提前想清楚的，就是住在哪里，以及比赛日清晨怎么稳定到北潭涌起点。",
 } satisfies RaceEditorialContent;

@@ -170,6 +170,39 @@ const batchTwoAccommodation = [
   },
 ] as const;
 
+const batchThreeAccommodation = [
+  {
+    editionId: "xiamen-marathon-2027",
+    hotels: [
+      ["厦门滨海悦华酒店（厦门国际会展店）", "比赛日最省事", "靠近厦门国际会展中心，适合把比赛日清晨少折腾、尽量步行前往赛事区域放在第一位的跑者。", "/pages/hotel/detail/index?id=428108&inday=2026-09-24&outday=2026-09-25&biz=1&ouid=link&AllianceID=9729651&sid=327120872&guid=10650054344_share_9729651_1790055774620&sct=open_platform"],
+      ["厦门日航酒店（会展中心环岛路店）", "往届跑者实测", "靠近会展中心，并有往届厦马跑者实际入住反馈，酒店曾提供延迟退房和赛后服务，适合希望参考真实参赛住宿经验的跑者。", "/pages/hotel/detail/index?id=375296&inday=2026-09-24&outday=2026-09-25&biz=1&ouid=link&AllianceID=9729651&sid=327120872&guid=10650054344_share_9729651_1790055823371&sct=open_platform"],
+      ["厦门国际会议中心酒店", "近起终点成熟酒店", "位于会展中心片区，适合希望兼顾比赛日出发便利和成熟酒店住宿体验，同时为热门赛事多保留一个可订选择的跑者。", "/pages/hotel/detail/index?id=427947&inday=2026-09-24&outday=2026-09-25&biz=1&ouid=link&AllianceID=9729651&sid=327120872&guid=10650054344_share_9729651_1790055855630&sct=open_platform"],
+      ["厦门天元君隆大酒店（环岛路会展中心店）", "往届赛事服务实测", "有往届厦马跑者实际入住反馈，酒店曾为参赛者提供赛后姜茶、甜品等服务，适合希望参考真实赛事住宿体验的跑者；比赛日交通仍以 2027 官方安排为准。", "/pages/hotel/detail/index?biz=1&id=734162&inday=2026-09-22&outday=2026-09-23&ouid=link&AllianceID=9729651&sid=327120872&guid=10650054344_share_9729651_1790055913452&sct=open_platform"],
+      ["喜之缘酒店（会展中心环岛路店）", "会展中心近距离备选", "靠近厦门国际会展中心，适合热门赛事期间希望尽量住在赛事区域附近，同时多保留一个可订选择的跑者。", "/pages/hotel/detail/index?biz=1&id=133526885&inday=2026-09-22&outday=2026-09-23&ouid=link&AllianceID=9729651&sid=327120872&guid=10650054344_share_9729651_1790055959331&sct=open_platform"],
+    ],
+  },
+  {
+    editionId: "chongqing-marathon-2027",
+    hotels: [
+      ["重庆南山忆江景公寓（南滨公园店）", "往届跑者实测", "有往届重庆马拉松跑者实际入住反馈，靠近海棠烟雨公园起终点，适合把比赛日出发和完赛后返回住宿的便利放在第一位的跑者。", "/pages/hotel/detail/index?id=106801379&inday=2026-09-24&outday=2026-09-25&biz=1&ouid=link&AllianceID=9729651&sid=327120872&guid=10650054344_share_9729651_1790056714570&sct=open_platform"],
+      ["重庆喜来登大酒店", "起终点旁标准酒店", "靠近海棠烟雨公园起终点，适合希望比赛日少折腾，同时更偏好标准大酒店住宿体验的跑者。", "/pages/hotel/detail/index?biz=1&id=386932&inday=2026-09-22&outday=2026-09-23&ouid=link&AllianceID=9729651&sid=327120872&guid=10650054344_share_9729651_1790056523626&sct=open_platform"],
+      ["汉庭酒店（重庆南滨路皇冠国际江景店）", "近起终点连锁备选", "靠近海棠烟雨公园，适合希望兼顾比赛日便利和标准连锁住宿，同时为热门赛事多留一个可订选择的跑者。", "/pages/hotel/detail/index?id=130203655&inday=2026-09-24&outday=2026-09-25&biz=1&ouid=link&AllianceID=9729651&sid=327120872&guid=10650054344_share_9729651_1790056562789&sct=open_platform"],
+      ["全季酒店（重庆南滨路皇冠国际江景店）", "近起终点品质连锁备选", "靠近海棠烟雨公园，适合希望兼顾比赛日便利和标准连锁住宿，同时为起终点核心区域多保留一个可订选择的跑者。", "/pages/hotel/detail/index?id=116697356&inday=2026-09-24&outday=2026-09-25&biz=1&ouid=link&AllianceID=9729651&sid=327120872&guid=10650054344_share_9729651_1790057109552&sct=open_platform"],
+      ["朗丽兹酒店（重庆南滨路圣地温泉店）", "南滨路成熟酒店备选", "位于南滨路一带，距海棠烟雨公园比前几家稍远，但住宿供给更稳定，适合核心起终点附近酒店紧张时作为补充选择。", "/pages/hotel/detail/index?id=430215&inday=2026-09-24&outday=2026-09-25&biz=1&ouid=link&AllianceID=9729651&sid=327120872&guid=10650054344_share_9729651_1790056611273&sct=open_platform"],
+    ],
+  },
+  {
+    editionId: "hk100-2027",
+    hotels: [
+      ["香港沙田丽豪酒店", "官方接驳·综合最稳", "2027 港百官方合作住宿，并设有前往北潭涌起点的官方接驳；同时有往届 HK100 跑者实际入住经验，适合希望把比赛日交通确定性放在第一位的跑者。", "/pages/hotel/detail/index?id=436847&inday=2026-09-24&outday=2026-09-25&biz=1&ouid=link&AllianceID=9729651&sid=327120872&guid=10650054344_share_9729651_1790057418982&sct=open_platform"],
+      ["香港 WM 酒店", "西贡侧起点优先", "2027 港百官方合作住宿，位于西贡，更适合 The Third、The Half 和 Grand Sam 跑者减少前往北潭涌的距离；HK100 100K 完赛后返回西贡则相对更远。", "/pages/hotel/detail/index?id=78146199&inday=2026-09-24&outday=2026-09-25&biz=1&ouid=link&AllianceID=9729651&sid=327120872&guid=10650054344_share_9729651_1790057448417&sct=open_platform"],
+      ["香港龙堡国际", "高铁到港·官方接驳", "2027 港百官方合作住宿，并设有前往北潭涌的官方接驳，靠近西九龙和佐敦一带，适合从内地高铁到港、希望把住宿和比赛日交通一起解决的跑者。", "/pages/hotel/detail/index?id=436496&inday=2026-09-24&outday=2026-09-25&biz=1&ouid=link&AllianceID=9729651&sid=327120872&guid=10650054344_share_9729651_1790057477897&sct=open_platform"],
+      ["香港九龙维景酒店", "九龙官方接驳备选", "2027 港百官方合作住宿，并设有前往北潭涌的官方接驳，适合希望住在九龙市区，同时避免比赛日凌晨自行安排前往起点交通的跑者。", "/pages/hotel/detail/index?id=344967&inday=2026-09-24&outday=2026-09-25&biz=1&ouid=link&AllianceID=9729651&sid=327120872&guid=10650054344_share_9729651_1790057506631&sct=open_platform"],
+      ["湾景国际", "港岛住宿·官方接驳", "2027 港百官方合作住宿，并设有前往北潭涌的官方接驳，适合希望住在香港岛、同时把比赛日凌晨交通确定性交给官方安排的跑者。", "/pages/hotel/detail/index?id=436871&inday=2026-09-24&outday=2026-09-25&biz=1&ouid=link&AllianceID=9729651&sid=327120872&guid=10650054344_share_9729651_1790057561544&sct=open_platform"],
+    ],
+  },
+] as const;
+
 test("legacy Detail DTO without accommodationRecommendations remains usable", () => {
   const {
     accommodationRecommendations: _accommodationRecommendations,
@@ -293,23 +326,69 @@ test("Accommodation Batch 2 exposes all 20 approved hotels and exact Ctrip actio
   );
 });
 
+test("Accommodation Batch 3 exposes all 15 approved hotels and exact Ctrip actions", () => {
+  let total = 0;
+  for (const expectedRace of batchThreeAccommodation) {
+    const shared = getRaceAccommodationRecommendations(expectedRace.editionId);
+    const publicRace = getPublicRace(expectedRace.editionId);
+    const detail = createRaceDetailViewModel(publicRace);
+    const expectedHotels = expectedRace.hotels.map(([
+      hotelName,
+      recommendationTitle,
+      recommendationReason,
+      path,
+    ]) => ({
+      hotelName,
+      recommendationTitle,
+      recommendationReason,
+      appId: "wx0e6ed4f51db9d078",
+      path,
+    }));
+    total += shared.length;
+
+    equal(shared.length, 5);
+    equal(publicRace.accommodationRecommendations.length, 5);
+    equal(detail.hasAccommodation, true);
+    deepEqual(detail.accommodationRecommendations.map((recommendation) => ({
+      hotelName: recommendation.hotelName,
+      recommendationTitle: recommendation.recommendationTitle,
+      recommendationReason: recommendation.recommendationReason,
+      appId: recommendation.wechatAction?.appId,
+      path: recommendation.wechatAction?.path,
+    })), expectedHotels);
+    deepEqual(
+      publicRace.accommodationRecommendations.map(({ displayOrder }) => displayOrder),
+      [1, 2, 3, 4, 5],
+    );
+    deepEqual(
+      publicRace.accommodationRecommendations.map(({ actions }) => actions.wechat),
+      shared.map(({ hotel }) => hotel.actions.wechat),
+    );
+  }
+  equal(total, 15);
+  equal(
+    [
+      "beijing-marathon-2026",
+      ...batchOneAccommodation.map(({ editionId }) => editionId),
+      ...batchTwoAccommodation.map(({ editionId }) => editionId),
+      ...batchThreeAccommodation.map(({ editionId }) => editionId),
+    ].reduce((sum, editionId) => sum + getRaceAccommodationRecommendations(editionId).length, 0),
+    51,
+  );
+});
+
 test("Race Guide Closing uses the same Accommodation availability as the guide tab", () => {
   const beijingRace = getPublicRace("beijing-marathon-2026");
   const beijing = createRaceDetailViewModel(beijingRace);
 
   equal(beijing.hasAccommodation, true);
   ok(beijing.raceGuide?.closing);
-  for (const { editionId } of [...batchOneAccommodation, ...batchTwoAccommodation]) {
+  for (const { editionId } of [...batchOneAccommodation, ...batchTwoAccommodation, ...batchThreeAccommodation]) {
     const detail = createRaceDetailViewModel(getPublicRace(editionId));
     equal(detail.hasAccommodation, true, editionId);
     ok(detail.raceGuide?.closing, editionId);
   }
-  for (const editionId of [
-    "xiamen-marathon-2027",
-    "chongqing-marathon-2027",
-    "hk100-2027",
-    "kailas-gongga-100-2026",
-  ]) {
+  for (const editionId of ["kailas-gongga-100-2026"]) {
     const detail = createRaceDetailViewModel(getPublicRace(editionId));
     equal(detail.hasAccommodation, false, editionId);
   }
@@ -322,13 +401,13 @@ test("Race Guide Closing uses the same Accommodation availability as the guide t
 });
 
 test("races without recommendations do not show an accommodation tab", () => {
-  for (const editionId of ["xiamen-marathon-2027", "chongqing-marathon-2027", "hk100-2027", "kailas-gongga-100-2026"]) {
+  for (const editionId of ["kailas-gongga-100-2026"]) {
     equal(createRaceDetailViewModel(getPublicRace(editionId)).hasAccommodation, false);
   }
 });
 
 test("hotel jump passes the complete Ctrip action without rewriting it", () => {
-  const recommendations = [...batchOneAccommodation, ...batchTwoAccommodation].flatMap(({ editionId }) =>
+  const recommendations = [...batchOneAccommodation, ...batchTwoAccommodation, ...batchThreeAccommodation].flatMap(({ editionId }) =>
     createRaceDetailViewModel(getPublicRace(editionId)).accommodationRecommendations);
   type CapturedJump = { appId: string; path?: string; envVersion?: string };
   const received: CapturedJump[] = [];
