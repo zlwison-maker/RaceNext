@@ -108,7 +108,7 @@ test("Beijing detail exposes three ordered accommodation recommendations", () =>
 });
 
 test("other race details have no accommodation recommendations", () => {
-  for (const editionId of ["shanghai-marathon-2026", "xiamen-marathon-2027", "hk100-2027", "kailas-gongga-100-2026"]) {
+  for (const editionId of ["xiamen-marathon-2027", "chongqing-marathon-2027", "hk100-2027", "kailas-gongga-100-2026"]) {
     const result = createPublicRaceDetailResult(canonical, editionId);
     equal(result.status, 200);
     if (result.status === 200) deepEqual(result.body.race.accommodationRecommendations, []);
