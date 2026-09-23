@@ -50,10 +50,10 @@ const guangzhou = getPublicRace("guangzhou-marathon-2026");
 const shenzhen = getPublicRace("shenzhen-100-2026");
 const chongqing = getPublicRace("chongqing-marathon-2027");
 
-test("homepage detail navigation uses editionId as the only query identity", () => {
+test("homepage detail navigation keeps editionId identity and marks the home source", () => {
   let navigatedUrl = "";
-  navigateToRaceDetail("shanghai-marathon-2026", ({ url }) => { navigatedUrl = url; });
-  equal(navigatedUrl, "/pages/races/detail/index?editionId=shanghai-marathon-2026");
+  navigateToRaceDetail("shanghai-marathon-2026", "home", ({ url }) => { navigatedUrl = url; });
+  equal(navigatedUrl, "/pages/races/detail/index?editionId=shanghai-marathon-2026&source=home");
 });
 
 test("Detail API path uses editionId", () => {

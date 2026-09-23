@@ -473,7 +473,7 @@ test("share and launch-navigation safeguards remain intact", () => {
     heroImage: "/races/xian/hero.jpg",
   });
   equal(share.appMessage.title, "2026西安马拉松｜下一场参赛指南");
-  equal(share.appMessage.path, "/pages/races/detail/index?editionId=xian-marathon-2026");
+  equal(share.appMessage.path, "/pages/races/detail/index?editionId=xian-marathon-2026&source=share");
   equal(share.appMessage.imageUrl, "/races/xian/cover.jpg");
 
   const detailTemplate = readFileSync(new URL("../miniprogram/pages/races/detail/index.wxml", import.meta.url), "utf8");

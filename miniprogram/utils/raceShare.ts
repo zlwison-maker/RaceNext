@@ -1,7 +1,9 @@
+import type { RaceAnalyticsSource } from "./analytics";
+
 export const SHARE_ACTION_RESTORE_DELAY_MS = 1200;
 
 export type RaceShareChannel = "app_message" | "timeline";
-export type RaceShareSource = "bottom_action" | "native_menu";
+export type RaceShareTriggerSource = "bottom_action" | "native_menu";
 
 type RaceShareContext = {
   editionId: string;
@@ -37,12 +39,12 @@ export function createRaceShareConfig(context: RaceShareContext): RaceShareConfi
   return {
     appMessage: {
       title,
-      path: `/pages/races/detail/index?editionId=${editionId}`,
+      path: `/pages/races/detail/index?editionId=${editionId}&source=share`,
       ...image,
     },
     timeline: {
       title,
-      query: `editionId=${editionId}`,
+      query: `editionId=${editionId}&source=share`,
       ...image,
     },
   };
@@ -51,18 +53,21 @@ export function createRaceShareConfig(context: RaceShareContext): RaceShareConfi
 export function createRaceShareAnalyticsData(
   context: Pick<RaceShareContext, "editionId" | "raceId">,
   channel: RaceShareChannel,
-  source: RaceShareSource,
+  source: RaceAnalyticsSource,
+  triggerSource: RaceShareTriggerSource,
 ): {
-  editionId: string;
-  raceId: string;
+  event_id: string;
+  edition_id: string;
   channel: RaceShareChannel;
-  source: RaceShareSource;
+  source: RaceAnalyticsSource;
+  trigger_source: RaceShareTriggerSource;
 } {
   return {
-    editionId: context.editionId,
-    raceId: context.raceId,
+    event_id: context.raceId,
+    edition_id: context.editionId,
     channel,
     source,
+    trigger_source: triggerSource,
   };
 }
 

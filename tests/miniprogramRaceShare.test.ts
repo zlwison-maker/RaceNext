@@ -36,9 +36,9 @@ test("share config uses the current race title and editionId", () => {
       heroImage: null,
     });
     equal(config.appMessage.title, `${name}｜下一场参赛指南`);
-    equal(config.appMessage.path, `/pages/races/detail/index?editionId=${editionId}`);
+    equal(config.appMessage.path, `/pages/races/detail/index?editionId=${editionId}&source=share`);
     equal(config.timeline.title, `${name}｜下一场参赛指南`);
-    equal(config.timeline.query, `editionId=${editionId}`);
+    equal(config.timeline.query, `editionId=${editionId}&source=share`);
   }
 });
 
@@ -124,22 +124,29 @@ test("share config does not introduce a dedicated share image field", () => {
 
 test("share analytics distinguishes bottom, menu and timeline triggers", () => {
   const context = { editionId: "hk100-2027", raceId: "hk100" };
-  deepEqual(createRaceShareAnalyticsData(context, "app_message", "bottom_action"), {
-    ...context,
+  deepEqual(createRaceShareAnalyticsData(context, "app_message", "home", "bottom_action"), {
+    event_id: "hk100",
+    edition_id: "hk100-2027",
     channel: "app_message",
-    source: "bottom_action",
+    source: "home",
+    trigger_source: "bottom_action",
   });
-  deepEqual(createRaceShareAnalyticsData(context, "app_message", "native_menu"), {
-    ...context,
+  deepEqual(createRaceShareAnalyticsData(context, "app_message", "direct", "native_menu"), {
+    event_id: "hk100",
+    edition_id: "hk100-2027",
     channel: "app_message",
-    source: "native_menu",
+    source: "direct",
+    trigger_source: "native_menu",
   });
-  deepEqual(createRaceShareAnalyticsData(context, "timeline", "native_menu"), {
-    ...context,
+  deepEqual(createRaceShareAnalyticsData(context, "timeline", "share", "native_menu"), {
+    event_id: "hk100",
+    edition_id: "hk100-2027",
     channel: "timeline",
-    source: "native_menu",
+    source: "share",
+    trigger_source: "native_menu",
   });
-  ok(pageScript.includes('trackEvent(\n      "race_share_initiated"'));
+  ok(pageScript.includes('trackEvent(\n      "race_share"'));
+  equal(pageScript.includes("race_share_initiated"), false);
 });
 
 test("share action visibility avoids redundant updates and restores after 1200ms", () => {

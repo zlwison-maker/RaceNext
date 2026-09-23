@@ -244,6 +244,8 @@
             wx:for="{{detail.accommodationRecommendations}}"
             wx:key="recommendationId"
             class="hotel-card"
+            id="hotel-card-{{index}}"
+            data-recommendation-id="{{item.recommendationId}}"
           >
             <text class="hotel-card__title">{{item.recommendationTitle}}</text>
             <view class="hotel-card__entity">
