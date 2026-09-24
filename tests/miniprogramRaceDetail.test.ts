@@ -96,23 +96,23 @@ test("multi-Category road races do not repeat type or distance in Edition facts"
 
 test("multi-start Categories display every official wave without changing single-start formatting", () => {
   const chengduDetail = createRaceDetailViewModel(chengdu);
-  equal(categoryStart(chengduDetail, "chengdu-marathon-2026-marathon"), "07:30 / 07:50 分枪");
+  equal(categoryStart(chengduDetail, "chengdu-marathon-2026-marathon"), "2026.10.25 07:30 / 07:50 分枪");
   equal(categoryStart(chengduDetail, "chengdu-marathon-2026-half-marathon"), "2026.10.25 08:10");
 
   equal(
     categoryStart(createRaceDetailViewModel(guangzhou), "guangzhou-marathon-2026-marathon"),
-    "07:00 / 07:10 / 07:20 / 07:30 分枪",
+    "2026.12.20 07:00 / 07:10 / 07:20 / 07:30 分枪",
   );
 
   const tsaiguDetail = createRaceDetailViewModel(tsaigu);
-  equal(categoryStart(tsaiguDetail, "tsaigu-kuocang-2026-105k"), "05:10 / 05:30 分枪");
-  equal(categoryStart(tsaiguDetail, "tsaigu-kuocang-2026-50k"), "05:40 / 06:00 分枪");
-  equal(categoryStart(tsaiguDetail, "tsaigu-kuocang-2026-25k"), "07:45 / 08:00 分枪");
+  equal(categoryStart(tsaiguDetail, "tsaigu-kuocang-2026-105k"), "2026.10.31 05:10 / 05:30 分枪");
+  equal(categoryStart(tsaiguDetail, "tsaigu-kuocang-2026-50k"), "2026.10.30 05:40 / 06:00 分枪");
+  equal(categoryStart(tsaiguDetail, "tsaigu-kuocang-2026-25k"), "2026.11.01 07:45 / 08:00 分枪");
 
   const ninghaiDetail = createRaceDetailViewModel(ninghai);
   equal(categoryStart(ninghaiDetail, "ninghai-ultra-trail-2026-utnh-100"), "2026.11.14 06:00");
-  equal(categoryStart(ninghaiDetail, "ninghai-ultra-trail-2026-cnh-60"), "06:00 / 06:20 分枪");
-  equal(categoryStart(ninghaiDetail, "ninghai-ultra-trail-2026-ynh-25"), "07:00 / 07:20 / 07:40 分枪");
+  equal(categoryStart(ninghaiDetail, "ninghai-ultra-trail-2026-cnh-60"), "2026.11.13 06:00 / 06:20 分枪");
+  equal(categoryStart(ninghaiDetail, "ninghai-ultra-trail-2026-ynh-25"), "2026.11.15 07:00 / 07:20 / 07:40 分枪");
 
   equal(categoryStart(createRaceDetailViewModel(shenzhen), "shenzhen-100-2026-torx-chn100"), "2026.12.26 06:00");
   equal(categoryStart(createRaceDetailViewModel(chongqing), "chongqing-marathon-2027-marathon"), "2027.01.10 08:00");
@@ -127,7 +127,34 @@ test("multi-start formatting preserves dates when waves cross calendar days", ()
   ];
   equal(
     categoryStart(createRaceDetailViewModel(race), "chengdu-marathon-2026-marathon"),
-    "10.25 23:50 / 10.26 00:10 分枪",
+    "2026.10.25 23:50 / 2026.10.26 00:10 分枪",
+  );
+});
+
+test("Trail Core Facts show three metrics without an empty descent slot", () => {
+  const detail = createRaceDetailViewModel(gongga);
+  deepEqual(
+    detail.selectedCategory?.coreFacts,
+    [
+      { key: "distance", label: "距离", value: "100.1 km" },
+      { key: "elevationGain", label: "爬升", value: "7,025 m" },
+      { key: "cutoff", label: "关门时间", value: "30 h" },
+    ],
+  );
+});
+
+test("Trail Core Facts insert sourced descent between climb and cutoff", () => {
+  const race = structuredClone(gongga);
+  race.categories[0].elevationLoss = 6888;
+  const detail = createRaceDetailViewModel(race);
+  deepEqual(
+    detail.selectedCategory?.coreFacts,
+    [
+      { key: "distance", label: "距离", value: "100.1 km" },
+      { key: "elevationGain", label: "爬升", value: "7,025 m" },
+      { key: "elevationLoss", label: "下降", value: "6,888 m" },
+      { key: "cutoff", label: "关门时间", value: "30 h" },
+    ],
   );
 });
 
@@ -166,7 +193,7 @@ test("Edition facts use a natural vertical reading axis", () => {
 });
 
 test("unknown registration status stays hidden", () => {
-  equal(createRaceDetailViewModel(beijing).registrationDisplay, null);
+  equal(createRaceDetailViewModel(hk100).registrationDisplay, null);
 });
 
 test("registration status distinguishes not started from officially not announced", () => {
@@ -183,7 +210,9 @@ test("all First5 share the Canonical Hero asset with independent Mini Program pr
     ["aspectFill", "aspectFill", "aspectFill", "aspectFill", "aspectFill"],
   );
   equal(createRaceDetailViewModel(shanghai).heroImage, shanghai.heroImage);
-  equal(createRaceDetailViewModel(shanghai).heroFocalPoint, "62% 50%");
+  equal(createRaceDetailViewModel(shanghai).heroFocalPoint, "82% 50%");
+  equal(createRaceDetailViewModel(shanghai).heroUsesFocalBackground, true);
+  equal(createRaceDetailViewModel(gongga).heroUsesFocalBackground, false);
   equal(createRaceDetailViewModel(gongga).heroFocalPoint, "44% 50%");
   equal(JSON.stringify(canonical).includes("miniProgramHeroImage"), false);
   equal(JSON.stringify(canonical).includes("webHeroImage"), false);
@@ -192,7 +221,14 @@ test("all First5 share the Canonical Hero asset with independent Mini Program pr
     new URL("../miniprogram/pages/races/detail/index.wxss", import.meta.url),
     "utf8",
   );
+  const template = readFileSync(
+    new URL("../miniprogram/pages/races/detail/index.wxml", import.meta.url),
+    "utf8",
+  );
   ok(/\.hero\s*\{[\s\S]*?height:\s*375rpx/.test(styles));
+  ok(template.includes("detail.heroUsesFocalBackground"));
+  ok(/\.hero-image--positioned\s*\{[\s\S]*?background-size:\s*cover/.test(styles));
+  ok(/class="hero-image__probe"[\s\S]*?binderror="handleHeroImageError"/.test(template));
 });
 
 test("Batch launch races keep their finalized Canonical Hero URLs", () => {
@@ -206,7 +242,7 @@ test("Detail H1 is one step above card titles and physically capped at two lines
     new URL("../miniprogram/pages/races/detail/index.wxss", import.meta.url),
     "utf8",
   );
-  ok(/\.race-title\s*\{[\s\S]*?max-height:\s*104rpx[\s\S]*?font-size:\s*40rpx[\s\S]*?line-height:\s*52rpx/.test(styles));
+  ok(/\.race-title\s*\{[\s\S]*?max-height:\s*120rpx[\s\S]*?font-size:\s*44rpx[\s\S]*?line-height:\s*60rpx/.test(styles));
   ok(/-webkit-line-clamp:\s*2/.test(styles));
 });
 

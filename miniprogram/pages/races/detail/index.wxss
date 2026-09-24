@@ -62,6 +62,18 @@
   height: 100%;
 }
 
+.hero-image--positioned {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero-image__probe {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
 .hero-fallback {
   display: flex;
   align-items: center;
@@ -84,19 +96,19 @@
 
 .race-title {
   display: -webkit-box;
-  max-height: 104rpx;
+  max-height: 120rpx;
   overflow: hidden;
   color: #111111;
-  font-size: 40rpx;
-  font-weight: 650;
-  line-height: 52rpx;
+  font-size: 44rpx;
+  font-weight: 700;
+  line-height: 60rpx;
   letter-spacing: -0.4rpx;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 }
 
 .edition-meta {
-  margin-top: 26rpx;
+  margin-top: 32rpx;
 }
 
 .edition-meta__primary,
@@ -107,7 +119,7 @@
 
 .guide-tabs {
   display: flex;
-  margin-top: 64rpx;
+  margin-top: 66rpx;
   border-bottom: 1rpx solid #e9e9e5;
   gap: 48rpx;
 }
@@ -116,14 +128,14 @@
   position: relative;
   padding-bottom: 18rpx;
   color: #8a8a8a;
-  font-size: 28rpx;
+  font-size: 34rpx;
   font-weight: 500;
-  line-height: 1.4;
+  line-height: 48rpx;
 }
 
 .guide-tab--active {
   color: #111111;
-  font-weight: 650;
+  font-weight: 600;
 }
 
 .guide-tab--active::after {
@@ -137,25 +149,31 @@
 }
 
 .edition-meta__primary {
-  margin-top: 8rpx;
-  color: #333333;
-  font-size: 29rpx;
-  line-height: 1.5;
+  margin-top: 12rpx;
+  color: #2a2a2a;
+  font-size: 32rpx;
+  font-weight: 500;
+  line-height: 48rpx;
+}
+
+.edition-meta__primary:first-child {
+  margin-top: 0;
 }
 
 .edition-meta__summary {
-  margin-top: 20rpx;
-  color: #111111;
-  font-size: 27rpx;
+  margin-top: 12rpx;
+  color: #2a2a2a;
+  font-size: 32rpx;
   font-weight: 500;
-  line-height: 1.45;
+  line-height: 48rpx;
 }
 
 .edition-meta__registration {
-  margin-top: 8rpx;
-  color: #929292;
-  font-size: 24rpx;
-  line-height: 1.45;
+  margin-top: 12rpx;
+  color: #8a8a8a;
+  font-size: 28rpx;
+  font-weight: 500;
+  line-height: 44rpx;
 }
 
 .category-section {
@@ -165,50 +183,64 @@
 .category-heading {
   display: block;
   color: #111111;
-  font-size: 28rpx;
+  font-size: 32rpx;
   font-weight: 600;
-  line-height: 1.4;
+  line-height: 48rpx;
+}
+
+.category-selector-scroll {
+  width: 100%;
+  margin-top: 16rpx;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .category-selector {
-  display: flex;
-  margin-top: 26rpx;
-  border-bottom: 1rpx solid #e9e9e5;
-  gap: 44rpx;
+  display: inline-flex;
+  padding-right: 4rpx;
+  gap: 36rpx;
 }
 
 .category-option {
   position: relative;
-  padding: 0 0 18rpx;
+  flex: 0 0 auto;
+  padding: 0 0 14rpx;
+  border-bottom: 3rpx solid transparent;
   color: #8a8a8a;
-  font-size: 29rpx;
+  font-size: 32rpx;
   font-weight: 500;
-  line-height: 1.4;
+  line-height: 48rpx;
 }
 
 .category-option--active {
+  border-bottom-color: #111111;
   color: #111111;
-  font-weight: 650;
-}
-
-.category-option--active::after {
-  position: absolute;
-  right: 0;
-  bottom: -1rpx;
-  left: 0;
-  height: 3rpx;
-  background: #111111;
-  content: "";
+  font-weight: 600;
 }
 
 .category-option--pressed {
   opacity: 0.58;
 }
 
+.core-facts-scroll {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 .core-facts {
   display: flex;
-  padding: 36rpx 0 34rpx;
-  border-bottom: 1rpx solid #e9e9e5;
+  padding: 44rpx 0 22rpx;
+  white-space: normal;
+}
+
+.core-facts--scrollable {
+  min-width: 820rpx;
+}
+
+.core-facts--scrollable .core-fact {
+  min-width: 188rpx;
+  flex: 1 0 188rpx;
 }
 
 .core-fact {
@@ -228,42 +260,45 @@
 .core-fact__value {
   overflow: hidden;
   color: #111111;
-  font-size: 34rpx;
+  font-size: 40rpx;
   font-weight: 600;
-  line-height: 1.25;
+  line-height: 56rpx;
   letter-spacing: -0.4rpx;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .core-fact__label {
-  margin-top: 8rpx;
+  margin-top: 4rpx;
   color: #8a8a8a;
-  font-size: 23rpx;
-  line-height: 1.4;
+  font-size: 28rpx;
+  font-weight: 400;
+  line-height: 44rpx;
 }
 
 .execution-fact {
   display: flex;
   padding: 24rpx 0;
-  border-bottom: 1rpx solid #e9e9e5;
+  border-bottom: 1rpx solid #f0f0ed;
   align-items: flex-start;
 }
 
 .execution-fact__label {
-  width: 120rpx;
+  width: 132rpx;
   flex: 0 0 auto;
   color: #8a8a8a;
-  font-size: 24rpx;
-  line-height: 1.5;
+  font-size: 28rpx;
+  font-weight: 400;
+  line-height: 44rpx;
 }
 
 .execution-fact__value {
   min-width: 0;
   flex: 1;
   color: #222222;
-  font-size: 27rpx;
-  line-height: 1.5;
+  font-size: 30rpx;
+  font-weight: 400;
+  line-height: 44rpx;
 }
 
 .race-guide {
@@ -290,26 +325,26 @@
 
 .race-guide__eyebrow {
   color: #8a8a8a;
-  font-size: 21rpx;
+  font-size: 24rpx;
   font-weight: 600;
-  line-height: 1.4;
+  line-height: 36rpx;
   letter-spacing: 3.2rpx;
 }
 
 .race-guide__title {
   margin-top: 14rpx;
   color: #111111;
-  font-size: 38rpx;
-  font-weight: 650;
-  line-height: 1.35;
+  font-size: 40rpx;
+  font-weight: 700;
+  line-height: 56rpx;
   letter-spacing: -0.3rpx;
 }
 
 .race-guide__body {
-  color: #353535;
-  font-size: 28rpx;
+  color: #3b3b3b;
+  font-size: 30rpx;
   font-weight: 400;
-  line-height: 1.86;
+  line-height: 50rpx;
 }
 
 .race-guide__paragraphs {
@@ -327,8 +362,8 @@
 .race-guide__section-title {
   color: #111111;
   font-size: 32rpx;
-  font-weight: 650;
-  line-height: 1.45;
+  font-weight: 600;
+  line-height: 48rpx;
 }
 
 .race-guide__experiences {
@@ -341,30 +376,31 @@
 
 .race-guide__number {
   color: #9a9a9a;
-  font-size: 21rpx;
+  font-size: 24rpx;
   font-weight: 500;
-  line-height: 1.4;
+  line-height: 36rpx;
   letter-spacing: 1.4rpx;
 }
 
 .race-guide__experience-title {
   margin-top: 14rpx;
   color: #111111;
-  font-size: 31rpx;
-  font-weight: 650;
-  line-height: 1.48;
+  font-size: 32rpx;
+  font-weight: 600;
+  line-height: 48rpx;
 }
 
 .race-guide__conclusion {
-  color: #111111;
-  font-weight: 550;
+  color: #2a2a2a;
+  font-weight: 600;
 }
 
 .race-guide__introduction {
   margin-top: 24rpx;
-  color: #707070;
-  font-size: 26rpx;
-  line-height: 1.7;
+  color: #3b3b3b;
+  font-size: 30rpx;
+  font-weight: 400;
+  line-height: 50rpx;
 }
 
 .race-guide__fit-list {
@@ -393,16 +429,17 @@
 
 .race-guide__fit-title {
   color: #111111;
-  font-size: 28rpx;
+  font-size: 32rpx;
   font-weight: 600;
-  line-height: 1.55;
+  line-height: 48rpx;
 }
 
 .race-guide__fit-copy {
   margin-top: 12rpx;
-  color: #555555;
-  font-size: 26rpx;
-  line-height: 1.78;
+  color: #3b3b3b;
+  font-size: 30rpx;
+  font-weight: 400;
+  line-height: 50rpx;
 }
 
 .race-guide__fit-copy + .race-guide__fit-copy {
@@ -411,10 +448,10 @@
 
 .race-guide__closing {
   margin-top: 88rpx;
-  color: #353535;
-  font-size: 28rpx;
+  color: #3b3b3b;
+  font-size: 30rpx;
   font-weight: 400;
-  line-height: 1.86;
+  line-height: 50rpx;
 }
 
 .course-points {
@@ -435,7 +472,7 @@
 
 .accommodation-guide__intro,
 .hotel-card__name,
-.hotel-card__title,
+.hotel-card__judgment,
 .hotel-card__reason {
   display: block;
 }
@@ -458,15 +495,20 @@
   background: #ffffff;
 }
 
+.hotel-card--pressed {
+  background: #f7f7f4;
+  opacity: 0.92;
+}
+
 .hotel-card + .hotel-card {
   margin-top: 28rpx;
 }
 
-.hotel-card__title {
-  color: #111111;
-  font-size: 36rpx;
+.hotel-card__judgment {
+  color: #2f6b45;
+  font-size: 28rpx;
   font-weight: 600;
-  line-height: 50rpx;
+  line-height: 40rpx;
 }
 
 .hotel-card__entity {
@@ -486,10 +528,10 @@
 .hotel-card__name {
   flex: 1;
   min-width: 0;
-  color: #444444;
-  font-size: 30rpx;
-  font-weight: 500;
-  line-height: 44rpx;
+  color: #2a2a2a;
+  font-size: 32rpx;
+  font-weight: 600;
+  line-height: 48rpx;
 }
 
 .hotel-card__reason {
@@ -510,15 +552,11 @@
   background: transparent;
   color: #111111;
   font-size: 28rpx;
-  font-weight: 550;
+  font-weight: 400;
   line-height: 1.4;
   text-align: left;
   align-items: center;
   justify-content: flex-start;
-}
-
-.hotel-card__cta--pressed {
-  opacity: 0.58;
 }
 
 .share-action {
@@ -533,10 +571,10 @@
   padding: 0 26rpx;
   border: 0;
   border-radius: 999rpx;
-  background: rgba(15, 15, 15, 0.88);
+  background: rgba(0, 0, 0, 0.82);
   color: #ffffff;
   font-size: 27rpx;
-  font-weight: 550;
+  font-weight: 600;
   line-height: 1;
   opacity: 1;
   transform: translateX(0);
@@ -574,10 +612,14 @@
 .course-points__label {
   display: block;
   width: auto;
+  color: #8a8a8a;
+  font-size: 28rpx;
+  font-weight: 400;
+  line-height: 44rpx;
 }
 
 .course-points__list {
-  margin-top: 10rpx;
+  margin-top: 8rpx;
 }
 
 .course-point {
@@ -629,26 +671,27 @@
 
 .race-strategy__eyebrow {
   color: #8a8a8a;
-  font-size: 21rpx;
+  font-size: 24rpx;
   font-weight: 600;
-  line-height: 1.4;
+  line-height: 36rpx;
   letter-spacing: 3.2rpx;
 }
 
 .race-strategy__title {
   margin-top: 14rpx;
   color: #111111;
-  font-size: 38rpx;
-  font-weight: 650;
-  line-height: 1.35;
+  font-size: 40rpx;
+  font-weight: 700;
+  line-height: 56rpx;
   letter-spacing: -0.3rpx;
 }
 
 .race-strategy__scope {
   margin-top: 28rpx;
-  color: #777777;
-  font-size: 25rpx;
-  line-height: 1.72;
+  color: #3b3b3b;
+  font-size: 30rpx;
+  font-weight: 400;
+  line-height: 50rpx;
 }
 
 .race-strategy__items {
@@ -661,25 +704,26 @@
 
 .race-strategy__number {
   color: #9a9a9a;
-  font-size: 21rpx;
+  font-size: 24rpx;
   font-weight: 500;
-  line-height: 1.4;
+  line-height: 36rpx;
   letter-spacing: 1.4rpx;
 }
 
 .race-strategy__item-title {
   margin-top: 14rpx;
   color: #111111;
-  font-size: 31rpx;
-  font-weight: 650;
-  line-height: 1.48;
+  font-size: 32rpx;
+  font-weight: 600;
+  line-height: 48rpx;
 }
 
 .race-strategy__paragraphs {
   margin-top: 34rpx;
-  color: #353535;
-  font-size: 28rpx;
-  line-height: 1.86;
+  color: #3b3b3b;
+  font-size: 30rpx;
+  font-weight: 400;
+  line-height: 50rpx;
 }
 
 .race-strategy__paragraph + .race-strategy__paragraph {
@@ -687,16 +731,16 @@
 }
 
 .race-strategy__paragraph--emphasis {
-  color: #111111;
-  font-weight: 550;
+  color: #2a2a2a;
+  font-weight: 600;
 }
 
 .race-strategy__closing {
   margin-top: 88rpx;
-  color: #111111;
-  font-size: 29rpx;
-  font-weight: 600;
-  line-height: 1.72;
+  color: #3b3b3b;
+  font-size: 30rpx;
+  font-weight: 400;
+  line-height: 50rpx;
 }
 
 .course-point__name {

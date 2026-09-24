@@ -6,7 +6,7 @@
       mode="widthFix"
       aria-label="RaceNext"
     />
-    <text class="brand-tagline">决定你的下一场比赛</text>
+    <text class="brand-tagline">你的下一场参赛指南</text>
   </view>
 
   <view wx:if="{{loadState === 'loading'}}" class="page-state">

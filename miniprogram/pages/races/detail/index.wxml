@@ -11,8 +11,22 @@
 
   <block wx:elif="{{detail}}">
     <view class="hero">
+      <view
+        wx:if="{{detail.heroImage && !heroImageFailed && detail.heroUsesFocalBackground}}"
+        class="hero-image hero-image--positioned"
+        style="background-image: url({{detail.heroImage}}); background-position: {{detail.heroFocalPoint}};"
+        aria-label="{{detail.name}}赛事图片"
+      >
+        <image
+          class="hero-image__probe"
+          src="{{detail.heroImage}}"
+          mode="{{detail.heroMode}}"
+          binderror="handleHeroImageError"
+          aria-hidden="true"
+        />
+      </view>
       <image
-        wx:if="{{detail.heroImage && !heroImageFailed}}"
+        wx:elif="{{detail.heroImage && !heroImageFailed}}"
         class="hero-image"
         src="{{detail.heroImage}}"
         mode="{{detail.heroMode}}"
@@ -65,30 +79,45 @@
         <view wx:if="{{detail.showCategorySelector}}" class="category-section">
           <text class="category-heading">组别</text>
 
-          <view class="category-selector">
-            <view
-              wx:for="{{detail.categories}}"
-              wx:key="categoryId"
-              class="category-option {{item.categoryId === detail.selectedCategoryId ? 'category-option--active' : ''}}"
-              data-category-id="{{item.categoryId}}"
-              bindtap="handleCategoryTap"
-              hover-class="category-option--pressed"
-              aria-role="button"
-            >
-              {{item.label}}
+          <scroll-view
+            class="category-selector-scroll"
+            scroll-x
+            enhanced
+            show-scrollbar="{{false}}"
+          >
+            <view class="category-selector">
+              <view
+                wx:for="{{detail.categories}}"
+                wx:key="categoryId"
+                class="category-option {{item.categoryId === detail.selectedCategoryId ? 'category-option--active' : ''}}"
+                data-category-id="{{item.categoryId}}"
+                bindtap="handleCategoryTap"
+                hover-class="category-option--pressed"
+                aria-role="button"
+              >
+                {{item.label}}
+              </view>
             </view>
-          </view>
+          </scroll-view>
 
-          <view wx:if="{{detail.selectedCategory.coreFacts.length}}" class="core-facts">
-            <view
-              wx:for="{{detail.selectedCategory.coreFacts}}"
-              wx:key="key"
-              class="core-fact"
-            >
-              <text class="core-fact__value">{{item.value}}</text>
-              <text class="core-fact__label">{{item.label}}</text>
+          <scroll-view
+            wx:if="{{detail.selectedCategory.coreFacts.length}}"
+            class="core-facts-scroll"
+            scroll-x
+            enhanced
+            show-scrollbar="{{false}}"
+          >
+            <view class="core-facts {{detail.selectedCategory.coreFacts.length > 3 ? 'core-facts--scrollable' : ''}}">
+              <view
+                wx:for="{{detail.selectedCategory.coreFacts}}"
+                wx:key="key"
+                class="core-fact"
+              >
+                <text class="core-fact__value">{{item.value}}</text>
+                <text class="core-fact__label">{{item.label}}</text>
+              </view>
             </view>
-          </view>
+          </scroll-view>
 
           <view wx:if="{{detail.selectedCategory.executionFacts.length}}" class="execution-facts">
             <view
@@ -246,8 +275,12 @@
             class="hotel-card"
             id="hotel-card-{{index}}"
             data-recommendation-id="{{item.recommendationId}}"
+            bindtap="handleHotelTap"
+            hover-class="hotel-card--pressed"
+            aria-role="button"
+            aria-label="查看{{item.hotelName}}"
           >
-            <text class="hotel-card__title">{{item.recommendationTitle}}</text>
+            <text class="hotel-card__judgment">{{item.recommendationTitle}}</text>
             <view class="hotel-card__entity">
               <image class="hotel-card__icon" src="/assets/icons/building.svg" mode="aspectFit" aria-hidden="true" />
               <text class="hotel-card__name">{{item.hotelName}}</text>
@@ -256,10 +289,6 @@
             <view
               wx:if="{{item.wechatAction}}"
               class="hotel-card__cta"
-              data-recommendation-id="{{item.recommendationId}}"
-              bindtap="handleHotelTap"
-              hover-class="hotel-card__cta--pressed"
-              aria-role="button"
             >查看酒店 →</view>
           </view>
         </view>

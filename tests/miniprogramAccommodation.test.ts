@@ -397,7 +397,7 @@ test("Race Guide Closing uses the same Accommodation availability as the guide t
   ok(wxml.includes('wx:if="{{detail.hasAccommodation && detail.raceGuide.closing}}"'));
 
   const styles = readFileSync(new URL("../miniprogram/pages/races/detail/index.wxss", import.meta.url), "utf8");
-  ok(/\.race-guide__closing\s*\{[\s\S]*?color:\s*#353535;[\s\S]*?font-size:\s*28rpx;[\s\S]*?font-weight:\s*400;/.test(styles));
+  ok(/\.race-guide__closing\s*\{[\s\S]*?color:\s*#3b3b3b;[\s\S]*?font-size:\s*30rpx;[\s\S]*?font-weight:\s*400;[\s\S]*?line-height:\s*50rpx;/.test(styles));
 });
 
 test("races without recommendations do not show an accommodation tab", () => {
@@ -423,6 +423,43 @@ test("hotel jump passes the complete Ctrip action without rewriting it", () => {
   deepEqual(received.map(({ appId }) => appId), recommendations.map(({ wechatAction }) => wechatAction?.appId));
   deepEqual(received.map(({ envVersion }) => envVersion), recommendations.map(() => "release"));
   deepEqual(received.map(({ path }) => path), recommendations.map(({ wechatAction }) => wechatAction?.path));
+});
+
+test("clicking a Hotel Card invokes its exact action once", async () => {
+  type PageDefinition = {
+    handleHotelTap(this: unknown, event: {
+      currentTarget: { dataset: { recommendationId: string } };
+    }): void;
+  };
+  type JumpOption = { appId: string; path?: string; envVersion: string };
+  const captured: { page: PageDefinition | null } = { page: null };
+  const jumps: JumpOption[] = [];
+  (globalThis as typeof globalThis & {
+    Page(definition: PageDefinition): void;
+    wx: {
+      navigateToMiniProgram(option: JumpOption): void;
+      reportEvent(eventName: string, data: Record<string, unknown>): void;
+    };
+  }).Page = (definition) => { captured.page = definition; };
+  (globalThis as typeof globalThis & { wx: unknown }).wx = {
+    navigateToMiniProgram(option: JumpOption) { jumps.push(option); },
+    reportEvent() {},
+  };
+
+  await Function('return import("../miniprogram/pages/races/detail/index.ts")')();
+  const pageDefinition = captured.page;
+  if (!pageDefinition) throw new Error("Detail Page registration missing");
+  const detail = createRaceDetailViewModel(getPublicRace("beijing-marathon-2026"));
+  const recommendation = detail.accommodationRecommendations[1];
+  pageDefinition.handleHotelTap.call(
+    { data: { detail }, entrySource: "direct" },
+    { currentTarget: { dataset: { recommendationId: recommendation.recommendationId } } },
+  );
+
+  equal(jumps.length, 1);
+  equal(jumps[0].appId, recommendation.wechatAction?.appId);
+  equal(jumps[0].path, recommendation.wechatAction?.path);
+  equal(jumps[0].envVersion, "release");
 });
 
 test("Detail DTO preserves each opaque Ctrip action from shared Accommodation Data", () => {
@@ -470,9 +507,13 @@ test("Detail template keeps race content and renders the minimal hotel card fiel
   for (const field of ["item.hotelName", "item.recommendationTitle", "item.recommendationReason", "查看酒店 →"]) {
     ok(wxml.includes(field));
   }
-  ok(wxml.indexOf("item.recommendationTitle") < wxml.indexOf("item.hotelName"));
-  ok(wxml.indexOf("item.hotelName") < wxml.indexOf("item.recommendationReason"));
-  ok(wxml.includes('hover-class="hotel-card__cta--pressed"'));
+  ok(wxml.indexOf('<text class="hotel-card__judgment"') < wxml.indexOf('<text class="hotel-card__name"'));
+  ok(wxml.indexOf('<text class="hotel-card__name"') < wxml.indexOf('<text class="hotel-card__reason"'));
+  ok(/class="hotel-card"[\s\S]*?bindtap="handleHotelTap"[\s\S]*?hover-class="hotel-card--pressed"/.test(wxml));
+  equal((wxml.match(/bindtap="handleHotelTap"/g) ?? []).length, 1);
+  const ctaMarkup = wxml.match(/<view\s+wx:if="\{\{item\.wechatAction\}\}"[\s\S]*?>查看酒店 →<\/view>/)?.[0] ?? "";
+  ok(ctaMarkup.includes("查看酒店 →"));
+  equal(ctaMarkup.includes("bindtap="), false);
 });
 
 test("accommodation analytics uses the approved event names and one lifecycle guard", () => {

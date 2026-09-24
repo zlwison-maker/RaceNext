@@ -40,6 +40,7 @@ export type PublicRaceCategory = {
   shortName: string | null;
   distanceKm: number | null;
   elevationGain: number | null;
+  elevationLoss: number | null;
   cutoffTimeHours: number | null;
   startAt: string | null;
   startTimes: string[] | null;

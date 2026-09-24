@@ -146,6 +146,54 @@ test("Road and Trail editions use the same public DTO shape", () => {
   equal(trail.body.race.raceType, "ultra_trail");
 });
 
+test("elevationLoss stays null when no sourced fact exists and is never copied from elevationGain", () => {
+  for (const editionId of [
+    "kailas-gongga-100-2026",
+    "hk100-2027",
+    "tsaigu-kuocang-2026",
+    "ninghai-ultra-trail-2026",
+    "shenzhen-100-2026",
+  ]) {
+    const result = createPublicRaceDetailResult(canonical, editionId);
+    equal(result.status, 200);
+    if (result.status !== 200) continue;
+    ok(result.body.race.categories.some(({ elevationGain }) => elevationGain !== null));
+    ok(result.body.race.categories.every(({ elevationLoss }) => elevationLoss === null));
+  }
+
+  const road = createPublicRaceDetailResult(canonical, "beijing-marathon-2026");
+  equal(road.status, 200);
+  if (road.status === 200) {
+    ok(road.body.race.categories.every(({ elevationLoss }) => elevationLoss === null));
+  }
+});
+
+test("a sourced Canonical elevationLoss value is exposed independently from elevationGain", () => {
+  const snapshot = structuredClone(canonical);
+  const category = snapshot.records
+    .find(({ edition }) => edition.editionId === "kailas-gongga-100-2026")!
+    .categories.find(({ categoryId }) => categoryId === "kailas-gongga-100-2026-glacier-100")!;
+  category.elevationLoss = 6888;
+
+  const result = createPublicRaceDetailResult(snapshot, "kailas-gongga-100-2026");
+  equal(result.status, 200);
+  if (result.status !== 200) return;
+  const primary = result.body.race.categories.find(({ isPrimaryCategory }) => isPrimaryCategory);
+  ok(primary);
+  equal(primary.elevationGain, 7025);
+  equal(primary.elevationLoss, 6888);
+});
+
+test("invalid elevationLoss values fail the public Category gate", () => {
+  const snapshot = structuredClone(canonical);
+  const category = snapshot.records
+    .find(({ edition }) => edition.editionId === "kailas-gongga-100-2026")!
+    .categories.find(({ categoryId }) => categoryId === "kailas-gongga-100-2026-glacier-100")!;
+  category.elevationLoss = -1;
+
+  equal(createPublicRaceDetailResult(snapshot, "kailas-gongga-100-2026").status, 404);
+});
+
 test("locationDisplay removes duplicate municipalities and location prefixes", () => {
   equal(formatLocationDisplay({
     country: "中国",

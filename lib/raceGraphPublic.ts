@@ -69,6 +69,7 @@ type CanonicalCategory = {
   shortName?: string | null;
   distanceKm: number | null;
   elevationGain?: number | null;
+  elevationLoss?: number | null;
   cutoffTimeHours?: number | null;
   startAt?: string | null;
   startTimes?: string[] | null;
@@ -334,6 +335,7 @@ function toPublicCategory(category: CanonicalCategory, primaryCategoryId: string
     shortName: category.shortName ?? null,
     distanceKm: category.distanceKm,
     elevationGain: category.elevationGain ?? null,
+    elevationLoss: category.elevationLoss ?? null,
     cutoffTimeHours: category.cutoffTimeHours ?? null,
     startAt: category.startAt ?? null,
     startTimes: category.startTimes?.length ? [...category.startTimes] : null,
@@ -366,6 +368,7 @@ function isCategoryPublishable(category: CanonicalCategory, editionId: string): 
       && category.editionId === editionId
       && isNonEmptyString(category.categoryName)
       && Number.isFinite(category.displayOrder)
+      && isOptionalNonNegativeFiniteNumber(category.elevationLoss)
       && validateTrailCoursePoints(category.categoryId, category.coursePoints).length === 0
       && validateCoursePointDataStatus(
         category.categoryId,
@@ -420,6 +423,11 @@ function hasMatchingOfficialRawFact(
 
 function isPositiveFiniteNumber(value: unknown): value is number {
   return typeof value === "number" && Number.isFinite(value) && value > 0;
+}
+
+function isOptionalNonNegativeFiniteNumber(value: unknown): value is number | null | undefined {
+  return value === undefined || value === null
+    || (typeof value === "number" && Number.isFinite(value) && value >= 0);
 }
 
 function isGovernancePublishable(governance: CanonicalGovernance): boolean {

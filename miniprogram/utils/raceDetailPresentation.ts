@@ -80,6 +80,7 @@ export type RaceDetailViewModel = {
   heroImage: string | null;
   heroMode: "aspectFill";
   heroFocalPoint: string;
+  heroUsesFocalBackground: boolean;
   dateDisplay: string;
   locationDisplay: string;
   summaryDisplay: string | null;
@@ -96,7 +97,7 @@ export type RaceDetailViewModel = {
 };
 
 const HERO_FOCAL_POINTS: Readonly<Record<string, string>> = {
-  "shanghai-marathon-2026": "62% 50%",
+  "shanghai-marathon-2026": "82% 50%",
   "kailas-gongga-100-2026": "44% 50%",
 };
 
@@ -118,6 +119,7 @@ export function createRaceDetailViewModel(race: RaceDetailPresentationInput): Ra
     heroImage: race.heroImage,
     heroMode: "aspectFill",
     heroFocalPoint: HERO_FOCAL_POINTS[race.editionId] ?? "50% 50%",
+    heroUsesFocalBackground: race.editionId === "shanghai-marathon-2026",
     dateDisplay: formatRaceDate(race.raceDate, race.endDate),
     locationDisplay: formatRaceLocation(race, true),
     summaryDisplay: formatEditionSummary(race.raceType, showCategorySelector, race.categories[0] ?? null),
@@ -166,7 +168,10 @@ function toCategoryViewModel(category: PublicRaceCategory, raceType: RaceType): 
     coreFacts.push({ key: "distance", label: "距离", value: `${formatNumber(category.distanceKm)} km` });
   }
   if (category.elevationGain !== null) {
-    coreFacts.push({ key: "elevation", label: "累计爬升", value: `${formatNumber(category.elevationGain)} m` });
+    coreFacts.push({ key: "elevationGain", label: "爬升", value: `${formatNumber(category.elevationGain)} m` });
+  }
+  if (category.elevationLoss !== null) {
+    coreFacts.push({ key: "elevationLoss", label: "下降", value: `${formatNumber(category.elevationLoss)} m` });
   }
   if (category.cutoffTimeHours !== null) {
     coreFacts.push({ key: "cutoff", label: "关门时间", value: `${formatNumber(category.cutoffTimeHours)} h` });
@@ -394,16 +399,19 @@ function formatStartTimes(values: string[]): string {
 
   const startTimes = parsed as Array<NonNullable<ReturnType<typeof parseStartTime>>>;
   const dates = new Set(startTimes.map(({ date }) => date));
-  const displays = startTimes.map(({ date, time }) => dates.size > 1 ? `${date} ${time}` : time);
+  if (dates.size === 1) {
+    return `${startTimes[0].date} ${startTimes.map(({ time }) => time).join(" / ")} 分枪`;
+  }
+  const displays = startTimes.map(({ date, time }) => `${date} ${time}`);
   return `${displays.join(" / ")} 分枪`;
 }
 
 function parseStartTime(value: string): { date: string; time: string } | null {
-  const dateTime = value.match(/^\d{4}-(\d{2})-(\d{2})[T ](\d{2}):(\d{2})/);
+  const dateTime = value.match(/^(\d{4})-(\d{2})-(\d{2})[T ](\d{2}):(\d{2})/);
   if (!dateTime) return null;
   return {
-    date: `${dateTime[1]}.${dateTime[2]}`,
-    time: `${dateTime[3]}:${dateTime[4]}`,
+    date: `${dateTime[1]}.${dateTime[2]}.${dateTime[3]}`,
+    time: `${dateTime[4]}:${dateTime[5]}`,
   };
 }
 

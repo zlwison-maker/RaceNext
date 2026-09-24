@@ -68,6 +68,26 @@
           "status": "active",
           "isPrimary": false,
           "notes": "World Athletics calendar independently lists Bank of China Beijing Marathon on 2026-10-18."
+        },
+        {
+          "sourceId": "beijing-marathon-official-registration-guidelines-2026",
+          "url": "https://en.beijing-marathon.com/registration-guidelines.html",
+          "domain": "en.beijing-marathon.com",
+          "tier": "primary_official",
+          "sourceType": "registration_notice",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Official 2026 registration guidelines supporting the registration window, lottery stage, race date and 07:30 start."
+        },
+        {
+          "sourceId": "beijing-marathon-official-registration-portal-2026",
+          "url": "https://beijing-registration.mararun.com/?lang=en",
+          "domain": "beijing-registration.mararun.com",
+          "tier": "primary_official",
+          "sourceType": "registration_platform",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Official registration portal linked by the Beijing Marathon official site."
         }
       ]
     },
@@ -198,6 +218,16 @@
           "status": "active",
           "isPrimary": false,
           "notes": "Official bag-drop page confirms the HK100 CP6 企岭下 and Finish drop-bag arrangements."
+        },
+        {
+          "sourceId": "hk100-official-entry-2027",
+          "url": "https://hk100ultra.com/zh-hant/entry/",
+          "domain": "hk100ultra.com",
+          "tier": "primary_official",
+          "sourceType": "registration_notice",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Official 2027 entry page supporting the stable registration URL and describing lottery, result, completion and reallocation procedures."
         }
       ]
     },
@@ -363,6 +393,16 @@
           "status": "active",
           "isPrimary": true,
           "notes": "Official event identity and historical gallery only. It does not independently prove the precise 2026 Category metrics."
+        },
+        {
+          "sourceId": "ninghai100-official-home-2026",
+          "url": "https://ninghai100.com/",
+          "domain": "ninghai100.com",
+          "tier": "primary_official",
+          "sourceType": "event_home",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Official current 2026 event home displaying all three categories as registration closed."
         },
         {
           "sourceId": "kolon-ninghai-2026-announcement",

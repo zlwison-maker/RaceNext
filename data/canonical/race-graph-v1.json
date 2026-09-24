@@ -1,6 +1,6 @@
 {
   "schemaVersion": "race-graph-v1",
-  "generatedAt": "2026-09-21",
+  "generatedAt": "2026-09-24",
   "records": [
     {
       "event": {
@@ -74,6 +74,9 @@
         "region": "east_china",
         "timezone": "Asia/Shanghai",
         "registrationStatus": "registration_closed",
+        "registrationOpenDate": "2026-04-29T15:00:00+08:00",
+        "registrationCloseDate": "2026-05-29T12:00:00+08:00",
+        "registrationUrl": "https://static.shang-ma.com/web/index.html",
         "officialWebsite": null,
         "lifecycleStatus": "active",
         "raceDistanceKm": 42.195,
@@ -81,7 +84,7 @@
           42.195
         ],
         "createdAt": "2026-08-04",
-        "updatedAt": "2026-09-10",
+        "updatedAt": "2026-09-24",
         "governance": {
           "sources": [
             {
@@ -130,13 +133,12 @@
           "verificationStatus": "verified",
           "verifiedAt": "2026-08-04",
           "missingFields": [
-            "registrationUrl",
             "startAt",
             "startLocation",
             "finishLocation"
           ],
           "lastCrawledAt": "2026-08-04",
-          "lastUpdatedAt": "2026-09-10",
+          "lastUpdatedAt": "2026-09-24",
           "schemaVersion": "race-graph-v1",
           "dataQualityLevel": "A",
           "publicationGate": {
@@ -268,12 +270,14 @@
         "venue": null,
         "region": "north_china",
         "timezone": "Asia/Shanghai",
-        "registrationStatus": "unknown",
-        "registrationUrl": null,
+        "registrationStatus": "lottery",
+        "registrationOpenDate": "2026-09-17T10:00:00+08:00",
+        "registrationCloseDate": "2026-09-22T18:00:00+08:00",
+        "registrationUrl": "https://beijing-registration.mararun.com/?lang=en",
         "officialWebsite": "https://www.beijing-marathon.com/",
         "lifecycleStatus": "active",
         "createdAt": "2026-09-10",
-        "updatedAt": "2026-09-10",
+        "updatedAt": "2026-09-24",
         "governance": {
           "sources": [
             {
@@ -312,6 +316,32 @@
               }
             },
             {
+              "sourceType": "official",
+              "sourceName": "2026 北京马拉松官方报名须知",
+              "sourceUrl": "https://en.beijing-marathon.com/registration-guidelines.html",
+              "sourceRecordId": "beijing-marathon-official-registration-guidelines-2026",
+              "crawledAt": "2026-09-24",
+              "confidence": 0.99,
+              "rawData": {
+                "registrationStatus": "lottery",
+                "registrationOpenDate": "2026-09-17T10:00:00+08:00",
+                "registrationCloseDate": "2026-09-22T18:00:00+08:00",
+                "raceDate": "2026-10-18",
+                "startAt": "2026-10-18T07:30:00+08:00"
+              }
+            },
+            {
+              "sourceType": "registration_platform",
+              "sourceName": "2026 北京马拉松官方报名入口",
+              "sourceUrl": "https://beijing-registration.mararun.com/?lang=en",
+              "sourceRecordId": "beijing-marathon-official-registration-portal-2026",
+              "crawledAt": "2026-09-24",
+              "confidence": 0.99,
+              "rawData": {
+                "registrationUrl": "https://beijing-registration.mararun.com/?lang=en"
+              }
+            },
+            {
               "sourceType": "manual",
               "sourceName": "RaceNext human-reviewed First5 image input",
               "sourceRecordId": "first5-images:2026-09-10",
@@ -326,6 +356,34 @@
               "sourceName": "AIMS + World Athletics",
               "confidence": 0.9,
               "updatedAt": "2026-09-10"
+            },
+            "registrationStatus": {
+              "field": "registrationStatus",
+              "sourceType": "official",
+              "sourceName": "2026 北京马拉松官方报名须知",
+              "confidence": 0.99,
+              "updatedAt": "2026-09-24"
+            },
+            "registrationOpenDate": {
+              "field": "registrationOpenDate",
+              "sourceType": "official",
+              "sourceName": "2026 北京马拉松官方报名须知",
+              "confidence": 0.99,
+              "updatedAt": "2026-09-24"
+            },
+            "registrationCloseDate": {
+              "field": "registrationCloseDate",
+              "sourceType": "official",
+              "sourceName": "2026 北京马拉松官方报名须知",
+              "confidence": 0.99,
+              "updatedAt": "2026-09-24"
+            },
+            "registrationUrl": {
+              "field": "registrationUrl",
+              "sourceType": "registration_platform",
+              "sourceName": "2026 北京马拉松官方报名入口",
+              "confidence": 0.99,
+              "updatedAt": "2026-09-24"
             }
           },
           "sourcePriority": {
@@ -338,13 +396,11 @@
           "verifiedAt": "2026-09-10",
           "missingFields": [
             "venue",
-            "registrationStatus",
-            "startAt",
             "startLocation",
             "finishLocation"
           ],
           "lastCrawledAt": "2026-09-10",
-          "lastUpdatedAt": "2026-09-10",
+          "lastUpdatedAt": "2026-09-24",
           "schemaVersion": "race-graph-v1",
           "dataQualityLevel": "B",
           "reviewNotes": "Race date is supported by matching AIMS and World Athletics 2026 calendar entries; the official event home remains the primary identity source.",
@@ -371,14 +427,14 @@
           "editionId": "beijing-marathon-2026",
           "categoryName": "马拉松",
           "shortName": "全马",
-          "startAt": null,
+          "startAt": "2026-10-18T07:30:00+08:00",
           "startLocation": null,
           "finishLocation": null,
           "registrationUrl": null,
           "displayOrder": 1,
           "distanceKm": 42.195,
           "createdAt": "2026-09-10",
-          "updatedAt": "2026-09-10",
+          "updatedAt": "2026-09-24",
           "governance": {
             "sources": [
               {
@@ -388,10 +444,31 @@
                 "sourceRecordId": "beijing-marathon-aims-2026",
                 "crawledAt": "2026-09-10",
                 "confidence": 0.9
+              },
+              {
+                "sourceType": "official",
+                "sourceName": "2026 北京马拉松官方报名须知",
+                "sourceUrl": "https://en.beijing-marathon.com/registration-guidelines.html",
+                "sourceRecordId": "beijing-marathon-official-registration-guidelines-2026",
+                "crawledAt": "2026-09-24",
+                "confidence": 0.99,
+                "rawData": {
+                  "raceDate": "2026-10-18",
+                  "startAt": "2026-10-18T07:30:00+08:00"
+                }
               }
             ],
-            "fieldSources": {},
+            "fieldSources": {
+              "startAt": {
+                "field": "startAt",
+                "sourceType": "official",
+                "sourceName": "2026 北京马拉松官方报名须知",
+                "confidence": 0.99,
+                "updatedAt": "2026-09-24"
+              }
+            },
             "sourcePriority": {
+              "official": 100,
               "partner": 80
             },
             "confidence": 0.9,
@@ -399,13 +476,12 @@
             "verificationStatus": "verified",
             "verifiedAt": "2026-09-10",
             "missingFields": [
-              "startAt",
               "startLocation",
               "finishLocation",
               "registrationUrl"
             ],
             "lastCrawledAt": "2026-09-10",
-            "lastUpdatedAt": "2026-09-10",
+            "lastUpdatedAt": "2026-09-24",
             "schemaVersion": "race-graph-v1",
             "dataQualityLevel": "B"
           }
@@ -477,12 +553,14 @@
         "venue": null,
         "region": "east_china",
         "timezone": "Asia/Shanghai",
-        "registrationStatus": "unknown",
-        "registrationUrl": null,
+        "registrationStatus": "registration_open",
+        "registrationOpenDate": "2026-09-23T10:00:00+08:00",
+        "registrationCloseDate": "2026-10-14T18:00:00+08:00",
+        "registrationUrl": "https://www.xmim.org/",
         "officialWebsite": "https://www.xmim.org/",
         "lifecycleStatus": "active",
         "createdAt": "2026-09-10",
-        "updatedAt": "2026-09-10",
+        "updatedAt": "2026-09-24",
         "governance": {
           "sources": [
             {
@@ -547,13 +625,11 @@
           "verifiedAt": "2026-09-10",
           "missingFields": [
             "venue",
-            "registrationStatus",
-            "startAt",
             "startLocation",
             "finishLocation"
           ],
           "lastCrawledAt": "2026-09-10",
-          "lastUpdatedAt": "2026-09-10",
+          "lastUpdatedAt": "2026-09-24",
           "schemaVersion": "race-graph-v1",
           "dataQualityLevel": "B",
           "reviewNotes": "Race date is supported by matching AIMS and China Marathon event listings; the official event home remains the primary identity source.",
@@ -580,14 +656,14 @@
           "editionId": "xiamen-marathon-2027",
           "categoryName": "马拉松",
           "shortName": "全马",
-          "startAt": null,
+          "startAt": "2027-01-10T07:00:00+08:00",
           "startLocation": null,
           "finishLocation": null,
           "registrationUrl": null,
           "displayOrder": 1,
           "distanceKm": 42.195,
           "createdAt": "2026-09-10",
-          "updatedAt": "2026-09-10",
+          "updatedAt": "2026-09-24",
           "governance": {
             "sources": [
               {
@@ -596,7 +672,10 @@
                 "sourceUrl": "https://aims-worldrunning.org/zh-CN/races/632.html",
                 "sourceRecordId": "xiamen-marathon-aims-2027",
                 "crawledAt": "2026-09-10",
-                "confidence": 0.9
+                "confidence": 0.9,
+                "rawData": {
+                  "raceDate": "2027-01-10"
+                }
               }
             ],
             "fieldSources": {},
@@ -608,13 +687,12 @@
             "verificationStatus": "verified",
             "verifiedAt": "2026-09-10",
             "missingFields": [
-              "startAt",
               "startLocation",
               "finishLocation",
               "registrationUrl"
             ],
             "lastCrawledAt": "2026-09-10",
-            "lastUpdatedAt": "2026-09-10",
+            "lastUpdatedAt": "2026-09-24",
             "schemaVersion": "race-graph-v1",
             "dataQualityLevel": "B"
           }
@@ -688,11 +766,11 @@
         "region": "hongkong_macao_taiwan",
         "timezone": "Asia/Hong_Kong",
         "registrationStatus": "unknown",
-        "registrationUrl": null,
+        "registrationUrl": "https://hk100ultra.com/zh-hant/entry/",
         "officialWebsite": "https://hk100ultra.com/zh-hant/",
         "lifecycleStatus": "active",
         "createdAt": "2026-09-10",
-        "updatedAt": "2026-09-10",
+        "updatedAt": "2026-09-24",
         "governance": {
           "sources": [
             {
@@ -840,6 +918,17 @@
               }
             },
             {
+              "sourceType": "official",
+              "sourceName": "Hong Kong 100 Ultra — Entry",
+              "sourceUrl": "https://hk100ultra.com/zh-hant/entry/",
+              "sourceRecordId": "hk100-official-entry-2027",
+              "crawledAt": "2026-09-24",
+              "confidence": 0.99,
+              "rawData": {
+                "registrationUrl": "https://hk100ultra.com/zh-hant/entry/"
+              }
+            },
+            {
               "sourceType": "manual",
               "sourceName": "RaceNext human-reviewed First5 image input",
               "sourceRecordId": "first5-images:2026-09-10",
@@ -868,6 +957,13 @@
               "sourceName": "Hong Kong 100 Ultra — HK100 category",
               "confidence": 0.98,
               "updatedAt": "2026-09-10"
+            },
+            "registrationUrl": {
+              "field": "registrationUrl",
+              "sourceType": "official",
+              "sourceName": "Hong Kong 100 Ultra — Entry",
+              "confidence": 0.99,
+              "updatedAt": "2026-09-24"
             }
           },
           "sourcePriority": {
@@ -882,7 +978,7 @@
             "registrationStatus"
           ],
           "lastCrawledAt": "2026-09-10",
-          "lastUpdatedAt": "2026-09-10",
+          "lastUpdatedAt": "2026-09-24",
           "schemaVersion": "race-graph-v1",
           "dataQualityLevel": "B",
           "reviewNotes": "Edition window is 2027-01-21 through 2027-01-24. The three official physical races are The Third, The Half and HK100; the primary HK100 100K category is dated 2027-01-23. The Grand Sam is retained as an evidenced composite challenge and is not modeled as a regular Category. No unverified start time was inferred.",
@@ -1701,6 +1797,9 @@
         "region": "southwest_china",
         "timezone": "Asia/Shanghai",
         "registrationStatus": "registration_closed",
+        "registrationOpenDate": "2026-06-30T10:00:00+08:00",
+        "registrationCloseDate": "2026-07-20T10:00:00+08:00",
+        "registrationUrl": "https://reg.zuicool.com/en/33836",
         "officialWebsite": "https://www.letoursports.net/gongga-100",
         "lifecycleStatus": "active",
         "raceDistanceKm": 100.1,
@@ -1710,7 +1809,7 @@
           40.5
         ],
         "createdAt": "2026-08-04",
-        "updatedAt": "2026-09-10",
+        "updatedAt": "2026-09-24",
         "governance": {
           "sources": [
             {
@@ -1801,11 +1900,9 @@
           "verified": true,
           "verificationStatus": "verified",
           "verifiedAt": "2026-09-10",
-          "missingFields": [
-            "registrationUrl"
-          ],
+          "missingFields": [],
           "lastCrawledAt": "2026-09-10",
-          "lastUpdatedAt": "2026-09-10",
+          "lastUpdatedAt": "2026-09-24",
           "schemaVersion": "race-graph-v1",
           "dataQualityLevel": "A",
           "reviewNotes": "Official 2026 competition regulations confirm the exact Category distances and the registration window ending 2026-07-20. Category start times, cutoff durations and endpoints are stored on their Category records.",
@@ -2720,13 +2817,16 @@
         "region": "northwest_china",
         "timezone": "Asia/Shanghai",
         "registrationStatus": "registration_closed",
+        "registrationOpenDate": "2026-08-04T11:00:00+08:00",
+        "registrationCloseDate": "2026-08-20T17:00:00+08:00",
+        "registrationUrl": "https://xi-ma.com/",
         "officialWebsite": "https://xi-ma.com/",
         "capacity": 36000,
         "lifecycleStatus": "active",
         "raceDistanceKm": 42.195,
         "raceDistances": [42.195, 21.0975],
         "createdAt": "2026-09-15",
-        "updatedAt": "2026-09-20",
+        "updatedAt": "2026-09-24",
         "governance": {
           "sources": [
             {
@@ -2757,10 +2857,10 @@
           "verified": true,
           "verificationStatus": "verified",
           "verifiedAt": "2026-09-15",
-          "missingFields": ["registrationUrl", "cutoffTimeHours", "finalTechnicalCertification"],
+          "missingFields": ["cutoffTimeHours", "finalTechnicalCertification"],
           "mergeNotes": ["Technical certification remains conditional (拟) and is not stored as a final accepted fact.", "Final Cover and Hero files were manually selected; source URL and usage rights remain unrecorded."],
           "lastCrawledAt": "2026-09-15",
-          "lastUpdatedAt": "2026-09-20",
+          "lastUpdatedAt": "2026-09-24",
           "schemaVersion": "race-graph-v1",
           "dataQualityLevel": "A",
           "reviewNotes": "Core 2026 Edition and Category facts are accepted. Final image files were manually selected; source URL and usage rights remain unrecorded.",
@@ -2867,17 +2967,20 @@
         "region": "southwest_china",
         "timezone": "Asia/Shanghai",
         "registrationStatus": "registration_closed",
+        "registrationOpenDate": "2026-06-10T10:00:00+08:00",
+        "registrationCloseDate": "2026-06-24T18:00:00+08:00",
+        "registrationUrl": "https://chengdumarathon.cn/",
         "officialWebsite": "https://chengdumarathon.cn/",
         "capacity": 35000,
         "lifecycleStatus": "active",
         "raceDistanceKm": 42.195,
         "raceDistances": [42.195, 21.0975],
         "createdAt": "2026-09-15",
-        "updatedAt": "2026-09-20",
+        "updatedAt": "2026-09-24",
         "governance": {
           "sources": [{"sourceType": "official", "sourceName": "2026 成都马拉松官方竞赛规程", "sourceUrl": "https://chengdumarathon.cn/column/articleDetail/95?column_id=66&lang=cn", "sourceRecordId": "chengdu-marathon-2026-rules", "crawledAt": "2026-09-15", "confidence": 0.99, "rawData": {"editionYear": 2026, "latestRelevantOfficialEditionYear": 2026, "raceDate": "2026-10-25", "capacity": 35000, "startLocation": "金沙遗址博物馆", "startWaves": {"marathon": ["07:30", "07:50"], "halfMarathon": ["08:10"]}, "evidenceLocator": "比赛时间、项目规模、路线与关门章节"}}],
           "fieldSources": {"raceDate": {"field": "raceDate", "sourceType": "official", "sourceName": "2026 成都马拉松官方竞赛规程", "confidence": 0.99, "updatedAt": "2026-09-15"}, "capacity": {"field": "capacity", "sourceType": "official", "sourceName": "2026 成都马拉松官方竞赛规程", "confidence": 0.99, "updatedAt": "2026-09-15"}},
-          "sourcePriority": {"official": 100}, "confidence": 0.99, "verified": true, "verificationStatus": "verified", "verifiedAt": "2026-09-15", "missingFields": ["registrationUrl", "cutoffTimeHours"], "mergeNotes": ["Marathon 07:30 / 07:50 official starts are stored in Category startTimes; startAt remains null.", "Final Cover and Hero use one manually selected file; image source URL and usage rights remain unrecorded."], "lastCrawledAt": "2026-09-15", "lastUpdatedAt": "2026-09-21", "schemaVersion": "race-graph-v1", "dataQualityLevel": "A", "reviewNotes": "Multiple official Marathon starts are represented without selecting a single startAt.", "internalFlags": [],
+          "sourcePriority": {"official": 100}, "confidence": 0.99, "verified": true, "verificationStatus": "verified", "verifiedAt": "2026-09-15", "missingFields": ["cutoffTimeHours"], "mergeNotes": ["Marathon 07:30 / 07:50 official starts are stored in Category startTimes; startAt remains null.", "Final Cover and Hero use one manually selected file; image source URL and usage rights remain unrecorded."], "lastCrawledAt": "2026-09-15", "lastUpdatedAt": "2026-09-24", "schemaVersion": "race-graph-v1", "dataQualityLevel": "A", "reviewNotes": "Multiple official Marathon starts are represented without selecting a single startAt.", "internalFlags": [],
           "publicationGate": {"requestedEditionYear": 2026, "latestRelevantOfficialEditionYear": 2026, "latestOfficialEditionSourceRecordId": "chengdu-marathon-2026-rules", "primarySourceRecordId": "chengdu-marathon-2026-rules", "secondarySourceRecordId": null, "raceDateSourceRecordIds": ["chengdu-marathon-2026-rules"], "dateEvidenceStatus": "verified", "conflictStatus": "none", "publishable": true, "checkedAt": "2026-09-20"}
         }
       },
@@ -2898,13 +3001,13 @@
         "governance": {"sources": [{"sourceType": "official", "sourceName": "柴古唐斯括苍越野赛 2026 官方赛事规程", "sourceUrl": "https://tsaigu.com/text?mid=48686", "sourceRecordId": "tsaigu-2026-rules", "crawledAt": "2026-09-15", "confidence": 0.99, "rawData": {"editionYear": 2026, "latestRelevantOfficialEditionYear": 2026, "raceDate": "2026-10-30", "endDate": "2026-11-01"}}, {"sourceType": "manual", "sourceName": "RaceNext legacy identity review", "sourceRecordId": "race-chaigudanxia-kuocang-2026", "crawledAt": "2026-09-15", "confidence": 0.5, "rawData": {"status": "legacy_placeholder_alias", "canonicalEventId": "tsaigu-kuocang"}}], "fieldSources": {}, "sourcePriority": {"official": 100, "manual": 20}, "confidence": 0.99, "verified": true, "verificationStatus": "verified", "verifiedAt": "2026-09-15", "missingFields": ["organizer"], "mergeNotes": ["race-chaigudanxia-kuocang-2026 is retained only as a legacy placeholder alias/merge clue; no second formal Event is created."], "lastCrawledAt": "2026-09-15", "lastUpdatedAt": "2026-09-15", "schemaVersion": "race-graph-v1", "dataQualityLevel": "A"}
       },
       "edition": {
-        "editionId": "tsaigu-kuocang-2026", "eventId": "tsaigu-kuocang", "editionName": "2026柴古唐斯括苍越野赛", "editionYear": 2026, "raceDate": "2026-10-30", "endDate": "2026-11-01", "coverImage": "/races/tsaigu-kuocang/2026/cover-hero-original.png", "heroImage": "/races/tsaigu-kuocang/2026/cover-hero-original.png", "primaryCategoryId": "tsaigu-kuocang-2026-105k", "primaryCategoryName": "105K", "country": "中国", "province": "浙江省", "city": "临海市", "district": null, "venue": "兴善门广场", "region": "east_china", "timezone": "Asia/Shanghai", "registrationStatus": "registration_closed", "officialWebsite": "https://tsaigu.com/", "lifecycleStatus": "active", "raceDistanceKm": 105, "raceDistances": [105, 50, 25], "createdAt": "2026-09-15", "updatedAt": "2026-09-21",
+        "editionId": "tsaigu-kuocang-2026", "eventId": "tsaigu-kuocang", "editionName": "2026柴古唐斯括苍越野赛", "editionYear": 2026, "raceDate": "2026-10-30", "endDate": "2026-11-01", "coverImage": "/races/tsaigu-kuocang/2026/cover-hero-original.png", "heroImage": "/races/tsaigu-kuocang/2026/cover-hero-original.png", "primaryCategoryId": "tsaigu-kuocang-2026-105k", "primaryCategoryName": "105K", "country": "中国", "province": "浙江省", "city": "临海市", "district": null, "venue": "兴善门广场", "region": "east_china", "timezone": "Asia/Shanghai", "registrationStatus": "registration_closed", "registrationOpenDate": "2026-06-20T10:00:00+08:00", "registrationCloseDate": "2026-06-26T10:00:00+08:00", "officialWebsite": "https://tsaigu.com/", "lifecycleStatus": "active", "raceDistanceKm": 105, "raceDistances": [105, 50, 25], "createdAt": "2026-09-15", "updatedAt": "2026-09-24",
         "governance": {
           "sources": [
             {"sourceType": "official", "sourceName": "柴古唐斯括苍越野赛 2026 官方赛事规程", "sourceUrl": "https://tsaigu.com/text?mid=48686", "sourceRecordId": "tsaigu-2026-rules", "crawledAt": "2026-09-15", "confidence": 0.99, "rawData": {"editionYear": 2026, "latestRelevantOfficialEditionYear": 2026, "raceDate": "2026-10-30", "endDate": "2026-11-01", "registrationStatus": "registration_closed", "categories": ["105K", "50K", "25K"], "venue": "兴善门广场", "evidenceLocator": "组别参数表及报名阶段"}},
             {"sourceType": "official", "sourceName": "柴古唐斯 2026 官方基本信息", "sourceUrl": "https://tsaigu.com/m/text?mid=48684", "sourceRecordId": "tsaigu-2026-basic-info", "crawledAt": "2026-09-15", "confidence": 0.98, "rawData": {"editionYear": 2026, "latestRelevantOfficialEditionYear": 2026, "raceDate": "2026-10-30", "endDate": "2026-11-01", "categories": ["105K", "50K", "25K"]}}
           ],
-          "fieldSources": {"raceDate": {"field": "raceDate", "sourceType": "official", "sourceName": "柴古唐斯括苍越野赛 2026 官方赛事规程", "confidence": 0.99, "updatedAt": "2026-09-15"}, "endDate": {"field": "endDate", "sourceType": "official", "sourceName": "柴古唐斯括苍越野赛 2026 官方赛事规程", "confidence": 0.99, "updatedAt": "2026-09-15"}, "registrationStatus": {"field": "registrationStatus", "sourceType": "official", "sourceName": "柴古唐斯括苍越野赛 2026 官方赛事规程", "confidence": 0.99, "updatedAt": "2026-09-21"}, "venue": {"field": "venue", "sourceType": "official", "sourceName": "柴古唐斯括苍越野赛 2026 官方赛事规程", "confidence": 0.99, "updatedAt": "2026-09-15"}}, "sourcePriority": {"official": 100}, "confidence": 0.99, "verified": true, "verificationStatus": "verified", "verifiedAt": "2026-09-15", "missingFields": ["registrationUrl", "coursePoints", "105kElevationGain"], "mergeNotes": ["105K elevation remains unresolved at 6677m versus 6583m across two active same-edition official pages.", "Final Cover and Hero use one manually selected file; image source URL and usage rights remain unrecorded."], "lastCrawledAt": "2026-09-15", "lastUpdatedAt": "2026-09-21", "schemaVersion": "race-graph-v1", "dataQualityLevel": "B", "reviewNotes": "The Edition and non-conflicting Category facts are accepted; the 105K elevation is not selected as a Canonical fact.", "internalFlags": ["category_fact_conflict_pending"],
+          "fieldSources": {"raceDate": {"field": "raceDate", "sourceType": "official", "sourceName": "柴古唐斯括苍越野赛 2026 官方赛事规程", "confidence": 0.99, "updatedAt": "2026-09-15"}, "endDate": {"field": "endDate", "sourceType": "official", "sourceName": "柴古唐斯括苍越野赛 2026 官方赛事规程", "confidence": 0.99, "updatedAt": "2026-09-15"}, "registrationStatus": {"field": "registrationStatus", "sourceType": "official", "sourceName": "柴古唐斯括苍越野赛 2026 官方赛事规程", "confidence": 0.99, "updatedAt": "2026-09-21"}, "venue": {"field": "venue", "sourceType": "official", "sourceName": "柴古唐斯括苍越野赛 2026 官方赛事规程", "confidence": 0.99, "updatedAt": "2026-09-15"}}, "sourcePriority": {"official": 100}, "confidence": 0.99, "verified": true, "verificationStatus": "verified", "verifiedAt": "2026-09-15", "missingFields": ["registrationUrl", "coursePoints", "105kElevationGain"], "mergeNotes": ["105K elevation remains unresolved at 6677m versus 6583m across two active same-edition official pages.", "Final Cover and Hero use one manually selected file; image source URL and usage rights remain unrecorded."], "lastCrawledAt": "2026-09-15", "lastUpdatedAt": "2026-09-24", "schemaVersion": "race-graph-v1", "dataQualityLevel": "B", "reviewNotes": "The Edition and non-conflicting Category facts are accepted; the 105K elevation is not selected as a Canonical fact.", "internalFlags": ["category_fact_conflict_pending"],
           "publicationGate": {"requestedEditionYear": 2026, "latestRelevantOfficialEditionYear": 2026, "latestOfficialEditionSourceRecordId": "tsaigu-2026-rules", "primarySourceRecordId": "tsaigu-2026-rules", "secondarySourceRecordId": "tsaigu-2026-basic-info", "raceDateSourceRecordIds": ["tsaigu-2026-rules", "tsaigu-2026-basic-info"], "dateEvidenceStatus": "verified", "conflictStatus": "none", "publishable": true, "checkedAt": "2026-09-20"}
         }
       },
@@ -2929,14 +3032,15 @@
         "governance": {"sources": [{"sourceType": "official", "sourceName": "宁海越野挑战赛官方网站 Gallery", "sourceUrl": "https://ninghai100.com/gallery", "sourceRecordId": "ninghai100-official-gallery", "crawledAt": "2026-09-15", "confidence": 0.95, "rawData": {"latestRelevantOfficialEditionYear": 2026, "supports": ["event_identity", "official_historical_gallery"]}}], "fieldSources": {}, "sourcePriority": {"official": 100}, "confidence": 0.95, "verified": true, "verificationStatus": "verified", "verifiedAt": "2026-09-15", "missingFields": ["organizer"], "reviewNotes": "Official source supports event identity; precise 2026 Category facts retain explicit Tier 2 provenance.", "lastCrawledAt": "2026-09-15", "lastUpdatedAt": "2026-09-15", "schemaVersion": "race-graph-v1", "dataQualityLevel": "B"}
       },
       "edition": {
-        "editionId": "ninghai-ultra-trail-2026", "eventId": "ninghai-ultra-trail", "editionName": "2026宁海越野挑战赛", "editionYear": 2026, "raceDate": "2026-11-13", "endDate": "2026-11-15", "coverImage": "/races/ninghai-ultra-trail/2026/cover-original.jpg", "heroImage": "/races/ninghai-ultra-trail/2026/hero-original.jpeg", "primaryCategoryId": "ninghai-ultra-trail-2026-utnh-100", "primaryCategoryName": "UTNH-100", "country": "中国", "province": "浙江省", "city": "宁波市", "district": "宁海县", "venue": "西门城楼", "region": "east_china", "timezone": "Asia/Shanghai", "registrationStatus": "unknown", "officialWebsite": "https://ninghai100.com/", "capacity": 7500, "lifecycleStatus": "active", "raceDistanceKm": 100, "raceDistances": [100, 60, 25], "createdAt": "2026-09-15", "updatedAt": "2026-09-20",
+        "editionId": "ninghai-ultra-trail-2026", "eventId": "ninghai-ultra-trail", "editionName": "2026宁海越野挑战赛", "editionYear": 2026, "raceDate": "2026-11-13", "endDate": "2026-11-15", "coverImage": "/races/ninghai-ultra-trail/2026/cover-original.jpg", "heroImage": "/races/ninghai-ultra-trail/2026/hero-original.jpeg", "primaryCategoryId": "ninghai-ultra-trail-2026-utnh-100", "primaryCategoryName": "UTNH-100", "country": "中国", "province": "浙江省", "city": "宁波市", "district": "宁海县", "venue": "西门城楼", "region": "east_china", "timezone": "Asia/Shanghai", "registrationStatus": "registration_closed", "officialWebsite": "https://ninghai100.com/", "capacity": 7500, "lifecycleStatus": "active", "raceDistanceKm": 100, "raceDistances": [100, 60, 25], "createdAt": "2026-09-15", "updatedAt": "2026-09-24",
         "governance": {
           "sources": [
             {"sourceType": "official", "sourceName": "宁海越野挑战赛官方网站 Gallery", "sourceUrl": "https://ninghai100.com/gallery", "sourceRecordId": "ninghai100-official-gallery", "crawledAt": "2026-09-15", "confidence": 0.95, "rawData": {"latestRelevantOfficialEditionYear": 2026, "supports": ["event_identity", "official_historical_gallery"]}},
+            {"sourceType": "official", "sourceName": "2026 宁海越野挑战赛官方网站", "sourceUrl": "https://ninghai100.com/", "sourceRecordId": "ninghai100-official-home-2026", "crawledAt": "2026-09-24", "confidence": 0.99, "rawData": {"registrationStatus": "registration_closed", "categories": ["UTNH-100", "CNH-60", "YNH-25"]}},
             {"sourceType": "partner", "sourceName": "KOLON SPORT 2026 宁海越野挑战赛合作公告", "sourceUrl": "https://www.prnasia.com/story/527294-1.shtml", "sourceRecordId": "kolon-ninghai-2026-announcement", "crawledAt": "2026-09-15", "confidence": 0.85, "rawData": {"editionYear": 2026, "latestRelevantOfficialEditionYear": 2026, "raceDate": "2026-11-13", "endDate": "2026-11-15", "capacity": 7500, "categories": ["UTNH-100", "CNH-60", "YNH-25"]}},
             {"sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "sourceUrl": "https://gobichina.com/events/85637", "sourceRecordId": "gobichina-ninghai-2026", "crawledAt": "2026-09-15", "confidence": 0.82, "rawData": {"raceDate": "2026-11-13", "endDate": "2026-11-15", "venue": "西门城楼"}}
           ],
-          "fieldSources": {"raceDate": {"field": "raceDate", "sourceType": "partner", "sourceName": "KOLON SPORT 2026 宁海越野挑战赛合作公告", "confidence": 0.85, "updatedAt": "2026-09-15"}, "endDate": {"field": "endDate", "sourceType": "partner", "sourceName": "KOLON SPORT 2026 宁海越野挑战赛合作公告", "confidence": 0.85, "updatedAt": "2026-09-15"}, "capacity": {"field": "capacity", "sourceType": "partner", "sourceName": "KOLON SPORT 2026 宁海越野挑战赛合作公告", "confidence": 0.85, "updatedAt": "2026-09-15"}, "venue": {"field": "venue", "sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "confidence": 0.82, "updatedAt": "2026-09-15"}}, "sourcePriority": {"official": 100, "partner": 80, "registration_platform": 70}, "confidence": 0.85, "verified": true, "verificationStatus": "verified", "verifiedAt": "2026-09-15", "missingFields": ["registrationUrl", "coursePoints", "officialCategoryRules"], "mergeNotes": ["Edition window and Category structure are supported by an official partner; precise Category fields are currently Tier 2 and remain explicitly provenance-bound.", "Final Cover and Hero files were manually selected; source URL and usage rights remain unrecorded."], "lastCrawledAt": "2026-09-15", "lastUpdatedAt": "2026-09-20", "schemaVersion": "race-graph-v1", "dataQualityLevel": "B", "reviewNotes": "Canonical display values are accepted for Phase B without upgrading Tier 2 evidence to Tier 1.", "internalFlags": ["tier_2_category_facts_pending_official_confirmation"],
+          "fieldSources": {"raceDate": {"field": "raceDate", "sourceType": "partner", "sourceName": "KOLON SPORT 2026 宁海越野挑战赛合作公告", "confidence": 0.85, "updatedAt": "2026-09-15"}, "endDate": {"field": "endDate", "sourceType": "partner", "sourceName": "KOLON SPORT 2026 宁海越野挑战赛合作公告", "confidence": 0.85, "updatedAt": "2026-09-15"}, "capacity": {"field": "capacity", "sourceType": "partner", "sourceName": "KOLON SPORT 2026 宁海越野挑战赛合作公告", "confidence": 0.85, "updatedAt": "2026-09-15"}, "venue": {"field": "venue", "sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "confidence": 0.82, "updatedAt": "2026-09-15"}, "registrationStatus": {"field": "registrationStatus", "sourceType": "official", "sourceName": "2026 宁海越野挑战赛官方网站", "confidence": 0.99, "updatedAt": "2026-09-24"}}, "sourcePriority": {"official": 100, "partner": 80, "registration_platform": 70}, "confidence": 0.85, "verified": true, "verificationStatus": "verified", "verifiedAt": "2026-09-15", "missingFields": ["registrationUrl", "coursePoints", "officialCategoryRules"], "mergeNotes": ["Edition window and Category structure are supported by an official partner; precise Category fields are currently Tier 2 and remain explicitly provenance-bound.", "Final Cover and Hero files were manually selected; source URL and usage rights remain unrecorded."], "lastCrawledAt": "2026-09-15", "lastUpdatedAt": "2026-09-24", "schemaVersion": "race-graph-v1", "dataQualityLevel": "B", "reviewNotes": "Canonical display values are accepted for Phase B without upgrading Tier 2 evidence to Tier 1.", "internalFlags": ["tier_2_category_facts_pending_official_confirmation"],
           "publicationGate": {"requestedEditionYear": 2026, "latestRelevantOfficialEditionYear": 2026, "latestOfficialEditionSourceRecordId": "kolon-ninghai-2026-announcement", "primarySourceRecordId": "ninghai100-official-gallery", "secondarySourceRecordId": "gobichina-ninghai-2026", "raceDateSourceRecordIds": ["kolon-ninghai-2026-announcement", "gobichina-ninghai-2026"], "dateEvidenceStatus": "verified", "conflictStatus": "none", "publishable": true, "checkedAt": "2026-09-20"}
         }
       },
@@ -2961,8 +3065,8 @@
         "governance": {"sources": [{"sourceType": "official", "sourceName": "广州市体育局 2026 广州马拉松官方发布", "sourceUrl": "https://tyj.gz.gov.cn/bmzc/xwbd/content/post_10989208.html", "sourceRecordId": "guangzhou-sports-bureau-2026-announcement", "crawledAt": "2026-09-15", "confidence": 0.99, "rawData": {"editionYear": 2026, "latestRelevantOfficialEditionYear": 2026, "raceDate": "2026-12-20", "categories": ["Marathon"]}}], "fieldSources": {}, "sourcePriority": {"official": 100}, "confidence": 0.99, "verified": true, "verificationStatus": "verified", "verifiedAt": "2026-09-15", "missingFields": ["organizer"], "mergeNotes": ["The legacy Half Marathon placeholder is not part of the formal 2026 Edition."], "lastCrawledAt": "2026-09-15", "lastUpdatedAt": "2026-09-15", "schemaVersion": "race-graph-v1", "dataQualityLevel": "A"}
       },
       "edition": {
-        "editionId": "guangzhou-marathon-2026", "eventId": "guangzhou-marathon", "editionName": "2026广州马拉松", "editionYear": 2026, "raceDate": "2026-12-20", "endDate": null, "coverImage": "/races/guangzhou-marathon/2026/cover-original.jpg", "heroImage": "/races/guangzhou-marathon/2026/hero-original.jpeg", "primaryCategoryId": "guangzhou-marathon-2026-marathon", "primaryCategoryName": "Marathon", "country": "中国", "province": "广东省", "city": "广州市", "district": null, "venue": "天河体育中心", "region": "south_china", "timezone": "Asia/Shanghai", "registrationStatus": "lottery", "officialWebsite": "https://tyj.gz.gov.cn/", "capacity": 30000, "lotteryRequired": true, "lifecycleStatus": "active", "raceDistanceKm": 42.195, "raceDistances": [42.195], "createdAt": "2026-09-15", "updatedAt": "2026-09-20",
-        "governance": {"sources": [{"sourceType": "official", "sourceName": "广州市体育局 2026 广州马拉松官方发布", "sourceUrl": "https://tyj.gz.gov.cn/bmzc/xwbd/content/post_10989208.html", "sourceRecordId": "guangzhou-sports-bureau-2026-announcement", "crawledAt": "2026-09-15", "confidence": 0.99, "rawData": {"editionYear": 2026, "latestRelevantOfficialEditionYear": 2026, "raceDate": "2026-12-20", "capacity": 30000, "categories": ["Marathon"], "startLocation": "天河体育中心", "finishLocation": "海心沙星光大道", "startWaves": ["07:00", "07:10", "07:20", "07:30"]}}], "fieldSources": {"raceDate": {"field": "raceDate", "sourceType": "official", "sourceName": "广州市体育局 2026 广州马拉松官方发布", "confidence": 0.99, "updatedAt": "2026-09-15"}, "capacity": {"field": "capacity", "sourceType": "official", "sourceName": "广州市体育局 2026 广州马拉松官方发布", "confidence": 0.99, "updatedAt": "2026-09-15"}, "registrationStatus": {"field": "registrationStatus", "sourceType": "official", "sourceName": "广州市体育局 2026 广州马拉松官方发布", "confidence": 0.99, "updatedAt": "2026-09-15"}}, "sourcePriority": {"official": 100}, "confidence": 0.99, "verified": true, "verificationStatus": "verified", "verifiedAt": "2026-09-15", "missingFields": ["registrationUrl", "lotteryResultDate", "cutoffTimeHours", "preciseStartLocation", "certificationLevel"], "mergeNotes": ["Four official starts are stored in Category startTimes; startAt remains null.", "The lottery result, exact start placement and certification level remain Pending.", "Final Cover and Hero files were manually selected; source URL and usage rights remain unrecorded."], "lastCrawledAt": "2026-09-15", "lastUpdatedAt": "2026-09-21", "schemaVersion": "race-graph-v1", "dataQualityLevel": "A", "internalFlags": [],
+        "editionId": "guangzhou-marathon-2026", "eventId": "guangzhou-marathon", "editionName": "2026广州马拉松", "editionYear": 2026, "raceDate": "2026-12-20", "endDate": null, "coverImage": "/races/guangzhou-marathon/2026/cover-original.jpg", "heroImage": "/races/guangzhou-marathon/2026/hero-original.jpeg", "primaryCategoryId": "guangzhou-marathon-2026-marathon", "primaryCategoryName": "Marathon", "country": "中国", "province": "广东省", "city": "广州市", "district": null, "venue": "天河体育中心", "region": "south_china", "timezone": "Asia/Shanghai", "registrationStatus": "lottery", "registrationOpenDate": "2026-09-02T10:00:00+08:00", "registrationCloseDate": "2026-09-11T18:00:00+08:00", "registrationUrl": "https://www.guangzhou-marathon.com/", "officialWebsite": "https://tyj.gz.gov.cn/", "capacity": 30000, "lotteryRequired": true, "lifecycleStatus": "active", "raceDistanceKm": 42.195, "raceDistances": [42.195], "createdAt": "2026-09-15", "updatedAt": "2026-09-24",
+        "governance": {"sources": [{"sourceType": "official", "sourceName": "广州市体育局 2026 广州马拉松官方发布", "sourceUrl": "https://tyj.gz.gov.cn/bmzc/xwbd/content/post_10989208.html", "sourceRecordId": "guangzhou-sports-bureau-2026-announcement", "crawledAt": "2026-09-15", "confidence": 0.99, "rawData": {"editionYear": 2026, "latestRelevantOfficialEditionYear": 2026, "raceDate": "2026-12-20", "capacity": 30000, "categories": ["Marathon"], "startLocation": "天河体育中心", "finishLocation": "海心沙星光大道", "startWaves": ["07:00", "07:10", "07:20", "07:30"]}}], "fieldSources": {"raceDate": {"field": "raceDate", "sourceType": "official", "sourceName": "广州市体育局 2026 广州马拉松官方发布", "confidence": 0.99, "updatedAt": "2026-09-15"}, "capacity": {"field": "capacity", "sourceType": "official", "sourceName": "广州市体育局 2026 广州马拉松官方发布", "confidence": 0.99, "updatedAt": "2026-09-15"}, "registrationStatus": {"field": "registrationStatus", "sourceType": "official", "sourceName": "广州市体育局 2026 广州马拉松官方发布", "confidence": 0.99, "updatedAt": "2026-09-15"}}, "sourcePriority": {"official": 100}, "confidence": 0.99, "verified": true, "verificationStatus": "verified", "verifiedAt": "2026-09-15", "missingFields": ["lotteryResultDate", "cutoffTimeHours", "preciseStartLocation", "certificationLevel"], "mergeNotes": ["Four official starts are stored in Category startTimes; startAt remains null.", "The lottery result, exact start placement and certification level remain Pending.", "Final Cover and Hero files were manually selected; source URL and usage rights remain unrecorded."], "lastCrawledAt": "2026-09-15", "lastUpdatedAt": "2026-09-24", "schemaVersion": "race-graph-v1", "dataQualityLevel": "A", "internalFlags": [],
           "publicationGate": {"requestedEditionYear": 2026, "latestRelevantOfficialEditionYear": 2026, "latestOfficialEditionSourceRecordId": "guangzhou-sports-bureau-2026-announcement", "primarySourceRecordId": "guangzhou-sports-bureau-2026-announcement", "secondarySourceRecordId": null, "raceDateSourceRecordIds": ["guangzhou-sports-bureau-2026-announcement"], "dateEvidenceStatus": "verified", "conflictStatus": "none", "publishable": true, "checkedAt": "2026-09-20"}
         }
       },
@@ -2977,8 +3081,8 @@
         "governance": {"sources": [{"sourceType": "official", "sourceName": "朗途体育 2026 深圳100 官方赛事页面", "sourceUrl": "https://www.letoursports.com/event?id=887684&mid=75256", "sourceRecordId": "letour-shenzhen100-2026-overview", "crawledAt": "2026-09-15", "confidence": 0.97, "rawData": {"officialName": "2026 FUGA深圳100跑山赛暨 TORX®中国站", "editionYear": 2026, "latestRelevantOfficialEditionYear": 2026, "raceDate": "2026-12-25", "endDate": "2026-12-27"}}], "fieldSources": {}, "sourcePriority": {"official": 100}, "confidence": 0.97, "verified": true, "verificationStatus": "verified", "verifiedAt": "2026-09-15", "missingFields": [], "reviewNotes": "Official source authority is retained despite a documented TLS hostname mismatch during direct audit access.", "lastCrawledAt": "2026-09-15", "lastUpdatedAt": "2026-09-21", "schemaVersion": "race-graph-v1", "dataQualityLevel": "A"}
       },
       "edition": {
-        "editionId": "shenzhen-100-2026", "eventId": "shenzhen-100", "editionName": "2026 FUGA深圳100跑山赛", "editionYear": 2026, "raceDate": "2026-12-25", "endDate": "2026-12-27", "coverImage": "/races/shenzhen-100/2026/cover-hero.png", "heroImage": "/races/shenzhen-100/2026/cover-hero.png", "primaryCategoryId": "shenzhen-100-2026-torx-chn100", "primaryCategoryName": "TORX CHN100", "country": "中国", "province": "广东省", "city": "深圳市", "district": null, "venue": null, "region": "south_china", "timezone": "Asia/Shanghai", "registrationStatus": "registration_closed", "officialWebsite": "https://www.letoursports.com/event?id=887684&mid=75256", "lifecycleStatus": "active", "raceDistanceKm": 101.3, "raceDistances": [101.3, 60.3, 36.6, 10.7], "createdAt": "2026-09-15", "updatedAt": "2026-09-21",
-        "governance": {"sources": [{"sourceType": "official", "sourceName": "朗途体育 2026 深圳100 官方赛事页面", "sourceUrl": "https://www.letoursports.com/event?id=887684&mid=75256", "sourceRecordId": "letour-shenzhen100-2026-overview", "crawledAt": "2026-09-15", "confidence": 0.97, "rawData": {"officialName": "2026 FUGA深圳100跑山赛暨 TORX®中国站", "editionYear": 2026, "latestRelevantOfficialEditionYear": 2026, "raceDate": "2026-12-25", "endDate": "2026-12-27", "registrationStatus": "registration_closed", "categories": ["TORX CHN100", "60K", "35K", "10K Individual", "10K 百里少年"]}}, {"sourceType": "official", "sourceName": "朗途体育 2026 深圳100 官方规程/文章列表", "sourceUrl": "https://www.letoursports.com/articles?mid=57201", "sourceRecordId": "letour-shenzhen100-2026-rules-list", "crawledAt": "2026-09-15", "confidence": 0.99, "rawData": {"editionYear": 2026, "latestRelevantOfficialEditionYear": 2026, "raceDate": "2026-12-25", "endDate": "2026-12-27"}}], "fieldSources": {"raceDate": {"field": "raceDate", "sourceType": "official", "sourceName": "朗途体育 2026 深圳100 官方赛事页面", "confidence": 0.97, "updatedAt": "2026-09-15"}, "endDate": {"field": "endDate", "sourceType": "official", "sourceName": "朗途体育 2026 深圳100 官方赛事页面", "confidence": 0.97, "updatedAt": "2026-09-15"}, "registrationStatus": {"field": "registrationStatus", "sourceType": "official", "sourceName": "朗途体育 2026 深圳100 官方赛事页面", "confidence": 0.97, "updatedAt": "2026-09-21"}}, "sourcePriority": {"official": 100}, "confidence": 0.99, "verified": true, "verificationStatus": "verified", "verifiedAt": "2026-09-15", "missingFields": ["registrationUrl", "coursePoints"], "mergeNotes": ["The legacy 35K 36.96km value is retained as superseded evidence and does not enter the current Canonical fact.", "Identified CP1–CP9 labels are insufficient for a complete Course Point fact set; no CP rows are generated.", "Final Cover and Hero use one manually selected image; the supplied AVIF bytes are preserved and a full-size PNG compatibility derivative is used. Image source URL and usage rights remain unrecorded."], "lastCrawledAt": "2026-09-15", "lastUpdatedAt": "2026-09-21", "schemaVersion": "race-graph-v1", "dataQualityLevel": "A", "internalFlags": [],
+        "editionId": "shenzhen-100-2026", "eventId": "shenzhen-100", "editionName": "2026 FUGA深圳100跑山赛", "editionYear": 2026, "raceDate": "2026-12-25", "endDate": "2026-12-27", "coverImage": "/races/shenzhen-100/2026/cover-hero.png", "heroImage": "/races/shenzhen-100/2026/cover-hero.png", "primaryCategoryId": "shenzhen-100-2026-torx-chn100", "primaryCategoryName": "TORX CHN100", "country": "中国", "province": "广东省", "city": "深圳市", "district": null, "venue": null, "region": "south_china", "timezone": "Asia/Shanghai", "registrationStatus": "registration_closed", "registrationOpenDate": "2026-08-18T15:00:00+08:00", "registrationUrl": "https://www.letoursports.com/events?mid=72298", "officialWebsite": "https://www.letoursports.com/event?id=887684&mid=75256", "lifecycleStatus": "active", "raceDistanceKm": 101.3, "raceDistances": [101.3, 60.3, 36.6, 10.7], "createdAt": "2026-09-15", "updatedAt": "2026-09-24",
+        "governance": {"sources": [{"sourceType": "official", "sourceName": "朗途体育 2026 深圳100 官方赛事页面", "sourceUrl": "https://www.letoursports.com/event?id=887684&mid=75256", "sourceRecordId": "letour-shenzhen100-2026-overview", "crawledAt": "2026-09-15", "confidence": 0.97, "rawData": {"officialName": "2026 FUGA深圳100跑山赛暨 TORX®中国站", "editionYear": 2026, "latestRelevantOfficialEditionYear": 2026, "raceDate": "2026-12-25", "endDate": "2026-12-27", "registrationStatus": "registration_closed", "categories": ["TORX CHN100", "60K", "35K", "10K Individual", "10K 百里少年"]}}, {"sourceType": "official", "sourceName": "朗途体育 2026 深圳100 官方规程/文章列表", "sourceUrl": "https://www.letoursports.com/articles?mid=57201", "sourceRecordId": "letour-shenzhen100-2026-rules-list", "crawledAt": "2026-09-15", "confidence": 0.99, "rawData": {"editionYear": 2026, "latestRelevantOfficialEditionYear": 2026, "raceDate": "2026-12-25", "endDate": "2026-12-27"}}], "fieldSources": {"raceDate": {"field": "raceDate", "sourceType": "official", "sourceName": "朗途体育 2026 深圳100 官方赛事页面", "confidence": 0.97, "updatedAt": "2026-09-15"}, "endDate": {"field": "endDate", "sourceType": "official", "sourceName": "朗途体育 2026 深圳100 官方赛事页面", "confidence": 0.97, "updatedAt": "2026-09-15"}, "registrationStatus": {"field": "registrationStatus", "sourceType": "official", "sourceName": "朗途体育 2026 深圳100 官方赛事页面", "confidence": 0.97, "updatedAt": "2026-09-21"}}, "sourcePriority": {"official": 100}, "confidence": 0.99, "verified": true, "verificationStatus": "verified", "verifiedAt": "2026-09-15", "missingFields": ["coursePoints"], "mergeNotes": ["The legacy 35K 36.96km value is retained as superseded evidence and does not enter the current Canonical fact.", "Identified CP1–CP9 labels are insufficient for a complete Course Point fact set; no CP rows are generated.", "Final Cover and Hero use one manually selected image; the supplied AVIF bytes are preserved and a full-size PNG compatibility derivative is used. Image source URL and usage rights remain unrecorded."], "lastCrawledAt": "2026-09-15", "lastUpdatedAt": "2026-09-24", "schemaVersion": "race-graph-v1", "dataQualityLevel": "A", "internalFlags": [],
           "publicationGate": {"requestedEditionYear": 2026, "latestRelevantOfficialEditionYear": 2026, "latestOfficialEditionSourceRecordId": "letour-shenzhen100-2026-overview", "primarySourceRecordId": "letour-shenzhen100-2026-overview", "secondarySourceRecordId": "letour-shenzhen100-2026-rules-list", "raceDateSourceRecordIds": ["letour-shenzhen100-2026-overview", "letour-shenzhen100-2026-rules-list"], "dateEvidenceStatus": "verified", "conflictStatus": "none", "publishable": true, "checkedAt": "2026-09-20"}
         }
       },
@@ -3011,8 +3115,8 @@
         "governance": {"sources": [{"sourceType": "official", "sourceName": "2027 重庆马拉松官方竞赛规程", "sourceUrl": "https://static.cqmarathon.com/News/Detail/21070C87897D1015", "sourceRecordId": "chongqing-marathon-2027-rules", "crawledAt": "2026-09-15", "confidence": 0.99, "rawData": {"editionYear": 2027, "latestRelevantOfficialEditionYear": 2027, "raceDate": "2027-01-10"}}], "fieldSources": {}, "sourcePriority": {"official": 100}, "confidence": 0.99, "verified": true, "verificationStatus": "verified", "verifiedAt": "2026-09-15", "missingFields": ["organizer"], "lastCrawledAt": "2026-09-15", "lastUpdatedAt": "2026-09-15", "schemaVersion": "race-graph-v1", "dataQualityLevel": "A"}
       },
       "edition": {
-        "editionId": "chongqing-marathon-2027", "eventId": "chongqing-marathon", "editionName": "2027重庆马拉松", "editionYear": 2027, "raceDate": "2027-01-10", "endDate": null, "coverImage": "/races/chongqing-marathon/2027/cover-hero-original.png", "heroImage": "/races/chongqing-marathon/2027/cover-hero-original.png", "primaryCategoryId": "chongqing-marathon-2027-marathon", "primaryCategoryName": "Marathon", "country": "中国", "province": "重庆市", "city": "重庆市", "district": null, "venue": "海棠烟雨公园", "region": "southwest_china", "timezone": "Asia/Shanghai", "registrationStatus": "lottery", "lotteryRequired": true, "officialWebsite": "https://www.cqmarathon.com/", "capacity": 26000, "lifecycleStatus": "active", "raceDistanceKm": 42.195, "raceDistances": [42.195], "createdAt": "2026-09-15", "updatedAt": "2026-09-20",
-        "governance": {"sources": [{"sourceType": "official", "sourceName": "2027 重庆马拉松官方竞赛规程", "sourceUrl": "https://static.cqmarathon.com/News/Detail/21070C87897D1015", "sourceRecordId": "chongqing-marathon-2027-rules", "crawledAt": "2026-09-15", "confidence": 0.99, "rawData": {"editionYear": 2027, "latestRelevantOfficialEditionYear": 2027, "raceDate": "2027-01-10", "capacity": 26000, "cutoffTimeHours": 6, "startLocation": "海棠烟雨公园", "finishLocation": "海棠烟雨公园"}}, {"sourceType": "official", "sourceName": "2027 重庆马拉松官方报名须知", "sourceUrl": "https://www.cqmarathon.com/News/Detail/1CB916B2816F6C28", "sourceRecordId": "chongqing-marathon-2027-registration", "crawledAt": "2026-09-15", "confidence": 0.99, "rawData": {"editionYear": 2027, "latestRelevantOfficialEditionYear": 2027, "raceDate": "2027-01-10", "startTime": "08:00", "capacity": 26000, "qualificationResultStatus": "pending"}}], "fieldSources": {"raceDate": {"field": "raceDate", "sourceType": "official", "sourceName": "2027 重庆马拉松官方报名须知", "confidence": 0.99, "updatedAt": "2026-09-15"}, "capacity": {"field": "capacity", "sourceType": "official", "sourceName": "2027 重庆马拉松官方竞赛规程", "confidence": 0.99, "updatedAt": "2026-09-15"}, "registrationStatus": {"field": "registrationStatus", "sourceType": "official", "sourceName": "2027 重庆马拉松官方报名须知", "confidence": 0.99, "updatedAt": "2026-09-15"}}, "sourcePriority": {"official": 100}, "confidence": 0.99, "verified": true, "verificationStatus": "verified", "verifiedAt": "2026-09-15", "missingFields": ["registrationUrl", "lotteryResultDate", "finalStartWaves", "officialManual"], "mergeNotes": ["Qualification result and final wave assignment remain Pending.", "Final Cover and Hero use one manually selected file; image capture year, source URL and usage rights remain unrecorded."], "lastCrawledAt": "2026-09-15", "lastUpdatedAt": "2026-09-20", "schemaVersion": "race-graph-v1", "dataQualityLevel": "A", "internalFlags": [],
+        "editionId": "chongqing-marathon-2027", "eventId": "chongqing-marathon", "editionName": "2027重庆马拉松", "editionYear": 2027, "raceDate": "2027-01-10", "endDate": null, "coverImage": "/races/chongqing-marathon/2027/cover-hero-original.png", "heroImage": "/races/chongqing-marathon/2027/cover-hero-original.png", "primaryCategoryId": "chongqing-marathon-2027-marathon", "primaryCategoryName": "Marathon", "country": "中国", "province": "重庆市", "city": "重庆市", "district": null, "venue": "海棠烟雨公园", "region": "southwest_china", "timezone": "Asia/Shanghai", "registrationStatus": "registration_closed", "registrationOpenDate": "2026-09-02", "registrationCloseDate": "2026-09-13", "registrationUrl": "https://www.cqmarathon.com/", "lotteryRequired": true, "officialWebsite": "https://www.cqmarathon.com/", "capacity": 26000, "lifecycleStatus": "active", "raceDistanceKm": 42.195, "raceDistances": [42.195], "createdAt": "2026-09-15", "updatedAt": "2026-09-24",
+        "governance": {"sources": [{"sourceType": "official", "sourceName": "2027 重庆马拉松官方竞赛规程", "sourceUrl": "https://static.cqmarathon.com/News/Detail/21070C87897D1015", "sourceRecordId": "chongqing-marathon-2027-rules", "crawledAt": "2026-09-15", "confidence": 0.99, "rawData": {"editionYear": 2027, "latestRelevantOfficialEditionYear": 2027, "raceDate": "2027-01-10", "capacity": 26000, "cutoffTimeHours": 6, "startLocation": "海棠烟雨公园", "finishLocation": "海棠烟雨公园"}}, {"sourceType": "official", "sourceName": "2027 重庆马拉松官方报名须知", "sourceUrl": "https://www.cqmarathon.com/News/Detail/1CB916B2816F6C28", "sourceRecordId": "chongqing-marathon-2027-registration", "crawledAt": "2026-09-15", "confidence": 0.99, "rawData": {"editionYear": 2027, "latestRelevantOfficialEditionYear": 2027, "raceDate": "2027-01-10", "startTime": "08:00", "capacity": 26000, "qualificationResultStatus": "confirmed"}}], "fieldSources": {"raceDate": {"field": "raceDate", "sourceType": "official", "sourceName": "2027 重庆马拉松官方报名须知", "confidence": 0.99, "updatedAt": "2026-09-15"}, "capacity": {"field": "capacity", "sourceType": "official", "sourceName": "2027 重庆马拉松官方竞赛规程", "confidence": 0.99, "updatedAt": "2026-09-15"}, "registrationStatus": {"field": "registrationStatus", "sourceType": "official", "sourceName": "2027 重庆马拉松官方报名须知", "confidence": 0.99, "updatedAt": "2026-09-24"}}, "sourcePriority": {"official": 100}, "confidence": 0.99, "verified": true, "verificationStatus": "verified", "verifiedAt": "2026-09-15", "missingFields": ["lotteryResultDate", "finalStartWaves", "officialManual"], "mergeNotes": ["Qualification results have been announced; registration_closed expresses that users can no longer register without adding a new lifecycle enum.", "Final wave assignment remains Pending.", "Final Cover and Hero use one manually selected file; image capture year, source URL and usage rights remain unrecorded."], "lastCrawledAt": "2026-09-15", "lastUpdatedAt": "2026-09-24", "schemaVersion": "race-graph-v1", "dataQualityLevel": "A", "internalFlags": [],
           "publicationGate": {"requestedEditionYear": 2027, "latestRelevantOfficialEditionYear": 2027, "latestOfficialEditionSourceRecordId": "chongqing-marathon-2027-rules", "primarySourceRecordId": "chongqing-marathon-2027-rules", "secondarySourceRecordId": "chongqing-marathon-2027-registration", "raceDateSourceRecordIds": ["chongqing-marathon-2027-rules", "chongqing-marathon-2027-registration"], "dateEvidenceStatus": "verified", "conflictStatus": "none", "publishable": true, "checkedAt": "2026-09-20"}
         }
       },

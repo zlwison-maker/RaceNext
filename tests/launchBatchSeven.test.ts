@@ -162,7 +162,7 @@ test("Shenzhen 35K uses 36.6 while preserving 36.96 only as superseded evidence"
 test("RC registration statuses and Shenzhen product naming are explicit without changing stable IDs", () => {
   equal(record("tsaigu-kuocang").edition.registrationStatus, "registration_closed");
   equal(record("shenzhen-100").edition.registrationStatus, "registration_closed");
-  equal(record("ninghai-ultra-trail").edition.registrationStatus, "unknown");
+  equal(record("ninghai-ultra-trail").edition.registrationStatus, "registration_closed");
 
   const shenzhen = record("shenzhen-100");
   equal(shenzhen.event.eventId, "shenzhen-100");

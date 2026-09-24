@@ -81,6 +81,7 @@ test("HK100 official Category completeness keeps physical races separate from Gr
       "hk100-official-bag-drop-2027",
       "hk100-official-grand-sam-2027",
       "hk100-official-world-trail-majors-2027",
+      "hk100-official-entry-2027",
     ]),
   );
 });
