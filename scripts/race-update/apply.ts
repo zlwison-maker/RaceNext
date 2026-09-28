@@ -9,13 +9,14 @@ export function applySafeChanges(input: {
   changes: RaceFieldChange[];
   registry: RaceSourceRegistry;
   appliedAt: string;
+  allowReviewed?: boolean;
 }): { snapshot: RaceGraphSnapshot; appliedChangeIds: string[] } {
   assertRaceGraphSnapshot(input.snapshot);
   const next = structuredClone(input.snapshot);
   const appliedChangeIds: string[] = [];
 
   for (const change of input.changes) {
-    assertApplyableChange(next, input.registry, change);
+    assertApplyableChange(next, input.registry, change, input.allowReviewed === true);
     const record = next.records.find(({ edition }) => edition.editionId === change.editionId)!;
     const entity = change.entityType === "Edition"
       ? record.edition
@@ -37,11 +38,16 @@ function assertApplyableChange(
   snapshot: RaceGraphSnapshot,
   registry: RaceSourceRegistry,
   change: RaceFieldChange,
+  allowReviewed: boolean,
 ): void {
-  if (change.risk !== "low" || change.action !== "auto_apply") {
-    throw new Error(`Only low-risk auto_apply changes may be applied: ${change.changeId}`);
+  const normalAutoApply = change.risk === "low" && change.action === "auto_apply";
+  const reviewedApply = allowReviewed
+    && (change.risk === "low" || change.risk === "high_impact")
+    && change.action === "pending_review";
+  if (!normalAutoApply && !reviewedApply) {
+    throw new Error(`Change is not eligible for this apply boundary: ${change.changeId}`);
   }
-  if (change.entityType !== "Edition") {
+  if (change.entityType !== "Edition" && !allowReviewed) {
     throw new Error(`Phase 1 auto-apply policy does not allow ${change.entityType} changes.`);
   }
   if (validateFieldValue(change.entityType, change.field, change.newValue).length > 0) {
@@ -79,8 +85,8 @@ function assertApplyableChange(
       targetEditionId: change.editionId,
       source,
     });
-    if (!eligibility.eligible || !eligibility.autoApplyEligible) {
-      throw new Error(`Change source is not auto-apply eligible: ${source.sourceId}`);
+    if (!eligibility.eligible || (!allowReviewed && !eligibility.autoApplyEligible)) {
+      throw new Error(`Change source is not apply eligible: ${source.sourceId}`);
     }
   }
 

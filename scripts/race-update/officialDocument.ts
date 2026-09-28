@@ -77,7 +77,8 @@ export async function fetchOfficialDocument(input: {
     if (restriction) return failure("fetch_error", restriction);
     if (!response.ok) return failure("fetch_error", `HTTP ${response.status}`);
 
-    const contentType = normalizeContentType(response.headers.get("content-type"));
+    const rawContentType = response.headers.get("content-type");
+    const contentType = normalizeContentType(rawContentType);
     if (!contentType) {
       return failure(
         "unsupported_content_type",
@@ -92,6 +93,8 @@ export async function fetchOfficialDocument(input: {
       contentType,
       body,
       fetchedAt: input.fetchedAt,
+      httpStatus: response.status,
+      charset: extractCharset(rawContentType),
     });
   } catch (error) {
     if ((error as Error).name === "AbortError") return failure("fetch_error", "Official source request timed out.");
@@ -108,6 +111,8 @@ export async function extractDocumentSnapshot(input: {
   contentType: OfficialDocumentContentType;
   body: Uint8Array;
   fetchedAt: string;
+  httpStatus?: number;
+  charset?: string | null;
 }): Promise<OfficialDocumentResult> {
   try {
     if (input.body.byteLength > OFFICIAL_FETCH_LIMITS.maxBytes) {
@@ -130,6 +135,7 @@ export async function extractDocumentSnapshot(input: {
             text,
             links: [],
             extractionMethod: "pdf_text",
+            responseBytes: input.body.byteLength,
           }),
         };
       } finally {
@@ -142,7 +148,14 @@ export async function extractDocumentSnapshot(input: {
       const text = normalizeDocumentText(raw).slice(0, OFFICIAL_FETCH_LIMITS.maxTextCharacters);
       return {
         ok: true,
-        document: buildSnapshot({ ...input, title: input.url, text, links: [], extractionMethod: "plain_text" }),
+        document: buildSnapshot({
+          ...input,
+          title: input.url,
+          text,
+          links: [],
+          extractionMethod: "plain_text",
+          responseBytes: input.body.byteLength,
+        }),
       };
     }
 
@@ -156,6 +169,7 @@ export async function extractDocumentSnapshot(input: {
         text,
         links: extractDocumentLinks(reducedHtml, input.url),
         extractionMethod: "html_text",
+        responseBytes: input.body.byteLength,
       }),
     };
   } catch (error) {
@@ -184,9 +198,14 @@ function buildSnapshot(input: {
   text: string;
   links: string[];
   extractionMethod: OfficialDocumentSnapshot["extractionMethod"];
+  httpStatus?: number;
+  charset?: string | null;
+  responseBytes: number;
 }): OfficialDocumentSnapshot {
   return {
     ...input,
+    httpStatus: input.httpStatus ?? 200,
+    charset: input.charset ?? null,
     contentHash: createHash("sha256").update(input.text).digest("hex"),
   };
 }
@@ -197,6 +216,10 @@ function normalizeContentType(value: string | null): OfficialDocumentContentType
   if (type === "text/plain") return "text/plain";
   if (type === "application/pdf") return "application/pdf";
   return null;
+}
+
+function extractCharset(value: string | null): string | null {
+  return value?.match(/(?:^|;)\s*charset=([^;\s]+)/i)?.[1]?.replace(/^['"]|['"]$/g, "").toLowerCase() ?? null;
 }
 
 function removeHtmlNoise(html: string): string {

@@ -7,6 +7,8 @@ import type {
 const POST_OBSERVATION_STATUSES = new Set<OfficialIngestionStatus>([
   "success",
   "unchanged",
+  "identity_mismatch",
+  "identity_uncertain",
   "fact_extraction_provider_unconfigured",
   "extraction_error",
   "validation_error",
@@ -27,6 +29,7 @@ export function transitionIngestionState(input: {
   previous: OfficialSourceIngestionStateEntry | null;
   document: OfficialDocumentSnapshot;
   outcome: OfficialIngestionStatus;
+  checkedAt?: string;
 }): OfficialSourceIngestionStateEntry {
   const { previous, document, outcome } = input;
   if (!POST_OBSERVATION_STATUSES.has(outcome)) {
@@ -47,6 +50,40 @@ export function transitionIngestionState(input: {
       ? document.contentHash
       : previous?.lastSuccessfulExtractionHash ?? null,
     lastExtractionMethod: document.extractionMethod,
-    lastStatus: outcome,
+    lastCheckedAt: input.checkedAt ?? document.fetchedAt,
+    lastFetchStatus: "success",
+    lastExtractionStatus: outcome === "success"
+      || outcome === "unchanged"
+      || outcome === "identity_mismatch"
+      || outcome === "identity_uncertain"
+      || outcome === "fact_extraction_provider_unconfigured"
+      || outcome === "extraction_error"
+      || outcome === "validation_error"
+      ? outcome
+      : "not_attempted",
+  };
+}
+
+export function transitionFetchFailureState(input: {
+  previous: OfficialSourceIngestionStateEntry | null;
+  sourceId: string;
+  editionId: string;
+  checkedAt: string;
+  status: "fetch_error" | "parse_error" | "unsupported_content_type" | "unsupported_scanned_pdf";
+}): OfficialSourceIngestionStateEntry {
+  if (input.previous && (
+    input.previous.sourceId !== input.sourceId || input.previous.editionId !== input.editionId
+  )) {
+    throw new Error("Ingestion state identity does not match the failed source.");
+  }
+  return {
+    sourceId: input.sourceId,
+    editionId: input.editionId,
+    lastObservedContentHash: input.previous?.lastObservedContentHash ?? null,
+    lastSuccessfulExtractionHash: input.previous?.lastSuccessfulExtractionHash ?? null,
+    lastExtractionMethod: input.previous?.lastExtractionMethod ?? null,
+    lastCheckedAt: input.checkedAt,
+    lastFetchStatus: input.status,
+    lastExtractionStatus: "not_attempted",
   };
 }

@@ -115,10 +115,31 @@ export type RaceFieldChange = RaceFieldTarget & {
 
 export type PendingChangeStatus = "pending" | "approved" | "rejected" | "applied";
 
-export type PendingChange = RaceFieldChange & {
+export type PendingChange = RaceFieldTarget & {
+  changeId: string;
+  currentValue: unknown;
+  candidateValue: unknown;
+  sourceId: string;
+  sourceUrl: string;
+  evidenceText: string;
+  evidenceLocator: string;
+  confidence: number;
+  fetchedAt: string;
+  contentHash: string;
+  extractionMethod: string;
+  evidence: FactEvidence[];
+  risk: ChangeRisk;
+  reason: string;
   status: PendingChangeStatus;
-  reviewedAt?: string | null;
-  reviewedBy?: string | null;
+  createdAt: string;
+  reviewedAt: string | null;
+  reviewReason: string | null;
+  appliedAt: string | null;
+};
+
+export type PendingChangeStore = {
+  schemaVersion: "race-update-pending-v1";
+  changes: PendingChange[];
 };
 
 export type RaceUpdateCoreResult = {

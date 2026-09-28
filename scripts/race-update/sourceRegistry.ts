@@ -132,17 +132,17 @@ export function evaluateFreshnessSourceEligibility(input: {
   if (source.tier === "trusted_structured" && source.sourceType === "structured_connector") {
     return {
       eligible: true,
-      autoApplyEligible: true,
+      autoApplyEligible: false,
       mode: "structured_connector",
-      reason: "Active edition-scoped trusted structured connector.",
+      reason: "Active edition-scoped trusted connector is eligible for extraction and cross-check only.",
     };
   }
   if (source.tier === "trusted_structured" && TRUSTED_DOCUMENT_TYPES.has(source.sourceType)) {
     return {
       eligible: true,
-      autoApplyEligible: true,
+      autoApplyEligible: false,
       mode: "trusted_document",
-      reason: "Active edition-scoped trusted structured reference.",
+      reason: "Trusted source is eligible for extraction and cross-check but is not field-authoritative by tier alone.",
     };
   }
   if (source.tier === "trusted_secondary" && source.sourceType === "official_partner_announcement") {

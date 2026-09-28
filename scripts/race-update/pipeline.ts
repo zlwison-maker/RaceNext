@@ -48,7 +48,7 @@ export function evaluateRaceUpdateCore(input: {
     .map((diff) => buildChange(diff, input.registry, input.detectedAt));
   const pendingChanges = changes
     .filter(({ action }) => action !== "auto_apply")
-    .map((change) => ({ ...change, status: "pending" as const }));
+    .map((change) => toPendingChange(change, input.detectedAt));
 
   if (!input.applyLowRisk) {
     return {
@@ -74,6 +74,37 @@ export function evaluateRaceUpdateCore(input: {
     pendingChanges,
     validationErrors,
     appliedChangeIds: applyResult.appliedChangeIds,
+  };
+}
+
+function toPendingChange(change: RaceFieldChange, createdAt: string) {
+  const primaryEvidence = change.evidence[0];
+  if (!primaryEvidence) throw new Error(`Pending change requires evidence: ${change.changeId}`);
+  return {
+    changeId: change.changeId,
+    eventId: change.eventId,
+    editionId: change.editionId,
+    categoryId: change.categoryId,
+    entityType: change.entityType,
+    field: change.field,
+    currentValue: change.oldValue,
+    candidateValue: change.newValue,
+    sourceId: primaryEvidence.sourceId,
+    sourceUrl: primaryEvidence.sourceUrl,
+    evidenceText: primaryEvidence.evidenceText,
+    evidenceLocator: primaryEvidence.evidenceLocator,
+    confidence: primaryEvidence.confidence,
+    fetchedAt: primaryEvidence.fetchedAt,
+    contentHash: primaryEvidence.contentHash,
+    extractionMethod: primaryEvidence.extractionMethod,
+    evidence: change.evidence,
+    risk: change.risk,
+    reason: change.reason,
+    status: "pending" as const,
+    createdAt,
+    reviewedAt: null,
+    reviewReason: null,
+    appliedAt: null,
   };
 }
 

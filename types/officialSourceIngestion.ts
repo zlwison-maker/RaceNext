@@ -9,6 +9,9 @@ export type OfficialDocumentSnapshot = {
   url: string;
   title: string;
   contentType: OfficialDocumentContentType;
+  httpStatus: number;
+  charset: string | null;
+  responseBytes: number;
   fetchedAt: string;
   text: string;
   links: string[];
@@ -24,6 +27,7 @@ export type OfficialIngestionStatus =
   | "unsupported_content_type"
   | "unsupported_scanned_pdf"
   | "identity_mismatch"
+  | "identity_uncertain"
   | "fact_extraction_provider_unconfigured"
   | "extraction_error"
   | "validation_error";
@@ -113,10 +117,89 @@ export type OfficialSourceIngestionStateEntry = {
   /** Latest content that completed valid extraction. This alone controls unchanged skipping. */
   lastSuccessfulExtractionHash: string | null;
   lastExtractionMethod: DocumentExtractionMethod | null;
-  lastStatus: OfficialIngestionStatus;
+  lastCheckedAt: string;
+  lastFetchStatus: "success" | "fetch_error" | "parse_error" | "unsupported_content_type" | "unsupported_scanned_pdf";
+  lastExtractionStatus:
+    | "not_attempted"
+    | "unchanged"
+    | "identity_mismatch"
+    | "identity_uncertain"
+    | "fact_extraction_provider_unconfigured"
+    | "extraction_error"
+    | "validation_error"
+    | "success";
 };
 
 export type OfficialSourceIngestionState = {
   schemaVersion: "official-source-ingestion-state-v1";
   sources: OfficialSourceIngestionStateEntry[];
+};
+
+export type EditionIdentityResult = {
+  status: "matched" | "uncertain" | "rejected";
+  eventIdentityMatched: boolean;
+  editionYearMatched: boolean;
+  domainMatched: boolean;
+  evidence: string[];
+};
+
+export type NoKeyDryRunSourceReport = {
+  editionId: string;
+  sourceId: string;
+  sourceUrl: string;
+  eligibility: {
+    eligible: boolean;
+    autoApplyEligible: boolean;
+    mode: string;
+    reason: string;
+  };
+  fetchStatus: OfficialIngestionStatus;
+  httpStatus: number | null;
+  finalUrl: string | null;
+  contentType: OfficialDocumentContentType | null;
+  charset: string | null;
+  responseBytes: number;
+  fetchedAt: string;
+  contentHash: string | null;
+  documentTextLength: number;
+  documentSample: string | null;
+  identity: EditionIdentityResult | null;
+  providerStatus: "unconfigured";
+  extractionStatus: OfficialIngestionStatus;
+  extractionRequired: boolean;
+  observedComparison: "first_observation" | "changed" | "unchanged" | "not_observed";
+  candidateCount: 0;
+  changeCount: 0;
+  pendingCount: 0;
+  canonicalWritten: false;
+  errors: string[];
+  warnings: string[];
+};
+
+export type NoKeyDryRunReport = {
+  schemaVersion: "race-no-key-dry-run-v1";
+  runId: string;
+  pass: number;
+  startedAt: string;
+  finishedAt: string;
+  editions: string[];
+  sources: NoKeyDryRunSourceReport[];
+  summary: {
+    sources_checked: number;
+    sources_succeeded: number;
+    sources_failed: number;
+    documents_changed: number;
+    documents_unchanged: number;
+    model_calls: 0;
+    fact_candidates: 0;
+    changes: 0;
+    pending_facts: 0;
+    canonical_writes: 0;
+  };
+};
+
+export type NoKeyDryRunArtifact = {
+  schemaVersion: "race-no-key-dry-run-artifact-v1";
+  generatedAt: string;
+  reports: NoKeyDryRunReport[];
 };

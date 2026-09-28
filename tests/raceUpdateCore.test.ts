@@ -293,7 +293,7 @@ test("apply rejects stale oldValue and any high-impact direct application", () =
     candidates: [categoryCandidate()],
     detectedAt: "2026-09-28T10:16:00+08:00",
   }).changes[0];
-  throws(() => applySafeChanges({ snapshot: canonical, changes: [high], registry, appliedAt: "2026-09-28T10:17:00+08:00" }), /Only low-risk/);
+  throws(() => applySafeChanges({ snapshot: canonical, changes: [high], registry, appliedAt: "2026-09-28T10:17:00+08:00" }), /not eligible for this apply boundary/);
 });
 
 test("content hash state distinguishes observed content from successful extraction", () => {
@@ -311,7 +311,7 @@ test("content hash state distinguishes observed content from successful extracti
   equal(successful.lastSuccessfulExtractionHash, document.contentHash);
   equal(shouldExtractDocument(successful, document.contentHash), false);
   const unchanged = transitionIngestionState({ previous: successful, document, outcome: "unchanged" });
-  equal(unchanged.lastStatus, "unchanged");
+  equal(unchanged.lastExtractionStatus, "unchanged");
 
   const changedDocument = documentSnapshot("c".repeat(64));
   const invalid = transitionIngestionState({ previous: successful, document: changedDocument, outcome: "validation_error" });
@@ -338,6 +338,9 @@ function documentSnapshot(contentHash: string): OfficialDocumentSnapshot {
     url: BEIJING_SOURCE_URL,
     title: "Fixture",
     contentType: "text/html",
+    httpStatus: 200,
+    charset: "utf-8",
+    responseBytes: 7,
     fetchedAt: "2026-09-28T10:00:00+08:00",
     text: "fixture",
     links: [],
