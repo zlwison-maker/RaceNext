@@ -167,7 +167,7 @@ Precision > Recall。
 
 宁可不知道，也不要编造。
 八、自动更新机制
-RaceNext 核心赛事数据每日自动检查一次。
+RaceNext 已实现 12 场核心赛事检查与人工触发的 GitHub Actions 工作流。当前仅允许 `workflow_dispatch`，每日 cron 尚未启用；不能把已实现的检查能力描述为生产环境已经每日自动运行。
 数据生命周期：
 Source
 ↓
@@ -329,7 +329,8 @@ Race Result
 - Stable ID
 - Data Governance
 - Structured Connector
-- Daily Update Pipeline
+- Race Data Update Pipeline Core
+- 12-Race Monitoring
 - Diff Engine
 - Risk Classification
 - Pending Review
@@ -339,18 +340,19 @@ Race Result
 - Source Approval
 - Official HTML / Text PDF Fetch
 - Document Extraction
-- AI Fact Extraction Adapter
+- Qwen Fact Extraction
+- Manual GitHub Workflow
 - Public Remote Read Layer
 已冻结
 RaceNext Data Foundation Architecture
 不再继续增加数据基础设施。
-Deferred
-Real AI Fact Extraction Runtime Validation
-原因：
-当前暂时没有可用 API Provider Credential。
-未来获取 API Key 后：
-使用上海马 + 贡嘎100真实官方页面进行 Fact / Evidence 验收。
-API Provider Credential 只负责让 AI Fact Extraction Adapter 实际运行，不代表候选事实已经正确。正式写入仍必须经过 Source Tier、Event / Edition Identity、Evidence、Conflict Check，以及高影响事实的 Pending Review / Human Review。
+Not Yet Activated
+- Daily cron / scheduled workflow
+
+Not Yet Proven
+- Gate 5 Real Production Change Closed Loop
+
+本地真实 Qwen Runtime 已完成验证，但 GitHub Runner 仍需在 Activation PR 合入 main 后配置 Repository Secrets，并以 `auto_apply_low_risk=false` 进行第一次人工触发。Provider Credential 只负责让 AI Fact Extraction Adapter 实际运行，不代表候选事实已经正确。正式写入仍必须经过 Source Tier、Event / Edition Identity、Evidence、Conflict Check，以及高影响事实的 Pending Review / Human Review。
 
 核心赛事的抽取还必须执行最小结构完整性检查：官方页面列出的 Category 数量与身份、Canonical 已有 Category，以及明显缺失的 Category 和目标字段必须被比较。抽取不能在找到第一条匹配后提前停止。该检查只产生候选或 Review 问题，不自动创建 Category，也不改变冻结的 Event → Edition → Category 模型。
 

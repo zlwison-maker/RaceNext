@@ -263,7 +263,7 @@ export type RealExtractionCandidateReview = {
   currentValue: unknown;
   diff: "UNCHANGED" | "CHANGED" | "CONFLICT" | "MISSING" | "SEMANTIC_REVIEW";
   risk: "low" | "high_impact" | "structural" | null;
-  action: "no_change" | "pending" | "semantic_review";
+  action: "no_change" | "pending" | "auto_apply" | "semantic_review";
   changeId: string | null;
   pendingStatus: PendingChangeStatus | null;
   reason: string;

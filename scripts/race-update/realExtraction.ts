@@ -75,6 +75,7 @@ export type PreparedRealExtractionRun = {
   pendingStore: PendingChangeStore;
   pendingRequirements: RealExtractionPendingRequirement[];
   createdPendingChangeIds: string[];
+  changes: RaceFieldChange[];
 };
 
 export async function runRealExtractionDryRun(input: {
@@ -85,6 +86,7 @@ export async function runRealExtractionDryRun(input: {
   provider: FactExtractionProvider;
   targets?: readonly RealExtractionTarget[];
   forceExtract?: boolean;
+  autoApplyLowRisk?: boolean;
   now?: () => string;
   fetcher?: typeof fetch;
 }): Promise<PreparedRealExtractionRun> {
@@ -119,7 +121,7 @@ export async function runRealExtractionDryRun(input: {
         fetchedAt: checkedAt,
         fetcher: input.fetcher,
       });
-      if (!fetched.ok && fetched.status === "fetch_error") {
+      if (!fetched.ok && isRetryableFetchFailure(fetched.status, fetched.detail)) {
         fetched = await fetchOfficialDocument({
           source,
           editionId: target.editionId,
@@ -313,6 +315,7 @@ export async function runRealExtractionDryRun(input: {
       core,
       semanticReview: semanticReviewCandidates.has(candidate),
       snapshot: input.snapshot,
+      autoApplyLowRisk: input.autoApplyLowRisk === true,
     }),
     pending: null as PendingChange | null,
   })));
@@ -388,6 +391,7 @@ export async function runRealExtractionDryRun(input: {
     pendingStore,
     pendingRequirements,
     createdPendingChangeIds,
+    changes: core.changes,
   };
 }
 
@@ -578,6 +582,7 @@ function buildCandidateReview(input: {
   core: ReturnType<typeof evaluateRaceUpdateCore>;
   semanticReview: boolean;
   snapshot: RaceGraphSnapshot;
+  autoApplyLowRisk: boolean;
 }): RealExtractionCandidateReview {
   const eligibility = evaluateFreshnessSourceEligibility({
     registryEditionId: input.candidate.editionId,
@@ -615,6 +620,7 @@ function buildCandidateReview(input: {
   if (!diff || diff.status === "NO_CANDIDATE") throw new Error(`Missing diff for extracted candidate: ${input.candidate.field}`);
   const change = input.core.changes.find((entry) => sameTarget(entry, input.candidate));
   const unchanged = diff.status === "UNCHANGED";
+  const autoApply = !unchanged && input.autoApplyLowRisk && change?.action === "auto_apply";
   return {
     eventId: input.candidate.eventId,
     editionId: input.candidate.editionId,
@@ -632,12 +638,14 @@ function buildCandidateReview(input: {
     currentValue: diff.oldValue,
     diff: diff.status,
     risk: unchanged ? null : change?.risk ?? "structural",
-    action: unchanged ? "no_change" : "pending",
+    action: unchanged ? "no_change" : autoApply ? "auto_apply" : "pending",
     changeId: null,
     pendingStatus: null,
     reason: unchanged
       ? "Candidate matches the current Canonical value."
-      : `${change?.reason ?? "Candidate requires review."} Phase 3 requires durable human review and forbids auto-apply.`,
+      : autoApply
+        ? `${change.reason} Eligible for working-copy Canonical apply; human PR merge remains required.`
+        : `${change?.reason ?? "Candidate requires review."} Safe validation mode requires durable human review.`,
     provider: input.providerResult.provider,
     model: input.providerResult.model,
     promptVersion: input.providerResult.promptVersion,

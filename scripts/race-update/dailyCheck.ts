@@ -31,12 +31,14 @@ export async function runRaceDailyCheck(input: {
   provider: FactExtractionProvider;
   now?: () => string;
   fetcher?: typeof fetch;
+  autoApplyLowRisk?: boolean;
 }): Promise<PreparedRaceDailyCheck> {
   const targets = buildRaceDailyCheckTargets(input.snapshot, input.registry);
   const prepared = await runRealExtractionDryRun({
     ...input,
     targets,
     forceExtract: false,
+    autoApplyLowRisk: input.autoApplyLowRisk,
   });
   const report = buildRaceDailyCheckReport({
     snapshot: input.snapshot,
