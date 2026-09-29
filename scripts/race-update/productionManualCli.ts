@@ -15,6 +15,7 @@ import {
 import { loadPendingChangeStore } from "./pendingStore.ts";
 import {
   assertProductionSecrets,
+  assertPhase4B1AutoApplyDisabled,
   buildDataPrBody,
   buildSanitizedRaceUpdateReport,
   classifyMeaningfulDataChange,
@@ -29,6 +30,7 @@ import { assertRaceGraphSnapshot } from "./validation.ts";
 const REPORT_PATH = "artifacts/race-update/race-update-report.json";
 const PR_BODY_PATH = "artifacts/race-update/race-update-pr-body.md";
 const autoApplyLowRisk = parseArguments(process.argv.slice(2));
+assertPhase4B1AutoApplyDisabled(autoApplyLowRisk);
 
 // This validation deliberately happens before source fetch or model invocation.
 assertProductionSecrets(process.env);

@@ -94,6 +94,10 @@ export function parseAutoApplyLowRisk(value: string | undefined): boolean {
   throw new Error("auto_apply_low_risk must be true or false.");
 }
 
+export function assertPhase4B1AutoApplyDisabled(autoApplyLowRisk: boolean): void {
+  if (autoApplyLowRisk) throw new Error("AUTO_APPLY_DISABLED_IN_PHASE_4B1");
+}
+
 export function assertDataOnlyPaths(paths: readonly string[]): void {
   const allowed = new Set<string>(DATA_ONLY_PR_ALLOWLIST);
   const unexpected = paths
@@ -265,19 +269,25 @@ export function withRetryingFactExtractionProvider(
 function durableState(state: OfficialSourceIngestionState): unknown {
   return {
     schemaVersion: state.schemaVersion,
-    sources: state.sources.map((entry) => ({
-      sourceId: entry.sourceId,
-      editionId: entry.editionId,
-      lastObservedContentHash: entry.lastObservedContentHash,
-      lastSuccessfulExtractionHash: entry.lastSuccessfulExtractionHash,
-      lastSuccessfulProvider: entry.lastSuccessfulProvider ?? null,
-      lastSuccessfulModel: entry.lastSuccessfulModel ?? null,
-      lastSuccessfulPromptVersion: entry.lastSuccessfulPromptVersion ?? null,
-      lastSuccessfulProcessingVersion: entry.lastSuccessfulProcessingVersion ?? null,
-      lastExtractionMethod: entry.lastExtractionMethod,
-      lastFetchStatus: entry.lastFetchStatus,
-      lastExtractionStatus: entry.lastExtractionStatus,
-    })),
+    sources: state.sources
+      .map((entry) => ({
+        sourceId: entry.sourceId,
+        editionId: entry.editionId,
+        lastObservedContentHash: entry.lastObservedContentHash,
+        lastSuccessfulExtractionHash: entry.lastSuccessfulExtractionHash,
+        lastSuccessfulProvider: entry.lastSuccessfulProvider ?? null,
+        lastSuccessfulModel: entry.lastSuccessfulModel ?? null,
+        lastSuccessfulPromptVersion: entry.lastSuccessfulPromptVersion ?? null,
+        lastSuccessfulProcessingVersion: entry.lastSuccessfulProcessingVersion ?? null,
+      }))
+      .filter((entry) => [
+        entry.lastObservedContentHash,
+        entry.lastSuccessfulExtractionHash,
+        entry.lastSuccessfulProvider,
+        entry.lastSuccessfulModel,
+        entry.lastSuccessfulPromptVersion,
+        entry.lastSuccessfulProcessingVersion,
+      ].some((value) => value !== null)),
   };
 }
 

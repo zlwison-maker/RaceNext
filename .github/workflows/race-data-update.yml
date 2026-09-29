@@ -2,12 +2,6 @@ name: Race Data Update
 
 on:
   workflow_dispatch:
-    inputs:
-      auto_apply_low_risk:
-        description: Apply policy-approved low-risk facts to the data branch working copy
-        required: true
-        type: boolean
-        default: false
 
 permissions:
   contents: write
@@ -64,7 +58,7 @@ jobs:
           FACT_EXTRACTION_API_KEY: ${{ secrets.FACT_EXTRACTION_API_KEY }}
           FACT_EXTRACTION_MODEL: ${{ secrets.FACT_EXTRACTION_MODEL }}
           FACT_EXTRACTION_BASE_URL: ${{ secrets.FACT_EXTRACTION_BASE_URL }}
-        run: npm run race:check:production -- --auto-apply-low-risk=${{ inputs.auto_apply_low_risk }}
+        run: npm run race:check:production -- --auto-apply-low-risk=false
 
       - name: Enforce data-only diff
         run: npm run race:gate:data-only

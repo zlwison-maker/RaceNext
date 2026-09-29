@@ -57,9 +57,9 @@ Official Fact 与 Runner Feedback 必须分离：前者进入事实验证链路�
 
 ## 6. Update Strategy
 
-仓库已实现只允许 `workflow_dispatch` 的手动 GitHub Actions 工作流。当前没有 `schedule` / cron；首次合入 main 后仍需以 `auto_apply_low_risk=false` 人工触发并验证。更新策略固定为：
+仓库已实现只允许 `workflow_dispatch` 的手动 GitHub Actions 工作流。当前没有 `schedule` / cron；Phase 4B-1 的正式 Workflow 固定使用 `auto_apply_low_risk=false`，不暴露开启入口。
 
-- 通过验证且可信、无冲突的 Low Risk 字段可自动写入 Canonical。
+- 当前 Source Registry 只有 source-level authority，尚无 field-level authority；因此 Phase 4B-1 的 Low Risk 变化也只进入 Pending / Report，Canonical 自动写入固定为 0。
 - 日期、地点、距离、爬升、关门时间等 High Impact 字段进入 Pending Review。
 - 新 Event、Edition、Category 或删除等 Structural 变化必须人工 Review。
 - 来源失败、字段缺失或时间戳刷新不能被解释为事实删除或变化。
@@ -117,7 +117,7 @@ Canonical 通过代码提交更新，因此公开 API 获得新数据仍依赖�
 - Future100 与完整存量迁移
 - Web full migration to Race Graph
 
-生产链路仍需在 Activation PR 合入 main 后配置 GitHub Repository Secrets，并以 `auto_apply_low_risk=false` 完成第一次 Manual Dispatch。只有真实变化完成“抓取 → 抽取 → Pending / data-only PR → 人工 Review → Merge”的闭环后，Gate 5 才能标记为 proven。每日 cron 留待 Phase 4B-2，当前明确未启用。
+生产链路仍需在 Activation PR 合入 main 后配置 GitHub Repository Secrets，再执行固定安全模式的 Manual Dispatch。只有真实变化完成“抓取 → 抽取 → Pending / data-only PR → 人工 Review → Merge”的闭环后，Gate 5 才能标记为 proven。每日 cron 留待 Phase 4B-2，当前明确未启用；field-level authority 完成独立设计与人工 Review 前，不得开启 Canonical auto apply。
 
 ## 12. Next Product Phase
 

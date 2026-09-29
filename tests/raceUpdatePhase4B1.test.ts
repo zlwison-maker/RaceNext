@@ -6,6 +6,7 @@ import { evaluateRaceUpdateCore } from "../scripts/race-update/pipeline.ts";
 import { runRealExtractionDryRun } from "../scripts/race-update/realExtraction.ts";
 import {
   assertDataOnlyPaths,
+  assertPhase4B1AutoApplyDisabled,
   assertProductionSecrets,
   assertSanitizedText,
   buildDataPrBody,
@@ -30,11 +31,13 @@ const workflow = await readFile(new URL("../.github/workflows/race-data-update.y
 const canonical = JSON.parse(await readFile(new URL("../data/canonical/race-graph-v1.json", import.meta.url), "utf8")) as RaceGraphSnapshot;
 const registry = await loadRaceSourceRegistry();
 
-test("Phase 4B-1 workflow is manual-only, serialized, least-privilege, and safe by default", () => {
+test("Phase 4B-1 workflow is manual-only, serialized, least-privilege, and hard-disables auto apply", () => {
   match(workflow, /^\s{2}workflow_dispatch:/m);
   equal(/^\s{2}schedule:/m.test(workflow), false);
   equal(/cron:/i.test(workflow), false);
-  match(workflow, /auto_apply_low_risk:[\s\S]*?type: boolean[\s\S]*?default: false/);
+  equal(workflow.includes("auto_apply_low_risk:"), false);
+  match(workflow, /npm run race:check:production -- --auto-apply-low-risk=false/);
+  equal(workflow.includes("inputs.auto_apply_low_risk"), false);
   match(workflow, /permissions:\n\s{2}contents: write\n\s{2}pull-requests: write/);
   match(workflow, /concurrency:\n\s{2}group: race-data-update\n\s{2}cancel-in-progress: false/);
   equal(/write-all/.test(workflow), false);
@@ -60,6 +63,8 @@ test("production secret contract fails closed without printing secret values", (
   equal(parseAutoApplyLowRisk("false"), false);
   equal(parseAutoApplyLowRisk("true"), true);
   throws(() => parseAutoApplyLowRisk("yes"), /true or false/);
+  assertPhase4B1AutoApplyDisabled(false);
+  throws(() => assertPhase4B1AutoApplyDisabled(true), /AUTO_APPLY_DISABLED_IN_PHASE_4B1/);
 });
 
 test("data-only whitelist blocks Source Registry and every code or workflow path", () => {
@@ -69,28 +74,63 @@ test("data-only whitelist blocks Source Registry and every code or workflow path
   throws(() => assertDataOnlyPaths([".github/workflows/race-data-update.yml"]), /UNEXPECTED_DATA_DIFF/);
 });
 
-test("volatile operational timestamps alone do not create a PR", () => {
+test("operational fetch and extraction status transitions never create a PR", () => {
+  const transitions: Array<{
+    beforeFetch: "success" | "fetch_error";
+    afterFetch: "success" | "fetch_error";
+    beforeExtraction: "success" | "unchanged";
+    afterExtraction: "success" | "unchanged";
+  }> = [
+    { beforeFetch: "success", afterFetch: "fetch_error", beforeExtraction: "success", afterExtraction: "success" },
+    { beforeFetch: "fetch_error", afterFetch: "success", beforeExtraction: "success", afterExtraction: "success" },
+    { beforeFetch: "success", afterFetch: "success", beforeExtraction: "success", afterExtraction: "unchanged" },
+  ];
+  for (const transition of transitions) {
+    const before = stateFixture();
+    before.sources[0].lastFetchStatus = transition.beforeFetch;
+    before.sources[0].lastExtractionStatus = transition.beforeExtraction;
+    const after = structuredClone(before);
+    after.sources[0].lastFetchStatus = transition.afterFetch;
+    after.sources[0].lastExtractionStatus = transition.afterExtraction;
+    deepEqual(changePlan({ stateBefore: before, stateAfter: after }), {
+      meaningful: false,
+      volatileOnly: true,
+      reasons: [],
+    });
+  }
+});
+
+test("operational timestamps and extraction method alone do not create a PR", () => {
   const before = stateFixture();
   const after = structuredClone(before);
   after.sources[0].lastCheckedAt = "2026-09-30T00:00:00Z";
   after.sources[0].lastSuccessfulExtractionAt = "2026-09-30T00:00:00Z";
-  deepEqual(classifyMeaningfulDataChange({
-    canonicalBefore: canonical,
-    canonicalAfter: structuredClone(canonical),
-    pendingBefore: emptyPending(),
-    pendingAfter: emptyPending(),
-    stateBefore: before,
-    stateAfter: after,
-  }), { meaningful: false, volatileOnly: true, reasons: [] });
+  after.sources[0].lastExtractionMethod = "plain_text";
+  deepEqual(changePlan({ stateBefore: before, stateAfter: after }), {
+    meaningful: false,
+    volatileOnly: true,
+    reasons: [],
+  });
 });
 
-test("durable processing state, Pending, and Canonical changes each create a PR", () => {
+test("observed hash, successful hash, and processing version each create a PR", () => {
   const stateBefore = stateFixture();
-  const stateAfter = structuredClone(stateBefore);
-  stateAfter.sources[0].lastObservedContentHash = "b".repeat(64);
-  equal(changePlan({ stateBefore, stateAfter }).meaningful, true);
-  deepEqual(changePlan({ stateBefore, stateAfter }).reasons, ["durable_state"]);
+  for (const mutate of [
+    (state: OfficialSourceIngestionState) => { state.sources[0].lastObservedContentHash = "b".repeat(64); },
+    (state: OfficialSourceIngestionState) => { state.sources[0].lastSuccessfulExtractionHash = "b".repeat(64); },
+    (state: OfficialSourceIngestionState) => { state.sources[0].lastSuccessfulProcessingVersion = "processing-v2"; },
+  ]) {
+    const stateAfter = structuredClone(stateBefore);
+    mutate(stateAfter);
+    deepEqual(changePlan({ stateBefore, stateAfter }), {
+      meaningful: true,
+      volatileOnly: false,
+      reasons: ["durable_state"],
+    });
+  }
+});
 
+test("Pending and Canonical changes each create a PR", () => {
   const pendingAfter = emptyPending();
   pendingAfter.changes.push({ changeId: "fixture" } as never);
   deepEqual(changePlan({ pendingAfter }).reasons, ["pending"]);
