@@ -5,11 +5,14 @@
       "sourceId": "beijing-marathon-official-registration-guidelines-2026",
       "editionId": "beijing-marathon-2026",
       "lastObservedContentHash": "bfab399dfdfd145e10d77a77752666ca597d13dc66b74732d94e0e0070708e7d",
-      "lastSuccessfulExtractionHash": null,
+      "lastSuccessfulExtractionHash": "bfab399dfdfd145e10d77a77752666ca597d13dc66b74732d94e0e0070708e7d",
+      "lastSuccessfulProvider": "aliyun-model-studio",
+      "lastSuccessfulModel": "qwen3.8-flash",
+      "lastSuccessfulPromptVersion": "race-fact-extraction-v1.3",
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-09-28T10:49:20.280Z",
+      "lastCheckedAt": "2026-09-29T02:57:40.309Z",
       "lastFetchStatus": "success",
-      "lastExtractionStatus": "fact_extraction_provider_unconfigured"
+      "lastExtractionStatus": "success"
     },
     {
       "sourceId": "beijing-marathon-official-registration-portal-2026",
@@ -25,21 +28,27 @@
       "sourceId": "xiamen-marathon-aims-2027",
       "editionId": "xiamen-marathon-2027",
       "lastObservedContentHash": "f68ee8fca8f37930d4854469948afe929832d4bb1cb77b8a73bcf3be6aad2c89",
-      "lastSuccessfulExtractionHash": null,
+      "lastSuccessfulExtractionHash": "f68ee8fca8f37930d4854469948afe929832d4bb1cb77b8a73bcf3be6aad2c89",
+      "lastSuccessfulProvider": "aliyun-model-studio",
+      "lastSuccessfulModel": "qwen3.8-flash",
+      "lastSuccessfulPromptVersion": "race-fact-extraction-v1.3",
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-09-28T10:49:20.548Z",
+      "lastCheckedAt": "2026-09-29T02:57:53.206Z",
       "lastFetchStatus": "success",
-      "lastExtractionStatus": "fact_extraction_provider_unconfigured"
+      "lastExtractionStatus": "success"
     },
     {
       "sourceId": "xiamen-marathon-china-marathon-2027",
       "editionId": "xiamen-marathon-2027",
-      "lastObservedContentHash": "136bf65233159a7c412f647269376d90ddabcdf6407991375f69370bba52bc1d",
-      "lastSuccessfulExtractionHash": null,
+      "lastObservedContentHash": "b59dddee291b40c7a917f1db4b6cb5cd17f5d757a378daa7ff68dda204439d6c",
+      "lastSuccessfulExtractionHash": "b59dddee291b40c7a917f1db4b6cb5cd17f5d757a378daa7ff68dda204439d6c",
+      "lastSuccessfulProvider": "aliyun-model-studio",
+      "lastSuccessfulModel": "qwen3.8-flash",
+      "lastSuccessfulPromptVersion": "race-fact-extraction-v1.3",
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-09-28T10:49:20.832Z",
+      "lastCheckedAt": "2026-09-29T02:57:58.618Z",
       "lastFetchStatus": "success",
-      "lastExtractionStatus": "fact_extraction_provider_unconfigured"
+      "lastExtractionStatus": "success"
     },
     {
       "sourceId": "xiamen-marathon-official-home",

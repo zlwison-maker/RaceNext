@@ -2,7 +2,11 @@ import { randomUUID } from "node:crypto";
 import { mkdir, readFile, rename, unlink, writeFile } from "node:fs/promises";
 import { basename, dirname, resolve } from "node:path";
 
-import type { NoKeyDryRunArtifact, OfficialSourceIngestionState } from "../../types/officialSourceIngestion.ts";
+import type {
+  NoKeyDryRunArtifact,
+  OfficialSourceIngestionState,
+  RealExtractionArtifact,
+} from "../../types/officialSourceIngestion.ts";
 import type { PendingChangeStore, RaceGraphSnapshot } from "../../types/raceUpdate.ts";
 import { assertRaceGraphSnapshot } from "./validation.ts";
 
@@ -10,12 +14,14 @@ export const CANONICAL_PATH = "data/canonical/race-graph-v1.json";
 export const PENDING_CHANGE_PATH = "data/pending/race-update-pending.json";
 export const OFFICIAL_INGESTION_STATE_PATH = "data/sources/official-source-ingestion-state.json";
 export const NO_KEY_DRY_RUN_ARTIFACT_PATH = "artifacts/race-update/phase2-no-key-dry-run.json";
+export const REAL_EXTRACTION_ARTIFACT_PATH = "artifacts/race-update/phase3-real-extraction.json";
 
 export const RACE_PERSISTENCE_ALLOWLIST = [
   CANONICAL_PATH,
   PENDING_CHANGE_PATH,
   OFFICIAL_INGESTION_STATE_PATH,
   NO_KEY_DRY_RUN_ARTIFACT_PATH,
+  REAL_EXTRACTION_ARTIFACT_PATH,
 ] as const;
 
 type AtomicFileOperations = {
@@ -98,6 +104,9 @@ export function assertOfficialIngestionState(value: unknown): asserts value is O
       || typeof entry.editionId !== "string"
       || !(entry.lastObservedContentHash === null || isHash(entry.lastObservedContentHash))
       || !(entry.lastSuccessfulExtractionHash === null || isHash(entry.lastSuccessfulExtractionHash))
+      || !isOptionalNullableString(entry.lastSuccessfulProvider)
+      || !isOptionalNullableString(entry.lastSuccessfulModel)
+      || !isOptionalNullableString(entry.lastSuccessfulPromptVersion)
       || !isDateTime(entry.lastCheckedAt)
       || !["success", "fetch_error", "parse_error", "unsupported_content_type", "unsupported_scanned_pdf"].includes(String(entry.lastFetchStatus))
       || !["not_attempted", "unchanged", "identity_mismatch", "identity_uncertain", "fact_extraction_provider_unconfigured", "extraction_error", "validation_error", "success"].includes(String(entry.lastExtractionStatus))) {
@@ -173,6 +182,26 @@ export function assertNoKeyDryRunArtifact(value: unknown): asserts value is NoKe
   }
 }
 
+export function assertRealExtractionArtifact(value: unknown): asserts value is RealExtractionArtifact {
+  if (!isObject(value)
+    || value.schemaVersion !== "race-real-extraction-artifact-v1"
+    || typeof value.generatedAt !== "string"
+    || !isObject(value.report)
+    || value.report.schemaVersion !== "race-real-extraction-v1"
+    || value.report.dryRun !== true
+    || !Array.isArray(value.report.sources)
+    || !isObject(value.report.summary)
+    || value.report.summary.canonicalWrites !== 0
+    || value.report.sources.some((source) => !isObject(source)
+      || source.canonicalWritten !== false
+      || source.reasoningMode !== "none"
+      || source.structuredOutputMode !== "strict_json_schema"
+      || !Array.isArray(source.candidates)
+      || !Array.isArray(source.rejectedCandidates))) {
+    throw new Error("Invalid real extraction artifact.");
+  }
+}
+
 export function assertAllowedPersistencePath(path: string, allowedPaths: readonly string[]): void {
   const target = resolve(path);
   if (!allowedPaths.some((allowed) => resolve(allowed) === target)) {
@@ -186,6 +215,10 @@ function isHash(value: unknown): value is string {
 
 function isDateTime(value: unknown): value is string {
   return typeof value === "string" && value.length > 0 && !Number.isNaN(Date.parse(value));
+}
+
+function isOptionalNullableString(value: unknown): value is string | null | undefined {
+  return value === undefined || value === null || typeof value === "string";
 }
 
 function isObject(value: unknown): value is Record<string, unknown> {

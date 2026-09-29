@@ -14,6 +14,7 @@
     "data:connectors:poc": "npm run data:runchina && npm run data:zuicool && npm run data:normalize && npm run data:merge-samples",
     "data:future-top100": "node scripts/seed/buildFutureTop100Seed.ts",
     "race:dry-run:no-key": "node scripts/race-update/noKeyDryRunCli.ts",
+    "race:extract:real": "node --env-file-if-exists=.env.local scripts/race-update/realExtractionCli.ts",
     "race:pending:list": "node scripts/race-update/pendingCli.ts list",
     "race:pending:approve": "node scripts/race-update/pendingCli.ts approve",
     "race:pending:reject": "node scripts/race-update/pendingCli.ts reject",

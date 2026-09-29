@@ -17,8 +17,13 @@ const POST_OBSERVATION_STATUSES = new Set<OfficialIngestionStatus>([
 export function shouldExtractDocument(
   state: OfficialSourceIngestionStateEntry | null,
   currentContentHash: string,
+  extractionIdentity?: { provider: string; model: string; promptVersion: string },
 ): boolean {
-  return state?.lastSuccessfulExtractionHash !== currentContentHash;
+  if (state?.lastSuccessfulExtractionHash !== currentContentHash) return true;
+  if (!extractionIdentity) return false;
+  return state.lastSuccessfulProvider !== extractionIdentity.provider
+    || state.lastSuccessfulModel !== extractionIdentity.model
+    || state.lastSuccessfulPromptVersion !== extractionIdentity.promptVersion;
 }
 
 /**
@@ -30,6 +35,7 @@ export function transitionIngestionState(input: {
   document: OfficialDocumentSnapshot;
   outcome: OfficialIngestionStatus;
   checkedAt?: string;
+  successfulExtraction?: { provider: string; model: string; promptVersion: string };
 }): OfficialSourceIngestionStateEntry {
   const { previous, document, outcome } = input;
   if (!POST_OBSERVATION_STATUSES.has(outcome)) {
@@ -49,6 +55,15 @@ export function transitionIngestionState(input: {
     lastSuccessfulExtractionHash: outcome === "success"
       ? document.contentHash
       : previous?.lastSuccessfulExtractionHash ?? null,
+    lastSuccessfulProvider: outcome === "success"
+      ? input.successfulExtraction?.provider ?? previous?.lastSuccessfulProvider ?? null
+      : previous?.lastSuccessfulProvider ?? null,
+    lastSuccessfulModel: outcome === "success"
+      ? input.successfulExtraction?.model ?? previous?.lastSuccessfulModel ?? null
+      : previous?.lastSuccessfulModel ?? null,
+    lastSuccessfulPromptVersion: outcome === "success"
+      ? input.successfulExtraction?.promptVersion ?? previous?.lastSuccessfulPromptVersion ?? null
+      : previous?.lastSuccessfulPromptVersion ?? null,
     lastExtractionMethod: document.extractionMethod,
     lastCheckedAt: input.checkedAt ?? document.fetchedAt,
     lastFetchStatus: "success",
@@ -81,6 +96,9 @@ export function transitionFetchFailureState(input: {
     editionId: input.editionId,
     lastObservedContentHash: input.previous?.lastObservedContentHash ?? null,
     lastSuccessfulExtractionHash: input.previous?.lastSuccessfulExtractionHash ?? null,
+    lastSuccessfulProvider: input.previous?.lastSuccessfulProvider ?? null,
+    lastSuccessfulModel: input.previous?.lastSuccessfulModel ?? null,
+    lastSuccessfulPromptVersion: input.previous?.lastSuccessfulPromptVersion ?? null,
     lastExtractionMethod: input.previous?.lastExtractionMethod ?? null,
     lastCheckedAt: input.checkedAt,
     lastFetchStatus: input.status,

@@ -85,6 +85,24 @@ export type OfficialFactExtractionOutput = {
   facts: OfficialFactCandidate[];
 };
 
+export type FactExtractionUsage = {
+  inputTokens: number | null;
+  outputTokens: number | null;
+  totalTokens: number | null;
+};
+
+export type FactExtractionProviderResult = {
+  output: OfficialFactExtractionOutput;
+  provider: string;
+  model: string;
+  protocol: "openai-compatible-chat-completions";
+  reasoningMode: "none";
+  structuredOutputMode: "strict_json_schema";
+  promptVersion: string;
+  latencyMs: number;
+  usage: FactExtractionUsage;
+};
+
 export type OfficialFactExtractionRequest = {
   contractVersion: "official-fact-extraction-v1";
   document: OfficialDocumentSnapshot;
@@ -106,16 +124,37 @@ export type OfficialFactExtractionRequest = {
 export interface FactExtractionProvider {
   readonly id: string;
   readonly configured: boolean;
-  extract(request: OfficialFactExtractionRequest): Promise<OfficialFactExtractionOutput>;
+  readonly model: string;
+  readonly promptVersion: string;
+  extract(request: OfficialFactExtractionRequest): Promise<FactExtractionProviderResult>;
 }
+
+export type FactExtractionErrorCode =
+  | "provider_unconfigured"
+  | "auth_error"
+  | "forbidden"
+  | "rate_limited"
+  | "provider_server_error"
+  | "timeout"
+  | "network_error"
+  | "invalid_json"
+  | "schema_mismatch"
+  | "empty_response"
+  | "refusal"
+  | "content_filtered"
+  | "unexpected_provider_payload";
 
 export type OfficialSourceIngestionStateEntry = {
   sourceId: string;
   editionId: string;
   /** Latest content successfully fetched and normalized, even when extraction later fails. */
   lastObservedContentHash: string | null;
-  /** Latest content that completed valid extraction. This alone controls unchanged skipping. */
+  /** Latest content that completed valid extraction; Phase 3 also checks its extraction identity. */
   lastSuccessfulExtractionHash: string | null;
+  /** Optional extraction identity; Phase 3 uses it to re-run unchanged content after prompt/model changes. */
+  lastSuccessfulProvider?: string | null;
+  lastSuccessfulModel?: string | null;
+  lastSuccessfulPromptVersion?: string | null;
   lastExtractionMethod: DocumentExtractionMethod | null;
   lastCheckedAt: string;
   lastFetchStatus: "success" | "fetch_error" | "parse_error" | "unsupported_content_type" | "unsupported_scanned_pdf";
@@ -202,4 +241,101 @@ export type NoKeyDryRunArtifact = {
   schemaVersion: "race-no-key-dry-run-artifact-v1";
   generatedAt: string;
   reports: NoKeyDryRunReport[];
+};
+
+export type RealExtractionCandidateReview = {
+  eventId: string;
+  editionId: string;
+  categoryId: string | null;
+  entityType: OfficialFactEntityType;
+  field: OfficialFactField;
+  candidateValue: unknown;
+  sourceId: string;
+  sourceUrl: string;
+  sourceTier: string;
+  authority: "authoritative" | "cross_check_only";
+  evidenceText: string;
+  evidenceLocator: string;
+  confidence: number;
+  currentValue: unknown;
+  diff: "UNCHANGED" | "CHANGED" | "CONFLICT" | "MISSING";
+  risk: "low" | "high_impact" | "structural" | null;
+  action: "no_change" | "pending_preview";
+  reason: string;
+  provider: string;
+  model: string;
+  promptVersion: string;
+};
+
+export type RealExtractionRejectedCandidate = {
+  eventId: string;
+  sourceId: string;
+  editionId: string;
+  categoryId: string | null;
+  entityType: OfficialFactEntityType;
+  field: string;
+  candidateValue: unknown;
+  evidenceText: string;
+  evidenceLocator: string;
+  confidence: number;
+  action: "rejected";
+  reason: string;
+};
+
+export type RealExtractionSourceReport = {
+  editionId: string;
+  sourceId: string;
+  sourceUrl: string;
+  sourceTier: string;
+  fetchStatus: OfficialIngestionStatus;
+  identity: EditionIdentityResult | null;
+  extractionStatus: OfficialIngestionStatus;
+  provider: string;
+  model: string;
+  protocol: "openai-compatible-chat-completions";
+  reasoningMode: "none";
+  structuredOutputMode: "strict_json_schema";
+  promptVersion: string;
+  requestStatus: "success" | "skipped" | "failed";
+  providerErrorCode: FactExtractionErrorCode | null;
+  contentHash: string | null;
+  fetchedAt: string;
+  latencyMs: number | null;
+  usage: FactExtractionUsage;
+  rawCandidateCount: number;
+  validationAcceptedCount: number;
+  validationRejectedCount: number;
+  candidates: RealExtractionCandidateReview[];
+  rejectedCandidates: RealExtractionRejectedCandidate[];
+  canonicalWritten: false;
+};
+
+export type RealExtractionReport = {
+  schemaVersion: "race-real-extraction-v1";
+  runId: string;
+  startedAt: string;
+  finishedAt: string;
+  dryRun: true;
+  editions: ["beijing-marathon-2026", "xiamen-marathon-2027"];
+  sources: RealExtractionSourceReport[];
+  summary: {
+    sourcesChecked: number;
+    sourcesSucceeded: number;
+    sourcesFailed: number;
+    modelCalls: number;
+    inputTokens: number;
+    outputTokens: number;
+    totalTokens: number;
+    candidateCount: number;
+    validationAcceptedCount: number;
+    validationRejectedCount: number;
+    pendingPreviewCount: number;
+    canonicalWrites: 0;
+  };
+};
+
+export type RealExtractionArtifact = {
+  schemaVersion: "race-real-extraction-artifact-v1";
+  generatedAt: string;
+  report: RealExtractionReport;
 };
