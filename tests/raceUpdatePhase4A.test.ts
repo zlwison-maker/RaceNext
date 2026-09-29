@@ -4,7 +4,11 @@ import { test } from "node:test";
 
 import { buildRaceDailyCheckTargets, runRaceDailyCheck } from "../scripts/race-update/dailyCheck.ts";
 import { RACE_FACT_EXTRACTION_PROMPT_VERSION } from "../scripts/race-update/qwenProvider.ts";
-import { activeFreshnessSources, loadRaceSourceRegistry } from "../scripts/race-update/sourceRegistry.ts";
+import {
+  activeFreshnessSources,
+  evaluateFreshnessSourceEligibility,
+  loadRaceSourceRegistry,
+} from "../scripts/race-update/sourceRegistry.ts";
 import type {
   FactExtractionProvider,
   FactExtractionProviderResult,
@@ -32,6 +36,48 @@ test("Phase 4A derives all Edition targets and active freshness sources without 
       activeFreshnessSources(registry, target.editionId).map(({ sourceId }) => sourceId),
     );
   }
+});
+
+test("Shenzhen Registry keeps stable source identities while using validated HTTPS official pages", () => {
+  const editionId = "shenzhen-100-2026";
+  const edition = registry.editions.find((candidate) => candidate.editionId === editionId);
+  ok(edition);
+
+  const eventHome = edition.sources.find(({ sourceId }) => sourceId === "letour-shenzhen100-2026-overview");
+  deepEqual(eventHome, {
+    sourceId: "letour-shenzhen100-2026-overview",
+    url: "https://www.letoursports.net/kailas-fuga-shenzhen100",
+    domain: "www.letoursports.net",
+    tier: "primary_official",
+    sourceType: "event_home",
+    status: "active",
+    isPrimary: true,
+    notes: "Organizer official Edition home for the 2026 Shenzhen 100 event window and all Categories.",
+  });
+
+  const categoryPage = edition.sources.find(({ sourceId }) => sourceId === "letour-shenzhen100-2026-original");
+  deepEqual(categoryPage, {
+    sourceId: "letour-shenzhen100-2026-original",
+    url: "https://www.letoursports.net/torx-china",
+    domain: "www.letoursports.net",
+    tier: "primary_official",
+    sourceType: "category_page",
+    status: "active",
+    isPrimary: false,
+    notes: "Organizer official TORX CHN100 Category page for the 2026 Shenzhen 100 edition.",
+  });
+
+  for (const source of [eventHome, categoryPage]) {
+    ok(source);
+    equal(new URL(source.url).protocol, "https:");
+    equal(new URL(source.url).hostname, source.domain);
+    equal(evaluateFreshnessSourceEligibility({
+      registryEditionId: editionId,
+      targetEditionId: editionId,
+      source,
+    }).eligible, true);
+  }
+  equal(edition.sources.some(({ url }) => url.includes("id=887684&mid=75256")), false);
 });
 
 test("Phase 4A checks all eligible sources and unchanged hashes make zero model calls", async () => {
@@ -143,6 +189,43 @@ test("Phase 4A reports a reachable-source gap when every eligible source for one
   const coverage = result.report.editions.find((candidate) => candidate.editionId === editionId)!;
   equal(coverage.health, "FAILED");
   deepEqual(coverage.sourceGap, ["event_home", "regulations", "category_page"]);
+});
+
+test("Shenzhen remains PARTIAL and passes minimum health when the legacy TLS source alone fails", async () => {
+  const editionId = "shenzhen-100-2026";
+  const failedSourceId = "letour-shenzhen100-2026-rules-list";
+  const failedSource = activeFreshnessSources(registry, editionId)
+    .find(({ sourceId }) => sourceId === failedSourceId);
+  ok(failedSource);
+  const stableFetcher = allRaceFetcher(registry);
+  const fetcher = (async (input: string | URL | Request, init?: RequestInit) => {
+    if (requestUrl(input) === failedSource.url) throw new TypeError("fetch failed");
+    return stableFetcher(input, init);
+  }) as typeof fetch;
+  const result = await runRaceDailyCheck({
+    snapshot,
+    registry,
+    state: emptyState(),
+    pendingStore: emptyPending(),
+    provider: fixtureProvider(),
+    now: clockIso(),
+    fetcher,
+  });
+  const coverage = result.report.editions.find((candidate) => candidate.editionId === editionId)!;
+  equal(coverage.eligibleSources, 3);
+  equal(coverage.successfulSources, 2);
+  equal(coverage.failedSources, 1);
+  equal(coverage.health, "PARTIAL");
+  deepEqual(coverage.sourceGap, []);
+  ok(result.report.editions.filter(({ editionId: candidate }) => candidate !== editionId)
+    .every(({ health }) => health === "HEALTHY"));
+  deepEqual(result.report.sourceFailures.filter(({ editionId: candidate }) => candidate === editionId), [{
+    editionId,
+    sourceId: failedSourceId,
+    stage: "fetch",
+    reason: "fetch failed",
+    retryable: true,
+  }]);
 });
 
 function fixtureProvider(onExtract?: () => void): FactExtractionProvider {
