@@ -647,10 +647,10 @@
       "applyBlocked": false,
       "risk": "high_impact",
       "reason": "High-impact race fact cannot be auto-applied in V1. Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
-      "status": "pending",
+      "status": "rejected",
       "createdAt": "2026-09-29T08:24:33.564Z",
-      "reviewedAt": null,
-      "reviewReason": null,
+      "reviewedAt": "2026-09-29T08:41:35.502Z",
+      "reviewReason": "Semantic equivalent: Dapeng Fortress = 大鹏所城; keep Chinese Canonical for China-facing product.",
       "appliedAt": null
     },
     {
@@ -690,10 +690,10 @@
       "applyBlocked": false,
       "risk": "high_impact",
       "reason": "High-impact race fact cannot be auto-applied in V1. Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
-      "status": "pending",
+      "status": "rejected",
       "createdAt": "2026-09-29T08:24:33.564Z",
-      "reviewedAt": null,
-      "reviewReason": null,
+      "reviewedAt": "2026-09-29T08:41:35.633Z",
+      "reviewReason": "Semantic equivalent: Dameisha Beach Park = 大梅沙海滨公园; keep Chinese Canonical for China-facing product.",
       "appliedAt": null
     }
   ]
