@@ -1,4 +1,4 @@
-import { randomUUID } from "node:crypto";
+import { createHash, randomUUID } from "node:crypto";
 
 import type {
   FactExtractionErrorCode,
@@ -15,7 +15,13 @@ import type {
   RealExtractionReport,
   RealExtractionSourceReport,
 } from "../../types/officialSourceIngestion.ts";
-import type { RaceGraphSnapshot, RaceSourceRegistry, RaceSourceRegistrySource } from "../../types/raceUpdate.ts";
+import type {
+  PendingChange,
+  PendingChangeStore,
+  RaceGraphSnapshot,
+  RaceSourceRegistry,
+  RaceSourceRegistrySource,
+} from "../../types/raceUpdate.ts";
 import { checkEditionDocumentIdentity } from "./identity.ts";
 import { shouldExtractDocument, transitionFetchFailureState, transitionIngestionState } from "./ingestionState.ts";
 import { fetchOfficialDocument } from "./officialDocument.ts";
@@ -40,16 +46,35 @@ type AcceptedSource = {
   result: FactExtractionProviderResult;
   source: RaceSourceRegistrySource;
   candidates: OfficialFactCandidate[];
+  previous: OfficialSourceIngestionStateEntry | null;
+  document: OfficialDocumentSnapshot;
+  checkedAt: string;
+};
+
+export type RealExtractionPendingRequirement = {
+  editionId: string;
+  sourceId: string;
+  changeIds: string[];
+};
+
+export type PreparedRealExtractionRun = {
+  report: RealExtractionReport;
+  nextState: OfficialSourceIngestionState;
+  pendingStore: PendingChangeStore;
+  pendingRequirements: RealExtractionPendingRequirement[];
+  createdPendingChangeIds: string[];
 };
 
 export async function runRealExtractionDryRun(input: {
   snapshot: RaceGraphSnapshot;
   registry: RaceSourceRegistry;
   state: OfficialSourceIngestionState;
+  pendingStore?: PendingChangeStore;
   provider: FactExtractionProvider;
+  forceExtract?: boolean;
   now?: () => string;
   fetcher?: typeof fetch;
-}): Promise<{ report: RealExtractionReport; state: OfficialSourceIngestionState }> {
+}): Promise<PreparedRealExtractionRun> {
   if (!input.provider.configured) throw new Error("Fact extraction provider is not configured.");
 
   const now = input.now ?? (() => new Date().toISOString());
@@ -131,7 +156,7 @@ export async function runRealExtractionDryRun(input: {
         continue;
       }
 
-      if (!shouldExtractDocument(previous, document.contentHash, {
+      if (!input.forceExtract && !shouldExtractDocument(previous, document.contentHash, {
         provider: input.provider.id,
         model: input.provider.model,
         promptVersion: input.provider.promptVersion,
@@ -201,17 +226,9 @@ export async function runRealExtractionDryRun(input: {
       });
       const allReturnedCandidatesInvalid = result.output.facts.length > 0 && validation.accepted.length === 0;
       const extractionStatus: OfficialIngestionStatus = allReturnedCandidatesInvalid ? "validation_error" : "success";
-      upsertState(state, transitionIngestionState({
-        previous,
-        document,
-        outcome: extractionStatus,
-        checkedAt,
-        successfulExtraction: extractionStatus === "success" ? {
-          provider: result.provider,
-          model: result.model,
-          promptVersion: result.promptVersion,
-        } : undefined,
-      }));
+      if (allReturnedCandidatesInvalid) {
+        upsertState(state, transitionIngestionState({ previous, document, outcome: "validation_error", checkedAt }));
+      }
 
       const report: RealExtractionSourceReport = {
         ...baseReport({
@@ -240,28 +257,70 @@ export async function runRealExtractionDryRun(input: {
         rejectedCandidates: validation.rejected,
       };
       reports.push(report);
-      if (validation.accepted.length > 0) {
-        acceptedSources.push({ report, result, source, candidates: validation.accepted });
+      if (!allReturnedCandidatesInvalid) {
+        acceptedSources.push({ report, result, source, candidates: validation.accepted, previous, document, checkedAt });
       }
     }
   }
 
   const acceptedCandidates = acceptedSources.flatMap(({ candidates }) => candidates);
+  const detectedAt = now();
   const core = evaluateRaceUpdateCore({
     snapshot: input.snapshot,
     registry: input.registry,
     candidates: acceptedCandidates,
-    detectedAt: now(),
+    detectedAt,
     applyLowRisk: false,
   });
   if (core.appliedChangeIds.length > 0) throw new Error("Phase 3 dry run attempted to apply a Canonical change.");
 
-  for (const acceptedSource of acceptedSources) {
-    acceptedSource.report.candidates = acceptedSource.candidates.map((candidate) => buildCandidateReview({
-      candidate,
-      source: acceptedSource.source,
-      providerResult: acceptedSource.result,
-      core,
+  const planned = acceptedSources.map((acceptedSource) => ({
+    acceptedSource,
+    reviews: acceptedSource.candidates.map((candidate) => {
+      const review = buildCandidateReview({
+        candidate,
+        source: acceptedSource.source,
+        providerResult: acceptedSource.result,
+        core,
+      });
+      const pending = review.action === "pending"
+        ? buildDurablePendingChange({ candidate, review, providerResult: acceptedSource.result, createdAt: detectedAt })
+        : null;
+      return { review, pending };
+    }),
+  }));
+  const incomingPending = planned.flatMap(({ reviews }) => reviews.flatMap(({ pending }) => pending ? [pending] : []));
+  const existingPendingStore = input.pendingStore ?? { schemaVersion: "race-update-pending-v1", changes: [] };
+  const pendingStore = mergeDurablePendingChanges(existingPendingStore, incomingPending);
+  const existingIds = new Set(existingPendingStore.changes.map(({ changeId }) => changeId));
+  const createdPendingChangeIds = incomingPending
+    .map(({ changeId }) => changeId)
+    .filter((changeId, index, all) => !existingIds.has(changeId) && all.indexOf(changeId) === index);
+  const pendingRequirements: RealExtractionPendingRequirement[] = [];
+
+  for (const { acceptedSource, reviews } of planned) {
+    acceptedSource.report.candidates = reviews.map(({ review, pending }) => {
+      if (!pending) return review;
+      const durable = pendingStore.changes.find(({ changeId }) => changeId === pending.changeId);
+      if (!durable) throw new Error(`Prepared Pending Store is missing required change: ${pending.changeId}`);
+      return { ...review, changeId: durable.changeId, pendingStatus: durable.status };
+    });
+    const changeIds = acceptedSource.report.candidates.flatMap(({ changeId }) => changeId ? [changeId] : []);
+    pendingRequirements.push({
+      editionId: acceptedSource.report.editionId,
+      sourceId: acceptedSource.report.sourceId,
+      changeIds,
+    });
+    upsertState(state, transitionIngestionState({
+      previous: acceptedSource.previous,
+      document: acceptedSource.document,
+      outcome: "success",
+      checkedAt: acceptedSource.checkedAt,
+      successfulExtraction: {
+        provider: acceptedSource.result.provider,
+        model: acceptedSource.result.model,
+        promptVersion: acceptedSource.result.promptVersion,
+      },
     }));
   }
 
@@ -275,7 +334,13 @@ export async function runRealExtractionDryRun(input: {
     sources: reports,
     summary: summarize(reports),
   };
-  return { report, state };
+  return {
+    report,
+    nextState: state,
+    pendingStore,
+    pendingRequirements,
+    createdPendingChangeIds,
+  };
 }
 
 export function validateExtractedCandidates(input: {
@@ -429,14 +494,123 @@ function buildCandidateReview(input: {
     currentValue: diff.oldValue,
     diff: diff.status,
     risk: unchanged ? null : change?.risk ?? "structural",
-    action: unchanged ? "no_change" : "pending_preview",
+    action: unchanged ? "no_change" : "pending",
+    changeId: null,
+    pendingStatus: null,
     reason: unchanged
       ? "Candidate matches the current Canonical value."
-      : `${change?.reason ?? "Candidate requires review."} Phase 3 first-run safety forces preview only.`,
+      : `${change?.reason ?? "Candidate requires review."} Phase 3 requires durable human review and forbids auto-apply.`,
     provider: input.providerResult.provider,
     model: input.providerResult.model,
     promptVersion: input.providerResult.promptVersion,
   };
+}
+
+export function createRealExtractionChangeId(input: Pick<
+  OfficialFactCandidate,
+  "editionId" | "categoryId" | "field" | "sourceId" | "contentHash" | "candidateValue"
+>): string {
+  const identity = [
+    input.editionId,
+    input.categoryId ?? "edition",
+    input.field,
+    input.sourceId,
+    input.contentHash,
+    stableJson(input.candidateValue),
+  ].join("|");
+  return `chg-${createHash("sha256").update(identity).digest("hex").slice(0, 24)}`;
+}
+
+export function mergeDurablePendingChanges(
+  existing: PendingChangeStore,
+  incoming: PendingChange[],
+): PendingChangeStore {
+  const next = structuredClone(existing);
+  const byId = new Map(next.changes.map((change) => [change.changeId, change]));
+  for (const change of incoming) {
+    const durable = byId.get(change.changeId);
+    if (durable) {
+      if (durableIdentity(durable) !== durableIdentity(change)) {
+        throw new Error(`Pending changeId collision: ${change.changeId}`);
+      }
+      continue;
+    }
+    next.changes.push(structuredClone(change));
+    byId.set(change.changeId, change);
+  }
+  return next;
+}
+
+function buildDurablePendingChange(input: {
+  candidate: OfficialFactCandidate;
+  review: RealExtractionCandidateReview;
+  providerResult: FactExtractionProviderResult;
+  createdAt: string;
+}): PendingChange {
+  if (input.review.risk === null || input.review.action !== "pending") {
+    throw new Error(`Cannot persist unchanged extraction candidate: ${input.review.field}`);
+  }
+  const evidence = {
+    sourceId: input.candidate.sourceId,
+    sourceUrl: input.candidate.sourceUrl,
+    evidenceText: input.candidate.evidenceText,
+    evidenceLocator: input.candidate.evidenceLocator,
+    confidence: input.candidate.confidence,
+    fetchedAt: input.candidate.fetchedAt,
+    contentHash: input.candidate.contentHash,
+    extractionMethod: input.candidate.extractionMethod,
+  };
+  return {
+    changeId: createRealExtractionChangeId(input.candidate),
+    eventId: input.candidate.eventId,
+    editionId: input.candidate.editionId,
+    categoryId: input.candidate.categoryId,
+    entityType: input.candidate.entityType,
+    field: input.candidate.field,
+    currentValue: input.review.currentValue,
+    candidateValue: input.candidate.candidateValue,
+    sourceId: input.candidate.sourceId,
+    sourceUrl: input.candidate.sourceUrl,
+    evidenceText: input.candidate.evidenceText,
+    evidenceLocator: input.candidate.evidenceLocator,
+    confidence: input.candidate.confidence,
+    fetchedAt: input.candidate.fetchedAt,
+    contentHash: input.candidate.contentHash,
+    extractionMethod: input.candidate.extractionMethod,
+    provider: input.providerResult.provider,
+    model: input.providerResult.model,
+    promptVersion: input.providerResult.promptVersion,
+    evidence: [evidence],
+    risk: input.review.risk,
+    reason: input.review.reason,
+    status: "pending",
+    createdAt: input.createdAt,
+    reviewedAt: null,
+    reviewReason: null,
+    appliedAt: null,
+  };
+}
+
+function durableIdentity(change: PendingChange): string {
+  return [
+    change.editionId,
+    change.categoryId ?? "edition",
+    change.field,
+    change.sourceId,
+    change.contentHash,
+    stableJson(change.candidateValue),
+  ].join("|");
+}
+
+function stableJson(value: unknown): string {
+  if (Array.isArray(value)) return `[${value.map(stableJson).join(",")}]`;
+  if (value && typeof value === "object") {
+    return `{${Object.entries(value as Record<string, unknown>)
+      .sort(([left], [right]) => left.localeCompare(right))
+      .map(([key, entry]) => `${JSON.stringify(key)}:${stableJson(entry)}`)
+      .join(",")}}`;
+  }
+  return JSON.stringify(value) ?? "undefined";
 }
 
 function baseReport(input: {
@@ -494,7 +668,7 @@ function summarize(reports: RealExtractionSourceReport[]): RealExtractionReport[
     candidateCount: reports.reduce((sum, report) => sum + report.rawCandidateCount, 0),
     validationAcceptedCount: reports.reduce((sum, report) => sum + report.validationAcceptedCount, 0),
     validationRejectedCount: reports.reduce((sum, report) => sum + report.validationRejectedCount, 0),
-    pendingPreviewCount: reports.flatMap(({ candidates }) => candidates).filter(({ action }) => action === "pending_preview").length,
+    pendingCount: reports.flatMap(({ candidates }) => candidates).filter(({ action }) => action === "pending").length,
     canonicalWrites: 0,
   };
 }

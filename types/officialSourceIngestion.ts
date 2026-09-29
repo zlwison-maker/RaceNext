@@ -1,4 +1,5 @@
 import type { Category, Edition } from "./event.ts";
+import type { PendingChangeStatus } from "./raceUpdate.ts";
 
 export type OfficialDocumentContentType = "text/html" | "text/plain" | "application/pdf";
 export type DocumentExtractionMethod = "html_text" | "plain_text" | "pdf_text";
@@ -149,7 +150,7 @@ export type OfficialSourceIngestionStateEntry = {
   editionId: string;
   /** Latest content successfully fetched and normalized, even when extraction later fails. */
   lastObservedContentHash: string | null;
-  /** Latest content that completed valid extraction; Phase 3 also checks its extraction identity. */
+  /** Latest content that completed extraction and durably recorded every accepted change. */
   lastSuccessfulExtractionHash: string | null;
   /** Optional extraction identity; Phase 3 uses it to re-run unchanged content after prompt/model changes. */
   lastSuccessfulProvider?: string | null;
@@ -260,7 +261,9 @@ export type RealExtractionCandidateReview = {
   currentValue: unknown;
   diff: "UNCHANGED" | "CHANGED" | "CONFLICT" | "MISSING";
   risk: "low" | "high_impact" | "structural" | null;
-  action: "no_change" | "pending_preview";
+  action: "no_change" | "pending";
+  changeId: string | null;
+  pendingStatus: PendingChangeStatus | null;
   reason: string;
   provider: string;
   model: string;
@@ -329,7 +332,7 @@ export type RealExtractionReport = {
     candidateCount: number;
     validationAcceptedCount: number;
     validationRejectedCount: number;
-    pendingPreviewCount: number;
+    pendingCount: number;
     canonicalWrites: 0;
   };
 };

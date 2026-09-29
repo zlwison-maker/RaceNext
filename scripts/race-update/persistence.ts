@@ -141,6 +141,9 @@ export function assertPendingChangeStore(value: unknown): asserts value is Pendi
       || !isDateTime(change.fetchedAt)
       || !isHash(change.contentHash)
       || typeof change.extractionMethod !== "string"
+      || !isOptionalNullableString(change.provider)
+      || !isOptionalNullableString(change.model)
+      || !isOptionalNullableString(change.promptVersion)
       || typeof change.reason !== "string"
       || !["low", "high_impact", "structural"].includes(String(change.risk))
       || !["pending", "approved", "rejected", "applied"].includes(String(change.status))

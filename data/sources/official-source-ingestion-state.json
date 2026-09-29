@@ -10,7 +10,7 @@
       "lastSuccessfulModel": "qwen3.8-flash",
       "lastSuccessfulPromptVersion": "race-fact-extraction-v1.3",
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-09-29T02:57:40.309Z",
+      "lastCheckedAt": "2026-09-29T06:24:23.147Z",
       "lastFetchStatus": "success",
       "lastExtractionStatus": "success"
     },
@@ -33,7 +33,7 @@
       "lastSuccessfulModel": "qwen3.8-flash",
       "lastSuccessfulPromptVersion": "race-fact-extraction-v1.3",
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-09-29T02:57:53.206Z",
+      "lastCheckedAt": "2026-09-29T06:24:42.651Z",
       "lastFetchStatus": "success",
       "lastExtractionStatus": "success"
     },
@@ -46,7 +46,7 @@
       "lastSuccessfulModel": "qwen3.8-flash",
       "lastSuccessfulPromptVersion": "race-fact-extraction-v1.3",
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-09-29T02:57:58.618Z",
+      "lastCheckedAt": "2026-09-29T06:24:47.208Z",
       "lastFetchStatus": "success",
       "lastExtractionStatus": "success"
     },

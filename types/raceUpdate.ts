@@ -127,6 +127,10 @@ export type PendingChange = RaceFieldTarget & {
   fetchedAt: string;
   contentHash: string;
   extractionMethod: string;
+  /** Present for model-extracted changes; optional for older deterministic pipeline records. */
+  provider?: string | null;
+  model?: string | null;
+  promptVersion?: string | null;
   evidence: FactEvidence[];
   risk: ChangeRisk;
   reason: string;

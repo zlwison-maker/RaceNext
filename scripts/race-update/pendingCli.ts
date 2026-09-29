@@ -20,11 +20,13 @@ try {
     else console.table(changes.map((change) => ({
       id: change.changeId,
       status: change.status,
+      event: change.eventId,
       edition: change.editionId,
       category: change.categoryId ?? "—",
       field: change.field,
       current: JSON.stringify(change.currentValue),
       candidate: JSON.stringify(change.candidateValue),
+      source: change.sourceId,
       risk: change.risk,
     })));
   } else {

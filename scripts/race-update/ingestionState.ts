@@ -29,6 +29,7 @@ export function shouldExtractDocument(
 /**
  * Records a successful fetch+normalization independently from extraction.
  * Failed/unconfigured extraction must not advance lastSuccessfulExtractionHash.
+ * Callers may persist an outcome of success only after every accepted Change is durable.
  */
 export function transitionIngestionState(input: {
   previous: OfficialSourceIngestionStateEntry | null;

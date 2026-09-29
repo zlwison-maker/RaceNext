@@ -1,4 +1,125 @@
 {
   "schemaVersion": "race-update-pending-v1",
-  "changes": []
+  "changes": [
+    {
+      "changeId": "chg-12e200d7769ec1e1f34c187f",
+      "eventId": "beijing-marathon",
+      "editionId": "beijing-marathon-2026",
+      "categoryId": "beijing-marathon-2026-marathon",
+      "entityType": "Category",
+      "field": "startLocation",
+      "currentValue": null,
+      "candidateValue": "Tian'anmen Square",
+      "sourceId": "beijing-marathon-official-registration-guidelines-2026",
+      "sourceUrl": "https://en.beijing-marathon.com/registration-guidelines.html",
+      "evidenceText": "Course Start: Tian'anmen Square",
+      "evidenceLocator": "text:963-994; Section 01. RACE INFORMATION, Item 1.3",
+      "confidence": 1,
+      "fetchedAt": "2026-09-29T06:24:23.147Z",
+      "contentHash": "bfab399dfdfd145e10d77a77752666ca597d13dc66b74732d94e0e0070708e7d",
+      "extractionMethod": "aliyun-qwen-structured-output",
+      "provider": "aliyun-model-studio",
+      "model": "qwen3.8-flash",
+      "promptVersion": "race-fact-extraction-v1.3",
+      "evidence": [
+        {
+          "sourceId": "beijing-marathon-official-registration-guidelines-2026",
+          "sourceUrl": "https://en.beijing-marathon.com/registration-guidelines.html",
+          "evidenceText": "Course Start: Tian'anmen Square",
+          "evidenceLocator": "text:963-994; Section 01. RACE INFORMATION, Item 1.3",
+          "confidence": 1,
+          "fetchedAt": "2026-09-29T06:24:23.147Z",
+          "contentHash": "bfab399dfdfd145e10d77a77752666ca597d13dc66b74732d94e0e0070708e7d",
+          "extractionMethod": "aliyun-qwen-structured-output"
+        }
+      ],
+      "risk": "high_impact",
+      "reason": "High-impact race fact cannot be auto-applied in V1. Phase 3 requires durable human review and forbids auto-apply.",
+      "status": "pending",
+      "createdAt": "2026-09-29T06:25:06.156Z",
+      "reviewedAt": null,
+      "reviewReason": null,
+      "appliedAt": null
+    },
+    {
+      "changeId": "chg-177d66f0380e5f7f1ed9beb2",
+      "eventId": "beijing-marathon",
+      "editionId": "beijing-marathon-2026",
+      "categoryId": "beijing-marathon-2026-marathon",
+      "entityType": "Category",
+      "field": "finishLocation",
+      "currentValue": null,
+      "candidateValue": "Landscape Avenue, Central Area of Beijing Olympic Park",
+      "sourceId": "beijing-marathon-official-registration-guidelines-2026",
+      "sourceUrl": "https://en.beijing-marathon.com/registration-guidelines.html",
+      "evidenceText": "Finish: Landscape Avenue, Central Area of Beijing Olympic Park",
+      "evidenceLocator": "text:995-1057; Section 01. RACE INFORMATION, Item 1.3",
+      "confidence": 1,
+      "fetchedAt": "2026-09-29T06:24:23.147Z",
+      "contentHash": "bfab399dfdfd145e10d77a77752666ca597d13dc66b74732d94e0e0070708e7d",
+      "extractionMethod": "aliyun-qwen-structured-output",
+      "provider": "aliyun-model-studio",
+      "model": "qwen3.8-flash",
+      "promptVersion": "race-fact-extraction-v1.3",
+      "evidence": [
+        {
+          "sourceId": "beijing-marathon-official-registration-guidelines-2026",
+          "sourceUrl": "https://en.beijing-marathon.com/registration-guidelines.html",
+          "evidenceText": "Finish: Landscape Avenue, Central Area of Beijing Olympic Park",
+          "evidenceLocator": "text:995-1057; Section 01. RACE INFORMATION, Item 1.3",
+          "confidence": 1,
+          "fetchedAt": "2026-09-29T06:24:23.147Z",
+          "contentHash": "bfab399dfdfd145e10d77a77752666ca597d13dc66b74732d94e0e0070708e7d",
+          "extractionMethod": "aliyun-qwen-structured-output"
+        }
+      ],
+      "risk": "high_impact",
+      "reason": "High-impact race fact cannot be auto-applied in V1. Phase 3 requires durable human review and forbids auto-apply.",
+      "status": "pending",
+      "createdAt": "2026-09-29T06:25:06.156Z",
+      "reviewedAt": null,
+      "reviewReason": null,
+      "appliedAt": null
+    },
+    {
+      "changeId": "chg-a028496658a542cd1bc9399a",
+      "eventId": "xiamen-marathon",
+      "editionId": "xiamen-marathon-2027",
+      "categoryId": "xiamen-marathon-2027-marathon",
+      "entityType": "Category",
+      "field": "startLocation",
+      "currentValue": null,
+      "candidateValue": "厦门国际会展中心",
+      "sourceId": "xiamen-marathon-china-marathon-2027",
+      "sourceUrl": "https://chinamarathon.com/events/86038",
+      "evidenceText": "2027建发厦门马拉松赛定于2027年1月10日（周日）7:00在厦门国际会展中心开跑",
+      "evidenceLocator": "text:121-164; untrustedDocumentText",
+      "confidence": 0.95,
+      "fetchedAt": "2026-09-29T06:24:47.208Z",
+      "contentHash": "b59dddee291b40c7a917f1db4b6cb5cd17f5d757a378daa7ff68dda204439d6c",
+      "extractionMethod": "aliyun-qwen-structured-output",
+      "provider": "aliyun-model-studio",
+      "model": "qwen3.8-flash",
+      "promptVersion": "race-fact-extraction-v1.3",
+      "evidence": [
+        {
+          "sourceId": "xiamen-marathon-china-marathon-2027",
+          "sourceUrl": "https://chinamarathon.com/events/86038",
+          "evidenceText": "2027建发厦门马拉松赛定于2027年1月10日（周日）7:00在厦门国际会展中心开跑",
+          "evidenceLocator": "text:121-164; untrustedDocumentText",
+          "confidence": 0.95,
+          "fetchedAt": "2026-09-29T06:24:47.208Z",
+          "contentHash": "b59dddee291b40c7a917f1db4b6cb5cd17f5d757a378daa7ff68dda204439d6c",
+          "extractionMethod": "aliyun-qwen-structured-output"
+        }
+      ],
+      "risk": "high_impact",
+      "reason": "High-impact race fact cannot be auto-applied in V1. Phase 3 requires durable human review and forbids auto-apply.",
+      "status": "pending",
+      "createdAt": "2026-09-29T06:25:06.156Z",
+      "reviewedAt": null,
+      "reviewReason": null,
+      "appliedAt": null
+    }
+  ]
 }

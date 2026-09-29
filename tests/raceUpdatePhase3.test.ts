@@ -10,7 +10,13 @@ import {
   RACE_FACT_EXTRACTION_JSON_SCHEMA,
   RACE_FACT_EXTRACTION_PROMPT_VERSION,
 } from "../scripts/race-update/qwenProvider.ts";
-import { runRealExtractionDryRun, validateExtractedCandidates } from "../scripts/race-update/realExtraction.ts";
+import {
+  createRealExtractionChangeId,
+  mergeDurablePendingChanges,
+  runRealExtractionDryRun,
+  validateExtractedCandidates,
+} from "../scripts/race-update/realExtraction.ts";
+import { persistPreparedRealExtraction } from "../scripts/race-update/realExtractionDurability.ts";
 import { loadRaceSourceRegistry } from "../scripts/race-update/sourceRegistry.ts";
 import type {
   FactExtractionProvider,
@@ -20,7 +26,7 @@ import type {
   OfficialFactExtractionRequest,
   OfficialSourceIngestionState,
 } from "../types/officialSourceIngestion.ts";
-import type { RaceGraphSnapshot } from "../types/raceUpdate.ts";
+import type { PendingChange, PendingChangeStatus, RaceGraphSnapshot } from "../types/raceUpdate.ts";
 
 const snapshot = JSON.parse(await readFile(new URL("../data/canonical/race-graph-v1.json", import.meta.url), "utf8")) as RaceGraphSnapshot;
 const registry = await loadRaceSourceRegistry();
@@ -192,7 +198,7 @@ test("missing facts produce an empty successful extraction and advance successfu
     "xiamen-marathon-aims-2027",
     "xiamen-marathon-china-marathon-2027",
   ]) {
-    const state = result.state.sources.find((entry) => entry.sourceId === sourceId)!;
+    const state = result.nextState.sources.find((entry) => entry.sourceId === sourceId)!;
     equal(state.lastSuccessfulExtractionHash, state.lastObservedContentHash);
   }
 });
@@ -238,7 +244,7 @@ test("provider failure and all-invalid validation never write Canonical or advan
     fetcher: sourceFixtureFetcher(),
   });
   equal(failed.report.summary.canonicalWrites, 0);
-  ok(failed.state.sources.every(({ lastSuccessfulExtractionHash }) => lastSuccessfulExtractionHash === null));
+  ok(failed.nextState.sources.every(({ lastSuccessfulExtractionHash }) => lastSuccessfulExtractionHash === null));
   deepEqual(snapshot, original);
 
   const invalid = await runRealExtractionDryRun({
@@ -250,11 +256,11 @@ test("provider failure and all-invalid validation never write Canonical or advan
     fetcher: sourceFixtureFetcher(),
   });
   ok(invalid.report.sources.every(({ extractionStatus }) => extractionStatus === "validation_error"));
-  ok(invalid.state.sources.every(({ lastSuccessfulExtractionHash }) => lastSuccessfulExtractionHash === null));
+  ok(invalid.nextState.sources.every(({ lastSuccessfulExtractionHash }) => lastSuccessfulExtractionHash === null));
   equal(invalid.report.summary.canonicalWrites, 0);
 });
 
-test("Phase 3 forces official and Tier 2 changes into readable pending preview with no auto apply", async () => {
+test("Phase 3 prepares official and Tier 2 changes as durable Pending with no auto apply", async () => {
   const result = await runRealExtractionDryRun({
     snapshot,
     registry,
@@ -270,10 +276,168 @@ test("Phase 3 forces official and Tier 2 changes into readable pending preview w
   });
   const candidates = result.report.sources.flatMap(({ candidates }) => candidates);
   equal(candidates.length, 3);
-  ok(candidates.every(({ action }) => action === "pending_preview"));
+  ok(candidates.every(({ action, changeId, pendingStatus }) => action === "pending" && changeId && pendingStatus === "pending"));
+  equal(result.pendingStore.changes.length, 3);
+  equal(result.createdPendingChangeIds.length, 3);
+  ok(result.pendingStore.changes.every(({ provider, model, promptVersion }) => (
+    provider === "aliyun-model-studio"
+      && model === "qwen3.8-flash"
+      && promptVersion === RACE_FACT_EXTRACTION_PROMPT_VERSION
+  )));
   equal(candidates.find(({ sourceId }) => sourceId.includes("beijing"))?.authority, "authoritative");
   ok(candidates.filter(({ editionId }) => editionId === "xiamen-marathon-2027").every(({ authority }) => authority === "cross_check_only"));
   equal(result.report.summary.canonicalWrites, 0);
+});
+
+test("real extraction changeId is stable and changes with source content or candidate value", () => {
+  const fact = candidate({ candidateValue: "registration_closed" });
+  const first = createRealExtractionChangeId(fact);
+  equal(createRealExtractionChangeId({ ...fact }), first);
+  ok(createRealExtractionChangeId({ ...fact, contentHash: "b".repeat(64) }) !== first);
+  ok(createRealExtractionChangeId({ ...fact, candidateValue: "lottery" }) !== first);
+});
+
+test("existing Pending in every review status is durable and never duplicated", () => {
+  const incoming = durablePendingFixture();
+  for (const status of ["pending", "approved", "rejected", "applied"] as PendingChangeStatus[]) {
+    const existing = pendingWithStatus(incoming, status);
+    const merged = mergeDurablePendingChanges(
+      { schemaVersion: "race-update-pending-v1", changes: [existing] },
+      [incoming, incoming],
+    );
+    equal(merged.changes.length, 1);
+    equal(merged.changes[0].status, status);
+    equal(merged.changes[0].createdAt, existing.createdAt);
+  }
+});
+
+test("Pending write failure blocks every successful hash commit", async () => {
+  const prepared = await changedExtraction();
+  let stateWrites = 0;
+  await rejects(persistPreparedRealExtraction({
+    prepared,
+    operations: {
+      persistPending: async () => { throw new Error("fixture pending write failed"); },
+      reloadPending: async () => prepared.pendingStore,
+      persistState: async () => { stateWrites += 1; },
+    },
+  }), /pending write failed/);
+  equal(stateWrites, 0);
+});
+
+test("successful hash commit happens only after Pending batch write and re-read", async () => {
+  const prepared = await changedExtraction();
+  const order: string[] = [];
+  let durableStore = { schemaVersion: "race-update-pending-v1" as const, changes: [] as PendingChange[] };
+  await persistPreparedRealExtraction({
+    prepared,
+    operations: {
+      persistPending: async (store) => {
+        order.push("persist_pending");
+        durableStore = structuredClone(store);
+      },
+      reloadPending: async () => {
+        order.push("reload_pending");
+        return structuredClone(durableStore);
+      },
+      persistState: async () => { order.push("persist_successful_state"); },
+    },
+  });
+  deepEqual(order, ["persist_pending", "reload_pending", "persist_successful_state"]);
+});
+
+test("partial multi-change durability blocks successful hash commit", async () => {
+  const prepared = await changedExtraction();
+  ok(prepared.pendingStore.changes.length >= 2);
+  let stateWrites = 0;
+  await rejects(persistPreparedRealExtraction({
+    prepared,
+    operations: {
+      persistPending: async () => undefined,
+      reloadPending: async () => ({
+        schemaVersion: "race-update-pending-v1",
+        changes: [prepared.pendingStore.changes[0]],
+      }),
+      persistState: async () => { stateWrites += 1; },
+    },
+  }), /Pending durability verification failed/);
+  equal(stateWrites, 0);
+});
+
+test("state write failure preserves Pending and rerun deduplicates before successful recovery", async () => {
+  const first = await changedExtraction();
+  let durableStore = { schemaVersion: "race-update-pending-v1" as const, changes: [] as PendingChange[] };
+  await rejects(persistPreparedRealExtraction({
+    prepared: first,
+    operations: {
+      persistPending: async (store) => { durableStore = structuredClone(store); },
+      reloadPending: async () => structuredClone(durableStore),
+      persistState: async () => { throw new Error("fixture state write failed"); },
+    },
+  }), /state write failed/);
+  equal(durableStore.changes.length, 3);
+
+  const rerun = await changedExtraction(durableStore);
+  equal(rerun.pendingStore.changes.length, 3);
+  equal(rerun.createdPendingChangeIds.length, 0);
+  let committedState: OfficialSourceIngestionState | null = null;
+  await persistPreparedRealExtraction({
+    prepared: rerun,
+    operations: {
+      persistPending: async (store) => { durableStore = structuredClone(store); },
+      reloadPending: async () => structuredClone(durableStore),
+      persistState: async (state) => { committedState = structuredClone(state); },
+    },
+  });
+  ok(committedState);
+  ok((committedState as OfficialSourceIngestionState).sources.every(({ lastSuccessfulExtractionHash }) => lastSuccessfulExtractionHash !== null));
+});
+
+test("force extraction bypasses only successful-hash skip and keeps Pending deduplicated", async () => {
+  const first = await changedExtraction();
+  const skipped = await runRealExtractionDryRun({
+    snapshot,
+    registry,
+    state: first.nextState,
+    pendingStore: first.pendingStore,
+    provider: mockProvider(() => { throw new Error("provider must be skipped"); }),
+    now: clockIso(),
+    fetcher: sourceFixtureFetcher(),
+  });
+  equal(skipped.report.summary.modelCalls, 0);
+
+  const forced = await runRealExtractionDryRun({
+    snapshot,
+    registry,
+    state: first.nextState,
+    pendingStore: first.pendingStore,
+    provider: changedFactProvider(),
+    forceExtract: true,
+    now: clockIso(),
+    fetcher: sourceFixtureFetcher(),
+  });
+  equal(forced.report.summary.modelCalls, 3);
+  equal(forced.pendingStore.changes.length, 3);
+  equal(forced.createdPendingChangeIds.length, 0);
+
+  let providerCalls = 0;
+  const identityBlocked = await runRealExtractionDryRun({
+    snapshot,
+    registry,
+    state: first.nextState,
+    pendingStore: first.pendingStore,
+    provider: mockProvider(() => { providerCalls += 1; return []; }),
+    forceExtract: true,
+    now: clockIso(),
+    fetcher: (async () => new Response("unrelated document", {
+      status: 200,
+      headers: { "content-type": "text/plain; charset=utf-8" },
+    })) as typeof fetch,
+  });
+  equal(providerCalls, 0);
+  ok(identityBlocked.report.sources.every(({ extractionStatus }) => (
+    extractionStatus === "identity_mismatch" || extractionStatus === "identity_uncertain"
+  )));
 });
 
 test("prompt injection text remains untrusted document data and tools are omitted", async () => {
@@ -340,6 +504,90 @@ function mockProvider(factory: (request: OfficialFactExtractionRequest) => Offic
         usage: { inputTokens: 100, outputTokens: 20, totalTokens: 120 },
       };
     },
+  };
+}
+
+function changedFactProvider(): FactExtractionProvider {
+  return mockProvider((request) => [{
+    ...candidateFromRequest(request),
+    field: "registrationStatus",
+    candidateValue: "registration_closed",
+    evidenceText: "Registration is closed",
+  }]);
+}
+
+async function changedExtraction(pendingStore = { schemaVersion: "race-update-pending-v1" as const, changes: [] as PendingChange[] }) {
+  return runRealExtractionDryRun({
+    snapshot,
+    registry,
+    state: emptyState(),
+    pendingStore,
+    provider: changedFactProvider(),
+    now: clockIso(),
+    fetcher: sourceFixtureFetcher(),
+  });
+}
+
+function durablePendingFixture(): PendingChange {
+  const fact = candidate({ candidateValue: "registration_closed" });
+  return {
+    changeId: createRealExtractionChangeId(fact),
+    eventId: fact.eventId,
+    editionId: fact.editionId,
+    categoryId: fact.categoryId,
+    entityType: fact.entityType,
+    field: fact.field,
+    currentValue: "unknown",
+    candidateValue: fact.candidateValue,
+    sourceId: fact.sourceId,
+    sourceUrl: fact.sourceUrl,
+    evidenceText: fact.evidenceText,
+    evidenceLocator: fact.evidenceLocator,
+    confidence: fact.confidence,
+    fetchedAt: fact.fetchedAt,
+    contentHash: fact.contentHash,
+    extractionMethod: fact.extractionMethod,
+    provider: "aliyun-model-studio",
+    model: "qwen3.8-flash",
+    promptVersion: RACE_FACT_EXTRACTION_PROMPT_VERSION,
+    evidence: [{
+      sourceId: fact.sourceId,
+      sourceUrl: fact.sourceUrl,
+      evidenceText: fact.evidenceText,
+      evidenceLocator: fact.evidenceLocator,
+      confidence: fact.confidence,
+      fetchedAt: fact.fetchedAt,
+      contentHash: fact.contentHash,
+      extractionMethod: fact.extractionMethod,
+    }],
+    risk: "low",
+    reason: "Fixture review",
+    status: "pending",
+    createdAt: "2026-09-29T09:00:00+08:00",
+    reviewedAt: null,
+    reviewReason: null,
+    appliedAt: null,
+  };
+}
+
+function pendingWithStatus(change: PendingChange, status: PendingChangeStatus): PendingChange {
+  if (status === "pending") return { ...change };
+  if (status === "approved") {
+    return { ...change, status, reviewedAt: "2026-09-29T09:10:00+08:00" };
+  }
+  if (status === "rejected") {
+    return {
+      ...change,
+      status,
+      reviewedAt: "2026-09-29T09:10:00+08:00",
+      reviewReason: "Fixture rejection",
+    };
+  }
+  return {
+    ...change,
+    status,
+    reviewedAt: "2026-09-29T09:10:00+08:00",
+    appliedAt: "2026-09-29T09:20:00+08:00",
   };
 }
 
