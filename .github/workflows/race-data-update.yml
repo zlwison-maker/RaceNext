@@ -1,0 +1,133 @@
+name: Race Data Update
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: race-data-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate provider secrets
+        shell: bash
+        env:
+          FACT_EXTRACTION_PROVIDER: ${{ secrets.FACT_EXTRACTION_PROVIDER }}
+          FACT_EXTRACTION_API_KEY: ${{ secrets.FACT_EXTRACTION_API_KEY }}
+          FACT_EXTRACTION_MODEL: ${{ secrets.FACT_EXTRACTION_MODEL }}
+          FACT_EXTRACTION_BASE_URL: ${{ secrets.FACT_EXTRACTION_BASE_URL }}
+        run: |
+          missing=0
+          for name in FACT_EXTRACTION_PROVIDER FACT_EXTRACTION_API_KEY FACT_EXTRACTION_MODEL FACT_EXTRACTION_BASE_URL; do
+            if [[ -z "${!name:-}" ]]; then
+              echo "::error::${name} is not configured"
+              missing=1
+            fi
+          done
+          if [[ "$missing" -ne 0 ]]; then
+            exit 1
+          fi
+          echo "PROVIDER_CONFIGURED=yes"
+          echo "MODEL=${FACT_EXTRACTION_MODEL}"
+
+      - name: Run 12-race production manual check
+        id: pipeline
+        env:
+          FACT_EXTRACTION_PROVIDER: ${{ secrets.FACT_EXTRACTION_PROVIDER }}
+          FACT_EXTRACTION_API_KEY: ${{ secrets.FACT_EXTRACTION_API_KEY }}
+          FACT_EXTRACTION_MODEL: ${{ secrets.FACT_EXTRACTION_MODEL }}
+          FACT_EXTRACTION_BASE_URL: ${{ secrets.FACT_EXTRACTION_BASE_URL }}
+        run: npm run race:check:production -- --auto-apply-low-risk=false
+
+      - name: Enforce data-only diff
+        run: npm run race:gate:data-only
+
+      - name: Scan generated output for secrets
+        env:
+          FACT_EXTRACTION_PROVIDER: ${{ secrets.FACT_EXTRACTION_PROVIDER }}
+          FACT_EXTRACTION_API_KEY: ${{ secrets.FACT_EXTRACTION_API_KEY }}
+          FACT_EXTRACTION_MODEL: ${{ secrets.FACT_EXTRACTION_MODEL }}
+          FACT_EXTRACTION_BASE_URL: ${{ secrets.FACT_EXTRACTION_BASE_URL }}
+        run: npm run race:gate:secret-scan
+
+      - name: Upload sanitized report
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.pipeline.outputs.artifact_name }}
+          path: ${{ steps.pipeline.outputs.report_path }}
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Run pipeline directed tests
+        run: node --test --experimental-strip-types tests/raceUpdate*.test.ts
+
+      - name: Run full test suite
+        run: npm test
+
+      - name: Run Public Fact Gate
+        run: node --test --experimental-strip-types tests/raceGraphPublic.test.ts tests/launchBatchSeven.test.ts
+
+      - name: Run TypeScript gates
+        run: |
+          npm run typecheck
+          npm run typecheck:miniprogram
+          npm run lint
+
+      - name: Check patch whitespace
+        run: git diff --check
+
+      - name: Finish without PR when only volatile metadata changed
+        if: steps.pipeline.outputs.meaningful_data_change != 'true'
+        run: echo "No meaningful data change; no PR will be created."
+
+      - name: Create data-only pull request
+        if: steps.pipeline.outputs.meaningful_data_change == 'true'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          branch="automation/race-data-update-${GITHUB_RUN_ID}"
+          git switch -c "$branch" origin/main
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- \
+            data/canonical/race-graph-v1.json \
+            data/pending/race-update-pending.json \
+            data/sources/official-source-ingestion-state.json
+          if git diff --cached --quiet; then
+            echo "::error::Meaningful data change was reported but no allowlisted data diff was staged."
+            exit 1
+          fi
+          git diff --cached --check
+          git commit -m "Update race data from official sources"
+          git push origin "$branch"
+          title="Race data update: $(TZ=Asia/Shanghai date +%F)"
+          if ! gh pr create \
+            --base main \
+            --head "$branch" \
+            --title "$title" \
+            --body-file "${{ steps.pipeline.outputs.pr_body_path }}"; then
+            echo "::error::GITHUB_PR_PERMISSION_BLOCKED"
+            exit 1
+          fi

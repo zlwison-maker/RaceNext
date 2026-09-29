@@ -486,13 +486,13 @@
       "sources": [
         {
           "sourceId": "letour-shenzhen100-2026-overview",
-          "url": "https://www.letoursports.com/event?id=887684&mid=75256",
-          "domain": "www.letoursports.com",
+          "url": "https://www.letoursports.net/kailas-fuga-shenzhen100",
+          "domain": "www.letoursports.net",
           "tier": "primary_official",
           "sourceType": "event_home",
           "status": "active",
           "isPrimary": true,
-          "notes": "Organizer official evidence for the Edition window, all Categories, current 35K distance and start/finish systems. TLS hostname mismatch remains an ingestion access issue, not a source-tier downgrade."
+          "notes": "Organizer official Edition home for the 2026 Shenzhen 100 event window and all Categories."
         },
         {
           "sourceId": "letour-shenzhen100-2026-rules-list",
@@ -506,13 +506,13 @@
         },
         {
           "sourceId": "letour-shenzhen100-2026-original",
-          "url": "https://www.letoursports.com/event?id=885632&mid=72298",
-          "domain": "www.letoursports.com",
+          "url": "https://www.letoursports.net/torx-china",
+          "domain": "www.letoursports.net",
           "tier": "primary_official",
           "sourceType": "category_page",
           "status": "active",
           "isPrimary": false,
-          "notes": "Organizer official 100K evidence for 101.3km / 7190m / 06:00 / 30h and the Dapeng Fortress to Dameisha route."
+          "notes": "Organizer official TORX CHN100 Category page for the 2026 Shenzhen 100 edition."
         },
         {
           "sourceId": "yantian-shenzhen100-2025-post-event",
