@@ -228,6 +228,26 @@
           "status": "active",
           "isPrimary": false,
           "notes": "Official 2027 entry page supporting the stable registration URL and describing lottery, result, completion and reallocation procedures."
+        },
+        {
+          "sourceId": "hk100-finishers-2027",
+          "url": "https://www.finishers.com/en/event/hong-kong-100",
+          "domain": "www.finishers.com",
+          "tier": "trusted_structured",
+          "sourceType": "event_directory",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Trusted structured event directory for automated change detection only. It identifies the 2027 HK100 edition and its dated race distances; the HK100 official site remains authoritative."
+        },
+        {
+          "sourceId": "hk100-hkjogging-2027",
+          "url": "https://hkjogging.com/races/hong-kong-100-series-2027",
+          "domain": "hkjogging.com",
+          "tier": "trusted_structured",
+          "sourceType": "event_directory",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Trusted structured event directory for automated change detection only. It identifies the 2027 HK100 edition, physical race distances and registration status; the HK100 official site remains authoritative."
         }
       ]
     },

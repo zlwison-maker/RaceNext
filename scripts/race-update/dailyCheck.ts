@@ -131,8 +131,15 @@ function buildEditionCoverage(input: {
 }): RaceDailyEditionCoverage {
   const eligible = activeFreshnessSources(input.registry, input.editionId);
   const reports = input.prepared.report.sources.filter(({ editionId }) => editionId === input.editionId);
-  const successfulSources = reports.filter(({ extractionStatus }) => (
+  const successfulSourceIds = new Set(reports.filter(({ extractionStatus }) => (
     extractionStatus === "success" || extractionStatus === "unchanged"
+  )).map(({ sourceId }) => sourceId));
+  const successfulSources = successfulSourceIds.size;
+  const officialSourcesSuccessful = eligible.filter(({ sourceId, tier }) => (
+    tier === "primary_official" && successfulSourceIds.has(sourceId)
+  )).length;
+  const trustedSourcesSuccessful = eligible.filter(({ sourceId, tier }) => (
+    tier !== "primary_official" && successfulSourceIds.has(sourceId)
   )).length;
   const failedSources = reports.length - successfulSources;
   const states = input.prepared.nextState.sources.filter(({ editionId, sourceId }) => (
@@ -158,6 +165,8 @@ function buildEditionCoverage(input: {
     editionId: input.editionId,
     eligibleSources: eligible.length,
     successfulSources,
+    officialSourcesSuccessful,
+    trustedSourcesSuccessful,
     failedSources,
     tier1Count,
     tier2Count: eligible.length - tier1Count,

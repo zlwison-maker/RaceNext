@@ -364,6 +364,8 @@ export type RaceDailyEditionCoverage = {
   editionId: string;
   eligibleSources: number;
   successfulSources: number;
+  officialSourcesSuccessful: number;
+  trustedSourcesSuccessful: number;
   failedSources: number;
   tier1Count: number;
   tier2Count: number;

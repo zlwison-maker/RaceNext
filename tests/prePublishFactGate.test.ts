@@ -18,7 +18,9 @@ type RaceGraphSnapshot = {
 
 type RaceSourceRegistry = {
   schemaVersion: "race-source-registry-v1";
-  editions: PrePublishSourceRegistryEntry[];
+  editions: Array<Omit<PrePublishSourceRegistryEntry, "sources"> & {
+    sources: Array<PrePublishSourceRegistryEntry["sources"][number] & { tier: string }>;
+  }>;
 };
 
 const canonical = JSON.parse(
@@ -70,7 +72,9 @@ test("HK100 official Category completeness keeps physical races separate from Gr
   equal(grandSamEvidence?.rawData?.challengeType, "composite_challenge");
   deepEqual(grandSamEvidence?.rawData?.components, ["The Third", "The Half", "HK100"]);
   deepEqual(
-    new Set(registryEntry("hk100-2027").sources.map(({ sourceId }) => sourceId)),
+    new Set(registryEntry("hk100-2027").sources
+      .filter(({ tier }) => tier === "primary_official")
+      .map(({ sourceId }) => sourceId)),
     new Set([
       "hk100-official-home",
       "hk100-official-the-third-2027",
