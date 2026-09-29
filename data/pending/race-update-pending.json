@@ -776,10 +776,10 @@
       "applyBlocked": false,
       "risk": "high_impact",
       "reason": "High-impact race fact cannot be auto-applied in V1. Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
-      "status": "pending",
+      "status": "rejected",
       "createdAt": "2026-09-29T11:22:50.472Z",
-      "reviewedAt": null,
-      "reviewReason": null,
+      "reviewedAt": "2026-09-29T11:30:57.214Z",
+      "reviewReason": "Semantic equivalent: “Pak Tam Chung” = “北潭涌”. Keep Chinese Canonical for the China-facing RaceNext product; no factual change.",
       "appliedAt": null
     },
     {
@@ -819,10 +819,10 @@
       "applyBlocked": false,
       "risk": "low",
       "reason": "Source is extractable but not eligible for automatic application. Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
-      "status": "pending",
+      "status": "rejected",
       "createdAt": "2026-09-29T11:22:50.472Z",
-      "reviewedAt": null,
-      "reviewReason": null,
+      "reviewedAt": "2026-09-29T11:31:01.861Z",
+      "reviewReason": "Race concluded. Registration URL change has no current user value and the candidate is an indirect sign-in/redirect path rather than a clearly superior canonical registration URL. Avoid low-value post-race maintenance noise.",
       "appliedAt": null
     }
   ]
