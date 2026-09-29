@@ -3,6 +3,9 @@ import { readFile } from "node:fs/promises";
 import { test } from "node:test";
 
 import { buildRaceDailyCheckTargets, runRaceDailyCheck } from "../scripts/race-update/dailyCheck.ts";
+import { checkEditionDocumentIdentity } from "../scripts/race-update/identity.ts";
+import { extractDocumentSnapshot } from "../scripts/race-update/officialDocument.ts";
+import { buildSanitizedRaceUpdateReport } from "../scripts/race-update/productionWorkflow.ts";
 import { RACE_FACT_EXTRACTION_PROMPT_VERSION } from "../scripts/race-update/qwenProvider.ts";
 import {
   activeFreshnessSources,
@@ -78,6 +81,51 @@ test("Shenzhen Registry keeps stable source identities while using validated HTT
     }).eligible, true);
   }
   equal(edition.sources.some(({ url }) => url.includes("id=887684&mid=75256")), false);
+});
+
+test("HK100 trusted fallback sources are identity-matched cross-check-only event directories", async () => {
+  const editionId = "hk100-2027";
+  const record = snapshot.records.find(({ edition }) => edition.editionId === editionId)!;
+  const entry = registry.editions.find((candidate) => candidate.editionId === editionId)!;
+  const sources = ["hk100-finishers-2027", "hk100-hkjogging-2027"].map((sourceId) => {
+    const source = entry.sources.find((candidate) => candidate.sourceId === sourceId);
+    ok(source);
+    return source;
+  });
+
+  for (const source of sources) {
+    equal(source.tier, "trusted_structured");
+    equal(source.sourceType, "event_directory");
+    equal(source.status, "active");
+    equal(source.isPrimary, false);
+    deepEqual(evaluateFreshnessSourceEligibility({
+      registryEditionId: editionId,
+      targetEditionId: editionId,
+      source,
+    }), {
+      eligible: true,
+      autoApplyEligible: false,
+      mode: "trusted_document",
+      reason: "Trusted source is eligible for extraction and cross-check but is not field-authoritative by tier alone.",
+    });
+
+    const extracted = await extractDocumentSnapshot({
+      sourceId: source.sourceId,
+      editionId,
+      url: source.url,
+      contentType: "text/html",
+      body: new TextEncoder().encode("<html><title>HK100: Hong Kong 100 Ultra Trail Race Series 2027</title></html>"),
+      fetchedAt: "2026-09-29T00:00:00Z",
+    });
+    ok(extracted.ok);
+    deepEqual(checkEditionDocumentIdentity({ record, source, document: extracted.document }), {
+      status: "matched",
+      eventIdentityMatched: true,
+      editionYearMatched: true,
+      domainMatched: true,
+      evidence: ["event_name_or_alias_matched", "edition_year_matched", "approved_domain_matched"],
+    });
+  }
 });
 
 test("Phase 4A checks all eligible sources and unchanged hashes make zero model calls", async () => {
@@ -191,6 +239,56 @@ test("Phase 4A reports a reachable-source gap when every eligible source for one
   deepEqual(coverage.sourceGap, ["event_home", "regulations", "category_page"]);
 });
 
+test("HK100 is PARTIAL with zero official success when trusted watch sources succeed", async () => {
+  const editionId = "hk100-2027";
+  const result = await runRaceDailyCheck({
+    snapshot,
+    registry,
+    state: emptyState(),
+    pendingStore: emptyPending(),
+    provider: fixtureProvider(),
+    now: clockIso(),
+    fetcher: hk100BlockedFetcher({ trustedSourcesSucceed: true }),
+  });
+  const coverage = result.report.editions.find((candidate) => candidate.editionId === editionId)!;
+  equal(coverage.tier1Count, 10);
+  equal(coverage.tier2Count, 2);
+  equal(coverage.officialSourcesSuccessful, 0);
+  equal(coverage.trustedSourcesSuccessful, 2);
+  equal(coverage.successfulSources, 2);
+  equal(coverage.failedSources, 10);
+  equal(coverage.health, "PARTIAL");
+
+  const sanitized = buildSanitizedRaceUpdateReport({
+    report: result.report,
+    autoApplyLowRisk: false,
+    appliedChanges: [],
+    meaningfulDiff: { meaningful: false, volatileOnly: true, reasons: [] },
+  });
+  const reported = sanitized.health.editions.find((candidate) => candidate.editionId === editionId)!;
+  equal(reported.officialSourcesSuccessful, 0);
+  equal(reported.trustedSourcesSuccessful, 2);
+});
+
+test("HK100 remains FAILED when official and trusted watch sources all fail", async () => {
+  const editionId = "hk100-2027";
+  const result = await runRaceDailyCheck({
+    snapshot,
+    registry,
+    state: emptyState(),
+    pendingStore: emptyPending(),
+    provider: fixtureProvider(),
+    now: clockIso(),
+    fetcher: hk100BlockedFetcher({ trustedSourcesSucceed: false }),
+  });
+  const coverage = result.report.editions.find((candidate) => candidate.editionId === editionId)!;
+  equal(coverage.officialSourcesSuccessful, 0);
+  equal(coverage.trustedSourcesSuccessful, 0);
+  equal(coverage.successfulSources, 0);
+  equal(coverage.failedSources, 12);
+  equal(coverage.health, "FAILED");
+});
+
 test("Shenzhen remains PARTIAL and passes minimum health when the legacy TLS source alone fails", async () => {
   const editionId = "shenzhen-100-2026";
   const failedSourceId = "letour-shenzhen100-2026-rules-list";
@@ -270,6 +368,24 @@ function allRaceFetcher(sourceRegistry: RaceSourceRegistry): typeof fetch {
       status: 200,
       headers: { "content-type": "text/html; charset=utf-8" },
     });
+  }) as typeof fetch;
+}
+
+function hk100BlockedFetcher(input: { trustedSourcesSucceed: boolean }): typeof fetch {
+  const editionId = "hk100-2027";
+  const stableFetcher = allRaceFetcher(registry);
+  const sources = registry.editions.find((entry) => entry.editionId === editionId)!.sources;
+  const byUrl = new Map(sources.map((source) => [source.url, source]));
+  return (async (request: string | URL | Request, init?: RequestInit) => {
+    const source = byUrl.get(requestUrl(request));
+    if (!source) return stableFetcher(request, init);
+    if (source.tier === "primary_official" || !input.trustedSourcesSucceed) {
+      return new Response("Access Restricted", {
+        status: 403,
+        headers: { "content-type": "text/html; charset=utf-8" },
+      });
+    }
+    return stableFetcher(request, init);
   }) as typeof fetch;
 }
 

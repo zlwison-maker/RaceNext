@@ -47,6 +47,8 @@ export type SanitizedRaceUpdateReport = {
       health: string;
       sourcesChecked: number;
       sourcesFailed: number;
+      officialSourcesSuccessful: number;
+      trustedSourcesSuccessful: number;
     }>;
   };
   sources: {
@@ -154,6 +156,8 @@ export function buildSanitizedRaceUpdateReport(input: {
         health: edition.health,
         sourcesChecked: edition.eligibleSources,
         sourcesFailed: edition.failedSources,
+        officialSourcesSuccessful: edition.officialSourcesSuccessful,
+        trustedSourcesSuccessful: edition.trustedSourcesSuccessful,
       })),
     },
     sources: {
