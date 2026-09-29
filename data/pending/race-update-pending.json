@@ -111,12 +111,458 @@
           "fetchedAt": "2026-09-29T06:24:47.208Z",
           "contentHash": "b59dddee291b40c7a917f1db4b6cb5cd17f5d757a378daa7ff68dda204439d6c",
           "extractionMethod": "aliyun-qwen-structured-output"
+        },
+        {
+          "sourceId": "xiamen-marathon-china-marathon-2027",
+          "sourceUrl": "https://chinamarathon.com/events/86038",
+          "evidenceText": "2027建发厦门马拉松赛定于2027年1月10日（周日）7:00在厦门国际会展中心开跑",
+          "evidenceLocator": "text:121-164; untrustedDocumentText:赛事简介",
+          "confidence": 1,
+          "fetchedAt": "2026-09-29T07:52:32.660Z",
+          "contentHash": "b59dddee291b40c7a917f1db4b6cb5cd17f5d757a378daa7ff68dda204439d6c",
+          "extractionMethod": "aliyun-qwen-structured-output"
         }
       ],
       "risk": "high_impact",
       "reason": "High-impact race fact cannot be auto-applied in V1. Phase 3 requires durable human review and forbids auto-apply.",
       "status": "pending",
       "createdAt": "2026-09-29T06:25:06.156Z",
+      "reviewedAt": null,
+      "reviewReason": null,
+      "appliedAt": null
+    },
+    {
+      "changeId": "chg-9e80e3fa553bf500bbb23425",
+      "eventId": "shanghai-marathon",
+      "editionId": "shanghai-marathon-2026",
+      "categoryId": "shanghai-marathon-2026-marathon",
+      "entityType": "Category",
+      "field": "startLocation",
+      "currentValue": null,
+      "candidateValue": "Bund Bull in Huangpu district",
+      "sourceId": "shanghai-marathon-official-notice-2026",
+      "sourceUrl": "https://english.shanghai.gov.cn/en-SportsEvents/20260427/8152288074a44b44a7efbfd4b0b67797.html",
+      "evidenceText": "starting at the Bund Bull in Huangpu district",
+      "evidenceLocator": "text:454-499; untrustedDocumentText:paragraph_race_schedule",
+      "confidence": 0.95,
+      "fetchedAt": "2026-09-29T07:51:45.714Z",
+      "contentHash": "e4888d7bc5278eca6a118eb836430c109aca6b37a064aa83700eb3aa6191cfc5",
+      "extractionMethod": "aliyun-qwen-structured-output",
+      "provider": "aliyun-model-studio",
+      "model": "qwen3.8-flash",
+      "promptVersion": "race-fact-extraction-v1.4",
+      "evidence": [
+        {
+          "sourceId": "shanghai-marathon-official-notice-2026",
+          "sourceUrl": "https://english.shanghai.gov.cn/en-SportsEvents/20260427/8152288074a44b44a7efbfd4b0b67797.html",
+          "evidenceText": "starting at the Bund Bull in Huangpu district",
+          "evidenceLocator": "text:454-499; untrustedDocumentText:paragraph_race_schedule",
+          "confidence": 0.95,
+          "fetchedAt": "2026-09-29T07:51:45.714Z",
+          "contentHash": "e4888d7bc5278eca6a118eb836430c109aca6b37a064aa83700eb3aa6191cfc5",
+          "extractionMethod": "aliyun-qwen-structured-output"
+        }
+      ],
+      "conflict": false,
+      "candidateOptions": [],
+      "applyBlocked": false,
+      "risk": "high_impact",
+      "reason": "High-impact race fact cannot be auto-applied in V1. Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
+      "status": "pending",
+      "createdAt": "2026-09-29T08:01:04.581Z",
+      "reviewedAt": null,
+      "reviewReason": null,
+      "appliedAt": null
+    },
+    {
+      "changeId": "chg-dee72cca8c595640ef07df8f",
+      "eventId": "kailas-gongga-100",
+      "editionId": "kailas-gongga-100-2026",
+      "categoryId": null,
+      "entityType": "Edition",
+      "field": "registrationUrl",
+      "currentValue": "https://reg.zuicool.com/en/33836",
+      "sourceId": "kailas-gongga-100-official-regulations-2026",
+      "sourceUrl": "https://moganshan.saihuitong.com/article?id=70868&mid=57201",
+      "evidenceText": "我要报名",
+      "evidenceLocator": "text:13058-13062; 相关推荐",
+      "confidence": 0.9,
+      "fetchedAt": "2026-09-29T07:55:07.732Z",
+      "contentHash": "eef324a296ef2505b4f7e66f2ceab72bb79fb6c0db38794fc7a55c1d37a9dfdc",
+      "extractionMethod": "aliyun-qwen-structured-output",
+      "provider": "aliyun-model-studio",
+      "model": "qwen3.8-flash",
+      "promptVersion": "race-fact-extraction-v1.4",
+      "evidence": [
+        {
+          "sourceId": "kailas-gongga-100-official-regulations-2026",
+          "sourceUrl": "https://moganshan.saihuitong.com/article?id=70868&mid=57201",
+          "evidenceText": "我要报名",
+          "evidenceLocator": "text:13058-13062; 相关推荐",
+          "confidence": 0.9,
+          "fetchedAt": "2026-09-29T07:55:07.732Z",
+          "contentHash": "eef324a296ef2505b4f7e66f2ceab72bb79fb6c0db38794fc7a55c1d37a9dfdc",
+          "extractionMethod": "aliyun-qwen-structured-output"
+        },
+        {
+          "sourceId": "zuicool",
+          "sourceUrl": "https://zuicool.com/event/86332",
+          "evidenceText": "报名渠道：「朗途体育」公众号、「最酷马拉松报名」小程序、最酷官网zuicool.com 一键报名 (3)",
+          "evidenceLocator": "text:692-744; untrustedDocumentText:registration_channel_link",
+          "confidence": 0.9,
+          "fetchedAt": "2026-09-29T07:55:52.499Z",
+          "contentHash": "e77904740695e9f76c25eb87711f60ad3294a992a165a9aa75e747d22b353d13",
+          "extractionMethod": "aliyun-qwen-structured-output"
+        }
+      ],
+      "conflict": true,
+      "candidateOptions": [
+        {
+          "value": "https://moganshan.saihuitong.com/register",
+          "sourceIds": [
+            "kailas-gongga-100-official-regulations-2026"
+          ],
+          "evidence": [
+            {
+              "sourceId": "kailas-gongga-100-official-regulations-2026",
+              "sourceUrl": "https://moganshan.saihuitong.com/article?id=70868&mid=57201",
+              "evidenceText": "我要报名",
+              "evidenceLocator": "text:13058-13062; 相关推荐",
+              "confidence": 0.9,
+              "fetchedAt": "2026-09-29T07:55:07.732Z",
+              "contentHash": "eef324a296ef2505b4f7e66f2ceab72bb79fb6c0db38794fc7a55c1d37a9dfdc",
+              "extractionMethod": "aliyun-qwen-structured-output"
+            }
+          ]
+        },
+        {
+          "value": "https://zuicool.com/so/signins?_returnUrl=https%3A%2F%2Fzuicool.com%2Fevent%2F86332",
+          "sourceIds": [
+            "zuicool"
+          ],
+          "evidence": [
+            {
+              "sourceId": "zuicool",
+              "sourceUrl": "https://zuicool.com/event/86332",
+              "evidenceText": "报名渠道：「朗途体育」公众号、「最酷马拉松报名」小程序、最酷官网zuicool.com 一键报名 (3)",
+              "evidenceLocator": "text:692-744; untrustedDocumentText:registration_channel_link",
+              "confidence": 0.9,
+              "fetchedAt": "2026-09-29T07:55:52.499Z",
+              "contentHash": "e77904740695e9f76c25eb87711f60ad3294a992a165a9aa75e747d22b353d13",
+              "extractionMethod": "aliyun-qwen-structured-output"
+            }
+          ]
+        }
+      ],
+      "applyBlocked": true,
+      "risk": "low",
+      "reason": "source_value_conflict Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
+      "status": "pending",
+      "createdAt": "2026-09-29T08:01:04.581Z",
+      "reviewedAt": null,
+      "reviewReason": null,
+      "appliedAt": null
+    },
+    {
+      "changeId": "chg-1e0dc6d775b83947eb6a8d5d",
+      "eventId": "ninghai-ultra-trail",
+      "editionId": "ninghai-ultra-trail-2026",
+      "categoryId": null,
+      "entityType": "Edition",
+      "field": "registrationOpenDate",
+      "currentValue": null,
+      "candidateValue": "2026-04-08T10:00:00+08:00",
+      "sourceId": "gobichina-ninghai-2026",
+      "sourceUrl": "https://gobichina.com/events/85637",
+      "evidenceText": "4月8日10:00-4月22日18:00开放预报名及缴费",
+      "evidenceLocator": "text:286-314; untrustedDocumentText",
+      "confidence": 0.95,
+      "fetchedAt": "2026-09-29T07:58:57.103Z",
+      "contentHash": "fb92264935cf70ab976d586af0c97e41cb4ffb86f7cb25f899caa88514665afc",
+      "extractionMethod": "aliyun-qwen-structured-output",
+      "provider": "aliyun-model-studio",
+      "model": "qwen3.8-flash",
+      "promptVersion": "race-fact-extraction-v1.4",
+      "evidence": [
+        {
+          "sourceId": "gobichina-ninghai-2026",
+          "sourceUrl": "https://gobichina.com/events/85637",
+          "evidenceText": "4月8日10:00-4月22日18:00开放预报名及缴费",
+          "evidenceLocator": "text:286-314; untrustedDocumentText",
+          "confidence": 0.95,
+          "fetchedAt": "2026-09-29T07:58:57.103Z",
+          "contentHash": "fb92264935cf70ab976d586af0c97e41cb4ffb86f7cb25f899caa88514665afc",
+          "extractionMethod": "aliyun-qwen-structured-output"
+        }
+      ],
+      "conflict": false,
+      "candidateOptions": [],
+      "applyBlocked": false,
+      "risk": "low",
+      "reason": "Source is extractable but not eligible for automatic application. Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
+      "status": "pending",
+      "createdAt": "2026-09-29T08:01:04.581Z",
+      "reviewedAt": null,
+      "reviewReason": null,
+      "appliedAt": null
+    },
+    {
+      "changeId": "chg-582614b8a685f1eafd841542",
+      "eventId": "ninghai-ultra-trail",
+      "editionId": "ninghai-ultra-trail-2026",
+      "categoryId": null,
+      "entityType": "Edition",
+      "field": "registrationCloseDate",
+      "currentValue": null,
+      "candidateValue": "2026-04-22T18:00:00+08:00",
+      "sourceId": "gobichina-ninghai-2026",
+      "sourceUrl": "https://gobichina.com/events/85637",
+      "evidenceText": "4月8日10:00-4月22日18:00开放预报名及缴费",
+      "evidenceLocator": "text:286-314; untrustedDocumentText",
+      "confidence": 0.95,
+      "fetchedAt": "2026-09-29T07:58:57.103Z",
+      "contentHash": "fb92264935cf70ab976d586af0c97e41cb4ffb86f7cb25f899caa88514665afc",
+      "extractionMethod": "aliyun-qwen-structured-output",
+      "provider": "aliyun-model-studio",
+      "model": "qwen3.8-flash",
+      "promptVersion": "race-fact-extraction-v1.4",
+      "evidence": [
+        {
+          "sourceId": "gobichina-ninghai-2026",
+          "sourceUrl": "https://gobichina.com/events/85637",
+          "evidenceText": "4月8日10:00-4月22日18:00开放预报名及缴费",
+          "evidenceLocator": "text:286-314; untrustedDocumentText",
+          "confidence": 0.95,
+          "fetchedAt": "2026-09-29T07:58:57.103Z",
+          "contentHash": "fb92264935cf70ab976d586af0c97e41cb4ffb86f7cb25f899caa88514665afc",
+          "extractionMethod": "aliyun-qwen-structured-output"
+        }
+      ],
+      "conflict": false,
+      "candidateOptions": [],
+      "applyBlocked": false,
+      "risk": "low",
+      "reason": "Source is extractable but not eligible for automatic application. Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
+      "status": "pending",
+      "createdAt": "2026-09-29T08:01:04.581Z",
+      "reviewedAt": null,
+      "reviewReason": null,
+      "appliedAt": null
+    },
+    {
+      "changeId": "chg-0a9716d38512306526f82939",
+      "eventId": "ninghai-ultra-trail",
+      "editionId": "ninghai-ultra-trail-2026",
+      "categoryId": "ninghai-ultra-trail-2026-cnh-60",
+      "entityType": "Category",
+      "field": "distanceKm",
+      "currentValue": 60,
+      "sourceId": "gobichina-ninghai-2026",
+      "sourceUrl": "https://gobichina.com/events/85637",
+      "evidenceText": "赛道距离60KM",
+      "evidenceLocator": "text:462-470; untrustedDocumentText",
+      "confidence": 0.95,
+      "fetchedAt": "2026-09-29T07:58:57.103Z",
+      "contentHash": "fb92264935cf70ab976d586af0c97e41cb4ffb86f7cb25f899caa88514665afc",
+      "extractionMethod": "aliyun-qwen-structured-output",
+      "provider": "aliyun-model-studio",
+      "model": "qwen3.8-flash",
+      "promptVersion": "race-fact-extraction-v1.4",
+      "evidence": [
+        {
+          "sourceId": "gobichina-ninghai-2026",
+          "sourceUrl": "https://gobichina.com/events/85637",
+          "evidenceText": "赛道距离60KM",
+          "evidenceLocator": "text:462-470; untrustedDocumentText",
+          "confidence": 0.95,
+          "fetchedAt": "2026-09-29T07:58:57.103Z",
+          "contentHash": "fb92264935cf70ab976d586af0c97e41cb4ffb86f7cb25f899caa88514665afc",
+          "extractionMethod": "aliyun-qwen-structured-output"
+        },
+        {
+          "sourceId": "itra-ninghai-cnh60-2026",
+          "sourceUrl": "https://itra.run/Races/RaceDetails/KOLON.SPORT.Ultra.Trail%C2%AE.Ninghai.CNH.60/2026/118117",
+          "evidenceText": "Course details Race Date: 2026/11/13 Start Time: 06:00:00 Participation: Solo Register to this race Distance: 59.13 Elevation Gain: +2378 Elevation Loss: -2378",
+          "evidenceLocator": "text:325-484; untrustedDocumentText",
+          "confidence": 0.98,
+          "fetchedAt": "2026-09-29T07:59:48.984Z",
+          "contentHash": "82edf46aa27274496403b9348347995b2367d715958308e8f7a13f92137964e3",
+          "extractionMethod": "aliyun-qwen-structured-output"
+        }
+      ],
+      "conflict": true,
+      "candidateOptions": [
+        {
+          "value": 59.13,
+          "sourceIds": [
+            "itra-ninghai-cnh60-2026"
+          ],
+          "evidence": [
+            {
+              "sourceId": "itra-ninghai-cnh60-2026",
+              "sourceUrl": "https://itra.run/Races/RaceDetails/KOLON.SPORT.Ultra.Trail%C2%AE.Ninghai.CNH.60/2026/118117",
+              "evidenceText": "Course details Race Date: 2026/11/13 Start Time: 06:00:00 Participation: Solo Register to this race Distance: 59.13 Elevation Gain: +2378 Elevation Loss: -2378",
+              "evidenceLocator": "text:325-484; untrustedDocumentText",
+              "confidence": 0.98,
+              "fetchedAt": "2026-09-29T07:59:48.984Z",
+              "contentHash": "82edf46aa27274496403b9348347995b2367d715958308e8f7a13f92137964e3",
+              "extractionMethod": "aliyun-qwen-structured-output"
+            }
+          ]
+        },
+        {
+          "value": 60,
+          "sourceIds": [
+            "gobichina-ninghai-2026"
+          ],
+          "evidence": [
+            {
+              "sourceId": "gobichina-ninghai-2026",
+              "sourceUrl": "https://gobichina.com/events/85637",
+              "evidenceText": "赛道距离60KM",
+              "evidenceLocator": "text:462-470; untrustedDocumentText",
+              "confidence": 0.95,
+              "fetchedAt": "2026-09-29T07:58:57.103Z",
+              "contentHash": "fb92264935cf70ab976d586af0c97e41cb4ffb86f7cb25f899caa88514665afc",
+              "extractionMethod": "aliyun-qwen-structured-output"
+            }
+          ]
+        }
+      ],
+      "applyBlocked": true,
+      "risk": "high_impact",
+      "reason": "source_value_conflict Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
+      "status": "pending",
+      "createdAt": "2026-09-29T08:01:04.581Z",
+      "reviewedAt": null,
+      "reviewReason": null,
+      "appliedAt": null
+    },
+    {
+      "changeId": "chg-f6100c3e761d0b5a7c707f37",
+      "eventId": "ninghai-ultra-trail",
+      "editionId": "ninghai-ultra-trail-2026",
+      "categoryId": "ninghai-ultra-trail-2026-cnh-60",
+      "entityType": "Category",
+      "field": "startAt",
+      "currentValue": null,
+      "candidateValue": "2026-11-13T06:00:00+08:00",
+      "sourceId": "itra-ninghai-cnh60-2026",
+      "sourceUrl": "https://itra.run/Races/RaceDetails/KOLON.SPORT.Ultra.Trail%C2%AE.Ninghai.CNH.60/2026/118117",
+      "evidenceText": "Course details Race Date: 2026/11/13 Start Time: 06:00:00 Participation: Solo Register to this race Distance: 59.13 Elevation Gain: +2378 Elevation Loss: -2378",
+      "evidenceLocator": "text:325-484; untrustedDocumentText",
+      "confidence": 0.95,
+      "fetchedAt": "2026-09-29T07:59:48.984Z",
+      "contentHash": "82edf46aa27274496403b9348347995b2367d715958308e8f7a13f92137964e3",
+      "extractionMethod": "aliyun-qwen-structured-output",
+      "provider": "aliyun-model-studio",
+      "model": "qwen3.8-flash",
+      "promptVersion": "race-fact-extraction-v1.4",
+      "evidence": [
+        {
+          "sourceId": "itra-ninghai-cnh60-2026",
+          "sourceUrl": "https://itra.run/Races/RaceDetails/KOLON.SPORT.Ultra.Trail%C2%AE.Ninghai.CNH.60/2026/118117",
+          "evidenceText": "Course details Race Date: 2026/11/13 Start Time: 06:00:00 Participation: Solo Register to this race Distance: 59.13 Elevation Gain: +2378 Elevation Loss: -2378",
+          "evidenceLocator": "text:325-484; untrustedDocumentText",
+          "confidence": 0.95,
+          "fetchedAt": "2026-09-29T07:59:48.984Z",
+          "contentHash": "82edf46aa27274496403b9348347995b2367d715958308e8f7a13f92137964e3",
+          "extractionMethod": "aliyun-qwen-structured-output"
+        }
+      ],
+      "conflict": false,
+      "candidateOptions": [],
+      "applyBlocked": false,
+      "risk": "high_impact",
+      "reason": "High-impact race fact cannot be auto-applied in V1. Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
+      "status": "pending",
+      "createdAt": "2026-09-29T08:01:04.581Z",
+      "reviewedAt": null,
+      "reviewReason": null,
+      "appliedAt": null
+    },
+    {
+      "changeId": "chg-acee4c44187926380f2bc02d",
+      "eventId": "ninghai-ultra-trail",
+      "editionId": "ninghai-ultra-trail-2026",
+      "categoryId": "ninghai-ultra-trail-2026-cnh-60",
+      "entityType": "Category",
+      "field": "elevationGain",
+      "currentValue": 2400,
+      "candidateValue": 2378,
+      "sourceId": "itra-ninghai-cnh60-2026",
+      "sourceUrl": "https://itra.run/Races/RaceDetails/KOLON.SPORT.Ultra.Trail%C2%AE.Ninghai.CNH.60/2026/118117",
+      "evidenceText": "Course details Race Date: 2026/11/13 Start Time: 06:00:00 Participation: Solo Register to this race Distance: 59.13 Elevation Gain: +2378 Elevation Loss: -2378",
+      "evidenceLocator": "text:325-484; untrustedDocumentText",
+      "confidence": 0.98,
+      "fetchedAt": "2026-09-29T07:59:48.984Z",
+      "contentHash": "82edf46aa27274496403b9348347995b2367d715958308e8f7a13f92137964e3",
+      "extractionMethod": "aliyun-qwen-structured-output",
+      "provider": "aliyun-model-studio",
+      "model": "qwen3.8-flash",
+      "promptVersion": "race-fact-extraction-v1.4",
+      "evidence": [
+        {
+          "sourceId": "itra-ninghai-cnh60-2026",
+          "sourceUrl": "https://itra.run/Races/RaceDetails/KOLON.SPORT.Ultra.Trail%C2%AE.Ninghai.CNH.60/2026/118117",
+          "evidenceText": "Course details Race Date: 2026/11/13 Start Time: 06:00:00 Participation: Solo Register to this race Distance: 59.13 Elevation Gain: +2378 Elevation Loss: -2378",
+          "evidenceLocator": "text:325-484; untrustedDocumentText",
+          "confidence": 0.98,
+          "fetchedAt": "2026-09-29T07:59:48.984Z",
+          "contentHash": "82edf46aa27274496403b9348347995b2367d715958308e8f7a13f92137964e3",
+          "extractionMethod": "aliyun-qwen-structured-output"
+        }
+      ],
+      "conflict": false,
+      "candidateOptions": [],
+      "applyBlocked": false,
+      "risk": "high_impact",
+      "reason": "High-impact race fact cannot be auto-applied in V1. Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
+      "status": "pending",
+      "createdAt": "2026-09-29T08:01:04.581Z",
+      "reviewedAt": null,
+      "reviewReason": null,
+      "appliedAt": null
+    },
+    {
+      "changeId": "chg-80a21d3d46a4343b52942d29",
+      "eventId": "ninghai-ultra-trail",
+      "editionId": "ninghai-ultra-trail-2026",
+      "categoryId": "ninghai-ultra-trail-2026-cnh-60",
+      "entityType": "Category",
+      "field": "elevationLoss",
+      "currentValue": null,
+      "candidateValue": 2378,
+      "sourceId": "itra-ninghai-cnh60-2026",
+      "sourceUrl": "https://itra.run/Races/RaceDetails/KOLON.SPORT.Ultra.Trail%C2%AE.Ninghai.CNH.60/2026/118117",
+      "evidenceText": "Course details Race Date: 2026/11/13 Start Time: 06:00:00 Participation: Solo Register to this race Distance: 59.13 Elevation Gain: +2378 Elevation Loss: -2378",
+      "evidenceLocator": "text:325-484; untrustedDocumentText",
+      "confidence": 0.98,
+      "fetchedAt": "2026-09-29T07:59:48.984Z",
+      "contentHash": "82edf46aa27274496403b9348347995b2367d715958308e8f7a13f92137964e3",
+      "extractionMethod": "aliyun-qwen-structured-output",
+      "provider": "aliyun-model-studio",
+      "model": "qwen3.8-flash",
+      "promptVersion": "race-fact-extraction-v1.4",
+      "evidence": [
+        {
+          "sourceId": "itra-ninghai-cnh60-2026",
+          "sourceUrl": "https://itra.run/Races/RaceDetails/KOLON.SPORT.Ultra.Trail%C2%AE.Ninghai.CNH.60/2026/118117",
+          "evidenceText": "Course details Race Date: 2026/11/13 Start Time: 06:00:00 Participation: Solo Register to this race Distance: 59.13 Elevation Gain: +2378 Elevation Loss: -2378",
+          "evidenceLocator": "text:325-484; untrustedDocumentText",
+          "confidence": 0.98,
+          "fetchedAt": "2026-09-29T07:59:48.984Z",
+          "contentHash": "82edf46aa27274496403b9348347995b2367d715958308e8f7a13f92137964e3",
+          "extractionMethod": "aliyun-qwen-structured-output"
+        }
+      ],
+      "conflict": false,
+      "candidateOptions": [],
+      "applyBlocked": false,
+      "risk": "high_impact",
+      "reason": "High-impact race fact cannot be auto-applied in V1. Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
+      "status": "pending",
+      "createdAt": "2026-09-29T08:01:04.581Z",
       "reviewedAt": null,
       "reviewReason": null,
       "appliedAt": null

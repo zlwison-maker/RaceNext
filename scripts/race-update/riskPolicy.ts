@@ -50,7 +50,9 @@ export function classifyRaceFieldDiff(
   context: { autoApplyEligible: boolean; confidence: number },
 ): { risk: "low" | "high_impact" | "structural"; action: "auto_apply" | "pending_review" | "needs_review"; reason: string } {
   if (diff.status === "CONFLICT") {
-    return { ...classifyStructuralChange("source_conflict"), reason: "Eligible sources disagree; source conflict blocks application." };
+    const key = `${diff.entityType}.${diff.field}`;
+    const risk = HIGH_IMPACT_FIELDS.has(key) ? "high_impact" : LOW_RISK_FIELDS.has(key) ? "low" : "structural";
+    return { risk, action: "needs_review", reason: "source_value_conflict" };
   }
   if (diff.status === "MISSING") {
     return { ...classifyStructuralChange(diff.entityType === "Category" ? "new_category" : "new_edition"), reason: "Target identity is missing from the current Race Graph." };

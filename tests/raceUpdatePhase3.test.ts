@@ -139,7 +139,7 @@ test("evidence validation rejects absent evidence, wrong Edition and unknown Cat
 });
 
 test("startTimes, elevationLoss and date precision are validated without inference", () => {
-  const document = fixtureDocument("2026 Beijing Marathon exact facts 7:00 07:30 07:45 elevation loss 321 registration date 2026-09-17");
+  const document = fixtureDocument("2026 Beijing Marathon 马拉松 exact facts 7:00 07:30 07:45 elevation loss 321 registration date 2026-09-17");
   const categories = snapshot.records.find(({ edition }) => edition.editionId === "beijing-marathon-2026")!.categories;
   const categoryId = categories[0].categoryId;
   const facts: OfficialFactCandidate[] = [
@@ -277,8 +277,11 @@ test("Phase 3 prepares official and Tier 2 changes as durable Pending with no au
   const candidates = result.report.sources.flatMap(({ candidates }) => candidates);
   equal(candidates.length, 3);
   ok(candidates.every(({ action, changeId, pendingStatus }) => action === "pending" && changeId && pendingStatus === "pending"));
-  equal(result.pendingStore.changes.length, 3);
-  equal(result.createdPendingChangeIds.length, 3);
+  equal(result.pendingStore.changes.length, 2);
+  equal(result.createdPendingChangeIds.length, 2);
+  const xiamenCandidates = candidates.filter(({ editionId }) => editionId === "xiamen-marathon-2027");
+  equal(new Set(xiamenCandidates.map(({ changeId }) => changeId)).size, 1);
+  equal(result.pendingStore.changes.find(({ editionId }) => editionId === "xiamen-marathon-2027")?.evidence.length, 2);
   ok(result.pendingStore.changes.every(({ provider, model, promptVersion }) => (
     provider === "aliyun-model-studio"
       && model === "qwen3.8-flash"
@@ -375,10 +378,10 @@ test("state write failure preserves Pending and rerun deduplicates before succes
       persistState: async () => { throw new Error("fixture state write failed"); },
     },
   }), /state write failed/);
-  equal(durableStore.changes.length, 3);
+  equal(durableStore.changes.length, 2);
 
   const rerun = await changedExtraction(durableStore);
-  equal(rerun.pendingStore.changes.length, 3);
+  equal(rerun.pendingStore.changes.length, 2);
   equal(rerun.createdPendingChangeIds.length, 0);
   let committedState: OfficialSourceIngestionState | null = null;
   await persistPreparedRealExtraction({
@@ -417,7 +420,7 @@ test("force extraction bypasses only successful-hash skip and keeps Pending dedu
     fetcher: sourceFixtureFetcher(),
   });
   equal(forced.report.summary.modelCalls, 3);
-  equal(forced.pendingStore.changes.length, 3);
+  equal(forced.pendingStore.changes.length, 2);
   equal(forced.createdPendingChangeIds.length, 0);
 
   let providerCalls = 0;

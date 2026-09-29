@@ -95,6 +95,14 @@ export type RaceFieldDiff = RaceFieldTarget & {
   oldValue: unknown;
   newValue: unknown;
   candidates: OfficialFactCandidate[];
+  conflict: boolean;
+  candidateOptions: RaceConflictOption[];
+};
+
+export type RaceConflictOption = {
+  value: unknown;
+  sourceIds: string[];
+  evidence: FactEvidence[];
 };
 
 export type ChangeRisk = "low" | "high_impact" | "structural";
@@ -111,6 +119,9 @@ export type RaceFieldChange = RaceFieldTarget & {
   action: ChangeAction;
   reason: string;
   evidence: FactEvidence[];
+  conflict: boolean;
+  candidateOptions: RaceConflictOption[];
+  applyBlocked: boolean;
 };
 
 export type PendingChangeStatus = "pending" | "approved" | "rejected" | "applied";
@@ -118,7 +129,7 @@ export type PendingChangeStatus = "pending" | "approved" | "rejected" | "applied
 export type PendingChange = RaceFieldTarget & {
   changeId: string;
   currentValue: unknown;
-  candidateValue: unknown;
+  candidateValue?: unknown;
   sourceId: string;
   sourceUrl: string;
   evidenceText: string;
@@ -132,6 +143,9 @@ export type PendingChange = RaceFieldTarget & {
   model?: string | null;
   promptVersion?: string | null;
   evidence: FactEvidence[];
+  conflict?: boolean;
+  candidateOptions?: RaceConflictOption[];
+  applyBlocked?: boolean;
   risk: ChangeRisk;
   reason: string;
   status: PendingChangeStatus;

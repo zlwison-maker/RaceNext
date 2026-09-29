@@ -1,5 +1,5 @@
 import type { Category, Edition } from "./event.ts";
-import type { PendingChangeStatus } from "./raceUpdate.ts";
+import type { PendingChange, PendingChangeStatus } from "./raceUpdate.ts";
 
 export type OfficialDocumentContentType = "text/html" | "text/plain" | "application/pdf";
 export type DocumentExtractionMethod = "html_text" | "plain_text" | "pdf_text";
@@ -156,6 +156,8 @@ export type OfficialSourceIngestionStateEntry = {
   lastSuccessfulProvider?: string | null;
   lastSuccessfulModel?: string | null;
   lastSuccessfulPromptVersion?: string | null;
+  lastSuccessfulProcessingVersion?: string | null;
+  lastSuccessfulExtractionAt?: string | null;
   lastExtractionMethod: DocumentExtractionMethod | null;
   lastCheckedAt: string;
   lastFetchStatus: "success" | "fetch_error" | "parse_error" | "unsupported_content_type" | "unsupported_scanned_pdf";
@@ -259,9 +261,9 @@ export type RealExtractionCandidateReview = {
   evidenceLocator: string;
   confidence: number;
   currentValue: unknown;
-  diff: "UNCHANGED" | "CHANGED" | "CONFLICT" | "MISSING";
+  diff: "UNCHANGED" | "CHANGED" | "CONFLICT" | "MISSING" | "SEMANTIC_REVIEW";
   risk: "low" | "high_impact" | "structural" | null;
-  action: "no_change" | "pending";
+  action: "no_change" | "pending" | "semantic_review";
   changeId: string | null;
   pendingStatus: PendingChangeStatus | null;
   reason: string;
@@ -299,8 +301,12 @@ export type RealExtractionSourceReport = {
   reasoningMode: "none";
   structuredOutputMode: "strict_json_schema";
   promptVersion: string;
+  processingVersion: string;
   requestStatus: "success" | "skipped" | "failed";
   providerErrorCode: FactExtractionErrorCode | null;
+  failureStage: "fetch" | "identity" | "provider" | "validation" | null;
+  failureReason: string | null;
+  retryable: boolean | null;
   contentHash: string | null;
   fetchedAt: string;
   latencyMs: number | null;
@@ -319,7 +325,8 @@ export type RealExtractionReport = {
   startedAt: string;
   finishedAt: string;
   dryRun: true;
-  editions: ["beijing-marathon-2026", "xiamen-marathon-2027"];
+  processingVersion: string;
+  editions: string[];
   sources: RealExtractionSourceReport[];
   summary: {
     sourcesChecked: number;
@@ -341,4 +348,70 @@ export type RealExtractionArtifact = {
   schemaVersion: "race-real-extraction-artifact-v1";
   generatedAt: string;
   report: RealExtractionReport;
+};
+
+export type RaceDailyCheckHealth = "HEALTHY" | "PARTIAL" | "NO_VALID_SOURCE" | "FAILED";
+
+export type RaceDailySourceFailure = {
+  editionId: string;
+  sourceId: string;
+  stage: "fetch" | "identity" | "provider" | "validation";
+  reason: string;
+  retryable: boolean;
+};
+
+export type RaceDailyEditionCoverage = {
+  editionId: string;
+  eligibleSources: number;
+  successfulSources: number;
+  failedSources: number;
+  tier1Count: number;
+  tier2Count: number;
+  lastCheckedAt: string | null;
+  lastSuccessfulExtractionAt: string | null;
+  health: RaceDailyCheckHealth;
+  sourceGap: string[];
+};
+
+export type RaceDailyCheckReport = {
+  schemaVersion: "race-daily-check-v1";
+  runId: string;
+  startedAt: string;
+  finishedAt: string;
+  mode: "safe_baseline";
+  editions: RaceDailyEditionCoverage[];
+  sourceFailures: RaceDailySourceFailure[];
+  newPending: PendingChange[];
+  conflicts: PendingChange[];
+  semanticReviews: RealExtractionCandidateReview[];
+  sourceGaps: Array<{ editionId: string; neededSourceTypes: string[] }>;
+  extraction: RealExtractionReport;
+  summary: {
+    editionsChecked: number;
+    sourcesChecked: number;
+    sourcesFetched: number;
+    sourcesFailed: number;
+    sourcesIdentityRejected: number;
+    sourcesIdentityUncertain: number;
+    sourcesUnchanged: number;
+    sourcesExtracted: number;
+    modelCalls: number;
+    inputTokens: number;
+    outputTokens: number;
+    totalTokens: number;
+    candidates: number;
+    accepted: number;
+    rejected: number;
+    changes: number;
+    pendingCreated: number;
+    pendingDeduped: number;
+    semanticReviews: number;
+    canonicalWrites: 0;
+  };
+};
+
+export type RaceDailyCheckArtifact = {
+  schemaVersion: "race-daily-check-artifact-v1";
+  generatedAt: string;
+  report: RaceDailyCheckReport;
 };

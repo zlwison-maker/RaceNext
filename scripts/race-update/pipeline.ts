@@ -88,7 +88,7 @@ function toPendingChange(change: RaceFieldChange, createdAt: string) {
     entityType: change.entityType,
     field: change.field,
     currentValue: change.oldValue,
-    candidateValue: change.newValue,
+    ...(change.conflict ? {} : { candidateValue: change.newValue }),
     sourceId: primaryEvidence.sourceId,
     sourceUrl: primaryEvidence.sourceUrl,
     evidenceText: primaryEvidence.evidenceText,
@@ -98,6 +98,9 @@ function toPendingChange(change: RaceFieldChange, createdAt: string) {
     contentHash: primaryEvidence.contentHash,
     extractionMethod: primaryEvidence.extractionMethod,
     evidence: change.evidence,
+    conflict: change.conflict,
+    candidateOptions: change.candidateOptions,
+    applyBlocked: change.applyBlocked,
     risk: change.risk,
     reason: change.reason,
     status: "pending" as const,
@@ -133,7 +136,7 @@ function buildChange(
     diff.categoryId ?? "edition",
     diff.entityType,
     diff.field,
-    JSON.stringify(diff.newValue),
+    JSON.stringify(diff.conflict ? diff.candidateOptions.map(({ value }) => value) : diff.newValue),
     ...orderedCandidates.map(({ sourceId }) => sourceId),
   ].join("|");
 
@@ -151,6 +154,9 @@ function buildChange(
     detectedAt,
     ...classification,
     evidence,
+    conflict: diff.conflict,
+    candidateOptions: diff.candidateOptions,
+    applyBlocked: diff.conflict,
   };
 }
 

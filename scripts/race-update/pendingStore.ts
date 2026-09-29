@@ -29,6 +29,9 @@ export function approvePendingChange(input: {
 }): PendingChangeStore {
   return updatePending(input.store, input.changeId, (change) => {
     if (change.status !== "pending") throw invalidTransition(change, "approved");
+    if (change.applyBlocked || change.conflict) {
+      throw new Error(`CONFLICT_REVIEW_SELECTION_REQUIRED:${change.changeId}`);
+    }
     change.status = "approved";
     change.reviewedAt = input.reviewedAt;
     change.reviewReason = null;
@@ -163,6 +166,9 @@ export async function loadPendingChangeStore(path = PENDING_CHANGE_PATH): Promis
 }
 
 function pendingToFieldChange(pending: PendingChange): RaceFieldChange {
+  if (pending.candidateValue === undefined) {
+    throw new Error(`Pending change has no selected candidate value: ${pending.changeId}`);
+  }
   return {
     changeId: pending.changeId,
     eventId: pending.eventId,
@@ -179,6 +185,9 @@ function pendingToFieldChange(pending: PendingChange): RaceFieldChange {
     action: "pending_review",
     reason: pending.reason,
     evidence: pending.evidence,
+    conflict: pending.conflict ?? false,
+    candidateOptions: pending.candidateOptions ?? [],
+    applyBlocked: pending.applyBlocked ?? false,
   };
 }
 

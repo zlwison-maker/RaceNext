@@ -8,7 +8,7 @@ import type {
 } from "../../types/officialSourceIngestion.ts";
 import { isSupportedFactField } from "./officialFacts.ts";
 
-export const RACE_FACT_EXTRACTION_PROMPT_VERSION = "race-fact-extraction-v1.3";
+export const RACE_FACT_EXTRACTION_PROMPT_VERSION = "race-fact-extraction-v1.4";
 export const QWEN_EXTRACTION_METHOD = "aliyun-qwen-structured-output";
 export const QWEN_PROVIDER_TIMEOUT_MS = 60_000;
 
@@ -111,6 +111,8 @@ Do not copy raceDate into endDate. Emit endDate only for an explicit separate en
 Emit registrationUrl only when the exact URL occurs in the document text or documentLinks; never reuse sourceUrl.
 Emit registrationStatus only when the document explicitly states a status; do not derive it from dates or the current date.
 Emit startLocation only from explicit start/start-line wording. Emit finishLocation only from explicit finish/finish-line wording; a generic event location is not both.
+Category-specific evidence must remain Category-scoped with the one exact categoryId. Never promote a Category date or Category fact to Edition scope. If Category scope is ambiguous, omit the fact.
+Numeric fields represent exact values. Omit approximate, ranged, lower-bound, or upper-bound values such as about, around, over, at least, 约, 超过, or 以上.
 If registration evidence includes a specific time, preserve that time in registrationOpenDate or registrationCloseDate.
 Use startAt for one start time. Emit startTimes only when the source explicitly lists two or more ordered start times.
 Output only the strict JSON Schema response.`;

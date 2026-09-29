@@ -4,6 +4,8 @@ import type {
   OfficialSourceIngestionStateEntry,
 } from "../../types/officialSourceIngestion.ts";
 
+export const RACE_FACT_PROCESSING_VERSION = "race-fact-processing-v4";
+
 const POST_OBSERVATION_STATUSES = new Set<OfficialIngestionStatus>([
   "success",
   "unchanged",
@@ -23,7 +25,8 @@ export function shouldExtractDocument(
   if (!extractionIdentity) return false;
   return state.lastSuccessfulProvider !== extractionIdentity.provider
     || state.lastSuccessfulModel !== extractionIdentity.model
-    || state.lastSuccessfulPromptVersion !== extractionIdentity.promptVersion;
+    || state.lastSuccessfulPromptVersion !== extractionIdentity.promptVersion
+    || state.lastSuccessfulProcessingVersion !== RACE_FACT_PROCESSING_VERSION;
 }
 
 /**
@@ -36,7 +39,7 @@ export function transitionIngestionState(input: {
   document: OfficialDocumentSnapshot;
   outcome: OfficialIngestionStatus;
   checkedAt?: string;
-  successfulExtraction?: { provider: string; model: string; promptVersion: string };
+  successfulExtraction?: { provider: string; model: string; promptVersion: string; processingVersion?: string };
 }): OfficialSourceIngestionStateEntry {
   const { previous, document, outcome } = input;
   if (!POST_OBSERVATION_STATUSES.has(outcome)) {
@@ -65,6 +68,12 @@ export function transitionIngestionState(input: {
     lastSuccessfulPromptVersion: outcome === "success"
       ? input.successfulExtraction?.promptVersion ?? previous?.lastSuccessfulPromptVersion ?? null
       : previous?.lastSuccessfulPromptVersion ?? null,
+    lastSuccessfulProcessingVersion: outcome === "success"
+      ? input.successfulExtraction?.processingVersion ?? RACE_FACT_PROCESSING_VERSION
+      : previous?.lastSuccessfulProcessingVersion ?? null,
+    lastSuccessfulExtractionAt: outcome === "success"
+      ? input.checkedAt ?? document.fetchedAt
+      : previous?.lastSuccessfulExtractionAt ?? null,
     lastExtractionMethod: document.extractionMethod,
     lastCheckedAt: input.checkedAt ?? document.fetchedAt,
     lastFetchStatus: "success",
@@ -100,6 +109,8 @@ export function transitionFetchFailureState(input: {
     lastSuccessfulProvider: input.previous?.lastSuccessfulProvider ?? null,
     lastSuccessfulModel: input.previous?.lastSuccessfulModel ?? null,
     lastSuccessfulPromptVersion: input.previous?.lastSuccessfulPromptVersion ?? null,
+    lastSuccessfulProcessingVersion: input.previous?.lastSuccessfulProcessingVersion ?? null,
+    lastSuccessfulExtractionAt: input.previous?.lastSuccessfulExtractionAt ?? null,
     lastExtractionMethod: input.previous?.lastExtractionMethod ?? null,
     lastCheckedAt: input.checkedAt,
     lastFetchStatus: input.status,

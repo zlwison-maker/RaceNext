@@ -5,6 +5,7 @@ import { basename, dirname, resolve } from "node:path";
 import type {
   NoKeyDryRunArtifact,
   OfficialSourceIngestionState,
+  RaceDailyCheckArtifact,
   RealExtractionArtifact,
 } from "../../types/officialSourceIngestion.ts";
 import type { PendingChangeStore, RaceGraphSnapshot } from "../../types/raceUpdate.ts";
@@ -15,6 +16,7 @@ export const PENDING_CHANGE_PATH = "data/pending/race-update-pending.json";
 export const OFFICIAL_INGESTION_STATE_PATH = "data/sources/official-source-ingestion-state.json";
 export const NO_KEY_DRY_RUN_ARTIFACT_PATH = "artifacts/race-update/phase2-no-key-dry-run.json";
 export const REAL_EXTRACTION_ARTIFACT_PATH = "artifacts/race-update/phase3-real-extraction.json";
+export const DAILY_CHECK_ARTIFACT_PATH = "artifacts/race-update/phase4a-12-race-baseline.json";
 
 export const RACE_PERSISTENCE_ALLOWLIST = [
   CANONICAL_PATH,
@@ -22,6 +24,7 @@ export const RACE_PERSISTENCE_ALLOWLIST = [
   OFFICIAL_INGESTION_STATE_PATH,
   NO_KEY_DRY_RUN_ARTIFACT_PATH,
   REAL_EXTRACTION_ARTIFACT_PATH,
+  DAILY_CHECK_ARTIFACT_PATH,
 ] as const;
 
 type AtomicFileOperations = {
@@ -107,6 +110,10 @@ export function assertOfficialIngestionState(value: unknown): asserts value is O
       || !isOptionalNullableString(entry.lastSuccessfulProvider)
       || !isOptionalNullableString(entry.lastSuccessfulModel)
       || !isOptionalNullableString(entry.lastSuccessfulPromptVersion)
+      || !isOptionalNullableString(entry.lastSuccessfulProcessingVersion)
+      || !(entry.lastSuccessfulExtractionAt === undefined
+        || entry.lastSuccessfulExtractionAt === null
+        || isDateTime(entry.lastSuccessfulExtractionAt))
       || !isDateTime(entry.lastCheckedAt)
       || !["success", "fetch_error", "parse_error", "unsupported_content_type", "unsupported_scanned_pdf"].includes(String(entry.lastFetchStatus))
       || !["not_attempted", "unchanged", "identity_mismatch", "identity_uncertain", "fact_extraction_provider_unconfigured", "extraction_error", "validation_error", "success"].includes(String(entry.lastExtractionStatus))) {
@@ -124,6 +131,7 @@ export function assertPendingChangeStore(value: unknown): asserts value is Pendi
   }
   const ids = new Set<string>();
   for (const change of value.changes) {
+    const conflict = isObject(change) && change.conflict === true;
     if (!isObject(change)
       || typeof change.changeId !== "string"
       || typeof change.eventId !== "string"
@@ -154,6 +162,21 @@ export function assertPendingChangeStore(value: unknown): asserts value is Pendi
       || !Array.isArray(change.evidence)
       || change.evidence.length === 0) {
       throw new Error("Invalid Pending Change Store entry.");
+    }
+    if (conflict) {
+      if (Object.hasOwn(change, "candidateValue")
+        || change.applyBlocked !== true
+        || !Array.isArray(change.candidateOptions)
+        || change.candidateOptions.length < 2
+        || change.candidateOptions.some((option) => !isObject(option)
+          || !Array.isArray(option.sourceIds)
+          || option.sourceIds.length === 0
+          || !Array.isArray(option.evidence)
+          || option.evidence.length === 0)) {
+        throw new Error(`Invalid conflict review record: ${change.changeId}`);
+      }
+    } else if (!Object.hasOwn(change, "candidateValue")) {
+      throw new Error(`Normal Pending change requires candidateValue: ${change.changeId}`);
     }
     if ((change.status === "approved" || change.status === "rejected" || change.status === "applied")
       && change.reviewedAt === null) {
@@ -192,6 +215,7 @@ export function assertRealExtractionArtifact(value: unknown): asserts value is R
     || !isObject(value.report)
     || value.report.schemaVersion !== "race-real-extraction-v1"
     || value.report.dryRun !== true
+    || typeof value.report.processingVersion !== "string"
     || !Array.isArray(value.report.sources)
     || !isObject(value.report.summary)
     || value.report.summary.canonicalWrites !== 0
@@ -199,9 +223,37 @@ export function assertRealExtractionArtifact(value: unknown): asserts value is R
       || source.canonicalWritten !== false
       || source.reasoningMode !== "none"
       || source.structuredOutputMode !== "strict_json_schema"
+      || typeof source.processingVersion !== "string"
       || !Array.isArray(source.candidates)
       || !Array.isArray(source.rejectedCandidates))) {
     throw new Error("Invalid real extraction artifact.");
+  }
+}
+
+export function assertRaceDailyCheckArtifact(value: unknown): asserts value is RaceDailyCheckArtifact {
+  if (!isObject(value)
+    || value.schemaVersion !== "race-daily-check-artifact-v1"
+    || !isDateTime(value.generatedAt)
+    || !isObject(value.report)
+    || value.report.schemaVersion !== "race-daily-check-v1"
+    || value.report.mode !== "safe_baseline"
+    || !Array.isArray(value.report.editions)
+    || !Array.isArray(value.report.sourceFailures)
+    || !Array.isArray(value.report.newPending)
+    || !Array.isArray(value.report.conflicts)
+    || !Array.isArray(value.report.semanticReviews)
+    || !Array.isArray(value.report.sourceGaps)
+    || !isObject(value.report.summary)
+    || value.report.summary.canonicalWrites !== 0
+    || !isObject(value.report.extraction)
+    || value.report.extraction.dryRun !== true
+    || typeof value.report.extraction.processingVersion !== "string"
+    || !isObject(value.report.extraction.summary)
+    || value.report.extraction.summary.canonicalWrites !== 0
+    || value.report.editions.some((edition) => !isObject(edition)
+      || typeof edition.editionId !== "string"
+      || !["HEALTHY", "PARTIAL", "NO_VALID_SOURCE", "FAILED"].includes(String(edition.health)))) {
+    throw new Error("Invalid race daily check artifact.");
   }
 }
 

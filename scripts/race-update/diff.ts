@@ -1,5 +1,5 @@
 import type { OfficialFactCandidate } from "../../types/officialSourceIngestion.ts";
-import type { RaceFieldDiff, RaceFieldTarget, RaceGraphSnapshot } from "../../types/raceUpdate.ts";
+import type { RaceConflictOption, RaceFieldDiff, RaceFieldTarget, RaceGraphSnapshot } from "../../types/raceUpdate.ts";
 
 export function diffRaceFactCandidates(input: {
   snapshot: RaceGraphSnapshot;
@@ -37,17 +37,35 @@ function diffTarget(
       ...target,
       status: "MISSING",
       oldValue: null,
-      newValue: values.length === 1 ? values[0] : values,
+      newValue: values.length === 1 ? values[0] : null,
       candidates,
+      conflict: values.length > 1,
+      candidateOptions: values.length > 1 ? buildConflictOptions(candidates) : [],
     };
   }
   if (candidates.length === 0) {
-    return { ...target, status: "NO_CANDIDATE", oldValue: current.value, newValue: null, candidates };
+    return {
+      ...target,
+      status: "NO_CANDIDATE",
+      oldValue: current.value,
+      newValue: null,
+      candidates,
+      conflict: false,
+      candidateOptions: [],
+    };
   }
 
   const values = uniqueValues(candidates.map(({ candidateValue }) => candidateValue));
   if (values.length > 1) {
-    return { ...target, status: "CONFLICT", oldValue: current.value, newValue: values, candidates };
+    return {
+      ...target,
+      status: "CONFLICT",
+      oldValue: current.value,
+      newValue: null,
+      candidates,
+      conflict: true,
+      candidateOptions: buildConflictOptions(candidates),
+    };
   }
   const [newValue] = values;
   return {
@@ -56,7 +74,35 @@ function diffTarget(
     oldValue: current.value ?? null,
     newValue,
     candidates,
+    conflict: false,
+    candidateOptions: [],
   };
+}
+
+function buildConflictOptions(candidates: OfficialFactCandidate[]): RaceConflictOption[] {
+  const groups = new Map<string, OfficialFactCandidate[]>();
+  for (const candidate of candidates) {
+    const key = JSON.stringify(candidate.candidateValue);
+    groups.set(key, [...(groups.get(key) ?? []), candidate]);
+  }
+  return [...groups.entries()]
+    .sort(([left], [right]) => left.localeCompare(right))
+    .map(([, grouped]) => ({
+      value: grouped[0].candidateValue,
+      sourceIds: [...new Set(grouped.map(({ sourceId }) => sourceId))].sort(),
+      evidence: grouped
+        .sort((left, right) => left.sourceId.localeCompare(right.sourceId))
+        .map(({ sourceId, sourceUrl, evidenceText, evidenceLocator, confidence, fetchedAt, contentHash, extractionMethod }) => ({
+          sourceId,
+          sourceUrl,
+          evidenceText,
+          evidenceLocator,
+          confidence,
+          fetchedAt,
+          contentHash,
+          extractionMethod,
+        })),
+    }));
 }
 
 function getCurrentValue(

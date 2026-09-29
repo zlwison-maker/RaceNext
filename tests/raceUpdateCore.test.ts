@@ -203,8 +203,13 @@ test("multiple eligible sources disagreeing produces CONFLICT rather than last-w
     detectedAt: "2026-09-28T10:10:00+08:00",
   });
   equal(result.diffs[0].status, "CONFLICT");
-  equal(result.changes[0].risk, "structural");
+  equal(result.diffs[0].newValue, null);
+  equal(result.diffs[0].conflict, true);
+  deepEqual(result.diffs[0].candidateOptions.map(({ value }) => value), ["registration_closed", "registration_open"]);
+  equal(result.changes[0].risk, "low");
   equal(result.changes[0].action, "needs_review");
+  equal(result.changes[0].reason, "source_value_conflict");
+  equal(result.changes[0].applyBlocked, true);
   equal(result.changes[0].evidence.length, 2);
 });
 

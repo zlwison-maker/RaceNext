@@ -25,7 +25,9 @@ try {
       category: change.categoryId ?? "—",
       field: change.field,
       current: JSON.stringify(change.currentValue),
-      candidate: JSON.stringify(change.candidateValue),
+      candidate: change.conflict
+        ? `CONFLICT ${JSON.stringify(change.candidateOptions?.map(({ value }) => value) ?? [])}`
+        : JSON.stringify(change.candidateValue),
       source: change.sourceId,
       risk: change.risk,
     })));

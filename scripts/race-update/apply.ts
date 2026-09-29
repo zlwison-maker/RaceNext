@@ -40,6 +40,9 @@ function assertApplyableChange(
   change: RaceFieldChange,
   allowReviewed: boolean,
 ): void {
+  if (change.applyBlocked || change.conflict) {
+    throw new Error(`CONFLICT_REVIEW_APPLY_BLOCKED:${change.changeId}`);
+  }
   const normalAutoApply = change.risk === "low" && change.action === "auto_apply";
   const reviewedApply = allowReviewed
     && (change.risk === "low" || change.risk === "high_impact")
