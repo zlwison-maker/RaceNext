@@ -167,7 +167,9 @@ Precision > Recall。
 
 宁可不知道，也不要编造。
 八、自动更新机制
-RaceNext 已实现 12 场核心赛事检查与人工触发的 GitHub Actions 工作流。当前仅允许 `workflow_dispatch`，每日 cron 尚未启用；不能把已实现的检查能力描述为生产环境已经每日自动运行。
+RaceNext 已完成 12 场核心赛事检查、人工触发生产闭环与 Human Review / Merge 验证。GitHub Actions 工作流同时支持 `workflow_dispatch` 和每日 `schedule`：UTC 00:23，即 Asia/Shanghai 08:23 左右。Auto Apply 固定关闭，任何事实变化仍进入 Pending 并要求 Human Review 与 Human Merge。
+
+Scheduled Run 开始时若已有以 `automation/race-data-update-` 开头、base 为 `main` 的开放 Data-only PR，本次定时检查会成功跳过并在 Actions Summary 中列出该 PR；人工触发不受此保护限制。没有新的 Pending 或 meaningful durable state 时，Workflow 成功结束但不创建 PR。
 数据生命周期：
 Source
 ↓
@@ -183,7 +185,7 @@ Diff
 ↓
 Risk Classification
 ↓
-Pending（Phase 4B-1）
+Pending（Human Review）
 ↓
 Canonical Race Graph
 Low Risk
@@ -342,17 +344,16 @@ Race Result
 - Document Extraction
 - Qwen Fact Extraction
 - Manual GitHub Workflow
+- Daily GitHub Workflow（08:23 Asia/Shanghai）
+- Open Automation PR Guard
 - Public Remote Read Layer
 已冻结
 RaceNext Data Foundation Architecture
 不再继续增加数据基础设施。
-Not Yet Activated
-- Daily cron / scheduled workflow
+Awaiting Production Proof
+- Phase 4B-2 首次自然 `schedule` 运行
 
-Not Yet Proven
-- Gate 5 Real Production Change Closed Loop
-
-本地真实 Qwen Runtime 已完成验证，但 GitHub Runner 仍需在 Activation PR 合入 main 后配置 Repository Secrets，再执行固定安全模式的人工触发。Phase 4B-1 不提供开启 auto apply 的 Workflow input，Canonical 自动写入固定为 0。Provider Credential 只负责让 AI Fact Extraction Adapter 实际运行，不代表候选事实已经正确。正式写入仍必须经过 Source Tier、Event / Edition Identity、Evidence、Conflict Check 与 Human Review。
+Phase 4B-1 已通过真实 GitHub Runner、Data-only PR、Human Review 与 Human Merge 完成生产闭环验证。Phase 4B-2 启用每日 schedule，但不提供开启 auto apply 的 Workflow input，Canonical 自动写入固定为 0。Provider Credential 只负责让 AI Fact Extraction Adapter 实际运行，不代表候选事实已经正确。正式写入仍必须经过 Source Tier、Event / Edition Identity、Evidence、Conflict Check、Human Review 与 Human Merge。Cron 合入 main 后的状态是 `CRON ACTIVATED / AWAITING FIRST NATURAL RUN`，不能用手工 `workflow_dispatch` 冒充 scheduled production proof。
 
 核心赛事的抽取还必须执行最小结构完整性检查：官方页面列出的 Category 数量与身份、Canonical 已有 Category，以及明显缺失的 Category 和目标字段必须被比较。抽取不能在找到第一条匹配后提前停止。该检查只产生候选或 Review 问题，不自动创建 Category，也不改变冻结的 Event → Edition → Category 模型。
 
