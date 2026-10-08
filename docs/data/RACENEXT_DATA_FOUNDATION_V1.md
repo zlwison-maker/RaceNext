@@ -5,12 +5,13 @@
 - Architecture: **FROZEN**
 - Real AI Fact Extraction: **IMPLEMENTED AND LOCALLY VERIFIED**
 - 12-Race Monitoring + Pending Review: **IMPLEMENTED**
-- Manual GitHub Workflow: **IMPLEMENTED — NOT YET ACTIVATED ON MAIN**
-- Daily Cron: **NOT YET ACTIVATED**
-- Gate 5 Real Production Change Closed Loop: **NOT YET PROVEN**
+- Manual GitHub Workflow: **ACTIVE**
+- Daily Cron: **ACTIVE — 08:23 ASIA/SHANGHAI / 00:23 UTC**
+- Phase 4B-2 Production Proof: **AWAITING FIRST NATURAL SCHEDULED RUN**
+- Gate 5 Real Production Change Closed Loop: **PROVEN**
 - Remote Read: **READY**
 
-数据基础设施 V1 的核心、12 场监控、Qwen 抽取与 Pending Review 已实现。Phase 4B-1 只增加人工触发的生产工作流；每日定时检查仍未启用，也不能描述为已经在生产自动运行。
+数据基础设施 V1 的核心、12 场监控、Qwen 抽取、Pending Review 与人工生产闭环已经验证。Phase 4B-2 在同一 Production Pipeline 上增加每日定时触发；Auto Apply 继续关闭，Human Review 与 Human Merge 继续为必经步骤。Cron 已配置，但在第一次自然 `schedule` 运行成功或因开放 Data PR 合理跳过前，状态只能称为 `CRON ACTIVATED / AWAITING FIRST NATURAL RUN`。
 
 ## 2. Core Model
 
@@ -57,9 +58,11 @@ Official Fact 与 Runner Feedback 必须分离：前者进入事实验证链路�
 
 ## 6. Update Strategy
 
-仓库已实现只允许 `workflow_dispatch` 的手动 GitHub Actions 工作流。当前没有 `schedule` / cron；Phase 4B-1 的正式 Workflow 固定使用 `auto_apply_low_risk=false`，不暴露开启入口。
+仓库使用同一个 GitHub Actions Production Workflow 支持 `workflow_dispatch` 与每日 `schedule`。Cron 为 `23 0 * * *`，即 Asia/Shanghai 08:23 左右；GitHub hosted runner 的轻微延迟属于正常行为。正式 Workflow 固定使用 `auto_apply_low_risk=false`，不暴露开启入口。
 
-- 当前 Source Registry 只有 source-level authority，尚无 field-level authority；因此 Phase 4B-1 的 Low Risk 变化也只进入 Pending / Report，Canonical 自动写入固定为 0。
+Scheduled Run 会先查询 base 为 `main`、head 以 `automation/race-data-update-` 开头的开放 PR。若存在，本次定时 Pipeline 成功跳过并在 Actions Summary 输出 PR number、URL 与 head branch，避免重复模型调用和 stale Data PR；人工 `workflow_dispatch` 仍可用于 Diagnosis、Verification 与 Release Gate。无 meaningful durable change 时不创建 PR；真实失败保持 GitHub Actions 红灯。
+
+- 当前 Source Registry 只有 source-level authority，尚无 field-level authority；因此 Low Risk 变化也只进入 Pending / Report，Canonical 自动写入固定为 0。
 - 日期、地点、距离、爬升、关门时间等 High Impact 字段进入 Pending Review。
 - 新 Event、Edition、Category 或删除等 Structural 变化必须人工 Review。
 - 来源失败、字段缺失或时间戳刷新不能被解释为事实删除或变化。
@@ -74,7 +77,8 @@ Official Fact 与 Runner Feedback 必须分离：前者进入事实验证链路�
 
 - Qwen OpenAI-compatible Provider Adapter：**READY**
 - 本地真实 Provider 运行验收：**VERIFIED**
-- GitHub Repository Secrets 与 main 上的首次 Manual Dispatch：**NOT YET ACTIVATED**
+- GitHub Repository Secrets 与 Manual Production Workflow：**ACTIVE AND VERIFIED**
+- Daily Schedule：**ACTIVE — AWAITING FIRST NATURAL RUN**
 - 未配置时：安全返回 `fact_extraction_provider_unconfigured`，不生成事实、不修改 Canonical
 
 ## 8. Distribution
@@ -107,8 +111,7 @@ Canonical 通过代码提交更新，因此公开 API 获得新数据仍依赖�
 
 ## 11. Deferred
 
-- Gate 5 Real Production Change Closed Loop
-- Daily cron / scheduled activation
+- First natural scheduled-run production proof
 - Web Search Provider
 - Database
 - CMS / approval UI
@@ -117,10 +120,10 @@ Canonical 通过代码提交更新，因此公开 API 获得新数据仍依赖�
 - Future100 与完整存量迁移
 - Web full migration to Race Graph
 
-生产链路仍需在 Activation PR 合入 main 后配置 GitHub Repository Secrets，再执行固定安全模式的 Manual Dispatch。只有真实变化完成“抓取 → 抽取 → Pending / data-only PR → 人工 Review → Merge”的闭环后，Gate 5 才能标记为 proven。每日 cron 留待 Phase 4B-2，当前明确未启用；field-level authority 完成独立设计与人工 Review 前，不得开启 Canonical auto apply。
+生产链路已完成“抓取 → 抽取 → Pending / data-only PR → Human Review → Human Merge”的真实闭环。每日 cron 与 Manual Workflow 共用同一安全路径，不负责部署，也不能自动修改 Canonical。下一项生产证据只来自首次自然 `schedule` 运行；field-level authority 完成独立设计与人工 Review 前，不得开启 Canonical auto apply。
 
 ## 12. Next Product Phase
 
-**PHASE 4B-1 MANUAL ACTIVATION REVIEW / PRODUCT DEVELOPMENT IN PARALLEL**
+**PHASE 4B-2 CRON ACTIVATED / AWAITING FIRST NATURAL RUN**
 
-数据架构继续冻结，不再为尚未验证的规模化需求预建 Database、CMS、GraphQL、Queue、Worker 或第二套客户端 Schema。
+数据架构继续冻结。除非真实 Production Data 暴露 blocker，否则停止继续建设 Pipeline，并把重点转回真实用户、获客、使用、分享、酒店点击、转化与收入；不为尚未验证的规模化需求预建 Database、CMS、GraphQL、Queue、Worker 或第二套客户端 Schema。

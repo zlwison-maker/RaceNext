@@ -1,6 +1,10 @@
 import { deepEqual, equal, match, ok, rejects, throws } from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { execFile } from "node:child_process";
+import { mkdtemp, readFile, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { test } from "node:test";
+import { promisify } from "node:util";
 
 import { evaluateRaceUpdateCore } from "../scripts/race-update/pipeline.ts";
 import { runRealExtractionDryRun } from "../scripts/race-update/realExtraction.ts";
@@ -30,20 +34,96 @@ import type { PendingChangeStore, RaceGraphSnapshot } from "../types/raceUpdate.
 const workflow = await readFile(new URL("../.github/workflows/race-data-update.yml", import.meta.url), "utf8");
 const canonical = JSON.parse(await readFile(new URL("../data/canonical/race-graph-v1.json", import.meta.url), "utf8")) as RaceGraphSnapshot;
 const registry = await loadRaceSourceRegistry();
+const execFileAsync = promisify(execFile);
 
-test("Phase 4B-1 workflow is manual-only, serialized, least-privilege, and hard-disables auto apply", () => {
+test("Phase 4B-2 workflow keeps manual dispatch and adds the exact serialized daily schedule", () => {
   match(workflow, /^\s{2}workflow_dispatch:/m);
-  equal(/^\s{2}schedule:/m.test(workflow), false);
-  equal(/cron:/i.test(workflow), false);
+  match(workflow, /^\s{2}schedule:/m);
+  match(workflow, /^\s{4}- cron: '23 0 \* \* \*'$/m);
+  match(workflow, /08:23 Asia\/Shanghai \(UTC\+8\)\. GitHub scheduled workflows use UTC\./);
   equal(workflow.includes("auto_apply_low_risk:"), false);
   match(workflow, /npm run race:check:production -- --auto-apply-low-risk=false/);
+  equal(workflow.includes("--auto-apply-low-risk=true"), false);
   equal(workflow.includes("inputs.auto_apply_low_risk"), false);
   match(workflow, /permissions:\n\s{2}contents: write\n\s{2}pull-requests: write/);
   match(workflow, /concurrency:\n\s{2}group: race-data-update\n\s{2}cancel-in-progress: false/);
   equal(/write-all/.test(workflow), false);
   equal(/git push origin main/.test(workflow), false);
+  equal(/gh pr merge/.test(workflow), false);
   equal(workflow.includes("race-source-registry.json"), false);
   match(workflow, /automation\/race-data-update-\$\{GITHUB_RUN_ID\}/);
+});
+
+test("scheduled runs skip when an automation data PR is open while manual runs remain available", () => {
+  const guard = workflowStep("Check for open automation data PR");
+  match(guard, /id: open-pr-guard/);
+  match(guard, /if: github\.event_name == 'schedule'/);
+  match(guard, /gh pr list/);
+  match(guard, /--repo "\$GITHUB_REPOSITORY"/);
+  match(guard, /--state open/);
+  match(guard, /--base main/);
+  match(guard, /startsWith|startswith/);
+  match(guard, /automation\/race-data-update-/);
+  match(guard, /echo "skip=true" >> "\$GITHUB_OUTPUT"/);
+  match(guard, /Race Data Update skipped:/);
+  match(guard, /an existing automation data PR is still awaiting human review\./);
+  match(guard, /PR number:/);
+  match(guard, /PR URL:/);
+  match(guard, /Head branch:/);
+
+  const production = workflowStep("Run 12-race production manual check");
+  match(production, /if: steps\.open-pr-guard\.outputs\.skip != 'true'/);
+  equal(production.includes("github.event_name"), false);
+
+  for (const stepName of [
+    "Checkout main",
+    "Set up Node.js",
+    "Install dependencies",
+    "Validate provider secrets",
+    "Run 12-race production manual check",
+    "Enforce data-only diff",
+    "Scan generated output for secrets",
+    "Upload sanitized report",
+    "Run pipeline directed tests",
+    "Run full test suite",
+    "Run Public Fact Gate",
+    "Run TypeScript gates",
+    "Check patch whitespace",
+    "Finish without PR when only volatile metadata changed",
+    "Create data-only pull request",
+  ]) {
+    match(workflowStep(stepName), /if: steps\.open-pr-guard\.outputs\.skip != 'true'/);
+  }
+});
+
+test("open automation PR guard emits skip output and an auditable summary with mocked GitHub state", async () => {
+  const fixtureRoot = await mkdtemp(join(tmpdir(), "racenext-pr-guard-"));
+  const mockGh = join(fixtureRoot, "gh");
+  const outputPath = join(fixtureRoot, "output");
+  const summaryPath = join(fixtureRoot, "summary");
+  await writeFile(mockGh, [
+    "#!/usr/bin/env bash",
+    "printf '42\\thttps://github.com/example/RaceNext/pull/42\\tautomation/race-data-update-42\\n'",
+  ].join("\n"), { mode: 0o755 });
+  await writeFile(outputPath, "");
+  await writeFile(summaryPath, "");
+
+  await execFileAsync("bash", ["-euo", "pipefail", "-c", workflowRunScript("Check for open automation data PR")], {
+    env: {
+      ...process.env,
+      PATH: `${fixtureRoot}:${process.env.PATH ?? ""}`,
+      GITHUB_OUTPUT: outputPath,
+      GITHUB_STEP_SUMMARY: summaryPath,
+      GITHUB_REPOSITORY: "example/RaceNext",
+    },
+  });
+
+  equal(await readFile(outputPath, "utf8"), "skip=true\n");
+  const summary = await readFile(summaryPath, "utf8");
+  match(summary, /Race Data Update skipped:/);
+  match(summary, /PR number: #42/);
+  match(summary, /PR URL: https:\/\/github\.com\/example\/RaceNext\/pull\/42/);
+  match(summary, /Head branch: `automation\/race-data-update-42`/);
 });
 
 test("production secret contract fails closed without printing secret values", () => {
@@ -266,6 +346,22 @@ test("PR metadata is minimal and secret scan rejects credentials and raw payload
   }), /SECRET_SCAN_FAILED/);
   throws(() => assertSanitizedText({ text: "Authorization: Bearer redacted", environment: {} }), /SECRET_SCAN_FAILED/);
 });
+
+function workflowStep(name: string): string {
+  const marker = `      - name: ${name}`;
+  const start = workflow.indexOf(marker);
+  ok(start >= 0, `missing workflow step: ${name}`);
+  const next = workflow.indexOf("\n      - name:", start + marker.length);
+  return workflow.slice(start, next < 0 ? workflow.length : next);
+}
+
+function workflowRunScript(name: string): string {
+  const step = workflowStep(name);
+  const marker = "        run: |\n";
+  const start = step.indexOf(marker);
+  ok(start >= 0, `missing run script for workflow step: ${name}`);
+  return step.slice(start + marker.length).replace(/^ {10}/gm, "");
+}
 
 function emptyPending(): PendingChangeStore {
   return { schemaVersion: "race-update-pending-v1", changes: [] };
