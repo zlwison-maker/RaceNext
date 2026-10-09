@@ -46,10 +46,10 @@ test("approved launch registration facts are stored at their source precision", 
     ["xian-marathon-2026", ["registration_closed", "2026-08-04T11:00:00+08:00", "2026-08-20T17:00:00+08:00", "https://xi-ma.com/"]],
     ["shanghai-marathon-2026", ["registration_closed", "2026-04-29T15:00:00+08:00", "2026-05-29T12:00:00+08:00", "https://static.shang-ma.com/web/index.html"]],
     ["chengdu-marathon-2026", ["registration_closed", "2026-06-10T10:00:00+08:00", "2026-06-24T18:00:00+08:00", "https://chengdumarathon.cn/"]],
-    ["guangzhou-marathon-2026", ["lottery", "2026-09-02T10:00:00+08:00", "2026-09-11T18:00:00+08:00", "https://www.guangzhou-marathon.com/"]],
+    ["guangzhou-marathon-2026", ["registration_closed", "2026-09-02T10:00:00+08:00", "2026-09-11T18:00:00+08:00", "https://www.guangzhou-marathon.com/"]],
     ["tsaigu-kuocang-2026", ["registration_closed", "2026-06-20T10:00:00+08:00", "2026-06-26T10:00:00+08:00", null]],
     ["shenzhen-100-2026", ["registration_closed", "2026-08-18T15:00:00+08:00", null, "https://www.letoursports.com/events?mid=72298"]],
-    ["hk100-2027", ["unknown", null, null, "https://hk100ultra.com/zh-hant/entry/"]],
+    ["hk100-2027", ["registration_closed", null, null, "https://hk100ultra.com/zh-hant/entry/"]],
     ["kailas-gongga-100-2026", ["registration_closed", "2026-06-30T10:00:00+08:00", "2026-07-20T10:00:00+08:00", "https://reg.zuicool.com/en/33836"]],
   ] as const);
 
@@ -112,6 +112,8 @@ test("public list and priority details expose approved launch values", () => {
   if (list.status !== 200) return;
   equal(list.body.races.length, 12);
   equal(list.body.races.find(({ editionId }) => editionId === "beijing-marathon-2026")?.registrationStatus, "registration_closed");
+  equal(list.body.races.find(({ editionId }) => editionId === "guangzhou-marathon-2026")?.registrationStatus, "registration_closed");
+  equal(list.body.races.find(({ editionId }) => editionId === "hk100-2027")?.registrationStatus, "registration_closed");
 
   const expected = new Map([
     ["beijing-marathon-2026", ["registration_closed", "https://beijing-registration.mararun.com/?lang=en", "2026-10-18T07:30:00+08:00"]],
@@ -119,6 +121,8 @@ test("public list and priority details expose approved launch values", () => {
     ["chongqing-marathon-2027", ["registration_closed", "https://www.cqmarathon.com/", "2027-01-10T08:00:00+08:00"]],
     ["ninghai-ultra-trail-2026", ["registration_closed", null, "2026-11-14T06:00:00+08:00"]],
     ["xian-marathon-2026", ["registration_closed", "https://xi-ma.com/", "2026-10-18T07:30:00+08:00"]],
+    ["guangzhou-marathon-2026", ["registration_closed", "https://www.guangzhou-marathon.com/", null]],
+    ["hk100-2027", ["registration_closed", "https://hk100ultra.com/zh-hant/entry/", "2027-01-23"]],
   ] as const);
 
   for (const [editionId, values] of expected) {
