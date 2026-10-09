@@ -33,6 +33,8 @@ import type { PendingChangeStore, RaceGraphSnapshot } from "../types/raceUpdate.
 
 const workflow = await readFile(new URL("../.github/workflows/race-data-update.yml", import.meta.url), "utf8");
 const canonical = JSON.parse(await readFile(new URL("../data/canonical/race-graph-v1.json", import.meta.url), "utf8")) as RaceGraphSnapshot;
+// Workflow fixtures exercise the historical lottery -> closed transition, independent of today's Canonical status.
+canonical.records.find(({ edition }) => edition.editionId === "beijing-marathon-2026")!.edition.registrationStatus = "lottery";
 const registry = await loadRaceSourceRegistry();
 const execFileAsync = promisify(execFile);
 

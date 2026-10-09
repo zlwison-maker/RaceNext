@@ -270,14 +270,14 @@
         "venue": null,
         "region": "north_china",
         "timezone": "Asia/Shanghai",
-        "registrationStatus": "lottery",
+        "registrationStatus": "registration_closed",
         "registrationOpenDate": "2026-09-17T10:00:00+08:00",
         "registrationCloseDate": "2026-09-22T18:00:00+08:00",
         "registrationUrl": "https://beijing-registration.mararun.com/?lang=en",
         "officialWebsite": "https://www.beijing-marathon.com/",
         "lifecycleStatus": "active",
         "createdAt": "2026-09-10",
-        "updatedAt": "2026-09-24",
+        "updatedAt": "2026-10-09",
         "governance": {
           "sources": [
             {
@@ -331,6 +331,18 @@
               }
             },
             {
+              "sourceType": "official",
+              "sourceName": "北京马拉松官网 2026 二次抽签结果新闻",
+              "sourceUrl": "https://www.beijing-marathon.com/subject.html?topicId=7793646346787704&detailId=9056984619947595&type=news",
+              "sourceRecordId": "beijing-marathon-official-second-draw-news-2026",
+              "crawledAt": "2026-10-09",
+              "confidence": 0.99,
+              "rawData": {
+                "secondDrawResultPublishedAt": "2026-10-06",
+                "evidenceLocator": "官网赛事新闻：北马二抽结果今日公布，缴费通道同步开启；官网新闻记录创建于 2026-10-06 10:05:50。"
+              }
+            },
+            {
               "sourceType": "registration_platform",
               "sourceName": "2026 北京马拉松官方报名入口",
               "sourceUrl": "https://beijing-registration.mararun.com/?lang=en",
@@ -360,9 +372,9 @@
             "registrationStatus": {
               "field": "registrationStatus",
               "sourceType": "official",
-              "sourceName": "2026 北京马拉松官方报名须知",
+              "sourceName": "2026 北京马拉松官方报名须知 + 官网二次抽签结果新闻",
               "confidence": 0.99,
-              "updatedAt": "2026-09-24"
+              "updatedAt": "2026-10-09"
             },
             "registrationOpenDate": {
               "field": "registrationOpenDate",
@@ -399,11 +411,11 @@
             "startLocation",
             "finishLocation"
           ],
-          "lastCrawledAt": "2026-09-10",
-          "lastUpdatedAt": "2026-09-24",
+          "lastCrawledAt": "2026-10-09",
+          "lastUpdatedAt": "2026-10-09",
           "schemaVersion": "race-graph-v1",
           "dataQualityLevel": "B",
-          "reviewNotes": "Race date is supported by matching AIMS and World Athletics 2026 calendar entries; the official event home remains the primary identity source.",
+          "reviewNotes": "Race date is supported by matching AIMS and World Athletics 2026 calendar entries; the official event home remains the primary identity source. The official registration period ended on 2026-09-22; the official site announced second-draw results on 2026-10-06. Registration is closed as checked on 2026-10-09; the second-draw payment window is not the registrationCloseDate.",
           "publicationGate": {
             "requestedEditionYear": 2026,
             "latestRelevantOfficialEditionYear": 2026,

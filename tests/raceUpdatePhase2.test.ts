@@ -17,6 +17,8 @@ import type { OfficialSourceIngestionState } from "../types/officialSourceIngest
 import type { PendingChange, PendingChangeStore, RaceGraphSnapshot } from "../types/raceUpdate.ts";
 
 const snapshot = JSON.parse(await readFile(new URL("../data/canonical/race-graph-v1.json", import.meta.url), "utf8")) as RaceGraphSnapshot;
+// Pending fixtures exercise the historical lottery -> closed transition, independent of today's Canonical status.
+snapshot.records.find(({ edition }) => edition.editionId === "beijing-marathon-2026")!.edition.registrationStatus = "lottery";
 const registry = await loadRaceSourceRegistry();
 const emptyState = (): OfficialSourceIngestionState => ({ schemaVersion: "official-source-ingestion-state-v1", sources: [] });
 const temporaryDirectory = await mkdtemp(join(tmpdir(), "racenext-phase2-"));

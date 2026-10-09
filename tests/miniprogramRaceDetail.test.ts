@@ -197,6 +197,8 @@ test("unknown registration status stays hidden", () => {
 });
 
 test("registration status distinguishes not started from officially not announced", () => {
+  equal(beijing.registrationStatus, "registration_closed");
+  equal(createRaceDetailViewModel(beijing).registrationDisplay, "报名已结束");
   equal(createRaceDetailViewModel({ ...beijing, registrationStatus: "upcoming" }).registrationDisplay, "报名未开始");
   equal(
     createRaceDetailViewModel({ ...beijing, registrationStatus: "registration_not_announced" }).registrationDisplay,

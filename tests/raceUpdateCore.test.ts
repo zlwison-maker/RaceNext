@@ -281,14 +281,16 @@ test("normal low-risk registration transition can apply while reverse transition
 });
 
 test("apply rejects stale oldValue and any high-impact direct application", () => {
+  const lotteryBaseline = structuredClone(canonical);
+  lotteryBaseline.records.find(({ edition }) => edition.editionId === "beijing-marathon-2026")!.edition.registrationStatus = "lottery";
   const evaluation = evaluateRaceUpdateCore({
-    snapshot: canonical,
+    snapshot: lotteryBaseline,
     registry,
     candidates: [candidate({ candidateValue: "registration_closed" })],
     detectedAt: "2026-09-28T10:14:00+08:00",
   });
   const low = evaluation.changes[0];
-  const stale = structuredClone(canonical);
+  const stale = structuredClone(lotteryBaseline);
   stale.records.find(({ edition }) => edition.editionId === low.editionId)!.edition.registrationStatus = "registration_open";
   throws(() => applySafeChanges({ snapshot: stale, changes: [low], registry, appliedAt: "2026-09-28T10:15:00+08:00" }), /Stale oldValue/);
 
