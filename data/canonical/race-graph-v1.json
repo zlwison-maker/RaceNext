@@ -777,12 +777,12 @@
         "venue": "北潭涌",
         "region": "hongkong_macao_taiwan",
         "timezone": "Asia/Hong_Kong",
-        "registrationStatus": "unknown",
+        "registrationStatus": "registration_closed",
         "registrationUrl": "https://hk100ultra.com/zh-hant/entry/",
         "officialWebsite": "https://hk100ultra.com/zh-hant/",
         "lifecycleStatus": "active",
         "createdAt": "2026-09-10",
-        "updatedAt": "2026-09-24",
+        "updatedAt": "2026-10-09",
         "governance": {
           "sources": [
             {
@@ -941,6 +941,19 @@
               }
             },
             {
+              "sourceType": "registration_platform",
+              "sourceName": "Race Timing Solutions — HK100 2027 Charity Places",
+              "sourceUrl": "https://raceresults.com.hk/event/481",
+              "sourceRecordId": "hk100-2027-charity-registration-platform",
+              "crawledAt": "2026-10-09",
+              "confidence": 0.99,
+              "rawData": {
+                "editionYear": 2027,
+                "registrationStatus": "registration_closed",
+                "evidenceLocator": "Official Entry page links to 2027 Charity Places; registration platform displays 已关闭 / 报名已关闭."
+              }
+            },
+            {
               "sourceType": "manual",
               "sourceName": "RaceNext human-reviewed First5 image input",
               "sourceRecordId": "first5-images:2026-09-10",
@@ -976,6 +989,13 @@
               "sourceName": "Hong Kong 100 Ultra — Entry",
               "confidence": 0.99,
               "updatedAt": "2026-09-24"
+            },
+            "registrationStatus": {
+              "field": "registrationStatus",
+              "sourceType": "registration_platform",
+              "sourceName": "Race Timing Solutions — HK100 2027 Charity Places",
+              "confidence": 0.99,
+              "updatedAt": "2026-10-09"
             }
           },
           "sourcePriority": {
@@ -986,14 +1006,12 @@
           "verified": true,
           "verificationStatus": "verified",
           "verifiedAt": "2026-09-10",
-          "missingFields": [
-            "registrationStatus"
-          ],
-          "lastCrawledAt": "2026-09-10",
-          "lastUpdatedAt": "2026-09-24",
+          "missingFields": [],
+          "lastCrawledAt": "2026-10-09",
+          "lastUpdatedAt": "2026-10-09",
           "schemaVersion": "race-graph-v1",
           "dataQualityLevel": "B",
-          "reviewNotes": "Edition window is 2027-01-21 through 2027-01-24. The three official physical races are The Third, The Half and HK100; the primary HK100 100K category is dated 2027-01-23. The Grand Sam is retained as an evidenced composite challenge and is not modeled as a regular Category. No unverified start time was inferred.",
+          "reviewNotes": "Edition window is 2027-01-21 through 2027-01-24. The three official physical races are The Third, The Half and HK100; the primary HK100 100K category is dated 2027-01-23. The Grand Sam is retained as an evidenced composite challenge and is not modeled as a regular Category. No unverified start time was inferred. The organizer-linked 2027 charity entry platform displayed registration closed when checked on 2026-10-09; the undated-looking charity availability notice was last modified in 2025 and is not treated as current 2027 availability evidence.",
           "publicationGate": {
             "requestedEditionYear": 2027,
             "latestRelevantOfficialEditionYear": 2027,
@@ -3077,8 +3095,8 @@
         "governance": {"sources": [{"sourceType": "official", "sourceName": "广州市体育局 2026 广州马拉松官方发布", "sourceUrl": "https://tyj.gz.gov.cn/bmzc/xwbd/content/post_10989208.html", "sourceRecordId": "guangzhou-sports-bureau-2026-announcement", "crawledAt": "2026-09-15", "confidence": 0.99, "rawData": {"editionYear": 2026, "latestRelevantOfficialEditionYear": 2026, "raceDate": "2026-12-20", "categories": ["Marathon"]}}], "fieldSources": {}, "sourcePriority": {"official": 100}, "confidence": 0.99, "verified": true, "verificationStatus": "verified", "verifiedAt": "2026-09-15", "missingFields": ["organizer"], "mergeNotes": ["The legacy Half Marathon placeholder is not part of the formal 2026 Edition."], "lastCrawledAt": "2026-09-15", "lastUpdatedAt": "2026-09-15", "schemaVersion": "race-graph-v1", "dataQualityLevel": "A"}
       },
       "edition": {
-        "editionId": "guangzhou-marathon-2026", "eventId": "guangzhou-marathon", "editionName": "2026广州马拉松", "editionYear": 2026, "raceDate": "2026-12-20", "endDate": null, "coverImage": "/races/guangzhou-marathon/2026/cover-original.jpg", "heroImage": "/races/guangzhou-marathon/2026/hero-original.jpeg", "primaryCategoryId": "guangzhou-marathon-2026-marathon", "primaryCategoryName": "Marathon", "country": "中国", "province": "广东省", "city": "广州市", "district": null, "venue": "天河体育中心", "region": "south_china", "timezone": "Asia/Shanghai", "registrationStatus": "lottery", "registrationOpenDate": "2026-09-02T10:00:00+08:00", "registrationCloseDate": "2026-09-11T18:00:00+08:00", "registrationUrl": "https://www.guangzhou-marathon.com/", "officialWebsite": "https://tyj.gz.gov.cn/", "capacity": 30000, "lotteryRequired": true, "lifecycleStatus": "active", "raceDistanceKm": 42.195, "raceDistances": [42.195], "createdAt": "2026-09-15", "updatedAt": "2026-09-24",
-        "governance": {"sources": [{"sourceType": "official", "sourceName": "广州市体育局 2026 广州马拉松官方发布", "sourceUrl": "https://tyj.gz.gov.cn/bmzc/xwbd/content/post_10989208.html", "sourceRecordId": "guangzhou-sports-bureau-2026-announcement", "crawledAt": "2026-09-15", "confidence": 0.99, "rawData": {"editionYear": 2026, "latestRelevantOfficialEditionYear": 2026, "raceDate": "2026-12-20", "capacity": 30000, "categories": ["Marathon"], "startLocation": "天河体育中心", "finishLocation": "海心沙星光大道", "startWaves": ["07:00", "07:10", "07:20", "07:30"]}}], "fieldSources": {"raceDate": {"field": "raceDate", "sourceType": "official", "sourceName": "广州市体育局 2026 广州马拉松官方发布", "confidence": 0.99, "updatedAt": "2026-09-15"}, "capacity": {"field": "capacity", "sourceType": "official", "sourceName": "广州市体育局 2026 广州马拉松官方发布", "confidence": 0.99, "updatedAt": "2026-09-15"}, "registrationStatus": {"field": "registrationStatus", "sourceType": "official", "sourceName": "广州市体育局 2026 广州马拉松官方发布", "confidence": 0.99, "updatedAt": "2026-09-15"}}, "sourcePriority": {"official": 100}, "confidence": 0.99, "verified": true, "verificationStatus": "verified", "verifiedAt": "2026-09-15", "missingFields": ["lotteryResultDate", "cutoffTimeHours", "preciseStartLocation", "certificationLevel"], "mergeNotes": ["Four official starts are stored in Category startTimes; startAt remains null.", "The lottery result, exact start placement and certification level remain Pending.", "Final Cover and Hero files were manually selected; source URL and usage rights remain unrecorded."], "lastCrawledAt": "2026-09-15", "lastUpdatedAt": "2026-09-24", "schemaVersion": "race-graph-v1", "dataQualityLevel": "A", "internalFlags": [],
+        "editionId": "guangzhou-marathon-2026", "eventId": "guangzhou-marathon", "editionName": "2026广州马拉松", "editionYear": 2026, "raceDate": "2026-12-20", "endDate": null, "coverImage": "/races/guangzhou-marathon/2026/cover-original.jpg", "heroImage": "/races/guangzhou-marathon/2026/hero-original.jpeg", "primaryCategoryId": "guangzhou-marathon-2026-marathon", "primaryCategoryName": "Marathon", "country": "中国", "province": "广东省", "city": "广州市", "district": null, "venue": "天河体育中心", "region": "south_china", "timezone": "Asia/Shanghai", "registrationStatus": "registration_closed", "registrationOpenDate": "2026-09-02T10:00:00+08:00", "registrationCloseDate": "2026-09-11T18:00:00+08:00", "registrationUrl": "https://www.guangzhou-marathon.com/", "officialWebsite": "https://tyj.gz.gov.cn/", "capacity": 30000, "lotteryRequired": true, "lifecycleStatus": "active", "raceDistanceKm": 42.195, "raceDistances": [42.195], "createdAt": "2026-09-15", "updatedAt": "2026-10-09",
+        "governance": {"sources": [{"sourceType": "official", "sourceName": "广州市体育局 2026 广州马拉松官方发布", "sourceUrl": "https://tyj.gz.gov.cn/bmzc/xwbd/content/post_10989208.html", "sourceRecordId": "guangzhou-sports-bureau-2026-announcement", "crawledAt": "2026-09-15", "confidence": 0.99, "rawData": {"editionYear": 2026, "latestRelevantOfficialEditionYear": 2026, "raceDate": "2026-12-20", "capacity": 30000, "categories": ["Marathon"], "startLocation": "天河体育中心", "finishLocation": "海心沙星光大道", "startWaves": ["07:00", "07:10", "07:20", "07:30"]}}, {"sourceType": "official", "sourceName": "2026 广州马拉松官方报名须知", "sourceUrl": "https://www.guangzhou-marathon.com/subject.html?topicId=7810377408647936&detailId=9006282715649877&type=notice", "sourceRecordId": "guangzhou-marathon-2026-official-registration-guidelines", "crawledAt": "2026-10-09", "confidence": 0.99, "rawData": {"registrationCloseDate": "2026-09-11T18:00:00+08:00", "unselectedApplicantsAutomaticSecondDraw": true, "evidenceLocator": "报名、抽签和退费候补时间安排：新报名截止；未中签者自动进入二次抽签补录，无需提交新申请。"}}, {"sourceType": "official", "sourceName": "2026 广州马拉松官方网站", "sourceUrl": "https://www.guangzhou-marathon.com/", "sourceRecordId": "guangzhou-marathon-2026-official-home-status", "crawledAt": "2026-10-09", "confidence": 0.95, "rawData": {"currentPublicAction": "抽签结果查询", "evidenceLocator": "官网首页提供抽签结果查询；未展示开放中的新报名入口。"}}], "fieldSources": {"raceDate": {"field": "raceDate", "sourceType": "official", "sourceName": "广州市体育局 2026 广州马拉松官方发布", "confidence": 0.99, "updatedAt": "2026-09-15"}, "capacity": {"field": "capacity", "sourceType": "official", "sourceName": "广州市体育局 2026 广州马拉松官方发布", "confidence": 0.99, "updatedAt": "2026-09-15"}, "registrationStatus": {"field": "registrationStatus", "sourceType": "official", "sourceName": "2026 广州马拉松官方报名须知 + 官方网站", "confidence": 0.99, "updatedAt": "2026-10-09"}}, "sourcePriority": {"official": 100}, "confidence": 0.99, "verified": true, "verificationStatus": "verified", "verifiedAt": "2026-09-15", "missingFields": ["lotteryResultDate", "cutoffTimeHours", "preciseStartLocation", "certificationLevel"], "mergeNotes": ["Four official starts are stored in Category startTimes; startAt remains null.", "The first-round result query is available; unselected applicants automatically enter the later second draw, while new registration closed on 2026-09-11. Exact start placement and certification level remain Pending.", "Final Cover and Hero files were manually selected; source URL and usage rights remain unrecorded."], "lastCrawledAt": "2026-10-09", "lastUpdatedAt": "2026-10-09", "schemaVersion": "race-graph-v1", "dataQualityLevel": "A", "internalFlags": [],
           "publicationGate": {"requestedEditionYear": 2026, "latestRelevantOfficialEditionYear": 2026, "latestOfficialEditionSourceRecordId": "guangzhou-sports-bureau-2026-announcement", "primarySourceRecordId": "guangzhou-sports-bureau-2026-announcement", "secondarySourceRecordId": null, "raceDateSourceRecordIds": ["guangzhou-sports-bureau-2026-announcement"], "dateEvidenceStatus": "verified", "conflictStatus": "none", "publishable": true, "checkedAt": "2026-09-20"}
         }
       },

@@ -193,7 +193,12 @@ test("Edition facts use a natural vertical reading axis", () => {
 });
 
 test("unknown registration status stays hidden", () => {
-  equal(createRaceDetailViewModel(hk100).registrationDisplay, null);
+  equal(createRaceDetailViewModel({ ...hk100, registrationStatus: "unknown" }).registrationDisplay, null);
+});
+
+test("Guangzhou and HK100 closed registration displays correctly", () => {
+  equal(createRaceDetailViewModel(guangzhou).registrationDisplay, "报名已结束");
+  equal(createRaceDetailViewModel(hk100).registrationDisplay, "报名已结束");
 });
 
 test("registration status distinguishes not started from officially not announced", () => {
