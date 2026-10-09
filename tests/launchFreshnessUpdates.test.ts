@@ -40,7 +40,7 @@ const source = (editionId: string, sourceId: string) => registry.editions
 
 test("approved launch registration facts are stored at their source precision", () => {
   const expected = new Map([
-    ["beijing-marathon-2026", ["lottery", "2026-09-17T10:00:00+08:00", "2026-09-22T18:00:00+08:00", "https://beijing-registration.mararun.com/?lang=en"]],
+    ["beijing-marathon-2026", ["registration_closed", "2026-09-17T10:00:00+08:00", "2026-09-22T18:00:00+08:00", "https://beijing-registration.mararun.com/?lang=en"]],
     ["xiamen-marathon-2027", ["registration_open", "2026-09-23T10:00:00+08:00", "2026-10-14T18:00:00+08:00", "https://www.xmim.org/"]],
     ["chongqing-marathon-2027", ["registration_closed", "2026-09-02", "2026-09-13", "https://www.cqmarathon.com/"]],
     ["xian-marathon-2026", ["registration_closed", "2026-08-04T11:00:00+08:00", "2026-08-20T17:00:00+08:00", "https://xi-ma.com/"]],
@@ -111,9 +111,10 @@ test("public list and priority details expose approved launch values", () => {
   equal(list.status, 200);
   if (list.status !== 200) return;
   equal(list.body.races.length, 12);
+  equal(list.body.races.find(({ editionId }) => editionId === "beijing-marathon-2026")?.registrationStatus, "registration_closed");
 
   const expected = new Map([
-    ["beijing-marathon-2026", ["lottery", "https://beijing-registration.mararun.com/?lang=en", "2026-10-18T07:30:00+08:00"]],
+    ["beijing-marathon-2026", ["registration_closed", "https://beijing-registration.mararun.com/?lang=en", "2026-10-18T07:30:00+08:00"]],
     ["xiamen-marathon-2027", ["registration_open", "https://www.xmim.org/", "2027-01-10T07:00:00+08:00"]],
     ["chongqing-marathon-2027", ["registration_closed", "https://www.cqmarathon.com/", "2027-01-10T08:00:00+08:00"]],
     ["ninghai-ultra-trail-2026", ["registration_closed", null, "2026-11-14T06:00:00+08:00"]],
