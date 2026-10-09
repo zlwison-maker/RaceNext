@@ -62,22 +62,22 @@ const ctripLinks = (distance: string, transportation: string, balance: string): 
 const imageAssets = {
   shanghai: {
     cover: "/races/shanghai-marathon/2026/cover-original.jpg",
-    hero: "/races/shanghai-marathon/2026/hero-original.png",
+    hero: "/races/shanghai-marathon/2026/hero-display-v1.jpg",
   },
   beijing: {
-    cover: "/races/beijing-marathon/2026/cover-homepage-16x9.png",
-    hero: "/races/beijing-marathon/2026/hero-original.webp",
+    cover: "/races/beijing-marathon/2026/cover-display-v1.jpg",
+    hero: "/races/beijing-marathon/2026/hero-display-v1.jpg",
   },
   xiamen: {
-    cover: "/races/xiamen-marathon/2027/cover-hero-original.png",
-    hero: "/races/xiamen-marathon/2027/cover-hero-original.png",
+    cover: "/races/xiamen-marathon/2027/cover-display-v1.jpg",
+    hero: "/races/xiamen-marathon/2027/hero-display-v1.jpg",
   },
   hk100: {
-    cover: "/races/hk100/2027/cover-homepage-16x9.jpg",
-    hero: "/races/hk100/2027/hero-original.png",
+    cover: "/races/hk100/2027/cover-display-v1.jpg",
+    hero: "/races/hk100/2027/hero-display-v1.jpg",
   },
   gongga: {
-    cover: "/races/kailas-gongga-100/2026/cover-original.png",
+    cover: "/races/kailas-gongga-100/2026/cover-display-v1.jpg",
     hero: "/races/kailas-gongga-100/2026/hero-original.jpeg",
   },
 };

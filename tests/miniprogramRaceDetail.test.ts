@@ -239,9 +239,9 @@ test("all First5 share the Canonical Hero asset with independent Mini Program pr
 });
 
 test("Batch launch races keep their finalized Canonical Hero URLs", () => {
-  equal(createRaceDetailViewModel(tsaigu).heroImage, "/races/tsaigu-kuocang/2026/cover-hero-original.png");
+  equal(createRaceDetailViewModel(tsaigu).heroImage, "/races/tsaigu-kuocang/2026/hero-display-v1.jpg");
   equal(createRaceDetailViewModel(ninghai).heroImage, "/races/ninghai-ultra-trail/2026/hero-original.jpeg");
-  equal(createRaceDetailViewModel(shenzhen).heroImage, "/races/shenzhen-100/2026/cover-hero.png");
+  equal(createRaceDetailViewModel(shenzhen).heroImage, "/races/shenzhen-100/2026/hero-display-v1.jpg");
 });
 
 test("Detail H1 is one step above card titles and physically capped at two lines", () => {

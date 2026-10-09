@@ -1,6 +1,6 @@
 {
   "schemaVersion": "race-image-assets-v1",
-  "generatedAt": "2026-09-20",
+  "generatedAt": "2026-10-09",
   "assets": [
     {
       "assetId": "shanghai-marathon-2026-cover",
@@ -39,17 +39,17 @@
       "assetId": "shanghai-marathon-2026-hero",
       "editionId": "shanghai-marathon-2026",
       "role": "hero",
-      "publicPath": "/races/shanghai-marathon/2026/hero-original.png",
+      "publicPath": "/races/shanghai-marathon/2026/hero-display-v1.jpg",
       "originalPublicPath": "/races/shanghai-marathon/2026/hero-original.png",
       "originalFilename": "上马 hero.png",
       "imageYear": 2026,
       "imageYearEvidence": "visible in supplied hero artwork",
-      "width": 4000,
-      "height": 692,
-      "aspectRatio": 5.7803,
-      "format": "png",
-      "fileSizeBytes": 2998207,
-      "sha256": "92179bebdf504f243bee58b7709f7436cf4c7829f6b99c2be820488b5c108761",
+      "width": 2400,
+      "height": 415,
+      "aspectRatio": 5.7831,
+      "format": "jpeg",
+      "fileSizeBytes": 240276,
+      "sha256": "c50669f3855be71a1fbd5b13bc35314e212f0f4074a65622f897cb7e3e23ed20",
       "qualityStatus": "approved",
       "source": {
         "type": "user_provided_human_approved",
@@ -57,7 +57,7 @@
         "sourceUrl": null,
         "usageRightsStatus": "requires_confirmation"
       },
-      "notes": "Accepted for current MVP and long-term resolution target.",
+      "notes": "Accepted for current MVP and long-term resolution target. Display derivative v1 reduces transfer and decode cost while preserving the approved source composition; Original Asset remains unchanged.",
       "original": {
         "width": 4000,
         "height": 692,
@@ -66,13 +66,22 @@
         "fileSizeBytes": 2998207,
         "sha256": "92179bebdf504f243bee58b7709f7436cf4c7829f6b99c2be820488b5c108761"
       },
-      "derived": null
+      "derived": {
+        "publicPath": "/races/shanghai-marathon/2026/hero-display-v1.jpg",
+        "width": 2400,
+        "height": 415,
+        "aspectRatio": 5.7831,
+        "format": "jpeg",
+        "fileSizeBytes": 240276,
+        "sha256": "c50669f3855be71a1fbd5b13bc35314e212f0f4074a65622f897cb7e3e23ed20",
+        "derivation": "display_derivative_v1; source=/races/shanghai-marathon/2026/hero-original.png; resize=max_width_2400_without_enlargement; encode=jpeg_quality_88_mozjpeg_progressive_4:4:4; preserve_aspect_ratio=true"
+      }
     },
     {
       "assetId": "beijing-marathon-2026-cover",
       "editionId": "beijing-marathon-2026",
       "role": "cover",
-      "publicPath": "/races/beijing-marathon/2026/cover-homepage-16x9.png",
+      "publicPath": "/races/beijing-marathon/2026/cover-display-v1.jpg",
       "originalPublicPath": "/races/beijing-marathon/2026/cover-original.png",
       "originalFilename": "北马 cover.png",
       "imageYear": null,
@@ -80,9 +89,9 @@
       "width": 1080,
       "height": 608,
       "aspectRatio": 1.7763,
-      "format": "png",
-      "fileSizeBytes": 1163336,
-      "sha256": "267522a86e9c9dc8c3a80acfd90ce694a831b81a6431e879a73e1a75e0809c24",
+      "format": "jpeg",
+      "fileSizeBytes": 201254,
+      "sha256": "0cd9141782cb53a33be5102bec2734a5506ee89bd1ea071349118960f4641ed2",
       "qualityStatus": "needs_higher_resolution",
       "source": {
         "type": "user_provided_human_approved",
@@ -90,7 +99,7 @@
         "sourceUrl": null,
         "usageRightsStatus": "requires_confirmation"
       },
-      "notes": "Accepted for current MVP; replace with a higher-resolution authorized source when available.",
+      "notes": "Accepted for current MVP; replace with a higher-resolution authorized source when available. Display derivative v1 reduces transfer and decode cost while preserving the approved source composition; Original Asset remains unchanged.",
       "original": {
         "width": 1080,
         "height": 721,
@@ -100,31 +109,31 @@
         "sha256": "1d8f42c8c6419cebd69e8da5ba1c0fbce9d5506c4844ac78901d2527a0c0b348"
       },
       "derived": {
-        "publicPath": "/races/beijing-marathon/2026/cover-homepage-16x9.png",
+        "publicPath": "/races/beijing-marathon/2026/cover-display-v1.jpg",
         "width": 1080,
         "height": 608,
         "aspectRatio": 1.7763,
-        "format": "png",
-        "fileSizeBytes": 1163336,
-        "sha256": "267522a86e9c9dc8c3a80acfd90ce694a831b81a6431e879a73e1a75e0809c24",
-        "derivation": "crop_only_no_upscale"
+        "format": "jpeg",
+        "fileSizeBytes": 201254,
+        "sha256": "0cd9141782cb53a33be5102bec2734a5506ee89bd1ea071349118960f4641ed2",
+        "derivation": "display_derivative_v1; source=/races/beijing-marathon/2026/cover-homepage-16x9.png; resize=max_width_1600_without_enlargement; encode=jpeg_quality_88_mozjpeg_progressive_4:4:4; preserve_aspect_ratio=true"
       }
     },
     {
       "assetId": "beijing-marathon-2026-hero",
       "editionId": "beijing-marathon-2026",
       "role": "hero",
-      "publicPath": "/races/beijing-marathon/2026/hero-original.webp",
+      "publicPath": "/races/beijing-marathon/2026/hero-display-v1.jpg",
       "originalPublicPath": "/races/beijing-marathon/2026/hero-original.webp",
       "originalFilename": "北马 hero.webp",
       "imageYear": null,
       "imageYearEvidence": null,
-      "width": 5472,
-      "height": 3252,
-      "aspectRatio": 1.6827,
-      "format": "webp",
-      "fileSizeBytes": 738902,
-      "sha256": "8798b474bbc92b39be6de66a86ad941e6d574e29237e078864b0ae00990995ee",
+      "width": 2400,
+      "height": 1426,
+      "aspectRatio": 1.683,
+      "format": "jpeg",
+      "fileSizeBytes": 598272,
+      "sha256": "10ba81b76d1c4e65aa9d6e8ae365d6fc09426f6a098152b8cb11d071b444f846",
       "qualityStatus": "approved",
       "source": {
         "type": "user_provided_human_approved",
@@ -132,7 +141,7 @@
         "sourceUrl": null,
         "usageRightsStatus": "requires_confirmation"
       },
-      "notes": "Accepted for current MVP and long-term resolution target.",
+      "notes": "Accepted for current MVP and long-term resolution target. Display derivative v1 reduces transfer and decode cost while preserving the approved source composition; Original Asset remains unchanged.",
       "original": {
         "width": 5472,
         "height": 3252,
@@ -141,23 +150,32 @@
         "fileSizeBytes": 738902,
         "sha256": "8798b474bbc92b39be6de66a86ad941e6d574e29237e078864b0ae00990995ee"
       },
-      "derived": null
+      "derived": {
+        "publicPath": "/races/beijing-marathon/2026/hero-display-v1.jpg",
+        "width": 2400,
+        "height": 1426,
+        "aspectRatio": 1.683,
+        "format": "jpeg",
+        "fileSizeBytes": 598272,
+        "sha256": "10ba81b76d1c4e65aa9d6e8ae365d6fc09426f6a098152b8cb11d071b444f846",
+        "derivation": "display_derivative_v1; source=/races/beijing-marathon/2026/hero-original.webp; resize=max_width_2400_without_enlargement; encode=jpeg_quality_86_mozjpeg_progressive_4:4:4; preserve_aspect_ratio=true"
+      }
     },
     {
       "assetId": "xiamen-marathon-2027-cover",
       "editionId": "xiamen-marathon-2027",
       "role": "cover",
-      "publicPath": "/races/xiamen-marathon/2027/cover-hero-original.png",
+      "publicPath": "/races/xiamen-marathon/2027/cover-display-v1.jpg",
       "originalPublicPath": "/races/xiamen-marathon/2027/cover-hero-original.png",
       "originalFilename": "夏马 hero&cover.png",
       "imageYear": null,
       "imageYearEvidence": null,
-      "width": 2000,
-      "height": 1333,
-      "aspectRatio": 1.5004,
-      "format": "png",
-      "fileSizeBytes": 3636928,
-      "sha256": "86077165607d0f4a59c9b42aa6a49f13045691d2cfa5e70a8817412af1c12f36",
+      "width": 1600,
+      "height": 1066,
+      "aspectRatio": 1.5009,
+      "format": "jpeg",
+      "fileSizeBytes": 382715,
+      "sha256": "b176fa562bda7cc4cb60eadc097fdf905e38f0ba401f579bcd5f409648b9e48f",
       "qualityStatus": "approved",
       "source": {
         "type": "user_provided_human_approved",
@@ -165,7 +183,7 @@
         "sourceUrl": null,
         "usageRightsStatus": "requires_confirmation"
       },
-      "notes": "Accepted for current MVP and long-term resolution target.",
+      "notes": "Accepted for current MVP and long-term resolution target. Display derivative v1 reduces transfer and decode cost while preserving the approved source composition; Original Asset remains unchanged.",
       "original": {
         "width": 2000,
         "height": 1333,
@@ -174,13 +192,22 @@
         "fileSizeBytes": 3636928,
         "sha256": "86077165607d0f4a59c9b42aa6a49f13045691d2cfa5e70a8817412af1c12f36"
       },
-      "derived": null
+      "derived": {
+        "publicPath": "/races/xiamen-marathon/2027/cover-display-v1.jpg",
+        "width": 1600,
+        "height": 1066,
+        "aspectRatio": 1.5009,
+        "format": "jpeg",
+        "fileSizeBytes": 382715,
+        "sha256": "b176fa562bda7cc4cb60eadc097fdf905e38f0ba401f579bcd5f409648b9e48f",
+        "derivation": "display_derivative_v1; source=/races/xiamen-marathon/2027/cover-hero-original.png; resize=max_width_1600_without_enlargement; encode=jpeg_quality_86_mozjpeg_progressive_4:4:4; preserve_aspect_ratio=true"
+      }
     },
     {
       "assetId": "xiamen-marathon-2027-hero",
       "editionId": "xiamen-marathon-2027",
       "role": "hero",
-      "publicPath": "/races/xiamen-marathon/2027/cover-hero-original.png",
+      "publicPath": "/races/xiamen-marathon/2027/hero-display-v1.jpg",
       "originalPublicPath": "/races/xiamen-marathon/2027/cover-hero-original.png",
       "originalFilename": "夏马 hero&cover.png",
       "imageYear": null,
@@ -188,9 +215,9 @@
       "width": 2000,
       "height": 1333,
       "aspectRatio": 1.5004,
-      "format": "png",
-      "fileSizeBytes": 3636928,
-      "sha256": "86077165607d0f4a59c9b42aa6a49f13045691d2cfa5e70a8817412af1c12f36",
+      "format": "jpeg",
+      "fileSizeBytes": 579576,
+      "sha256": "a01c4cdc5c38241f5337a9be455928cdb1ea3a32d1e53237b16c6f42a9dc9535",
       "qualityStatus": "approved",
       "source": {
         "type": "user_provided_human_approved",
@@ -198,7 +225,7 @@
         "sourceUrl": null,
         "usageRightsStatus": "requires_confirmation"
       },
-      "notes": "Accepted for current MVP and long-term resolution target.",
+      "notes": "Accepted for current MVP and long-term resolution target. Display derivative v1 reduces transfer and decode cost while preserving the approved source composition; Original Asset remains unchanged.",
       "original": {
         "width": 2000,
         "height": 1333,
@@ -207,23 +234,32 @@
         "fileSizeBytes": 3636928,
         "sha256": "86077165607d0f4a59c9b42aa6a49f13045691d2cfa5e70a8817412af1c12f36"
       },
-      "derived": null
+      "derived": {
+        "publicPath": "/races/xiamen-marathon/2027/hero-display-v1.jpg",
+        "width": 2000,
+        "height": 1333,
+        "aspectRatio": 1.5004,
+        "format": "jpeg",
+        "fileSizeBytes": 579576,
+        "sha256": "a01c4cdc5c38241f5337a9be455928cdb1ea3a32d1e53237b16c6f42a9dc9535",
+        "derivation": "display_derivative_v1; source=/races/xiamen-marathon/2027/cover-hero-original.png; resize=max_width_2400_without_enlargement; encode=jpeg_quality_86_mozjpeg_progressive_4:4:4; preserve_aspect_ratio=true"
+      }
     },
     {
       "assetId": "hk100-2027-cover",
       "editionId": "hk100-2027",
       "role": "cover",
-      "publicPath": "/races/hk100/2027/cover-homepage-16x9.jpg",
+      "publicPath": "/races/hk100/2027/cover-display-v1.jpg",
       "originalPublicPath": "/races/hk100/2027/cover-original.jpg",
       "originalFilename": "hk 100 cover.jpg",
       "imageYear": null,
       "imageYearEvidence": null,
-      "width": 3000,
-      "height": 1688,
-      "aspectRatio": 1.7773,
+      "width": 1600,
+      "height": 900,
+      "aspectRatio": 1.7778,
       "format": "jpeg",
-      "fileSizeBytes": 1872630,
-      "sha256": "6a5e76d55213a72e7a58d9dd353ed86bd49150e028dba8f5f9b674b9f823c74f",
+      "fileSizeBytes": 438769,
+      "sha256": "5d690156a9d89f2f05604fba19e994f6c5cc45ad1499b861de1ae6c092571f12",
       "qualityStatus": "approved",
       "source": {
         "type": "user_provided_human_approved",
@@ -231,7 +267,7 @@
         "sourceUrl": null,
         "usageRightsStatus": "requires_confirmation"
       },
-      "notes": "Accepted for current MVP and long-term resolution target.",
+      "notes": "Accepted for current MVP and long-term resolution target. Display derivative v1 reduces transfer and decode cost while preserving the approved source composition; Original Asset remains unchanged.",
       "original": {
         "width": 3000,
         "height": 2000,
@@ -241,21 +277,21 @@
         "sha256": "b66560e84a154934cc0c435a12f32ea37a9ab26b967c92de1601292c61e1ee2f"
       },
       "derived": {
-        "publicPath": "/races/hk100/2027/cover-homepage-16x9.jpg",
-        "width": 3000,
-        "height": 1688,
-        "aspectRatio": 1.7773,
+        "publicPath": "/races/hk100/2027/cover-display-v1.jpg",
+        "width": 1600,
+        "height": 900,
+        "aspectRatio": 1.7778,
         "format": "jpeg",
-        "fileSizeBytes": 1872630,
-        "sha256": "6a5e76d55213a72e7a58d9dd353ed86bd49150e028dba8f5f9b674b9f823c74f",
-        "derivation": "crop_only_no_upscale"
+        "fileSizeBytes": 438769,
+        "sha256": "5d690156a9d89f2f05604fba19e994f6c5cc45ad1499b861de1ae6c092571f12",
+        "derivation": "display_derivative_v1; source=/races/hk100/2027/cover-homepage-16x9.jpg; resize=max_width_1600_without_enlargement; encode=jpeg_quality_86_mozjpeg_progressive_4:4:4; preserve_aspect_ratio=true"
       }
     },
     {
       "assetId": "hk100-2027-hero",
       "editionId": "hk100-2027",
       "role": "hero",
-      "publicPath": "/races/hk100/2027/hero-original.png",
+      "publicPath": "/races/hk100/2027/hero-display-v1.jpg",
       "originalPublicPath": "/races/hk100/2027/hero-original.png",
       "originalFilename": "hk100 hero.png",
       "imageYear": 2023,
@@ -263,9 +299,9 @@
       "width": 1200,
       "height": 800,
       "aspectRatio": 1.5,
-      "format": "png",
-      "fileSizeBytes": 1562597,
-      "sha256": "e4d96f93106e8f35960629aa4ed7571b11ce580fb4b3f829fbd539075f810675",
+      "format": "jpeg",
+      "fileSizeBytes": 246490,
+      "sha256": "1bc3475fa0fe78bdc1350384a9f0d62a84ff9c4233ef8394fa7269eba6a1bb40",
       "qualityStatus": "needs_higher_resolution",
       "source": {
         "type": "user_provided_human_approved",
@@ -273,7 +309,7 @@
         "sourceUrl": null,
         "usageRightsStatus": "requires_confirmation"
       },
-      "notes": "Accepted for current MVP; replace with a higher-resolution authorized source when available.",
+      "notes": "Accepted for current MVP; replace with a higher-resolution authorized source when available. Display derivative v1 reduces transfer and decode cost while preserving the approved source composition; Original Asset remains unchanged.",
       "original": {
         "width": 1200,
         "height": 800,
@@ -282,13 +318,22 @@
         "fileSizeBytes": 1562597,
         "sha256": "e4d96f93106e8f35960629aa4ed7571b11ce580fb4b3f829fbd539075f810675"
       },
-      "derived": null
+      "derived": {
+        "publicPath": "/races/hk100/2027/hero-display-v1.jpg",
+        "width": 1200,
+        "height": 800,
+        "aspectRatio": 1.5,
+        "format": "jpeg",
+        "fileSizeBytes": 246490,
+        "sha256": "1bc3475fa0fe78bdc1350384a9f0d62a84ff9c4233ef8394fa7269eba6a1bb40",
+        "derivation": "display_derivative_v1; source=/races/hk100/2027/hero-original.png; resize=max_width_2400_without_enlargement; encode=jpeg_quality_88_mozjpeg_progressive_4:4:4; preserve_aspect_ratio=true"
+      }
     },
     {
       "assetId": "kailas-gongga-100-2026-cover",
       "editionId": "kailas-gongga-100-2026",
       "role": "cover",
-      "publicPath": "/races/kailas-gongga-100/2026/cover-original.png",
+      "publicPath": "/races/kailas-gongga-100/2026/cover-display-v1.jpg",
       "originalPublicPath": "/races/kailas-gongga-100/2026/cover-original.png",
       "originalFilename": "贡嘎 100 cover.jpg",
       "imageYear": null,
@@ -296,9 +341,9 @@
       "width": 1080,
       "height": 608,
       "aspectRatio": 1.7763,
-      "format": "png",
-      "fileSizeBytes": 1359001,
-      "sha256": "786d5faa809a3a473bd446772a9321e23e2e8438385af4b87c20630575e0a945",
+      "format": "jpeg",
+      "fileSizeBytes": 200355,
+      "sha256": "fba121a39b1e6999d51f635cd339c1cfd78f0f66218791dcdda1af7ede5e7897",
       "qualityStatus": "needs_higher_resolution",
       "source": {
         "type": "user_provided_human_approved",
@@ -306,7 +351,7 @@
         "sourceUrl": null,
         "usageRightsStatus": "requires_confirmation"
       },
-      "notes": "Accepted for current MVP; replace with a higher-resolution authorized source when available.",
+      "notes": "Accepted for current MVP; replace with a higher-resolution authorized source when available. Display derivative v1 reduces transfer and decode cost while preserving the approved source composition; Original Asset remains unchanged.",
       "original": {
         "width": 1080,
         "height": 608,
@@ -315,7 +360,16 @@
         "fileSizeBytes": 1359001,
         "sha256": "786d5faa809a3a473bd446772a9321e23e2e8438385af4b87c20630575e0a945"
       },
-      "derived": null
+      "derived": {
+        "publicPath": "/races/kailas-gongga-100/2026/cover-display-v1.jpg",
+        "width": 1080,
+        "height": 608,
+        "aspectRatio": 1.7763,
+        "format": "jpeg",
+        "fileSizeBytes": 200355,
+        "sha256": "fba121a39b1e6999d51f635cd339c1cfd78f0f66218791dcdda1af7ede5e7897",
+        "derivation": "display_derivative_v1; source=/races/kailas-gongga-100/2026/cover-original.png; resize=max_width_1600_without_enlargement; encode=jpeg_quality_88_mozjpeg_progressive_4:4:4; preserve_aspect_ratio=true"
+      }
     },
     {
       "assetId": "kailas-gongga-100-2026-hero",
@@ -420,17 +474,17 @@
       "assetId": "guangzhou-marathon-2026-cover",
       "editionId": "guangzhou-marathon-2026",
       "role": "cover",
-      "publicPath": "/races/guangzhou-marathon/2026/cover-original.jpg",
+      "publicPath": "/races/guangzhou-marathon/2026/cover-display-v1.jpg",
       "originalPublicPath": "/races/guangzhou-marathon/2026/cover-original.jpg",
       "originalFilename": "guangzhou-marathon-cover.jpg",
       "imageYear": null,
       "imageYearEvidence": null,
-      "width": 5670,
-      "height": 1980,
-      "aspectRatio": 2.8636,
+      "width": 1600,
+      "height": 559,
+      "aspectRatio": 2.8623,
       "format": "jpeg",
-      "fileSizeBytes": 2043278,
-      "sha256": "0348e3b02ce53ef39d1a6915fe9f5dcbf4f4800b355755d23a24da1e76163a18",
+      "fileSizeBytes": 173120,
+      "sha256": "30165b857e14f15081b2fbc72e007e3941eb235d4378662ef1879216a4ce13aa",
       "qualityStatus": "approved",
       "source": {
         "type": "user_provided_human_approved",
@@ -438,7 +492,7 @@
         "sourceUrl": null,
         "usageRightsStatus": "requires_confirmation"
       },
-      "notes": "Manual Final Cover selection. Original source and usage rights were not provided; image year is unknown.",
+      "notes": "Manual Final Cover selection. Original source and usage rights were not provided; image year is unknown. Display derivative v1 reduces transfer and decode cost while preserving the approved source composition; Original Asset remains unchanged.",
       "original": {
         "width": 5670,
         "height": 1980,
@@ -447,23 +501,32 @@
         "fileSizeBytes": 2043278,
         "sha256": "0348e3b02ce53ef39d1a6915fe9f5dcbf4f4800b355755d23a24da1e76163a18"
       },
-      "derived": null
+      "derived": {
+        "publicPath": "/races/guangzhou-marathon/2026/cover-display-v1.jpg",
+        "width": 1600,
+        "height": 559,
+        "aspectRatio": 2.8623,
+        "format": "jpeg",
+        "fileSizeBytes": 173120,
+        "sha256": "30165b857e14f15081b2fbc72e007e3941eb235d4378662ef1879216a4ce13aa",
+        "derivation": "display_derivative_v1; source=/races/guangzhou-marathon/2026/cover-original.jpg; resize=max_width_1600_without_enlargement; encode=jpeg_quality_88_mozjpeg_progressive_4:4:4; preserve_aspect_ratio=true"
+      }
     },
     {
       "assetId": "guangzhou-marathon-2026-hero",
       "editionId": "guangzhou-marathon-2026",
       "role": "hero",
-      "publicPath": "/races/guangzhou-marathon/2026/hero-original.jpeg",
+      "publicPath": "/races/guangzhou-marathon/2026/hero-display-v1.jpg",
       "originalPublicPath": "/races/guangzhou-marathon/2026/hero-original.jpeg",
       "originalFilename": "guangzhou-marathon-hero.jpeg",
       "imageYear": null,
       "imageYearEvidence": null,
-      "width": 5000,
-      "height": 3333,
-      "aspectRatio": 1.5002,
+      "width": 1920,
+      "height": 1280,
+      "aspectRatio": 1.5,
       "format": "jpeg",
-      "fileSizeBytes": 3271925,
-      "sha256": "567e22328e5a3b9fc493d479ac2279d8c3c599f4012c16c7884e81dbb4d380ea",
+      "fileSizeBytes": 615270,
+      "sha256": "d9b44a967418ea4364756cf5eb81c3cb70b715991e731cf61523508fa2bbcccb",
       "qualityStatus": "approved",
       "source": {
         "type": "user_provided_human_approved",
@@ -471,7 +534,7 @@
         "sourceUrl": null,
         "usageRightsStatus": "requires_confirmation"
       },
-      "notes": "Manual Final Hero selection. Original source and usage rights were not provided; image year is unknown.",
+      "notes": "Manual Final Hero selection. Original source and usage rights were not provided; image year is unknown. Display derivative v1 reduces transfer and decode cost while preserving the approved source composition; Original Asset remains unchanged.",
       "original": {
         "width": 5000,
         "height": 3333,
@@ -480,7 +543,16 @@
         "fileSizeBytes": 3271925,
         "sha256": "567e22328e5a3b9fc493d479ac2279d8c3c599f4012c16c7884e81dbb4d380ea"
       },
-      "derived": null
+      "derived": {
+        "publicPath": "/races/guangzhou-marathon/2026/hero-display-v1.jpg",
+        "width": 1920,
+        "height": 1280,
+        "aspectRatio": 1.5,
+        "format": "jpeg",
+        "fileSizeBytes": 615270,
+        "sha256": "d9b44a967418ea4364756cf5eb81c3cb70b715991e731cf61523508fa2bbcccb",
+        "derivation": "display_derivative_v1; source=/races/guangzhou-marathon/2026/hero-original.jpeg; resize=max_width_1920_without_enlargement; encode=jpeg_quality_84_mozjpeg_progressive_4:4:4; preserve_aspect_ratio=true"
+      }
     },
     {
       "assetId": "ninghai-ultra-trail-2026-cover",
@@ -552,17 +624,17 @@
       "assetId": "chengdu-marathon-2026-cover",
       "editionId": "chengdu-marathon-2026",
       "role": "cover",
-      "publicPath": "/races/chengdu-marathon/2026/cover-hero-original.png",
+      "publicPath": "/races/chengdu-marathon/2026/cover-display-v1.jpg",
       "originalPublicPath": "/races/chengdu-marathon/2026/cover-hero-original.png",
       "originalFilename": "2026 成都马拉松 cover & hero.png",
       "imageYear": null,
       "imageYearEvidence": null,
-      "width": 2016,
-      "height": 1414,
-      "aspectRatio": 1.4257,
-      "format": "png",
-      "fileSizeBytes": 4000020,
-      "sha256": "d4d8bed185439b16f1ce4cbc04e5f0467da4a0b0786ef1ca480c06dc3d326c68",
+      "width": 1600,
+      "height": 1122,
+      "aspectRatio": 1.426,
+      "format": "jpeg",
+      "fileSizeBytes": 430208,
+      "sha256": "528d4068c45cb9d9b91fa39ccf75a26cffecd50891e05ab91000b17df560896b",
       "qualityStatus": "approved",
       "source": {
         "type": "user_provided_human_approved",
@@ -570,7 +642,7 @@
         "sourceUrl": null,
         "usageRightsStatus": "requires_confirmation"
       },
-      "notes": "Manual Final Selection for both Cover and Hero using one unchanged original file. Original source and usage rights were not provided; image year is unknown.",
+      "notes": "Manual Final Selection for both Cover and Hero using one unchanged original file. Original source and usage rights were not provided; image year is unknown. Display derivative v1 reduces transfer and decode cost while preserving the approved source composition; Original Asset remains unchanged.",
       "original": {
         "width": 2016,
         "height": 1414,
@@ -579,13 +651,22 @@
         "fileSizeBytes": 4000020,
         "sha256": "d4d8bed185439b16f1ce4cbc04e5f0467da4a0b0786ef1ca480c06dc3d326c68"
       },
-      "derived": null
+      "derived": {
+        "publicPath": "/races/chengdu-marathon/2026/cover-display-v1.jpg",
+        "width": 1600,
+        "height": 1122,
+        "aspectRatio": 1.426,
+        "format": "jpeg",
+        "fileSizeBytes": 430208,
+        "sha256": "528d4068c45cb9d9b91fa39ccf75a26cffecd50891e05ab91000b17df560896b",
+        "derivation": "display_derivative_v1; source=/races/chengdu-marathon/2026/cover-hero-original.png; resize=max_width_1600_without_enlargement; encode=jpeg_quality_86_mozjpeg_progressive_4:4:4; preserve_aspect_ratio=true"
+      }
     },
     {
       "assetId": "chengdu-marathon-2026-hero",
       "editionId": "chengdu-marathon-2026",
       "role": "hero",
-      "publicPath": "/races/chengdu-marathon/2026/cover-hero-original.png",
+      "publicPath": "/races/chengdu-marathon/2026/hero-display-v1.jpg",
       "originalPublicPath": "/races/chengdu-marathon/2026/cover-hero-original.png",
       "originalFilename": "2026 成都马拉松 cover & hero.png",
       "imageYear": null,
@@ -593,9 +674,9 @@
       "width": 2016,
       "height": 1414,
       "aspectRatio": 1.4257,
-      "format": "png",
-      "fileSizeBytes": 4000020,
-      "sha256": "d4d8bed185439b16f1ce4cbc04e5f0467da4a0b0786ef1ca480c06dc3d326c68",
+      "format": "jpeg",
+      "fileSizeBytes": 609031,
+      "sha256": "537907911006abe5e90859541529686aac6095b05d1fbdedc1579c0845ddd5e1",
       "qualityStatus": "approved",
       "source": {
         "type": "user_provided_human_approved",
@@ -603,7 +684,7 @@
         "sourceUrl": null,
         "usageRightsStatus": "requires_confirmation"
       },
-      "notes": "Manual Final Selection for both Cover and Hero using one unchanged original file. Original source and usage rights were not provided; image year is unknown.",
+      "notes": "Manual Final Selection for both Cover and Hero using one unchanged original file. Original source and usage rights were not provided; image year is unknown. Display derivative v1 reduces transfer and decode cost while preserving the approved source composition; Original Asset remains unchanged.",
       "original": {
         "width": 2016,
         "height": 1414,
@@ -612,23 +693,32 @@
         "fileSizeBytes": 4000020,
         "sha256": "d4d8bed185439b16f1ce4cbc04e5f0467da4a0b0786ef1ca480c06dc3d326c68"
       },
-      "derived": null
+      "derived": {
+        "publicPath": "/races/chengdu-marathon/2026/hero-display-v1.jpg",
+        "width": 2016,
+        "height": 1414,
+        "aspectRatio": 1.4257,
+        "format": "jpeg",
+        "fileSizeBytes": 609031,
+        "sha256": "537907911006abe5e90859541529686aac6095b05d1fbdedc1579c0845ddd5e1",
+        "derivation": "display_derivative_v1; source=/races/chengdu-marathon/2026/cover-hero-original.png; resize=max_width_2400_without_enlargement; encode=jpeg_quality_86_mozjpeg_progressive_4:4:4; preserve_aspect_ratio=true"
+      }
     },
     {
       "assetId": "tsaigu-kuocang-2026-cover",
       "editionId": "tsaigu-kuocang-2026",
       "role": "cover",
-      "publicPath": "/races/tsaigu-kuocang/2026/cover-hero-original.png",
+      "publicPath": "/races/tsaigu-kuocang/2026/cover-display-v1.jpg",
       "originalPublicPath": "/races/tsaigu-kuocang/2026/cover-hero-original.png",
       "originalFilename": "柴古 cover & hero.png",
       "imageYear": null,
       "imageYearEvidence": null,
-      "width": 2700,
-      "height": 1214,
-      "aspectRatio": 2.2241,
-      "format": "png",
-      "fileSizeBytes": 4769534,
-      "sha256": "b2eac31dcaf4ad9b7dd541fb1b0cd8a5c77bf8eb45edb144963fb091fc6b9cfc",
+      "width": 1600,
+      "height": 719,
+      "aspectRatio": 2.2253,
+      "format": "jpeg",
+      "fileSizeBytes": 440155,
+      "sha256": "5c9a1f4fbbed3cdbde36f1531f0708e472d3e45ae3ba41c2da6e1d9f8f8043fd",
       "qualityStatus": "approved",
       "source": {
         "type": "user_provided_human_approved",
@@ -636,7 +726,7 @@
         "sourceUrl": null,
         "usageRightsStatus": "requires_confirmation"
       },
-      "notes": "Manual Final Selection for both Cover and Hero using one unchanged original file. Original source and usage rights were not provided; image year is unknown.",
+      "notes": "Manual Final Selection for both Cover and Hero using one unchanged original file. Original source and usage rights were not provided; image year is unknown. Display derivative v1 reduces transfer and decode cost while preserving the approved source composition; Original Asset remains unchanged.",
       "original": {
         "width": 2700,
         "height": 1214,
@@ -645,23 +735,32 @@
         "fileSizeBytes": 4769534,
         "sha256": "b2eac31dcaf4ad9b7dd541fb1b0cd8a5c77bf8eb45edb144963fb091fc6b9cfc"
       },
-      "derived": null
+      "derived": {
+        "publicPath": "/races/tsaigu-kuocang/2026/cover-display-v1.jpg",
+        "width": 1600,
+        "height": 719,
+        "aspectRatio": 2.2253,
+        "format": "jpeg",
+        "fileSizeBytes": 440155,
+        "sha256": "5c9a1f4fbbed3cdbde36f1531f0708e472d3e45ae3ba41c2da6e1d9f8f8043fd",
+        "derivation": "display_derivative_v1; source=/races/tsaigu-kuocang/2026/cover-hero-original.png; resize=max_width_1600_without_enlargement; encode=jpeg_quality_88_mozjpeg_progressive_4:4:4; preserve_aspect_ratio=true"
+      }
     },
     {
       "assetId": "tsaigu-kuocang-2026-hero",
       "editionId": "tsaigu-kuocang-2026",
       "role": "hero",
-      "publicPath": "/races/tsaigu-kuocang/2026/cover-hero-original.png",
+      "publicPath": "/races/tsaigu-kuocang/2026/hero-display-v1.jpg",
       "originalPublicPath": "/races/tsaigu-kuocang/2026/cover-hero-original.png",
       "originalFilename": "柴古 cover & hero.png",
       "imageYear": null,
       "imageYearEvidence": null,
-      "width": 2700,
-      "height": 1214,
-      "aspectRatio": 2.2241,
-      "format": "png",
-      "fileSizeBytes": 4769534,
-      "sha256": "b2eac31dcaf4ad9b7dd541fb1b0cd8a5c77bf8eb45edb144963fb091fc6b9cfc",
+      "width": 2400,
+      "height": 1079,
+      "aspectRatio": 2.2243,
+      "format": "jpeg",
+      "fileSizeBytes": 656726,
+      "sha256": "7770ab09f315b8b9cb2869c83d460e76ccc3912b5e710b251b67c19f0d7786ec",
       "qualityStatus": "approved",
       "source": {
         "type": "user_provided_human_approved",
@@ -669,7 +768,7 @@
         "sourceUrl": null,
         "usageRightsStatus": "requires_confirmation"
       },
-      "notes": "Manual Final Selection for both Cover and Hero using one unchanged original file. Original source and usage rights were not provided; image year is unknown.",
+      "notes": "Manual Final Selection for both Cover and Hero using one unchanged original file. Original source and usage rights were not provided; image year is unknown. Display derivative v1 reduces transfer and decode cost while preserving the approved source composition; Original Asset remains unchanged.",
       "original": {
         "width": 2700,
         "height": 1214,
@@ -678,23 +777,32 @@
         "fileSizeBytes": 4769534,
         "sha256": "b2eac31dcaf4ad9b7dd541fb1b0cd8a5c77bf8eb45edb144963fb091fc6b9cfc"
       },
-      "derived": null
+      "derived": {
+        "publicPath": "/races/tsaigu-kuocang/2026/hero-display-v1.jpg",
+        "width": 2400,
+        "height": 1079,
+        "aspectRatio": 2.2243,
+        "format": "jpeg",
+        "fileSizeBytes": 656726,
+        "sha256": "7770ab09f315b8b9cb2869c83d460e76ccc3912b5e710b251b67c19f0d7786ec",
+        "derivation": "display_derivative_v1; source=/races/tsaigu-kuocang/2026/cover-hero-original.png; resize=max_width_2400_without_enlargement; encode=jpeg_quality_84_mozjpeg_progressive_4:4:4; preserve_aspect_ratio=true"
+      }
     },
     {
       "assetId": "chongqing-marathon-2027-cover",
       "editionId": "chongqing-marathon-2027",
       "role": "cover",
-      "publicPath": "/races/chongqing-marathon/2027/cover-hero-original.png",
+      "publicPath": "/races/chongqing-marathon/2027/cover-display-v1.jpg",
       "originalPublicPath": "/races/chongqing-marathon/2027/cover-hero-original.png",
       "originalFilename": "2027重庆马拉松 cover & hero.png",
       "imageYear": null,
       "imageYearEvidence": null,
-      "width": 1886,
-      "height": 1024,
-      "aspectRatio": 1.8418,
-      "format": "png",
-      "fileSizeBytes": 699795,
-      "sha256": "c8c4986d136c648de89f0a9b577d7cc4d77196f197e180afbdf60ae1da43d2fe",
+      "width": 1600,
+      "height": 869,
+      "aspectRatio": 1.8412,
+      "format": "jpeg",
+      "fileSizeBytes": 123230,
+      "sha256": "c8c264f4956be084c457739f7a6a1b1c5a4ff5baace89fb32350e698e896b4fb",
       "qualityStatus": "approved",
       "source": {
         "type": "user_provided_human_approved",
@@ -702,7 +810,7 @@
         "sourceUrl": null,
         "usageRightsStatus": "requires_confirmation"
       },
-      "notes": "Manual Final Selection for both Cover and Hero using one unchanged original file. Original source and usage rights were not provided; image year is unknown.",
+      "notes": "Manual Final Selection for both Cover and Hero using one unchanged original file. Original source and usage rights were not provided; image year is unknown. Display derivative v1 reduces transfer and decode cost while preserving the approved source composition; Original Asset remains unchanged.",
       "original": {
         "width": 1886,
         "height": 1024,
@@ -711,7 +819,16 @@
         "fileSizeBytes": 699795,
         "sha256": "c8c4986d136c648de89f0a9b577d7cc4d77196f197e180afbdf60ae1da43d2fe"
       },
-      "derived": null
+      "derived": {
+        "publicPath": "/races/chongqing-marathon/2027/cover-display-v1.jpg",
+        "width": 1600,
+        "height": 869,
+        "aspectRatio": 1.8412,
+        "format": "jpeg",
+        "fileSizeBytes": 123230,
+        "sha256": "c8c264f4956be084c457739f7a6a1b1c5a4ff5baace89fb32350e698e896b4fb",
+        "derivation": "display_derivative_v1; source=/races/chongqing-marathon/2027/cover-hero-original.png; resize=max_width_1600_without_enlargement; encode=jpeg_quality_88_mozjpeg_progressive_4:4:4; preserve_aspect_ratio=true"
+      }
     },
     {
       "assetId": "chongqing-marathon-2027-hero",
@@ -750,7 +867,7 @@
       "assetId": "shenzhen-100-2026-cover",
       "editionId": "shenzhen-100-2026",
       "role": "cover",
-      "publicPath": "/races/shenzhen-100/2026/cover-hero.png",
+      "publicPath": "/races/shenzhen-100/2026/cover-display-v1.jpg",
       "originalPublicPath": "/races/shenzhen-100/2026/cover-hero-original.avif",
       "originalFilename": "深圳 100 cover & hero.png",
       "imageYear": null,
@@ -758,9 +875,9 @@
       "width": 1400,
       "height": 934,
       "aspectRatio": 1.4989,
-      "format": "png",
-      "fileSizeBytes": 2087835,
-      "sha256": "633c1256659f433a8f3f2aeb720d2f7cf3f477410fecf2627a28c0eb118104b9",
+      "format": "jpeg",
+      "fileSizeBytes": 345980,
+      "sha256": "81f6db7296c836ca943ba2acb99b0cc749800ccfb89aa09319cc3bac5c3bbfda",
       "qualityStatus": "approved",
       "source": {
         "type": "user_provided_human_approved",
@@ -768,7 +885,7 @@
         "sourceUrl": null,
         "usageRightsStatus": "requires_confirmation"
       },
-      "notes": "Manual Final Selection for both Cover and Hero. The supplied .png filename contained AVIF bytes; a full-size, uncropped PNG presentation derivative is used for client compatibility. Original source and usage rights were not provided; image year is unknown.",
+      "notes": "Manual Final Selection for both Cover and Hero. The supplied .png filename contained AVIF bytes; a full-size, uncropped PNG presentation derivative is used for client compatibility. Original source and usage rights were not provided; image year is unknown. Display derivative v1 reduces transfer and decode cost while preserving the approved source composition; Original Asset remains unchanged.",
       "original": {
         "width": 1400,
         "height": 934,
@@ -778,21 +895,21 @@
         "sha256": "45b73bb3cb5417b285b19c2640ebe0be8c135f7fd582240fa31e51b3782ee5a8"
       },
       "derived": {
-        "publicPath": "/races/shenzhen-100/2026/cover-hero.png",
+        "publicPath": "/races/shenzhen-100/2026/cover-display-v1.jpg",
         "width": 1400,
         "height": 934,
         "aspectRatio": 1.4989,
-        "format": "png",
-        "fileSizeBytes": 2087835,
-        "sha256": "633c1256659f433a8f3f2aeb720d2f7cf3f477410fecf2627a28c0eb118104b9",
-        "derivation": "format_conversion_only_no_crop_no_upscale"
+        "format": "jpeg",
+        "fileSizeBytes": 345980,
+        "sha256": "81f6db7296c836ca943ba2acb99b0cc749800ccfb89aa09319cc3bac5c3bbfda",
+        "derivation": "display_derivative_v1; source=/races/shenzhen-100/2026/cover-hero.png; resize=max_width_1600_without_enlargement; encode=jpeg_quality_88_mozjpeg_progressive_4:4:4; preserve_aspect_ratio=true"
       }
     },
     {
       "assetId": "shenzhen-100-2026-hero",
       "editionId": "shenzhen-100-2026",
       "role": "hero",
-      "publicPath": "/races/shenzhen-100/2026/cover-hero.png",
+      "publicPath": "/races/shenzhen-100/2026/hero-display-v1.jpg",
       "originalPublicPath": "/races/shenzhen-100/2026/cover-hero-original.avif",
       "originalFilename": "深圳 100 cover & hero.png",
       "imageYear": null,
@@ -800,9 +917,9 @@
       "width": 1400,
       "height": 934,
       "aspectRatio": 1.4989,
-      "format": "png",
-      "fileSizeBytes": 2087835,
-      "sha256": "633c1256659f433a8f3f2aeb720d2f7cf3f477410fecf2627a28c0eb118104b9",
+      "format": "jpeg",
+      "fileSizeBytes": 345980,
+      "sha256": "81f6db7296c836ca943ba2acb99b0cc749800ccfb89aa09319cc3bac5c3bbfda",
       "qualityStatus": "needs_higher_resolution",
       "source": {
         "type": "user_provided_human_approved",
@@ -810,7 +927,7 @@
         "sourceUrl": null,
         "usageRightsStatus": "requires_confirmation"
       },
-      "notes": "Manual Final Selection for both Cover and Hero. The supplied .png filename contained AVIF bytes; a full-size, uncropped PNG presentation derivative is used for client compatibility. Original source and usage rights were not provided; image year is unknown. The 1400px width is below the long-term Hero target.",
+      "notes": "Manual Final Selection for both Cover and Hero. The supplied .png filename contained AVIF bytes; a full-size, uncropped PNG presentation derivative is used for client compatibility. Original source and usage rights were not provided; image year is unknown. The 1400px width is below the long-term Hero target. Display derivative v1 reduces transfer and decode cost while preserving the approved source composition; Original Asset remains unchanged.",
       "original": {
         "width": 1400,
         "height": 934,
@@ -820,14 +937,14 @@
         "sha256": "45b73bb3cb5417b285b19c2640ebe0be8c135f7fd582240fa31e51b3782ee5a8"
       },
       "derived": {
-        "publicPath": "/races/shenzhen-100/2026/cover-hero.png",
+        "publicPath": "/races/shenzhen-100/2026/hero-display-v1.jpg",
         "width": 1400,
         "height": 934,
         "aspectRatio": 1.4989,
-        "format": "png",
-        "fileSizeBytes": 2087835,
-        "sha256": "633c1256659f433a8f3f2aeb720d2f7cf3f477410fecf2627a28c0eb118104b9",
-        "derivation": "format_conversion_only_no_crop_no_upscale"
+        "format": "jpeg",
+        "fileSizeBytes": 345980,
+        "sha256": "81f6db7296c836ca943ba2acb99b0cc749800ccfb89aa09319cc3bac5c3bbfda",
+        "derivation": "display_derivative_v1; source=/races/shenzhen-100/2026/cover-hero.png; resize=max_width_2400_without_enlargement; encode=jpeg_quality_88_mozjpeg_progressive_4:4:4; preserve_aspect_ratio=true"
       }
     }
   ]
