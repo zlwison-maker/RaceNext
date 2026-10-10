@@ -1034,10 +1034,10 @@
       "applyBlocked": false,
       "risk": "high_impact",
       "reason": "High-impact race fact cannot be auto-applied in V1. Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
-      "status": "pending",
+      "status": "rejected",
       "createdAt": "2026-10-10T05:45:42.201Z",
-      "reviewedAt": null,
-      "reviewReason": null,
+      "reviewedAt": "2026-10-10T06:20:46.877Z",
+      "reviewReason": "Duplicate review candidate. The same startLocation fact is already represented by existing Pending records in main. Reject this redundant review entry only; retain the original Pending for substantive human review. This decision does not reject the proposed start location itself.",
       "appliedAt": null
     },
     {
@@ -1077,10 +1077,10 @@
       "applyBlocked": false,
       "risk": "low",
       "reason": "Source is extractable but not eligible for automatic application. Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
-      "status": "pending",
+      "status": "rejected",
       "createdAt": "2026-10-10T05:45:42.201Z",
-      "reviewedAt": null,
-      "reviewReason": null,
+      "reviewedAt": "2026-10-10T06:20:48.564Z",
+      "reviewReason": "Duplicate of previously rejected change chg-257b4d54ebe122c9ada861ab, with equivalent source evidence and the same indirect sign-in/redirect URL. The race has concluded, and this candidate does not justify reopening the prior review decision.",
       "appliedAt": null
     },
     {
@@ -1120,10 +1120,10 @@
       "applyBlocked": false,
       "risk": "low",
       "reason": "Source is extractable but not eligible for automatic application. Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
-      "status": "pending",
+      "status": "rejected",
       "createdAt": "2026-10-10T05:45:42.201Z",
-      "reviewedAt": null,
-      "reviewReason": null,
+      "reviewedAt": "2026-10-10T06:20:50.150Z",
+      "reviewReason": "Duplicate of previously rejected change chg-5b7c30035de9d72ce82bb43e. Evidence covers an initial pre-registration window, not a verified edition-wide registration opening time. No materially new evidence resolves the prior review objection.",
       "appliedAt": null
     },
     {
@@ -1163,10 +1163,10 @@
       "applyBlocked": false,
       "risk": "low",
       "reason": "Source is extractable but not eligible for automatic application. Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
-      "status": "pending",
+      "status": "rejected",
       "createdAt": "2026-10-10T05:45:42.201Z",
-      "reviewedAt": null,
-      "reviewReason": null,
+      "reviewedAt": "2026-10-10T06:20:51.769Z",
+      "reviewReason": "Duplicate of previously rejected change chg-d010f4671b77efcbebb24c6e. Evidence covers an initial pre-registration closing time, not a verified edition-wide registration deadline. No materially new evidence resolves the prior review objection.",
       "appliedAt": null
     },
     {
@@ -1206,10 +1206,10 @@
       "applyBlocked": false,
       "risk": "low",
       "reason": "Source is extractable but not eligible for automatic application. Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
-      "status": "pending",
+      "status": "rejected",
       "createdAt": "2026-10-10T06:08:27.895Z",
-      "reviewedAt": null,
-      "reviewReason": null,
+      "reviewedAt": "2026-10-10T06:20:53.747Z",
+      "reviewReason": "Duplicate of previously rejected change chg-257b4d54ebe122c9ada861ab, with equivalent source evidence and the same indirect sign-in/redirect URL. The race has concluded, and this candidate does not justify reopening the prior review decision.",
       "appliedAt": null
     },
     {
@@ -1249,10 +1249,10 @@
       "applyBlocked": false,
       "risk": "low",
       "reason": "Source is extractable but not eligible for automatic application. Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
-      "status": "pending",
+      "status": "rejected",
       "createdAt": "2026-10-10T06:08:27.895Z",
-      "reviewedAt": null,
-      "reviewReason": null,
+      "reviewedAt": "2026-10-10T06:20:55.491Z",
+      "reviewReason": "Duplicate of previously rejected change chg-5b7c30035de9d72ce82bb43e. Evidence covers an initial pre-registration window, not a verified edition-wide registration opening time. No materially new evidence resolves the prior review objection.",
       "appliedAt": null
     },
     {
@@ -1292,10 +1292,10 @@
       "applyBlocked": false,
       "risk": "low",
       "reason": "Source is extractable but not eligible for automatic application. Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
-      "status": "pending",
+      "status": "rejected",
       "createdAt": "2026-10-10T06:08:27.895Z",
-      "reviewedAt": null,
-      "reviewReason": null,
+      "reviewedAt": "2026-10-10T06:20:58.541Z",
+      "reviewReason": "Duplicate of previously rejected change chg-d010f4671b77efcbebb24c6e. Evidence covers an initial pre-registration closing time, not a verified edition-wide registration deadline. No materially new evidence resolves the prior review objection.",
       "appliedAt": null
     }
   ]
