@@ -113,11 +113,21 @@ test("real prepare/finish CLI continues one open PR across two local monitoring 
   await shell(checkout, "git", ["push", "origin", pr.headRef]);
   await shell(checkout, "git", ["switch", "main"]);
 
-  const server = createServer(async (_request, response) => {
+  let commentStatus = 201;
+  const reviewComments: string[] = [];
+  const server = createServer(async (request, response) => {
+    if (request.method === "POST" && request.url?.includes("/issues/42/comments")) {
+      const chunks: Uint8Array[] = [];
+      for await (const chunk of request) chunks.push(chunk as Uint8Array);
+      if (commentStatus === 201) reviewComments.push((JSON.parse(Buffer.concat(chunks).toString("utf8")) as { body: string }).body);
+      response.writeHead(commentStatus, { "content-type": "application/json" });
+      response.end("{}");
+      return;
+    }
     const headSha = (await shell(root, "git", ["--git-dir", bare, "rev-parse", `refs/heads/${pr.headRef}`])).trim();
     response.setHeader("content-type", "application/json");
     response.end(JSON.stringify([{
-      number: pr.number, html_url: pr.url,
+      number: pr.number, html_url: pr.url, state: "open", base: { ref: "main" },
       head: { ref: pr.headRef, sha: headSha, repo: { full_name: pr.headRepo } },
     }]));
   });
@@ -127,7 +137,8 @@ test("real prepare/finish CLI continues one open PR across two local monitoring 
   const environment = {
     ...process.env, GITHUB_REPOSITORY: pr.headRepo, GH_TOKEN: "fixture-token",
     RACENEXT_TEST_GITHUB_API_URL: `http://127.0.0.1:${address.port}`,
-    GITHUB_RUN_ID: "42",
+    GITHUB_RUN_ID: "42", ARTIFACT_NAME: "race-update-report-42",
+    NEW_PENDING_COUNT: "1", DEDUPED_PENDING_COUNT: "0",
   };
   try {
     await shell(checkout, "node", [cli, "prepare"], environment);
@@ -152,6 +163,12 @@ test("real prepare/finish CLI continues one open PR across two local monitoring 
     }), /SECRET_SCAN=pass/);
     await shell(checkout, "node", [cli, "finish"], { ...environment, MEANINGFUL_DATA_CHANGE: "true" });
     const firstHead = (await shell(checkout, "git", ["rev-parse", `refs/remotes/origin/${pr.headRef}`])).trim();
+    equal(reviewComments.length, 1);
+    match(reviewComments[0], /Run ID: 42/);
+    match(reviewComments[0], new RegExp(`Data PR Head SHA: ${firstHead}`));
+    match(reviewComments[0], /New Pending: 1/);
+    match(reviewComments[0], /Sanitized report artifact: race-update-report-42/);
+    match(reviewComments[0], /github\.com\/example\/RaceNext\/actions\/runs\/42/);
 
     await shell(checkout, "git", ["restore", "--", pendingPath, statePath]);
     await shell(checkout, "node", [cli, "prepare"], environment);
@@ -168,6 +185,32 @@ test("real prepare/finish CLI continues one open PR across two local monitoring 
     equal((await shell(checkout, "git", ["rev-parse", `refs/remotes/origin/${pr.headRef}`])).trim(), firstHead);
     equal((await shell(checkout, "git", ["rev-parse", "main"])).trim(), mainSha);
     match(await shell(checkout, "git", ["branch", "-r"]), /origin\/automation\/race-data-update-42/);
+
+    // The branch update is durable even if the PR comment endpoint rejects the summary.
+    await shell(checkout, "git", ["restore", "--", pendingPath, statePath]);
+    await shell(checkout, "node", [cli, "prepare"], environment);
+    const beforeFailedComment = (await shell(root, "git", ["--git-dir", bare, "rev-parse", `refs/heads/${pr.headRef}`])).trim();
+    const nextPending = JSON.parse(await readFile(join(checkout, pendingPath), "utf8")) as PendingChangeStore;
+    nextPending.changes.push({ ...structuredClone(productionPending.changes[2]), changeId: "chg-continuity-c" });
+    await writeFile(join(checkout, pendingPath), `${JSON.stringify(nextPending)}\n`);
+    commentStatus = 403;
+    let partialSuccess = false;
+    try {
+      await shell(checkout, "node", [cli, "finish"], { ...environment, MEANINGFUL_DATA_CHANGE: "true" });
+    } catch (error) {
+      match(String((error as { stderr?: string }).stderr), /PARTIAL_SUCCESS:DATA_PR_UPDATED_REVIEW_SUMMARY_FAILED/);
+      match(String((error as { stderr?: string }).stderr), /Head=[0-9a-f]{40}/);
+      partialSuccess = true;
+    }
+    ok(partialSuccess);
+    const afterFailedComment = (await shell(root, "git", ["--git-dir", bare, "rev-parse", `refs/heads/${pr.headRef}`])).trim();
+    ok(afterFailedComment !== beforeFailedComment);
+    equal(reviewComments.length, 1);
+    await shell(checkout, "git", ["restore", "--", pendingPath, statePath]);
+    await shell(checkout, "node", [cli, "prepare"], environment);
+    const recoveredPending = JSON.parse(await readFile(join(checkout, pendingPath), "utf8")) as PendingChangeStore;
+    equal(recoveredPending.changes.at(-1)?.changeId, "chg-continuity-c");
+    deepEqual(mergeDurablePendingChanges(recoveredPending, [nextPending.changes.at(-1)!]), recoveredPending);
 
     // A concurrent human/automation push after prepare cannot be overwritten.
     await shell(checkout, "git", ["restore", "--", pendingPath, statePath]);
@@ -245,6 +288,79 @@ test("real CLI with no open PR creates one data-only branch and leaves main Cano
     ok(dataBranch !== mainSha);
     deepEqual((await shell(checkout, "git", ["diff", "--name-only", mainSha, dataBranch])).trim().split("\n"), [pendingPath]);
     equal(await shell(checkout, "git", ["show", `${dataBranch}:data/canonical/race-graph-v1.json`]), "{}\n");
+  } finally {
+    server.close();
+  }
+});
+
+test("PR create 403 leaves a traceable unlinked branch and blocks a second orphan on the next run", async () => {
+  const root = await mkdtemp(join(tmpdir(), "racenext-pr-403-"));
+  const bare = join(root, "remote.git");
+  const checkout = join(root, "runner");
+  await shell(root, "git", ["init", "--bare", bare]);
+  await shell(root, "git", ["clone", bare, checkout]);
+  await shell(checkout, "git", ["config", "user.name", "Fixture"]);
+  await shell(checkout, "git", ["config", "user.email", "fixture@example.test"]);
+  await mkdir(join(checkout, "data/pending"), { recursive: true });
+  await mkdir(join(checkout, "data/sources"), { recursive: true });
+  await mkdir(join(checkout, "data/canonical"), { recursive: true });
+  await writeFile(join(checkout, pendingPath), `${JSON.stringify(productionPending)}\n`);
+  await writeFile(join(checkout, statePath), productionState);
+  await writeFile(join(checkout, "data/canonical/race-graph-v1.json"), "{}\n");
+  await writeFile(join(checkout, "data/sources/race-source-registry.json"), "{}\n");
+  await writeFile(join(checkout, ".gitignore"), "artifacts/\n");
+  await shell(checkout, "git", ["add", "--", "data", ".gitignore"]);
+  await shell(checkout, "git", ["commit", "-m", "Fixture main"]);
+  await shell(checkout, "git", ["branch", "-M", "main"]);
+  await shell(checkout, "git", ["push", "-u", "origin", "main"]);
+  const mainSha = (await shell(checkout, "git", ["rev-parse", "HEAD"])).trim();
+  let headLookups = 0;
+  const server = createServer((request, response) => {
+    if (request.url?.includes("state=all")) headLookups += 1;
+    response.setHeader("content-type", "application/json");
+    response.end("[]");
+  });
+  await new Promise<void>((resolve) => server.listen(0, "127.0.0.1", resolve));
+  const address = server.address();
+  ok(address && typeof address !== "string");
+  await writeFile(join(root, "gh"), "#!/bin/sh\necho 403 >&2\nexit 1\n", { mode: 0o755 });
+  const bodyPath = join(root, "pr-body.md");
+  await writeFile(bodyPath, "Fixture data PR\n");
+  const environment = {
+    ...process.env, GITHUB_REPOSITORY: "example/RaceNext", GH_TOKEN: "fixture-token",
+    RACENEXT_TEST_GITHUB_API_URL: `http://127.0.0.1:${address.port}`,
+    GITHUB_RUN_ID: "77", PATH: `${root}:${process.env.PATH ?? ""}`,
+    PR_BODY_PATH: bodyPath, MEANINGFUL_DATA_CHANGE: "true",
+  };
+  try {
+    await shell(checkout, "node", [cli, "prepare"], environment);
+    const next = structuredClone(productionPending);
+    next.changes.push({ ...structuredClone(next.changes[0]), changeId: "chg-orphan-fixture" });
+    await writeFile(join(checkout, pendingPath), `${JSON.stringify(next)}\n`);
+    let firstBlocked = false;
+    try {
+      await shell(checkout, "node", [cli, "finish"], environment);
+    } catch (error) {
+      match(String((error as { stderr?: string }).stderr), /PARTIAL_SUCCESS:UNLINKED_DATA_BRANCH/);
+      firstBlocked = true;
+    }
+    ok(firstBlocked);
+    ok(headLookups > 0, "PR existence must be checked after create failure");
+    const orphanBranch = "automation/race-data-update-77";
+    const orphanSha = (await shell(root, "git", ["--git-dir", bare, "rev-parse", `refs/heads/${orphanBranch}`])).trim();
+    ok(orphanSha !== mainSha);
+    await shell(checkout, "git", ["switch", "main"]);
+    let secondBlocked = false;
+    try {
+      await shell(checkout, "node", [cli, "prepare"], { ...environment, GITHUB_RUN_ID: "78" });
+    } catch (error) {
+      match(String((error as { stderr?: string }).stderr), /UNLINKED_DATA_BRANCH:automation\/race-data-update-77/);
+      secondBlocked = true;
+    }
+    ok(secondBlocked);
+    equal((await shell(root, "git", ["--git-dir", bare, "rev-parse", `refs/heads/${orphanBranch}`])).trim(), orphanSha);
+    equal((await shell(checkout, "git", ["rev-parse", "main"])).trim(), mainSha);
+    equal((await shell(root, "git", ["--git-dir", bare, "branch", "--list", "automation/race-data-update-*"])).trim(), orphanBranch);
   } finally {
     server.close();
   }

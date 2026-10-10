@@ -111,8 +111,11 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           MEANINGFUL_DATA_CHANGE: ${{ steps.pipeline.outputs.meaningful_data_change }}
           PR_BODY_PATH: ${{ steps.pipeline.outputs.pr_body_path }}
+          ARTIFACT_NAME: ${{ steps.pipeline.outputs.artifact_name }}
+          NEW_PENDING_COUNT: ${{ steps.pipeline.outputs.new_pending_count }}
+          DEDUPED_PENDING_COUNT: ${{ steps.pipeline.outputs.deduped_pending_count }}
         run: node scripts/race-update/productionPrContinuityCli.ts finish
 
       - name: Report failed monitoring or blocked write
         if: failure()
-        run: echo "RUN_FAILED / WRITE_BLOCKED; inspect prior step for the precise failure stage." >> "$GITHUB_STEP_SUMMARY"
+        run: echo "CHECK_FAILED; inspect prior step for WRITE_BLOCKED or PARTIAL_SUCCESS and whether the Data PR branch was already updated." >> "$GITHUB_STEP_SUMMARY"

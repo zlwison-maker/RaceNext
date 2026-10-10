@@ -127,6 +127,8 @@ await writeFile(PR_BODY_PATH, `${prBody}\n`, "utf8");
 await writeGithubOutputs({
   meaningful_data_change: String(meaningfulDiff.meaningful),
   volatile_only: String(meaningfulDiff.volatileOnly),
+  new_pending_count: String(result.report.summary.pendingCreated),
+  deduped_pending_count: String(result.report.summary.pendingDeduped),
   report_path: REPORT_PATH,
   pr_body_path: PR_BODY_PATH,
   artifact_name: artifactName,
