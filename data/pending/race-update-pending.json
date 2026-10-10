@@ -905,10 +905,10 @@
       "applyBlocked": false,
       "risk": "low",
       "reason": "Validated low-risk change from an eligible, conflict-free source. Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
-      "status": "pending",
+      "status": "rejected",
       "createdAt": "2026-10-09T06:28:12.813Z",
-      "reviewedAt": null,
-      "reviewReason": null,
+      "reviewedAt": "2026-10-10T03:23:27.708Z",
+      "reviewReason": "Evidence comes from a generic related-content registration entry and does not establish an edition-specific official runner registration URL.",
       "appliedAt": null
     },
     {
@@ -948,10 +948,10 @@
       "applyBlocked": false,
       "risk": "low",
       "reason": "Source is extractable but not eligible for automatic application. Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
-      "status": "pending",
+      "status": "rejected",
       "createdAt": "2026-10-09T06:28:12.813Z",
-      "reviewedAt": null,
-      "reviewReason": null,
+      "reviewedAt": "2026-10-10T03:23:34.262Z",
+      "reviewReason": "Evidence identifies an initial pre-registration window, not necessarily the complete edition-wide registration lifecycle. Do not map a partial channel/window to a global Edition registration date.",
       "appliedAt": null
     },
     {
@@ -991,10 +991,10 @@
       "applyBlocked": false,
       "risk": "low",
       "reason": "Source is extractable but not eligible for automatic application. Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
-      "status": "pending",
+      "status": "rejected",
       "createdAt": "2026-10-09T06:28:12.813Z",
-      "reviewedAt": null,
-      "reviewReason": null,
+      "reviewedAt": "2026-10-10T03:23:39.318Z",
+      "reviewReason": "Evidence identifies the closing time of an initial pre-registration window. Other registration stages or channels may have different closing dates. This is insufficient for the global Edition field.",
       "appliedAt": null
     }
   ]
