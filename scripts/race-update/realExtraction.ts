@@ -716,8 +716,7 @@ export function mergeDurablePendingChanges(
   const next = structuredClone(existing);
   const byId = new Map(next.changes.map((change) => [change.changeId, change]));
   for (const change of incoming) {
-    const durable = byId.get(change.changeId) ?? next.changes.find((candidate) => sameCrossSourceFact(candidate, change)
-      && (candidate.status === "pending" || hasMatchingEvidence(candidate, change)));
+    const durable = byId.get(change.changeId) ?? findEquivalentPendingChange(next.changes, change);
     if (durable) {
       if (durable.changeId === change.changeId && durableIdentity(durable) !== durableIdentity(change)) {
         throw new Error(`Pending changeId collision: ${change.changeId}`);
@@ -733,8 +732,7 @@ export function mergeDurablePendingChanges(
 
 export function findDurablePendingChange(store: PendingChangeStore, incoming: PendingChange): PendingChange | undefined {
   return store.changes.find(({ changeId }) => changeId === incoming.changeId)
-    ?? store.changes.find((candidate) => sameCrossSourceFact(candidate, incoming)
-      && (candidate.status === "pending" || hasMatchingEvidence(candidate, incoming)));
+    ?? findEquivalentPendingChange(store.changes, incoming);
 }
 
 function buildDurablePendingChange(input: {
@@ -795,13 +793,20 @@ function comparePendingAuthority(
     || left.acceptedSource.source.sourceId.localeCompare(right.acceptedSource.source.sourceId);
 }
 
-function sameCrossSourceFact(left: PendingChange, right: PendingChange): boolean {
+function samePendingFact(left: PendingChange, right: PendingChange): boolean {
   return !left.conflict
     && !right.conflict
-    && left.sourceId !== right.sourceId
     && sameTarget(left, right)
     && stableJson(left.currentValue) === stableJson(right.currentValue)
     && stableJson(left.candidateValue) === stableJson(right.candidateValue);
+}
+
+function findEquivalentPendingChange(changes: PendingChange[], incoming: PendingChange): PendingChange | undefined {
+  // A reviewed decision wins over a later duplicate Pending only for the same substantive evidence.
+  return changes.find((candidate) => candidate.status !== "pending"
+    && samePendingFact(candidate, incoming)
+    && hasMatchingEvidence(candidate, incoming))
+    ?? changes.find((candidate) => candidate.status === "pending" && samePendingFact(candidate, incoming));
 }
 
 function mergeEvidence(target: PendingChange, incoming: PendingChange): void {
@@ -816,12 +821,17 @@ function mergeEvidence(target: PendingChange, incoming: PendingChange): void {
 }
 
 function hasMatchingEvidence(existing: PendingChange, incoming: PendingChange): boolean {
+  if (incoming.evidence.length === 0) return false;
   const keys = new Set(existing.evidence.map(evidenceIdentity));
   return incoming.evidence.every((evidence) => keys.has(evidenceIdentity(evidence)));
 }
 
 function evidenceIdentity(evidence: PendingChange["evidence"][number]): string {
-  return [evidence.sourceId, evidence.contentHash, evidence.evidenceLocator, stableJson(evidence.evidenceText)].join("|");
+  // Hashes, fetch times and locator offsets describe a retrieval, not the fact asserted by its text.
+  // Preserve source identity: a different source remains independent evidence.
+  const text = evidence.evidenceText.normalize("NFKC").toLocaleLowerCase()
+    .replace(/[\p{P}\p{S}\s]+/gu, "");
+  return [evidence.sourceId, text].join("|");
 }
 
 function durableIdentity(change: PendingChange): string {
