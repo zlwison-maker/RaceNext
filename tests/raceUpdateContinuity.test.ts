@@ -81,6 +81,8 @@ test("reviewed Pending is retained; identical evidence dedups and new official e
 
 test("real prepare/finish CLI continues one open PR across two local monitoring runs", async () => {
   const root = await mkdtemp(join(tmpdir(), "racenext-two-run-"));
+  const productionSummary = join(root, "production-summary.md");
+  await writeFile(productionSummary, "Real production stage remains visible\n");
   const bare = join(root, "remote.git");
   const checkout = join(root, "runner");
   await shell(root, "git", ["init", "--bare", bare]);
@@ -134,8 +136,10 @@ test("real prepare/finish CLI continues one open PR across two local monitoring 
   await new Promise<void>((resolve) => server.listen(0, "127.0.0.1", resolve));
   const address = server.address();
   ok(address && typeof address !== "string");
+  const productionEnvironment = { ...process.env, GITHUB_STEP_SUMMARY: productionSummary };
   const environment = {
-    ...process.env, GITHUB_REPOSITORY: pr.headRepo, GH_TOKEN: "fixture-token",
+    ...productionEnvironment,
+    ...isolatedActionsEnvironment(root), GITHUB_REPOSITORY: pr.headRepo, GH_TOKEN: "fixture-token",
     RACENEXT_TEST_GITHUB_API_URL: `http://127.0.0.1:${address.port}`,
     GITHUB_RUN_ID: "42", ARTIFACT_NAME: "race-update-report-42",
     NEW_PENDING_COUNT: "1", DEDUPED_PENDING_COUNT: "0",
@@ -146,7 +150,10 @@ test("real prepare/finish CLI continues one open PR across two local monitoring 
     equal(day1.changes.at(-1)?.changeId, recordA.changeId);
     const inheritedState = JSON.parse(await readFile(join(checkout, statePath), "utf8")) as typeof firstPrState;
     equal(inheritedState.sources[0].lastObservedContentHash, "b".repeat(64));
-    const recordB = { ...structuredClone(productionPending.changes[1]), changeId: "chg-continuity-b" };
+    const recordB = {
+      ...structuredClone(productionPending.changes[1]),
+      changeId: "chg-continuity-b", candidateValue: "Fixture-only alternative finish line",
+    };
     const withB = mergeDurablePendingChanges(day1, [recordB]);
     await writeFile(join(checkout, pendingPath), `${JSON.stringify(withB)}\n`);
     inheritedState.sources[0].lastObservedContentHash = "c".repeat(64);
@@ -169,6 +176,8 @@ test("real prepare/finish CLI continues one open PR across two local monitoring 
     match(reviewComments[0], /New Pending: 1/);
     match(reviewComments[0], /Sanitized report artifact: race-update-report-42/);
     match(reviewComments[0], /github\.com\/example\/RaceNext\/actions\/runs\/42/);
+    match(await readFile(join(root, "fixture-summary.md"), "utf8"), /PR #42/);
+    equal(await readFile(productionSummary, "utf8"), "Real production stage remains visible\n");
 
     await shell(checkout, "git", ["restore", "--", pendingPath, statePath]);
     await shell(checkout, "node", [cli, "prepare"], environment);
@@ -272,7 +281,8 @@ test("real CLI with no open PR creates one data-only branch and leaves main Cano
   const bodyPath = join(root, "pr-body.md");
   await writeFile(bodyPath, "Fixture data PR\n");
   const environment = {
-    ...process.env, GITHUB_REPOSITORY: "example/RaceNext", GH_TOKEN: "fixture-token",
+    ...process.env, ...isolatedActionsEnvironment(root),
+    GITHUB_REPOSITORY: "example/RaceNext", GH_TOKEN: "fixture-token",
     RACENEXT_TEST_GITHUB_API_URL: `http://127.0.0.1:${address.port}`,
     GITHUB_RUN_ID: "99", PATH: `${root}:${process.env.PATH ?? ""}`,
     PR_BODY_PATH: bodyPath, MEANINGFUL_DATA_CHANGE: "true",
@@ -327,7 +337,8 @@ test("PR create 403 leaves a traceable unlinked branch and blocks a second orpha
   const bodyPath = join(root, "pr-body.md");
   await writeFile(bodyPath, "Fixture data PR\n");
   const environment = {
-    ...process.env, GITHUB_REPOSITORY: "example/RaceNext", GH_TOKEN: "fixture-token",
+    ...process.env, ...isolatedActionsEnvironment(root),
+    GITHUB_REPOSITORY: "example/RaceNext", GH_TOKEN: "fixture-token",
     RACENEXT_TEST_GITHUB_API_URL: `http://127.0.0.1:${address.port}`,
     GITHUB_RUN_ID: "77", PATH: `${root}:${process.env.PATH ?? ""}`,
     PR_BODY_PATH: bodyPath, MEANINGFUL_DATA_CHANGE: "true",
@@ -374,4 +385,13 @@ test("invalid inherited Pending or State is rejected before monitoring", () => {
 async function shell(cwd: string, command: string, args: string[], env = process.env): Promise<string> {
   const { stdout } = await exec(command, args, { cwd, env, maxBuffer: 32 * 1024 * 1024 });
   return stdout;
+}
+
+function isolatedActionsEnvironment(root: string) {
+  return {
+    GITHUB_STEP_SUMMARY: join(root, "fixture-summary.md"),
+    GITHUB_OUTPUT: join(root, "fixture-output.txt"),
+    GITHUB_ENV: join(root, "fixture-env.txt"),
+    GITHUB_PATH: join(root, "fixture-path.txt"),
+  };
 }
