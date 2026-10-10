@@ -42,7 +42,7 @@ RaceNext 所有核心赛事数据和内容原则上只维护一份。
 - 部分模块默认展开 / 折叠不同
 但原则上不重新生产一套内容。
 三、当前阶段：小程序优先原则
-RaceNext 当前进入小程序 MVP 阶段。
+RaceNext 微信小程序已上线，当前进入真实用户、获客与商业验证阶段。
 因此多端设计遵循：
 底层统一，小程序优先，多端适配。
 
@@ -455,7 +455,7 @@ RaceNext 数据 Pipeline 的任务是：
 → distanceKm / elevationGain / cutoffTimeHours / startAt
 但 AI 输出不能直接写入 Race Graph。
 必须继续经过：
-Evidence → Validation → Diff → Risk Classification → Auto Apply / Pending Review
+Evidence → Validation → Diff → Risk Classification → Pending Review（当前生产）
 每个 AI 提取事实必须具备：
 - source
 - evidence
@@ -470,7 +470,7 @@ AI 是数据生产效率工具，不是事实裁判。
 日期核验不能在“官网首页没有直接展示日期”时停止。必须依次检查 Tier 1 Official、Tier 2 Trusted，并在需要时交叉核对；多个可信来源一致才可写入。来源冲突时进入 Pending Review，不自动选择。完成可信来源检查后仍无可靠证据，才允许保留 null；不得写入 guessed value。
 
 每个准备进入 Public API 的核心 Edition 必须通过最小 Pre-Publish Fact Gate，至少核对：Event identity、Requested Edition、Latest Relevant Official Edition、Canonical Edition、raceDate、city/location、primaryCategory、primary source、需要时的 secondary source、conflict status 与最终 publishable status。Requested Edition 与 Latest Relevant Official Edition 不一致时，Gate 必须拒绝发布并标记 Needs Review。
-22. 自动更新的目标是减少人工生产，而不是取消人工判断
+22. 自动更新的目标是减少常规人工核对，而不是取消必要判断
 RaceNext 赛事信息会持续变化：
 - 报名状态
 - 报名时间
@@ -482,15 +482,16 @@ RaceNext 赛事信息会持续变化：
 - 关门时间
 - 组别信息
 因此赛事数据不能“一次录入永久有效”。
-当前更新机制：
-低风险变化
+当前生产机制：
+Auto Apply = OFF。无论低风险还是高影响，Fact Candidate 均需进入 Pending / Human Review；无直接证据不更新 Canonical。Git 合并及必要部署也不能由抓取或模型输出替代。
+低风险字段示例
 如：
 - registrationStatus
 - registrationOpenDate
 - registrationCloseDate
 - registrationUrl
-在可信来源、验证通过、无冲突的前提下，可以自动更新。
-高影响变化
+当前即使可信来源、验证通过且无冲突，也不能自动写入 Canonical。未来仅在来源权威、Edition / Category 身份、直接证据、无冲突、幂等与实际低误判表现均得到验证并另行批准后，才可讨论安全场景的 Auto Apply；“低风险”不等于“现在可自动更新”。
+高影响字段示例
 如：
 - 比赛日期
 - 起跑时间
@@ -500,17 +501,21 @@ RaceNext 赛事信息会持续变化：
 - 关门时间
 自动发现后进入 Pending Review，不直接覆盖 Canonical。
 长期方向：
-人从数据生产者逐渐变成关键事实审核者。
+人从常规数据生产者逐渐变成异常、冲突和高风险事项的审核者；自动化不能以牺牲事实准确性换取更少人工。无可靠新值但存在过期风险时，应触发复核而不是推测新事实。完整边界和阶段验收参见 [RaceNext 赛事数据自动维护目标与验收标准 V1](RACE_DATA_AUTOMATION_STANDARD_V1.md)。
 
 23. checked、updated、verified 必须严格区分
 RaceNext 数据治理必须区分：
-fetchedAt / crawledAt
+fetchedAt
+文档什么时候被抓取。
+lastCheckedAt
 系统什么时候检查过来源。
+lastSuccessfulExtractionAt
+来源什么时候完成有效抽取；不代表每个关键字段已核验。
 lastUpdatedAt
 正式赛事事实最后什么时候发生变化。
 verifiedAt
-RaceNext / 人工最后什么时候确认过该事实。
-三者不能混用。
+相应事实最后什么时候经过充分证据确认；当前来源级状态不能替代完整的字段级核验记录。
+这些时间不能混用。
 特别是：
 “今天检查过，页面没变化”
 
@@ -519,6 +524,7 @@ RaceNext / 人工最后什么时候确认过该事实。
 
 更不代表：
 “今天人工重新验证过”。
+Source Checked 不等于 Field Verified；Source Hash Unchanged 不等于 Canonical Correct。只有字段身份、来源与直接证据充分，才能称为该字段的有效核验。
 
 24. Canonical 与客户端之间必须存在 Public Distribution Layer
 小程序和 Web 不直接读取：
@@ -536,3 +542,6 @@ Published Canonical Race Graph
 当前原则：
 底层数据统一，小程序体验优先，多端共享 Race Graph。
 这样未来底层从 JSON 迁移到数据库时，只要保持 Public API Contract 稳定，Web、小程序和 AI 客户端无需重新设计数据体系。
+
+25. 持续维护成本必须可衡量
+随着赛事规模增长，按一致口径记录每场赛事维护时间、每次有效变化的人工时间、来源失败后的人工处理量、模型调用与运行成本，以及误报和漏报带来的复核成本。只统计执行次数或 Source 数量，不能证明单位赛事维护成本下降；没有实测数据时不得编造节省比例。衡量质量与成本的指标口径见 [自动维护标准 V1](RACE_DATA_AUTOMATION_STANDARD_V1.md)。
