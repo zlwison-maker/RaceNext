@@ -107,21 +107,55 @@ test("trusted-source no-change candidate cannot verify an official critical fact
     && item.reasonCode === "REGISTRATION_LIFECYCLE_REVIEW"));
 });
 
-test("direct current official no-change evidence after the deadline suppresses only the lifecycle alert", () => {
+test("old official notice refetched after the deadline verifies the value but preserves lifecycle review", () => {
   const snapshot = structuredClone(original);
   snapshot.records.find(({ edition }) => edition.editionId === "beijing-marathon-2026")!.edition.registrationStatus = "lottery";
   const confirmed = source("beijing-marathon-2026", "beijing-marathon-official-registration-guidelines-2026",
     "primary_official", "success");
   confirmed.candidates = [noChangeRegistration("beijing-marathon-2026", confirmed.sourceId, "lottery")];
+  confirmed.candidates[0].evidenceText = "Fixture notice dated 2026-09-01: the lottery is ongoing.";
+  equal(confirmed.fetchedAt, NOW); // Fetch time is after the recorded September 22 close boundary.
   const result = evaluateVerificationAlerts({ snapshot, registry, extraction: extraction([confirmed]) });
-  equal(result.verificationAlerts.some((item) => item.editionId === "beijing-marathon-2026"
-    && item.reasonCode === "REGISTRATION_LIFECYCLE_REVIEW"), false);
+  const alert = result.verificationAlerts.find((item) => item.editionId === "beijing-marathon-2026"
+    && item.reasonCode === "REGISTRATION_LIFECYCLE_REVIEW");
+  ok(alert);
+  match(alert.triggerReason, /without time-qualified official status confirmation/);
+  ok(alert.availableEvidence.some((item) => item.includes("post-boundary applicability is unverified")));
   const status = result.criticalFactVerification.find((item) => item.editionId === "beijing-marathon-2026"
     && item.field === "registrationStatus")!;
   equal(status.status, "VERIFIED_THIS_RUN");
   deepEqual(status.directOfficialEvidenceSourceIds, [confirmed.sourceId]);
   equal(result.criticalFactVerification.find((item) => item.editionId === "beijing-marathon-2026"
     && item.field === "raceDate")!.status, "NOT_VERIFIED_THIS_RUN");
+});
+
+test("unstructured post-boundary date text cannot prove announcement timing under the current contract", () => {
+  const snapshot = structuredClone(original);
+  snapshot.records.find(({ edition }) => edition.editionId === "beijing-marathon-2026")!.edition.registrationStatus = "lottery";
+  const official = source("beijing-marathon-2026", "beijing-marathon-official-registration-guidelines-2026",
+    "primary_official", "success");
+  official.candidates = [noChangeRegistration("beijing-marathon-2026", official.sourceId, "lottery")];
+  official.candidates[0].evidenceText = "Fixture text says published 2026-10-05: the lottery is ongoing.";
+  const result = evaluateVerificationAlerts({ snapshot, registry, extraction: extraction([official]) });
+  equal(result.criticalFactVerification.find((item) => item.editionId === "beijing-marathon-2026"
+    && item.field === "registrationStatus")!.status, "VERIFIED_THIS_RUN");
+  ok(result.verificationAlerts.some((item) => item.editionId === "beijing-marathon-2026"
+    && item.reasonCode === "REGISTRATION_LIFECYCLE_REVIEW"));
+});
+
+test("lottery awaiting its future result remains lottery and review does not claim a status change", () => {
+  const snapshot = structuredClone(original);
+  const edition = snapshot.records.find(({ edition }) => edition.editionId === "beijing-marathon-2026")!.edition;
+  edition.registrationStatus = "lottery";
+  edition.lotteryResultDate = "2026-10-15";
+  const result = evaluateVerificationAlerts({ snapshot, registry, extraction: extraction([]) });
+  const alert = result.verificationAlerts.find((item) => item.editionId === edition.editionId
+    && item.reasonCode === "REGISTRATION_LIFECYCLE_REVIEW");
+  ok(alert);
+  match(alert.triggerReason, /recorded registration close boundary/);
+  equal(/registration is closed|status has changed/i.test(alert.triggerReason), false);
+  match(alert.humanReviewAction, /do not derive a new status/);
+  equal(edition.registrationStatus, "lottery");
 });
 
 test("no-change verification rejects missing evidence, wrong identity, wrong scope and mismatched values", () => {

@@ -119,26 +119,15 @@ export function evaluateVerificationAlerts(input: {
       && check.categoryId === null && check.field === "registrationStatus")!;
     const closePassed = isPastBoundary(edition.registrationCloseDate, edition.timezone, asOf);
     const lotteryPassed = isPastBoundary(edition.lotteryResultDate, edition.timezone, asOf);
-    const passedBoundaries = [
-      ...(closePassed ? [edition.registrationCloseDate!] : []),
-      ...(lotteryPassed ? [edition.lotteryResultDate!] : []),
-    ];
-    const confirmedAfterBoundaries = sourceReports.some((source) => {
-      if (!statusCheck.directOfficialEvidenceSourceIds.includes(source.sourceId)) return false;
-      if (!source.candidates.some((candidate) => directCurrentFactEvidence({
-        candidate, source, record, field: "registrationStatus", categoryId: null,
-        value: edition.registrationStatus,
-      }))) return false;
-      const fetched = source.fetchedAt ? new Date(source.fetchedAt) : null;
-      return fetched && !Number.isNaN(fetched.getTime())
-        && passedBoundaries.every((boundary) => isPastBoundary(boundary, edition.timezone, fetched));
-    });
+    // A matching current-run fact does not establish when its source asserted that fact.
+    // No candidate publication/effective time is validated by the current contract, so
+    // fetchedAt must never suppress a post-boundary lifecycle review.
+    const lifecycleBoundaryPassed = closePassed || lotteryPassed;
     const days = daysUntilRace(record, asOf);
     const nearingRaceWithoutStatusEvidence = days !== null && days >= 0 && days <= IMMINENT_DAYS
       && statusCheck.status !== "VERIFIED_THIS_RUN";
     const actionableStatus = edition.registrationStatus !== "registration_closed";
-    if (actionableStatus && ((passedBoundaries.length > 0 && !confirmedAfterBoundaries)
-      || (passedBoundaries.length === 0 && nearingRaceWithoutStatusEvidence))) {
+    if (actionableStatus && (lifecycleBoundaryPassed || nearingRaceWithoutStatusEvidence)) {
       const openLike = ["registration_open", "upcoming", "lottery", "waiting_list"].includes(edition.registrationStatus);
       add({
         editionId: edition.editionId,
@@ -146,17 +135,21 @@ export function evaluateVerificationAlerts(input: {
         reasonCode: "REGISTRATION_LIFECYCLE_REVIEW",
         severity: openLike ? "HIGH" : "REVIEW",
         triggerReason: closePassed
-          ? "The recorded registration close boundary has passed without direct official status confirmation this run."
+          ? "The recorded registration close boundary has passed without time-qualified official status confirmation after it."
           : lotteryPassed
-            ? "The recorded lottery result boundary has passed without direct official status confirmation this run."
+            ? "The recorded lottery result boundary has passed without time-qualified official status confirmation after it."
             : `Race is within ${IMMINENT_DAYS} calendar days without direct official registration-status confirmation this run.`,
         availableEvidence: [
           `Canonical registrationStatus: ${edition.registrationStatus}`,
+          ...(statusCheck.status === "VERIFIED_THIS_RUN"
+            ? ["Current-run official value matches Canonical; post-boundary applicability is unverified."] : []),
           ...(closePassed ? [`Canonical registrationCloseDate: ${edition.registrationCloseDate}`] : []),
           ...(lotteryPassed ? [`Canonical lotteryResultDate: ${edition.lotteryResultDate}`] : []),
         ],
         sourceIds: officialRegistrySources.map(({ sourceId }) => sourceId),
-        missingEvidence: "An accepted, Edition-matched official statement of the current registration status after the lifecycle boundary.",
+        missingEvidence: lifecycleBoundaryPassed
+          ? "An accepted, Edition-matched official statement with a verifiable publication or effective time after the lifecycle boundary."
+          : "An accepted, Edition-matched official statement of the current registration status.",
         humanReviewAction: "Verify the current registration stage with the organizer; do not derive a new status from time alone.",
       });
     }
