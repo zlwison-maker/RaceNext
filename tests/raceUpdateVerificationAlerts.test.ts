@@ -17,12 +17,14 @@ const original = JSON.parse(await readFile(new URL("../data/canonical/race-graph
 const registry = await loadRaceSourceRegistry();
 const NOW = "2026-10-10T08:00:00.000Z";
 
-test("historical Beijing lottery and Guangzhou open states trigger lifecycle review without changing Canonical", () => {
+test("historical Beijing and Guangzhou lottery states trigger review without changing Canonical", () => {
   const snapshot = structuredClone(original);
   const beijing = snapshot.records.find(({ edition }) => edition.editionId === "beijing-marathon-2026")!;
   const guangzhou = snapshot.records.find(({ edition }) => edition.editionId === "guangzhou-marathon-2026")!;
   beijing.edition.registrationStatus = "lottery";
-  guangzhou.edition.registrationStatus = "registration_open";
+  guangzhou.edition.registrationStatus = "lottery";
+  equal(beijing.edition.registrationStatus, "lottery");
+  equal(guangzhou.edition.registrationStatus, "lottery");
   const before = JSON.stringify(snapshot);
   const result = evaluateVerificationAlerts({
     snapshot, registry,
@@ -43,6 +45,10 @@ test("historical Beijing lottery and Guangzhou open states trigger lifecycle rev
 });
 
 test("HK100 ten failed official pages and successful auxiliary page produce one aggregated HIGH official alert", () => {
+  const snapshot = structuredClone(original);
+  const hk100 = snapshot.records.find(({ edition }) => edition.editionId === "hk100-2027")!;
+  hk100.edition.registrationStatus = "unknown";
+  equal(hk100.edition.registrationStatus, "unknown");
   const official = registry.editions.find(({ editionId }) => editionId === "hk100-2027")!.sources
     .filter(({ tier }) => tier === "primary_official");
   equal(official.length, 10);
@@ -50,7 +56,7 @@ test("HK100 ten failed official pages and successful auxiliary page produce one 
     ...official.map(({ sourceId }) => source("hk100-2027", sourceId, "primary_official", "fetch_error")),
     source("hk100-2027", "hk100-finishers-2027", "trusted_structured", "unchanged"),
   ];
-  const result = evaluateVerificationAlerts({ snapshot: original, registry, extraction: extraction(sources) });
+  const result = evaluateVerificationAlerts({ snapshot, registry, extraction: extraction(sources) });
   const officialAlert = result.verificationAlerts.filter((item) => item.editionId === "hk100-2027"
     && item.reasonCode === "OFFICIAL_SOURCE_UNAVAILABLE");
   equal(officialAlert.length, 1);
@@ -60,7 +66,7 @@ test("HK100 ten failed official pages and successful auxiliary page produce one 
   const status = result.criticalFactVerification.find((item) => item.editionId === "hk100-2027"
     && item.field === "registrationStatus")!;
   equal(status.officialSourcesEffectivelyProcessed, 0);
-  equal(status.status, "NOT_VERIFIED_THIS_RUN");
+  equal(status.status, "UNKNOWN");
   deepEqual(status.directOfficialEvidenceSourceIds, []);
 });
 
@@ -90,9 +96,11 @@ test("missing official registration is distinct from official processing failure
 });
 
 test("trusted-source no-change candidate cannot verify an official critical fact", () => {
+  const snapshot = structuredClone(original);
+  snapshot.records.find(({ edition }) => edition.editionId === "beijing-marathon-2026")!.edition.registrationStatus = "lottery";
   const trusted = source("beijing-marathon-2026", "beijing-marathon-aims-2026", "trusted_structured", "success");
-  trusted.candidates = [noChangeRegistration("beijing-marathon-2026", trusted.sourceId, "registration_closed")];
-  const result = evaluateVerificationAlerts({ snapshot: original, registry, extraction: extraction([trusted]) });
+  trusted.candidates = [noChangeRegistration("beijing-marathon-2026", trusted.sourceId, "lottery")];
+  const result = evaluateVerificationAlerts({ snapshot, registry, extraction: extraction([trusted]) });
   equal(result.criticalFactVerification.find((item) => item.editionId === "beijing-marathon-2026"
     && item.field === "registrationStatus")!.status, "NOT_VERIFIED_THIS_RUN");
   ok(result.verificationAlerts.some((item) => item.editionId === "beijing-marathon-2026"
@@ -100,10 +108,12 @@ test("trusted-source no-change candidate cannot verify an official critical fact
 });
 
 test("direct current official no-change evidence after the deadline suppresses only the lifecycle alert", () => {
+  const snapshot = structuredClone(original);
+  snapshot.records.find(({ edition }) => edition.editionId === "beijing-marathon-2026")!.edition.registrationStatus = "lottery";
   const confirmed = source("beijing-marathon-2026", "beijing-marathon-official-registration-guidelines-2026",
     "primary_official", "success");
-  confirmed.candidates = [noChangeRegistration("beijing-marathon-2026", confirmed.sourceId, "registration_closed")];
-  const result = evaluateVerificationAlerts({ snapshot: original, registry, extraction: extraction([confirmed]) });
+  confirmed.candidates = [noChangeRegistration("beijing-marathon-2026", confirmed.sourceId, "lottery")];
+  const result = evaluateVerificationAlerts({ snapshot, registry, extraction: extraction([confirmed]) });
   equal(result.verificationAlerts.some((item) => item.editionId === "beijing-marathon-2026"
     && item.reasonCode === "REGISTRATION_LIFECYCLE_REVIEW"), false);
   const status = result.criticalFactVerification.find((item) => item.editionId === "beijing-marathon-2026"
@@ -112,6 +122,66 @@ test("direct current official no-change evidence after the deadline suppresses o
   deepEqual(status.directOfficialEvidenceSourceIds, [confirmed.sourceId]);
   equal(result.criticalFactVerification.find((item) => item.editionId === "beijing-marathon-2026"
     && item.field === "raceDate")!.status, "NOT_VERIFIED_THIS_RUN");
+});
+
+test("no-change verification rejects missing evidence, wrong identity, wrong scope and mismatched values", () => {
+  const base = source("beijing-marathon-2026", "beijing-marathon-official-registration-guidelines-2026",
+    "primary_official", "success");
+  base.candidates = [noChangeRegistration("beijing-marathon-2026", base.sourceId, "registration_closed")];
+  const mutations: Array<[string, (sourceReport: RealExtractionSourceReport) => void]> = [
+    ["empty evidence", (report) => { report.candidates[0].evidenceText = ""; }],
+    ["empty locator", (report) => { report.candidates[0].evidenceLocator = ""; }],
+    ["wrong Event", (report) => { report.candidates[0].eventId = "other-event"; }],
+    ["wrong Edition", (report) => { report.candidates[0].editionId = "other-edition"; }],
+    ["wrong Category scope", (report) => { report.candidates[0].categoryId = "other-category"; }],
+    ["wrong field", (report) => { report.candidates[0].field = "registrationOpenDate"; }],
+    ["wrong source URL", (report) => { report.candidates[0].sourceUrl = "https://example.test/wrong"; }],
+    ["downgraded source tier", (report) => { report.sourceTier = "trusted_structured"; }],
+    ["wrong candidate value", (report) => { report.candidates[0].candidateValue = "lottery"; }],
+    ["wrong current value", (report) => { report.candidates[0].currentValue = "lottery"; }],
+    ["not an unchanged diff", (report) => { report.candidates[0].diff = "CHANGED"; }],
+    ["uncertain source identity", (report) => { report.identity!.status = "uncertain"; }],
+  ];
+  for (const [label, mutate] of mutations) {
+    const report = structuredClone(base);
+    mutate(report);
+    const result = evaluateVerificationAlerts({ snapshot: original, registry, extraction: extraction([report]) });
+    equal(result.criticalFactVerification.find((item) => item.editionId === "beijing-marathon-2026"
+      && item.field === "registrationStatus")!.status, "NOT_VERIFIED_THIS_RUN", label);
+  }
+});
+
+test("Hash unchanged and fetch success without field evidence never verify a field", () => {
+  for (const extractionStatus of ["unchanged", "success"] as const) {
+    const official = source("beijing-marathon-2026", "beijing-marathon-official-registration-guidelines-2026",
+      "primary_official", extractionStatus);
+    const result = evaluateVerificationAlerts({ snapshot: original, registry, extraction: extraction([official]) });
+    equal(result.criticalFactVerification.find((item) => item.editionId === "beijing-marathon-2026"
+      && item.field === "registrationStatus")!.status, "NOT_VERIFIED_THIS_RUN");
+  }
+});
+
+test("closed status without a new lifecycle risk has no repeated lifecycle alert or HIGH; lottery before its boundary is not closed", () => {
+  const official = source("beijing-marathon-2026", "beijing-marathon-official-registration-guidelines-2026",
+    "primary_official", "unchanged");
+  const closed = evaluateVerificationAlerts({ snapshot: original, registry, extraction: extraction([official]) });
+  equal(closed.verificationAlerts.some((item) => item.editionId === "beijing-marathon-2026"
+    && item.reasonCode === "REGISTRATION_LIFECYCLE_REVIEW"), false);
+  equal(closed.verificationAlerts.some((item) => item.editionId === "beijing-marathon-2026"
+    && item.severity === "HIGH"), false);
+
+  const snapshot = structuredClone(original);
+  const edition = snapshot.records.find(({ edition }) => edition.editionId === "beijing-marathon-2026")!.edition;
+  edition.registrationStatus = "lottery";
+  edition.registrationCloseDate = "2026-10-20";
+  edition.lotteryResultDate = null;
+  edition.raceDate = "2026-11-18";
+  const before = JSON.stringify(snapshot);
+  const beforeBoundary = evaluateVerificationAlerts({ snapshot, registry, extraction: extraction([official]) });
+  equal(beforeBoundary.verificationAlerts.some((item) => item.editionId === edition.editionId
+    && item.reasonCode === "REGISTRATION_LIFECYCLE_REVIEW"), false);
+  equal(edition.registrationStatus, "lottery");
+  equal(JSON.stringify(snapshot), before);
 });
 
 test("date-only boundaries wait until the whole local day ends; historical editions do not alert forever", () => {
@@ -161,6 +231,10 @@ test("same run input is deterministic, alert IDs aggregate by Edition/type/scope
   deepEqual(first, second);
   equal(new Set(first.verificationAlerts.map(({ alertId }) => alertId)).size, first.verificationAlerts.length);
   equal(reports.sources.every(({ candidates }) => candidates.length === 0), true);
+  const nextRun = structuredClone(reports);
+  nextRun.runId = "fixture-run-next";
+  const repeated = evaluateVerificationAlerts({ snapshot: original, registry, extraction: nextRun });
+  deepEqual(repeated.verificationAlerts, first.verificationAlerts);
 });
 
 test("daily report, sanitized artifact and Actions summary agree on counts and remain secret-free", () => {
@@ -239,7 +313,8 @@ function noChangeRegistration(editionId: string, sourceId: string, value: string
   return {
     eventId: "beijing-marathon", editionId, categoryId: null, entityType: "Edition",
     field: "registrationStatus", candidateValue: value, sourceId, sourceUrl: `https://example.test/${sourceId}`,
-    sourceTier: "primary_official", authority: "authoritative", evidenceText: "Registration is closed.",
+    sourceTier: "primary_official", authority: "authoritative",
+    evidenceText: value === "lottery" ? "The lottery is ongoing." : "Registration is closed.",
     evidenceLocator: "text", confidence: 1, currentValue: value, diff: "UNCHANGED", risk: null,
     action: "no_change", changeId: null, pendingStatus: null, reason: "Candidate matches Canonical.",
     provider: "fixture", model: "fixture", promptVersion: "fixture",

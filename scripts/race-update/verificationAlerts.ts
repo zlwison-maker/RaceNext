@@ -2,6 +2,7 @@ import { createHash } from "node:crypto";
 
 import type {
   CriticalFactVerification,
+  RealExtractionCandidateReview,
   RealExtractionReport,
   RealExtractionSourceReport,
   VerificationAlert,
@@ -31,6 +32,7 @@ export function evaluateVerificationAlerts(input: {
       .filter((source) => source.tier === "primary_official");
     const officialIds = new Set(officialRegistrySources.map(({ sourceId }) => sourceId));
     const effectiveOfficial = sourceReports.filter((source) => officialIds.has(source.sourceId)
+      && source.sourceTier === "primary_official"
       && source.identity?.status === "matched"
       && ["success", "unchanged"].includes(source.extractionStatus));
     const effectiveOfficialIds = new Set(effectiveOfficial.map(({ sourceId }) => sourceId));
@@ -123,11 +125,10 @@ export function evaluateVerificationAlerts(input: {
     ];
     const confirmedAfterBoundaries = sourceReports.some((source) => {
       if (!statusCheck.directOfficialEvidenceSourceIds.includes(source.sourceId)) return false;
-      if (!source.candidates.some((candidate) => candidate.action === "no_change"
-        && candidate.authority === "authoritative" && candidate.field === "registrationStatus"
-        && candidate.editionId === edition.editionId && candidate.categoryId === null
-        && candidate.sourceId === source.sourceId
-        && candidate.candidateValue === edition.registrationStatus)) return false;
+      if (!source.candidates.some((candidate) => directCurrentFactEvidence({
+        candidate, source, record, field: "registrationStatus", categoryId: null,
+        value: edition.registrationStatus,
+      }))) return false;
       const fetched = source.fetchedAt ? new Date(source.fetchedAt) : null;
       return fetched && !Number.isNaN(fetched.getTime())
         && passedBoundaries.every((boundary) => isPastBoundary(boundary, edition.timezone, fetched));
@@ -135,8 +136,9 @@ export function evaluateVerificationAlerts(input: {
     const days = daysUntilRace(record, asOf);
     const nearingRaceWithoutStatusEvidence = days !== null && days >= 0 && days <= IMMINENT_DAYS
       && statusCheck.status !== "VERIFIED_THIS_RUN";
-    if ((passedBoundaries.length > 0 && !confirmedAfterBoundaries)
-      || (passedBoundaries.length === 0 && nearingRaceWithoutStatusEvidence)) {
+    const actionableStatus = edition.registrationStatus !== "registration_closed";
+    if (actionableStatus && ((passedBoundaries.length > 0 && !confirmedAfterBoundaries)
+      || (passedBoundaries.length === 0 && nearingRaceWithoutStatusEvidence))) {
       const openLike = ["registration_open", "upcoming", "lottery", "waiting_list"].includes(edition.registrationStatus);
       add({
         editionId: edition.editionId,
@@ -203,12 +205,9 @@ function checkField(
     && source.sourceTier === "primary_official"
     && source.extractionStatus === "success" && source.identity?.status === "matched"
     && source.requestStatus === "success"
-    && source.candidates.some((candidate) => candidate.action === "no_change"
-      && candidate.authority === "authoritative" && candidate.field === field
-      && candidate.editionId === record.edition.editionId
-      && candidate.sourceId === source.sourceId
-      && candidate.categoryId === categoryId
-      && JSON.stringify(candidate.candidateValue) === JSON.stringify(value))).map(({ sourceId }) => sourceId).sort();
+    && source.candidates.some((candidate) => directCurrentFactEvidence({
+      candidate, source, record, field, categoryId, value,
+    }))).map(({ sourceId }) => sourceId).sort();
   return {
     editionId: record.edition.editionId,
     categoryId,
@@ -219,6 +218,27 @@ function checkField(
       : directOfficialEvidenceSourceIds.length > 0 ? "VERIFIED_THIS_RUN" : "NOT_VERIFIED_THIS_RUN",
     directOfficialEvidenceSourceIds: [...new Set(directOfficialEvidenceSourceIds)],
   };
+}
+
+function directCurrentFactEvidence(input: {
+  candidate: RealExtractionCandidateReview;
+  source: RealExtractionSourceReport;
+  record: RaceGraphSnapshotRecord;
+  field: CriticalFactVerification["field"];
+  categoryId: string | null;
+  value: unknown;
+}): boolean {
+  const { candidate, source, record, field, categoryId, value } = input;
+  return candidate.action === "no_change" && candidate.diff === "UNCHANGED"
+    && candidate.authority === "authoritative"
+    && candidate.evidenceText.trim().length > 0 && candidate.evidenceLocator.trim().length > 0
+    && candidate.eventId === record.event.eventId
+    && candidate.editionId === record.edition.editionId
+    && candidate.sourceId === source.sourceId && candidate.sourceUrl === source.sourceUrl
+    && candidate.field === field && candidate.categoryId === categoryId
+    && candidate.entityType === (categoryId ? "Category" : "Edition")
+    && JSON.stringify(candidate.candidateValue) === JSON.stringify(value)
+    && JSON.stringify(candidate.currentValue) === JSON.stringify(value);
 }
 
 function editionFinished(record: RaceGraphSnapshotRecord, asOf: Date): boolean {
