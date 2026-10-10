@@ -1,12 +1,9 @@
 import { deepEqual, equal, match, ok, rejects, throws } from "node:assert/strict";
-import { execFile } from "node:child_process";
-import { mkdtemp, readFile, writeFile } from "node:fs/promises";
-import { tmpdir } from "node:os";
-import { join } from "node:path";
+import { readFile } from "node:fs/promises";
 import { test } from "node:test";
-import { promisify } from "node:util";
 
 import { evaluateRaceUpdateCore } from "../scripts/race-update/pipeline.ts";
+import { assertFinishBaseline, planAutomationDataPr } from "../scripts/race-update/productionPrContinuity.ts";
 import { runRealExtractionDryRun } from "../scripts/race-update/realExtraction.ts";
 import {
   assertDataOnlyPaths,
@@ -36,7 +33,7 @@ const canonical = JSON.parse(await readFile(new URL("../data/canonical/race-grap
 // Workflow fixtures exercise the historical lottery -> closed transition, independent of today's Canonical status.
 canonical.records.find(({ edition }) => edition.editionId === "beijing-marathon-2026")!.edition.registrationStatus = "lottery";
 const registry = await loadRaceSourceRegistry();
-const execFileAsync = promisify(execFile);
+const continuityCli = await readFile(new URL("../scripts/race-update/productionPrContinuityCli.ts", import.meta.url), "utf8");
 
 test("Phase 4B-2 workflow keeps manual dispatch and adds the exact serialized daily schedule", () => {
   match(workflow, /^\s{2}workflow_dispatch:/m);
@@ -53,34 +50,26 @@ test("Phase 4B-2 workflow keeps manual dispatch and adds the exact serialized da
   equal(/git push origin main/.test(workflow), false);
   equal(/gh pr merge/.test(workflow), false);
   equal(workflow.includes("race-source-registry.json"), false);
-  match(workflow, /automation\/race-data-update-\$\{GITHUB_RUN_ID\}/);
+  match(continuityCli, /automation\/race-data-update-\$\{process\.env\.GITHUB_RUN_ID/);
+  match(workflow, /productionPrContinuityCli\.ts prepare/);
+  match(workflow, /productionPrContinuityCli\.ts finish/);
 });
 
-test("scheduled runs skip when an automation data PR is open while manual runs remain available", () => {
-  const guard = workflowStep("Check for open automation data PR");
-  match(guard, /id: open-pr-guard/);
-  match(guard, /if: github\.event_name == 'schedule'/);
-  match(guard, /gh pr list/);
-  match(guard, /--repo "\$GITHUB_REPOSITORY"/);
-  match(guard, /--state open/);
-  match(guard, /--base main/);
-  match(guard, /startsWith|startswith/);
-  match(guard, /automation\/race-data-update-/);
-  match(guard, /echo "skip=true" >> "\$GITHUB_OUTPUT"/);
-  match(guard, /Race Data Update skipped:/);
-  match(guard, /an existing automation data PR is still awaiting human review\./);
-  match(guard, /PR number:/);
-  match(guard, /PR URL:/);
-  match(guard, /Head branch:/);
-
+test("scheduled and manual runs share trusted-main state preparation and safe single-PR finish", () => {
+  match(workflowStep("Checkout main"), /ref: main/);
+  match(workflowStep("Prepare continuous monitoring baseline"), /productionPrContinuityCli\.ts prepare/);
+  match(workflowStep("Safely continue or create the single data PR"), /productionPrContinuityCli\.ts finish/);
+  equal(workflow.includes("open-pr-guard"), false);
+  equal(workflow.includes("github.event_name == 'schedule'"), false);
   const production = workflowStep("Run 12-race production manual check");
-  match(production, /if: steps\.open-pr-guard\.outputs\.skip != 'true'/);
+  match(production, /--auto-apply-low-risk=false/);
   equal(production.includes("github.event_name"), false);
 
   for (const stepName of [
     "Checkout main",
     "Set up Node.js",
     "Install dependencies",
+    "Prepare continuous monitoring baseline",
     "Validate provider secrets",
     "Run 12-race production manual check",
     "Enforce data-only diff",
@@ -91,41 +80,34 @@ test("scheduled runs skip when an automation data PR is open while manual runs r
     "Run Public Fact Gate",
     "Run TypeScript gates",
     "Check patch whitespace",
-    "Finish without PR when only volatile metadata changed",
-    "Create data-only pull request",
+    "Safely continue or create the single data PR",
   ]) {
-    match(workflowStep(stepName), /if: steps\.open-pr-guard\.outputs\.skip != 'true'/);
+    equal(workflowStep(stepName).includes("open-pr-guard"), false);
   }
+  match(workflow, /concurrency:\n\s{2}group: race-data-update\n\s{2}cancel-in-progress: false/);
+  match(workflowStep("Report failed monitoring or blocked write"), /if: failure\(\)/);
 });
 
-test("open automation PR guard emits skip output and an auditable summary with mocked GitHub state", async () => {
-  const fixtureRoot = await mkdtemp(join(tmpdir(), "racenext-pr-guard-"));
-  const mockGh = join(fixtureRoot, "gh");
-  const outputPath = join(fixtureRoot, "output");
-  const summaryPath = join(fixtureRoot, "summary");
-  await writeFile(mockGh, [
-    "#!/usr/bin/env bash",
-    "printf '42\\thttps://github.com/example/RaceNext/pull/42\\tautomation/race-data-update-42\\n'",
-  ].join("\n"), { mode: 0o755 });
-  await writeFile(outputPath, "");
-  await writeFile(summaryPath, "");
-
-  await execFileAsync("bash", ["-euo", "pipefail", "-c", workflowRunScript("Check for open automation data PR")], {
-    env: {
-      ...process.env,
-      PATH: `${fixtureRoot}:${process.env.PATH ?? ""}`,
-      GITHUB_OUTPUT: outputPath,
-      GITHUB_STEP_SUMMARY: summaryPath,
-      GITHUB_REPOSITORY: "example/RaceNext",
-    },
-  });
-
-  equal(await readFile(outputPath, "utf8"), "skip=true\n");
-  const summary = await readFile(summaryPath, "utf8");
-  match(summary, /Race Data Update skipped:/);
-  match(summary, /PR number: #42/);
-  match(summary, /PR URL: https:\/\/github\.com\/example\/RaceNext\/pull\/42/);
-  match(summary, /Head branch: `automation\/race-data-update-42`/);
+test("mock open PR state continues monitoring but rejects changed head before write", () => {
+  const pr = {
+    number: 42,
+    url: "https://github.com/example/RaceNext/pull/42",
+    headRef: "automation/race-data-update-42",
+    headSha: "a".repeat(40),
+    headRepo: "example/RaceNext",
+  };
+  const mainSha = "b".repeat(40);
+  const start = planAutomationDataPr({ prs: [pr], repository: pr.headRepo, mainSha });
+  deepEqual(start, { mode: "continue", mainSha, pr });
+  assertFinishBaseline({ start, current: start, remoteMainSha: mainSha, remoteHeadSha: pr.headSha });
+  throws(() => assertFinishBaseline({
+    start,
+    current: start,
+    remoteMainSha: mainSha,
+    remoteHeadSha: "c".repeat(40),
+  }), /DATA_PR_HEAD_CHANGED/);
+  match(continuityCli, /MONITORING_PREPARED/);
+  match(continuityCli, /MONITORING_EXECUTED; DATA_PR_UPDATED/);
 });
 
 test("production secret contract fails closed without printing secret values", () => {
@@ -355,14 +337,6 @@ function workflowStep(name: string): string {
   ok(start >= 0, `missing workflow step: ${name}`);
   const next = workflow.indexOf("\n      - name:", start + marker.length);
   return workflow.slice(start, next < 0 ? workflow.length : next);
-}
-
-function workflowRunScript(name: string): string {
-  const step = workflowStep(name);
-  const marker = "        run: |\n";
-  const start = step.indexOf(marker);
-  ok(start >= 0, `missing run script for workflow step: ${name}`);
-  return step.slice(start + marker.length).replace(/^ {10}/gm, "");
 }
 
 function emptyPending(): PendingChangeStore {

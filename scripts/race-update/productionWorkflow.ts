@@ -31,7 +31,7 @@ export type SanitizedRaceUpdateReport = {
   schemaVersion: "race-update-report-v1";
   run: {
     runId: string;
-    trigger: "workflow_dispatch";
+    trigger: "workflow_dispatch" | "schedule";
     startedAt: string;
     finishedAt: string;
     autoApplyLowRisk: boolean;
@@ -81,6 +81,17 @@ export type SanitizedRaceUpdateReport = {
   lowRiskCanonicalUpdates: Array<{ changeId: string; editionId: string; field: string }>;
   sourceGaps: Array<{ editionId: string; neededSourceTypes: string[] }>;
   meaningfulDiff: MeaningfulDataChange;
+  continuity?: {
+    sourceMonitoringExecuted: boolean;
+    canonicalBaselineSha: string | null;
+    pendingStateBaseline: "main" | "open_data_pr";
+    openPrNumber: number | null;
+    openPrHeadSha: string | null;
+    newPending: number;
+    dedupedPending: number;
+    localPersistenceCompleted: boolean;
+    prPersistence: "awaiting_finish" | "not_applicable";
+  };
 };
 
 export function assertProductionSecrets(environment: Readonly<Record<string, string | undefined>>): void {
@@ -140,7 +151,7 @@ export function buildSanitizedRaceUpdateReport(input: {
     schemaVersion: "race-update-report-v1",
     run: {
       runId: report.runId,
-      trigger: "workflow_dispatch",
+      trigger: process.env.GITHUB_EVENT_NAME === "schedule" ? "schedule" : "workflow_dispatch",
       startedAt: report.startedAt,
       finishedAt: report.finishedAt,
       autoApplyLowRisk: input.autoApplyLowRisk,

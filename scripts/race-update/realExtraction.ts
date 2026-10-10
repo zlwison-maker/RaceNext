@@ -716,7 +716,8 @@ export function mergeDurablePendingChanges(
   const next = structuredClone(existing);
   const byId = new Map(next.changes.map((change) => [change.changeId, change]));
   for (const change of incoming) {
-    const durable = byId.get(change.changeId) ?? next.changes.find((candidate) => sameCrossSourceFact(candidate, change));
+    const durable = byId.get(change.changeId) ?? next.changes.find((candidate) => sameCrossSourceFact(candidate, change)
+      && (candidate.status === "pending" || hasMatchingEvidence(candidate, change)));
     if (durable) {
       if (durable.changeId === change.changeId && durableIdentity(durable) !== durableIdentity(change)) {
         throw new Error(`Pending changeId collision: ${change.changeId}`);
@@ -732,7 +733,8 @@ export function mergeDurablePendingChanges(
 
 export function findDurablePendingChange(store: PendingChangeStore, incoming: PendingChange): PendingChange | undefined {
   return store.changes.find(({ changeId }) => changeId === incoming.changeId)
-    ?? store.changes.find((candidate) => sameCrossSourceFact(candidate, incoming));
+    ?? store.changes.find((candidate) => sameCrossSourceFact(candidate, incoming)
+      && (candidate.status === "pending" || hasMatchingEvidence(candidate, incoming)));
 }
 
 function buildDurablePendingChange(input: {
@@ -811,6 +813,11 @@ function mergeEvidence(target: PendingChange, incoming: PendingChange): void {
       evidenceKeys.add(key);
     }
   }
+}
+
+function hasMatchingEvidence(existing: PendingChange, incoming: PendingChange): boolean {
+  const keys = new Set(existing.evidence.map(evidenceIdentity));
+  return incoming.evidence.every((evidence) => keys.has(evidenceIdentity(evidence)));
 }
 
 function evidenceIdentity(evidence: PendingChange["evidence"][number]): string {

@@ -18,58 +18,28 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - name: Check for open automation data PR
-        id: open-pr-guard
-        if: github.event_name == 'schedule'
-        shell: bash
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          existing_pr="$(gh pr list \
-            --repo "$GITHUB_REPOSITORY" \
-            --state open \
-            --base main \
-            --limit 100 \
-            --json number,url,headRefName \
-            --jq '[.[] | select(.headRefName | startswith("automation/race-data-update-"))][0] | if . == null then "" else [.number, .url, .headRefName] | @tsv end')"
-          if [[ -z "$existing_pr" ]]; then
-            echo "skip=false" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-
-          IFS=$'\t' read -r pr_number pr_url head_branch <<< "$existing_pr"
-          echo "skip=true" >> "$GITHUB_OUTPUT"
-          {
-            echo "## Race Data Update"
-            echo
-            echo "Race Data Update skipped:"
-            echo "an existing automation data PR is still awaiting human review."
-            echo
-            echo "- PR number: #${pr_number}"
-            echo "- PR URL: ${pr_url}"
-            echo "- Head branch: \`${head_branch}\`"
-          } >> "$GITHUB_STEP_SUMMARY"
-
+      # All executable code comes from trusted main. Open PRs supply validated data only.
       - name: Checkout main
-        if: steps.open-pr-guard.outputs.skip != 'true'
         uses: actions/checkout@v4
         with:
           ref: main
           fetch-depth: 0
 
       - name: Set up Node.js
-        if: steps.open-pr-guard.outputs.skip != 'true'
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
 
       - name: Install dependencies
-        if: steps.open-pr-guard.outputs.skip != 'true'
         run: npm ci
 
+      - name: Prepare continuous monitoring baseline
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/race-update/productionPrContinuityCli.ts prepare
+
       - name: Validate provider secrets
-        if: steps.open-pr-guard.outputs.skip != 'true'
         shell: bash
         env:
           FACT_EXTRACTION_PROVIDER: ${{ secrets.FACT_EXTRACTION_PROVIDER }}
@@ -92,7 +62,6 @@ jobs:
 
       - name: Run 12-race production manual check
         id: pipeline
-        if: steps.open-pr-guard.outputs.skip != 'true'
         env:
           FACT_EXTRACTION_PROVIDER: ${{ secrets.FACT_EXTRACTION_PROVIDER }}
           FACT_EXTRACTION_API_KEY: ${{ secrets.FACT_EXTRACTION_API_KEY }}
@@ -101,11 +70,9 @@ jobs:
         run: npm run race:check:production -- --auto-apply-low-risk=false
 
       - name: Enforce data-only diff
-        if: steps.open-pr-guard.outputs.skip != 'true'
         run: npm run race:gate:data-only
 
       - name: Scan generated output for secrets
-        if: steps.open-pr-guard.outputs.skip != 'true'
         env:
           FACT_EXTRACTION_PROVIDER: ${{ secrets.FACT_EXTRACTION_PROVIDER }}
           FACT_EXTRACTION_API_KEY: ${{ secrets.FACT_EXTRACTION_API_KEY }}
@@ -114,7 +81,6 @@ jobs:
         run: npm run race:gate:secret-scan
 
       - name: Upload sanitized report
-        if: steps.open-pr-guard.outputs.skip != 'true'
         uses: actions/upload-artifact@v4
         with:
           name: ${{ steps.pipeline.outputs.artifact_name }}
@@ -123,59 +89,33 @@ jobs:
           retention-days: 30
 
       - name: Run pipeline directed tests
-        if: steps.open-pr-guard.outputs.skip != 'true'
         run: node --test --experimental-strip-types tests/raceUpdate*.test.ts
 
       - name: Run full test suite
-        if: steps.open-pr-guard.outputs.skip != 'true'
         run: npm test
 
       - name: Run Public Fact Gate
-        if: steps.open-pr-guard.outputs.skip != 'true'
         run: node --test --experimental-strip-types tests/raceGraphPublic.test.ts tests/launchBatchSeven.test.ts
 
       - name: Run TypeScript gates
-        if: steps.open-pr-guard.outputs.skip != 'true'
         run: |
           npm run typecheck
           npm run typecheck:miniprogram
           npm run lint
 
       - name: Check patch whitespace
-        if: steps.open-pr-guard.outputs.skip != 'true'
         run: git diff --check
 
-      - name: Finish without PR when only volatile metadata changed
-        if: steps.open-pr-guard.outputs.skip != 'true' && steps.pipeline.outputs.meaningful_data_change != 'true'
-        run: echo "No meaningful data change; no PR will be created."
-
-      - name: Create data-only pull request
-        if: steps.open-pr-guard.outputs.skip != 'true' && steps.pipeline.outputs.meaningful_data_change == 'true'
-        shell: bash
+      - name: Safely continue or create the single data PR
         env:
           GH_TOKEN: ${{ github.token }}
-        run: |
-          branch="automation/race-data-update-${GITHUB_RUN_ID}"
-          git switch -c "$branch" origin/main
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -- \
-            data/canonical/race-graph-v1.json \
-            data/pending/race-update-pending.json \
-            data/sources/official-source-ingestion-state.json
-          if git diff --cached --quiet; then
-            echo "::error::Meaningful data change was reported but no allowlisted data diff was staged."
-            exit 1
-          fi
-          git diff --cached --check
-          git commit -m "Update race data from official sources"
-          git push origin "$branch"
-          title="Race data update: $(TZ=Asia/Shanghai date +%F)"
-          if ! gh pr create \
-            --base main \
-            --head "$branch" \
-            --title "$title" \
-            --body-file "${{ steps.pipeline.outputs.pr_body_path }}"; then
-            echo "::error::GITHUB_PR_PERMISSION_BLOCKED"
-            exit 1
-          fi
+          MEANINGFUL_DATA_CHANGE: ${{ steps.pipeline.outputs.meaningful_data_change }}
+          PR_BODY_PATH: ${{ steps.pipeline.outputs.pr_body_path }}
+          ARTIFACT_NAME: ${{ steps.pipeline.outputs.artifact_name }}
+          NEW_PENDING_COUNT: ${{ steps.pipeline.outputs.new_pending_count }}
+          DEDUPED_PENDING_COUNT: ${{ steps.pipeline.outputs.deduped_pending_count }}
+        run: node scripts/race-update/productionPrContinuityCli.ts finish
+
+      - name: Report failed monitoring or blocked write
+        if: failure()
+        run: echo "CHECK_FAILED; inspect prior step for WRITE_BLOCKED or PARTIAL_SUCCESS and whether the Data PR branch was already updated." >> "$GITHUB_STEP_SUMMARY"
