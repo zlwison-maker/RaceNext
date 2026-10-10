@@ -7,6 +7,7 @@ import type {
 import type { PendingChangeStore, RaceGraphSnapshot, RaceSourceRegistry } from "../../types/raceUpdate.ts";
 import { runRealExtractionDryRun, type PreparedRealExtractionRun, type RealExtractionTarget } from "./realExtraction.ts";
 import { activeFreshnessSources } from "./sourceRegistry.ts";
+import { evaluateVerificationAlerts } from "./verificationAlerts.ts";
 
 export type PreparedRaceDailyCheck = {
   prepared: PreparedRealExtractionRun;
@@ -81,6 +82,11 @@ export function buildRaceDailyCheckReport(input: {
   const conflicts = input.prepared.pendingStore.changes.filter(({ changeId }) => conflictIds.has(changeId));
   const semanticReviews = extraction.sources.flatMap(({ candidates }) => candidates)
     .filter(({ action }) => action === "semantic_review");
+  const verification = evaluateVerificationAlerts({
+    snapshot: input.snapshot,
+    registry: input.registry,
+    extraction,
+  });
 
   return {
     schemaVersion: "race-daily-check-v1",
@@ -96,6 +102,7 @@ export function buildRaceDailyCheckReport(input: {
     sourceGaps: editions
       .filter(({ sourceGap }) => sourceGap.length > 0)
       .map(({ editionId, sourceGap }) => ({ editionId, neededSourceTypes: sourceGap })),
+    ...verification,
     extraction,
     summary: {
       editionsChecked: editions.length,
@@ -120,6 +127,9 @@ export function buildRaceDailyCheckReport(input: {
       pendingDeduped: Math.max(0, requiredIds.size - newPending.length),
       semanticReviews: semanticReviews.length,
       canonicalWrites: 0,
+      verificationAlerts: verification.verificationAlerts.length,
+      verificationAlertsHigh: verification.verificationAlerts.filter(({ severity }) => severity === "HIGH").length,
+      verificationAlertsReview: verification.verificationAlerts.filter(({ severity }) => severity === "REVIEW").length,
     },
   };
 }
