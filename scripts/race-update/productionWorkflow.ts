@@ -80,6 +80,17 @@ export type SanitizedRaceUpdateReport = {
   conflicts: Array<{ changeId: string; editionId: string; categoryId: string | null; field: string }>;
   lowRiskCanonicalUpdates: Array<{ changeId: string; editionId: string; field: string }>;
   sourceGaps: Array<{ editionId: string; neededSourceTypes: string[] }>;
+  verification: {
+    officialSourcesEffectivelyProcessed: number;
+    criticalFactsVerifiedThisRun: number;
+    criticalFactsNotVerifiedThisRun: number;
+    criticalFactsUnknown: number;
+    alertCount: number;
+    highCount: number;
+    reviewCount: number;
+    alerts: RaceDailyCheckReport["verificationAlerts"];
+    criticalFacts: RaceDailyCheckReport["criticalFactVerification"];
+  };
   meaningfulDiff: MeaningfulDataChange;
   continuity?: {
     sourceMonitoringExecuted: boolean;
@@ -209,6 +220,17 @@ export function buildSanitizedRaceUpdateReport(input: {
       field,
     })),
     sourceGaps: report.sourceGaps,
+    verification: {
+      officialSourcesEffectivelyProcessed: report.editions.reduce((sum, edition) => sum + edition.officialSourcesSuccessful, 0),
+      criticalFactsVerifiedThisRun: report.criticalFactVerification.filter(({ status }) => status === "VERIFIED_THIS_RUN").length,
+      criticalFactsNotVerifiedThisRun: report.criticalFactVerification.filter(({ status }) => status === "NOT_VERIFIED_THIS_RUN").length,
+      criticalFactsUnknown: report.criticalFactVerification.filter(({ status }) => status === "UNKNOWN").length,
+      alertCount: report.summary.verificationAlerts,
+      highCount: report.summary.verificationAlertsHigh,
+      reviewCount: report.summary.verificationAlertsReview,
+      alerts: report.verificationAlerts,
+      criticalFacts: report.criticalFactVerification,
+    },
     meaningfulDiff: input.meaningfulDiff,
   };
 }
@@ -227,10 +249,46 @@ export function buildDataPrBody(report: SanitizedRaceUpdateReport, artifactName:
     `- Low Risk Canonical changes: ${report.lowRiskCanonicalUpdates.length}`,
     `- Conflicts: ${report.conflicts.length}`,
     `- Source gaps: ${report.sourceGaps.length}`,
+    `- Verification Alerts: ${report.verification.alertCount} (${report.verification.highCount} HIGH / ${report.verification.reviewCount} REVIEW)`,
+    `- Official sources effectively processed: ${report.verification.officialSourcesEffectivelyProcessed}`,
     `- Report artifact: ${artifactName}`,
     "",
     "This is a data-only proposal. Human review and merge are required; no production deployment is performed.",
   ].join("\n");
+}
+
+export function buildVerificationSummary(report: SanitizedRaceUpdateReport): string {
+  const verification = report.verification;
+  const lines = [
+    "## Race Data Verification — current run",
+    "",
+    `- Run ID: ${safeSummaryText(report.run.runId)}`,
+    `- Editions checked: ${report.health.editionsChecked}`,
+    `- Sources checked / fetched / effectively processed: ${report.sources.checked} / ${report.sources.fetched} / ${report.sources.checked - report.sources.failed}`,
+    `- Official sources effectively processed: ${verification.officialSourcesEffectivelyProcessed}`,
+    `- Critical facts verified this run / not verified / unknown: ${verification.criticalFactsVerifiedThisRun} / ${verification.criticalFactsNotVerifiedThisRun} / ${verification.criticalFactsUnknown}`,
+    `- Verification Alerts: ${verification.alertCount} (${verification.highCount} HIGH / ${verification.reviewCount} REVIEW)`,
+    "- Source health is not a guarantee of critical-fact accuracy. Alerts do not change Canonical.",
+    "",
+  ];
+  for (const edition of report.health.editions) {
+    lines.push(`- ${safeSummaryText(edition.editionId)}: ${edition.officialSourcesSuccessful} official source(s) effectively processed; ${edition.sourcesFailed} source failure(s).`);
+  }
+  lines.push("");
+  for (const alert of verification.alerts) {
+    lines.push(`- **${alert.severity}** ${safeSummaryText(alert.editionId)} · ${alert.reasonCode} · ${safeSummaryText(alert.affectedFields.join(", "))}`);
+    lines.push(`  - Trigger: ${safeSummaryText(alert.triggerReason)}`);
+    lines.push(`  - Sources: ${safeSummaryText(alert.sourceIds.join(", ") || "none registered")}`);
+    lines.push(`  - Available evidence: ${safeSummaryText(alert.availableEvidence.join("; ") || "none")}`);
+    lines.push(`  - Missing: ${safeSummaryText(alert.missingEvidence)}`);
+    lines.push(`  - Human review: ${safeSummaryText(alert.humanReviewAction)}`);
+  }
+  if (verification.alerts.length === 0) lines.push("- No verification alerts in this run.");
+  return `${lines.join("\n")}\n`;
+}
+
+function safeSummaryText(value: string): string {
+  return value.replace(/[\r\n|`]/g, " ").trim();
 }
 
 export function assertSanitizedText(input: {

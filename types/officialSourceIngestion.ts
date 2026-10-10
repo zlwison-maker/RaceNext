@@ -375,6 +375,35 @@ export type RaceDailyEditionCoverage = {
   sourceGap: string[];
 };
 
+export type CriticalFactVerification = {
+  editionId: string;
+  categoryId: string | null;
+  field: "registrationStatus" | "registrationOpenDate" | "registrationCloseDate" | "raceDate" | "startAt" | "startTimes";
+  canonicalValuePresent: boolean;
+  officialSourcesEffectivelyProcessed: number;
+  status: "VERIFIED_THIS_RUN" | "NOT_VERIFIED_THIS_RUN" | "UNKNOWN";
+  directOfficialEvidenceSourceIds: string[];
+};
+
+export type VerificationAlert = {
+  alertId: string;
+  editionId: string;
+  affectedFields: string[];
+  reasonCode:
+    | "REGISTRATION_LIFECYCLE_REVIEW"
+    | "OFFICIAL_SOURCE_UNAVAILABLE"
+    | "OFFICIAL_SOURCE_NOT_REGISTERED"
+    | "OFFICIAL_SOURCE_DEGRADED"
+    | "EDITION_IDENTITY_UNCERTAIN"
+    | "CRITICAL_FACT_UNVERIFIED";
+  severity: "HIGH" | "REVIEW";
+  triggerReason: string;
+  availableEvidence: string[];
+  sourceIds: string[];
+  missingEvidence: string;
+  humanReviewAction: string;
+};
+
 export type RaceDailyCheckReport = {
   schemaVersion: "race-daily-check-v1";
   runId: string;
@@ -387,6 +416,8 @@ export type RaceDailyCheckReport = {
   conflicts: PendingChange[];
   semanticReviews: RealExtractionCandidateReview[];
   sourceGaps: Array<{ editionId: string; neededSourceTypes: string[] }>;
+  criticalFactVerification: CriticalFactVerification[];
+  verificationAlerts: VerificationAlert[];
   extraction: RealExtractionReport;
   summary: {
     editionsChecked: number;
@@ -409,6 +440,9 @@ export type RaceDailyCheckReport = {
     pendingDeduped: number;
     semanticReviews: number;
     canonicalWrites: 0;
+    verificationAlerts: number;
+    verificationAlertsHigh: number;
+    verificationAlertsReview: number;
   };
 };
 

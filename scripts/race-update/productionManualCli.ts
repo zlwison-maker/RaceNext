@@ -17,8 +17,10 @@ import type { ContinuityPlan } from "./productionPrContinuity.ts";
 import {
   assertProductionSecrets,
   assertPhase4B1AutoApplyDisabled,
+  assertSanitizedText,
   buildDataPrBody,
   buildSanitizedRaceUpdateReport,
+  buildVerificationSummary,
   classifyMeaningfulDataChange,
   parseAutoApplyLowRisk,
   withRetryingFactExtractionProvider,
@@ -120,10 +122,17 @@ report.continuity = {
 };
 const artifactName = `race-update-report-${report.run.runId}`;
 const prBody = buildDataPrBody(report, artifactName);
+const verificationSummary = buildVerificationSummary(report);
+assertSanitizedText({ text: JSON.stringify(report), environment: process.env });
+assertSanitizedText({ text: prBody, environment: process.env });
+assertSanitizedText({ text: verificationSummary, environment: process.env });
 
 await mkdir("artifacts/race-update", { recursive: true });
 await writeFile(REPORT_PATH, `${JSON.stringify(report, null, 2)}\n`, "utf8");
 await writeFile(PR_BODY_PATH, `${prBody}\n`, "utf8");
+if (process.env.GITHUB_STEP_SUMMARY) {
+  await appendFile(process.env.GITHUB_STEP_SUMMARY, verificationSummary, "utf8");
+}
 await writeGithubOutputs({
   meaningful_data_change: String(meaningfulDiff.meaningful),
   volatile_only: String(meaningfulDiff.volatileOnly),
@@ -137,6 +146,8 @@ await writeGithubOutputs({
 console.log(`RACE_HEALTH=${report.health.healthy}/${report.health.editionsChecked} healthy`);
 console.log(`SOURCES_CHECKED=${report.sources.checked}`);
 console.log(`SOURCES_FAILED=${report.sources.failed}`);
+console.log(`OFFICIAL_SOURCES_EFFECTIVE=${report.verification.officialSourcesEffectivelyProcessed}`);
+console.log(`VERIFICATION_ALERTS=${report.verification.alertCount} HIGH=${report.verification.highCount} REVIEW=${report.verification.reviewCount}`);
 console.log(`MODEL_CALLS=${report.model.calls}`);
 console.log(`NEW_PENDING=${report.newPending.length}`);
 console.log(`DEDUPED_PENDING=${result.report.summary.pendingDeduped}`);

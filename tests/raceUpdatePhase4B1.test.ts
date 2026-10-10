@@ -411,6 +411,17 @@ function reportFixture(): SanitizedRaceUpdateReport {
     conflicts: [],
     lowRiskCanonicalUpdates: [],
     sourceGaps: [],
+    verification: {
+      officialSourcesEffectivelyProcessed: 0,
+      criticalFactsVerifiedThisRun: 0,
+      criticalFactsNotVerifiedThisRun: 0,
+      criticalFactsUnknown: 0,
+      alertCount: 0,
+      highCount: 0,
+      reviewCount: 0,
+      alerts: [],
+      criticalFacts: [],
+    },
     meaningfulDiff: { meaningful: true, volatileOnly: false, reasons: ["pending"] },
   };
 }
