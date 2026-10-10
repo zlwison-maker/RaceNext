@@ -13,6 +13,7 @@ import {
   persistRaceGraphSnapshotAtomic,
 } from "./persistence.ts";
 import { loadPendingChangeStore } from "./pendingStore.ts";
+import type { ContinuityPlan } from "./productionPrContinuity.ts";
 import {
   assertProductionSecrets,
   assertPhase4B1AutoApplyDisabled,
@@ -105,6 +106,18 @@ const report = buildSanitizedRaceUpdateReport({
   meaningfulDiff,
 });
 report.run.runId = process.env.GITHUB_RUN_ID?.trim() || report.run.runId;
+const continuity = await loadContinuityContext();
+report.continuity = {
+  sourceMonitoringExecuted: true,
+  canonicalBaselineSha: continuity?.mainSha ?? null,
+  pendingStateBaseline: continuity?.mode === "continue" ? "open_data_pr" : "main",
+  openPrNumber: continuity?.mode === "continue" ? continuity.pr.number : null,
+  openPrHeadSha: continuity?.mode === "continue" ? continuity.pr.headSha : null,
+  newPending: result.report.summary.pendingCreated,
+  dedupedPending: result.report.summary.pendingDeduped,
+  localPersistenceCompleted: true,
+  prPersistence: meaningfulDiff.meaningful ? "awaiting_finish" : "not_applicable",
+};
 const artifactName = `race-update-report-${report.run.runId}`;
 const prBody = buildDataPrBody(report, artifactName);
 
@@ -124,6 +137,7 @@ console.log(`SOURCES_CHECKED=${report.sources.checked}`);
 console.log(`SOURCES_FAILED=${report.sources.failed}`);
 console.log(`MODEL_CALLS=${report.model.calls}`);
 console.log(`NEW_PENDING=${report.newPending.length}`);
+console.log(`DEDUPED_PENDING=${result.report.summary.pendingDeduped}`);
 console.log(`LOW_RISK_CANONICAL_UPDATES=${report.lowRiskCanonicalUpdates.length}`);
 console.log(`MEANINGFUL_DATA_CHANGE=${meaningfulDiff.meaningful ? "yes" : "no"}`);
 console.log(`REPORT=${REPORT_PATH}`);
@@ -143,6 +157,15 @@ async function loadState(): Promise<OfficialSourceIngestionState> {
     if ((error as NodeJS.ErrnoException).code === "ENOENT") {
       return { schemaVersion: "official-source-ingestion-state-v1", sources: [] };
     }
+    throw error;
+  }
+}
+
+async function loadContinuityContext(): Promise<ContinuityPlan | null> {
+  try {
+    return JSON.parse(await readFile("artifacts/race-update/continuity-context.json", "utf8")) as ContinuityPlan;
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === "ENOENT") return null;
     throw error;
   }
 }
