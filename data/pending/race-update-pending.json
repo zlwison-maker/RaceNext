@@ -35,11 +35,11 @@
       ],
       "risk": "high_impact",
       "reason": "High-impact race fact cannot be auto-applied in V1. Phase 3 requires durable human review and forbids auto-apply.",
-      "status": "pending",
+      "status": "applied",
       "createdAt": "2026-09-29T06:25:06.156Z",
-      "reviewedAt": null,
+      "reviewedAt": "2026-10-12T13:43:06.051Z",
       "reviewReason": null,
-      "appliedAt": null
+      "appliedAt": "2026-10-12T13:43:26.558Z"
     },
     {
       "changeId": "chg-177d66f0380e5f7f1ed9beb2",
@@ -75,11 +75,11 @@
       ],
       "risk": "high_impact",
       "reason": "High-impact race fact cannot be auto-applied in V1. Phase 3 requires durable human review and forbids auto-apply.",
-      "status": "pending",
+      "status": "applied",
       "createdAt": "2026-09-29T06:25:06.156Z",
-      "reviewedAt": null,
+      "reviewedAt": "2026-10-12T13:43:14.136Z",
       "reviewReason": null,
-      "appliedAt": null
+      "appliedAt": "2026-10-12T13:43:34.657Z"
     },
     {
       "changeId": "chg-a028496658a542cd1bc9399a",

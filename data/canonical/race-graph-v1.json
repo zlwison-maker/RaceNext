@@ -1,6 +1,6 @@
 {
   "schemaVersion": "race-graph-v1",
-  "generatedAt": "2026-09-24",
+  "generatedAt": "2026-10-12T13:43:34.657Z",
   "records": [
     {
       "event": {
@@ -440,13 +440,13 @@
           "categoryName": "马拉松",
           "shortName": "全马",
           "startAt": "2026-10-18T07:30:00+08:00",
-          "startLocation": null,
-          "finishLocation": null,
+          "startLocation": "Tian'anmen Square",
+          "finishLocation": "Landscape Avenue, Central Area of Beijing Olympic Park",
           "registrationUrl": null,
           "displayOrder": 1,
           "distanceKm": 42.195,
           "createdAt": "2026-09-10",
-          "updatedAt": "2026-09-24",
+          "updatedAt": "2026-10-12T13:43:34.657Z",
           "governance": {
             "sources": [
               {
@@ -462,8 +462,8 @@
                 "sourceName": "2026 北京马拉松官方报名须知",
                 "sourceUrl": "https://en.beijing-marathon.com/registration-guidelines.html",
                 "sourceRecordId": "beijing-marathon-official-registration-guidelines-2026",
-                "crawledAt": "2026-09-24",
-                "confidence": 0.99,
+                "crawledAt": "2026-09-29T06:24:23.147Z",
+                "confidence": 1,
                 "rawData": {
                   "raceDate": "2026-10-18",
                   "startAt": "2026-10-18T07:30:00+08:00"
@@ -477,6 +477,20 @@
                 "sourceName": "2026 北京马拉松官方报名须知",
                 "confidence": 0.99,
                 "updatedAt": "2026-09-24"
+              },
+              "startLocation": {
+                "field": "startLocation",
+                "sourceType": "official",
+                "sourceName": "beijing-marathon-official-registration-guidelines-2026",
+                "confidence": 1,
+                "updatedAt": "2026-10-12T13:43:26.558Z"
+              },
+              "finishLocation": {
+                "field": "finishLocation",
+                "sourceType": "official",
+                "sourceName": "beijing-marathon-official-registration-guidelines-2026",
+                "confidence": 1,
+                "updatedAt": "2026-10-12T13:43:34.657Z"
               }
             },
             "sourcePriority": {
@@ -488,12 +502,10 @@
             "verificationStatus": "verified",
             "verifiedAt": "2026-09-10",
             "missingFields": [
-              "startLocation",
-              "finishLocation",
               "registrationUrl"
             ],
-            "lastCrawledAt": "2026-09-10",
-            "lastUpdatedAt": "2026-09-24",
+            "lastCrawledAt": "2026-09-29T06:24:23.147Z",
+            "lastUpdatedAt": "2026-10-12T13:43:34.657Z",
             "schemaVersion": "race-graph-v1",
             "dataQualityLevel": "B"
           }
