@@ -125,6 +125,28 @@ test("provider failure is visible and cannot report discovery success", async ()
   ok(report.errors.length > 0);
 });
 
+test("missing or malformed required CMS structures fail rather than appear empty", async (t) => {
+  const malformedResponses = [
+    { name: "missing news.datas", url: newsUrl, body: { total: 1 }, error: /news\.datas/ },
+    { name: "non-array news.datas", url: newsUrl, body: { total: 1, datas: {} }, error: /news\.datas/ },
+    { name: "missing news.total", url: newsUrl, body: { datas: newsResponse.datas }, error: /news\.total/ },
+    { name: "invalid news.total", url: newsUrl, body: { total: -1, datas: newsResponse.datas }, error: /news\.total/ },
+    { name: "non-integer news.total", url: newsUrl, body: { total: "1", datas: newsResponse.datas }, error: /news\.total/ },
+    { name: "missing notice list", url: indexUrl, body: { ...homeIndexResponse, articles: {} }, error: /homeIndex\.articles\.notice/ },
+    { name: "non-array notice list", url: indexUrl, body: { ...homeIndexResponse, articles: { notice: {} } }, error: /homeIndex\.articles\.notice/ },
+  ];
+  for (const scenario of malformedResponses) {
+    await t.test(scenario.name, async () => {
+      const { fetcher } = replayFetcher({ [scenario.url]: JSON.stringify(scenario.body) });
+      const report = await discoverBeijingOfficialCandidates({ fetcher, checkedAt: observedAt });
+      equal(report.status, "failed");
+      equal(report.candidates.length, 0);
+      match(report.errors[0], scenario.error);
+      equal(report.factVerification, "not_verified");
+    });
+  }
+});
+
 test("a truncated news response is explicitly partial, not discovery success", async () => {
   const news = { ...newsResponse, total: 111 };
   const { fetcher } = replayFetcher({ [newsUrl]: JSON.stringify(news) });

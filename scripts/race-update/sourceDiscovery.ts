@@ -113,10 +113,13 @@ export async function discoverBeijingOfficialCandidates(input: {
     report.sourceChain.queries.push(newsUrl);
     const newsRaw = await fetchText(newsUrl, fetcher);
     const news = parseObject(newsRaw);
-    const noticeRecords = arrayOfObjects(parseObject(index.articles).notice);
-    const newsRecords = arrayOfObjects(news.datas);
+    const noticeRecords = requireObjectArray(parseObject(index.articles).notice, "homeIndex.articles.notice");
+    const newsRecords = requireObjectArray(news.datas, "news.datas");
+    if (!Number.isSafeInteger(news.total) || news.total < 0) {
+      throw new Error("Official CMS news.total must be a non-negative integer.");
+    }
     report.recordsExamined = noticeRecords.length + newsRecords.length;
-    report.newsReportedTotal = typeof news.total === "number" ? news.total : null;
+    report.newsReportedTotal = news.total;
     report.newsRecordsReturned = newsRecords.length;
     if (report.newsReportedTotal !== null && report.newsReportedTotal > newsRecords.length) {
       report.coverageWarnings.push("CMS reported more news records than it returned; historical coverage is incomplete.");
@@ -248,6 +251,13 @@ function parseObject(value: unknown): Record<string, any> {
 
 function arrayOfObjects(value: unknown): Record<string, any>[] {
   return Array.isArray(value) ? value.filter((item) => item && typeof item === "object" && !Array.isArray(item)) : [];
+}
+
+function requireObjectArray(value: unknown, field: string): Record<string, any>[] {
+  if (!Array.isArray(value) || value.some((item) => !item || typeof item !== "object" || Array.isArray(item))) {
+    throw new Error(`Official CMS ${field} must be an array of records.`);
+  }
+  return value as Record<string, any>[];
 }
 
 function validId(value: unknown): value is string {
