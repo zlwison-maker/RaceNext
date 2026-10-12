@@ -189,10 +189,24 @@ function toCategoryViewModel(category: PublicRaceCategory, raceType: RaceType): 
     executionFacts.push({ key: "startFinish", label: "起终点", value: category.startLocation });
   } else {
     if (category.startLocation) {
-      executionFacts.push({ key: "start", label: "起点", value: category.startLocation });
+      executionFacts.push({
+        key: "start",
+        label: "起点",
+        value: category.categoryId === "beijing-marathon-2026-marathon"
+          && category.startLocation === "Tian'anmen Square"
+          ? "天安门广场"
+          : category.startLocation,
+      });
     }
     if (category.finishLocation) {
-      executionFacts.push({ key: "finish", label: "终点", value: category.finishLocation });
+      executionFacts.push({
+        key: "finish",
+        label: "终点",
+        value: category.categoryId === "beijing-marathon-2026-marathon"
+          && category.finishLocation === "Landscape Avenue, Central Area of Beijing Olympic Park"
+          ? "奥林匹克公园中心区景观大道"
+          : category.finishLocation,
+      });
     }
   }
 

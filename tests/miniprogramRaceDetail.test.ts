@@ -83,6 +83,49 @@ test("Primary Category is selected on first load", () => {
   equal(detail.selectedCategory?.label, "100K");
 });
 
+test("Beijing 2026 displays exact official English locations in Chinese without mutating the DTO", () => {
+  const race = structuredClone(beijing);
+  race.categories[0].startLocation = "Tian'anmen Square";
+  race.categories[0].finishLocation = "Landscape Avenue, Central Area of Beijing Olympic Park";
+
+  const detail = createRaceDetailViewModel(race);
+  deepEqual(detail.selectedCategory?.executionFacts, [
+    { key: "startAt", label: "出发时间", value: "2026.10.18 07:30" },
+    { key: "start", label: "起点", value: "天安门广场" },
+    { key: "finish", label: "终点", value: "奥林匹克公园中心区景观大道" },
+  ]);
+  equal(race.categories[0].startLocation, "Tian'anmen Square");
+  equal(race.categories[0].finishLocation, "Landscape Avenue, Central Area of Beijing Olympic Park");
+  equal(beijing.categories[0].startLocation, null);
+  equal(beijing.categories[0].finishLocation, null);
+});
+
+test("Beijing-only location display mapping does not affect another Category", () => {
+  const race = structuredClone(shanghai);
+  race.categories[0].startLocation = "Tian'anmen Square";
+  race.categories[0].finishLocation = "Landscape Avenue, Central Area of Beijing Olympic Park";
+
+  const facts = createRaceDetailViewModel(race).selectedCategory?.executionFacts;
+  equal(facts?.find(({ key }) => key === "start")?.value, "Tian'anmen Square");
+  equal(facts?.find(({ key }) => key === "finish")?.value, "Landscape Avenue, Central Area of Beijing Olympic Park");
+});
+
+test("Beijing location display leaves unexpected future values unchanged", () => {
+  const race = structuredClone(beijing);
+  race.categories[0].startLocation = "Updated Start";
+  race.categories[0].finishLocation = "Updated Finish";
+
+  const facts = createRaceDetailViewModel(race).selectedCategory?.executionFacts;
+  equal(facts?.find(({ key }) => key === "start")?.value, "Updated Start");
+  equal(facts?.find(({ key }) => key === "finish")?.value, "Updated Finish");
+});
+
+test("Beijing current null locations retain the existing execution facts", () => {
+  deepEqual(createRaceDetailViewModel(beijing).selectedCategory?.executionFacts, [
+    { key: "startAt", label: "出发时间", value: "2026.10.18 07:30" },
+  ]);
+});
+
 test("multi-Category trail does not repeat the race type", () => {
   const detail = createRaceDetailViewModel(gongga);
   equal(detail.summaryDisplay, null);
