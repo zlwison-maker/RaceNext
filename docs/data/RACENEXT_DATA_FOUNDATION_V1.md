@@ -8,11 +8,14 @@
 - Manual GitHub Workflow: **ACTIVE**
 - Daily Cron: **ACTIVE — 08:23 ASIA/SHANGHAI / 00:23 UTC**
 - Phase 4B-2 First Natural Scheduled Run: **COMPLETED — 2026-10-09**
+- Data Automation Phase 1A / 1B: **IMPLEMENTED, MERGED, PRODUCTION ACCEPTED — 2026-10-12**
+- Open Data PR Continuous Monitoring: **PROVEN — RUN #9 + RUN #10; PR #15 MERGED**
+- Data Automation Phase 2: **NOT STARTED**
 - Gate 5 Real Production Change Closed Loop: **PROVEN**
 - Remote Read: **IMPLEMENTED; 12 PUBLIC EDITIONS**
 - Critical Fact Maintenance Effectiveness: **NOT VERIFIED — P0 IMPROVEMENT REQUIRED**
 
-数据基础设施 V1 的核心、12 场监控、Qwen 抽取、Pending Review 与人工生产闭环已实现。Phase 4B-2 的首次自然 `schedule` 已在 2026-10-09 执行成功，但该轮没有主动识别北京马、广州马、HK100 三项已知报名状态错误。**执行成功不等于关键事实准确性得到维护。**三项错误已通过独立 Hotfix 修复上线；本轮不再修改事实。Auto Apply 继续关闭，Human Review、Human Merge 与必要的生产部署仍是正式事实更新的边界。
+数据基础设施 V1 的核心、12 场监控、Qwen 抽取、Pending Review 与人工生产闭环已实现。Phase 4B-2 的首次自然 `schedule` 已在 2026-10-09 执行成功，但该轮没有主动识别北京马、广州马、HK100 三项已知报名状态错误；三项错误已通过独立 Hotfix 修复上线。随后 Phase 1A 监测连续性与安全延续、Phase 1B Verification Alert 已合并并通过真实生产验收。**执行成功仍不等于关键事实准确性得到维护。**Auto Apply 继续关闭，Human Review、Human Merge 与必要的生产部署仍是正式事实更新的边界。Phase 1 证据与未解决限制见[收尾及 Handoff](#15-phase-1-closeout--handoff)。
 
 本文件记录当前技术与生产状态；长期质量目标及 Phase 1–3 验收标准见 [RaceNext 赛事数据自动维护目标与验收标准 V1](../project/RACE_DATA_AUTOMATION_STANDARD_V1.md)。
 
@@ -63,7 +66,7 @@ Official Fact 与 Runner Feedback 必须分离：前者进入事实验证链路�
 
 仓库使用同一个 GitHub Actions Production Workflow 支持 `workflow_dispatch` 与每日 `schedule`。Cron 为 `23 0 * * *`，计划时间是 Asia/Shanghai 08:23。2026-10-09 首次自然运行实际于 14:21:26 开始；**该次延迟的具体原因 UNVERIFIED**，不能归因于未经核实的平台行为。正式 Workflow 固定使用 `auto_apply_low_risk=false`，不暴露开启入口。
 
-Scheduled Run 会先查询 base 为 `main`、head 以 `automation/race-data-update-` 开头的开放 PR。若存在，本次定时 Pipeline 成功跳过并在 Actions Summary 输出 PR number、URL 与 head branch，以避免竞争性 PR、重复模型调用和状态冲突；人工 `workflow_dispatch` 仍可用于 Diagnosis、Verification 与 Release Gate。**安全跳过不等于当日有效监测**，开放 Data PR 可阻断后续整轮自然检查，是待修复的 P0 连续性缺口。无 meaningful durable change 时不创建 PR；真实失败保持 GitHub Actions 红灯。
+早期 Scheduled Run 在已有 Data PR 开放时会安全跳过整轮监测；这是 2026-10-09 首次自然运行后的历史缺口，**不是当前行为**。Phase 1A 现在校验开放 PR 与分支状态，在安全条件下继续监测并更新同一个 Data PR；出现多个 PR、分支冲突或无法安全持久化时仍须 fail closed，不创建竞争性 PR。Pending-before-State、去重与 PR 更新的可追溯摘要继续生效；无 meaningful durable change 时不创建 PR，真实失败保持 GitHub Actions 红灯。2026-10-12 的定时 Run #9 和手动 Run #10 已验证同一开放 PR 的两轮延续。
 
 - 当前 Source Registry 只有 source-level authority，尚无 field-level authority；因此 Low Risk 变化也只进入 Pending / Report，Canonical 自动写入固定为 0。不能把现有风险标签解释为自动 Apply 授权。
 - 日期、地点、距离、爬升、关门时间等 High Impact 字段进入 Pending Review。
@@ -81,7 +84,8 @@ Scheduled Run 会先查询 base 为 `main`、head 以 `automation/race-data-upda
 - Qwen OpenAI-compatible Provider Adapter：**READY**
 - 本地真实 Provider 运行验收：**VERIFIED**
 - GitHub Repository Secrets 与 Manual Production Workflow：**ACTIVE AND VERIFIED**
-- Daily Schedule：**ACTIVE — FIRST NATURAL RUN COMPLETED; EFFECTIVENESS NOT VERIFIED**
+- Daily Schedule：**ACTIVE — PHASE 1 CONTINUITY ACCEPTED; CRITICAL FACT EFFECTIVENESS NOT VERIFIED**
+- Verification Alert：**ACTIVE IN RUN REPORTS; NOT A FACT CANDIDATE OR CANONICAL WRITE**
 - 未配置时：安全返回 `fact_extraction_provider_unconfigured`，不生成事实、不修改 Canonical
 
 ## 8. Distribution
@@ -132,12 +136,12 @@ Canonical 通过代码提交更新，因此公开 API 获得新数据仍依赖�
 
 | 分类 | 当前证据与边界 |
 | --- | --- |
-| **Implemented** | Event → Edition → Category、Source Registry、已登记来源 Fetch、Identity / Evidence Validation、Diff / Risk、Pending-before-State durability、Data-only PR、Open PR Guard、Public Remote Read、每日 Workflow。 |
-| **Production Verified** | 人工 Workflow 的 Git 审核闭环；首次自然 schedule 执行成功；PR #6 Pending 审核与 Ingestion State 合并。 |
-| **Not Yet Verified** | 12 场关键字段的近期核验覆盖、已知重要变化的发现率、官方来源失败时的复核有效性、人工维护成本下降；不能据来源 Hash 或 Workflow PASS 推定这些结果。 |
-| **Planned — P0 Phase 1** | Monitoring Continuity、Verification Alerts、Pending / State Safe Handling 的持续有效监测；尚无 Verification Alert 正式存储模型，不得写成已交付。 |
+| **Implemented** | Event → Edition → Category、Source Registry、已登记来源 Fetch、Identity / Evidence Validation、Diff / Risk、Pending-before-State durability、单一开放 Data PR 的安全连续监测、Pending 去重、Verification Alert、Public Remote Read、每日 Workflow。 |
+| **Production Verified — Phase 1** | 人工 Workflow 的 Git 审核闭环；PR #11 / #13 / #14 的 Phase 1A / 1B 修复已合并；Run #9 / #10 在同一开放 Data PR 下连续完成，PR #15 保留 Ingestion State 并合并。 |
+| **Not Yet Verified** | 12 场关键字段的近期直接官方核验覆盖、已知重要变化的发现率、来源失败时的事实准确性、人工维护成本下降；不能据来源 Hash、Alert 或 Workflow PASS 推定这些结果。 |
+| **Not Started — Phase 2** | 官方新公告与报名来源发现尚未启动；Phase 1–3 的冻结目标和验收 Gate 仍见[自动维护标准 V1](../project/RACE_DATA_AUTOMATION_STANDARD_V1.md#10-roadmap--acceptance-gates)。 |
 
-当前主要缺口：新公告自动发现不足、报名状态生命周期复核不足、关键字段核验健康度不足、官方抓取失败时预警不足、Open Data PR Guard 阻断整轮日常检查，以及执行状态与事实质量在报告中易被混淆。修复必须保留 Evidence 标准、重复运行幂等和安全写入边界。具体目标与验收见 [自动维护标准 V1](../project/RACE_DATA_AUTOMATION_STANDARD_V1.md)。
+Phase 1 已解决 Open Data PR 阻断整轮日常检查、重复 Pending 和关键异常不可见的问题；新公告自动发现、来源有效处理率、关键字段直接官方核验覆盖以及执行状态与事实质量的差异仍需如实报告。继续保留 Evidence 标准、重复运行幂等和安全写入边界。具体目标与验收见 [自动维护标准 V1](../project/RACE_DATA_AUTOMATION_STANDARD_V1.md)。
 
 ## 13. Deferred
 
@@ -149,10 +153,29 @@ Canonical 通过代码提交更新，因此公开 API 获得新数据仍依赖�
 - Future100 与完整存量迁移
 - Web full migration to Race Graph
 
-生产链路已完成“抓取 → 抽取 → Pending / data-only PR → Human Review → Human Merge”的真实闭环。每日 cron 与 Manual Workflow 共用同一安全路径，不负责部署，也不能自动修改 Canonical。首次自然 `schedule` 已发生；下一步不是重复证明任务可执行，而是验证监测连续性、关键事实核验与已知变化的发现能力。未有充分生产证据和独立 Human Review 前，不得开启 Canonical auto apply。
+生产链路已完成“抓取 → 抽取 → Pending / data-only PR → Human Review → Human Merge”的真实闭环。每日 cron 与 Manual Workflow 共用同一安全路径，不负责部署，也不能自动修改 Canonical。Phase 1 连续性已验收；下一步不是重复证明任务可执行，而是按冻结 Gate 审视 Phase 2 的来源发现，并持续衡量关键事实核验与变化发现能力。未有充分生产证据和独立 Human Review 前，不得开启 Canonical auto apply。
 
 ## 14. Next Phase
 
-**FIRST NATURAL RUN COMPLETED / CRITICAL FACT MAINTENANCE NEEDS P0 IMPROVEMENT**
+**PHASE 1 ACCEPTED / PHASE 2 NOT STARTED / CRITICAL FACT ACCURACY NOT ESTABLISHED**
 
-数据架构继续冻结。微信小程序已上线，创业主线是用户、获客与商业验证；自动数据维护有效性修复是独立 P0 可信度工作。Phase 1 仅处理监测连续性、Verification Alerts 与 Pending / State 安全闭环，不为尚未验证的规模化需求预建 Database、CMS、GraphQL、Queue、Worker 或第二套客户端 Schema。
+数据架构继续冻结。微信小程序已上线，创业主线是用户、获客与商业验证。Phase 1 仅处理监测连续性、Verification Alerts 与 Pending / State 安全闭环，现已收尾；Phase 2 尚未启动，不因本次 Handoff 扩大其范围，也不为尚未验证的规模化需求预建 Database、CMS、GraphQL、Queue、Worker 或第二套客户端 Schema。
+
+## 15. Phase 1 Closeout & Handoff
+
+### 已合并与已验收
+
+- [PR #11](https://github.com/zlwison-maker/RaceNext/pull/11)：Phase 1A 单一开放 Data PR 的监测连续性与状态持久化，已合并；[PR #13](https://github.com/zlwison-maker/RaceNext/pull/13)：重复 Pending 与人工审核保护修复，已合并。
+- [PR #14](https://github.com/zlwison-maker/RaceNext/pull/14)：Phase 1B Verification Alert 与字段级本轮核验报告，已合并。Alert 仅用于复核，不是 Fact Candidate；本轮值匹配与关键节点后的状态确认严格区分。
+- [Run #9 — 38211318233](https://github.com/zlwison-maker/RaceNext/actions/runs/38211318233) 是 2026-10-12 的定时运行；[Run #10 — 38214700524](https://github.com/zlwison-maker/RaceNext/actions/runs/38214700524) 是同日手动运行。两轮均成功，在同一开放 [Data PR #15](https://github.com/zlwison-maker/RaceNext/pull/15) 上延续；[Run #9 摘要](https://github.com/zlwison-maker/RaceNext/pull/15#issuecomment-6118813918)与 [Run #10 摘要](https://github.com/zlwison-maker/RaceNext/pull/15#issuecomment-6119298361)分别记录 Head `bc33b33` → `16e2c11`、新 Pending `0`、去重 Pending `0`、对应脱敏报告 Artifact，以及 Auto Apply OFF / Canonical 自动写入 ZERO。
+- PR #15 仅将监测产生的 Ingestion State 持久化到 `main`，于 2026-10-12 合并（merge commit `71947c61975c8c380e072695022a2a3ab49e6356`）；没有 Canonical 变更。状态持久化不等于关键字段已得到核验。
+
+### 仍需如实报告的限制
+
+- 最近一轮生产验收口径：**43 条监测来源中 27 条未有效处理**；**81 个关键字段检查项中，本轮直接官方核验为 0**。来源层处理、字段层直接证据和事实准确性是不同指标。Run #10 的脱敏报告 Artifact 标识为 `race-update-report-38214700524`；这些数字不应被 Workflow Success 或 PR 合并覆盖。
+- Cron 计划时间为 Asia/Shanghai 08:23；Run #9 实际于 2026-10-12 14:11:17 启动，较计划时间明显延迟。2026-10-09 首次自然运行也在 14:21:26 才启动。**延迟根因 UNVERIFIED**；Run #10 是手动触发，不用于评价 Cron 准点率。
+- Phase 1 验收证明监测连续性、异常可见性与安全持久化机制有效，**不证明 Critical Fact Verification Coverage 或 Fact Change Detection Effectiveness 达标**。所有事实候选继续进入 Human Review；`Auto Apply = OFF`，无自动事实更新。
+
+### 下一阶段 Handoff
+
+Phase 2 **尚未启动**。后续如获单独批准，仍以[自动维护标准 V1 中冻结的 Phase 2 目标与验收 Gate](../project/RACE_DATA_AUTOMATION_STANDARD_V1.md)为边界：官方新公告与报名来源发现、身份/届次判定、来源审批和发现质量衡量；不得从搜索摘要直接生成事实，也不得自动批准 Registry。本次仅记录交接状态，不启动 Phase 2、不改变 Phase 1–3 的 Gate。
