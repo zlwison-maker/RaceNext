@@ -37,9 +37,9 @@
 | A. Source Discovery | **PARTIAL** | 已登记 Source Registry 的监测已实现；官方域名内寻找与来源审批是治理路径，尚不能当作每日自动发现新公告的已验证能力。全网 Web Search 尚未实现。 |
 | B. Source Fetch & Identity | **PARTIAL** | 已有官方 HTML / 文本 PDF 抓取及身份校验；来源失败、跨域报名链接和届次不确定性仍会导致覆盖缺口。 |
 | C. Fact Extraction & Verification | **PARTIAL** | AI 提取、Evidence / Identity Validation 已实现；成功抽取 Hash 不代表字段级近期核验，部分事实仍可能漏检。 |
-| D. Change / Freshness Detection | **PARTIAL** | 已有 Diff、Hash 与 Pending；生命周期触发的无新值复核、字段新鲜度和漏检回放尚不完整。 |
+| D. Change / Freshness Detection | **PARTIAL** | 已有 Diff、Hash、Pending 与 Phase 1B Verification Alert；可提示生命周期及关键字段核验缺口，但直接官方字段核验覆盖和变化发现效果尚未达标。 |
 | E. Risk Decision & Update | **CURRENT（人工闭环）** | 风险分类、Pending、Data-only PR、Human Review / Merge 已运行；生产 `Auto Apply = OFF`，自动事实写入不在当前能力内。 |
-| F. Monitoring / Exception Handling | **PARTIAL；连续性修复为 P0 PLANNED** | 每日 schedule 和报告已运行；开放 Data PR 会让后续整轮定时检查跳过，关键异常告警与安全连续监测尚未实现。 |
+| F. Monitoring / Exception Handling | **PARTIAL；Phase 1A / 1B 已验收** | 每日 schedule、单一开放 Data PR 的连续监测、Pending / State 安全延续和 Verification Alert 已通过生产验收；来源有效处理率、字段直接核验覆盖及定时启动延迟仍是限制。 |
 
 ## 5. Fact Candidate vs Verification Alert
 
@@ -49,7 +49,7 @@
 | 必要条件 | 来源、Event / Edition / Category 身份、字段作用域、Evidence、Validation、Diff 与 Risk Policy 均成立。 | 有明确复核触发条件及受影响字段、来源或 Edition；不要求也不允许猜测替代值。 |
 | 输出 | 按当前生产策略进入 Pending / Human Review；不直接写 Canonical。 | 仅触发可见复核和后续取证；不生成推测 Candidate，不修改 Canonical。 |
 
-报名截止或抽签公布时间已过、比赛临近而证据陈旧、官方页面连续失败、全部关键官方来源失败、新公告身份待确认或官方来源互相冲突，都可能触发 Verification Alert。时间阈值不能自动推断新报名状态。**当前尚无 Verification Alert 的正式存储模型或生产闭环；本节是目标行为，不是已上线功能。**
+报名截止或抽签公布时间已过、比赛临近而证据陈旧、官方页面连续失败、全部关键官方来源失败、新公告身份待确认或官方来源互相冲突，都可能触发 Verification Alert。时间阈值不能自动推断新报名状态。**Phase 1B 已在运行报告中输出 Verification Alert，未建立独立 Alert Store；Alert 不是 Fact Candidate，也不会自动写入 Canonical。**仅本轮值匹配不能证明关键节点后的状态已经得到确认，`fetchedAt` 不能代替公告发布时间或事实适用时间。
 
 ## 6. Source Governance
 
@@ -65,23 +65,23 @@
 
 ## 8. Monitoring Continuity
 
-**P0 PLANNED，尚未实现。**已有 Pending PR 不应使每日有效监测长期停摆；但不能直接取消 Open PR Guard。目标机制须同时保证：每日检查持续、Pending 持久、Ingestion State 可恢复、重复运行幂等、无竞争性 Data PR、写入冲突安全停止。无法安全持久化时，至少保留可见报告与异常，不能假称该轮事实已核验。
+**Phase 1A 已实现并通过生产验收。**已有 Pending PR 不再使后续整轮监测直接跳过；运行在受控条件下延续同一个 Data PR。安全边界仍须同时保证：每日检查持续、Pending 持久、Ingestion State 可恢复、重复运行幂等、无竞争性 Data PR、写入冲突安全停止。无法安全持久化时，至少保留可见报告与异常，不能假称该轮事实已核验。
 
-当前 Guard 的安全价值是避免状态丢失、重复 Pending 与 PR 冲突；Phase 1 必须在保留这些边界的条件下解决整轮跳过问题。既有 Pending-before-State durability 仍是不可退让的约束。
+Open PR 安全检查的价值仍是避免状态丢失、重复 Pending 与 PR 冲突；Phase 1A 在保留这些边界的条件下解决了整轮跳过问题。既有 Pending-before-State durability 仍是不可退让的约束。连续两轮运行的验收记录见 [Data Foundation V1](../data/RACENEXT_DATA_FOUNDATION_V1.md#15-phase-1-closeout--handoff)。
 
 ## 9. Metrics
 
 三项主指标必须分开报告：
 
 1. **Pipeline Execution Success**：任务是否按预期完成或安全失败。现有 Actions 状态和运行报告可衡量执行层，不代表数据质量。
-2. **Critical Fact Verification Coverage**：关键 Edition / Category 字段在规定时间窗口内，是否有匹配身份、有效来源和足够证据的近期核验。当前来源级检查与抽取数据不足以完整测量该指标。
-3. **Fact Change Detection Effectiveness**：已知重要变化是否被发现为可信 Candidate，或在无新值时触发明确 Verification Alert。当前需用历史案例回放与人工对照建立基线，不能凭运行成功率推算。
+2. **Critical Fact Verification Coverage**：关键 Edition / Category 字段在规定时间窗口内，是否有匹配身份、有效来源和足够证据的近期核验。Phase 1B 已输出字段级本轮核验状态；单轮结果仍不足以证明长期覆盖或事实准确性。
+3. **Fact Change Detection Effectiveness**：已知重要变化是否被发现为可信 Candidate，或在无新值时触发明确 Verification Alert。Phase 1B 已有历史案例回归；真实生产变化发现率仍需人工对照建立基线，不能凭运行成功率推算。
 
 长期还应测量关键变化发现率、自动确认准确率、字段新鲜度、误报与漏报、人工介入率、人工审核分钟数、来源维护成本、模型调用与运行成本。现有执行日志和部分调用次数可提供成本/覆盖输入；字段级准确率与人工时间尚无可信生产基线，不得编造。指标必须同时记录分子、分母、时间窗和证据口径。
 
 ## 10. Roadmap & Acceptance Gates
 
-以下阶段是待实施计划；不改变当前 Schema、字段风险规则或 `Auto Apply = OFF`。
+以下目标与 Gate 保持冻结；Phase 1 已验收，Phase 2 / 3 尚未启动。不改变当前 Schema、字段风险规则或 `Auto Apply = OFF`。
 
 ### Phase 1｜监测连续性与关键异常可见（P0）
 
@@ -110,4 +110,4 @@
 
 ## 12. Status
 
-**FROZEN TARGET & GATES / CURRENT DOCUMENT**。本文冻结业务目标、事实可信度边界及 Phase 1–3 验收门槛；`PLANNED` 能力不是交付声明。当前生产仍为 **Auto Apply OFF / All Fact Candidates Require Human Review**。任何目标与实现状态变化，须以代码、生产运行证据及明确 Human Decision 更新技术现状文档，不得仅凭本文推断上线。
+**FROZEN TARGET & GATES / PHASE 1 ACCEPTED / PHASE 2 NOT STARTED**。本文冻结业务目标、事实可信度边界及 Phase 1–3 验收门槛；未启动阶段不是交付声明。Phase 1A / 1B 的实现及生产验收证据见 [Data Foundation V1](../data/RACENEXT_DATA_FOUNDATION_V1.md#15-phase-1-closeout--handoff)。当前生产仍为 **Auto Apply OFF / All Fact Candidates Require Human Review**。Workflow 成功不能替代关键事实准确性或字段级核验覆盖验收。
