@@ -339,8 +339,14 @@ function toPublicCategory(category: CanonicalCategory, primaryCategoryId: string
     cutoffTimeHours: category.cutoffTimeHours ?? null,
     startAt: category.startAt ?? null,
     startTimes: category.startTimes?.length ? [...category.startTimes] : null,
-    startLocation: category.startLocation ?? null,
-    finishLocation: category.finishLocation ?? null,
+    startLocation: category.categoryId === "beijing-marathon-2026-marathon"
+      && category.startLocation === "Tian'anmen Square"
+      ? "天安门广场"
+      : category.startLocation ?? null,
+    finishLocation: category.categoryId === "beijing-marathon-2026-marathon"
+      && category.finishLocation === "Landscape Avenue, Central Area of Beijing Olympic Park"
+      ? "奥林匹克公园中心区景观大道"
+      : category.finishLocation ?? null,
     registrationUrl: category.registrationUrl ?? null,
     displayOrder: category.displayOrder,
     isPrimaryCategory: category.categoryId === primaryCategoryId,

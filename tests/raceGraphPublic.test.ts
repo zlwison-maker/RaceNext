@@ -98,6 +98,78 @@ test("detail returns the requested canonical edition", () => {
   equal(result.body.race.eventId, "shanghai-marathon");
 });
 
+test("Beijing 2026 public locations are localized only for exact official English values", () => {
+  const snapshot = structuredClone(canonical);
+  const category = snapshot.records
+    .find(({ edition }) => edition.editionId === "beijing-marathon-2026")!
+    .categories.find(({ categoryId }) => categoryId === "beijing-marathon-2026-marathon")!;
+  category.startLocation = "Tian'anmen Square";
+  category.finishLocation = "Landscape Avenue, Central Area of Beijing Olympic Park";
+  const before = structuredClone(snapshot);
+
+  const result = createPublicRaceDetailResult(snapshot, "beijing-marathon-2026");
+  equal(result.status, 200);
+  if (result.status !== 200) return;
+  const publicCategory = result.body.race.categories.find(({ categoryId }) => categoryId === category.categoryId);
+  ok(publicCategory);
+  equal(publicCategory.startLocation, "天安门广场");
+  equal(publicCategory.finishLocation, "奥林匹克公园中心区景观大道");
+  deepEqual(snapshot, before);
+  equal(category.startLocation, "Tian'anmen Square");
+  equal(category.finishLocation, "Landscape Avenue, Central Area of Beijing Olympic Park");
+
+  const current = createPublicRaceDetailResult(canonical, "beijing-marathon-2026");
+  equal(current.status, 200);
+  if (current.status !== 200) return;
+  const currentCategory = current.body.race.categories.find(({ categoryId }) => categoryId === category.categoryId);
+  ok(currentCategory);
+  deepEqual(
+    { ...publicCategory, startLocation: null, finishLocation: null },
+    currentCategory,
+  );
+  deepEqual(
+    { ...result.body.race, categories: current.body.race.categories },
+    current.body.race,
+  );
+  equal(result.body.schemaVersion, current.body.schemaVersion);
+});
+
+test("Beijing public location mapping does not affect other races or future values", () => {
+  const snapshot = structuredClone(canonical);
+  const shanghai = snapshot.records.find(({ edition }) => edition.editionId === "shanghai-marathon-2026")!;
+  shanghai.categories[0].startLocation = "Tian'anmen Square";
+  shanghai.categories[0].finishLocation = "Landscape Avenue, Central Area of Beijing Olympic Park";
+  const other = createPublicRaceDetailResult(snapshot, shanghai.edition.editionId);
+  equal(other.status, 200);
+  if (other.status !== 200) return;
+  equal(other.body.race.categories[0].startLocation, "Tian'anmen Square");
+  equal(other.body.race.categories[0].finishLocation, "Landscape Avenue, Central Area of Beijing Olympic Park");
+
+  const beijing = snapshot.records.find(({ edition }) => edition.editionId === "beijing-marathon-2026")!;
+  beijing.categories[0].startLocation = "Updated Start";
+  beijing.categories[0].finishLocation = "Updated Finish";
+  const changed = createPublicRaceDetailResult(snapshot, beijing.edition.editionId);
+  equal(changed.status, 200);
+  if (changed.status !== 200) return;
+  equal(changed.body.race.categories[0].startLocation, "Updated Start");
+  equal(changed.body.race.categories[0].finishLocation, "Updated Finish");
+});
+
+test("current null Beijing locations stay null and presentation does not bypass the public gate", () => {
+  const current = createPublicRaceDetailResult(canonical, "beijing-marathon-2026");
+  equal(current.status, 200);
+  if (current.status !== 200) return;
+  equal(current.body.race.categories[0].startLocation, null);
+  equal(current.body.race.categories[0].finishLocation, null);
+
+  const blocked = structuredClone(canonical);
+  const beijing = blocked.records.find(({ edition }) => edition.editionId === "beijing-marathon-2026")!;
+  beijing.categories[0].startLocation = "Tian'anmen Square";
+  beijing.categories[0].finishLocation = "Landscape Avenue, Central Area of Beijing Olympic Park";
+  beijing.edition.governance.publicationGate!.publishable = false;
+  equal(createPublicRaceDetailResult(blocked, beijing.edition.editionId).status, 404);
+});
+
 test("Beijing detail exposes three ordered accommodation recommendations", () => {
   const result = createPublicRaceDetailResult(canonical, "beijing-marathon-2026");
   equal(result.status, 200);
