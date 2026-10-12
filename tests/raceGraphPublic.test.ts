@@ -118,20 +118,26 @@ test("Beijing 2026 public locations are localized only for exact official Englis
   equal(category.startLocation, "Tian'anmen Square");
   equal(category.finishLocation, "Landscape Avenue, Central Area of Beijing Olympic Park");
 
-  const current = createPublicRaceDetailResult(canonical, "beijing-marathon-2026");
-  equal(current.status, 200);
-  if (current.status !== 200) return;
-  const currentCategory = current.body.race.categories.find(({ categoryId }) => categoryId === category.categoryId);
-  ok(currentCategory);
+  const nullSnapshot = structuredClone(snapshot);
+  const nullCategory = nullSnapshot.records
+    .find(({ edition }) => edition.editionId === "beijing-marathon-2026")!
+    .categories.find(({ categoryId }) => categoryId === category.categoryId)!;
+  nullCategory.startLocation = null;
+  nullCategory.finishLocation = null;
+  const nullResult = createPublicRaceDetailResult(nullSnapshot, "beijing-marathon-2026");
+  equal(nullResult.status, 200);
+  if (nullResult.status !== 200) return;
+  const publicNullCategory = nullResult.body.race.categories.find(({ categoryId }) => categoryId === category.categoryId);
+  ok(publicNullCategory);
   deepEqual(
     { ...publicCategory, startLocation: null, finishLocation: null },
-    currentCategory,
+    publicNullCategory,
   );
   deepEqual(
-    { ...result.body.race, categories: current.body.race.categories },
-    current.body.race,
+    { ...result.body.race, categories: nullResult.body.race.categories },
+    nullResult.body.race,
   );
-  equal(result.body.schemaVersion, current.body.schemaVersion);
+  equal(result.body.schemaVersion, nullResult.body.schemaVersion);
 });
 
 test("Beijing public location mapping does not affect other races or future values", () => {
@@ -155,12 +161,16 @@ test("Beijing public location mapping does not affect other races or future valu
   equal(changed.body.race.categories[0].finishLocation, "Updated Finish");
 });
 
-test("current null Beijing locations stay null and presentation does not bypass the public gate", () => {
-  const current = createPublicRaceDetailResult(canonical, "beijing-marathon-2026");
-  equal(current.status, 200);
-  if (current.status !== 200) return;
-  equal(current.body.race.categories[0].startLocation, null);
-  equal(current.body.race.categories[0].finishLocation, null);
+test("null Beijing locations stay null and presentation does not bypass the public gate", () => {
+  const nullSnapshot = structuredClone(canonical);
+  const nullCategory = nullSnapshot.records.find(({ edition }) => edition.editionId === "beijing-marathon-2026")!.categories[0];
+  nullCategory.startLocation = null;
+  nullCategory.finishLocation = null;
+  const nullResult = createPublicRaceDetailResult(nullSnapshot, "beijing-marathon-2026");
+  equal(nullResult.status, 200);
+  if (nullResult.status !== 200) return;
+  equal(nullResult.body.race.categories[0].startLocation, null);
+  equal(nullResult.body.race.categories[0].finishLocation, null);
 
   const blocked = structuredClone(canonical);
   const beijing = blocked.records.find(({ edition }) => edition.editionId === "beijing-marathon-2026")!;

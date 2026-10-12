@@ -87,6 +87,7 @@ test("Beijing 2026 displays exact official English locations in Chinese without 
   const race = structuredClone(beijing);
   race.categories[0].startLocation = "Tian'anmen Square";
   race.categories[0].finishLocation = "Landscape Avenue, Central Area of Beijing Olympic Park";
+  const before = structuredClone(race);
 
   const detail = createRaceDetailViewModel(race);
   deepEqual(detail.selectedCategory?.executionFacts, [
@@ -96,8 +97,30 @@ test("Beijing 2026 displays exact official English locations in Chinese without 
   ]);
   equal(race.categories[0].startLocation, "Tian'anmen Square");
   equal(race.categories[0].finishLocation, "Landscape Avenue, Central Area of Beijing Olympic Park");
-  equal(beijing.categories[0].startLocation, null);
-  equal(beijing.categories[0].finishLocation, null);
+  deepEqual(race, before);
+});
+
+test("Beijing official English facts flow through Public DTO to Chinese Mini Program display", () => {
+  const snapshot = structuredClone(canonical) as {
+    records: Array<{
+      edition: { editionId: string };
+      categories: Array<{ startLocation: string | null; finishLocation: string | null }>;
+    }>;
+  };
+  const category = snapshot.records.find(({ edition }) => edition.editionId === "beijing-marathon-2026")!.categories[0];
+  category.startLocation = "Tian'anmen Square";
+  category.finishLocation = "Landscape Avenue, Central Area of Beijing Olympic Park";
+
+  const result = createPublicRaceDetailResult(snapshot, "beijing-marathon-2026");
+  equal(result.status, 200);
+  if (result.status !== 200) return;
+  equal(result.body.race.categories[0].startLocation, "天安门广场");
+  equal(result.body.race.categories[0].finishLocation, "奥林匹克公园中心区景观大道");
+  deepEqual(createRaceDetailViewModel(result.body.race).selectedCategory?.executionFacts, [
+    { key: "startAt", label: "出发时间", value: "2026.10.18 07:30" },
+    { key: "start", label: "起点", value: "天安门广场" },
+    { key: "finish", label: "终点", value: "奥林匹克公园中心区景观大道" },
+  ]);
 });
 
 test("Beijing-only location display mapping does not affect another Category", () => {
@@ -120,8 +143,11 @@ test("Beijing location display leaves unexpected future values unchanged", () =>
   equal(facts?.find(({ key }) => key === "finish")?.value, "Updated Finish");
 });
 
-test("Beijing current null locations retain the existing execution facts", () => {
-  deepEqual(createRaceDetailViewModel(beijing).selectedCategory?.executionFacts, [
+test("Beijing null locations retain the existing execution facts", () => {
+  const race = structuredClone(beijing);
+  race.categories[0].startLocation = null;
+  race.categories[0].finishLocation = null;
+  deepEqual(createRaceDetailViewModel(race).selectedCategory?.executionFacts, [
     { key: "startAt", label: "出发时间", value: "2026.10.18 07:30" },
   ]);
 });
