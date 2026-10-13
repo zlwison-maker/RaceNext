@@ -43,13 +43,52 @@ test("Core Facts keep three columns and scroll one readable row when descent cre
   equal(/\.core-facts\s*\{[\s\S]*?flex-wrap/.test(detailStyles), false);
 });
 
+test("Category selector visibility never gates the static name or Category facts", () => {
+  equal(
+    detailTemplate.includes('wx:if="{{detail.showCategorySelector}}" class="category-section"'),
+    false,
+  );
+  match(
+    detailTemplate,
+    /<view wx:if="\{\{detail\.selectedCategory\}\}" class="category-facts">\s*<view class="category-section">\s*<text class="category-heading">组别<\/text>/,
+  );
+  match(
+    detailTemplate,
+    /<block wx:if="\{\{detail\.showCategorySelector\}\}">[\s\S]*?class="category-selector-scroll"[\s\S]*?<\/block>\s*<text wx:else class="category-static-name">\{\{detail\.selectedCategory\.name\}\}<\/text>\s*<scroll-view\s+wx:if="\{\{detail\.selectedCategory\.coreFacts\.length\}\}"/,
+  );
+  match(detailStyles, /\.category-static-name\s*\{[\s\S]*?margin-top:\s*16rpx;[\s\S]*?font-size:\s*32rpx;[\s\S]*?font-weight:\s*600/);
+  match(detailStyles, /\.category-static-name \+ \.core-facts-scroll \.core-facts\s*\{[\s\S]*?padding-top:\s*24rpx/);
+  equal(/class="category-static-name"[^>]*(bindtap|hover-class)/.test(detailTemplate), false);
+  match(
+    detailTemplate,
+    /<view wx:if="\{\{detail\.selectedCategory\.executionFacts\.length\}\}" class="execution-facts">/,
+  );
+  match(
+    detailStyles,
+    /\.category-facts > \.course-points:first-child\s*\{[\s\S]*?margin-top:\s*64rpx/,
+  );
+});
+
+test("public header is compact, city-level and contains no Category summary", () => {
+  match(detailTemplate, /class="edition-meta__primary">\{\{detail\.dateDisplay\}\}<\/text>/);
+  match(detailTemplate, /class="edition-meta__primary">\{\{detail\.headerLocationDisplay\}\}<\/text>/);
+  match(detailTemplate, /class="edition-meta__registration">\{\{detail\.registrationDisplay\}\}<\/text>/);
+  match(detailTemplate, /wx:if="\{\{detail\.dateDisplay && detail\.headerLocationDisplay\}\}" class="edition-meta__separator"> · <\/text>/);
+  match(detailTemplate, /wx:if="\{\{detail\.registrationDisplay && \(detail\.dateDisplay \|\| detail\.headerLocationDisplay\)\}\}" class="edition-meta__separator"> · <\/text>/);
+  equal(detailTemplate.includes("detail.summaryDisplay"), false);
+  equal(detailTemplate.includes("detail.locationDisplay"), false);
+  match(
+    detailStyles,
+    /\.edition-meta\s*\{[\s\S]*?font-size:\s*28rpx;[\s\S]*?font-weight:\s*400;[\s\S]*?line-height:\s*44rpx;[\s\S]*?white-space:\s*normal;[\s\S]*?word-break:\s*break-word/,
+  );
+  match(detailStyles, /\.edition-meta__primary\s*\{\s*color:\s*#111111;/);
+  match(detailStyles, /\.edition-meta__separator,\s*\.edition-meta__registration\s*\{\s*color:\s*#8a8a8a;/);
+});
+
 test("Detail facts and editorial content use the frozen semantic typography", () => {
-  match(detailStyles, /\.edition-meta__registration\s*\{[\s\S]*?margin-top:\s*12rpx/);
   match(detailStyles, /\.guide-tabs\s*\{[\s\S]*?margin-top:\s*66rpx/);
   match(detailStyles, /\.race-title\s*\{[\s\S]*?font-size:\s*44rpx;[\s\S]*?font-weight:\s*700;[\s\S]*?line-height:\s*60rpx/);
-  match(detailStyles, /\.edition-meta__primary\s*\{[\s\S]*?color:\s*#2a2a2a;[\s\S]*?font-size:\s*32rpx;[\s\S]*?font-weight:\s*500;[\s\S]*?line-height:\s*48rpx/);
-  match(detailStyles, /\.edition-meta__summary\s*\{[\s\S]*?color:\s*#2a2a2a;[\s\S]*?font-size:\s*32rpx;[\s\S]*?font-weight:\s*500;[\s\S]*?line-height:\s*48rpx/);
-  match(detailStyles, /\.edition-meta__registration\s*\{[\s\S]*?color:\s*#8a8a8a;[\s\S]*?font-size:\s*28rpx;[\s\S]*?font-weight:\s*500;[\s\S]*?line-height:\s*44rpx/);
+  match(detailStyles, /\.edition-meta\s*\{[\s\S]*?font-size:\s*28rpx;[\s\S]*?font-weight:\s*400;[\s\S]*?line-height:\s*44rpx/);
   match(detailStyles, /\.guide-tab\s*\{[\s\S]*?font-size:\s*34rpx;[\s\S]*?font-weight:\s*500;[\s\S]*?line-height:\s*48rpx/);
   match(detailStyles, /\.category-heading\s*\{[\s\S]*?font-size:\s*32rpx;[\s\S]*?font-weight:\s*600;[\s\S]*?line-height:\s*48rpx/);
   match(detailStyles, /\.core-fact__value\s*\{[\s\S]*?font-size:\s*40rpx;[\s\S]*?font-weight:\s*600;[\s\S]*?line-height:\s*56rpx/);

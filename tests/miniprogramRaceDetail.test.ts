@@ -60,12 +60,18 @@ test("Detail API path uses editionId", () => {
   equal(buildRaceDetailApiPath("shanghai-marathon-2026"), "/api/races/shanghai-marathon-2026");
 });
 
-test("single Category integrates type and distance without a selector", () => {
+test("single Category keeps its formal name and facts without a selector or duplicated header summary", () => {
   const detail = createRaceDetailViewModel(shanghai);
   equal(detail.name, "2026 上海马拉松");
   equal(detail.showCategorySelector, false);
   equal(detail.categories.length, 1);
-  equal(detail.summaryDisplay, "马拉松 · 42.195 km");
+  equal(detail.selectedCategory?.name, "马拉松");
+  deepEqual(detail.selectedCategory?.coreFacts, [
+    { key: "distance", label: "距离", value: "42.195 km" },
+  ]);
+  equal(detail.headerMetaDisplay, "2026.12.06 周日 · 上海市 · 报名已结束");
+  equal(detail.headerMetaDisplay.includes("42.195 km"), false);
+  equal("summaryDisplay" in detail, false);
 });
 
 test("multiple Categories can switch core and execution facts", () => {
@@ -123,6 +129,23 @@ test("Beijing official English facts flow through Public DTO to Chinese Mini Pro
   ]);
 });
 
+test("Beijing single Category exposes its exact facts below the compact public header", () => {
+  const detail = createRaceDetailViewModel(beijing);
+  equal(detail.showCategorySelector, false);
+  equal(detail.selectedCategory?.name, "马拉松");
+  equal(detail.selectedCategory?.label, "全马");
+  equal(detail.headerMetaDisplay, "2026.10.18 周日 · 北京市 · 报名已结束");
+  equal(detail.headerMetaDisplay.includes("42.195 km"), false);
+  deepEqual(detail.selectedCategory?.coreFacts, [
+    { key: "distance", label: "距离", value: "42.195 km" },
+  ]);
+  deepEqual(detail.selectedCategory?.executionFacts, [
+    { key: "startAt", label: "出发时间", value: "2026.10.18 07:30" },
+    { key: "start", label: "起点", value: "天安门广场" },
+    { key: "finish", label: "终点", value: "奥林匹克公园中心区景观大道" },
+  ]);
+});
+
 test("Beijing-only location display mapping does not affect another Category", () => {
   const race = structuredClone(shanghai);
   race.categories[0].startLocation = "Tian'anmen Square";
@@ -154,13 +177,16 @@ test("Beijing null locations retain the existing execution facts", () => {
 
 test("multi-Category trail does not repeat the race type", () => {
   const detail = createRaceDetailViewModel(gongga);
-  equal(detail.summaryDisplay, null);
+  equal(detail.headerMetaDisplay.includes("越野跑"), false);
+  equal(detail.showCategorySelector, true);
 });
 
-test("multi-Category road races do not repeat type or distance in Edition facts", () => {
-  equal(createRaceDetailViewModel(xian).summaryDisplay, null);
-  equal(createRaceDetailViewModel(chengdu).summaryDisplay, null);
-  equal(createRaceDetailViewModel(guangzhou).summaryDisplay, "马拉松 · 42.195 km");
+test("public headers never repeat Category type or distance summaries", () => {
+  for (const race of [xian, chengdu, guangzhou]) {
+    const header = createRaceDetailViewModel(race).headerMetaDisplay;
+    equal(header.includes("马拉松"), false);
+    equal(header.includes("42.195 km"), false);
+  }
 });
 
 test("multi-start Categories display every official wave without changing single-start formatting", () => {
@@ -257,8 +283,125 @@ test("Edition facts use a natural vertical reading axis", () => {
   const gonggaDetail = createRaceDetailViewModel(gongga);
   equal(shanghaiDetail.dateDisplay, "2026.12.06 周日");
   equal(shanghaiDetail.locationDisplay, "上海市 · 外滩金牛广场");
+  equal(shanghaiDetail.headerLocationDisplay, "上海市");
   equal(gonggaDetail.dateDisplay, "2026.09.25–09.27");
   equal(createRaceDetailViewModel(hk100).locationDisplay, "中国香港 · 西贡 · 北潭涌");
+  equal(createRaceDetailViewModel(hk100).headerLocationDisplay, "中国香港 · 西贡");
+});
+
+test("single-Category Shanghai and Chongqing keep only populated facts", () => {
+  const shanghaiDetail = createRaceDetailViewModel(shanghai);
+  const chongqingDetail = createRaceDetailViewModel(chongqing);
+
+  equal(shanghaiDetail.showCategorySelector, false);
+  equal(shanghaiDetail.selectedCategory?.name, "马拉松");
+  deepEqual(shanghaiDetail.selectedCategory?.coreFacts.map(({ value }) => value), ["42.195 km"]);
+  deepEqual(shanghaiDetail.selectedCategory?.executionFacts, []);
+
+  equal(chongqingDetail.showCategorySelector, false);
+  equal(chongqingDetail.selectedCategory?.name, "马拉松");
+  deepEqual(chongqingDetail.selectedCategory?.coreFacts.map(({ value }) => value), ["42.195 km", "6 h"]);
+  deepEqual(chongqingDetail.selectedCategory?.executionFacts, [
+    { key: "startAt", label: "出发时间", value: "2027.01.10 08:00" },
+    { key: "startFinish", label: "起终点", value: "海棠烟雨公园" },
+  ]);
+
+  for (const detail of [shanghaiDetail, chongqingDetail]) {
+    equal(detail.selectedCategory?.coreFacts.some(({ value }) => value === "--"), false);
+    equal(detail.selectedCategory?.executionFacts.some(({ value }) => value === "--"), false);
+  }
+});
+
+test("single-Category generic English names are localized without changing source facts", () => {
+  const guangzhouBefore = structuredClone(guangzhou);
+  const chongqingBefore = structuredClone(chongqing);
+  equal(createRaceDetailViewModel(guangzhou).selectedCategory?.name, "马拉松");
+  equal(createRaceDetailViewModel(chongqing).selectedCategory?.name, "马拉松");
+  deepEqual(guangzhou, guangzhouBefore);
+  deepEqual(chongqing, chongqingBefore);
+
+  const half = structuredClone(beijing);
+  half.categories[0].name = "Half Marathon";
+  half.categories[0].shortName = "半马";
+  half.categories[0].distanceKm = 21.0975;
+  const halfBefore = structuredClone(half);
+  const halfDetail = createRaceDetailViewModel(half);
+  equal(halfDetail.selectedCategory?.name, "半程马拉松");
+  equal(halfDetail.selectedCategory?.coreFacts[0]?.value, "21.0975 km");
+  deepEqual(half, halfBefore);
+
+  half.categories[0].name = "Ultra Trail";
+  equal(createRaceDetailViewModel(half).selectedCategory?.name, "Ultra Trail");
+  equal(createRaceDetailViewModel(chengdu).categories[0].name, chengdu.categories[0].name);
+  equal(createRaceDetailViewModel(chengdu).categories[0].label, chengdu.categories[0].shortName);
+});
+
+test("a single Half Marathon uses its official Category name and exact distance", () => {
+  const race = structuredClone(beijing);
+  race.categories[0].name = "半程马拉松";
+  race.categories[0].shortName = "半马";
+  race.categories[0].distanceKm = 21.0975;
+  const detail = createRaceDetailViewModel(race);
+
+  equal(detail.showCategorySelector, false);
+  equal(detail.selectedCategory?.name, "半程马拉松");
+  equal(detail.selectedCategory?.label, "半马");
+  deepEqual(detail.selectedCategory?.coreFacts[0], {
+    key: "distance", label: "距离", value: "21.0975 km",
+  });
+});
+
+test("header location falls back safely and omits an unknown registration status", () => {
+  const race = structuredClone(beijing);
+  race.location = { country: "中国", province: null, city: null, district: null, venue: null };
+  race.locationDisplay = "已核验赛事地点";
+  race.registrationStatus = "unknown";
+  const detail = createRaceDetailViewModel(race);
+
+  equal(detail.headerLocationDisplay, "已核验赛事地点");
+  equal(detail.registrationDisplay, null);
+  equal(detail.headerMetaDisplay, "2026.10.18 周日 · 已核验赛事地点");
+});
+
+test("long city copy remains complete in the compact header", () => {
+  const race = structuredClone(beijing);
+  race.location = {
+    country: "中国",
+    province: null,
+    city: "这是一个用于验证自然换行的较长城市名称",
+    district: null,
+    venue: null,
+  };
+  const detail = createRaceDetailViewModel(race);
+  ok(detail.headerMetaDisplay.includes("这是一个用于验证自然换行的较长城市名称"));
+});
+
+test("empty facts stay empty while a valid Course Point section remains available", () => {
+  const race = structuredClone(gongga);
+  race.categories = [race.categories[0]];
+  const category = race.categories[0];
+  category.distanceKm = null;
+  category.elevationGain = null;
+  category.elevationLoss = null;
+  category.cutoffTimeHours = null;
+  category.startAt = null;
+  category.startTimes = null;
+  category.startLocation = null;
+  category.finishLocation = null;
+
+  const detail = createRaceDetailViewModel(race);
+  equal(detail.showCategorySelector, false);
+  deepEqual(detail.selectedCategory?.coreFacts, []);
+  deepEqual(detail.selectedCategory?.executionFacts, []);
+  ok(detail.selectedCategory?.coursePointSection);
+});
+
+test("a race without Accommodation still exposes its guide facts", () => {
+  const race = structuredClone(shanghai);
+  race.accommodationRecommendations = [];
+  const detail = createRaceDetailViewModel(race);
+  equal(detail.hasAccommodation, false);
+  deepEqual(detail.selectedCategory?.coreFacts.map(({ value }) => value), ["42.195 km"]);
 });
 
 test("unknown registration status stays hidden", () => {

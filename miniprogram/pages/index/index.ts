@@ -2,6 +2,7 @@ import { getRaces } from "../../services/races";
 import type { RaceListItem } from "../../types/races";
 import { getApiBaseUrl } from "../../utils/config";
 import { navigateToRaceDetail } from "../../utils/raceNavigation";
+import { createHomeShareConfig } from "../../utils/homeShare";
 import { formatRaceMeta, sortUpcomingRaces } from "../../utils/racePresentation";
 import {
   ANALYTICS_VIEWPORT_THRESHOLD,
@@ -37,6 +38,7 @@ type RaceImageErrorEvent = WechatMiniprogram.BaseEvent<
 >;
 
 type IndexPageCustom = {
+  homeShareEntryTracked: boolean;
   raceCardImpressionObserver: WechatMiniprogram.IntersectionObserver | null;
   raceCardImpressionTracked: Set<string>;
   loadRaces(): void;
@@ -48,6 +50,7 @@ type IndexPageCustom = {
 };
 
 Page<IndexPageData, IndexPageCustom>({
+  homeShareEntryTracked: false,
   raceCardImpressionObserver: null,
   raceCardImpressionTracked: new Set<string>(),
 
@@ -56,9 +59,34 @@ Page<IndexPageData, IndexPageCustom>({
     races: [],
   },
 
-  onLoad() {
+  onLoad(options: Record<string, string | undefined>) {
+    wx.showShareMenu({
+      menus: ["shareAppMessage", "shareTimeline"],
+    });
+    if (options.source === "share" && !this.homeShareEntryTracked) {
+      this.homeShareEntryTracked = true;
+      trackEvent("home_share_entry", { source: "share" });
+    }
     this.raceCardImpressionTracked.clear();
     this.loadRaces();
+  },
+
+  onShareAppMessage() {
+    trackEvent("home_share", {
+      channel: "app_message",
+      trigger_source: "native_menu",
+      source: "home",
+    });
+    return createHomeShareConfig().appMessage;
+  },
+
+  onShareTimeline() {
+    trackEvent("home_share", {
+      channel: "timeline",
+      trigger_source: "native_menu",
+      source: "home",
+    });
+    return createHomeShareConfig().timeline;
   },
 
   onUnload() {
