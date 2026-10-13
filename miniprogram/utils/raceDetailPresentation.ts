@@ -19,6 +19,7 @@ export type RaceFactViewModel = {
 export type CategoryViewModel = {
   categoryId: string;
   label: string;
+  name: string;
   isPrimaryCategory: boolean;
   coreFacts: RaceFactViewModel[];
   executionFacts: RaceFactViewModel[];
@@ -83,7 +84,8 @@ export type RaceDetailViewModel = {
   heroUsesFocalBackground: boolean;
   dateDisplay: string;
   locationDisplay: string;
-  summaryDisplay: string | null;
+  headerLocationDisplay: string;
+  headerMetaDisplay: string;
   registrationDisplay: string | null;
   categories: CategoryViewModel[];
   showCategorySelector: boolean;
@@ -106,10 +108,17 @@ export function createRaceDetailViewModel(race: RaceDetailPresentationInput): Ra
   const categories = race.categories
     .slice()
     .sort((left, right) => left.displayOrder - right.displayOrder)
-    .map((category) => toCategoryViewModel(category, race.raceType));
+    .map((category) => toCategoryViewModel(category, race.raceType, race.categories.length === 1));
   const selectedCategory = categories.find(({ isPrimaryCategory }) => isPrimaryCategory) ?? categories[0] ?? null;
   const showCategorySelector = categories.length > 1;
   const raceStrategy = toRaceStrategyViewModel(race.raceStrategy);
+  const dateDisplay = formatRaceDate(race.raceDate, race.endDate);
+  const locationDisplay = formatRaceLocation(race, true);
+  const headerLocationDisplay = formatRaceLocation(race);
+  const registrationDisplay = formatRegistrationStatus(race.registrationStatus);
+  const headerMetaDisplay = [dateDisplay, headerLocationDisplay, registrationDisplay]
+    .filter((value): value is string => Boolean(value))
+    .join(" · ");
 
   return {
     editionId: race.editionId,
@@ -120,10 +129,11 @@ export function createRaceDetailViewModel(race: RaceDetailPresentationInput): Ra
     heroMode: "aspectFill",
     heroFocalPoint: HERO_FOCAL_POINTS[race.editionId] ?? "50% 50%",
     heroUsesFocalBackground: race.editionId === "shanghai-marathon-2026",
-    dateDisplay: formatRaceDate(race.raceDate, race.endDate),
-    locationDisplay: formatRaceLocation(race, true),
-    summaryDisplay: formatEditionSummary(race.raceType, showCategorySelector, race.categories[0] ?? null),
-    registrationDisplay: formatRegistrationStatus(race.registrationStatus),
+    dateDisplay,
+    locationDisplay,
+    headerLocationDisplay,
+    headerMetaDisplay,
+    registrationDisplay,
     categories,
     showCategorySelector,
     selectedCategoryId: selectedCategory?.categoryId ?? "",
@@ -160,7 +170,17 @@ export function selectRaceCategory(
   };
 }
 
-function toCategoryViewModel(category: PublicRaceCategory, raceType: RaceType): CategoryViewModel {
+function formatSingleCategoryName(name: string): string {
+  if (name === "Marathon") return "马拉松";
+  if (name === "Half Marathon") return "半程马拉松";
+  return name;
+}
+
+function toCategoryViewModel(
+  category: PublicRaceCategory,
+  raceType: RaceType,
+  isSingleCategory: boolean,
+): CategoryViewModel {
   const coreFacts: RaceFactViewModel[] = [];
   const executionFacts: RaceFactViewModel[] = [];
 
@@ -213,6 +233,7 @@ function toCategoryViewModel(category: PublicRaceCategory, raceType: RaceType): 
   return {
     categoryId: category.categoryId,
     label: category.shortName ?? category.name,
+    name: isSingleCategory ? formatSingleCategoryName(category.name) : category.name,
     isPrimaryCategory: category.isPrimaryCategory,
     coreFacts,
     executionFacts,
@@ -354,35 +375,8 @@ function formatSequence(index: number): string {
   return String(index + 1).padStart(2, "0");
 }
 
-function formatEditionSummary(
-  raceType: RaceType,
-  hasMultipleCategories: boolean,
-  category: PublicRaceCategory | null,
-): string | null {
-  if (hasMultipleCategories) return null;
-  const values = [formatRaceType(raceType)];
-  if (!hasMultipleCategories && category?.distanceKm !== null && category?.distanceKm !== undefined) {
-    values.push(`${formatNumber(category.distanceKm)} km`);
-  }
-  return values.join(" · ");
-}
-
 function isTrailRaceType(raceType: RaceType): boolean {
   return raceType === "trail" || raceType === "ultra_trail" || raceType === "utmb";
-}
-
-function formatRaceType(raceType: RaceType): string {
-  const labels: Record<RaceType, string> = {
-    marathon: "马拉松",
-    half_marathon: "半程马拉松",
-    road_running: "路跑",
-    trail: "越野跑",
-    ultra_trail: "越野跑",
-    utmb: "越野跑",
-    triathlon: "铁人三项",
-    other: "其他",
-  };
-  return labels[raceType];
 }
 
 function formatRegistrationStatus(status: RegistrationStatus): string | null {

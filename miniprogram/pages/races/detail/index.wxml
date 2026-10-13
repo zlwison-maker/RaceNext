@@ -50,12 +50,11 @@
       </view>
 
       <view class="edition-meta">
-        <text class="edition-meta__primary">{{detail.dateDisplay}}</text>
-        <text class="edition-meta__primary">{{detail.locationDisplay}}</text>
-        <text wx:if="{{detail.summaryDisplay}}" class="edition-meta__summary">{{detail.summaryDisplay}}</text>
-        <text wx:if="{{detail.registrationDisplay}}" class="edition-meta__registration">
-          {{detail.registrationDisplay}}
-        </text>
+        <text wx:if="{{detail.dateDisplay}}" class="edition-meta__primary">{{detail.dateDisplay}}</text>
+        <text wx:if="{{detail.dateDisplay && detail.headerLocationDisplay}}" class="edition-meta__separator"> · </text>
+        <text wx:if="{{detail.headerLocationDisplay}}" class="edition-meta__primary">{{detail.headerLocationDisplay}}</text>
+        <text wx:if="{{detail.registrationDisplay && (detail.dateDisplay || detail.headerLocationDisplay)}}" class="edition-meta__separator"> · </text>
+        <text wx:if="{{detail.registrationDisplay}}" class="edition-meta__registration">{{detail.registrationDisplay}}</text>
       </view>
 
       <view wx:if="{{detail.hasAccommodation}}" class="guide-tabs">
@@ -76,29 +75,32 @@
       <block wx:if="{{activeGuideTab === 'race'}}">
 
       <view wx:if="{{detail.selectedCategory}}" class="category-facts">
-        <view wx:if="{{detail.showCategorySelector}}" class="category-section">
+        <view class="category-section">
           <text class="category-heading">组别</text>
+          <block wx:if="{{detail.showCategorySelector}}">
 
-          <scroll-view
-            class="category-selector-scroll"
-            scroll-x
-            enhanced
-            show-scrollbar="{{false}}"
-          >
-            <view class="category-selector">
-              <view
-                wx:for="{{detail.categories}}"
-                wx:key="categoryId"
-                class="category-option {{item.categoryId === detail.selectedCategoryId ? 'category-option--active' : ''}}"
-                data-category-id="{{item.categoryId}}"
-                bindtap="handleCategoryTap"
-                hover-class="category-option--pressed"
-                aria-role="button"
-              >
-                {{item.label}}
+            <scroll-view
+              class="category-selector-scroll"
+              scroll-x
+              enhanced
+              show-scrollbar="{{false}}"
+            >
+              <view class="category-selector">
+                <view
+                  wx:for="{{detail.categories}}"
+                  wx:key="categoryId"
+                  class="category-option {{item.categoryId === detail.selectedCategoryId ? 'category-option--active' : ''}}"
+                  data-category-id="{{item.categoryId}}"
+                  bindtap="handleCategoryTap"
+                  hover-class="category-option--pressed"
+                  aria-role="button"
+                >
+                  {{item.label}}
+                </view>
               </view>
-            </view>
-          </scroll-view>
+            </scroll-view>
+          </block>
+          <text wx:else class="category-static-name">{{detail.selectedCategory.name}}</text>
 
           <scroll-view
             wx:if="{{detail.selectedCategory.coreFacts.length}}"
