@@ -51,6 +51,19 @@
 
 报名截止或抽签公布时间已过、比赛临近而证据陈旧、官方页面连续失败、全部关键官方来源失败、新公告身份待确认或官方来源互相冲突，都可能触发 Verification Alert。时间阈值不能自动推断新报名状态。**Phase 1B 已在运行报告中输出 Verification Alert，未建立独立 Alert Store；Alert 不是 Fact Candidate，也不会自动写入 Canonical。**仅本轮值匹配不能证明关键节点后的状态已经得到确认，`fetchedAt` 不能代替公告发布时间或事实适用时间。
 
+### Distance Semantic Validation
+
+Fact Extraction、Validation 与 Diff 必须先判断距离语义，再进行字段级数值对比。至少区分：
+
+- **Official Category Distance**：官方对外公布的组别标称距离。
+- **Actual Course Distance**：GPS、GPX、认证或官网赛道资料中的实际赛道距离。
+
+现有 `Category.distanceKm` 只表示 Official Category Distance。只有证据明确支持官方组别标称距离发生变化，才允许产生该字段的更新候选。例如 CNH-60 的 Canonical 为 `60 km`、Actual Course Distance 为 `58.8 km` 时，不得产生 `distanceKm: 60 → 58.8`，也不得将两者判定为同一语义下的 Conflict。实际赛道距离的发现证据可以保留，但不写入当前 Canonical 字段。
+
+如果来源没有明确区分距离口径，必须标记需要复核，不能仅凭数值差异生成新事实。该规则只适用于 `distanceKm` 的语义判定；`elevationGain` 等其他字段仍须独立核验。例如官网爬升 `2400 m` 与 ITRA 爬升 `2378 m` 的差异，仍需按来源、测量口径和直接证据判断，不得因距离规则而自动忽略。
+
+本规则保留 Evidence First、Edition Identity First、Human Review 与 `Auto Apply = OFF`，不改变 Phase 1–3 的既有总体目标和 Gate。
+
 ## 6. Source Governance
 
 官方来源优先，可信平台辅助交叉核对。新增官方公告、官方报名平台或跨域链接首先是 **Source Candidate**；只有来源身份、目标 Edition、作用域及权威性经验证和批准后，才进入 Source Registry。搜索结果与摘要只帮助发现来源，不是 Official Fact。
