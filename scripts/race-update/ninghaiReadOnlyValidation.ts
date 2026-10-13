@@ -10,7 +10,8 @@ const MAX_BYTES = 2_000_000;
 const FIELDS = ["distanceKm", "elevationGain", "startLocation", "finishLocation"] as const;
 type Field = typeof FIELDS[number];
 type Action = "NO_CHANGE_VERIFIED" | "FACT_CANDIDATE" | "VERIFICATION_ALERT"
-  | "SOURCE_DISCOVERY_REQUIRED" | "CONFLICT_NEEDS_REVIEW" | "FETCH_OR_EXTRACTION_BLOCKED";
+  | "SOURCE_DISCOVERY_REQUIRED" | "CONFLICT_NEEDS_REVIEW" | "FETCH_OR_EXTRACTION_BLOCKED"
+  | "ACTUAL_COURSE_DISTANCE_ONLY";
 
 type Group = {
   id: number;
@@ -176,7 +177,7 @@ function compareNinghaiFields(
     return FIELDS.map((field) => {
       const currentValue = category[field] ?? null;
       const candidateValue = found ? fieldValue(found.value, field) : null;
-      const thirdPartyConflict = candidateValue !== null && (category.governance?.mergeTrace ?? [])
+      const thirdPartyConflict = field !== "distanceKm" && candidateValue !== null && (category.governance?.mergeTrace ?? [])
         .some((trace) => trace.field === field && (trace.candidates ?? []).some((choice) => choice.value !== candidateValue));
       const precisionDifference = field === "distanceKm" && typeof candidateValue === "number"
         && typeof currentValue === "number" && Number(groupName.split("-")[1]) === currentValue
@@ -185,6 +186,7 @@ function compareNinghaiFields(
       if (found) {
         if (found.identity !== "linked_2026_asset") action = "VERIFICATION_ALERT";
         else if (candidateValue === null) action = "SOURCE_DISCOVERY_REQUIRED";
+        else if (field === "distanceKm") action = "ACTUAL_COURSE_DISTANCE_ONLY";
         else if (thirdPartyConflict) action = "CONFLICT_NEEDS_REVIEW";
         else if (candidateValue === currentValue) action = "NO_CHANGE_VERIFIED";
         else action = "FACT_CANDIDATE";

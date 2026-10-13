@@ -32,6 +32,7 @@ import {
   transitionIngestionState,
 } from "./ingestionState.ts";
 import { fetchOfficialDocument } from "./officialDocument.ts";
+import { extractNinghaiJsonFacts, isNinghaiOfficialJsonSource, NINGHAI_JSON_EXTRACTION_ID } from "./ninghaiOfficialJson.ts";
 import { evaluateRaceUpdateCore } from "./pipeline.ts";
 import { FactExtractionProviderError } from "./qwenProvider.ts";
 import { evaluateFreshnessSourceEligibility, findRegistrySource } from "./sourceRegistry.ts";
@@ -90,11 +91,13 @@ export async function runRealExtractionDryRun(input: {
   now?: () => string;
   fetcher?: typeof fetch;
 }): Promise<PreparedRealExtractionRun> {
-  if (!input.provider.configured) throw new Error("Fact extraction provider is not configured.");
-
   const now = input.now ?? (() => new Date().toISOString());
   const startedAt = now();
   const targets = input.targets ?? REAL_EXTRACTION_TARGETS;
+  if (!input.provider.configured && targets.some((target) => target.sourceIds.some((sourceId) => {
+    const source = findRegistrySource(input.registry, target.editionId, sourceId);
+    return !source || !isNinghaiOfficialJsonSource(source, target.editionId);
+  }))) throw new Error("Fact extraction provider is not configured.");
   const state = structuredClone(input.state);
   const reports: RealExtractionSourceReport[] = [];
   const acceptedSources: AcceptedSource[] = [];
@@ -113,6 +116,10 @@ export async function runRealExtractionDryRun(input: {
         source,
       });
       if (!eligibility.eligible) throw new Error(`Real extraction source is not eligible: ${sourceId}`);
+      const structuredJson = isNinghaiOfficialJsonSource(source, target.editionId);
+      const extractionIdentity = structuredJson ? NINGHAI_JSON_EXTRACTION_ID : {
+        provider: input.provider.id, model: input.provider.model, promptVersion: input.provider.promptVersion,
+      };
 
       const previous = findState(state, target.editionId, sourceId);
       let fetched = await fetchOfficialDocument({
@@ -179,9 +186,7 @@ export async function runRealExtractionDryRun(input: {
       }
 
       if (!input.forceExtract && !shouldExtractDocument(previous, document.contentHash, {
-        provider: input.provider.id,
-        model: input.provider.model,
-        promptVersion: input.provider.promptVersion,
+        ...extractionIdentity,
       })) {
         upsertState(state, transitionIngestionState({ previous, document, outcome: "unchanged", checkedAt }));
         reports.push({
@@ -203,7 +208,7 @@ export async function runRealExtractionDryRun(input: {
 
       let result: FactExtractionProviderResult;
       try {
-        result = await input.provider.extract({
+        result = structuredJson ? extractNinghaiJsonFacts(document, record) : await input.provider.extract({
           contractVersion: "official-fact-extraction-v1",
           document,
           editionContext: {
@@ -518,7 +523,7 @@ export function validateCandidateValueEvidence(
     }
     const labelPattern = candidate.field === "startLocation"
       ? /(?:start|starting line|起点|出发点|开跑|鸣枪)/i
-      : /(?:finish|finish line|终点|完赛)/i;
+      : /(?:finish|finish line|endPoint|终点|完赛)/i;
     if (!labelPattern.test(evidence)) {
       return `${candidate.field} requires explicit ${candidate.field === "startLocation" ? "start" : "finish"} semantics in its evidence text.`;
     }
@@ -882,6 +887,7 @@ function baseReport(input: {
   retryable?: boolean | null;
   contentHash?: string | null;
 }): RealExtractionSourceReport {
+  const structuredJson = isNinghaiOfficialJsonSource(input.source, input.targetEditionId);
   return {
     editionId: input.targetEditionId,
     sourceId: input.source.sourceId,
@@ -890,12 +896,12 @@ function baseReport(input: {
     fetchStatus: input.fetchStatus,
     identity: null,
     extractionStatus: input.extractionStatus,
-    provider: input.provider.id,
-    model: input.provider.model,
-    protocol: "openai-compatible-chat-completions",
-    reasoningMode: "none",
-    structuredOutputMode: "strict_json_schema",
-    promptVersion: input.provider.promptVersion,
+    provider: structuredJson ? NINGHAI_JSON_EXTRACTION_ID.provider : input.provider.id,
+    model: structuredJson ? NINGHAI_JSON_EXTRACTION_ID.model : input.provider.model,
+    protocol: structuredJson ? "deterministic-json" : "openai-compatible-chat-completions",
+    reasoningMode: structuredJson ? "not_applicable" : "none",
+    structuredOutputMode: structuredJson ? "not_applicable" : "strict_json_schema",
+    promptVersion: structuredJson ? NINGHAI_JSON_EXTRACTION_ID.promptVersion : input.provider.promptVersion,
     processingVersion: RACE_FACT_PROCESSING_VERSION,
     requestStatus: input.requestStatus,
     providerErrorCode: input.providerErrorCode,
@@ -918,6 +924,7 @@ function baseReport(input: {
 function summarize(reports: RealExtractionSourceReport[]): RealExtractionReport["summary"] {
   const successful = reports.filter(({ extractionStatus }) => extractionStatus === "success" || extractionStatus === "unchanged");
   const modelCalls = reports.filter(({ requestStatus }) => requestStatus === "success" || requestStatus === "failed")
+    .filter(({ protocol }) => protocol === "openai-compatible-chat-completions")
     .filter(({ extractionStatus }) => !["fetch_error", "parse_error", "identity_mismatch", "identity_uncertain"].includes(extractionStatus));
   return {
     sourcesChecked: reports.length,
