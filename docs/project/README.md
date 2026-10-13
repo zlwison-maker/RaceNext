@@ -3,12 +3,15 @@
 ## 1. Current Phase
 
 - Current Phase: **WECHAT MINI PROGRAM LIVE / REAL USER, ACQUISITION & COMMERCIAL VALIDATION**
+- Mini Program 1.0.1: **SUBMITTED_FOR_REVIEW — 2026-10-13**
 - Data Foundation: **ARCHITECTURE FROZEN**
 - Data Pipeline: **PRODUCTION IMPLEMENTED / FIRST NATURAL SCHEDULED RUN COMPLETED**
+- Data Automation Phase 1: **PRODUCTION ACCEPTED**
+- Data Automation Phase 2: **BEIJING READ-ONLY DISCOVERY PILOT COMPLETED / FULL PHASE NOT COMPLETE**
 - Critical Fact Maintenance: **P0 IMPROVEMENT REQUIRED**
 - Parallel Reliability Work: **RACE DATA AUTOMATION P0**
 
-微信小程序已上线。创业主线是实际用户、获客与商业验证；赛事数据自动维护的有效性修复是并行的 P0 可信度工作。不要把功能完成或 Workflow PASS 等同于用户验证或事实准确性 PASS。
+微信小程序已上线；1.0.1 已上传并提交微信审核，尚未确认审核通过或正式发布。创业主线是实际用户、获客与商业验证；赛事数据自动维护的有效性修复是并行的 P0 可信度工作。不要把功能完成或 Workflow PASS 等同于用户验证或事实准确性 PASS。
 
 ## 2. Mandatory Reading
 
@@ -16,22 +19,28 @@
 
 1. [RaceNext 数据系统 V1](RACENEXT_DATA_SYSTEM_V1.md) — **CURRENT / FROZEN**
 2. [RaceNext 赛事数据自动维护目标与验收标准 V1](RACE_DATA_AUTOMATION_STANDARD_V1.md) — **P0 / CURRENT / FROZEN TARGET & GATES**
-3. [RaceNext 数据与内容维护成本原则 V1](DATA_CONTENT_MAINTENANCE_PRINCIPLES_V1.md) — **CURRENT**
+3. [RaceNext 数据自动维护下一阶段验证计划](RACE_DATA_AUTOMATION_NEXT_VALIDATION_20261013.md) — **CURRENT PLAN / NINGHAI FIRST**
+4. [RaceNext 数据与内容维护成本原则 V1](DATA_CONTENT_MAINTENANCE_PRINCIPLES_V1.md) — **CURRENT**
 
 ### P0｜赛事内容硬约束
 
-4. [RaceNext 赛事详情页内容撰写规范 V1](RACE_DETAIL_CONTENT_STANDARD_V1.md) — **CURRENT**
-5. [RaceNext 越野赛事详情页内容标准 V1](TRAIL_RACE_DETAIL_STANDARD_V1.md) — **CURRENT**
-6. [RaceNext 赛事住宿推荐与内容生产标准 V1.1](ACCOMMODATION_CONTENT_STANDARD_V1_1.md) — **CURRENT / Source of Truth**；当前赛事住宿推荐、AI Research、Human Approved Set、Final Accommodation Package、Production Board、Ctrip Action 与长期维护标准。
-7. [RaceNext 赛事住宿推荐与内容生产标准 V1](ACCOMMODATION_CONTENT_STANDARD_V1.md) — **HISTORICAL / Superseded by V1.1**；保留历史版本，不再作为当前执行标准。
-8. [RaceNext 图片资产标准 V1](RACENEXT_IMAGE_ASSET_STANDARD_V1.md) — **CURRENT / FROZEN**
-9. [First5 图片资产交付报告](FIRST5_IMAGE_ASSET_DELIVERY_REPORT.md) — **CURRENT**
-10. [Trail Course Point Schema V0.1](TRAIL_COURSE_POINT_SCHEMA_V0_1.md) — **CURRENT / MINIMAL**
-11. [Trail CP Data Audit V1](TRAIL_CP_DATA_AUDIT_V1.md) — **ARCHIVED AUDIT**
+5. [RaceNext 小程序详情页与分享标准 V1](MINIPROGRAM_DETAIL_SHARE_STANDARD_V1.md) — **CURRENT / FROZEN**
+6. [RaceNext 赛事详情页内容撰写规范 V1](RACE_DETAIL_CONTENT_STANDARD_V1.md) — **CURRENT**
+7. [RaceNext 越野赛事详情页内容标准 V1](TRAIL_RACE_DETAIL_STANDARD_V1.md) — **CURRENT**
+8. [RaceNext 赛事住宿推荐与内容生产标准 V1.1](ACCOMMODATION_CONTENT_STANDARD_V1_1.md) — **CURRENT / Source of Truth**；当前赛事住宿推荐、AI Research、Human Approved Set、Final Accommodation Package、Production Board、Ctrip Action 与长期维护标准。
+9. [RaceNext 赛事住宿推荐与内容生产标准 V1](ACCOMMODATION_CONTENT_STANDARD_V1.md) — **HISTORICAL / Superseded by V1.1**；保留历史版本，不再作为当前执行标准。
+10. [RaceNext 图片资产标准 V1](RACENEXT_IMAGE_ASSET_STANDARD_V1.md) — **CURRENT / FROZEN**
+11. [First5 图片资产交付报告](FIRST5_IMAGE_ASSET_DELIVERY_REPORT.md) — **CURRENT**
+12. [Trail Course Point Schema V0.1](TRAIL_COURSE_POINT_SCHEMA_V0_1.md) — **CURRENT / MINIMAL**
+13. [Trail CP Data Audit V1](TRAIL_CP_DATA_AUDIT_V1.md) — **ARCHIVED AUDIT**
+
+### Release Handoff
+
+14. [微信小程序 1.0.1 Release Handoff](MINIPROGRAM_RELEASE_1_0_1_HANDOFF.md) — **SUBMITTED_FOR_REVIEW / NOT YET RELEASED**
 
 ### P1｜战略背景
 
-12. RaceNext Investor BP 202608 (`reference/RaceNext_Investor_BP_202608.pdf`) — **REFERENCE / 2026.08 / Not Found**
+15. RaceNext Investor BP 202608 (`reference/RaceNext_Investor_BP_202608.pdf`) — **REFERENCE / 2026.08 / Not Found**
 
 Investor BP 用于理解战略与商业背景，不是代码实现约束，也不能自动生成开发需求。
 
@@ -49,7 +58,9 @@ Investor BP 用于理解战略与商业背景，不是代码实现约束，也�
 
 ## 4. Current Product Direction
 
-微信小程序已正式上线。当前优先验证真实用户需求、获客路径与商业转化，而不以新增功能数量代替创业进展。并行开展 Race Data Automation P0 可靠性修复；不重新设计已冻结的数据架构，不把尚未实现的规划写成生产能力。
+微信小程序已正式上线，1.0.1 当前处于微信审核中。当前优先验证真实用户需求、获客路径与商业转化，而不以新增功能数量代替创业进展。并行开展 Race Data Automation P0 有效性验证：先以宁海越野验证缺失事实发现、证据提取、Human Review、Canonical 更新及终端呈现闭环，通过后再扩至现有 12 场。
+
+当前最大缺口是关键事实核验覆盖、事实变化发现效果和低人工维护成本尚未得到生产证明。北京官方来源 Discovery 已完成只读试点，但 Phase 2 整体闭环尚未完成；Phase 3 尚未完成。`Auto Apply = OFF`。
 
 ## 5. Key Product Principles
 

@@ -34,7 +34,7 @@
 
 | 能力 | 当前状态 | 边界与目标 |
 | --- | --- | --- |
-| A. Source Discovery | **PARTIAL** | 已登记 Source Registry 的监测已实现；官方域名内寻找与来源审批是治理路径，尚不能当作每日自动发现新公告的已验证能力。全网 Web Search 尚未实现。 |
+| A. Source Discovery | **PARTIAL；北京只读试点已完成** | 已登记 Source Registry 的监测已实现；北京官方来源的新公告与报名入口 Discovery 已完成只读试点及异常响应修复，但尚未形成跨赛事、持续运行、审批、事实更新和终端验证的完整生产闭环。全网 Web Search 尚未实现。 |
 | B. Source Fetch & Identity | **PARTIAL** | 已有官方 HTML / 文本 PDF 抓取及身份校验；来源失败、跨域报名链接和届次不确定性仍会导致覆盖缺口。 |
 | C. Fact Extraction & Verification | **PARTIAL** | AI 提取、Evidence / Identity Validation 已实现；成功抽取 Hash 不代表字段级近期核验，部分事实仍可能漏检。 |
 | D. Change / Freshness Detection | **PARTIAL** | 已有 Diff、Hash、Pending 与 Phase 1B Verification Alert；可提示生命周期及关键字段核验缺口，但直接官方字段核验覆盖和变化发现效果尚未达标。 |
@@ -81,7 +81,7 @@ Open PR 安全检查的价值仍是避免状态丢失、重复 Pending 与 PR �
 
 ## 10. Roadmap & Acceptance Gates
 
-以下目标与 Gate 保持冻结；Phase 1 已验收，Phase 2 / 3 尚未启动。不改变当前 Schema、字段风险规则或 `Auto Apply = OFF`。
+以下目标与 Gate 保持冻结；Phase 1 已验收，Phase 2 已完成北京只读 Discovery 试点但整体阶段尚未完成，Phase 3 尚未完成。不改变当前 Schema、字段风险规则或 `Auto Apply = OFF`。下一阶段的宁海与 12 场验证计划见 [2026-10-13 验证计划](RACE_DATA_AUTOMATION_NEXT_VALIDATION_20261013.md)。
 
 ### Phase 1｜监测连续性与关键异常可见（P0）
 
@@ -110,4 +110,4 @@ Open PR 安全检查的价值仍是避免状态丢失、重复 Pending 与 PR �
 
 ## 12. Status
 
-**FROZEN TARGET & GATES / PHASE 1 ACCEPTED / PHASE 2 NOT STARTED**。本文冻结业务目标、事实可信度边界及 Phase 1–3 验收门槛；未启动阶段不是交付声明。Phase 1A / 1B 的实现及生产验收证据见 [Data Foundation V1](../data/RACENEXT_DATA_FOUNDATION_V1.md#15-phase-1-closeout--handoff)。当前生产仍为 **Auto Apply OFF / All Fact Candidates Require Human Review**。Workflow 成功不能替代关键事实准确性或字段级核验覆盖验收。
+**FROZEN TARGET & GATES / PHASE 1 ACCEPTED / PHASE 2 READ-ONLY PILOT COMPLETED, FULL PHASE NOT COMPLETE / PHASE 3 NOT COMPLETE**。本文冻结业务目标、事实可信度边界及 Phase 1–3 验收门槛；试点完成不等于阶段整体完成。Phase 1A / 1B 的实现及生产验收证据见 [Data Foundation V1](../data/RACENEXT_DATA_FOUNDATION_V1.md#15-phase-1-closeout--handoff)。当前生产仍为 **Auto Apply OFF / All Fact Candidates Require Human Review**。Workflow 成功不能替代关键事实准确性或字段级核验覆盖验收。
