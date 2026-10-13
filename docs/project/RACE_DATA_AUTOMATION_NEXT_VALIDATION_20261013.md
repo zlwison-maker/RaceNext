@@ -32,6 +32,32 @@ DATA ACCURACY
 
 选择宁海是因为比赛临近，现有数据存在缺失或精度验证空间，适合作为自动维护有效性的具体案例。
 
+### Phase A Status
+
+[PR #26](https://github.com/zlwison-maker/RaceNext/pull/26) 已合入 `main`，merge commit 为 `590f3ec2092767789dde40fb755d8ecaf6764be0`。当前状态：
+
+```text
+PHASE_A_PARTIAL
+```
+
+Phase A 已证明：
+
+- 官方来源的自主发现。
+- 三个组别详情接口识别。
+- 12 个目标字段的只读对照。
+- 起终点缺失识别。
+- 数据差异与证据输出。
+
+Phase A 尚未完成：
+
+- 新来源正式审批。
+- JSON 生产抓取适配。
+- 正式 Fact Candidate / Pending。
+- Canonical 更新。
+- API / 小程序终端验证。
+
+不得把 Phase A 描述为全部 PASS。
+
 当前 Canonical 基线：
 
 | Category | distanceKm | elevationGain | startLocation | finishLocation |
@@ -42,9 +68,17 @@ DATA ACCURACY
 
 这些值只是当前 Canonical 基线，不代表已完成当届重新核验。现有爬升值并非完全缺失；如果小程序未展示，必须区分数据源、API 和客户端显示问题。Edition `venue` 不能自动等同于具体 Category `startLocation`。
 
-官方网站可能存在更精确的赛道距离、爬升、起终点资料。实施时必须重新取得当届官方证据，不得在本次文档任务中把未确认值写入 Canonical。
+Phase A 从官网读取的实际赛道距离为 UTNH-100 `100.6 km`、CNH-60 `58.8 km`、YNH-25 `24.8 km`。经 Human Decision，这些值重新分类为 Actual Course Distance，仅保留为发现记录，不是 `distanceKm` 更新候选，也不构成同一语义下的 Conflict。不得篡改 Phase A 原始历史报告。
 
-## 3. Validation Scope
+### Phase B Scope
+
+`distanceKm` 继续保持 UTNH-100 `100`、CNH-60 `60`、YNH-25 `25`，不得因实际赛道距离不同而修改。Phase B 不新增实际距离字段。
+
+三个组别的 `startLocation` / `finishLocation` 当前均为 `null`。Phase A 从官网公开 JSON 读取到「西门城楼」；下一阶段必须分别验证官方来源身份、2026 Edition 关联、Category 对应关系、JSON 接口安全性、字段直接证据、正式 Pending、Human Review、Canonical 更新及终端展示。不得因为 Edition `venue` 恰好也是「西门城楼」，就省略 Category 级事实验证。
+
+`elevationGain` 当前保持 UTNH-100 `4986 m`、CNH-60 `2400 m`、YNH-25 `618 m`，官网读取结果与 Canonical 一致，Phase B 继续确认字段证据。CNH-60 的 ITRA `2378 m` 与官网 `2400 m` 的差异继续独立复核并保留来源说明，不得直接覆盖正确 Canonical，也不得因距离语义规则而忽略。
+
+## 3. Phase B Validation Scope
 
 仅使用现有 Schema：
 
@@ -55,7 +89,18 @@ DATA ACCURACY
 
 必要时核验对应来源、Category 身份和展示链路。不扩展至住宿、路线 CP、Strategy、图片或内容生产。
 
-## 4. Minimum Experiment
+Phase B 的核心任务由 Codex 0.2 负责：
+
+1. 官方 JSON 来源审批。
+2. 现有 Fetch / Extraction / Validation 链路的最小 JSON 适配。
+3. 产生正式、可追溯的字段级 Pending。
+4. Human Review。
+5. 获批事实的 Canonical 更新。
+6. 生产 API / 小程序终端验证。
+
+本文只更新执行计划，不授权实施以上事项。
+
+## 4. Phase B Minimum Experiment
 
 计划时间盒：`3–5` 个工作日。
 
@@ -73,11 +118,16 @@ DATA ACCURACY
 
 ## 5. Acceptance Gate
 
+- 距离语义不混淆，实际赛道距离不产生 `distanceKm` 错误 Candidate。
+- 新来源身份可核验，2026 Edition 身份成立。
+- 三个 Category 不串组别。
 - 已知缺失字段能够被系统识别。
 - 已知精度差异能够被识别并分类。
-- 可信证据生成准确的字段级 Candidate。
+- 起终点能够基于直接证据生成可靠、正式的字段级 Candidate / Pending。
+- 爬升差异保留真实证据并独立核验。
 - 无证据不得自动填入。
 - 错误自动发布为 `0`。
+- 所有事实经过 Human Review，`Auto Apply = OFF`。
 - 已批准更新可以进入 Canonical。
 - 已批准更新经部署可以在终端验证。
 - 记录人工审核时间和总维护时间。
