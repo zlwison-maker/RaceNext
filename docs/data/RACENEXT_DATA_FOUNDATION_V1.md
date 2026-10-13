@@ -10,12 +10,12 @@
 - Phase 4B-2 First Natural Scheduled Run: **COMPLETED — 2026-10-09**
 - Data Automation Phase 1A / 1B: **IMPLEMENTED, MERGED, PRODUCTION ACCEPTED — 2026-10-12**
 - Open Data PR Continuous Monitoring: **PROVEN — RUN #9 + RUN #10; PR #15 MERGED**
-- Data Automation Phase 2: **NOT STARTED**
+- Data Automation Phase 2: **BEIJING READ-ONLY DISCOVERY PILOT COMPLETED; FULL PRODUCTION PHASE NOT COMPLETE**
 - Gate 5 Real Production Change Closed Loop: **PROVEN**
 - Remote Read: **IMPLEMENTED; 12 PUBLIC EDITIONS**
 - Critical Fact Maintenance Effectiveness: **NOT VERIFIED — P0 IMPROVEMENT REQUIRED**
 
-数据基础设施 V1 的核心、12 场监控、Qwen 抽取、Pending Review 与人工生产闭环已实现。Phase 4B-2 的首次自然 `schedule` 已在 2026-10-09 执行成功，但该轮没有主动识别北京马、广州马、HK100 三项已知报名状态错误；三项错误已通过独立 Hotfix 修复上线。随后 Phase 1A 监测连续性与安全延续、Phase 1B Verification Alert 已合并并通过真实生产验收。**执行成功仍不等于关键事实准确性得到维护。**Auto Apply 继续关闭，Human Review、Human Merge 与必要的生产部署仍是正式事实更新的边界。Phase 1 证据与未解决限制见[收尾及 Handoff](#15-phase-1-closeout--handoff)。
+数据基础设施 V1 的核心、12 场监控、Qwen 抽取、Pending Review 与人工生产闭环已实现。Phase 4B-2 的首次自然 `schedule` 已在 2026-10-09 执行成功，但该轮没有主动识别北京马、广州马、HK100 三项已知报名状态错误；三项错误已通过独立 Hotfix 修复上线。随后 Phase 1A 监测连续性与安全延续、Phase 1B Verification Alert 已合并并通过真实生产验收。Phase 2 已完成北京官方来源 Discovery 的只读试点，但尚未证明跨赛事的完整生产闭环。**执行成功仍不等于关键事实准确性得到维护。**Auto Apply 继续关闭，Human Review、Human Merge 与必要的生产部署仍是正式事实更新的边界。Phase 1 证据与未解决限制见[收尾及 Handoff](#15-phase-1-closeout--handoff)。
 
 本文件记录当前技术与生产状态；长期质量目标及 Phase 1–3 验收标准见 [RaceNext 赛事数据自动维护目标与验收标准 V1](../project/RACE_DATA_AUTOMATION_STANDARD_V1.md)。
 
@@ -139,13 +139,13 @@ Canonical 通过代码提交更新，因此公开 API 获得新数据仍依赖�
 | **Implemented** | Event → Edition → Category、Source Registry、已登记来源 Fetch、Identity / Evidence Validation、Diff / Risk、Pending-before-State durability、单一开放 Data PR 的安全连续监测、Pending 去重、Verification Alert、Public Remote Read、每日 Workflow。 |
 | **Production Verified — Phase 1** | 人工 Workflow 的 Git 审核闭环；PR #11 / #13 / #14 的 Phase 1A / 1B 修复已合并；Run #9 / #10 在同一开放 Data PR 下连续完成，PR #15 保留 Ingestion State 并合并。 |
 | **Not Yet Verified** | 12 场关键字段的近期直接官方核验覆盖、已知重要变化的发现率、来源失败时的事实准确性、人工维护成本下降；不能据来源 Hash、Alert 或 Workflow PASS 推定这些结果。 |
-| **Not Started — Phase 2** | 官方新公告与报名来源发现尚未启动；Phase 1–3 的冻结目标和验收 Gate 仍见[自动维护标准 V1](../project/RACE_DATA_AUTOMATION_STANDARD_V1.md#10-roadmap--acceptance-gates)。 |
+| **Partial — Phase 2 Pilot** | 北京官方新公告与报名来源发现已完成只读 Discovery 试点及异常响应修复；尚未证明跨赛事持续发现、来源审批、事实候选、Canonical 更新、部署和终端验证的完整闭环。Phase 1–3 的冻结目标和验收 Gate 仍见[自动维护标准 V1](../project/RACE_DATA_AUTOMATION_STANDARD_V1.md#10-roadmap--acceptance-gates)。 |
 
 Phase 1 已解决 Open Data PR 阻断整轮日常检查、重复 Pending 和关键异常不可见的问题；新公告自动发现、来源有效处理率、关键字段直接官方核验覆盖以及执行状态与事实质量的差异仍需如实报告。继续保留 Evidence 标准、重复运行幂等和安全写入边界。具体目标与验收见 [自动维护标准 V1](../project/RACE_DATA_AUTOMATION_STANDARD_V1.md)。
 
 ## 13. Deferred
 
-- Web Search Provider
+- 跨赛事、持续运行的 Source Discovery / Web Search Provider
 - Database
 - CMS / approval UI
 - OCR
@@ -157,9 +157,9 @@ Phase 1 已解决 Open Data PR 阻断整轮日常检查、重复 Pending 和关�
 
 ## 14. Next Phase
 
-**PHASE 1 ACCEPTED / PHASE 2 NOT STARTED / CRITICAL FACT ACCURACY NOT ESTABLISHED**
+**PHASE 1 ACCEPTED / PHASE 2 READ-ONLY PILOT COMPLETED, FULL PHASE NOT COMPLETE / PHASE 3 NOT COMPLETE / CRITICAL FACT ACCURACY NOT ESTABLISHED**
 
-数据架构继续冻结。微信小程序已上线，创业主线是用户、获客与商业验证。Phase 1 仅处理监测连续性、Verification Alerts 与 Pending / State 安全闭环，现已收尾；Phase 2 尚未启动，不因本次 Handoff 扩大其范围，也不为尚未验证的规模化需求预建 Database、CMS、GraphQL、Queue、Worker 或第二套客户端 Schema。
+数据架构继续冻结。微信小程序已上线，创业主线是用户、获客与商业验证。Phase 1 仅处理监测连续性、Verification Alerts 与 Pending / State 安全闭环，现已收尾；Phase 2 的北京只读 Discovery 试点已经完成，但完整阶段仍未完成。下一步按 [2026-10-13 验证计划](../project/RACE_DATA_AUTOMATION_NEXT_VALIDATION_20261013.md)先验证宁海，再扩至现有 12 场；不为尚未验证的规模化需求预建 Database、CMS、GraphQL、Queue、Worker 或第二套客户端 Schema。
 
 ## 15. Phase 1 Closeout & Handoff
 
@@ -178,4 +178,27 @@ Phase 1 已解决 Open Data PR 阻断整轮日常检查、重复 Pending 和关�
 
 ### 下一阶段 Handoff
 
-Phase 2 **尚未启动**。后续如获单独批准，仍以[自动维护标准 V1 中冻结的 Phase 2 目标与验收 Gate](../project/RACE_DATA_AUTOMATION_STANDARD_V1.md)为边界：官方新公告与报名来源发现、身份/届次判定、来源审批和发现质量衡量；不得从搜索摘要直接生成事实，也不得自动批准 Registry。本次仅记录交接状态，不启动 Phase 2、不改变 Phase 1–3 的 Gate。
+Phase 2 已完成北京官方来源的只读 Discovery 试点，但阶段整体尚未完成。后续仍以[自动维护标准 V1 中冻结的 Phase 2 目标与验收 Gate](../project/RACE_DATA_AUTOMATION_STANDARD_V1.md)为边界：官方新公告与报名来源发现、身份/届次判定、来源审批和发现质量衡量；不得从搜索摘要直接生成事实，也不得自动批准 Registry。试点完成不能表述为生产闭环完成。
+
+## 16. 2026-10-13 Production Run #11
+
+[GitHub Actions Run #11 — 38359395852](https://github.com/zlwison-maker/RaceNext/actions/runs/38359395852) 在 `main` 的 `2c83dd19c1c7980c7b03085a0ac4c6b45d161497` 上执行成功。运行日志与脱敏报告 Artifact `race-update-report-38359395852` 确认：
+
+| 指标 | 实际结果 | 边界 |
+| --- | --- | --- |
+| 赛事范围 | 12 场；4 HEALTHY / 7 PARTIAL / 1 FAILED；1 个 Source Gap | Health 状态不等于 Canonical 正误，也不证明事实已充分核验。 |
+| 来源 | 43 个检查来源；28 个 fetched；25 个未有效处理；12 个官方来源有效处理 | 未有效处理包含 Fetch、Identity 和 Validation 等阶段，不应全部解释为网络抓取失败。 |
+| 关键事实核验 | 81 项：本轮直接官方核验 2；未核验 66；Unknown 13 | 字段级直接官方核验覆盖为 `2/81`，不能由来源处理数替代。 |
+| Verification Alerts | 12：HIGH 4 / REVIEW 8 | Alert 不是 Fact Candidate，也不修改 Canonical。 |
+| 模型调用 | 7 | 调用成功不等于事实准确。 |
+| Pending | 新 Pending 0；去重 Pending 4 | 去重状态不等于产生新的事实更新。 |
+| Canonical 自动更新 | 0 | `Auto Apply = OFF`。 |
+| 自动化验证 | `343/343 PASS`，TypeScript Gates 与 data-only diff 通过 | 测试通过不替代生产数据质量验收。 |
+
+[Data PR #23](https://github.com/zlwison-maker/RaceNext/pull/23) 截至 2026-10-13 为 **Open / 未 Merge**。Diff 仅涉及一个 Ingestion State 文件（69 additions / 69 deletions），不包含 Canonical 事实更新，不得表述为已更新赛事事实或已部署。
+
+上述关键事实核验数字直接读取自脱敏 Artifact 的 `verification` 区块。单轮 `2/81` 是 Run #11 的字段级结果，不代表长期覆盖率，也不能推断未核验字段错误。
+
+## 17. Next Validation
+
+下一阶段先执行 [宁海越野专项验证计划](../project/RACE_DATA_AUTOMATION_NEXT_VALIDATION_20261013.md)：在现有 Schema 内验证 `distanceKm`、`elevationGain`、`startLocation`、`finishLocation` 的缺失发现、证据提取、身份核验、Human Review、Canonical 更新和终端呈现闭环。宁海通过后再覆盖现有 12 场，并共同衡量准确性、变化发现效果、人工介入、时延和成本。该计划不是已完成能力，也不授权修改生产事实或开启 Auto Apply。
