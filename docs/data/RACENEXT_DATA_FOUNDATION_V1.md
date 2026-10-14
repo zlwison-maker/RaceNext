@@ -13,7 +13,8 @@
 - Data Automation Phase 2: **BEIJING READ-ONLY DISCOVERY PILOT COMPLETED; FULL PRODUCTION PHASE NOT COMPLETE**
 - Gate 5 Real Production Change Closed Loop: **PROVEN**
 - Remote Read: **IMPLEMENTED; 12 PUBLIC EDITIONS**
-- Critical Fact Maintenance Effectiveness: **NOT VERIFIED — P0 IMPROVEMENT REQUIRED**
+- Ninghai B2 Fact-to-Terminal Closed Loop: **PRODUCTION VERIFIED — 2026-10-14**
+- Critical Fact Maintenance Effectiveness: **NINGHAI SINGLE-RACE CLOSED / 12-RACE VERIFICATION COVERAGE AND CHANGE DETECTION NOT YET PROVEN**
 
 数据基础设施 V1 的核心、12 场监控、Qwen 抽取、Pending Review 与人工生产闭环已实现。Phase 4B-2 的首次自然 `schedule` 已在 2026-10-09 执行成功，但该轮没有主动识别北京马、广州马、HK100 三项已知报名状态错误；三项错误已通过独立 Hotfix 修复上线。随后 Phase 1A 监测连续性与安全延续、Phase 1B Verification Alert 已合并并通过真实生产验收。Phase 2 已完成北京官方来源 Discovery 的只读试点，但尚未证明跨赛事的完整生产闭环。**执行成功仍不等于关键事实准确性得到维护。**Auto Apply 继续关闭，Human Review、Human Merge 与必要的生产部署仍是正式事实更新的边界。Phase 1 证据与未解决限制见[收尾及 Handoff](#15-phase-1-closeout--handoff)。
 
@@ -159,7 +160,7 @@ Phase 1 已解决 Open Data PR 阻断整轮日常检查、重复 Pending 和关�
 
 **PHASE 1 ACCEPTED / PHASE 2 READ-ONLY PILOT COMPLETED, FULL PHASE NOT COMPLETE / PHASE 3 NOT COMPLETE / CRITICAL FACT ACCURACY NOT ESTABLISHED**
 
-数据架构继续冻结。微信小程序已上线，创业主线是用户、获客与商业验证。Phase 1 仅处理监测连续性、Verification Alerts 与 Pending / State 安全闭环，现已收尾；Phase 2 的北京只读 Discovery 试点已经完成，但完整阶段仍未完成。下一步按 [2026-10-13 验证计划](../project/RACE_DATA_AUTOMATION_NEXT_VALIDATION_20261013.md)先验证宁海，再扩至现有 12 场；不为尚未验证的规模化需求预建 Database、CMS、GraphQL、Queue、Worker 或第二套客户端 Schema。
+数据架构继续冻结。微信小程序已上线，创业主线是用户、获客与商业验证。Phase 1 仅处理监测连续性、Verification Alerts 与 Pending / State 安全闭环，现已收尾；Phase 2 的北京只读 Discovery 试点已经完成，但完整阶段仍未完成。宁海 B2 已于 2026-10-14 经生产端到端验收关闭（见第 18 节）。下一步按 [2026-10-13 验证计划](../project/RACE_DATA_AUTOMATION_NEXT_VALIDATION_20261013.md)评估现有 12 场的来源、核验覆盖和维护成本；先只读复盘，不为尚未验证的规模化需求预建 Database、CMS、GraphQL、Queue、Worker 或第二套客户端 Schema。
 
 ## 15. Phase 1 Closeout & Handoff
 
@@ -199,6 +200,25 @@ Phase 2 已完成北京官方来源的只读 Discovery 试点，但阶段整体�
 
 上述关键事实核验数字直接读取自脱敏 Artifact 的 `verification` 区块。单轮 `2/81` 是 Run #11 的字段级结果，不代表长期覆盖率，也不能推断未核验字段错误。
 
-## 17. Next Validation
+## 17. Historical Next Validation（2026-10-13）
 
-下一阶段先执行 [宁海越野专项验证计划](../project/RACE_DATA_AUTOMATION_NEXT_VALIDATION_20261013.md)：在现有 Schema 内验证 `distanceKm`、`elevationGain`、`startLocation`、`finishLocation` 的缺失发现、证据提取、身份核验、Human Review、Canonical 更新和终端呈现闭环。宁海通过后再覆盖现有 12 场，并共同衡量准确性、变化发现效果、人工介入、时延和成本。该计划不是已完成能力，也不授权修改生产事实或开启 Auto Apply。
+2026-10-13 的 [宁海越野专项验证计划](../project/RACE_DATA_AUTOMATION_NEXT_VALIDATION_20261013.md) 要求在现有 Schema 内检验距离语义、爬升、起终点的缺失发现、提取、身份核验、Human Review、Canonical 更新及终端呈现。宁海 B2 已于 2026-10-14 完成，见第 18 节。12 场关键事实覆盖、变化发现效果、时延、人工时间和成本仍需独立评估。本计划始终不授权自行修改生产事实或开启 Auto Apply。
+
+## 18. Ninghai B2 Production Closeout（2026-10-14）
+
+**Status: NINGHAI_B2_PRODUCTION_CLOSED / PASS**。宁海是经过真实官方来源、人工批准、生产部署和微信小程序终端验证的单赛事闭环。之前第 11–17 节的 Run、PR 与计划基线保留为各自日期的历史证据，不能覆盖此最新状态。
+
+| Gate | 正式证据 / 结论 |
+| --- | --- |
+| Source / Extraction | [PR #30](https://github.com/zlwison-maker/RaceNext/pull/30) 登记三个正式宁海 JSON Category 来源；[Run #38537480192](https://github.com/zlwison-maker/RaceNext/actions/runs/38537480192) Workflow SUCCESS、全量 387/387 PASS、正式六条 Pending |
+| Persistence / Approval | [PR #32](https://github.com/zlwison-maker/RaceNext/pull/32) 持久化 Pending / Ingestion State；Human 于 2026-10-14 批准六条 High Impact；[PR #34](https://github.com/zlwison-maker/RaceNext/pull/34) 应用并经审查合入 |
+| Canonical | Merge Commit `8b07c7bc7df7d9c889421690ea285a1eac01b92c`；UTNH-100、CNH-60、YNH-25 起点 / 终点六项均为「西门城楼」；六条 Pending `applied` |
+| Production Deploy | 1.4 线程 Handoff：腾讯云 Lighthouse 部署目标 SHA，Production Build PASS、PM2 online（该部分为发布验收记录，不来自 GitHub Workflow） |
+| Public API / Security | 1.4 Handoff：宁海 Detail API HTTP 200、六个起终点 6/6 PASS；12 场 Detail 12/12、Public API Security PASS |
+| Device QA | 1.4 Handoff：已上线微信小程序 UTNH-100 / CNH-60 / YNH-25 三组真机展示 PASS，无须重新提交小程序 |
+
+- 数据保护：`distanceKm` 100 / 60 / 25，`elevationGain` 4986 / 2400 / 618，发枪时间、其他 11 场不变；保留 28 条历史 Pending；`Auto Apply = OFF`。无需再次修复已验证的发布链路。
+- 指标边界：本轮生产 Run 检查 46 个来源，其中 26 个未有效处理；报告有 12 个 Verification Alerts（3 HIGH / 9 REVIEW），不能将 Workflow 成功视为 12 场事实健康。总人工分钟数、每场维护时间、模型及运行费用和跨赛事误报 / 漏报基线仍未完整记录。
+- 下一阶段：只读分析既有 12 场监测报告和关键事实覆盖，先确定真实数据可信度缺口与维护成本，再决定具体下一项工程投入。Phase 2 跨赛事持续 Source Discovery 及 Phase 3 规模化成本 Gate 未完成。
+
+**创业阶段区分：** 本轮是明确的 Product / Data Reliability Progress，不构成新增用户、获客或商业转化的 Startup Progress 证据。

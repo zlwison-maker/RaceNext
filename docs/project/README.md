@@ -3,15 +3,16 @@
 ## 1. Current Phase
 
 - Current Phase: **WECHAT MINI PROGRAM LIVE / REAL USER, ACQUISITION & COMMERCIAL VALIDATION**
-- Mini Program 1.0.1: **SUBMITTED_FOR_REVIEW — 2026-10-13**
+- Mini Program 1.0.1: **RELEASED — 2026-10-14 HUMAN CONFIRMED (EXACT PUBLISH TIME NOT PROVIDED)**
 - Data Foundation: **ARCHITECTURE FROZEN**
 - Data Pipeline: **PRODUCTION IMPLEMENTED / FIRST NATURAL SCHEDULED RUN COMPLETED**
 - Data Automation Phase 1: **PRODUCTION ACCEPTED**
 - Data Automation Phase 2: **BEIJING READ-ONLY DISCOVERY PILOT COMPLETED / FULL PHASE NOT COMPLETE**
+- Ninghai B2: **PRODUCTION CLOSED — 2026-10-14 (OFFICIAL FACT → API → DEVICE)**
 - Critical Fact Maintenance: **P0 IMPROVEMENT REQUIRED**
 - Parallel Reliability Work: **RACE DATA AUTOMATION P0**
 
-微信小程序已上线；1.0.1 已上传并提交微信审核，尚未确认审核通过或正式发布。创业主线是实际用户、获客与商业验证；赛事数据自动维护的有效性修复是并行的 P0 可信度工作。不要把功能完成或 Workflow PASS 等同于用户验证或事实准确性 PASS。
+微信小程序已上线；1.0.1 已由 Human 于 2026-10-14 确认审核通过并正式发布（精确发布时刻尚未提供）。宁海 B2 事实更新端到端生产验证亦于 2026-10-14 CLOSED。创业主线是实际用户、获客与商业验证；现有 12 场赛事的整体核验覆盖、变化发现与维护成本仍待只读评估。不要把产品发布、Workflow PASS 或单场数据闭环等同于创业验证或全站事实准确性 PASS。
 
 ## 2. Mandatory Reading
 
@@ -19,7 +20,7 @@
 
 1. [RaceNext 数据系统 V1](RACENEXT_DATA_SYSTEM_V1.md) — **CURRENT / FROZEN**
 2. [RaceNext 赛事数据自动维护目标与验收标准 V1](RACE_DATA_AUTOMATION_STANDARD_V1.md) — **P0 / CURRENT / FROZEN TARGET & GATES**
-3. [RaceNext 数据自动维护下一阶段验证计划](RACE_DATA_AUTOMATION_NEXT_VALIDATION_20261013.md) — **CURRENT PLAN / NINGHAI FIRST**
+3. [RaceNext 数据自动维护下一阶段验证计划](RACE_DATA_AUTOMATION_NEXT_VALIDATION_20261013.md) — **NINGHAI B2 CLOSED / 12-RACE READ-ONLY ASSESSMENT NEXT**
 4. [RaceNext 数据与内容维护成本原则 V1](DATA_CONTENT_MAINTENANCE_PRINCIPLES_V1.md) — **CURRENT**
 
 ### P0｜赛事内容硬约束
@@ -36,7 +37,7 @@
 
 ### Release Handoff
 
-14. [微信小程序 1.0.1 Release Handoff](MINIPROGRAM_RELEASE_1_0_1_HANDOFF.md) — **SUBMITTED_FOR_REVIEW / NOT YET RELEASED**
+14. [微信小程序 1.0.1 Release Handoff](MINIPROGRAM_RELEASE_1_0_1_HANDOFF.md) — **RELEASED / HUMAN CONFIRMED 2026-10-14**
 
 ### P1｜战略背景
 
@@ -58,7 +59,7 @@ Investor BP 用于理解战略与商业背景，不是代码实现约束，也�
 
 ## 4. Current Product Direction
 
-微信小程序已正式上线，1.0.1 当前处于微信审核中。当前优先验证真实用户需求、获客路径与商业转化，而不以新增功能数量代替创业进展。并行开展 Race Data Automation P0 有效性验证：先以宁海越野验证缺失事实发现、证据提取、Human Review、Canonical 更新及终端呈现闭环，通过后再扩至现有 12 场。
+微信小程序已正式上线，1.0.1 已经审核通过并发布（Human 2026-10-14 确认）。当前优先验证真实用户需求、获客路径与商业转化，而不以新增功能数量代替创业进展。宁海 B2 的官方来源 → Pending → Human Review → Canonical → 生产 API → 微信小程序真机闭环已完成；下一阶段对现有 12 场先做来源有效性、关键事实核验及维护成本的只读复盘，不自动扩展新工程 Scope。
 
 当前最大缺口是关键事实核验覆盖、事实变化发现效果和低人工维护成本尚未得到生产证明。北京官方来源 Discovery 已完成只读试点，但 Phase 2 整体闭环尚未完成；Phase 3 尚未完成。`Auto Apply = OFF`。
 

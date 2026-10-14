@@ -1,7 +1,10 @@
 # RaceNext 数据自动维护下一阶段验证计划
 
-**Status: CURRENT VALIDATION PLAN / NOT IMPLEMENTED CAPABILITY**
+**Status: NINGHAI B2 PRODUCTION CLOSED / 12-RACE READ-ONLY ASSESSMENT NEXT**
 **Frozen: 2026-10-13**
+**Closeout: 2026-10-14**
+
+> 本文第 2–5 节保留 2026-10-13 制定时的 Phase A / B 历史计划、基线与验收门槛，不应再将其中的 `null`、`PHASE_A_PARTIAL` 或“下一阶段必须”理解为当前生产状态。最新完成证据与遗留问题见第 9 节。
 
 ## 1. Long-term Goal
 
@@ -32,9 +35,9 @@ DATA ACCURACY
 
 选择宁海是因为比赛临近，现有数据存在缺失或精度验证空间，适合作为自动维护有效性的具体案例。
 
-### Phase A Status
+### Phase A Status（2026-10-13 历史状态）
 
-[PR #26](https://github.com/zlwison-maker/RaceNext/pull/26) 已合入 `main`，merge commit 为 `590f3ec2092767789dde40fb755d8ecaf6764be0`。当前状态：
+[PR #26](https://github.com/zlwison-maker/RaceNext/pull/26) 已合入 `main`，merge commit 为 `590f3ec2092767789dde40fb755d8ecaf6764be0`。当时状态：
 
 ```text
 PHASE_A_PARTIAL
@@ -58,7 +61,7 @@ Phase A 尚未完成：
 
 不得把 Phase A 描述为全部 PASS。
 
-当前 Canonical 基线：
+2026-10-13 的 Canonical 历史基线（已由 2026-10-14 PR #34 更新）：
 
 | Category | distanceKm | elevationGain | startLocation | finishLocation |
 | --- | ---: | ---: | --- | --- |
@@ -74,11 +77,13 @@ Phase A 从官网读取的实际赛道距离为 UTNH-100 `100.6 km`、CNH-60 `58
 
 `distanceKm` 继续保持 UTNH-100 `100`、CNH-60 `60`、YNH-25 `25`，不得因实际赛道距离不同而修改。Phase B 不新增实际距离字段。
 
-三个组别的 `startLocation` / `finishLocation` 当前均为 `null`。Phase A 从官网公开 JSON 读取到「西门城楼」；下一阶段必须分别验证官方来源身份、2026 Edition 关联、Category 对应关系、JSON 接口安全性、字段直接证据、正式 Pending、Human Review、Canonical 更新及终端展示。不得因为 Edition `venue` 恰好也是「西门城楼」，就省略 Category 级事实验证。
+在 2026-10-13 计划制定时，三个组别的 `startLocation` / `finishLocation` 均为 `null`；该状态是历史事实，2026-10-14 已完成六项正式更新。Phase A 从官网公开 JSON 读取到「西门城楼」；下一阶段必须分别验证官方来源身份、2026 Edition 关联、Category 对应关系、JSON 接口安全性、字段直接证据、正式 Pending、Human Review、Canonical 更新及终端展示。不得因为 Edition `venue` 恰好也是「西门城楼」，就省略 Category 级事实验证。
 
 `elevationGain` 当前保持 UTNH-100 `4986 m`、CNH-60 `2400 m`、YNH-25 `618 m`，官网读取结果与 Canonical 一致，Phase B 继续确认字段证据。CNH-60 的 ITRA `2378 m` 与官网 `2400 m` 的差异继续独立复核并保留来源说明，不得直接覆盖正确 Canonical，也不得因距离语义规则而忽略。
 
 ## 3. Phase B Validation Scope
+
+本节至第 5 节是原定试验范围及 Gate，保留用于对照，不代表仍待执行。宁海 B2 已通过这些范围内的受控生产验收，详见第 9 节。
 
 仅使用现有 Schema：
 
@@ -136,7 +141,7 @@ Phase B 的核心任务由 Codex 0.2 负责：
 
 ## 6. Second Validation: Existing 12 Races
 
-宁海试点通过后，再覆盖现有 12 场。重点衡量：
+宁海试点已经通过。下一步先对现有 12 场做只读事实维护有效性评估；是否继续投入工程实现，须依据质量与成本证据决定。重点衡量：
 
 - Critical Fact Verification Coverage。
 - Fact Change Detection Effectiveness。
@@ -162,7 +167,7 @@ Human Review 继续生效。宁海试点不授权自动修改高影响赛事事�
 
 ## 8. Priority and Exclusions
 
-数据可信度和自动维护有效性是与真实用户获取并行的 P0 工作，但不替代增长和商业验证主线。宁海验证通过后才扩至 12 场。
+数据可信度和自动维护有效性是与真实用户获取并行的可信度工作，但不替代增长和商业验证主线。宁海 B2 已关闭；先做 12 场只读评估，不自动扩大工程开发范围。
 
 当前不做：
 
@@ -176,3 +181,15 @@ Human Review 继续生效。宁海试点不授权自动修改高影响赛事事�
 - 全自动高影响事实发布。
 
 长期目标和验收边界见 [RaceNext 赛事数据自动维护目标与验收标准 V1](RACE_DATA_AUTOMATION_STANDARD_V1.md)，当前实现与生产证据见 [RaceNext Data Foundation V1](../data/RACENEXT_DATA_FOUNDATION_V1.md)。
+
+## 9. Ninghai B2 Production Closeout｜2026-10-14
+
+**FINAL STATUS: NINGHAI_B2_PRODUCTION_CLOSED / PASS**。这是一次经过 Human Review、生产部署及正式微信小程序真机确认的单赛事事实更新闭环，不等于 12 场事实维护准确性、自动发现率或低成本规模化已被证明。
+
+- **来源 / 提取 / 持久化**：[PR #30](https://github.com/zlwison-maker/RaceNext/pull/30) 登记三条 2026 宁海组别官方 JSON 来源；[Run #38537480192](https://github.com/zlwison-maker/RaceNext/actions/runs/38537480192) 生产 Pipeline、Data Gate 与 387/387 全量测试成功；[PR #32](https://github.com/zlwison-maker/RaceNext/pull/32) 将六条 `high_impact` 起终点 Pending 和三个成功 Ingestion State 持久化。PR #31、#33 为确保测试在 Canonical 更新前后保持独立的必要兼容修复。
+- **Human Approval / Apply**：2026-10-14 人工批准六条 Change ID；[PR #34](https://github.com/zlwison-maker/RaceNext/pull/34) 经审核合并至 `main`，merge commit `8b07c7bc7df7d9c889421690ea285a1eac01b92c`。UTNH-100、CNH-60、YNH-25 的 `startLocation` 与 `finishLocation` 六项均由 `null` 更新为「西门城楼」，对应 Pending 均为 `applied`。
+- **发布 / 终端**：1.4 发布线程提供的 2026-10-14 生产 Handoff 确认：腾讯云 Lighthouse 经既有 Nginx → Next.js → PM2 流程成功部署目标 Commit；生产 Detail API 为 HTTP 200 且六项字段 6/6 正确；12 场 List / Detail 回归 12/12 PASS；已上线微信小程序真机三个组别 QA PASS。本条生产与真机信息来自发布线程实际验收记录，不是 GitHub PR 本身可证明的结果。
+- **不变边界**：Category `distanceKm` 仍为 100 / 60 / 25，`elevationGain` 仍为 4986 / 2400 / 618；发枪时间与其他赛事事实不变。仅六条获批 Pending 应用，原有 28 条 Pending 保留，Auto Apply 仍为 OFF。CNH-60 官方 2400m 与 ITRA 2378m 爬升口径差异暂不在此解决。
+- **未验证部分**：在这次生产监测中 46 个来源有 26 个未有效处理，原因包含不同处理阶段，不能全部归为网络抓取失败；Verification Alerts 为 12（3 HIGH / 9 REVIEW）。尚缺可复核的跨赛事 Critical Fact Verification Coverage、Fact Change Detection Effectiveness、完整人工总分钟数与运行成本数据，不能推断规模化维护成本已经下降。
+
+**Next Gate：** 基于既有运行报告对 12 场做只读评估（核验覆盖、有效变化发现、来源失败原因、误报/漏报、人工介入分钟数及调用成本）；先形成基线与决策，再决定是否增加工程投入。继续遵守 Phase 1–3 冻结目标，Event → Edition → Category 不变，所有正式事实候选继续 Human Review。
