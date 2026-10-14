@@ -6,7 +6,7 @@ import { test } from "node:test";
 import { fetchOfficialDocument } from "../scripts/race-update/officialDocument.ts";
 import { evaluateRaceUpdateCore } from "../scripts/race-update/pipeline.ts";
 import { runRealExtractionDryRun } from "../scripts/race-update/realExtraction.ts";
-import { loadRaceSourceRegistry } from "../scripts/race-update/sourceRegistry.ts";
+import { assertRaceSourceRegistry, loadRaceSourceRegistry } from "../scripts/race-update/sourceRegistry.ts";
 import { distanceEvidenceSemantic, validateOfficialFactCandidate } from "../scripts/race-update/validation.ts";
 import type { FactExtractionProvider, OfficialFactCandidate, OfficialSourceIngestionState } from "../types/officialSourceIngestion.ts";
 import type { PendingChangeStore, RaceGraphSnapshot, RaceSourceRegistrySource } from "../types/raceUpdate.ts";
@@ -41,10 +41,26 @@ const configuredProvider: FactExtractionProvider = {
   async extract() { throw new Error("Configured model must not be called for Ninghai JSON."); },
 };
 
-async function fixture() {
-  const snapshot = JSON.parse(await readFile(new URL("../data/canonical/race-graph-v1.json", import.meta.url), "utf8")) as RaceGraphSnapshot;
+async function fixture(location: string | null = null) {
+  const canonical = JSON.parse(await readFile(new URL("../data/canonical/race-graph-v1.json", import.meta.url), "utf8")) as RaceGraphSnapshot;
+  const snapshot = structuredClone(canonical);
+  const record = snapshot.records.find((entry) => entry.edition.editionId === editionId)!;
+  const categoryIds = new Set(groupDetails.map(({ name }) => `${editionId}-${name.toLowerCase()}`));
+  const categories = record.categories.filter(({ categoryId }) => categoryIds.has(categoryId));
+  equal(categories.length, 3);
+  for (const category of categories) {
+    category.startLocation = location;
+    category.finishLocation = location;
+  }
   const registry = await loadRaceSourceRegistry();
-  registry.editions.find((entry) => entry.editionId === editionId)!.sources.push(...[6, 5, 4].map(source));
+  const entry = registry.editions.find((entry) => entry.editionId === editionId)!;
+  for (const id of [6, 5, 4]) {
+    const approved = source(id);
+    const existing = entry.sources.find(({ sourceId }) => sourceId === approved.sourceId);
+    if (existing) Object.assign(existing, approved, { notes: existing.notes });
+    else entry.sources.push(approved);
+  }
+  assertRaceSourceRegistry(registry);
   return { snapshot, registry };
 }
 
@@ -99,6 +115,34 @@ test("JSON fetch rejects unapproved source, cross-domain redirect, HTTP error, m
   equal((await fetchOne(valid, (async () => response("x".repeat(5_000_001))) as typeof fetch)).ok, false);
   const aborted = await fetchOne(valid, (async () => { const error = new Error("aborted"); error.name = "AbortError"; throw error; }) as typeof fetch);
   ok(!aborted.ok && aborted.detail.includes("timed out"));
+});
+
+test("accepted Canonical locations stay unchanged without Pending on initial, normal and forced JSON extraction", async () => {
+  const { snapshot, registry } = await fixture("西门城楼");
+  const before = structuredClone(snapshot);
+  const input = { snapshot, registry, state: state(), pendingStore: pending(), provider: unconfiguredProvider,
+    targets: [{ editionId, sourceIds: [6, 5, 4].map((id) => source(id).sourceId) }],
+    fetcher: replay(), now: () => fetchedAt };
+  const first = await runRealExtractionDryRun(input);
+  equal(first.report.summary.sourcesSucceeded, 3);
+  equal(first.report.summary.modelCalls, 0);
+  equal(first.report.summary.candidateCount, 9);
+  equal(first.createdPendingChangeIds.length, 0);
+  equal(first.pendingStore.changes.length, 0);
+  const candidates = first.report.sources.flatMap(({ candidates }) => candidates);
+  ok(candidates.every(({ diff, action, changeId }) => diff === "UNCHANGED" && action === "no_change" && changeId === null));
+  equal(candidates.filter(({ field }) => field === "startLocation" || field === "finishLocation").length, 6);
+  ok(!candidates.some(({ field }) => field === "distanceKm"));
+  for (const forceExtract of [false, true]) {
+    const repeat = await runRealExtractionDryRun({ ...input, state: first.nextState,
+      pendingStore: first.pendingStore, forceExtract });
+    equal(repeat.createdPendingChangeIds.length, 0);
+    equal(repeat.report.summary.modelCalls, 0);
+    equal(repeat.report.summary.canonicalWrites, 0);
+    deepEqual(repeat.pendingStore, first.pendingStore);
+  }
+  equal(first.report.summary.canonicalWrites, 0);
+  deepEqual(snapshot, before);
 });
 
 test("2025 or ambiguous linked GPX identity cannot enter the fact chain", async () => {
