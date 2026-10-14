@@ -96,7 +96,7 @@ export function validateOfficialFactCandidate(
 /** Preserve nominal Category distance; never reinterpret a measured course length as that fact. */
 export function distanceEvidenceSemantic(candidate: OfficialFactCandidate): "official_category" | "actual_course" | "unknown" {
   const evidence = candidate.evidenceText;
-  if (/(?:actual|measured|course|route|track|gpx)\s*(?:length|distance)|(?:实际|实测|赛道|线路|轨迹)\s*(?:长度|距离)|(?:距离|长度)\s*(?:实际|实测)/i.test(evidence)) return "actual_course";
+  if (/(?:actual|measured|course|route|track|gpx)\s*(?:length|distance)|gpx\s*距离|(?:实际|实测|赛道|线路|轨迹)\s*(?:长度|距离)|(?:距离|长度)\s*(?:实际|实测)/i.test(evidence)) return "actual_course";
   if (/(?:official|nominal)\s*(?:category|event|race|marathon)?\s*distance|(?:category|event|race)\s*(?:official|nominal)\s*distance|(?:官方|组别|项目)\s*(?:对外公布|公布|标称)?\s*(?:组别|项目)?\s*距离|(?:全程|半程)马拉松\s*(?:组别)?\s*距离/i.test(evidence)) return "official_category";
   return "unknown";
 }
