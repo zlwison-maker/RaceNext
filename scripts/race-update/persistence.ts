@@ -221,8 +221,12 @@ export function assertRealExtractionArtifact(value: unknown): asserts value is R
     || value.report.summary.canonicalWrites !== 0
     || value.report.sources.some((source) => !isObject(source)
       || source.canonicalWritten !== false
-      || source.reasoningMode !== "none"
-      || source.structuredOutputMode !== "strict_json_schema"
+      || !((source.protocol === "openai-compatible-chat-completions"
+          && source.reasoningMode === "none"
+          && source.structuredOutputMode === "strict_json_schema")
+        || (source.protocol === "deterministic-json"
+          && source.reasoningMode === "not_applicable"
+          && source.structuredOutputMode === "not_applicable"))
       || typeof source.processingVersion !== "string"
       || !Array.isArray(source.candidates)
       || !Array.isArray(source.rejectedCandidates))) {
