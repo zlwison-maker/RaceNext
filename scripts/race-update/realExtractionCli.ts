@@ -42,6 +42,7 @@ const artifact: RealExtractionArtifact = {
   generatedAt: new Date().toISOString(),
   report: result.report,
 };
+assertRealExtractionArtifact(artifact);
 
 await persistPreparedRealExtraction({
   prepared: result,
