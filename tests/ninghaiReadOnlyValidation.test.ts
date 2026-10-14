@@ -111,17 +111,20 @@ test("category identity mismatch and absent direct evidence fail closed", async 
 });
 
 test("fetch failure is visible, stable reruns deduplicate, and no protected data file changes", async () => {
+  const registryBefore = await loadRaceSourceRegistry();
   const before = await Promise.all(protectedPaths.map(async (path) => createHash("sha256").update(await readFile(new URL(`../${path}`, import.meta.url))).digest("hex")));
   const snapshot = await record();
   const { fetcher } = replay({ [`${api}group/get?id=6`]: "invalid json" });
   const first = await validateNinghaiReadOnly({ record: snapshot, fetcher, checkedAt });
   const second = await validateNinghaiReadOnly({ record: snapshot, fetcher, checkedAt });
   equal(first.status, "partial");
+  equal(second.status, "partial");
+  equal(first.matrix.length, 12);
+  equal(second.matrix.length, 12);
   ok(first.errors.some((error) => error.includes("UTNH-100")));
   deepEqual(first.candidates.map((item) => item.candidateId), second.candidates.map((item) => item.candidateId));
   equal(new Set(first.candidates.map((item) => item.candidateId)).size, first.candidates.length);
   const after = await Promise.all(protectedPaths.map(async (path) => createHash("sha256").update(await readFile(new URL(`../${path}`, import.meta.url))).digest("hex")));
   deepEqual(after, before);
-  const registry = await loadRaceSourceRegistry();
-  ok(!registry.editions.some((edition) => edition.sources.some((source) => source.url.includes("/app-api/race/group/get"))));
+  deepEqual(await loadRaceSourceRegistry(), registryBefore);
 });
