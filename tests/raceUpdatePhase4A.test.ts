@@ -22,7 +22,20 @@ import type {
 import type { PendingChangeStore, RaceGraphSnapshot, RaceSourceRegistry } from "../types/raceUpdate.ts";
 import { groupDetails } from "./fixtures/ninghaiOfficialResponses.ts";
 
-const snapshot = JSON.parse(await readFile(new URL("../data/canonical/race-graph-v1.json", import.meta.url), "utf8")) as RaceGraphSnapshot;
+const canonicalSnapshot = JSON.parse(await readFile(new URL("../data/canonical/race-graph-v1.json", import.meta.url), "utf8")) as RaceGraphSnapshot;
+function snapshotWithNinghaiLocations(location: string | null): RaceGraphSnapshot {
+  const fixture = structuredClone(canonicalSnapshot);
+  const record = fixture.records.find(({ edition }) => edition.editionId === "ninghai-ultra-trail-2026")!;
+  const categoryIds = new Set(groupDetails.map(({ name }) => `${record.edition.editionId}-${name.toLowerCase()}`));
+  const categories = record.categories.filter(({ categoryId }) => categoryIds.has(categoryId));
+  equal(categories.length, 3);
+  for (const category of categories) {
+    category.startLocation = location;
+    category.finishLocation = location;
+  }
+  return fixture;
+}
+const snapshot = snapshotWithNinghaiLocations(null);
 const registry = await loadRaceSourceRegistry();
 const emptyState = (): OfficialSourceIngestionState => ({ schemaVersion: "official-source-ingestion-state-v1", sources: [] });
 const emptyPending = (): PendingChangeStore => ({ schemaVersion: "race-update-pending-v1", changes: [] });
@@ -256,6 +269,39 @@ test("Phase 4A isolates one source failure and marks only its Edition PARTIAL", 
     reason: "HTTP 503",
     retryable: true,
   });
+});
+
+test("accepted Ninghai Canonical locations produce no duplicate Pending on initial or unchanged checks", async () => {
+  const filled = snapshotWithNinghaiLocations("西门城楼");
+  const before = structuredClone(filled);
+  const first = await runRaceDailyCheck({
+    snapshot: filled, registry, state: emptyState(), pendingStore: emptyPending(), provider: fixtureProvider(),
+    now: clockIso(), fetcher: allRaceFetcher(registry), autoApplyLowRisk: false,
+  });
+  const jsonReports = first.report.extraction.sources.filter(({ protocol }) => protocol === "deterministic-json");
+  equal(jsonReports.length, 3);
+  ok(jsonReports.every(({ extractionStatus, identity }) => extractionStatus === "success" && identity?.status === "matched"));
+  const locations = jsonReports.flatMap(({ candidates }) => candidates)
+    .filter(({ field }) => field === "startLocation" || field === "finishLocation");
+  equal(locations.length, 6);
+  ok(locations.every(({ currentValue, candidateValue, diff, action, changeId, pendingStatus }) => (
+    currentValue === "西门城楼" && candidateValue === currentValue && diff === "UNCHANGED" && action === "no_change"
+      && changeId === null && pendingStatus === null
+  )));
+  ok(!jsonReports.flatMap(({ candidates }) => candidates).some(({ field }) => field === "distanceKm"));
+  equal(first.prepared.createdPendingChangeIds.length, 0);
+  equal(first.prepared.pendingStore.changes.length, 0);
+  equal(first.report.summary.canonicalWrites, 0);
+  const second = await runRaceDailyCheck({
+    snapshot: filled, registry, state: first.prepared.nextState, pendingStore: first.prepared.pendingStore,
+    provider: fixtureProvider(), now: clockIso(), fetcher: allRaceFetcher(registry), autoApplyLowRisk: false,
+  });
+  equal(second.report.summary.modelCalls, 0);
+  equal(second.prepared.createdPendingChangeIds.length, 0);
+  deepEqual(second.prepared.pendingStore, first.prepared.pendingStore);
+  equal(second.report.summary.canonicalWrites, 0);
+  deepEqual(filled, before);
+  deepEqual(canonicalSnapshot, JSON.parse(await readFile(new URL("../data/canonical/race-graph-v1.json", import.meta.url), "utf8")));
 });
 
 test("Phase 4A reports NO_VALID_SOURCE and a Tier 1 gap without inventing sources", async () => {

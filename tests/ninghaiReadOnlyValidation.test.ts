@@ -5,6 +5,7 @@ import { test } from "node:test";
 
 import { validateNinghaiReadOnly } from "../scripts/race-update/ninghaiReadOnlyValidation.ts";
 import { loadRaceSourceRegistry } from "../scripts/race-update/sourceRegistry.ts";
+import type { RaceGraphSnapshot } from "../types/raceUpdate.ts";
 import { apiScript, entryScript, groupDetails, groupList, homepageHtml, newsList, routeScript } from "./fixtures/ninghaiOfficialResponses.ts";
 
 const checkedAt = "2026-10-13T10:15:00.000Z";
@@ -15,9 +16,17 @@ const protectedPaths = [
   "data/sources/race-source-registry.json", "data/sources/official-source-ingestion-state.json",
 ];
 
-async function record() {
-  const graph = JSON.parse(await readFile(new URL("../data/canonical/race-graph-v1.json", import.meta.url), "utf8"));
-  return structuredClone(graph.records.find((item: { edition: { editionId: string } }) => item.edition.editionId === "ninghai-ultra-trail-2026"));
+async function record(location: string | null = null) {
+  const graph = JSON.parse(await readFile(new URL("../data/canonical/race-graph-v1.json", import.meta.url), "utf8")) as RaceGraphSnapshot;
+  const fixture = structuredClone(graph.records.find(({ edition }) => edition.editionId === "ninghai-ultra-trail-2026")!);
+  const categoryIds = new Set(groupDetails.map(({ name }) => `${fixture.edition.editionId}-${name.toLowerCase()}`));
+  const categories = fixture.categories.filter(({ categoryId }) => categoryIds.has(categoryId));
+  equal(categories.length, 3);
+  for (const category of categories) {
+    category.startLocation = location;
+    category.finishLocation = location;
+  }
+  return fixture;
 }
 
 function replay(overrides: Record<string, string> = {}) {
@@ -77,6 +86,23 @@ test("2025 linked asset cannot authenticate a 2026 category fact", async () => {
   const report = await validateNinghaiReadOnly({ record: await record(), fetcher, checkedAt });
   equal(report.matrix.find((item) => item.categoryId.endsWith("cnh-60") && item.field === "startLocation")?.action, "VERIFICATION_ALERT");
   equal(report.candidates.find((item) => item.categoryName === "CNH-60")?.editionIdentityStatus, "year_conflict");
+});
+
+test("locations already accepted in cloned Canonical are verified without proposing the same fact again", async () => {
+  const snapshot = await record("西门城楼");
+  const before = structuredClone(snapshot);
+  const { fetcher } = replay();
+  const report = await validateNinghaiReadOnly({ record: snapshot, fetcher, checkedAt });
+  equal(report.status, "success");
+  equal(report.matrix.length, 12);
+  const locations = report.matrix.filter(({ field }) => field === "startLocation" || field === "finishLocation");
+  equal(locations.length, 6);
+  ok(locations.every(({ currentValue, candidateValue, missing, editionIdentity, action }) => (
+    currentValue === "西门城楼" && candidateValue === currentValue && !missing
+      && editionIdentity === "linked_2026_asset" && action === "NO_CHANGE_VERIFIED"
+  )));
+  ok(report.matrix.filter(({ field }) => field === "distanceKm").every(({ action }) => action === "ACTUAL_COURSE_DISTANCE_ONLY"));
+  deepEqual(snapshot, before);
 });
 
 test("duplicate news records do not create duplicate source candidates", async () => {
