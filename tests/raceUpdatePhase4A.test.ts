@@ -4,6 +4,7 @@ import { test } from "node:test";
 
 import { buildRaceDailyCheckTargets, runRaceDailyCheck } from "../scripts/race-update/dailyCheck.ts";
 import { checkEditionDocumentIdentity } from "../scripts/race-update/identity.ts";
+import { isNinghaiOfficialJsonSource } from "../scripts/race-update/ninghaiOfficialJson.ts";
 import { extractDocumentSnapshot } from "../scripts/race-update/officialDocument.ts";
 import { buildSanitizedRaceUpdateReport } from "../scripts/race-update/productionWorkflow.ts";
 import { RACE_FACT_EXTRACTION_PROMPT_VERSION } from "../scripts/race-update/qwenProvider.ts";
@@ -19,6 +20,7 @@ import type {
   OfficialSourceIngestionState,
 } from "../types/officialSourceIngestion.ts";
 import type { PendingChangeStore, RaceGraphSnapshot, RaceSourceRegistry } from "../types/raceUpdate.ts";
+import { groupDetails } from "./fixtures/ninghaiOfficialResponses.ts";
 
 const snapshot = JSON.parse(await readFile(new URL("../data/canonical/race-graph-v1.json", import.meta.url), "utf8")) as RaceGraphSnapshot;
 const registry = await loadRaceSourceRegistry();
@@ -128,40 +130,100 @@ test("HK100 trusted fallback sources are identity-matched cross-check-only event
   }
 });
 
-test("Phase 4A checks all eligible sources and unchanged hashes make zero model calls", async () => {
-  let providerCalls = 0;
+test("Phase 4A checks all eligible model/JSON sources and unchanged hashes produce no extraction or duplicate Pending", async (t) => {
+  const protectedPaths = ["data/canonical/race-graph-v1.json", "data/pending/race-update-pending.json",
+    "data/sources/race-source-registry.json", "data/sources/official-source-ingestion-state.json"];
+  const protectedBefore = await Promise.all(protectedPaths.map((path) => readFile(new URL(`../${path}`, import.meta.url))));
+  const canonicalBefore = structuredClone(snapshot);
+  const providerCalls: string[] = [];
+  const eligibleSources = snapshot.records.flatMap(({ edition }) => (
+    activeFreshnessSources(registry, edition.editionId).map((source) => ({ editionId: edition.editionId, source }))
+  ));
+  const jsonSources = eligibleSources.filter(({ editionId, source }) => isNinghaiOfficialJsonSource(source, editionId));
+  const modelSources = eligibleSources.filter(({ editionId, source }) => !isNinghaiOfficialJsonSource(source, editionId));
+  const sourceKey = ({ editionId, sourceId }: { editionId: string; sourceId: string }) => `${editionId}/${sourceId}`;
   const first = await runRaceDailyCheck({
     snapshot,
     registry,
     state: emptyState(),
     pendingStore: emptyPending(),
-    provider: fixtureProvider(() => { providerCalls += 1; }),
+    provider: fixtureProvider((request) => { providerCalls.push(sourceKey(request.document)); }),
     now: clockIso(),
     fetcher: allRaceFetcher(registry),
+    autoApplyLowRisk: false,
   });
-  const eligibleCount = snapshot.records.reduce((sum, { edition }) => (
-    sum + activeFreshnessSources(registry, edition.editionId).length
-  ), 0);
+  const eligibleCount = eligibleSources.length;
+  const modelRequiredCount = modelSources.length;
   equal(first.report.summary.editionsChecked, 12);
   equal(first.report.summary.sourcesChecked, eligibleCount);
-  equal(first.report.summary.modelCalls, eligibleCount);
-  equal(providerCalls, eligibleCount);
+  equal(first.report.summary.modelCalls, modelRequiredCount);
+  equal(providerCalls.length, modelRequiredCount);
+  deepEqual([...providerCalls].sort(), modelSources.map(({ editionId, source }) => sourceKey({ editionId, sourceId: source.sourceId })).sort());
   ok(first.report.editions.every(({ health }) => health === "HEALTHY"));
   equal(first.report.summary.canonicalWrites, 0);
 
-  providerCalls = 0;
+  const jsonReports = first.report.extraction.sources.filter(({ protocol }) => protocol === "deterministic-json");
+  const modelReports = first.report.extraction.sources.filter(({ protocol }) => protocol === "openai-compatible-chat-completions");
+  equal(modelReports.length, modelRequiredCount);
+  ok(modelReports.every(({ extractionStatus, requestStatus, reasoningMode, structuredOutputMode }) => (
+    extractionStatus === "success" && requestStatus === "success" && reasoningMode === "none" && structuredOutputMode === "strict_json_schema"
+  )));
+  equal(jsonSources.length, 3);
+  equal(jsonReports.length, jsonSources.length);
+  deepEqual(jsonReports.map(({ sourceId }) => sourceId).sort(),
+    groupDetails.map(({ id }) => `ninghai100-official-category-${id}-2026`).sort());
+  for (const source of jsonReports) {
+    equal(source.fetchStatus, "success");
+    equal(source.identity?.status, "matched");
+    equal(source.extractionStatus, "success");
+    equal(source.requestStatus, "success");
+    equal(source.provider, "official-json-deterministic");
+    equal(source.model, "none");
+    equal(providerCalls.filter((key) => key === sourceKey(source)).length, 0);
+    deepEqual(source.usage, { inputTokens: null, outputTokens: null, totalTokens: null });
+    const group = groupDetails.find(({ id }) => source.sourceId === `ninghai100-official-category-${id}-2026`)!;
+    const categoryId = `ninghai-ultra-trail-2026-${group.name.toLowerCase()}`;
+    deepEqual(source.candidates.map(({ field }) => field), ["elevationGain", "startLocation", "finishLocation"]);
+    ok(source.candidates.every((candidate) => candidate.categoryId === categoryId && candidate.action !== "auto_apply"));
+  }
+  const ninghaiPending = first.prepared.pendingStore.changes.filter(({ editionId }) => editionId === "ninghai-ultra-trail-2026");
+  equal(ninghaiPending.length, jsonReports.length * 2);
+  equal(new Set(ninghaiPending.map(({ changeId }) => changeId)).size, ninghaiPending.length);
+  for (const source of jsonReports) {
+    const locations = ninghaiPending.filter(({ sourceId }) => sourceId === source.sourceId);
+    deepEqual(locations.map(({ field }) => field).sort(), ["finishLocation", "startLocation"]);
+    ok(locations.every(({ candidateValue, currentValue, status, risk, reviewedAt, appliedAt }) => (
+      candidateValue === "西门城楼" && currentValue === null && status === "pending" && risk === "high_impact"
+        && reviewedAt === null && appliedAt === null
+    )));
+  }
+  ok(!first.report.extraction.sources.flatMap(({ candidates }) => candidates).some(({ field }) => field === "distanceKm"));
+  deepEqual(snapshot.records.find(({ edition }) => edition.editionId === "ninghai-ultra-trail-2026")!.categories.map(({ distanceKm }) => distanceKm), [100, 60, 25]);
+
+  providerCalls.length = 0;
   const second = await runRaceDailyCheck({
     snapshot,
     registry,
     state: first.prepared.nextState,
     pendingStore: first.prepared.pendingStore,
-    provider: fixtureProvider(() => { providerCalls += 1; }),
+    provider: fixtureProvider((request) => { providerCalls.push(sourceKey(request.document)); }),
     now: clockIso(),
     fetcher: allRaceFetcher(registry),
+    autoApplyLowRisk: false,
   });
   equal(second.report.summary.modelCalls, 0);
   equal(second.report.summary.sourcesUnchanged, eligibleCount);
-  equal(providerCalls, 0);
+  equal(providerCalls.length, 0);
+  ok(second.report.extraction.sources.every(({ extractionStatus, requestStatus, candidates }) => (
+    extractionStatus === "unchanged" && requestStatus === "skipped" && candidates.length === 0
+  )));
+  equal(second.prepared.createdPendingChangeIds.length, 0);
+  equal(second.report.newPending.length, 0);
+  deepEqual(second.prepared.pendingStore, first.prepared.pendingStore);
+  equal(second.report.summary.canonicalWrites, 0);
+  t.diagnostic(`sources_checked=${first.report.summary.sourcesChecked} model_calls=${first.report.summary.modelCalls} JSON_sources=${jsonReports.length} JSON_model_calls=0 simulated_Ninghai_pending=${ninghaiPending.length} second_model_calls=${second.report.summary.modelCalls} second_new_pending=${second.prepared.createdPendingChangeIds.length}`);
+  deepEqual(snapshot, canonicalBefore);
+  deepEqual(await Promise.all(protectedPaths.map((path) => readFile(new URL(`../${path}`, import.meta.url)))), protectedBefore);
 });
 
 test("Phase 4A isolates one source failure and marks only its Edition PARTIAL", async () => {
@@ -326,14 +388,14 @@ test("Shenzhen remains PARTIAL and passes minimum health when the legacy TLS sou
   }]);
 });
 
-function fixtureProvider(onExtract?: () => void): FactExtractionProvider {
+function fixtureProvider(onExtract?: (request: OfficialFactExtractionRequest) => void): FactExtractionProvider {
   return {
     id: "aliyun-model-studio",
     configured: true,
     model: "qwen3.8-flash",
     promptVersion: RACE_FACT_EXTRACTION_PROMPT_VERSION,
-    async extract(_request: OfficialFactExtractionRequest): Promise<FactExtractionProviderResult> {
-      onExtract?.();
+    async extract(request: OfficialFactExtractionRequest): Promise<FactExtractionProviderResult> {
+      onExtract?.(request);
       return {
         output: { contractVersion: "official-fact-extraction-v1", facts: [] },
         provider: "aliyun-model-studio",
@@ -351,12 +413,19 @@ function fixtureProvider(onExtract?: () => void): FactExtractionProvider {
 
 function allRaceFetcher(sourceRegistry: RaceSourceRegistry): typeof fetch {
   const byUrl = new Map(sourceRegistry.editions.flatMap((entry) => entry.sources.map((source) => (
-    [source.url, { editionId: entry.editionId, sourceId: source.sourceId }] as const
+    [source.url, { editionId: entry.editionId, source }] as const
   ))));
   return (async (input: string | URL | Request) => {
     const url = requestUrl(input);
     const identity = byUrl.get(url);
     if (!identity) return new Response("missing fixture", { status: 404, headers: { "content-type": "text/plain" } });
+    if (isNinghaiOfficialJsonSource(identity.source, identity.editionId)) {
+      const id = Number(new URL(url).searchParams.get("id"));
+      const group = groupDetails.find((candidate) => candidate.id === id);
+      ok(group, `Missing official JSON fixture for ${identity.source.sourceId}`);
+      equal(identity.source.sourceId, `ninghai100-official-category-${id}-2026`);
+      return Response.json({ code: 0, data: group });
+    }
     const record = snapshot.records.find(({ edition }) => edition.editionId === identity.editionId)!;
     const identityText = [
       record.event.canonicalName,
