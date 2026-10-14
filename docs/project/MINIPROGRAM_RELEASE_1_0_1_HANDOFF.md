@@ -1,7 +1,7 @@
 # RaceNext 微信小程序 1.0.1 Release Handoff
 
-**Status: SUBMITTED_FOR_REVIEW**
-**Updated: 2026-10-13**
+**Status: RELEASED / HUMAN CONFIRMED 2026-10-14**
+**Updated: 2026-10-14**
 
 ## 1. Version
 
@@ -36,7 +36,7 @@ V2 分享图片：
 - Content-Type `image/jpeg`。
 - 尺寸 `750 × 600`。
 
-Web / API 最近已确认部署基线为 `2c83dd19c1c7980c7b03085a0ac4c6b45d161497`。PR #24 仅包含小程序配置，不要求再次部署 Web / API。
+2026-10-13 的 Web / API 部署基线为 `2c83dd19c1c7980c7b03085a0ac4c6b45d161497`（历史快照）。2026-10-14 宁海 B2 发布线程确认服务器已经部署 `8b07c7bc7df7d9c889421690ea285a1eac01b92c`，生产 API 与三个组别真机 QA PASS；这是服务端 Canonical 更新，没有重新提交微信小程序客户端。PR #24 仅为客户端配置变更，不要求因其再次部署 Web / API。
 
 ## 5. QA
 
@@ -46,13 +46,15 @@ Web / API 最近已确认部署基线为 `2c83dd19c1c7980c7b03085a0ac4c6b45d1614
 
 ## 6. Release Status
 
-2026-10-13，版本已上传并提交微信审核，当前状态为：
+2026-10-13，1.0.1 已上传并提交微信审核，历史状态为 `SUBMITTED_FOR_REVIEW`。
+
+**2026-10-14 最新状态：Human 已明确确认微信审核通过、1.0.1 正式发布。**
 
 ```text
-SUBMITTED_FOR_REVIEW
+RELEASED
 ```
 
-这不等于审核通过或正式发布完成。审核结果和正式发布时间由后续 Release Handoff 补充。
+此状态来自项目负责人的发布确认；尚未单独附微信公众平台发布记录、精确发布时间及发布流水号，不虚构这些信息。1.0.1 客户端发布与 2026-10-14 宁海 B2 服务端数据部署属于两条独立操作，不应混记。
 
 ## 7. Analytics Status
 
