@@ -12,7 +12,7 @@
 - Critical Fact Maintenance: **P0 IMPROVEMENT REQUIRED**
 - Parallel Reliability Work: **RACE DATA AUTOMATION P0**
 
-微信小程序已上线；1.0.1 已由 Human 于 2026-10-14 确认审核通过并正式发布（精确发布时刻尚未提供）。宁海 B2 事实更新端到端生产验证亦于 2026-10-14 CLOSED。创业主线是实际用户、获客与商业验证；其余 12 场的数据核验覆盖、变化发现与维护成本仍待只读评估。不要把产品发布、Workflow PASS 或单场数据闭环等同于创业验证或全站事实准确性 PASS。
+微信小程序已上线；1.0.1 已由 Human 于 2026-10-14 确认审核通过并正式发布（精确发布时刻尚未提供）。宁海 B2 事实更新端到端生产验证亦于 2026-10-14 CLOSED。创业主线是实际用户、获客与商业验证；现有 12 场赛事的整体核验覆盖、变化发现与维护成本仍待只读评估。不要把产品发布、Workflow PASS 或单场数据闭环等同于创业验证或全站事实准确性 PASS。
 
 ## 2. Mandatory Reading
 
