@@ -92,6 +92,13 @@ export type SanitizedRaceUpdateReport = {
     criticalFacts: RaceDailyCheckReport["criticalFactVerification"];
   };
   meaningfulDiff: MeaningfulDataChange;
+  attention?: { baseline: "available" | "not_available"; newAlertIds: string[]; repeatedAlerts: number; newFactPending: number; newSourceCandidates: number; changedSourceCandidates: number };
+  discovery?: {
+    status: "completed" | "failed";
+    dedupBaseline: "available" | "not_available";
+    newSources: number; candidates: number; unresolvedReview: number; changedCandidates?: number;
+    editions: Array<{ editionId: string; status: string }>;
+  };
   continuity?: {
     sourceMonitoringExecuted: boolean;
     canonicalBaselineSha: string | null;
@@ -241,7 +248,7 @@ export function buildDataPrBody(report: SanitizedRaceUpdateReport, artifactName:
     "## Race Data Update",
     "",
     `- Run ID: ${report.run.runId}`,
-    `- 12-Race health: ${health.healthy} healthy / ${health.partial} partial / ${health.failed} failed / ${health.sourceGap} source gap`,
+    `- ${health.editionsChecked}-Edition health: ${health.healthy} healthy / ${health.partial} partial / ${health.failed} failed / ${health.sourceGap} source gap`,
     `- Sources checked: ${report.sources.checked}`,
     `- Sources failed: ${report.sources.failed}`,
     `- Model calls: ${report.model.calls}`,
@@ -264,6 +271,7 @@ export function buildVerificationSummary(report: SanitizedRaceUpdateReport): str
     "",
     `- Run ID: ${safeSummaryText(report.run.runId)}`,
     `- Editions checked: ${report.health.editionsChecked}`,
+    `- Editions with effective monitoring: ${report.health.editions.filter(e => e.officialSourcesSuccessful + e.trustedSourcesSuccessful > 0).length}`,
     `- Sources checked / fetched / effectively processed: ${report.sources.checked} / ${report.sources.fetched} / ${report.sources.checked - report.sources.failed}`,
     `- Official sources effectively processed: ${verification.officialSourcesEffectivelyProcessed}`,
     `- Critical facts verified this run / not verified / unknown: ${verification.criticalFactsVerifiedThisRun} / ${verification.criticalFactsNotVerifiedThisRun} / ${verification.criticalFactsUnknown}`,
@@ -271,11 +279,22 @@ export function buildVerificationSummary(report: SanitizedRaceUpdateReport): str
     "- Source health is not a guarantee of critical-fact accuracy. Alerts do not change Canonical.",
     "",
   ];
+  if (report.discovery) {
+    const discovery = report.discovery;
+    lines.push(`- Official discovery: ${discovery.status}; new sources ${discovery.newSources}; changed candidates ${discovery.changedCandidates ?? 0}; Source Candidates ${discovery.candidates}; unresolved Source Review ${discovery.unresolvedReview}; dedup baseline ${discovery.dedupBaseline}.`);
+    for (const edition of discovery.editions) lines.push(`- Discovery ${safeSummaryText(edition.editionId)}: ${safeSummaryText(edition.status)}`);
+    lines.push("- Candidate URLs, titles, entry evidence and identity decisions: source-discovery-report.json / source-discovery-ledger.json in this run artifact. Listing matches remain unapproved.");
+  }
+  lines.push(`- New Fact Pending: ${report.newPending.length}; conflicts ${report.conflicts.length}. Human approval is required.`);
+  for (const pending of report.newPending) lines.push(`- Fact Review ${safeSummaryText(pending.editionId)} / ${safeSummaryText(pending.categoryId ?? "Edition")} / ${safeSummaryText(pending.field)}: ${pending.risk}; Change ID ${pending.changeId}`);
+  lines.push("- Not performed: Source Approval, Fact Approval, Canonical Auto Apply, automatic merge, production deployment, new Event/Edition/Category creation.");
+  lines.push("- Monetary cost: unavailable without a verified provider tariff; token counts and model calls are reported separately.", "");
   for (const edition of report.health.editions) {
     lines.push(`- ${safeSummaryText(edition.editionId)}: ${edition.officialSourcesSuccessful} official source(s) effectively processed; ${edition.sourcesFailed} source failure(s).`);
   }
   lines.push("");
-  for (const alert of verification.alerts) {
+  if (report.attention) lines.push(`- New/changed Verification Alerts: ${report.attention.newAlertIds.length}; repeated unchanged alerts: ${report.attention.repeatedAlerts}; review baseline ${report.attention.baseline}. Repeated alerts remain in the artifact and are not new review tasks.`);
+  for (const alert of verification.alerts.filter(a => !report.attention || report.attention.newAlertIds.includes(a.alertId))) {
     lines.push(`- **${alert.severity}** ${safeSummaryText(alert.editionId)} · ${alert.reasonCode} · ${safeSummaryText(alert.affectedFields.join(", "))}`);
     lines.push(`  - Trigger: ${safeSummaryText(alert.triggerReason)}`);
     lines.push(`  - Sources: ${safeSummaryText(alert.sourceIds.join(", ") || "none registered")}`);

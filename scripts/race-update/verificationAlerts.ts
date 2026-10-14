@@ -50,6 +50,9 @@ export function evaluateVerificationAlerts(input: {
       if (category.startTimes?.length) {
         checks.push(checkField(record, "startTimes", category.categoryId, sourceReports, officialIds, effectiveOfficialIds.size));
       }
+      for (const field of ["startLocation", "finishLocation", "distanceKm", "elevationGain", "cutoffTimeHours"] as const) {
+        checks.push(checkField(record, field, category.categoryId, sourceReports, officialIds, effectiveOfficialIds.size));
+      }
     }
 
     // Past editions have no actionable daily lifecycle or source-health review.
@@ -157,7 +160,7 @@ export function evaluateVerificationAlerts(input: {
     if (days !== null && days >= 0 && days <= IMMINENT_DAYS) {
       const unverified = checks.filter((check) => check.editionId === edition.editionId
         && check.canonicalValuePresent && check.status !== "VERIFIED_THIS_RUN"
-        && (check.field === "raceDate" || check.field === "startAt" || check.field === "startTimes"));
+        && (check.field === "raceDate" || check.categoryId !== null));
       if (unverified.length > 0) {
         add({
           editionId: edition.editionId,
@@ -165,7 +168,7 @@ export function evaluateVerificationAlerts(input: {
             ? `Category.${check.field}:${check.categoryId}` : `Edition.${check.field}`))],
           reasonCode: "CRITICAL_FACT_UNVERIFIED",
           severity: "REVIEW",
-          triggerReason: `Race is within ${IMMINENT_DAYS} calendar days; listed start/date facts lack direct official confirmation this run.`,
+          triggerReason: `Race is within ${IMMINENT_DAYS} calendar days; listed critical facts lack direct official confirmation this run.`,
           availableEvidence: [`Canonical raceDate: ${edition.raceDate ?? "UNKNOWN"}`],
           sourceIds: officialRegistrySources.map(({ sourceId }) => sourceId),
           missingEvidence: "Accepted current-run official evidence matching each affected Canonical field.",
@@ -191,7 +194,7 @@ function checkField(
   officialSourcesEffectivelyProcessed: number,
 ): CriticalFactVerification {
   const category = categoryId ? record.categories.find((entry) => entry.categoryId === categoryId) : null;
-  const value = category ? category[field as "startAt" | "startTimes"] : record.edition[field as keyof typeof record.edition];
+  const value = category ? category[field as keyof typeof category] : record.edition[field as keyof typeof record.edition];
   const canonicalValuePresent = value !== null && value !== undefined && value !== ""
     && (!Array.isArray(value) || value.length > 0) && value !== "unknown";
   const directOfficialEvidenceSourceIds = reports.filter((source) => officialIds.has(source.sourceId)

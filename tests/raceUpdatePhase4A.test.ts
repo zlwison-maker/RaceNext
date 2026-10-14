@@ -43,7 +43,6 @@ const emptyPending = (): PendingChangeStore => ({ schemaVersion: "race-update-pe
 test("Phase 4A derives all Edition targets and active freshness sources without a second hardcoded race list", () => {
   const targets = buildRaceDailyCheckTargets(snapshot, registry);
   equal(targets.length, snapshot.records.length);
-  equal(targets.length, 12);
   deepEqual(
     targets.map(({ editionId }) => editionId),
     snapshot.records.map(({ edition }) => edition.editionId),
@@ -167,7 +166,7 @@ test("Phase 4A checks all eligible model/JSON sources and unchanged hashes produ
   });
   const eligibleCount = eligibleSources.length;
   const modelRequiredCount = modelSources.length;
-  equal(first.report.summary.editionsChecked, 12);
+  equal(first.report.summary.editionsChecked, snapshot.records.length);
   equal(first.report.summary.sourcesChecked, eligibleCount);
   equal(first.report.summary.modelCalls, modelRequiredCount);
   equal(providerCalls.length, modelRequiredCount);
@@ -284,6 +283,9 @@ test("accepted Ninghai Canonical locations produce no duplicate Pending on initi
   const locations = jsonReports.flatMap(({ candidates }) => candidates)
     .filter(({ field }) => field === "startLocation" || field === "finishLocation");
   equal(locations.length, 6);
+  const verifiedLocations=first.report.criticalFactVerification.filter(({editionId,field})=>editionId==="ninghai-ultra-trail-2026" && ["startLocation","finishLocation"].includes(field));
+  equal(verifiedLocations.length,6);
+  ok(verifiedLocations.every(({status,directOfficialEvidenceSourceIds})=>status==="VERIFIED_THIS_RUN" && directOfficialEvidenceSourceIds.length===1));
   ok(locations.every(({ currentValue, candidateValue, diff, action, changeId, pendingStatus }) => (
     currentValue === "西门城楼" && candidateValue === currentValue && diff === "UNCHANGED" && action === "no_change"
       && changeId === null && pendingStatus === null

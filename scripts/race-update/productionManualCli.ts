@@ -2,8 +2,9 @@ import { appendFile, mkdir, readFile, writeFile } from "node:fs/promises";
 
 import type { OfficialSourceIngestionState } from "../../types/officialSourceIngestion.ts";
 import type { PendingChangeStore, RaceGraphSnapshot } from "../../types/raceUpdate.ts";
+import { assertOperationsReviewState, buildOperationalReview } from "./operationsReview.ts";
 import { applySafeChanges } from "./apply.ts";
-import { runRaceDailyCheck } from "./dailyCheck.ts";
+import { assertDailyMonitoringCoverage, runRaceDailyCheck } from "./dailyCheck.ts";
 import {
   assertOfficialIngestionState,
   assertPendingChangeStore,
@@ -11,6 +12,7 @@ import {
   OFFICIAL_INGESTION_STATE_PATH,
   PENDING_CHANGE_PATH,
   persistRaceGraphSnapshotAtomic,
+  writeJsonAtomicValidated,
 } from "./persistence.ts";
 import { loadPendingChangeStore } from "./pendingStore.ts";
 import type { ContinuityPlan } from "./productionPrContinuity.ts";
@@ -59,9 +61,7 @@ const result = await runRaceDailyCheck({
   provider,
   autoApplyLowRisk,
 });
-if (result.report.summary.editionsChecked !== 12) {
-  throw new Error(`TWELVE_RACE_ORCHESTRATION_REQUIRED:${result.report.summary.editionsChecked}`);
-}
+assertDailyMonitoringCoverage(canonicalBefore, registry, result.report);
 
 const eligibleChanges = autoApplyLowRisk
   ? result.prepared.changes.filter(({ action }) => action === "auto_apply")
@@ -108,6 +108,19 @@ const report = buildSanitizedRaceUpdateReport({
   meaningfulDiff,
 });
 report.run.runId = process.env.GITHUB_RUN_ID?.trim() || report.run.runId;
+try {
+  const discovery = JSON.parse(await readFile("artifacts/race-update/source-discovery-report.json", "utf8"));
+  if (discovery.schemaVersion !== "multi-race-discovery-v1" || !Array.isArray(discovery.editions)
+    || ![discovery.summary.newSources, discovery.summary.candidates, discovery.summary.unresolvedReview].every(n => Number.isSafeInteger(n) && n >= 0)) throw new Error("INVALID_DISCOVERY_REPORT");
+  report.discovery = {
+    status: "completed", dedupBaseline: discovery.dedupBaseline === "available" ? "available" : "not_available",
+    newSources: discovery.summary.newSources, candidates: discovery.summary.candidates, unresolvedReview: discovery.summary.unresolvedReview,
+    changedCandidates: Number.isSafeInteger(discovery.summary.changedCandidates) ? discovery.summary.changedCandidates : 0,
+    editions: discovery.editions.map((e: { editionId: string; status: string }) => ({ editionId: e.editionId, status: e.status })),
+  };
+} catch {
+  report.discovery = { status: "failed", dedupBaseline: "not_available", newSources: 0, candidates: 0, unresolvedReview: 0, editions: [] };
+}
 const continuity = await loadContinuityContext();
 report.continuity = {
   sourceMonitoringExecuted: true,
@@ -120,6 +133,11 @@ report.continuity = {
   localPersistenceCompleted: true,
   prPersistence: meaningfulDiff.meaningful ? "awaiting_finish" : "not_applicable",
 };
+let previousReview;
+try { previousReview=JSON.parse(await readFile("artifacts/operations-review-input.json","utf8")); assertOperationsReviewState(previousReview); }
+catch(error) { if((error as NodeJS.ErrnoException).code!=="ENOENT") console.log("OPERATIONS_REVIEW_BASELINE=invalid; no alerts suppressed"); previousReview=undefined; }
+const operational=buildOperationalReview(report,previousReview);
+report.attention=operational.attention;
 const artifactName = `race-update-report-${report.run.runId}`;
 const prBody = buildDataPrBody(report, artifactName);
 const verificationSummary = buildVerificationSummary(report);
@@ -128,6 +146,8 @@ assertSanitizedText({ text: prBody, environment: process.env });
 assertSanitizedText({ text: verificationSummary, environment: process.env });
 
 await mkdir("artifacts/race-update", { recursive: true });
+const operationsPath="artifacts/race-update/operations-review-state.json";
+await writeJsonAtomicValidated({path:operationsPath,value:operational.state,validate:assertOperationsReviewState,allowedPaths:[operationsPath]});
 await writeFile(REPORT_PATH, `${JSON.stringify(report, null, 2)}\n`, "utf8");
 await writeFile(PR_BODY_PATH, `${prBody}\n`, "utf8");
 if (process.env.GITHUB_STEP_SUMMARY) {

@@ -45,6 +45,7 @@ const artifact: RaceDailyCheckArtifact = {
   generatedAt: new Date().toISOString(),
   report: result.report,
 };
+assertRaceDailyCheckArtifact(artifact);
 
 await persistPreparedRealExtraction({
   prepared: result.prepared,
@@ -62,7 +63,7 @@ const registryAfter = await readFile(RACE_SOURCE_REGISTRY_PATH);
 if (!canonicalBefore.equals(canonicalAfter)) throw new Error("Phase 4A modified formal Canonical.");
 if (!registryBefore.equals(registryAfter)) throw new Error("Phase 4A modified formal Source Registry.");
 
-console.log("Phase 4A 12-Race Daily Check (SAFE BASELINE)");
+console.log(`Dynamic Daily Check (${result.report.summary.editionsChecked} Editions; SAFE BASELINE)`);
 for (const edition of result.report.editions) {
   console.log([
     edition.editionId,

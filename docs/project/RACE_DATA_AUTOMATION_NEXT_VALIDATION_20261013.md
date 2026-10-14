@@ -1,6 +1,6 @@
 # RaceNext 数据自动维护下一阶段验证计划
 
-**Status: NINGHAI B2 PRODUCTION CLOSED / 12-RACE READ-ONLY ASSESSMENT NEXT**
+**Status: NINGHAI B2 PRODUCTION CLOSED / DATA MAINTENANCE P0 DELIVERY / SCALE ONBOARDING NEXT**
 **Frozen: 2026-10-13**
 **Closeout: 2026-10-14**
 
@@ -141,7 +141,7 @@ Phase B 的核心任务由 Codex 0.2 负责：
 
 ## 6. Second Validation: Existing 12 Races
 
-宁海试点已经通过。下一步先对现有 12 场做只读事实维护有效性评估；是否继续投入工程实现，须依据质量与成本证据决定。重点衡量：
+宁海试点已经通过。2026-10-14 最新 Human Decision 将数据自动维护设为本周唯一开发 P0：动态监测、多赛事 Discovery 与异常分流优先交付，12 场只读复盘不再是扩容前置条件。质量与成本评估同步进行，重点衡量：
 
 - Critical Fact Verification Coverage。
 - Fact Change Detection Effectiveness。
@@ -167,7 +167,7 @@ Human Review 继续生效。宁海试点不授权自动修改高影响赛事事�
 
 ## 8. Priority and Exclusions
 
-数据可信度和自动维护有效性是与真实用户获取并行的可信度工作，但不替代增长和商业验证主线。宁海 B2 已关闭；先做 12 场只读评估，不自动扩大工程开发范围。
+数据可信度和自动维护有效性是与真实用户获取并行的可信度工作，但不替代增长和商业验证主线。宁海 B2 已关闭；依最新授权推进 P0 交付及 20–30 场监测接入能力，不重复宁海生产闭环，不扩建架构。
 
 当前不做：
 
@@ -192,4 +192,4 @@ Human Review 继续生效。宁海试点不授权自动修改高影响赛事事�
 - **不变边界**：Category `distanceKm` 仍为 100 / 60 / 25，`elevationGain` 仍为 4986 / 2400 / 618；发枪时间与其他赛事事实不变。仅六条获批 Pending 应用，原有 28 条 Pending 保留，Auto Apply 仍为 OFF。CNH-60 官方 2400m 与 ITRA 2378m 爬升口径差异暂不在此解决。
 - **未验证部分**：在这次生产监测中 46 个来源有 26 个未有效处理，原因包含不同处理阶段，不能全部归为网络抓取失败；Verification Alerts 为 12（3 HIGH / 9 REVIEW）。尚缺可复核的跨赛事 Critical Fact Verification Coverage、Fact Change Detection Effectiveness、完整人工总分钟数与运行成本数据，不能推断规模化维护成本已经下降。
 
-**Next Gate：** 基于既有运行报告对 12 场做只读评估（核验覆盖、有效变化发现、来源失败原因、误报/漏报、人工介入分钟数及调用成本）；先形成基线与决策，再决定是否增加工程投入。继续遵守 Phase 1–3 冻结目标，Event → Edition → Category 不变，所有正式事实候选继续 Human Review。
+**Next Gate（2026-10-14 最新决策）：** [数据维护 P0 交付与接入](RACE_DATA_MAINTENANCE_P0_20261014.md)；12 / 20 / 30 隔离规模验收、真实多赛事 Discovery、失败分流及受控发布配置。既有运行质量/成本复盘同步进行，不再作为扩容前置条件。继续遵守 Phase 1–3 冻结目标，Event → Edition → Category 不变，所有正式事实候选继续 Human Review。

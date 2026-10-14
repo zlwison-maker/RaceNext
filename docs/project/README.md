@@ -12,7 +12,7 @@
 - Critical Fact Maintenance: **P0 IMPROVEMENT REQUIRED**
 - Parallel Reliability Work: **RACE DATA AUTOMATION P0**
 
-微信小程序已上线；1.0.1 已由 Human 于 2026-10-14 确认审核通过并正式发布（精确发布时刻尚未提供）。宁海 B2 事实更新端到端生产验证亦于 2026-10-14 CLOSED。创业主线是实际用户、获客与商业验证；现有 12 场赛事的整体核验覆盖、变化发现与维护成本仍待只读评估。不要把产品发布、Workflow PASS 或单场数据闭环等同于创业验证或全站事实准确性 PASS。
+微信小程序已上线；1.0.1 已由 Human 于 2026-10-14 确认审核通过并正式发布（精确发布时刻尚未提供）。宁海 B2 事实更新端到端生产验证亦于 2026-10-14 CLOSED。创业主线是实际用户、获客与商业验证；现有赛事的整体核验覆盖、变化发现与维护成本仍需衡量，与 P0 交付同步进行，不阻塞扩容。不要把产品发布、Workflow PASS 或单场数据闭环等同于创业验证或全站事实准确性 PASS。
 
 ## 2. Mandatory Reading
 
@@ -59,7 +59,7 @@ Investor BP 用于理解战略与商业背景，不是代码实现约束，也�
 
 ## 4. Current Product Direction
 
-微信小程序已正式上线，1.0.1 已经审核通过并发布（Human 2026-10-14 确认）。当前优先验证真实用户需求、获客路径与商业转化，而不以新增功能数量代替创业进展。宁海 B2 的官方来源 → Pending → Human Review → Canonical → 生产 API → 微信小程序真机闭环已完成；下一阶段对现有 12 场先做来源有效性、关键事实核验及维护成本的只读复盘，不自动扩展新工程 Scope。
+微信小程序已正式上线，1.0.1 已经审核通过并发布（Human 2026-10-14 确认）。当前优先验证真实用户需求、获客路径与商业转化，而不以新增功能数量代替创业进展。宁海 B2 的官方来源 → Pending → Human Review → Canonical → 生产 API → 微信小程序真机闭环已完成；2026-10-14 最新 Human Decision：数据自动维护是本周唯一开发 P0，下周开始新增赛事；12 场只读复盘不再作为扩容前置条件。执行动态监测、多赛事 Discovery、异常分流及受控发布安全接入，冻结事实 Gate 不变。
 
 当前最大缺口是关键事实核验覆盖、事实变化发现效果和低人工维护成本尚未得到生产证明。北京官方来源 Discovery 已完成只读试点，但 Phase 2 整体闭环尚未完成；Phase 3 尚未完成。`Auto Apply = OFF`。
 
@@ -82,3 +82,7 @@ Investor BP 用于理解战略与商业背景，不是代码实现约束，也�
 - [赛事数据自动维护标准 V1](RACE_DATA_AUTOMATION_STANDARD_V1.md)：目标、质量标准、自动化边界及 Phase 1–3 验收。
 - [数据与内容维护成本原则 V1](DATA_CONTENT_MAINTENANCE_PRINCIPLES_V1.md)：运营维护与成本原则。
 - [RaceNext Data Foundation V1](../data/RACENEXT_DATA_FOUNDATION_V1.md)：当前代码能力、真实运行证据和待实现缺口。
+
+## 7. 当前数据维护 P0
+
+[2026-10-14 数据自动维护 P0 交付与接入](RACE_DATA_MAINTENANCE_P0_20261014.md)：区分 IMPLEMENTED / TESTED / REAL READ-ONLY TESTED / NOT_PRODUCTION_VERIFIED / BLOCKED SETUP。每日生产接入及自动发布不能由开发分支测试替代验收。

@@ -8,6 +8,8 @@ import type { PendingChangeStore, RaceGraphSnapshot, RaceSourceRegistry } from "
 import { runRealExtractionDryRun, type PreparedRealExtractionRun, type RealExtractionTarget } from "./realExtraction.ts";
 import { activeFreshnessSources } from "./sourceRegistry.ts";
 import { evaluateVerificationAlerts } from "./verificationAlerts.ts";
+import { assertRaceGraphSnapshot } from "./validation.ts";
+import { assertRaceSourceRegistry } from "./sourceRegistry.ts";
 
 export type PreparedRaceDailyCheck = {
   prepared: PreparedRealExtractionRun;
@@ -18,7 +20,7 @@ export function buildRaceDailyCheckTargets(
   snapshot: RaceGraphSnapshot,
   registry: RaceSourceRegistry,
 ): RealExtractionTarget[] {
-  return snapshot.records.map(({ edition }) => ({
+  return monitoringRecords(snapshot).map(({ edition }) => ({
     editionId: edition.editionId,
     sourceIds: activeFreshnessSources(registry, edition.editionId).map(({ sourceId }) => sourceId),
   }));
@@ -34,6 +36,8 @@ export async function runRaceDailyCheck(input: {
   fetcher?: typeof fetch;
   autoApplyLowRisk?: boolean;
 }): Promise<PreparedRaceDailyCheck> {
+  assertRaceGraphSnapshot(input.snapshot);
+  assertRaceSourceRegistry(input.registry);
   const targets = buildRaceDailyCheckTargets(input.snapshot, input.registry);
   const prepared = await runRealExtractionDryRun({
     ...input,
@@ -46,6 +50,7 @@ export async function runRaceDailyCheck(input: {
     registry: input.registry,
     prepared,
   });
+  assertDailyMonitoringCoverage(input.snapshot, input.registry, report);
   return { prepared, report };
 }
 
@@ -55,7 +60,7 @@ export function buildRaceDailyCheckReport(input: {
   prepared: PreparedRealExtractionRun;
 }): RaceDailyCheckReport {
   const extraction = input.prepared.report;
-  const editions = input.snapshot.records.map(({ edition }) => buildEditionCoverage({
+  const editions = monitoringRecords(input.snapshot).map(({ edition }) => buildEditionCoverage({
     editionId: edition.editionId,
     registry: input.registry,
     prepared: input.prepared,
@@ -83,7 +88,7 @@ export function buildRaceDailyCheckReport(input: {
   const semanticReviews = extraction.sources.flatMap(({ candidates }) => candidates)
     .filter(({ action }) => action === "semantic_review");
   const verification = evaluateVerificationAlerts({
-    snapshot: input.snapshot,
+    snapshot: { ...input.snapshot, records: monitoringRecords(input.snapshot) },
     registry: input.registry,
     extraction,
   });
@@ -156,7 +161,9 @@ function buildEditionCoverage(input: {
     editionId === input.editionId && eligible.some((source) => source.sourceId === sourceId)
   ));
   const tier1Count = eligible.filter(({ tier }) => tier === "primary_official").length;
-  const sourceGap = eligible.length === 0
+  const sourceGap = !input.registry.editions.some(entry => entry.editionId === input.editionId)
+    ? ["registry_entry_missing", "event_home", "registration_notice", "regulations"]
+    : eligible.length === 0
     ? ["event_home", "registration_notice", "regulations"]
     : tier1Count === 0
       ? ["primary_official:event_home|registration_notice|regulations"]
@@ -167,7 +174,7 @@ function buildEditionCoverage(input: {
     ? "NO_VALID_SOURCE" as const
     : successfulSources === 0
       ? "FAILED" as const
-      : failedSources > 0
+      : failedSources > 0 || officialSourcesSuccessful === 0
         ? "PARTIAL" as const
         : "HEALTHY" as const;
 
@@ -191,4 +198,29 @@ function buildEditionCoverage(input: {
 
 function latest(values: string[]): string | null {
   return values.length > 0 ? [...values].sort().at(-1) ?? null : null;
+}
+
+function monitoringRecords(snapshot: RaceGraphSnapshot) {
+  return snapshot.records.filter(({ edition }) => !["archived", "cancelled"].includes(edition.lifecycleStatus));
+}
+
+/** Compare identities and attempted source sets, not a fixed race count. Missing coverage fails before writes. */
+export function assertDailyMonitoringCoverage(
+  snapshot: RaceGraphSnapshot, registry: RaceSourceRegistry, report: RaceDailyCheckReport,
+): void {
+  const targets = buildRaceDailyCheckTargets(snapshot, registry);
+  if (targets.length === 0) throw new Error("NO_MONITORING_TARGETS");
+  const expectedEditions = targets.map(({ editionId }) => editionId).sort();
+  const actualEditions = report.editions.map(({ editionId }) => editionId).sort();
+  if (report.summary.editionsChecked !== targets.length
+    || JSON.stringify(expectedEditions) !== JSON.stringify(actualEditions)) {
+    throw new Error("MONITORING_EDITION_COVERAGE_MISMATCH");
+  }
+  const expectedSources = targets.flatMap(({ editionId, sourceIds }) => sourceIds.map((id) => `${editionId}/${id}`)).sort();
+  const actualSources = report.extraction.sources.map(({ editionId, sourceId }) => `${editionId}/${sourceId}`).sort();
+  if (expectedSources.length === 0) throw new Error("NO_MONITORING_SOURCES");
+  if (report.summary.sourcesChecked !== expectedSources.length
+    || JSON.stringify(expectedSources) !== JSON.stringify(actualSources)) {
+    throw new Error("MONITORING_SOURCE_COVERAGE_MISMATCH");
+  }
 }
