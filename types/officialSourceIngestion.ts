@@ -1,8 +1,8 @@
 import type { Category, Edition } from "./event.ts";
 import type { PendingChange, PendingChangeStatus } from "./raceUpdate.ts";
 
-export type OfficialDocumentContentType = "text/html" | "text/plain" | "application/pdf";
-export type DocumentExtractionMethod = "html_text" | "plain_text" | "pdf_text";
+export type OfficialDocumentContentType = "text/html" | "text/plain" | "application/pdf" | "application/json";
+export type DocumentExtractionMethod = "html_text" | "plain_text" | "pdf_text" | "structured_json";
 
 export type OfficialDocumentSnapshot = {
   sourceId: string;
@@ -18,6 +18,16 @@ export type OfficialDocumentSnapshot = {
   links: string[];
   contentHash: string;
   extractionMethod: DocumentExtractionMethod;
+  /** Present only after the bounded official category JSON envelope has been checked. */
+  structuredCategory?: {
+    id: number;
+    name: string;
+    distance: number;
+    elevationGain: number;
+    startPoint: string | null;
+    endPoint: string | null;
+    linkedGpxUrl: string;
+  };
 };
 
 export type OfficialIngestionStatus =
@@ -96,9 +106,9 @@ export type FactExtractionProviderResult = {
   output: OfficialFactExtractionOutput;
   provider: string;
   model: string;
-  protocol: "openai-compatible-chat-completions";
-  reasoningMode: "none";
-  structuredOutputMode: "strict_json_schema";
+  protocol: "openai-compatible-chat-completions" | "deterministic-json";
+  reasoningMode: "none" | "not_applicable";
+  structuredOutputMode: "strict_json_schema" | "not_applicable";
   promptVersion: string;
   latencyMs: number;
   usage: FactExtractionUsage;
@@ -297,9 +307,9 @@ export type RealExtractionSourceReport = {
   extractionStatus: OfficialIngestionStatus;
   provider: string;
   model: string;
-  protocol: "openai-compatible-chat-completions";
-  reasoningMode: "none";
-  structuredOutputMode: "strict_json_schema";
+  protocol: "openai-compatible-chat-completions" | "deterministic-json";
+  reasoningMode: "none" | "not_applicable";
+  structuredOutputMode: "strict_json_schema" | "not_applicable";
   promptVersion: string;
   processingVersion: string;
   requestStatus: "success" | "skipped" | "failed";

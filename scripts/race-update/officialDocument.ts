@@ -10,6 +10,7 @@ import type {
 import type { RaceSourceRegistrySource } from "../../types/raceUpdate.ts";
 import { CONNECTOR_USER_AGENT, decodeHtml, detectRestriction, stripHtml } from "../connectors/shared.ts";
 import { normalizeDomain } from "./sourceRegistry.ts";
+import { isNinghaiOfficialJsonSource, ninghaiJsonDocumentText, parseNinghaiGroupJson } from "./ninghaiOfficialJson.ts";
 
 export const OFFICIAL_FETCH_LIMITS = {
   timeoutMs: 15_000,
@@ -30,6 +31,11 @@ export async function fetchOfficialDocument(input: {
   fetchedAt: string;
   fetcher?: typeof fetch;
 }): Promise<OfficialDocumentResult> {
+  const structuredJson = isNinghaiOfficialJsonSource(input.source, input.editionId);
+  const sourceUrl = URL.canParse(input.source.url) ? new URL(input.source.url) : null;
+  if (!structuredJson && sourceUrl?.hostname === "ninghai100.com" && sourceUrl.pathname.startsWith("/app-api/")) {
+    return failure("identity_mismatch", "Unapproved structured JSON source scope rejected.");
+  }
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), OFFICIAL_FETCH_LIMITS.timeoutMs);
   const fetcher = input.fetcher ?? fetch;
@@ -43,10 +49,11 @@ export async function fetchOfficialDocument(input: {
         signal: controller.signal,
         headers: {
           "User-Agent": CONNECTOR_USER_AGENT,
-          Accept: "text/html,text/plain,application/pdf;q=0.9",
+          Accept: structuredJson ? "application/json" : "text/html,text/plain,application/pdf;q=0.9",
         },
       });
       if (![301, 302, 303, 307, 308].includes(response.status)) break;
+      if (structuredJson) return failure("identity_mismatch", "Structured JSON source redirects are rejected.");
       const location = response.headers.get("location");
       if (!location) return failure("fetch_error", "Redirect response omitted Location.");
       if (redirects === OFFICIAL_FETCH_LIMITS.maxRedirects) {
@@ -60,6 +67,9 @@ export async function fetchOfficialDocument(input: {
 
     if (!response) return failure("fetch_error", "Official source returned no response.");
     const finalUrl = response.url || currentUrl;
+    if (structuredJson && finalUrl !== input.source.url) {
+      return failure("identity_mismatch", "Structured JSON final URL differs from the approved URL.");
+    }
     if (normalizeDomain(new URL(finalUrl).hostname) !== normalizeDomain(input.source.domain)) {
       return failure("identity_mismatch", "Final URL did not match the approved source domain.");
     }
@@ -79,6 +89,12 @@ export async function fetchOfficialDocument(input: {
 
     const rawContentType = response.headers.get("content-type");
     const contentType = normalizeContentType(rawContentType);
+    if (contentType === "application/json" && !structuredJson) {
+      return failure("unsupported_content_type", "JSON is not approved for this source.");
+    }
+    if (structuredJson && contentType !== "application/json") {
+      return failure("unsupported_content_type", "Approved JSON source did not return application/json.");
+    }
     if (!contentType) {
       return failure(
         "unsupported_content_type",
@@ -95,6 +111,7 @@ export async function fetchOfficialDocument(input: {
       fetchedAt: input.fetchedAt,
       httpStatus: response.status,
       charset: extractCharset(rawContentType),
+      approvedStructuredJson: structuredJson,
     });
   } catch (error) {
     if ((error as Error).name === "AbortError") return failure("fetch_error", "Official source request timed out.");
@@ -113,12 +130,24 @@ export async function extractDocumentSnapshot(input: {
   fetchedAt: string;
   httpStatus?: number;
   charset?: string | null;
+  approvedStructuredJson?: boolean;
 }): Promise<OfficialDocumentResult> {
   try {
     if (input.body.byteLength > OFFICIAL_FETCH_LIMITS.maxBytes) {
       return failure("parse_error", "Official source exceeded the maximum file size.");
     }
 
+    if (input.contentType === "application/json") {
+      if (!input.approvedStructuredJson) return failure("identity_mismatch", "JSON source was not approved for structured extraction.");
+      const raw = new TextDecoder("utf-8", { fatal: true }).decode(input.body);
+      const structuredCategory = parseNinghaiGroupJson(raw, input.url);
+      return { ok: true, document: {
+        ...buildSnapshot({ ...input, title: structuredCategory.name,
+          text: ninghaiJsonDocumentText(structuredCategory), links: [],
+          extractionMethod: "structured_json", responseBytes: input.body.byteLength }),
+        structuredCategory,
+      } };
+    }
     if (input.contentType === "application/pdf") {
       const parser = new PDFParse({ data: input.body });
       try {
@@ -215,6 +244,7 @@ function normalizeContentType(value: string | null): OfficialDocumentContentType
   if (type === "text/html" || type === "application/xhtml+xml") return "text/html";
   if (type === "text/plain") return "text/plain";
   if (type === "application/pdf") return "application/pdf";
+  if (type === "application/json") return "application/json";
   return null;
 }
 

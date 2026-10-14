@@ -56,9 +56,11 @@ test("official frontend replay discovers three category details and produces all
   match(report.candidates[0].responseSha256, /^[a-f0-9]{64}$/);
   const by = (name: string, field: string) => report.matrix.find((item) => item.categoryId.endsWith(name) && item.field === field)!;
   equal(by("utnh-100", "distanceKm").candidateValue, 100.6);
-  equal(by("utnh-100", "distanceKm").action, "FACT_CANDIDATE");
+  equal(by("utnh-100", "distanceKm").action, "ACTUAL_COURSE_DISTANCE_ONLY");
   equal(by("cnh-60", "distanceKm").candidateValue, 58.8);
-  equal(by("cnh-60", "distanceKm").action, "CONFLICT_NEEDS_REVIEW");
+  equal(by("cnh-60", "distanceKm").action, "ACTUAL_COURSE_DISTANCE_ONLY");
+  equal(by("cnh-60", "distanceKm").thirdPartyConflict, false);
+  equal(by("ynh-25", "distanceKm").action, "ACTUAL_COURSE_DISTANCE_ONLY");
   equal(by("cnh-60", "elevationGain").action, "CONFLICT_NEEDS_REVIEW");
   equal(by("ynh-25", "distanceKm").precisionDifference, true);
   equal(by("ynh-25", "elevationGain").action, "NO_CHANGE_VERIFIED");

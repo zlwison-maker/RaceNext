@@ -37,6 +37,21 @@ export function checkEditionDocumentIdentity(input: {
       evidence,
     };
   }
+  if (input.document.structuredCategory) {
+    const group = input.document.structuredCategory;
+    const filename = decodeURIComponent(new URL(group.linkedGpxUrl).pathname.split("/").at(-1) ?? "");
+    const years = [...filename.matchAll(/(?<!\d)20\d{2}(?!\d)/g)].map(([year]) => year);
+    const categoryMatched = filename.includes(group.name) && filename.includes("宁海")
+      && input.record.categories.some((category) => category.shortName === group.name || category.categoryName === group.name);
+    if (!categoryMatched || years.some((year) => year !== targetYear)) {
+      return { status: "rejected", eventIdentityMatched, editionYearMatched: false, domainMatched,
+        evidence: [...evidence, "structured_category_or_edition_conflict"] };
+    }
+    if (years.length !== 1) {
+      return { status: "uncertain", eventIdentityMatched, editionYearMatched: false, domainMatched,
+        evidence: [...evidence, "structured_edition_year_not_unique"] };
+    }
+  }
   if (!editionYearMatched) {
     return {
       status: "uncertain",
