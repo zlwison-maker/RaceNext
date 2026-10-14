@@ -473,6 +473,36 @@
           "status": "active",
           "isPrimary": false,
           "notes": "Tier 2 historical evidence for Race Guide runnability and runner feedback; it does not define 2026 facts."
+        },
+        {
+          "sourceId": "ninghai100-official-category-6-2026",
+          "url": "https://ninghai100.com/app-api/race/group/get?id=6",
+          "domain": "ninghai100.com",
+          "tier": "primary_official",
+          "sourceType": "category_page",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Official event website public JSON endpoint for 2026 Edition ninghai-ultra-trail-2026, Category UTNH-100 (ninghai-ultra-trail-2026-utnh-100). Official frontend API reference chain: / -> /assets/index-CTM3hhFd.js -> /assets/Index-DlEBdbYV.js -> /assets/index-CALowx_a.js -> /app-api/race/group/list -> /app-api/race/group/get?id=6. Linked GPX filename UTNH-100_2026可隆宁海越野挑战赛_1790222035043.gpx provides 2026 Edition association evidence; official UTNH-100 course news dated 2026-09-24 provides auxiliary confirmation. Detail JSON formal publication date: Unknown; neither the GPX filename nor the news date is its publication date. Human Source Approval: 2026-10-14. Approved fields only: elevationGain, startLocation, finishLocation. data.distance = 100.6 km is actual course distance and must not be mapped to Category.distanceKm; official nominal Category distance remains 100 km. Source approval is not fact approval or authorization to auto-apply."
+        },
+        {
+          "sourceId": "ninghai100-official-category-5-2026",
+          "url": "https://ninghai100.com/app-api/race/group/get?id=5",
+          "domain": "ninghai100.com",
+          "tier": "primary_official",
+          "sourceType": "category_page",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Official event website public JSON endpoint for 2026 Edition ninghai-ultra-trail-2026, Category CNH-60 (ninghai-ultra-trail-2026-cnh-60). Official frontend API reference chain: / -> /assets/index-CTM3hhFd.js -> /assets/Index-DlEBdbYV.js -> /assets/index-CALowx_a.js -> /app-api/race/group/list -> /app-api/race/group/get?id=5. Linked GPX filename CNH-60_2026可隆宁海越野挑战赛_1790222141652.gpx provides 2026 Edition association evidence; official CNH-60 course news dated 2026-09-24 provides auxiliary confirmation. Detail JSON formal publication date: Unknown; neither the GPX filename nor the news date is its publication date. Human Source Approval: 2026-10-14. Approved fields only: elevationGain, startLocation, finishLocation. data.distance = 58.8 km is actual course distance and must not be mapped to Category.distanceKm; official nominal Category distance remains 60 km. Source approval is not fact approval or authorization to auto-apply."
+        },
+        {
+          "sourceId": "ninghai100-official-category-4-2026",
+          "url": "https://ninghai100.com/app-api/race/group/get?id=4",
+          "domain": "ninghai100.com",
+          "tier": "primary_official",
+          "sourceType": "category_page",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Official event website public JSON endpoint for 2026 Edition ninghai-ultra-trail-2026, Category YNH-25 (ninghai-ultra-trail-2026-ynh-25). Official frontend API reference chain: / -> /assets/index-CTM3hhFd.js -> /assets/Index-DlEBdbYV.js -> /assets/index-CALowx_a.js -> /app-api/race/group/list -> /app-api/race/group/get?id=4. Linked GPX filename YNH-25_2026可隆宁海越野挑战赛_1790222117296.gpx provides 2026 Edition association evidence; official YNH-25 course news dated 2026-09-24 provides auxiliary confirmation. Detail JSON formal publication date: Unknown; neither the GPX filename nor the news date is its publication date. Human Source Approval: 2026-10-14. Approved fields only: elevationGain, startLocation, finishLocation. data.distance = 24.8 km is actual course distance and must not be mapped to Category.distanceKm; official nominal Category distance remains 25 km. Source approval is not fact approval or authorization to auto-apply."
         }
       ]
     },
