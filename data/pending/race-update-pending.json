@@ -1345,11 +1345,11 @@
       "applyBlocked": false,
       "risk": "high_impact",
       "reason": "High-impact race fact cannot be auto-applied in V1. Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
-      "status": "approved",
+      "status": "applied",
       "createdAt": "2026-10-14T08:52:22.180Z",
       "reviewedAt": "2026-10-14T10:01:14.807Z",
       "reviewReason": null,
-      "appliedAt": null
+      "appliedAt": "2026-10-14T10:02:46.509Z"
     },
     {
       "changeId": "chg-c94a825141b280587d02303e",
@@ -1388,11 +1388,11 @@
       "applyBlocked": false,
       "risk": "high_impact",
       "reason": "High-impact race fact cannot be auto-applied in V1. Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
-      "status": "approved",
+      "status": "applied",
       "createdAt": "2026-10-14T08:52:22.180Z",
       "reviewedAt": "2026-10-14T10:01:15.139Z",
       "reviewReason": null,
-      "appliedAt": null
+      "appliedAt": "2026-10-14T10:02:46.841Z"
     },
     {
       "changeId": "chg-4ce0f9e73e870d440f29a5d3",
@@ -1431,11 +1431,11 @@
       "applyBlocked": false,
       "risk": "high_impact",
       "reason": "High-impact race fact cannot be auto-applied in V1. Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
-      "status": "approved",
+      "status": "applied",
       "createdAt": "2026-10-14T08:52:22.180Z",
       "reviewedAt": "2026-10-14T10:01:15.469Z",
       "reviewReason": null,
-      "appliedAt": null
+      "appliedAt": "2026-10-14T10:02:47.175Z"
     },
     {
       "changeId": "chg-5f0b8faceed3e68234823dd5",
@@ -1474,11 +1474,11 @@
       "applyBlocked": false,
       "risk": "high_impact",
       "reason": "High-impact race fact cannot be auto-applied in V1. Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
-      "status": "approved",
+      "status": "applied",
       "createdAt": "2026-10-14T08:52:22.180Z",
       "reviewedAt": "2026-10-14T10:01:15.802Z",
       "reviewReason": null,
-      "appliedAt": null
+      "appliedAt": "2026-10-14T10:02:47.508Z"
     },
     {
       "changeId": "chg-c09cccc1271afe7b368b019a",
@@ -1517,11 +1517,11 @@
       "applyBlocked": false,
       "risk": "high_impact",
       "reason": "High-impact race fact cannot be auto-applied in V1. Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
-      "status": "approved",
+      "status": "applied",
       "createdAt": "2026-10-14T08:52:22.180Z",
       "reviewedAt": "2026-10-14T10:01:16.127Z",
       "reviewReason": null,
-      "appliedAt": null
+      "appliedAt": "2026-10-14T10:02:47.839Z"
     },
     {
       "changeId": "chg-3e09d01e7517a6ae29dc8d81",
@@ -1560,11 +1560,11 @@
       "applyBlocked": false,
       "risk": "high_impact",
       "reason": "High-impact race fact cannot be auto-applied in V1. Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
-      "status": "approved",
+      "status": "applied",
       "createdAt": "2026-10-14T08:52:22.180Z",
       "reviewedAt": "2026-10-14T10:01:16.444Z",
       "reviewReason": null,
-      "appliedAt": null
+      "appliedAt": "2026-10-14T10:02:48.170Z"
     }
   ]
 }

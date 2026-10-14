@@ -1,6 +1,6 @@
 {
   "schemaVersion": "race-graph-v1",
-  "generatedAt": "2026-10-12T13:43:34.657Z",
+  "generatedAt": "2026-10-14T10:02:48.170Z",
   "records": [
     {
       "event": {
@@ -3088,16 +3088,100 @@
       },
       "categories": [
         {
-          "categoryId": "ninghai-ultra-trail-2026-utnh-100", "editionId": "ninghai-ultra-trail-2026", "categoryName": "UTNH-100", "shortName": "UTNH-100", "startAt": "2026-11-14T06:00:00+08:00", "startLocation": null, "finishLocation": null, "registrationUrl": null, "displayOrder": 1, "distanceKm": 100, "elevationGain": 4986, "cutoffTimeHours": 24, "surfaceType": "trail", "coursePoints": null, "coursePointDataStatus": "unknown", "createdAt": "2026-09-15", "updatedAt": "2026-09-15",
-          "governance": {"sources": [{"sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "sourceUrl": "https://gobichina.com/events/85637", "sourceRecordId": "gobichina-ninghai-2026", "crawledAt": "2026-09-15", "confidence": 0.82, "rawData": {"raceDate": "2026-11-14", "distanceKm": 100, "elevationGain": 4986, "cutoffTimeHours": 24, "startTime": "06:00"}}], "fieldSources": {"distanceKm": {"field": "distanceKm", "sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "confidence": 0.82, "updatedAt": "2026-09-15"}, "elevationGain": {"field": "elevationGain", "sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "confidence": 0.82, "updatedAt": "2026-09-15"}, "cutoffTimeHours": {"field": "cutoffTimeHours", "sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "confidence": 0.82, "updatedAt": "2026-09-15"}, "startAt": {"field": "startAt", "sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "confidence": 0.82, "updatedAt": "2026-09-15"}}, "sourcePriority": {"registration_platform": 70}, "confidence": 0.82, "verified": true, "verificationStatus": "verified", "verifiedAt": "2026-09-15", "missingFields": ["startLocation", "finishLocation", "registrationUrl", "coursePoints"], "reviewNotes": "Precise Category fields are human-reviewed Tier 2 facts pending official rulebook confirmation.", "lastCrawledAt": "2026-09-15", "lastUpdatedAt": "2026-09-15", "schemaVersion": "race-graph-v1", "dataQualityLevel": "B"}
+          "categoryId": "ninghai-ultra-trail-2026-utnh-100", "editionId": "ninghai-ultra-trail-2026", "categoryName": "UTNH-100", "shortName": "UTNH-100", "startAt": "2026-11-14T06:00:00+08:00", "startLocation": "西门城楼", "finishLocation": "西门城楼", "registrationUrl": null, "displayOrder": 1, "distanceKm": 100, "elevationGain": 4986, "cutoffTimeHours": 24, "surfaceType": "trail", "coursePoints": null, "coursePointDataStatus": "unknown", "createdAt": "2026-09-15", "updatedAt": "2026-10-14T10:02:46.841Z",
+          "governance": {"sources": [{"sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "sourceUrl": "https://gobichina.com/events/85637", "sourceRecordId": "gobichina-ninghai-2026", "crawledAt": "2026-09-15", "confidence": 0.82, "rawData": {"raceDate": "2026-11-14", "distanceKm": 100, "elevationGain": 4986, "cutoffTimeHours": 24, "startTime": "06:00"}},
+            {
+              "sourceType": "official",
+              "sourceName": "ninghai100-official-category-6-2026",
+              "sourceUrl": "https://ninghai100.com/app-api/race/group/get?id=6",
+              "sourceRecordId": "ninghai100-official-category-6-2026",
+              "crawledAt": "2026-10-14T08:52:05.989Z",
+              "confidence": 1,
+              "rawData": {
+                "evidenceText": "UTNH-100 data.startPoint: 西门城楼\nUTNH-100 data.endPoint: 西门城楼",
+                "evidenceLocator": "text:120-150; data.startPoint\ntext:151-179; data.endPoint",
+                "contentHash": "ad54dda2e33aec8133bd0fb86cb95ff31475b7b1e19b321154763cbc420e2c00",
+                "extractionMethod": "structured_json"
+              }
+            }], "fieldSources": {"distanceKm": {"field": "distanceKm", "sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "confidence": 0.82, "updatedAt": "2026-09-15"}, "elevationGain": {"field": "elevationGain", "sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "confidence": 0.82, "updatedAt": "2026-09-15"}, "cutoffTimeHours": {"field": "cutoffTimeHours", "sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "confidence": 0.82, "updatedAt": "2026-09-15"}, "startAt": {"field": "startAt", "sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "confidence": 0.82, "updatedAt": "2026-09-15"},
+            "startLocation": {
+              "field": "startLocation",
+              "sourceType": "official",
+              "sourceName": "ninghai100-official-category-6-2026",
+              "confidence": 1,
+              "updatedAt": "2026-10-14T10:02:46.509Z"
+            },
+            "finishLocation": {
+              "field": "finishLocation",
+              "sourceType": "official",
+              "sourceName": "ninghai100-official-category-6-2026",
+              "confidence": 1,
+              "updatedAt": "2026-10-14T10:02:46.841Z"
+            }}, "sourcePriority": {"registration_platform": 70}, "confidence": 0.82, "verified": true, "verificationStatus": "verified", "verifiedAt": "2026-09-15", "missingFields": ["registrationUrl", "coursePoints"], "reviewNotes": "Precise Category fields are human-reviewed Tier 2 facts pending official rulebook confirmation.", "lastCrawledAt": "2026-10-14T08:52:05.989Z", "lastUpdatedAt": "2026-10-14T10:02:46.841Z", "schemaVersion": "race-graph-v1", "dataQualityLevel": "B"}
         },
         {
-          "categoryId": "ninghai-ultra-trail-2026-cnh-60", "editionId": "ninghai-ultra-trail-2026", "categoryName": "CNH-60", "shortName": "CNH-60", "startAt": null, "startTimes": ["2026-11-13T06:00:00+08:00", "2026-11-13T06:20:00+08:00"], "startLocation": null, "finishLocation": null, "registrationUrl": null, "displayOrder": 2, "distanceKm": 60, "elevationGain": 2400, "cutoffTimeHours": 14, "surfaceType": "trail", "coursePoints": null, "coursePointDataStatus": "unknown", "createdAt": "2026-09-15", "updatedAt": "2026-09-21",
-          "governance": {"sources": [{"sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "sourceUrl": "https://gobichina.com/events/85637", "sourceRecordId": "gobichina-ninghai-2026", "crawledAt": "2026-09-15", "confidence": 0.82, "rawData": {"raceDate": "2026-11-13", "distanceKm": 60, "elevationGain": 2400, "cutoffTimeHours": 14, "startWaves": ["06:00", "06:20"]}}, {"sourceType": "registration_platform", "sourceName": "ITRA Race Details — CNH 60 2026", "sourceUrl": "https://itra.run/Races/RaceDetails/KOLON.SPORT.Ultra.Trail%C2%AE.Ninghai.CNH.60/2026/118117", "sourceRecordId": "itra-ninghai-cnh60-2026", "crawledAt": "2026-09-15", "confidence": 0.85, "rawData": {"raceDate": "2026-11-13", "distanceKm": 59.13, "elevationGain": 2378, "cutoffTimeHours": 14, "startTime": "06:00", "status": "certification_precision_pending"}}], "fieldSources": {"distanceKm": {"field": "distanceKm", "sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "confidence": 0.82, "updatedAt": "2026-09-15"}, "elevationGain": {"field": "elevationGain", "sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "confidence": 0.82, "updatedAt": "2026-09-15"}, "cutoffTimeHours": {"field": "cutoffTimeHours", "sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "confidence": 0.82, "updatedAt": "2026-09-15"}, "startTimes": {"field": "startTimes", "sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "confidence": 0.82, "updatedAt": "2026-09-21"}}, "sourcePriority": {"registration_platform": 70}, "confidence": 0.82, "verified": true, "verificationStatus": "verified", "verifiedAt": "2026-09-15", "missingFields": ["startLocation", "finishLocation", "registrationUrl", "coursePoints"], "mergeNotes": ["The event-display identity 60km / 2400m is retained; ITRA 59.13km / 2378m remains separate precision evidence.", "Two event-display starts are stored in startTimes; startAt remains null."], "mergeTrace": [{"field": "distanceKm", "selectedSource": "registration_platform", "selectedSourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "reason": "Use the event-display Category identity without blending the ITRA certification precision.", "candidates": [{"sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "value": 60, "confidence": 0.82}, {"sourceType": "registration_platform", "sourceName": "ITRA Race Details — CNH 60 2026", "value": 59.13, "confidence": 0.85}]}, {"field": "elevationGain", "selectedSource": "registration_platform", "selectedSourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "reason": "Use the event-display Category identity without blending the ITRA certification precision.", "candidates": [{"sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "value": 2400, "confidence": 0.82}, {"sourceType": "registration_platform", "sourceName": "ITRA Race Details — CNH 60 2026", "value": 2378, "confidence": 0.85}]}], "reviewNotes": "Precise Category fields remain Tier 2 and the certification difference remains Pending.", "internalFlags": ["itra_precision_difference_pending"], "lastCrawledAt": "2026-09-15", "lastUpdatedAt": "2026-09-21", "schemaVersion": "race-graph-v1", "dataQualityLevel": "B"}
+          "categoryId": "ninghai-ultra-trail-2026-cnh-60", "editionId": "ninghai-ultra-trail-2026", "categoryName": "CNH-60", "shortName": "CNH-60", "startAt": null, "startTimes": ["2026-11-13T06:00:00+08:00", "2026-11-13T06:20:00+08:00"], "startLocation": "西门城楼", "finishLocation": "西门城楼", "registrationUrl": null, "displayOrder": 2, "distanceKm": 60, "elevationGain": 2400, "cutoffTimeHours": 14, "surfaceType": "trail", "coursePoints": null, "coursePointDataStatus": "unknown", "createdAt": "2026-09-15", "updatedAt": "2026-10-14T10:02:47.508Z",
+          "governance": {"sources": [{"sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "sourceUrl": "https://gobichina.com/events/85637", "sourceRecordId": "gobichina-ninghai-2026", "crawledAt": "2026-09-15", "confidence": 0.82, "rawData": {"raceDate": "2026-11-13", "distanceKm": 60, "elevationGain": 2400, "cutoffTimeHours": 14, "startWaves": ["06:00", "06:20"]}}, {"sourceType": "registration_platform", "sourceName": "ITRA Race Details — CNH 60 2026", "sourceUrl": "https://itra.run/Races/RaceDetails/KOLON.SPORT.Ultra.Trail%C2%AE.Ninghai.CNH.60/2026/118117", "sourceRecordId": "itra-ninghai-cnh60-2026", "crawledAt": "2026-09-15", "confidence": 0.85, "rawData": {"raceDate": "2026-11-13", "distanceKm": 59.13, "elevationGain": 2378, "cutoffTimeHours": 14, "startTime": "06:00", "status": "certification_precision_pending"}},
+            {
+              "sourceType": "official",
+              "sourceName": "ninghai100-official-category-5-2026",
+              "sourceUrl": "https://ninghai100.com/app-api/race/group/get?id=5",
+              "sourceRecordId": "ninghai100-official-category-5-2026",
+              "crawledAt": "2026-10-14T08:52:06.899Z",
+              "confidence": 1,
+              "rawData": {
+                "evidenceText": "CNH-60 data.startPoint: 西门城楼\nCNH-60 data.endPoint: 西门城楼",
+                "evidenceLocator": "text:113-141; data.startPoint\ntext:142-168; data.endPoint",
+                "contentHash": "486bc5c6b4690af1fc533cf97b693f6b95cc1b872a842d53b22e1c4d733bfc21",
+                "extractionMethod": "structured_json"
+              }
+            }], "fieldSources": {"distanceKm": {"field": "distanceKm", "sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "confidence": 0.82, "updatedAt": "2026-09-15"}, "elevationGain": {"field": "elevationGain", "sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "confidence": 0.82, "updatedAt": "2026-09-15"}, "cutoffTimeHours": {"field": "cutoffTimeHours", "sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "confidence": 0.82, "updatedAt": "2026-09-15"}, "startTimes": {"field": "startTimes", "sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "confidence": 0.82, "updatedAt": "2026-09-21"},
+            "startLocation": {
+              "field": "startLocation",
+              "sourceType": "official",
+              "sourceName": "ninghai100-official-category-5-2026",
+              "confidence": 1,
+              "updatedAt": "2026-10-14T10:02:47.175Z"
+            },
+            "finishLocation": {
+              "field": "finishLocation",
+              "sourceType": "official",
+              "sourceName": "ninghai100-official-category-5-2026",
+              "confidence": 1,
+              "updatedAt": "2026-10-14T10:02:47.508Z"
+            }}, "sourcePriority": {"registration_platform": 70}, "confidence": 0.82, "verified": true, "verificationStatus": "verified", "verifiedAt": "2026-09-15", "missingFields": ["registrationUrl", "coursePoints"], "mergeNotes": ["The event-display identity 60km / 2400m is retained; ITRA 59.13km / 2378m remains separate precision evidence.", "Two event-display starts are stored in startTimes; startAt remains null."], "mergeTrace": [{"field": "distanceKm", "selectedSource": "registration_platform", "selectedSourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "reason": "Use the event-display Category identity without blending the ITRA certification precision.", "candidates": [{"sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "value": 60, "confidence": 0.82}, {"sourceType": "registration_platform", "sourceName": "ITRA Race Details — CNH 60 2026", "value": 59.13, "confidence": 0.85}]}, {"field": "elevationGain", "selectedSource": "registration_platform", "selectedSourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "reason": "Use the event-display Category identity without blending the ITRA certification precision.", "candidates": [{"sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "value": 2400, "confidence": 0.82}, {"sourceType": "registration_platform", "sourceName": "ITRA Race Details — CNH 60 2026", "value": 2378, "confidence": 0.85}]}], "reviewNotes": "Precise Category fields remain Tier 2 and the certification difference remains Pending.", "internalFlags": ["itra_precision_difference_pending"], "lastCrawledAt": "2026-10-14T08:52:06.899Z", "lastUpdatedAt": "2026-10-14T10:02:47.508Z", "schemaVersion": "race-graph-v1", "dataQualityLevel": "B"}
         },
         {
-          "categoryId": "ninghai-ultra-trail-2026-ynh-25", "editionId": "ninghai-ultra-trail-2026", "categoryName": "YNH-25", "shortName": "YNH-25", "startAt": null, "startTimes": ["2026-11-15T07:00:00+08:00", "2026-11-15T07:20:00+08:00", "2026-11-15T07:40:00+08:00"], "startLocation": null, "finishLocation": null, "registrationUrl": null, "displayOrder": 3, "distanceKm": 25, "elevationGain": 618, "cutoffTimeHours": 6, "surfaceType": "trail", "coursePoints": null, "coursePointDataStatus": "unknown", "createdAt": "2026-09-15", "updatedAt": "2026-09-21",
-          "governance": {"sources": [{"sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "sourceUrl": "https://gobichina.com/events/85637", "sourceRecordId": "gobichina-ninghai-2026", "crawledAt": "2026-09-15", "confidence": 0.82, "rawData": {"raceDate": "2026-11-15", "distanceKm": 25, "elevationGain": 618, "cutoffTimeHours": 6, "startWaves": ["07:00", "07:20", "07:40"]}}], "fieldSources": {"distanceKm": {"field": "distanceKm", "sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "confidence": 0.82, "updatedAt": "2026-09-15"}, "elevationGain": {"field": "elevationGain", "sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "confidence": 0.82, "updatedAt": "2026-09-15"}, "cutoffTimeHours": {"field": "cutoffTimeHours", "sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "confidence": 0.82, "updatedAt": "2026-09-15"}, "startTimes": {"field": "startTimes", "sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "confidence": 0.82, "updatedAt": "2026-09-21"}}, "sourcePriority": {"registration_platform": 70}, "confidence": 0.82, "verified": true, "verificationStatus": "verified", "verifiedAt": "2026-09-15", "missingFields": ["startLocation", "finishLocation", "registrationUrl", "coursePoints"], "mergeNotes": ["Three Tier 2 starts are stored in startTimes; startAt remains null."], "reviewNotes": "Precise Category fields are human-reviewed Tier 2 facts pending official rulebook confirmation.", "lastCrawledAt": "2026-09-15", "lastUpdatedAt": "2026-09-21", "schemaVersion": "race-graph-v1", "dataQualityLevel": "B"}
+          "categoryId": "ninghai-ultra-trail-2026-ynh-25", "editionId": "ninghai-ultra-trail-2026", "categoryName": "YNH-25", "shortName": "YNH-25", "startAt": null, "startTimes": ["2026-11-15T07:00:00+08:00", "2026-11-15T07:20:00+08:00", "2026-11-15T07:40:00+08:00"], "startLocation": "西门城楼", "finishLocation": "西门城楼", "registrationUrl": null, "displayOrder": 3, "distanceKm": 25, "elevationGain": 618, "cutoffTimeHours": 6, "surfaceType": "trail", "coursePoints": null, "coursePointDataStatus": "unknown", "createdAt": "2026-09-15", "updatedAt": "2026-10-14T10:02:48.170Z",
+          "governance": {"sources": [{"sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "sourceUrl": "https://gobichina.com/events/85637", "sourceRecordId": "gobichina-ninghai-2026", "crawledAt": "2026-09-15", "confidence": 0.82, "rawData": {"raceDate": "2026-11-15", "distanceKm": 25, "elevationGain": 618, "cutoffTimeHours": 6, "startWaves": ["07:00", "07:20", "07:40"]}},
+            {
+              "sourceType": "official",
+              "sourceName": "ninghai100-official-category-4-2026",
+              "sourceUrl": "https://ninghai100.com/app-api/race/group/get?id=4",
+              "sourceRecordId": "ninghai100-official-category-4-2026",
+              "crawledAt": "2026-10-14T08:52:07.729Z",
+              "confidence": 1,
+              "rawData": {
+                "evidenceText": "YNH-25 data.startPoint: 西门城楼\nYNH-25 data.endPoint: 西门城楼",
+                "evidenceLocator": "text:112-140; data.startPoint\ntext:141-167; data.endPoint",
+                "contentHash": "0712cfeed494726f241c4416ac25a956a7b6abe698317ea14140bf7e4d898ba4",
+                "extractionMethod": "structured_json"
+              }
+            }], "fieldSources": {"distanceKm": {"field": "distanceKm", "sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "confidence": 0.82, "updatedAt": "2026-09-15"}, "elevationGain": {"field": "elevationGain", "sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "confidence": 0.82, "updatedAt": "2026-09-15"}, "cutoffTimeHours": {"field": "cutoffTimeHours", "sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "confidence": 0.82, "updatedAt": "2026-09-15"}, "startTimes": {"field": "startTimes", "sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "confidence": 0.82, "updatedAt": "2026-09-21"},
+            "startLocation": {
+              "field": "startLocation",
+              "sourceType": "official",
+              "sourceName": "ninghai100-official-category-4-2026",
+              "confidence": 1,
+              "updatedAt": "2026-10-14T10:02:47.839Z"
+            },
+            "finishLocation": {
+              "field": "finishLocation",
+              "sourceType": "official",
+              "sourceName": "ninghai100-official-category-4-2026",
+              "confidence": 1,
+              "updatedAt": "2026-10-14T10:02:48.170Z"
+            }}, "sourcePriority": {"registration_platform": 70}, "confidence": 0.82, "verified": true, "verificationStatus": "verified", "verifiedAt": "2026-09-15", "missingFields": ["registrationUrl", "coursePoints"], "mergeNotes": ["Three Tier 2 starts are stored in startTimes; startAt remains null."], "reviewNotes": "Precise Category fields are human-reviewed Tier 2 facts pending official rulebook confirmation.", "lastCrawledAt": "2026-10-14T08:52:07.729Z", "lastUpdatedAt": "2026-10-14T10:02:48.170Z", "schemaVersion": "race-graph-v1", "dataQualityLevel": "B"}
         }
       ]
     },
