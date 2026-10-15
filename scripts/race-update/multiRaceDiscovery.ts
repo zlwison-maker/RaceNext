@@ -172,6 +172,7 @@ export async function discoverOfficialSources(input: {
       !["archived", "cancelled"].includes(edition.lifecycleStatus),
   );
   const editions: EditionDiscovery[] = [];
+  const dailyReviewEditionIds = new Set<string>();
   let changedCandidates = 0;
   // Small fixed batches bound concurrent requests independently of race count.
   for (let offset = 0; offset < records.length; offset += 3) {
@@ -206,6 +207,7 @@ export async function discoverOfficialSources(input: {
           result.warnings.push("ENDED_EDITION_DAILY_DISCOVERY_SKIPPED");
           return result;
         }
+        dailyReviewEditionIds.add(editionId);
         const entries = activeFreshnessSources(input.registry, editionId)
           .filter(
             (s) =>
@@ -451,10 +453,9 @@ export async function discoverOfficialSources(input: {
     ),
   };
   assertDiscoveryLedger(ledger);
-  const activeIds = new Set(records.map((r) => r.edition.editionId));
   const unresolved = ledger.candidates.filter(
     (c) =>
-      activeIds.has(c.targetEditionId) &&
+      dailyReviewEditionIds.has(c.targetEditionId) &&
       c.editionIdentityStatus !== "year_conflict" &&
       !input.registry.editions
         .find((e) => e.editionId === c.targetEditionId)

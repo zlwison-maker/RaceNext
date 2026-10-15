@@ -335,6 +335,57 @@ test("shared government domains require target-event title identity and email ut
     "https://sports.gov.cn/race",
   );
 });
+test("ending an Edition clears daily Source Review counts while preserving its existing Candidate ledger", async () => {
+  for (const endDate of [null, "2026-10-15"]) {
+    const f = fixture();
+    f.snapshot.records[0].edition.raceDate = endDate ? "2026-10-14" : "2026-10-15";
+    f.snapshot.records[0].edition.endDate = endDate;
+    f.snapshot.records[0].edition.timezone = "Asia/Shanghai";
+    const before = structuredClone(f);
+    let calls = 0;
+    const fetcher = (async () => {
+      calls++;
+      return html('<a href="/race">2026 上海马拉松报名公告</a>');
+    }) as typeof fetch;
+    const first = await discoverOfficialSources({ ...f, fetcher });
+    equal(first.report.summary.newSources, 1);
+    equal(first.report.summary.unresolvedReview, 1);
+    const historicalLedger = structuredClone(first.ledger);
+
+    // The full local end day remains eligible, including its final second.
+    const lastDay = await discoverOfficialSources({
+      ...f,
+      fetcher,
+      ledger: first.ledger,
+      checkedAt: "2026-10-15T15:59:59Z",
+    });
+    equal(calls, 2);
+    equal(lastDay.report.summary.newSources, 0);
+    equal(lastDay.report.summary.changedCandidates, 0);
+    equal(lastDay.report.summary.unresolvedReview, 1);
+    deepEqual(lastDay.ledger, historicalLedger);
+
+    const ended = await discoverOfficialSources({
+      ...f,
+      fetcher,
+      ledger: lastDay.ledger,
+      checkedAt: "2026-10-15T16:00:00Z",
+    });
+    equal(calls, 2);
+    equal(ended.report.summary.newSources, 0);
+    equal(ended.report.summary.changedCandidates, 0);
+    equal(ended.report.summary.unresolvedReview, 0);
+    ok(ended.report.editions[0].warnings.includes("ENDED_EDITION_DAILY_DISCOVERY_SKIPPED"));
+    deepEqual(ended.ledger, historicalLedger);
+    deepEqual(first.ledger, historicalLedger);
+    deepEqual(lastDay.ledger, historicalLedger);
+    equal(ended.ledger.candidates[0].reviewStatus, "needs_review");
+    equal(ended.report.registryWrites, 0);
+    equal(ended.report.factPendingWrites, 0);
+    equal(ended.report.modelCalls, 0);
+    deepEqual(f, before);
+  }
+});
 test("changed identity on an existing URL remains one Candidate and re-enters review without approving it", async () => {
   const f = fixture();
   const first = await discoverOfficialSources({
