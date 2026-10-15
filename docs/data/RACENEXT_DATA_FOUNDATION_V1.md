@@ -10,14 +10,15 @@
 - Phase 4B-2 First Natural Scheduled Run: **COMPLETED — 2026-10-09**
 - Data Automation Phase 1A / 1B: **IMPLEMENTED, MERGED, PRODUCTION ACCEPTED — 2026-10-12**
 - Open Data PR Continuous Monitoring: **PROVEN — RUN #9 + RUN #10; PR #15 MERGED**
-- Data Automation Phase 2: **BEIJING READ-ONLY DISCOVERY PILOT COMPLETED; FULL PRODUCTION PHASE NOT COMPLETE**
+- Data Automation Phase 2: **DISCOVERY / OFFICIAL ANNOUNCEMENT PRODUCTION EVIDENCED; FULL QUALITY GATES NOT CLOSED**
 - Gate 5 Real Production Change Closed Loop: **PROVEN**
 - Remote Read: **IMPLEMENTED; 12 PUBLIC EDITIONS**
-- Official Identity Reuse / Field Evidence Inheritance: **PR #38 MERGED — 2026-10-15; NEW FULL PRODUCTION EFFECT NOT YET ACCEPTED**
+- Data Maintenance Engineering P0: **STAGE DELIVERY COMPLETE — 2026-10-15; RUN #38691682744 PRODUCTION EVIDENCED**
+- Official Identity Reuse / Partial Field Evidence Inheritance: **PRODUCTION EVIDENCED; HISTORICAL FIELD ARTIFACT RESTORE NOT YET VERIFIED**
 - Ninghai B2 Fact-to-Terminal Closed Loop: **PRODUCTION VERIFIED — 2026-10-14**
 - Critical Fact Maintenance Effectiveness: **NINGHAI SINGLE-RACE CLOSED / 12-RACE VERIFICATION COVERAGE AND CHANGE DETECTION NOT YET PROVEN**
 
-数据基础设施 V1 的核心、12 场监控、Qwen 抽取、Pending Review 与人工生产闭环已实现。Phase 4B-2 的首次自然 `schedule` 已在 2026-10-09 执行成功，但该轮没有主动识别北京马、广州马、HK100 三项已知报名状态错误；三项错误已通过独立 Hotfix 修复上线。随后 Phase 1A 监测连续性与安全延续、Phase 1B Verification Alert 已合并并通过真实生产验收。Phase 2 已完成北京官方来源 Discovery 的只读试点，但尚未证明跨赛事的完整生产闭环。**执行成功仍不等于关键事实准确性得到维护。**Auto Apply 继续关闭，Human Review、Human Merge 与必要的生产部署仍是正式事实更新的边界。Phase 1 证据与未解决限制见[收尾及 Handoff](#15-phase-1-closeout--handoff)。
+数据基础设施 V1 的核心、12 场监控、Qwen 抽取、Pending Review 与人工生产闭环已实现。Phase 4B-2 的首次自然 `schedule` 已在 2026-10-09 执行成功，但该轮没有主动识别北京马、广州马、HK100 三项已知报名状态错误；三项错误已通过独立 Hotfix 修复上线。随后 Phase 1A 监测连续性与安全延续、Phase 1B Verification Alert 已合并并通过真实生产验收。Phase 2 在北京只读试点基础上已有跨赛事监测与官方公告处理的真实生产证据；完整质量与规模化成本门槛仍未达标。**执行成功仍不等于关键事实准确性得到维护。**Auto Apply 继续关闭，Human Review、Human Merge 与必要的生产部署仍是正式事实更新的边界。Phase 1 证据与未解决限制见[收尾及 Handoff](#15-phase-1-closeout--handoff)。
 
 本文件记录当前技术与生产状态；长期质量目标及 Phase 1–3 验收标准见 [RaceNext 赛事数据自动维护目标与验收标准 V1](../project/RACE_DATA_AUTOMATION_STANDARD_V1.md)。
 
@@ -230,8 +231,14 @@ Phase 2 已完成北京官方来源的只读 Discovery 试点，但阶段整体�
 
 ## 20. 2026-10-15 Human Decision 与生命周期维护
 
-[PR #38](https://github.com/zlwison-maker/RaceNext/pull/38) 已合并至 main `e54b1bc0cfd25965e5142af3aa5c53317114650f`：Human Review by Exception 下复用可信官网身份、同源正文与字段 Gate，免逐篇重复来源审批；有效直接字段证据重新匹配 Hash、身份、Canonical 值和规则后可继承，缺证据不能以成功 Hash 充数。其真实隔离结果保留在 [P0 交付文档](../project/RACE_DATA_MAINTENANCE_P0_20261014.md)，**新版全量生产效果尚未验收**。本节覆盖早期章节的冲突规则，不改写历史 Run / Phase 证据。
+[PR #38](https://github.com/zlwison-maker/RaceNext/pull/38) 已合并至 main `e54b1bc0cfd25965e5142af3aa5c53317114650f`：Human Review by Exception 下复用可信官网身份、同源正文与字段 Gate，免逐篇重复来源审批；有效直接字段证据重新匹配 Hash、身份、Canonical 值和规则后可继承，缺证据不能以成功 Hash 充数。其真实隔离结果保留在 [P0 交付文档](../project/RACE_DATA_MAINTENANCE_P0_20261014.md)；随后 Run #38691682744 已提供动态监测、生命周期、公告处理及部分字段继承的生产证据，具体阶段结论见[最新 Closeout](../project/RACE_DATA_MAINTENANCE_P0_20261014.md#2026-10-15-生产验收-closeout)，不将隔离结果改写为生产证据。本节覆盖早期章节的冲突规则，不改写历史 Run / Phase 证据。
 
 当前维护优先级采用[统一生命周期规则](../project/RACE_DATA_AUTOMATION_STANDARD_V1.md#edition-生命周期与日常维护优先级2026-10-15-human-decision)：已确认完赛 Edition 退出日常事实监测、Discovery / 公告处理及当前 Verification Alert，不自动删除历史 Canonical、Source、Evidence、Pending 或公开页面，不自动 applied/rejected。贡嘎 active 状态不能覆盖已确认的 2026-09-27 结束日；日期未知、身份冲突、uncertain 或时区无效继续监测和复核。Event 品牌保留，新一年 Edition 独立核验，不能直接继承旧届日期、报名入口、组别及动态事实。
 
 Auto Apply OFF、单一 Data PR、Pending-before-State、Data-only / Secret Scan / Public Fact Gate 和受控部署边界不变。12 个公开历史 Edition 不等于每天必须监测 12 个；完成本轮代码测试不等于新的生产维护效果已验收。
+
+## 21. 2026-10-15 Production P0 Closeout
+
+**工程 P0 阶段性交付完成；数据质量与规模化效率继续观察。** [Run #38691682744](https://github.com/zlwison-maker/RaceNext/actions/runs/38691682744) 使用生产代码 `9e35d961`，已为生产 Workflow、11 个日常 Edition / 42 个基础来源、生命周期过滤、官方公告处理及部分字段继承提供真实生产证据；全部指标、安全 Gate 和局限集中记录在 [P0 生产 Closeout](../project/RACE_DATA_MAINTENANCE_P0_20261014.md#2026-10-15-生产验收-closeout)，不重复覆盖历史 Run / Phase 数字。
+
+[PR #41](https://github.com/zlwison-maker/RaceNext/pull/41) 已合并，只持久化 Pending / State；重庆 2027 registrationUrl 仍为 pending，未获 Human Fact Approval、未 Apply，也没有正式发布或部署证据。Auto Apply OFF，Canonical 自动更新 0。本轮 FIELD_EVIDENCE_BASELINE=not_available；6 项安全继承证明部分证据复用有效，**不证明历史字段 Artifact 跨运行恢复成功**。自动部署没有生产验收；Pipeline Success 不能等同于事实准确性 PASS、低维护成本或规模化效率已达标。本次仅资料收尾，不开启新开发阶段。

@@ -36,7 +36,7 @@
 
 | 能力 | 当前状态 | 边界与目标 |
 | --- | --- | --- |
-| A. Source Discovery | **PARTIAL；北京只读试点已完成** | 已登记 Source Registry 的监测已实现；北京官方来源的新公告与报名入口 Discovery 已完成只读试点及异常响应修复，但尚未形成跨赛事、持续运行、审批、事实更新和终端验证的完整生产闭环。全网 Web Search 尚未实现。 |
+| A. Source Discovery | **工程生产接入已验证；质量 PARTIAL** | 已登记官方身份复用、动态 Discovery / 公告处理已有 Run #38691682744 生产证据；不等于所有新公告可正确提取、来源异常已清零或事实发布闭环完成。全网 Web Search 尚未实现。 |
 | B. Source Fetch & Identity | **PARTIAL** | 已有官方 HTML / 文本 PDF 抓取及身份校验；来源失败、跨域报名链接和届次不确定性仍会导致覆盖缺口。 |
 | C. Fact Extraction & Verification | **PARTIAL** | AI 提取、Evidence / Identity Validation 已实现；成功抽取 Hash 不代表字段级近期核验，部分事实仍可能漏检。 |
 | D. Change / Freshness Detection | **PARTIAL** | 已有 Diff、Hash、Pending 与 Phase 1B Verification Alert；可提示生命周期及关键字段核验缺口，但直接官方字段核验覆盖和变化发现效果尚未达标。 |
@@ -86,7 +86,7 @@ Fact Extraction、Validation 与 Diff 必须先判断距离语义，再进行字
 
 退出日常任务仅是优先级决策，不自动写 Canonical.lifecycleStatus、报名状态或公开展示。历史 Event、Edition、Category、Source、Evidence、Ledger、Pending 及审核记录保留；既有 Pending 不自动 applied/rejected，人工可因失去当前维护价值关闭或拒绝。Event 品牌长期保留；新一年 Edition 独立核验官方日期、报名链接、组别和动态事实，不直接复制历史届次。Public API / 小程序及页面发布规则不变。
 
-2026-10-15 [PR #38](https://github.com/zlwison-maker/RaceNext/pull/38) 已合并：官网身份复用、字段证据继承已实现并通过隔离验证，**新版全量生产效果尚未验收**。Auto Apply 继续 OFF；自动部署继续默认关闭且需独立发布权限和验收，不能由来源信任、Merge 或测试通过隐式开启。历史 Phase / Run 保留原日期与验证范围。
+2026-10-15 PR #38–#41 已合并，正式 Run #38691682744 已验证生产 Workflow、动态监测、生命周期过滤、官方公告处理及部分字段证据继承；**工程 P0 阶段性交付完成，质量与规模化效率继续观察**。本轮 FIELD_EVIDENCE_BASELINE=not_available，6 项继承不证明历史 Artifact 跨运行恢复成功；详见 [P0 生产 Closeout](RACE_DATA_MAINTENANCE_P0_20261014.md#2026-10-15-生产验收-closeout)。Auto Apply 继续 OFF；自动部署继续默认关闭且需独立发布权限和验收，不能由来源信任、Merge 或测试通过隐式开启。历史 Phase / Run 保留原日期与验证范围。
 
 ## 8. Monitoring Continuity
 
@@ -106,7 +106,7 @@ Open PR 安全检查的价值仍是避免状态丢失、重复 Pending 与 PR �
 
 ## 10. Roadmap & Acceptance Gates
 
-以下目标与 Gate 保持冻结；Phase 1 已验收，Phase 2 已完成北京只读 Discovery 试点但整体阶段尚未完成，Phase 3 尚未完成。不改变当前 Schema、字段风险规则或 `Auto Apply = OFF`。下一阶段的宁海与 12 场验证计划见 [2026-10-13 验证计划](RACE_DATA_AUTOMATION_NEXT_VALIDATION_20261013.md)。
+以下历史 Phase 目标与 Gate 保持冻结；Phase 1 已验收，2026-10-15 工程 P0 阶段性交付不等于 Phase 2 / 3 的质量与规模化成本门槛已达标。不改变当前 Schema、字段风险规则或 `Auto Apply = OFF`。历史宁海与 12 场验证计划见 [2026-10-13 验证计划](RACE_DATA_AUTOMATION_NEXT_VALIDATION_20261013.md)。
 
 ### Phase 1｜监测连续性与关键异常可见（P0）
 
@@ -135,4 +135,4 @@ Open PR 安全检查的价值仍是避免状态丢失、重复 Pending 与 PR �
 
 ## 12. Status
 
-**FROZEN TARGET & GATES / PHASE 1 ACCEPTED / PHASE 2 READ-ONLY PILOT COMPLETED, FULL PHASE NOT COMPLETE / PHASE 3 NOT COMPLETE**。本文冻结业务目标、事实可信度边界及 Phase 1–3 验收门槛；试点完成不等于阶段整体完成。Phase 1A / 1B 的实现及生产验收证据见 [Data Foundation V1](../data/RACENEXT_DATA_FOUNDATION_V1.md#15-phase-1-closeout--handoff)。当前生产仍为 **Auto Apply OFF / All Fact Candidates Require Human Review**。Workflow 成功不能替代关键事实准确性或字段级核验覆盖验收。
+**工程 P0 阶段性交付完成（2026-10-15）；质量与规模化效率继续观察；FROZEN TARGET & GATES / PHASE 1 ACCEPTED / PHASE 2–3 QUALITY AND COST GATES NOT CLOSED**。本文冻结业务目标、事实可信度边界及 Phase 1–3 验收门槛；生产执行证据不等于事实准确性或成本优势已获证明。字段 Artifact 跨运行恢复和自动部署尚未生产验收，具体口径见 [P0 Closeout](RACE_DATA_MAINTENANCE_P0_20261014.md#2026-10-15-生产验收-closeout)。Phase 1A / 1B 的实现及生产验收证据见 [Data Foundation V1](../data/RACENEXT_DATA_FOUNDATION_V1.md#15-phase-1-closeout--handoff)。当前生产仍为 **Auto Apply OFF / All Fact Candidates Require Human Review**。Workflow 成功不能替代关键事实准确性或字段级核验覆盖验收。
