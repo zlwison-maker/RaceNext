@@ -55,13 +55,18 @@ export async function prepareOfficialAnnouncements(input: {
       const page = await fetchDiscoveryText({ url:c.candidateUrl, approvedHost:new URL(source.url).hostname, fetcher:input.fetcher });
       decision.pageHash=createHash("sha256").update(page.text).digest("hex");
       if (page.url !== c.candidateUrl || !/^(?:text\/html|text\/plain|application\/xhtml\+xml)(?:;|$)/i.test(page.contentType)) throw new Error("ARTICLE_URL_OR_FORMAT_REVIEW");
-      const article = articleHtml(page.text);
+      const markup=page.text.replace(/<(script|style|noscript|template)\b[^>]*>[\s\S]*?<\/\1>/gi," ").replace(/<!--[\s\S]*?-->/g," ");
+      const article = articleHtml(markup);
       // Prefer the article heading over the site's current-year banner; registration forms may remain ambiguous.
-      const articleOffset=page.text.indexOf(article);
+      const articleOffset=markup.indexOf(article);
       const localHeading=article.match(/<h[123]\b[^>]*>([\s\S]*?)<\/h[123]>/i)?.[1];
-      const precedingHeadings=articleOffset>=0 ? [...page.text.slice(0,articleOffset).matchAll(/<h[123]\b[^>]*>([\s\S]*?)<\/h[123]>/gi)] : [];
+      const precedingHeadings=articleOffset>=0 ? [...markup.slice(0,articleOffset).matchAll(/<h[123]\b[^>]*>([\s\S]*?)<\/h[123]>/gi)] : [];
       const heading=localHeading ?? precedingHeadings.at(-1)?.[1];
-      const headline = stripHtml(heading ?? page.text.match(/<title\b[^>]*>([\s\S]*?)<\/title>/i)?.[1] ?? "");
+      const headline = stripHtml(heading ?? markup.match(/<title\b[^>]*>([\s\S]*?)<\/title>/i)?.[1] ?? "");
+      const normalize=(s:string)=>s.normalize("NFKC").toLowerCase().replace(/[^\p{L}\p{N}]+/gu,"");
+      const eventNames=[record.event.canonicalName,record.edition.editionName,...record.event.aliases]
+        .map(normalize).filter(n=>n.length>=3&&!/^(?:marathon|trail|race)$/.test(n));
+      if (/(?:马拉松|越野|marathon|trail)/i.test(headline) && !eventNames.some(n=>normalize(headline).includes(n))) throw new Error("ARTICLE_EVENT_IDENTITY_CONFLICT");
       const titleIdentity = classifyEditionIdentity({ title:headline, targetYear:record.edition.editionYear });
       if (titleIdentity === "year_conflict") throw new Error("ARTICLE_YEAR_CONFLICT");
       const body = stripHtml(article);

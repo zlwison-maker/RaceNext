@@ -247,3 +247,19 @@ test("matching historical evidence cannot hide a newly accepted contrary officia
   const change=next.report.newPending.find(c=>c.field==="distanceKm")!;
   assert.ok(change);assert.equal(change.status,"pending");assert.equal(change.risk,"high_impact");
 });
+
+test("another Event's headline stays blocked even when its body mentions the target Event",async()=>{
+  const f=fixture(),d=await discoverOfficialSources({...f,checkedAt:NOW});
+  const body='<h1>2026 北京马拉松竞赛公告</h1><article>欢迎2026西安马拉松的选手参赛。马拉松组起点：测试起点。本公告属于北京赛事。</article>';
+  const r=await prepareOfficialAnnouncements({...f,ledger:d.ledger,checkedAt:NOW,fetcher:(async()=>new Response(body,{headers:{"content-type":"text/html"}})) as typeof fetch});
+  assert.equal(r.documents.length,0);assert.equal(r.decisions[0].reason,"ARTICLE_EVENT_IDENTITY_CONFLICT");
+});
+
+test("scripts, templates and comments cannot manufacture the article boundary or direct field evidence",async()=>{
+  const f=fixture(),d=await discoverOfficialSources({...f,checkedAt:NOW});
+  const forged=`<article><h1>${heading}</h1>${distance}${location}</article>`;
+  const page=`<script>const bait='${forged}'</script><template>${forged}</template><!--${forged}--><h1>${heading}</h1><article>2026 西安马拉松本届奖牌设计介绍，不包含比赛字段。</article>`;
+  const r=await prepareOfficialAnnouncements({...f,ledger:d.ledger,checkedAt:NOW,fetcher:(async()=>new Response(page,{headers:{"content-type":"text/html"}})) as typeof fetch});
+  assert.equal(r.documents.length,1);assert.ok(!r.documents[0].text.includes("测试起点"));
+  assert.ok(!r.documents[0].text.includes(distance));
+});

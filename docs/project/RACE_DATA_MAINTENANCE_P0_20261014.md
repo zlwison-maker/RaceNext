@@ -21,9 +21,32 @@
 
 优先核查的西安 2026 十个候选实际正文均为图片；不能以标题、页脚或模型猜测生成事实。当前缺口是图像正文的直接字段取证，**不是重复来源资格审批**。未新增 OCR/视觉提取框架。最终 [只读 CI Run 38684317022](https://github.com/zlwison-maker/RaceNext/actions/runs/38684317022) 验证：重庆 2 个同源规程/报名须知页面通过正文身份 Gate，2 个查询页为不可读取图片，2 个报名表单的当届适用性不明确而拒绝。16 个西安/重庆样本中为 2 个可进入事实提取、14 个真实证据/适用性异常，不是将全量 21 个待审声称降低到 14。该 Run 同时证明宁海 6 字段安全继承、0 模型调用；[脱敏 Artifact](https://github.com/zlwison-maker/RaceNext/actions/runs/38684317022/artifacts/11948949317) 可复核。初步只读检查曾有 4 个页面通过；最终采用实际文章标题优先于站点横幅的更严格结果，两个表单不再被计入。是否产生有效 Candidate 仍由实际提取与字段校验决定，不为满足数量制造 Pending。仅通过身份 Gate 不计入有效 Fact Candidate 或字段 Verified。
 
-开发本地验收：新增专项 12/12；完整测试 423/423、Web/Mini typecheck、lint、build、diff check PASS。正式四份 Store 与 main 字节相同。真实只读样本中的新提取有效 Fact Candidate / 新 Pending 均为 0；6 项为继承字段而非新增候选。完整新版生产指标、真实模型提取及合并状态单独报告，不以样本或 Fixture 外推全站完成。
+开发本地验收：新增专项 14/14；完整测试 425/425、Web/Mini typecheck、lint、build、diff check PASS。正式四份 Store 与 main 字节相同。上述无模型样本不生成新 Fact Pending；真实模型回放结果见下节。完整新版生产指标及合并状态单独报告，不以样本或 Fixture 外推全站完成。
 
-`exceptionReviewValidationCli.ts` 默认只读抓取和身份检查、不加载 Provider；`--real-provider` 才使用已配置 Provider 做两轮内存回放，输出到忽略的 Artifact 目录，绝不调用正式持久化。实际新模型验证、最终测试数与 PR 以本次验收报告为准；代码完成不等于生产验收完成。
+`exceptionReviewValidationCli.ts` 默认只读抓取和身份检查、不加载 Provider；`--real-provider` 才使用已配置 Provider 做两轮内存回放，输出到忽略的 Artifact 目录，绝不调用正式持久化。真实模型回放仅在明确授权后执行；代码与隔离回放完成不等于新版全量生产验收完成。
+
+
+### 2026-10-15｜获授权的真实模型隔离回放
+
+使用现有 Model Studio `qwen3.8-flash`，仅向 Provider 发送公开页面正文、URL / Hash / 抓取时间及赛事组别公开上下文；不发送 Pending、审核记录或 Ingestion State。首轮 UTC `2026-10-15T05:07:10.153Z` 至 `05:08:00.799Z`；第二轮 `05:08:05.866Z` 至 `05:08:06.865Z`。两个 Edition 为西安 2026 / 重庆 2027，不能与生产 12 场指标直接作增减比较。
+
+| 指标 | 首轮真实提取 | 相同内容第二轮 |
+|---|---:|---:|
+| 监测来源 / 有效官方来源 | 6 / 5 | 6 / 5 |
+| 实际 Provider 调用 | 4 | 0 |
+| Token（输入 / 输出） | 12,638 / 3,379 | 0 / 0 |
+| 本轮直接字段核验 / 继承字段 | 6 / 0 | 0 / 6 |
+| 新模型候选接受 / 拒绝 | 9 / 15 | 0 / 0 |
+| 新 Pending（仅隔离内存） | 1 | 0 |
+| Canonical / 正式 Store 写入 | 0 | 0 |
+
+9 个接受输出包括：6 个与 Canonical 一致的直接字段、2 个西安起点描述扩缩的 semantic_review，以及 1 个重庆 `registrationUrl` 变化；不能统称为 9 条新增有效事实。6 个已验证字段为西安全/半程终点，以及重庆发枪时间、起点、终点、关门时间。第二轮正确继承这 6 项，保留原始核验时间；宁海另一次无模型样本的 6 项不与之重复加总成新的全量覆盖。
+
+重庆新公告通过既有官网权限进入实际模型提取，无逐页 Source Approval；[规程](https://www.cqmarathon.com/News/Detail/21070C87897D1015)正文 Hash 为 `9b971e0bf206a6ef59be27aa6f852d28acb54fc813861c49419b8f2e7af8b4d7`，[报名须知](https://static.cqmarathon.com/News/Detail/1CB916B2816F6C28)为 `6c6f6b8c958fda22fdf3500985ddafdf7bc2a649339af64576139405534328ab`。两页部分模型输出因类别作用域、距离语义、日期格式或起点语义不足被拒绝，仍需字段证据异常复核，不冒充全部处理无异常。16 个公告样本最终 16 个 needs_review：14 个在正文取证 Gate 阻断，另 2 个为提取后的部分字段异常；重复 Source Approval 要求为 0，但不能声称人工异常待审已降到 0。
+
+唯一新增隔离 Pending：`chg-ca138a69c8a80a19c7963c50`，重庆 2027 `registrationUrl`，`https://www.cqmarathon.com/` → `https://static.cqmarathon.com/mlsreg/cm/z/proj/proj.html`，low / pending，直接报名语义及当前正文链接通过原有校验；仍需 Human Fact Review，未写正式 Store。西安主页的全部无效输出保留 validation_error，临赛关键字段 Alert 仍存在，不因官网身份可信而相信 AI。货币成本无可靠账单，记 Unknown；总 Token 16,017。
+
+完整脱敏回放在忽略目录 `artifacts/race-update/exception-review-validation/pass-1.json` / `pass-2.json`。两轮均逐字节检查 Canonical、Pending、Registry、State 与初始基线相同，正常 Pipeline 的 Pending-before-State 和正式生产 Data PR 未被调用。
 
 ## 决策与当前边界
 
