@@ -56,6 +56,7 @@ export async function prepareOfficialAnnouncements(input: {
       decision.pageHash=createHash("sha256").update(page.text).digest("hex");
       if (page.url !== c.candidateUrl || !/^(?:text\/html|text\/plain|application\/xhtml\+xml)(?:;|$)/i.test(page.contentType)) throw new Error("ARTICLE_URL_OR_FORMAT_REVIEW");
       const article = articleHtml(page.text);
+      // Prefer the article heading over the site's current-year banner; registration forms may remain ambiguous.
       const articleOffset=page.text.indexOf(article);
       const localHeading=article.match(/<h[123]\b[^>]*>([\s\S]*?)<\/h[123]>/i)?.[1];
       const precedingHeadings=articleOffset>=0 ? [...page.text.slice(0,articleOffset).matchAll(/<h[123]\b[^>]*>([\s\S]*?)<\/h[123]>/gi)] : [];
