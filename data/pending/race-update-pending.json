@@ -1565,6 +1565,49 @@
       "reviewedAt": "2026-10-14T10:01:16.444Z",
       "reviewReason": null,
       "appliedAt": "2026-10-14T10:02:48.170Z"
+    },
+    {
+      "changeId": "chg-35994c3e6b57c7b2ff509d6f",
+      "eventId": "kailas-gongga-100",
+      "editionId": "kailas-gongga-100-2026",
+      "categoryId": null,
+      "entityType": "Edition",
+      "field": "registrationUrl",
+      "currentValue": "https://reg.zuicool.com/en/33836",
+      "candidateValue": "https://zuicool.com/event/86332",
+      "sourceId": "zuicool",
+      "sourceUrl": "https://zuicool.com/event/86332",
+      "evidenceText": "报名渠道：「朗途体育」公众号、「最酷马拉松报名」小程序、最酷官网zuicool.com",
+      "evidenceLocator": "text:692-735; untrustedDocumentText:registration_channel",
+      "confidence": 0.9,
+      "fetchedAt": "2026-10-15T04:55:13.629Z",
+      "contentHash": "dcb7ccb899c6e535ae4cda37051f8c5928704043720d0edbe2718d8d130dcde0",
+      "extractionMethod": "aliyun-qwen-structured-output",
+      "provider": "aliyun-model-studio",
+      "model": "qwen3.8-flash",
+      "promptVersion": "race-fact-extraction-v1.4",
+      "evidence": [
+        {
+          "sourceId": "zuicool",
+          "sourceUrl": "https://zuicool.com/event/86332",
+          "evidenceText": "报名渠道：「朗途体育」公众号、「最酷马拉松报名」小程序、最酷官网zuicool.com",
+          "evidenceLocator": "text:692-735; untrustedDocumentText:registration_channel",
+          "confidence": 0.9,
+          "fetchedAt": "2026-10-15T04:55:13.629Z",
+          "contentHash": "dcb7ccb899c6e535ae4cda37051f8c5928704043720d0edbe2718d8d130dcde0",
+          "extractionMethod": "aliyun-qwen-structured-output"
+        }
+      ],
+      "conflict": false,
+      "candidateOptions": [],
+      "applyBlocked": false,
+      "risk": "low",
+      "reason": "Source is extractable but not eligible for automatic application. Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
+      "status": "pending",
+      "createdAt": "2026-10-15T04:56:34.742Z",
+      "reviewedAt": null,
+      "reviewReason": null,
+      "appliedAt": null
     }
   ]
 }
