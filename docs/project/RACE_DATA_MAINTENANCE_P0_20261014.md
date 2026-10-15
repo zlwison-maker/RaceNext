@@ -9,6 +9,7 @@
 - **异常分流**：Discovery Ledger 保留列表发现原始证据；其 legacy `official_site_unapproved` / `needs_review` 只表示列表阶段尚未完成正文校验，不等于每页需要人工 Source Approval。日常最终摘要使用正文处理决定：processed / needs_review / historical / ended / deferred，正常公告与真正来源/证据异常分开；每 Edition 每轮最多读取 10 篇，超限显式 deferred。无事实不生成 Pending；高影响、冲突、语义差异继续事实复核。所有真实变更仍等待 Human Review，Auto Apply OFF。
 - **字段证据继承**：复用现有 `race-real-extraction-artifact-v1`，不增加数据库或新的持久化 Schema。trusted-main 的既有 Artifact 恢复入口同时恢复此前完整提取报告；新报告在持久化前校验并脱敏，仍严格 Pending 写入 → Reload / Verify → State 写入，再保存 Artifact。旧报告缺失时，仅可由已 applied 的 Pending 直接证据安全启动，不能用 pending/approved 状态冒充现有 Canonical 验证。
 - **继承条件**：本轮重新抓到相同内容、当前 Event / Edition / Category 身份和字段值一致、当前 Source / 规则仍有效；直接摘录在当前正文中存在，字段值、单位、作用域通过原有校验；保留最初 `evidenceVerifiedAt`，不每日刷新成新核验时间。来源/Canonical 变化、处理规则变化、失败恢复或报名/抽签/临赛/比赛结束等关键边界会要求新提取。失效记录不继承。
+- **相反证据与标题**：即使旧证据仍匹配，出现已接受的相反官方字段时也不能继续把当前 Canonical 标记 Verified；保留新事实的 Pending / 高影响审核。实际 article 内标题或正文前最近标题优先于站点横幅，网站当年标识不能覆盖历史公告身份。
 - **统计**：`VERIFIED_THIS_RUN` 与 `VERIFIED_INHERITED` 单独列出；未变且没有字段级证据仍为 NOT_VERIFIED_THIS_RUN。历史报告只有成功 Hash / 汇总计数，不能反推遗漏字段。Artifact 保留 30 天且恢复最多检查 10 个已完成 Run；缺失/损坏不会冒充 Verified，需要直接证据重新建立。单一 Data PR、Data-only Allowlist、生产工作流信任来源及高影响 Gate 不变。
 - **失败去重**：同 Hash、同 Provider / Model / Prompt / Processing Version 的确定性全拒绝结果，可复用既有 Artifact 保留 validation_error 和取证异常，不重复调用模型；绝不推进成功提取 Hash。内容/协议身份变化或生命周期边界触发重试；网络/Provider 暂时失败不当作可信字段证据缓存。部分接受时也保留尚未解决的拒绝记录，而不重复把它们计为本轮新模型输出。
 
@@ -20,7 +21,7 @@
 
 优先核查的西安 2026 十个候选实际正文均为图片；不能以标题、页脚或模型猜测生成事实。当前缺口是图像正文的直接字段取证，**不是重复来源资格审批**。未新增 OCR/视觉提取框架。重庆 4 个同源页面已能通过实际正文身份 Gate；另 2 个查询页仍是不可读取的图片证据。是否产生有效 Candidate 仍由实际提取与字段校验决定，不为满足数量制造 Pending。仅通过身份 Gate 不计入有效 Fact Candidate 或字段 Verified。
 
-开发本地验收：新增专项 10/10；完整测试 421/421、Web/Mini typecheck、lint、build、diff check PASS。正式四份 Store 与 main 字节相同。真实只读样本中的新提取有效 Fact Candidate / 新 Pending 均为 0；6 项为继承字段而非新增候选。完整新版生产指标、真实模型提取及合并状态单独报告，不以样本或 Fixture 外推全站完成。
+开发本地验收：新增专项 12/12；完整测试 423/423、Web/Mini typecheck、lint、build、diff check PASS。正式四份 Store 与 main 字节相同。真实只读样本中的新提取有效 Fact Candidate / 新 Pending 均为 0；6 项为继承字段而非新增候选。完整新版生产指标、真实模型提取及合并状态单独报告，不以样本或 Fixture 外推全站完成。
 
 `exceptionReviewValidationCli.ts` 默认只读抓取和身份检查、不加载 Provider；`--real-provider` 才使用已配置 Provider 做两轮内存回放，输出到忽略的 Artifact 目录，绝不调用正式持久化。实际新模型验证、最终测试数与 PR 以本次验收报告为准；代码完成不等于生产验收完成。
 

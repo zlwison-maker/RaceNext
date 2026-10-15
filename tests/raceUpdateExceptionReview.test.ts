@@ -209,3 +209,41 @@ test("unchanged deterministic rejection stays an exception without repeated AI o
   assert.equal(second.prepared.nextState.sources.find(s=>s.sourceId===source.sourceId)!.lastSuccessfulExtractionHash,null);
   assert.equal(second.report.criticalFactVerification.some(c=>["VERIFIED_THIS_RUN","VERIFIED_INHERITED"].includes(c.status)),false);
 });
+
+test("current site banner cannot override the actual historical article heading",async()=>{
+  const f=fixture(),d=await discoverOfficialSources({...f,checkedAt:NOW});
+  for(const content of [
+    '<h1>2026 西安马拉松</h1><article><h2>2025 西安马拉松竞赛公告</h2>2025 西安马拉松比赛正式历史内容。</article>',
+    '<h1>2026 西安马拉松</h1><h3>2025 西安马拉松竞赛公告</h3><div class="content">2025 西安马拉松比赛正式历史内容。</div>',
+    '<h1>2026 西安马拉松</h1><article>2025 西安马拉松比赛正式历史内容，不能用于当前赛事。</article>',
+  ]) {
+    const r=await prepareOfficialAnnouncements({...f,ledger:d.ledger,checkedAt:NOW,fetcher:(async()=>new Response(content,{headers:{"content-type":"text/html"}})) as typeof fetch});
+    assert.equal(r.documents.length,0);assert.equal(r.decisions[0].status,"needs_review");
+  }
+});
+
+test("matching historical evidence cannot hide a newly accepted contrary official fact",async()=>{
+  const f=fixture(),d=await discoverOfficialSources({...f,checkedAt:NOW});
+  const first=await runRaceDailyCheck({...f,discoveryLedger:d.ledger,state:state(),pendingStore:pending(),now:()=>NOW});
+  f.registry.editions[0].sources.push({...f.registry.editions[0].sources[0],sourceId:"new-direct-notice",
+    url:"https://second.example.org/current",domain:"second.example.org",sourceType:"notice",isPrimary:false});
+  const evidence="2026 西安马拉松 马拉松组 官方组别距离为43公里。";
+  const base=f.provider.extract.bind(f.provider);
+  f.provider.extract=async request=>{
+    const result=await base(request);
+    if(request.document.url.includes("second.example.org")) result.output.facts=[{eventId:request.editionContext.eventId,
+      editionId:request.editionContext.editionId,categoryId:request.editionContext.categories[0].categoryId,entityType:"Category",
+      field:"distanceKm",candidateValue:43,sourceId:request.document.sourceId,sourceUrl:request.document.url,
+      contentHash:request.document.contentHash,fetchedAt:request.document.fetchedAt,extractionMethod:request.document.extractionMethod,
+      evidenceText:evidence,evidenceLocator:"article",confidence:0.99}];
+    return result;
+  };
+  const fetcher=(async (url,init)=>String(url).includes("second.example.org")
+    ?new Response(`<title>2026 西安马拉松</title><article>${evidence}</article>`,{headers:{"content-type":"text/html"}})
+    :f.fetcher(url,init)) as typeof fetch;
+  const next=await runRaceDailyCheck({...f,fetcher,discoveryLedger:d.ledger,state:first.prepared.nextState,
+    pendingStore:first.prepared.pendingStore,previousExtraction:artifact(first.prepared.report),now:()=>LATER});
+  assert.equal(next.report.criticalFactVerification.find(c=>c.field==="distanceKm"&&c.categoryId===f.snapshot.records[0].categories[0].categoryId)!.status,"NOT_VERIFIED_THIS_RUN");
+  const change=next.report.newPending.find(c=>c.field==="distanceKm")!;
+  assert.ok(change);assert.equal(change.status,"pending");assert.equal(change.risk,"high_impact");
+});

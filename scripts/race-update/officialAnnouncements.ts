@@ -56,7 +56,10 @@ export async function prepareOfficialAnnouncements(input: {
       decision.pageHash=createHash("sha256").update(page.text).digest("hex");
       if (page.url !== c.candidateUrl || !/^(?:text\/html|text\/plain|application\/xhtml\+xml)(?:;|$)/i.test(page.contentType)) throw new Error("ARTICLE_URL_OR_FORMAT_REVIEW");
       const article = articleHtml(page.text);
-      const heading = page.text.match(/<h[123]\b[^>]*>([\s\S]*?)<\/h[123]>/i)?.[1];
+      const articleOffset=page.text.indexOf(article);
+      const localHeading=article.match(/<h[123]\b[^>]*>([\s\S]*?)<\/h[123]>/i)?.[1];
+      const precedingHeadings=articleOffset>=0 ? [...page.text.slice(0,articleOffset).matchAll(/<h[123]\b[^>]*>([\s\S]*?)<\/h[123]>/gi)] : [];
+      const heading=localHeading ?? precedingHeadings.at(-1)?.[1];
       const headline = stripHtml(heading ?? page.text.match(/<title\b[^>]*>([\s\S]*?)<\/title>/i)?.[1] ?? "");
       const titleIdentity = classifyEditionIdentity({ title:headline, targetYear:record.edition.editionYear });
       if (titleIdentity === "year_conflict") throw new Error("ARTICLE_YEAR_CONFLICT");
@@ -64,7 +67,7 @@ export async function prepareOfficialAnnouncements(input: {
       const scope = `${headline}\n${body.slice(0, 1000)}`;
       const years = [...scope.matchAll(/(?<!\d)20\d{2}(?!\d)/g)].map(m=>Number(m[0]));
       // A current-edition heading may legitimately cite past rulebooks/results. Those are not article identity.
-      const articleHeading = Boolean(heading) || /(?:规程|公告|通知|须知|报名|新闻|registration|regulations|notice|announcement|guidelines?)/i.test(headline);
+      const articleHeading = /(?:规程|公告|通知|须知|报名|新闻|赛道|registration|regulations|notice|announcement|guidelines?)/i.test(headline);
       if (!(articleHeading && titleIdentity === "title_year_match") && (!years.includes(record.edition.editionYear) || years.some(y=>y!==record.edition.editionYear))) throw new Error("ARTICLE_EDITION_APPLICABILITY_UNCLEAR");
       const fetched = await extractDocumentSnapshot({ sourceId:source.sourceId, editionId:c.targetEditionId,
         url:c.candidateUrl, contentType:"text/html", body:Buffer.from(`<title>${headline}</title>${article}`), fetchedAt:input.checkedAt });

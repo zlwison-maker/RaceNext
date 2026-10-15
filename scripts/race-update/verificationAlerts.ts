@@ -197,6 +197,11 @@ function checkField(
   const value = category ? category[field as keyof typeof category] : record.edition[field as keyof typeof record.edition];
   const canonicalValuePresent = value !== null && value !== undefined && value !== ""
     && (!Array.isArray(value) || value.length > 0) && value !== "unknown";
+  const contraryOfficialEvidence = reports.some(source=>officialIds.has(source.sourceId)
+    && source.sourceTier==="primary_official" && source.identity?.status==="matched" && source.extractionStatus==="success"
+    && source.candidates.some(c=>c.authority==="authoritative" && c.eventId===record.event.eventId
+      && c.editionId===record.edition.editionId && c.categoryId===categoryId && c.field===field
+      && c.entityType===(categoryId?"Category":"Edition") && JSON.stringify(c.candidateValue)!==JSON.stringify(value)));
   const evidenceSources = reports.filter((source) => officialIds.has(source.sourceId)
     && source.sourceTier === "primary_official"
     && ["success", "unchanged"].includes(source.extractionStatus) && source.identity?.status === "matched"
@@ -211,7 +216,7 @@ function checkField(
     field,
     canonicalValuePresent,
     officialSourcesEffectivelyProcessed,
-    status: !canonicalValuePresent ? "UNKNOWN"
+    status: !canonicalValuePresent ? "UNKNOWN" : contraryOfficialEvidence ? "NOT_VERIFIED_THIS_RUN"
       : evidenceSources.some(s=>s.extractionStatus==="success") ? "VERIFIED_THIS_RUN"
         : evidenceSources.length > 0 ? "VERIFIED_INHERITED" : "NOT_VERIFIED_THIS_RUN",
     directOfficialEvidenceSourceIds: [...new Set(directOfficialEvidenceSourceIds)],
