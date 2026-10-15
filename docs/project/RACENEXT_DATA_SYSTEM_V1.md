@@ -1,6 +1,6 @@
 RaceNext 数据系统 V1
 
-2026-10-15 当前规则：Human Review by Exception、可信官网身份复用及有效字段证据继承已随 [PR #38](https://github.com/zlwison-maker/RaceNext/pull/38) 合并；新版全量生产效果尚未验收。赛事生命周期决定维护优先级：已确认完赛的 Edition 退出日常事实监测、Discovery 和当前 Verification Alert，历史资产及公开页面保留；日期/身份不明继续监测。统一判定及跨年独立核验规则见[自动维护标准 V1](RACE_DATA_AUTOMATION_STANDARD_V1.md#edition-生命周期与日常维护优先级2026-10-15-human-decision)。Auto Apply OFF；自动部署默认关闭，Merge 不等于发布授权。第十四节及历史 Run 保留各自日期的事实。
+2026-10-15 当前状态：PR #38–#41 已合并；正式 Run #38691682744 为生产 Workflow、动态监测、生命周期过滤、官网公告处理及部分字段证据继承提供真实生产证据，工程 P0 阶段性交付完成。质量与规模化效率继续观察，字段 Artifact 跨运行恢复及自动部署仍未验收；完整数字与边界见 [P0 生产 Closeout](RACE_DATA_MAINTENANCE_P0_20261014.md#2026-10-15-生产验收-closeout)。Human Review by Exception 及既有官网身份复用规则继续有效。赛事生命周期决定维护优先级：已确认完赛的 Edition 退出日常事实监测、Discovery 和当前 Verification Alert，历史资产及公开页面保留；日期/身份不明继续监测。统一判定及跨年独立核验规则见[自动维护标准 V1](RACE_DATA_AUTOMATION_STANDARD_V1.md#edition-生命周期与日常维护优先级2026-10-15-human-decision)。Auto Apply OFF；自动部署默认关闭，Merge 不等于发布授权。第十四节及历史 Run 保留各自日期的事实。
 
 一、数据系统的目标
 RaceNext 不是一个赛事信息聚合网站。
@@ -397,4 +397,4 @@ HK100 2027 的 The Grand Sam 是连续完成 The Third、The Half 与 HK100 的�
 十六、下一阶段
 RaceNext 微信小程序已上线；报名状态 Hotfix 与图片优化已上线并 CLOSED。创业主线转向真实用户验证、获客验证与商业验证，而不是把产品功能进度等同于创业进展。
 
-自动赛事数据维护的有效性修复是并行的独立 P0 可信度工作：先解决监测连续性、关键异常复核与 Pending / State 安全闭环，再逐步验证新公告发现和单位赛事维护成本。各阶段目标、非目标与验收门槛参见 [自动维护标准 V1](RACE_DATA_AUTOMATION_STANDARD_V1.md)。不因此重新设计已冻结的 Event → Edition → Category 架构，也不预建复杂基础设施。
+数据自动维护工程 P0 已于 2026-10-15 阶段性交付；事实核验覆盖、变化发现效果与单位赛事维护成本继续观察，不能把工程交付视为质量与规模化效率达标。冻结的各阶段目标、非目标与验收门槛参见 [自动维护标准 V1](RACE_DATA_AUTOMATION_STANDARD_V1.md)。不因此重新设计已冻结的 Event → Edition → Category 架构，也不预建复杂基础设施。

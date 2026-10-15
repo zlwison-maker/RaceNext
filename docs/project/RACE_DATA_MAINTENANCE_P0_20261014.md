@@ -1,6 +1,44 @@
 # RaceNext 数据自动维护 P0｜2026-10-14
 
-## 2026-10-15｜Human Review by Exception 最小修复
+## 2026-10-15 生产验收 Closeout
+
+**阶段状态：工程 P0 阶段性交付完成；数据质量与规模化效率继续观察。** PR #38、#39、#40、#41 均已合并。本轮证据为正式 [Race Data Update Run #38691682744](https://github.com/zlwison-maker/RaceNext/actions/runs/38691682744)（SUCCESS），生产代码 `9e35d9612a7265247e8c55b5d51160ddcb0acea9`；[脱敏 Artifact 11952626894](https://github.com/zlwison-maker/RaceNext/actions/runs/38691682744/artifacts/11952626894) 与日志交叉核对。Pipeline 主处理时间为北京时间 2026-10-15 14:19:59–14:24:58；这不是新增生产执行，本次只同步现有证据。
+
+### 正式生产结果
+
+| 指标 | Run #38691682744 实际值 | 口径 / 边界 |
+|---|---:|---|
+| 公开历史 Edition | 12 | 历史赛事及公开页面保留。 |
+| 日常监测 Edition | 11 | 已确认完赛的贡嘎 2026 退出日常任务，非删除或取消赛事。 |
+| 基础 eligible sources | 42 | Registry 中当次日常目标的基础来源集合。 |
+| 实际 Sources checked | 45 | 42 个基础来源加 3 个本轮派生公告来源，不是 Registry 扩容。 |
+| Sources failed / ineffective | 26 | 包括 Fetch、Identity、Validation 阻断，不全部等于 HTTP 抓取失败。 |
+| Healthy | 2 / 11 | 另有 7 PARTIAL / 2 FAILED；2 个 Source Gap，不能宣称全量健康。 |
+| 官方有效处理来源 | 14 | 来源级处理成功不等于字段已核验。 |
+| 本轮直接核验字段 | 10 | VERIFIED_THIS_RUN，分母为下列 189 项。 |
+| 安全继承字段 | 6 | VERIFIED_INHERITED，单独记录，不并入本轮新提取计数。 |
+| 关键字段检查项 | 189 | 10 本轮直接核验 + 6 继承 + 138 未核验 + 35 Unknown；覆盖仍低。 |
+| 官方公告自动处理 | 1 | 通过既有官网身份与字段 Gate，不代表来源内容或所有模型输出均可信。 |
+| 来源 / 证据异常 | 20 | 保留 Human Review by Exception。 |
+| Verification Alerts | 14 | 5 HIGH / 9 REVIEW；Alert 不是 Fact Candidate。 |
+| 模型调用 | 12 | 不据此推算人工节省或货币成本。 |
+| 新增 Pending | 1 | 重庆马 2027 registrationUrl，仍待 Human Fact Review。 |
+| 去重 Pending | 1 | 不是第二条新事实。 |
+| Canonical 自动更新 | 0 | Auto Apply OFF。 |
+
+[PR #41](https://github.com/zlwison-maker/RaceNext/pull/41) 已合并（`1b82871b82c5f6c4163a48f9278360a40f2e6540`），Diff 仅 `data/pending/race-update-pending.json` 与 `data/sources/official-source-ingestion-state.json`，只完成 Pending / State 持久化。重庆报名链接 `chg-ca138a69c8a80a19c7963c50` 当前为 low / pending，reviewedAt / appliedAt 均为 null；合并 Data PR **不代表事实已获批、已写 Canonical 或已部署**。此前同 ID 的隔离回放记录仍只代表当时隔离验证，不能回写成早已正式持久化。
+
+### 验收结论与未关闭边界
+
+- **已有真实生产证据**：生产 Workflow、动态 Edition / Source 监测、完赛生命周期过滤、官方公告处理及部分字段证据继承。Data-only、Secret Scan、定向测试 159/159、全量测试 430/430、Public Fact Gate 48/48、TypeScript 与 whitespace Gate 均通过，Auto Apply OFF；这些是该 Run 的生产验证结果，不是本次 Docs-only 修改重新执行测试。
+- **字段 Artifact 连续性尚未验收**：日志明确 `FIELD_EVIDENCE_BASELINE=not_available`。本轮 6 项继承对应宁海三个 JSON 来源的已 applied 起终点直接证据；它证明该继承路径在生产有效，**不能证明历史提取 Artifact 跨运行恢复成功**。本轮已上传完整提取 Artifact，仍须后续正式运行验证恢复；Source Candidate Ledger 的 available 基线不能替代字段证据 Artifact 基线。
+- **质量与成本未达标**：10 项本轮核验、6 项继承以及 2/11 Healthy 不能支撑整体事实准确性 PASS；20 项来源/证据异常及 14 个 Alerts 继续可见。维护成本规模化优势、人工时间、误报 / 漏报和长期覆盖仍未获证明。
+- **自动部署未验收**：自动部署没有生产验收，不标完成；默认关闭和独立授权 / 发布 Gate 不变。PR #41 没有 Canonical 变化，也没有重庆链接正式发布证据。Pipeline Success 不等于事实准确性 PASS 或部署成功。
+- **阶段性收尾**：本周工程 P0 阶段性交付完成，不把历史 Phase 质量门槛、Artifact 连续性或规模化效率一并宣布完成。本次仅五份文档收尾，不开启新的开发阶段、不执行生产 Run、不审批 Pending、不 Apply、不 Merge、不部署。
+
+下文保留 PR #38 / #40 开发时、隔离回放及早期 Phase / Run 的原始数字与当时判断；其中“尚未生产验收”“35 条 Pending”等是对应时点记录，当前阶段结论以本节为准。
+
+## 2026-10-15｜Human Review by Exception 最小修复（生产验收前开发记录）
 
 本次开发基线 `2b3d079709982772365f67c0958caf1168951549`。PR #36、#37 均已合并；下文 2026-10-14 能力表保留开发时记录，不替代本节的新决策。[PR #38](https://github.com/zlwison-maker/RaceNext/pull/38) 已于 2026-10-15 合并（`e54b1bc0cfd25965e5142af3aa5c53317114650f`）；新版全量生产效果尚未验收，隔离模型回放与历史生产 Run 不能替代该验收。
 
@@ -48,7 +86,7 @@
 
 完整脱敏回放在忽略目录 `artifacts/race-update/exception-review-validation/pass-1.json` / `pass-2.json`。两轮均逐字节检查 Canonical、Pending、Registry、State 与初始基线相同，正常 Pipeline 的 Pending-before-State 和正式生产 Data PR 未被调用。
 
-## 2026-10-15｜赛事生命周期最小修复
+## 2026-10-15｜赛事生命周期最小修复（生产验收前开发记录）
 
 贡嘎 2026 的已确认日期为 2026-09-25 至 2026-09-27、时区 Asia/Shanghai，Canonical.lifecycleStatus 仍为 active。此前 Discovery / Alert 已有独立日期判断，但 dailyCheck 仅排除 archived / cancelled，导致完赛后仍提取常规报名链接。现由统一资格函数控制所有日常入口及覆盖校验；完整本地结束日之后不抓取、不调用模型、不产生新的常规 Fact Pending。
 
@@ -56,7 +94,7 @@
 
 本修复仅改调度判断、回归测试及项目资料，不改正式 Canonical / Pending / Registry / State、Public DTO、微信小程序或部署配置。日期未确认、身份冲突、未知时区不自动判完赛；历史 Ledger 与审核记录不丢失。开发回归覆盖贡嘎真实基线、跨时区完整结束日、冲突保留、完赛前后 Ledger/Pending/State 保护及跨午夜运行；完整测试、连续性及安全 Gate 的最终结果随 Code PR 交付，不宣称已完成新的生产运行。
 
-## 决策与当前边界
+## 2026-10-14 决策与能力基线（历史记录）
 
 最新 Human Decision：数据自动维护是本周唯一开发 P0，下周新增赛事；**12 场只读复盘不再是扩容前置条件**。架构与质量 Gate 不变。宁海 B2 已完成生产闭环，不重复开发或 Apply。
 
@@ -132,7 +170,7 @@ GitHub 配置的最少接入项：
 
 部署/Smoke 失败仍需依据回执保留的上一健康 SHA 回滚；公开 API 一致不等于真机已验证。没有配置、演练和真实部署证据时，此项只能记 IMPLEMENTED_NOT_PRODUCTION_VERIFIED。当前继续保留手工发布兜底。
 
-## 真实证据与验收
+## 开发期真实证据与验收（历史记录）
 
 开发分支真实只读 Discovery、重复回放和测试数据见本次 PR / 验收报告。PR Validation Workflow 无生产 Secrets、无模型、无正式 Store 写入；它的 Run 证明 GitHub Runner 中的只读能力，不等同于 trusted-main Daily Production Pipeline 已升级。
 
