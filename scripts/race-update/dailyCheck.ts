@@ -3,6 +3,7 @@ import type {
   OfficialSourceIngestionState,
   RaceDailyCheckReport,
   RaceDailyEditionCoverage,
+  RealExtractionArtifact,
 } from "../../types/officialSourceIngestion.ts";
 import type { PendingChangeStore, RaceGraphSnapshot, RaceSourceRegistry } from "../../types/raceUpdate.ts";
 import { runRealExtractionDryRun, type PreparedRealExtractionRun, type RealExtractionTarget } from "./realExtraction.ts";
@@ -10,10 +11,14 @@ import { activeFreshnessSources } from "./sourceRegistry.ts";
 import { evaluateVerificationAlerts } from "./verificationAlerts.ts";
 import { assertRaceGraphSnapshot } from "./validation.ts";
 import { assertRaceSourceRegistry } from "./sourceRegistry.ts";
+import { prepareOfficialAnnouncements, type AnnouncementDecision } from "./officialAnnouncements.ts";
+import type { DiscoveryLedger } from "./multiRaceDiscovery.ts";
 
 export type PreparedRaceDailyCheck = {
   prepared: PreparedRealExtractionRun;
   report: RaceDailyCheckReport;
+  registry: RaceSourceRegistry;
+  announcementDecisions: AnnouncementDecision[];
 };
 
 export function buildRaceDailyCheckTargets(
@@ -35,23 +40,40 @@ export async function runRaceDailyCheck(input: {
   now?: () => string;
   fetcher?: typeof fetch;
   autoApplyLowRisk?: boolean;
+  discoveryLedger?: DiscoveryLedger;
+  previousExtraction?: RealExtractionArtifact;
 }): Promise<PreparedRaceDailyCheck> {
   assertRaceGraphSnapshot(input.snapshot);
   assertRaceSourceRegistry(input.registry);
-  const targets = buildRaceDailyCheckTargets(input.snapshot, input.registry);
+  const announcements = input.discoveryLedger ? await prepareOfficialAnnouncements({
+    snapshot:input.snapshot, registry:input.registry, ledger:input.discoveryLedger,
+    checkedAt:input.now?.() ?? new Date().toISOString(), fetcher:input.fetcher,
+  }) : { registry:input.registry, documents:[], decisions:[] as AnnouncementDecision[] };
+  const targets = buildRaceDailyCheckTargets(input.snapshot, announcements.registry);
   const prepared = await runRealExtractionDryRun({
     ...input,
+    registry:announcements.registry,
+    documents:announcements.documents,
     targets,
     forceExtract: false,
     autoApplyLowRisk: input.autoApplyLowRisk,
   });
   const report = buildRaceDailyCheckReport({
     snapshot: input.snapshot,
-    registry: input.registry,
+    registry: announcements.registry,
     prepared,
   });
-  assertDailyMonitoringCoverage(input.snapshot, input.registry, report);
-  return { prepared, report };
+  assertDailyMonitoringCoverage(input.snapshot, announcements.registry, report);
+  for (const d of announcements.decisions) {
+    if (d.status !== "eligible") continue;
+    const source = prepared.report.sources.find(s=>s.editionId===d.editionId && s.sourceId===d.sourceId);
+    if (source && ["success", "unchanged"].includes(source.extractionStatus) && source.rejectedCandidates.length===0
+      && !source.candidates.some(c=>c.action==="semantic_review")) {
+      d.status="processed"; d.reason=source.candidates.length ? "DIRECT_FIELDS_VALIDATED_FACT_REVIEW_SEPARATE" : "NO_RELEVANT_NEW_FACTS";
+    } else { d.status="needs_review"; d.reason=[source?.failureReason ?? "FIELD_SCOPE_OR_EVIDENCE_REVIEW",
+      ...new Set(source?.rejectedCandidates.map(c=>c.reason) ?? [])].join("; ").slice(0,1000); }
+  }
+  return { prepared, report, registry:announcements.registry, announcementDecisions:announcements.decisions };
 }
 
 export function buildRaceDailyCheckReport(input: {

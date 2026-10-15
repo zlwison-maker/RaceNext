@@ -359,7 +359,7 @@ export async function discoverOfficialSources(input: {
                 categoryScope: "unknown",
                 reviewStatus: "needs_review",
                 reasons: [
-                  "SOURCE_APPROVAL_REQUIRED",
+                  sameHost ? "ARTICLE_IDENTITY_AND_FIELD_EVIDENCE_REQUIRED" : "EXTERNAL_SOURCE_IDENTITY_REVIEW_REQUIRED",
                   "LISTING_ONLY_NOT_FACT_EVIDENCE",
                   ...(sameHost ? [] : ["CROSS_DOMAIN_REVIEW_REQUIRED"]),
                   ...(editionIdentityStatus === "year_conflict"

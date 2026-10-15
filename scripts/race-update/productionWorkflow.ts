@@ -7,6 +7,7 @@ import type {
 } from "../../types/officialSourceIngestion.ts";
 import type { PendingChangeStore, RaceFieldChange, RaceGraphSnapshot } from "../../types/raceUpdate.ts";
 import { FactExtractionProviderError } from "./qwenProvider.ts";
+import type { AnnouncementDecision } from "./officialAnnouncements.ts";
 
 export const PRODUCTION_SECRET_NAMES = [
   "FACT_EXTRACTION_PROVIDER",
@@ -83,6 +84,7 @@ export type SanitizedRaceUpdateReport = {
   verification: {
     officialSourcesEffectivelyProcessed: number;
     criticalFactsVerifiedThisRun: number;
+    criticalFactsVerifiedInherited?: number;
     criticalFactsNotVerifiedThisRun: number;
     criticalFactsUnknown: number;
     alertCount: number;
@@ -98,6 +100,9 @@ export type SanitizedRaceUpdateReport = {
     dedupBaseline: "available" | "not_available";
     newSources: number; candidates: number; unresolvedReview: number; changedCandidates?: number;
     editions: Array<{ editionId: string; status: string }>;
+    announcementDecisions?: AnnouncementDecision[];
+    processedOfficialAnnouncements?: number;
+    deferredAnnouncements?: number;
   };
   continuity?: {
     sourceMonitoringExecuted: boolean;
@@ -230,6 +235,7 @@ export function buildSanitizedRaceUpdateReport(input: {
     verification: {
       officialSourcesEffectivelyProcessed: report.editions.reduce((sum, edition) => sum + edition.officialSourcesSuccessful, 0),
       criticalFactsVerifiedThisRun: report.criticalFactVerification.filter(({ status }) => status === "VERIFIED_THIS_RUN").length,
+      criticalFactsVerifiedInherited: report.criticalFactVerification.filter(({ status }) => status === "VERIFIED_INHERITED").length,
       criticalFactsNotVerifiedThisRun: report.criticalFactVerification.filter(({ status }) => status === "NOT_VERIFIED_THIS_RUN").length,
       criticalFactsUnknown: report.criticalFactVerification.filter(({ status }) => status === "UNKNOWN").length,
       alertCount: report.summary.verificationAlerts,
@@ -275,6 +281,7 @@ export function buildVerificationSummary(report: SanitizedRaceUpdateReport): str
     `- Sources checked / fetched / effectively processed: ${report.sources.checked} / ${report.sources.fetched} / ${report.sources.checked - report.sources.failed}`,
     `- Official sources effectively processed: ${verification.officialSourcesEffectivelyProcessed}`,
     `- Critical facts verified this run / not verified / unknown: ${verification.criticalFactsVerifiedThisRun} / ${verification.criticalFactsNotVerifiedThisRun} / ${verification.criticalFactsUnknown}`,
+    `- Historical direct fields safely revalidated: ${verification.criticalFactsVerifiedInherited ?? 0}; reported separately from new extraction.`,
     `- Verification Alerts: ${verification.alertCount} (${verification.highCount} HIGH / ${verification.reviewCount} REVIEW)`,
     "- Source health is not a guarantee of critical-fact accuracy. Alerts do not change Canonical.",
     "",
@@ -283,7 +290,8 @@ export function buildVerificationSummary(report: SanitizedRaceUpdateReport): str
     const discovery = report.discovery;
     lines.push(`- Official discovery: ${discovery.status}; new sources ${discovery.newSources}; changed candidates ${discovery.changedCandidates ?? 0}; Source Candidates ${discovery.candidates}; unresolved Source Review ${discovery.unresolvedReview}; dedup baseline ${discovery.dedupBaseline}.`);
     for (const edition of discovery.editions) lines.push(`- Discovery ${safeSummaryText(edition.editionId)}: ${safeSummaryText(edition.status)}`);
-    lines.push("- Candidate URLs, titles, entry evidence and identity decisions: source-discovery-report.json / source-discovery-ledger.json in this run artifact. Listing matches remain unapproved.");
+    lines.push(`- Official announcements automatically processed: ${discovery.processedOfficialAnnouncements ?? 0}; deferred by bounded fetch limit: ${discovery.deferredAnnouncements ?? 0}. Listing matches alone never establish field evidence.`);
+    for (const d of discovery.announcementDecisions?.filter(d=>d.status==="needs_review") ?? []) lines.push(`- Source/Evidence Exception ${safeSummaryText(d.editionId)}: ${safeSummaryText(d.url)}; ${safeSummaryText(d.reason)}`);
   }
   lines.push(`- New Fact Pending: ${report.newPending.length}; conflicts ${report.conflicts.length}. Human approval is required.`);
   for (const pending of report.newPending) lines.push(`- Fact Review ${safeSummaryText(pending.editionId)} / ${safeSummaryText(pending.categoryId ?? "Edition")} / ${safeSummaryText(pending.field)}: ${pending.risk}; Change ID ${pending.changeId}`);

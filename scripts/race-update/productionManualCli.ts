@@ -8,6 +8,8 @@ import { assertDailyMonitoringCoverage, runRaceDailyCheck } from "./dailyCheck.t
 import {
   assertOfficialIngestionState,
   assertPendingChangeStore,
+  assertRealExtractionArtifact,
+  REAL_EXTRACTION_ARTIFACT_PATH,
   CANONICAL_PATH,
   OFFICIAL_INGESTION_STATE_PATH,
   PENDING_CHANGE_PATH,
@@ -31,6 +33,7 @@ import { loadQwenProviderFromEnvironment } from "./qwenProvider.ts";
 import { persistPreparedRealExtraction } from "./realExtractionDurability.ts";
 import { loadRaceSourceRegistry, RACE_SOURCE_REGISTRY_PATH } from "./sourceRegistry.ts";
 import { assertRaceGraphSnapshot } from "./validation.ts";
+import { assertDiscoveryLedger } from "./multiRaceDiscovery.ts";
 
 const REPORT_PATH = "artifacts/race-update/race-update-report.json";
 const PR_BODY_PATH = "artifacts/race-update/race-update-pr-body.md";
@@ -48,6 +51,15 @@ const pendingBefore = await loadPendingChangeStore();
 const stateBefore = await loadState();
 const registry = await loadRaceSourceRegistry();
 const provider = withRetryingFactExtractionProvider(loadQwenProviderFromEnvironment());
+let discoveryLedger, previousExtraction;
+try {
+  discoveryLedger=JSON.parse(await readFile("artifacts/race-update/source-discovery-ledger.json","utf8"));
+  assertDiscoveryLedger(discoveryLedger);
+} catch (error) { console.log(`ANNOUNCEMENT_INPUT=unavailable; ${(error as NodeJS.ErrnoException).code ?? "invalid"}; existing registered monitoring continues`); discoveryLedger=undefined; }
+try {
+  previousExtraction=JSON.parse(await readFile("artifacts/field-evidence-input.json","utf8"));
+  assertRealExtractionArtifact(previousExtraction);
+} catch { console.log("FIELD_EVIDENCE_BASELINE=not_available; successful hashes do not prove field verification"); previousExtraction=undefined; }
 
 console.log("PROVIDER_CONFIGURED=yes");
 console.log(`MODEL=${provider.model}`);
@@ -60,8 +72,14 @@ const result = await runRaceDailyCheck({
   pendingStore: pendingBefore,
   provider,
   autoApplyLowRisk,
+  discoveryLedger,
+  previousExtraction,
 });
-assertDailyMonitoringCoverage(canonicalBefore, registry, result.report);
+assertDailyMonitoringCoverage(canonicalBefore, result.registry, result.report);
+const extractionArtifact = { schemaVersion:"race-real-extraction-artifact-v1" as const,
+  generatedAt:result.report.finishedAt, report:result.prepared.report };
+assertRealExtractionArtifact(extractionArtifact);
+assertSanitizedText({ text:JSON.stringify(extractionArtifact), environment:process.env });
 
 const eligibleChanges = autoApplyLowRisk
   ? result.prepared.changes.filter(({ action }) => action === "auto_apply")
@@ -81,6 +99,7 @@ if (applied.appliedChangeIds.length > 0) {
   });
 }
 await persistPreparedRealExtraction({ prepared: result.prepared });
+await writeJsonAtomicValidated({ path:REAL_EXTRACTION_ARTIFACT_PATH, value:extractionArtifact, validate:assertRealExtractionArtifact });
 
 const [canonicalAfter, pendingAfter, stateAfter, registryAfterBytes] = await Promise.all([
   readJson(CANONICAL_PATH, assertRaceGraphSnapshot),
@@ -117,7 +136,11 @@ try {
     newSources: discovery.summary.newSources, candidates: discovery.summary.candidates, unresolvedReview: discovery.summary.unresolvedReview,
     changedCandidates: Number.isSafeInteger(discovery.summary.changedCandidates) ? discovery.summary.changedCandidates : 0,
     editions: discovery.editions.map((e: { editionId: string; status: string }) => ({ editionId: e.editionId, status: e.status })),
+    announcementDecisions:result.announcementDecisions,
+    processedOfficialAnnouncements:result.announcementDecisions.filter(d=>d.status==="processed").length,
+    deferredAnnouncements:result.announcementDecisions.filter(d=>d.status==="deferred").length,
   };
+  if (discoveryLedger) report.discovery.unresolvedReview=result.announcementDecisions.filter(d=>d.status==="needs_review").length;
 } catch {
   report.discovery = { status: "failed", dedupBaseline: "not_available", newSources: 0, candidates: 0, unresolvedReview: 0, editions: [] };
 }
@@ -167,6 +190,8 @@ console.log(`RACE_HEALTH=${report.health.healthy}/${report.health.editionsChecke
 console.log(`SOURCES_CHECKED=${report.sources.checked}`);
 console.log(`SOURCES_FAILED=${report.sources.failed}`);
 console.log(`OFFICIAL_SOURCES_EFFECTIVE=${report.verification.officialSourcesEffectivelyProcessed}`);
+console.log(`CRITICAL_FIELDS_FRESH=${report.verification.criticalFactsVerifiedThisRun} INHERITED=${report.verification.criticalFactsVerifiedInherited ?? 0}`);
+console.log(`OFFICIAL_ANNOUNCEMENTS_PROCESSED=${report.discovery?.processedOfficialAnnouncements ?? 0} SOURCE_EVIDENCE_EXCEPTIONS=${report.discovery?.unresolvedReview ?? 0}`);
 console.log(`VERIFICATION_ALERTS=${report.verification.alertCount} HIGH=${report.verification.highCount} REVIEW=${report.verification.reviewCount}`);
 console.log(`MODEL_CALLS=${report.model.calls}`);
 console.log(`NEW_PENDING=${report.newPending.length}`);

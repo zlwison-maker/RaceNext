@@ -86,3 +86,5 @@ Investor BP 用于理解战略与商业背景，不是代码实现约束，也�
 ## 7. 当前数据维护 P0
 
 [2026-10-14 数据自动维护 P0 交付与接入](RACE_DATA_MAINTENANCE_P0_20261014.md)：区分 IMPLEMENTED / TESTED / REAL READ-ONLY TESTED / NOT_PRODUCTION_VERIFIED / BLOCKED SETUP。每日生产接入及自动发布不能由开发分支测试替代验收。
+
+2026-10-15 最新 Human Decision：**Human Review by Exception**。已登记、有效的赛事专属官网身份可用于同源公告；实际正文通过 Event / Edition / 字段作用域及确定性 Evidence 校验后，无需逐页重复来源审批或登记，直接进入既有 Fact Pipeline。跨域、共享平台、身份/适用性不明和证据不足仍复核。内容未变仅在真实字段证据仍匹配时单独记 `VERIFIED_INHERITED`；不以成功 Hash 冒充字段核验。该规则覆盖历史“每篇公告都必须单独 Source Approval”的冲突表述，**不改变 Auto Apply OFF、事实 Pending / Human Review、Public Fact Gate 或发布权限**。实现与真实限制见上述 P0 文档的 2026-10-15 补充。

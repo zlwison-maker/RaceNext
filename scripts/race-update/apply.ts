@@ -79,7 +79,7 @@ function assertApplyableChange(
     if (evidenceErrors.length > 0) {
       throw new Error(`Change evidence failed deterministic validation: ${change.changeId}`);
     }
-    const source = findRegistrySource(registry, change.editionId, change.sourceIds[index]);
+    const source = findRegistrySource(registry, change.editionId, change.sourceIds[index], change.sourceUrls[index]);
     if (!source || source.url !== change.sourceUrls[index]) {
       throw new Error(`Change source is stale or unregistered: ${change.sourceIds[index]}`);
     }
