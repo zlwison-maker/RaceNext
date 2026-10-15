@@ -1,3 +1,4 @@
+import { isDailyMonitoringEdition } from "./editionLifecycle.ts";
 import type {
   FactExtractionProvider,
   OfficialSourceIngestionState,
@@ -24,8 +25,9 @@ export type PreparedRaceDailyCheck = {
 export function buildRaceDailyCheckTargets(
   snapshot: RaceGraphSnapshot,
   registry: RaceSourceRegistry,
+  checkedAt = new Date().toISOString(),
 ): RealExtractionTarget[] {
-  return monitoringRecords(snapshot).map(({ edition }) => ({
+  return monitoringRecords(snapshot, checkedAt).map(({ edition }) => ({
     editionId: edition.editionId,
     sourceIds: activeFreshnessSources(registry, edition.editionId).map(({ sourceId }) => sourceId),
   }));
@@ -45,13 +47,20 @@ export async function runRaceDailyCheck(input: {
 }): Promise<PreparedRaceDailyCheck> {
   assertRaceGraphSnapshot(input.snapshot);
   assertRaceSourceRegistry(input.registry);
+  const checkedAt = input.now?.() ?? new Date().toISOString();
+  let extractionStarted = false;
   const announcements = input.discoveryLedger ? await prepareOfficialAnnouncements({
     snapshot:input.snapshot, registry:input.registry, ledger:input.discoveryLedger,
-    checkedAt:input.now?.() ?? new Date().toISOString(), fetcher:input.fetcher,
+    checkedAt, fetcher:input.fetcher,
   }) : { registry:input.registry, documents:[], decisions:[] as AnnouncementDecision[] };
-  const targets = buildRaceDailyCheckTargets(input.snapshot, announcements.registry);
+  const targets = buildRaceDailyCheckTargets(input.snapshot, announcements.registry, checkedAt);
   const prepared = await runRealExtractionDryRun({
     ...input,
+    // Keep target selection, coverage and report start on the same side of local midnight.
+    now: () => {
+      if (!extractionStarted) { extractionStarted = true; return checkedAt; }
+      return input.now?.() ?? new Date().toISOString();
+    },
     registry:announcements.registry,
     documents:announcements.documents,
     targets,
@@ -82,7 +91,7 @@ export function buildRaceDailyCheckReport(input: {
   prepared: PreparedRealExtractionRun;
 }): RaceDailyCheckReport {
   const extraction = input.prepared.report;
-  const editions = monitoringRecords(input.snapshot).map(({ edition }) => buildEditionCoverage({
+  const editions = monitoringRecords(input.snapshot, extraction.startedAt).map(({ edition }) => buildEditionCoverage({
     editionId: edition.editionId,
     registry: input.registry,
     prepared: input.prepared,
@@ -110,7 +119,7 @@ export function buildRaceDailyCheckReport(input: {
   const semanticReviews = extraction.sources.flatMap(({ candidates }) => candidates)
     .filter(({ action }) => action === "semantic_review");
   const verification = evaluateVerificationAlerts({
-    snapshot: { ...input.snapshot, records: monitoringRecords(input.snapshot) },
+    snapshot: { ...input.snapshot, records: monitoringRecords(input.snapshot, extraction.startedAt) },
     registry: input.registry,
     extraction,
   });
@@ -222,15 +231,15 @@ function latest(values: string[]): string | null {
   return values.length > 0 ? [...values].sort().at(-1) ?? null : null;
 }
 
-function monitoringRecords(snapshot: RaceGraphSnapshot) {
-  return snapshot.records.filter(({ edition }) => !["archived", "cancelled"].includes(edition.lifecycleStatus));
+function monitoringRecords(snapshot: RaceGraphSnapshot, checkedAt: string) {
+  return snapshot.records.filter(record => isDailyMonitoringEdition(record, checkedAt));
 }
 
 /** Compare identities and attempted source sets, not a fixed race count. Missing coverage fails before writes. */
 export function assertDailyMonitoringCoverage(
   snapshot: RaceGraphSnapshot, registry: RaceSourceRegistry, report: RaceDailyCheckReport,
 ): void {
-  const targets = buildRaceDailyCheckTargets(snapshot, registry);
+  const targets = buildRaceDailyCheckTargets(snapshot, registry, report.startedAt);
   if (targets.length === 0) throw new Error("NO_MONITORING_TARGETS");
   const expectedEditions = targets.map(({ editionId }) => editionId).sort();
   const actualEditions = report.editions.map(({ editionId }) => editionId).sort();

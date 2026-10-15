@@ -36,12 +36,14 @@ function snapshotWithNinghaiLocations(location: string | null): RaceGraphSnapsho
   return fixture;
 }
 const snapshot = snapshotWithNinghaiLocations(null);
+// Keep this all-source fixture before the confirmed Gongga end day; lifecycle exclusion is tested separately.
+const FIXTURE_START = "2026-09-24T10:00:00+08:00";
 const registry = await loadRaceSourceRegistry();
 const emptyState = (): OfficialSourceIngestionState => ({ schemaVersion: "official-source-ingestion-state-v1", sources: [] });
 const emptyPending = (): PendingChangeStore => ({ schemaVersion: "race-update-pending-v1", changes: [] });
 
 test("Phase 4A derives all Edition targets and active freshness sources without a second hardcoded race list", () => {
-  const targets = buildRaceDailyCheckTargets(snapshot, registry);
+  const targets = buildRaceDailyCheckTargets(snapshot, registry, FIXTURE_START);
   equal(targets.length, snapshot.records.length);
   deepEqual(
     targets.map(({ editionId }) => editionId),
@@ -512,5 +514,5 @@ function requestUrl(input: string | URL | Request): string {
 
 function clockIso(): () => string {
   let tick = 0;
-  return () => `2026-09-29T10:${String(tick++).padStart(2, "0")}:00+08:00`;
+  return () => `2026-09-24T10:${String(tick++).padStart(2, "0")}:00+08:00`;
 }

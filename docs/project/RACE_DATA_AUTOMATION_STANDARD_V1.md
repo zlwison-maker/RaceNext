@@ -68,7 +68,7 @@ Fact Extraction、Validation 与 Diff 必须先判断距离语义，再进行字
 
 ## 6. Source Governance
 
-官方来源优先，可信平台辅助交叉核对。新增官方公告、官方报名平台或跨域链接首先是 **Source Candidate**；只有来源身份、目标 Edition、作用域及权威性经验证和批准后，才进入 Source Registry。搜索结果与摘要只帮助发现来源，不是 Official Fact。
+官方来源优先，可信平台辅助交叉核对。发现的链接首先是 **Source Candidate**。已有 active 官方身份可按本文顶部 Human Review by Exception 规则复用于同源公告，不要求每页人工登记；新域名、跨域平台或身份/作用域未确认仍需来源审核。搜索结果与摘要只帮助发现来源，不是 Official Fact。
 
 官方页面链接第三方报名平台，不自动使该平台全部内容或通用报名入口具有当届官方事实权威性。原始 URL、Evidence、来源层级和审核决定必须可追溯；冲突未解决时不能自动择一。
 
@@ -77,6 +77,16 @@ Fact Extraction、Validation 与 Diff 必须先判断距离语义，再进行字
 必须分别理解 `fetchedAt`（文档抓取）、`lastCheckedAt`（来源检查）、`lastSuccessfulExtractionAt`（来源成功抽取）、`lastUpdatedAt`（正式事实更新）与 `verifiedAt`（相应事实经有效核验）。这些时间不能互相代替。现有来源级 Ingestion State 不构成完整的字段级 `verifiedAt` 记录。
 
 来源层 Hash 未变化，也可能因报名生命周期、抽签节点或比赛临近而需要复核 Canonical。监测报告应区分“已抓取”“已有效处理”“关键字段近期核验”；无法确认字段时标明缺口，不把 checked 写成 verified。
+
+### Edition 生命周期与日常维护优先级（2026-10-15 Human Decision）
+
+日常 Fact Monitoring、Discovery / 公告处理及 Verification Alert 共用 `scripts/race-update/editionLifecycle.ts` 的资格判断。显式 archived / cancelled 继续排除；active 不能覆盖已确认的结束日期。Event / Edition 身份、届次年份及现有 Publication Gate 的日期证据 verified / 无冲突成立时，按 Edition 时区，在整个 `endDate`（缺失时用 `raceDate`）本地日结束后退出日常维护，包含报名状态及报名链接更新。多日赛事不能仅因首日已过退出。
+
+日期未知/无效、结束早于开始、日期未确认、届次或身份冲突、lifecycleStatus=uncertain、时区缺失/无效时，继续监测并保留现有异常复核，不猜测完赛。日常覆盖分母来自当次运行开始时间下的有效 Edition / Source 集合，不再固定等于公开历史赛事总数；漏检、重复和异常零目标仍 Fail Closed。
+
+退出日常任务仅是优先级决策，不自动写 Canonical.lifecycleStatus、报名状态或公开展示。历史 Event、Edition、Category、Source、Evidence、Ledger、Pending 及审核记录保留；既有 Pending 不自动 applied/rejected，人工可因失去当前维护价值关闭或拒绝。Event 品牌长期保留；新一年 Edition 独立核验官方日期、报名链接、组别和动态事实，不直接复制历史届次。Public API / 小程序及页面发布规则不变。
+
+2026-10-15 [PR #38](https://github.com/zlwison-maker/RaceNext/pull/38) 已合并：官网身份复用、字段证据继承已实现并通过隔离验证，**新版全量生产效果尚未验收**。Auto Apply 继续 OFF；自动部署继续默认关闭且需独立发布权限和验收，不能由来源信任、Merge 或测试通过隐式开启。历史 Phase / Run 保留原日期与验证范围。
 
 ## 8. Monitoring Continuity
 

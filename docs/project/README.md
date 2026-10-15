@@ -88,3 +88,5 @@ Investor BP 用于理解战略与商业背景，不是代码实现约束，也�
 [2026-10-14 数据自动维护 P0 交付与接入](RACE_DATA_MAINTENANCE_P0_20261014.md)：区分 IMPLEMENTED / TESTED / REAL READ-ONLY TESTED / NOT_PRODUCTION_VERIFIED / BLOCKED SETUP。每日生产接入及自动发布不能由开发分支测试替代验收。
 
 2026-10-15 最新 Human Decision：**Human Review by Exception**。已登记、有效的赛事专属官网身份可用于同源公告；实际正文通过 Event / Edition / 字段作用域及确定性 Evidence 校验后，无需逐页重复来源审批或登记，直接进入既有 Fact Pipeline。跨域、共享平台、身份/适用性不明和证据不足仍复核。内容未变仅在真实字段证据仍匹配时单独记 `VERIFIED_INHERITED`；不以成功 Hash 冒充字段核验。该规则覆盖历史“每篇公告都必须单独 Source Approval”的冲突表述，**不改变 Auto Apply OFF、事实 Pending / Human Review、Public Fact Gate 或发布权限**。实现与真实限制见上述 P0 文档的 2026-10-15 补充。
+
+2026-10-15 状态同步：[PR #38](https://github.com/zlwison-maker/RaceNext/pull/38) 已经 Human Review 并合并；官网身份复用和证据继承的新版全量生产效果尚未验收。最新生命周期决策以[自动维护标准](RACE_DATA_AUTOMATION_STANDARD_V1.md#edition-生命周期与日常维护优先级2026-10-15-human-decision)为准：确认完赛的 Edition 退出日常监测，历史 Canonical / Evidence / Pending / 公开页面保留；日期未确认或身份冲突不得误判完赛，Event 品牌保留且新一年 Edition 独立核验。Auto Apply OFF、自动部署默认关闭，不改变 Public API / 小程序展示规则。

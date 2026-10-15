@@ -13,6 +13,7 @@
 - Data Automation Phase 2: **BEIJING READ-ONLY DISCOVERY PILOT COMPLETED; FULL PRODUCTION PHASE NOT COMPLETE**
 - Gate 5 Real Production Change Closed Loop: **PROVEN**
 - Remote Read: **IMPLEMENTED; 12 PUBLIC EDITIONS**
+- Official Identity Reuse / Field Evidence Inheritance: **PR #38 MERGED — 2026-10-15; NEW FULL PRODUCTION EFFECT NOT YET ACCEPTED**
 - Ninghai B2 Fact-to-Terminal Closed Loop: **PRODUCTION VERIFIED — 2026-10-14**
 - Critical Fact Maintenance Effectiveness: **NINGHAI SINGLE-RACE CLOSED / 12-RACE VERIFICATION COVERAGE AND CHANGE DETECTION NOT YET PROVEN**
 
@@ -28,7 +29,7 @@ Event → Edition → Category
 
 - **Event**：跨年份的赛事品牌与稳定身份。
 - **Edition**：Event 在某一年的具体一届，承载日期、地点、报名状态等届次事实。
-- **Category**：Edition 下的具体组别，承载距离、爬升、关门时间、起终点和组别开跑时间等事实。
+- **Category**：Edition 下的具体组别，承载距离、爬升、关门时间、起终点和组别开跑时间等事实。`distanceKm` 只表示 Official Category Distance；Actual Course Distance / GPX 实测距离不可直接覆盖，详见[距离语义标准](../project/RACE_DATA_AUTOMATION_STANDARD_V1.md#distance-semantic-validation)。
 
 Road 与 Trail 共用这套模型。赛事类型只来自 `Event.eventType`，不为两类赛事维护两套 Schema。
 
@@ -100,7 +101,7 @@ Public Read Layer 从 Canonical Snapshot 派生独立 DTO，并提供：
 
 公开层不会返回 governance、source、evidence、confidence、mergeTrace、conflicts、Pending、ingestion state 或 AI usage。短期 CDN 缓存为 5 分钟，并允许 1 小时 stale-while-revalidate。
 
-Canonical 通过代码提交更新，因此公开 API 获得新数据仍依赖包含该提交的一次应用部署。仓库现有数据工作流只负责提交允许的数据文件；仓库内没有可证明 main 分支提交必然自动部署的配置。这是当前发布链路的外部配置核验项，不在本轮新增部署系统。
+Canonical 通过代码提交更新，因此公开 API 获得新数据仍依赖包含该提交的一次应用部署。数据工作流只提交允许的数据文件；已有 `canonical-data-release.yml` 安全接入默认关闭且配置/真实验收仍独立受控，不能声称 main 合并必然自动部署。本轮不改变部署授权或配置。
 
 生产 Web 与微信小程序均已上线并消费各自现有链路；微信小程序通过同域 HTTPS Public API 读取公开赛事数据。当前 Web 赛事页面仍有原有数据链路，不得据“共享 Public DTO”的目标声称 Web 已全部迁移。报名状态 Hotfix 与图片优化已上线并 CLOSED；本轮文档更新不触发部署。
 
@@ -226,3 +227,11 @@ Phase 2 已完成北京官方来源的只读 Discovery 试点，但阶段整体�
 ## 19. Data Maintenance P0（2026-10-14）
 
 见[交付与接入说明](../project/RACE_DATA_MAINTENANCE_P0_20261014.md)。开发分支已实现动态 Edition/Source 集合完整性 Gate、多赛事静态公告/RSS/Sitemap Discovery、Artifact 去重与异常分流，使用隔离 12/20/30 场及真实官方入口验证。每日 trusted-main 新代码仍需合并后 Run 验收；自动发布默认关闭，服务器 Adapter、Secrets、审批权限与回滚演练为 BLOCKED SETUP。既有宁海 B2 CLOSED 及历史 Run 指标保持不变，不能作为新增跨赛事能力的生产证明。
+
+## 20. 2026-10-15 Human Decision 与生命周期维护
+
+[PR #38](https://github.com/zlwison-maker/RaceNext/pull/38) 已合并至 main `e54b1bc0cfd25965e5142af3aa5c53317114650f`：Human Review by Exception 下复用可信官网身份、同源正文与字段 Gate，免逐篇重复来源审批；有效直接字段证据重新匹配 Hash、身份、Canonical 值和规则后可继承，缺证据不能以成功 Hash 充数。其真实隔离结果保留在 [P0 交付文档](../project/RACE_DATA_MAINTENANCE_P0_20261014.md)，**新版全量生产效果尚未验收**。本节覆盖早期章节的冲突规则，不改写历史 Run / Phase 证据。
+
+当前维护优先级采用[统一生命周期规则](../project/RACE_DATA_AUTOMATION_STANDARD_V1.md#edition-生命周期与日常维护优先级2026-10-15-human-decision)：已确认完赛 Edition 退出日常事实监测、Discovery / 公告处理及当前 Verification Alert，不自动删除历史 Canonical、Source、Evidence、Pending 或公开页面，不自动 applied/rejected。贡嘎 active 状态不能覆盖已确认的 2026-09-27 结束日；日期未知、身份冲突、uncertain 或时区无效继续监测和复核。Event 品牌保留，新一年 Edition 独立核验，不能直接继承旧届日期、报名入口、组别及动态事实。
+
+Auto Apply OFF、单一 Data PR、Pending-before-State、Data-only / Secret Scan / Public Fact Gate 和受控部署边界不变。12 个公开历史 Edition 不等于每天必须监测 12 个；完成本轮代码测试不等于新的生产维护效果已验收。
