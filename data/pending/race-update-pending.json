@@ -1608,6 +1608,49 @@
       "reviewedAt": null,
       "reviewReason": null,
       "appliedAt": null
+    },
+    {
+      "changeId": "chg-ca138a69c8a80a19c7963c50",
+      "eventId": "chongqing-marathon",
+      "editionId": "chongqing-marathon-2027",
+      "categoryId": null,
+      "entityType": "Edition",
+      "field": "registrationUrl",
+      "currentValue": "https://www.cqmarathon.com/",
+      "candidateValue": "https://static.cqmarathon.com/mlsreg/cm/z/proj/proj.html",
+      "sourceId": "chongqing-marathon-2027-rules::announcement:74db0da38e436b6e18f26323",
+      "sourceUrl": "https://static.cqmarathon.com/News/Detail/1CB916B2816F6C28",
+      "evidenceText": "登录重庆马拉松官网（www.cqmarathon.com），或通过“重庆马拉松”“重庆重马体育”微信公众号进行报名。",
+      "evidenceLocator": "text:1039-1097; untrustedDocumentText:四、报名相关事项 （二）报名方式",
+      "confidence": 1,
+      "fetchedAt": "2026-10-15T06:19:59.231Z",
+      "contentHash": "6c6f6b8c958fda22fdf3500985ddafdf7bc2a649339af64576139405534328ab",
+      "extractionMethod": "aliyun-qwen-structured-output",
+      "provider": "aliyun-model-studio",
+      "model": "qwen3.8-flash",
+      "promptVersion": "race-fact-extraction-v1.4",
+      "evidence": [
+        {
+          "sourceId": "chongqing-marathon-2027-rules::announcement:74db0da38e436b6e18f26323",
+          "sourceUrl": "https://static.cqmarathon.com/News/Detail/1CB916B2816F6C28",
+          "evidenceText": "登录重庆马拉松官网（www.cqmarathon.com），或通过“重庆马拉松”“重庆重马体育”微信公众号进行报名。",
+          "evidenceLocator": "text:1039-1097; untrustedDocumentText:四、报名相关事项 （二）报名方式",
+          "confidence": 1,
+          "fetchedAt": "2026-10-15T06:19:59.231Z",
+          "contentHash": "6c6f6b8c958fda22fdf3500985ddafdf7bc2a649339af64576139405534328ab",
+          "extractionMethod": "aliyun-qwen-structured-output"
+        }
+      ],
+      "conflict": false,
+      "candidateOptions": [],
+      "applyBlocked": false,
+      "risk": "low",
+      "reason": "Validated low-risk change from an eligible, conflict-free source. Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
+      "status": "pending",
+      "createdAt": "2026-10-15T06:24:58.639Z",
+      "reviewedAt": null,
+      "reviewReason": null,
+      "appliedAt": null
     }
   ]
 }
