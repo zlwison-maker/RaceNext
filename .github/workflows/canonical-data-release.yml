@@ -1,0 +1,97 @@
+name: Approved Canonical Release
+
+on:
+  push:
+    branches: [main]
+    paths: [data/canonical/race-graph-v1.json]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: racenext-canonical-production-release
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    # Off until Human has audited protected-main approvals, production Environment,
+    # Secrets, pinned host key, deployment adapter and tested rollback on Lighthouse.
+    if: vars.CANONICAL_DEPLOY_ENABLED == 'true' && vars.DEPLOY_REVIEW_POLICY_VERIFIED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    outputs:
+      public_fact_change: ${{ steps.gate.outputs.public_fact_change }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Validate accepted data and Public Fact Gate
+        id: gate
+        env:
+          BASE_SHA: ${{ github.event.before }}
+        run: node scripts/release/canonicalReleaseCli.ts "$BASE_SHA"
+      - run: npm test
+      - run: npm run typecheck
+      - run: npm run typecheck:miniprogram
+      - run: npm run lint
+      - run: npm run build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: canonical-release-${{ github.sha }}
+          path: artifacts/release/canonical-release-manifest.json
+
+  deploy:
+    needs: validate
+    if: needs.validate.outputs.public_fact_change == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/download-artifact@v4
+        with:
+          name: canonical-release-${{ github.sha }}
+          path: artifacts/release
+      - name: Call the Human-approved existing Lighthouse deployment adapter
+        shell: bash
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          DEPLOY_KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+          DEPLOY_ADAPTER_PATH: ${{ vars.DEPLOY_ADAPTER_PATH }}
+          TARGET_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          test -n "$DEPLOY_SSH_KEY" && test -n "$DEPLOY_KNOWN_HOSTS"
+          [[ "$DEPLOY_HOST" =~ ^[A-Za-z0-9.-]+$ ]]
+          [[ "$DEPLOY_USER" =~ ^[A-Za-z0-9_-]+$ ]]
+          [[ "$DEPLOY_ADAPTER_PATH" =~ ^/[A-Za-z0-9_./-]+$ ]]
+          [[ "$TARGET_SHA" =~ ^[a-f0-9]{40}$ ]]
+          mkdir -p "$RUNNER_TEMP/racenext-ssh"
+          chmod 700 "$RUNNER_TEMP/racenext-ssh"
+          printf '%s\n' "$DEPLOY_SSH_KEY" > "$RUNNER_TEMP/racenext-ssh/key"
+          printf '%s\n' "$DEPLOY_KNOWN_HOSTS" > "$RUNNER_TEMP/racenext-ssh/known_hosts"
+          chmod 600 "$RUNNER_TEMP/racenext-ssh/key" "$RUNNER_TEMP/racenext-ssh/known_hosts"
+          trap 'rm -f "$RUNNER_TEMP/racenext-ssh/key"' EXIT
+          receipt="$(ssh -i "$RUNNER_TEMP/racenext-ssh/key" -o BatchMode=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$RUNNER_TEMP/racenext-ssh/known_hosts" "$DEPLOY_USER@$DEPLOY_HOST" "$DEPLOY_ADAPTER_PATH $TARGET_SHA")"
+          grep -Fx "DEPLOYED_SHA=$TARGET_SHA" <<< "$receipt" > /dev/null
+          grep -Fx "PM2_HEALTH=online" <<< "$receipt" > /dev/null
+          rollback="$(grep -E '^ROLLBACK_SHA=[a-f0-9]{40}$' <<< "$receipt")"
+          test -n "$rollback"
+          printf '%s\n' "DEPLOYED_SHA=$TARGET_SHA" "PM2_HEALTH=online" "$rollback"
+      - name: Verify production Public API against accepted Canonical
+        run: node scripts/release/publicApiSmokeCli.ts
+      - name: Record verified release
+        run: echo "PUBLIC_API_VERIFIED; Canonical release $GITHUB_SHA; device behavior is not asserted by this Workflow." >> "$GITHUB_STEP_SUMMARY"
+      - name: Report failure and preserve recovery responsibility
+        if: failure()
+        run: echo "DEPLOY_OR_SMOKE_FAILED; inspect adapter receipt and previous healthy SHA; use audited rollback/manual fallback; do not claim terminal update." >> "$GITHUB_STEP_SUMMARY"

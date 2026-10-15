@@ -146,7 +146,7 @@ Phase 1 已解决 Open Data PR 阻断整轮日常检查、重复 Pending 和关�
 
 ## 13. Deferred
 
-- 跨赛事、持续运行的 Source Discovery / Web Search Provider
+- 全网 Web Search Provider（不纳入本次 P0；跨赛事官方 Discovery 已获独立授权，见第 19 节）
 - Database
 - CMS / approval UI
 - OCR
@@ -160,7 +160,7 @@ Phase 1 已解决 Open Data PR 阻断整轮日常检查、重复 Pending 和关�
 
 **PHASE 1 ACCEPTED / PHASE 2 READ-ONLY PILOT COMPLETED, FULL PHASE NOT COMPLETE / PHASE 3 NOT COMPLETE / CRITICAL FACT ACCURACY NOT ESTABLISHED**
 
-数据架构继续冻结。微信小程序已上线，创业主线是用户、获客与商业验证。Phase 1 仅处理监测连续性、Verification Alerts 与 Pending / State 安全闭环，现已收尾；Phase 2 的北京只读 Discovery 试点已经完成，但完整阶段仍未完成。宁海 B2 已于 2026-10-14 经生产端到端验收关闭（见第 18 节）。下一步按 [2026-10-13 验证计划](../project/RACE_DATA_AUTOMATION_NEXT_VALIDATION_20261013.md)评估现有 12 场的来源、核验覆盖和维护成本；先只读复盘，不为尚未验证的规模化需求预建 Database、CMS、GraphQL、Queue、Worker 或第二套客户端 Schema。
+数据架构继续冻结。微信小程序已上线，创业主线是用户、获客与商业验证。Phase 1 仅处理监测连续性、Verification Alerts 与 Pending / State 安全闭环，现已收尾；Phase 2 的北京只读 Discovery 试点已经完成，但完整阶段仍未完成。宁海 B2 已于 2026-10-14 经生产端到端验收关闭（见第 18 节）。2026-10-14 最新 Human Decision 直接推进数据自动维护 P0；来源/核验/成本评估同步进行，12 场只读复盘不再是扩容前置条件。不为尚未验证的规模化需求预建 Database、CMS、GraphQL、Queue、Worker 或第二套客户端 Schema。
 
 ## 15. Phase 1 Closeout & Handoff
 
@@ -219,6 +219,10 @@ Phase 2 已完成北京官方来源的只读 Discovery 试点，但阶段整体�
 
 - 数据保护：`distanceKm` 100 / 60 / 25，`elevationGain` 4986 / 2400 / 618，发枪时间、其他 11 场不变；保留 28 条历史 Pending；`Auto Apply = OFF`。无需再次修复已验证的发布链路。
 - 指标边界：本轮生产 Run 检查 46 个来源，其中 26 个未有效处理；报告有 12 个 Verification Alerts（3 HIGH / 9 REVIEW），不能将 Workflow 成功视为 12 场事实健康。总人工分钟数、每场维护时间、模型及运行费用和跨赛事误报 / 漏报基线仍未完整记录。
-- 下一阶段：只读分析既有 12 场监测报告和关键事实覆盖，先确定真实数据可信度缺口与维护成本，再决定具体下一项工程投入。Phase 2 跨赛事持续 Source Discovery 及 Phase 3 规模化成本 Gate 未完成。
+- 下一阶段：2026-10-14 最新授权已将动态监测、多赛事 Discovery 与异常分流设为开发 P0；质量与成本分析同步进行，不阻塞扩容。Phase 2 跨赛事持续 Source Discovery 及 Phase 3 规模化成本 Gate 未完成。
 
 **创业阶段区分：** 本轮是明确的 Product / Data Reliability Progress，不构成新增用户、获客或商业转化的 Startup Progress 证据。
+
+## 19. Data Maintenance P0（2026-10-14）
+
+见[交付与接入说明](../project/RACE_DATA_MAINTENANCE_P0_20261014.md)。开发分支已实现动态 Edition/Source 集合完整性 Gate、多赛事静态公告/RSS/Sitemap Discovery、Artifact 去重与异常分流，使用隔离 12/20/30 场及真实官方入口验证。每日 trusted-main 新代码仍需合并后 Run 验收；自动发布默认关闭，服务器 Adapter、Secrets、审批权限与回滚演练为 BLOCKED SETUP。既有宁海 B2 CLOSED 及历史 Run 指标保持不变，不能作为新增跨赛事能力的生产证明。

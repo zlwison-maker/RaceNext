@@ -388,7 +388,8 @@ export type RaceDailyEditionCoverage = {
 export type CriticalFactVerification = {
   editionId: string;
   categoryId: string | null;
-  field: "registrationStatus" | "registrationOpenDate" | "registrationCloseDate" | "raceDate" | "startAt" | "startTimes";
+  field: "registrationStatus" | "registrationOpenDate" | "registrationCloseDate" | "raceDate" | "startAt" | "startTimes"
+    | "startLocation" | "finishLocation" | "distanceKm" | "elevationGain" | "cutoffTimeHours";
   canonicalValuePresent: boolean;
   officialSourcesEffectivelyProcessed: number;
   status: "VERIFIED_THIS_RUN" | "NOT_VERIFIED_THIS_RUN" | "UNKNOWN";

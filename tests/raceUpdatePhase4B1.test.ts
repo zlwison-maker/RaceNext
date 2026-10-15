@@ -61,7 +61,7 @@ test("scheduled and manual runs share trusted-main state preparation and safe si
   match(workflowStep("Safely continue or create the single data PR"), /productionPrContinuityCli\.ts finish/);
   equal(workflow.includes("open-pr-guard"), false);
   equal(workflow.includes("github.event_name == 'schedule'"), false);
-  const production = workflowStep("Run 12-race production manual check");
+  const production = workflowStep("Run dynamic production monitoring");
   match(production, /--auto-apply-low-risk=false/);
   equal(production.includes("github.event_name"), false);
 
@@ -71,7 +71,7 @@ test("scheduled and manual runs share trusted-main state preparation and safe si
     "Install dependencies",
     "Prepare continuous monitoring baseline",
     "Validate provider secrets",
-    "Run 12-race production manual check",
+    "Run dynamic production monitoring",
     "Enforce data-only diff",
     "Scan generated output for secrets",
     "Upload sanitized report",

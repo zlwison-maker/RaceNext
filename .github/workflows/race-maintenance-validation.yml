@@ -1,0 +1,56 @@
+name: Race Maintenance P0 Validation
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - scripts/race-update/**
+      - scripts/release/**
+      - tests/raceUpdate*.test.ts
+      - tests/canonicalRelease.test.ts
+      - types/officialSourceIngestion.ts
+      - .github/workflows/race-data-update.yml
+      - .github/workflows/race*maintenance*.yml
+      - .github/workflows/canonical-data-release.yml
+
+permissions:
+  contents: read
+
+concurrency:
+  group: race-maintenance-validation-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run typecheck
+      - run: npm run typecheck:miniprogram
+      - run: npm run lint
+      - run: npm run build
+      - name: Real official Discovery, read only and without model credentials
+        run: node scripts/race-update/sourceDiscoveryCli.ts --all
+      - name: Preserve first observation
+        run: cp artifacts/race-update/source-discovery-report.json artifacts/race-update/source-discovery-first.json
+      - name: Repeat with durable discovery baseline
+        run: |
+          cp artifacts/race-update/source-discovery-ledger.json artifacts/source-discovery-input.json
+          node scripts/race-update/sourceDiscoveryCli.ts --all
+          node scripts/race-update/discoveryReplayCheckCli.ts
+      - uses: actions/upload-artifact@v4
+        with:
+          name: race-maintenance-validation-${{ github.run_id }}
+          path: |
+            artifacts/race-update/source-discovery-first.json
+            artifacts/race-update/source-discovery-report.json
+            artifacts/race-update/source-discovery-ledger.json
+          if-no-files-found: error
+          retention-days: 30

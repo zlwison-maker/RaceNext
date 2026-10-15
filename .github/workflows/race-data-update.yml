@@ -9,6 +9,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  actions: read
 
 concurrency:
   group: race-data-update
@@ -39,6 +40,18 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: node scripts/race-update/productionPrContinuityCli.ts prepare
 
+      - name: Restore approved-workflow discovery ledger
+        id: discovery_baseline
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/race-update/discoveryLedgerRestoreCli.ts
+
+      - name: Discover official sources without approving them
+        if: steps.discovery_baseline.outcome == 'success'
+        continue-on-error: true
+        run: node scripts/race-update/sourceDiscoveryCli.ts --all
+
       - name: Validate provider secrets
         shell: bash
         env:
@@ -60,7 +73,7 @@ jobs:
           echo "PROVIDER_CONFIGURED=yes"
           echo "MODEL=${FACT_EXTRACTION_MODEL}"
 
-      - name: Run 12-race production manual check
+      - name: Run dynamic production monitoring
         id: pipeline
         env:
           FACT_EXTRACTION_PROVIDER: ${{ secrets.FACT_EXTRACTION_PROVIDER }}
@@ -81,11 +94,28 @@ jobs:
         run: npm run race:gate:secret-scan
 
       - name: Upload sanitized report
+        id: report_upload
         uses: actions/upload-artifact@v4
         with:
           name: ${{ steps.pipeline.outputs.artifact_name }}
-          path: ${{ steps.pipeline.outputs.report_path }}
+          path: |
+            ${{ steps.pipeline.outputs.report_path }}
+            artifacts/race-update/source-discovery-report.json
+            artifacts/race-update/source-discovery-ledger.json
+            artifacts/race-update/operations-review-state.json
           if-no-files-found: error
+          retention-days: 30
+
+      - name: Preserve discovery evidence if fact monitoring fails
+        if: failure() && steps.report_upload.outcome != 'success'
+        uses: actions/upload-artifact@v4
+        with:
+          name: race-update-report-${{ github.run_id }}
+          path: |
+            artifacts/race-update/source-discovery-report.json
+            artifacts/race-update/source-discovery-ledger.json
+            artifacts/race-update/operations-review-state.json
+          if-no-files-found: ignore
           retention-days: 30
 
       - name: Run pipeline directed tests
