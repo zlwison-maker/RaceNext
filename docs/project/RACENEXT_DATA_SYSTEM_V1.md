@@ -1,5 +1,7 @@
 RaceNext 数据系统 V1
 
+2026-10-15 当前规则：Human Review by Exception、可信官网身份复用及有效字段证据继承已随 [PR #38](https://github.com/zlwison-maker/RaceNext/pull/38) 合并；新版全量生产效果尚未验收。赛事生命周期决定维护优先级：已确认完赛的 Edition 退出日常事实监测、Discovery 和当前 Verification Alert，历史资产及公开页面保留；日期/身份不明继续监测。统一判定及跨年独立核验规则见[自动维护标准 V1](RACE_DATA_AUTOMATION_STANDARD_V1.md#edition-生命周期与日常维护优先级2026-10-15-human-decision)。Auto Apply OFF；自动部署默认关闭，Merge 不等于发布授权。第十四节及历史 Run 保留各自日期的事实。
+
 一、数据系统的目标
 RaceNext 不是一个赛事信息聚合网站。
 长期目标是建立：
@@ -140,7 +142,7 @@ RaceNext 不为每个赛事单独开发一个 Parser。
 Official Domain Discovery
 ↓
 未来 Web Search Discovery
-当前每日自动监测仍主要依赖已登记的 Source Registry。官方新公告、报名须知、抽签结果或跨域报名入口出现时，仅检查旧 URL 可能漏检；持续的新公告发现与来源候选审批是待完善能力。
+每日监测复用已登记 Source Registry 的官方身份。Discovery 找到的新公告在实际正文及当届字段 Gate 通过后可进入既有事实链路；跨域或身份/适用性不明仍需审核。能力实现与新版全量生产效果分别验收。
 Search 的职责只是：
 找到可能可靠的数据源。
 
@@ -148,7 +150,7 @@ Search Result 不能直接修改 Race Graph。
 发现的新页面先成为：
 Source Candidate
 
-通过来源权威性、赛事身份、Edition / Category 作用域等校验后，再由人工确认进入 Source Registry。Source Candidate 不自动成为 Official Fact；官方网页链接第三方报名平台，也不自动赋予该平台所有页面当届官方事实权威性。
+可信赛事官网内的新公告通过实际正文、当届身份及字段作用域校验后，可复用已批准官网身份，不要求逐页人工登记 Registry；其他新身份或跨域来源仍需审核。Source Candidate 不自动成为 Official Fact；官方网页链接第三方报名平台，也不自动赋予该平台所有页面当届官方事实权威性。
 长期目标和验收门槛参见 [RaceNext 赛事数据自动维护目标与验收标准 V1](RACE_DATA_AUTOMATION_STANDARD_V1.md)。
 七、AI 在数据系统中的角色
 AI 的主要价值是：
@@ -178,7 +180,7 @@ Precision > Recall。
 八、自动更新机制
 RaceNext 已完成 12 场核心赛事检查、人工触发生产闭环与 Human Review / Merge 验证；2026-10-09 首次自然 `schedule` 已执行。GitHub Actions 同时支持 `workflow_dispatch` 和每日 `schedule`：UTC 00:23，即 Asia/Shanghai 08:23 的计划时间。当前生产 Auto Apply 固定关闭，事实候选进入 Pending / Human Review；接受的事实变更仍需 Git 合并及必要的部署。
 
-Scheduled Run 开始时若已有以 `automation/race-data-update-` 开头、base 为 `main` 的开放 Data-only PR，本次定时检查会成功跳过并在 Actions Summary 中列出该 PR；人工触发不受此保护限制。该 Guard 防止竞争性 PR 和状态冲突，但开放 PR 期间整轮监测暂停是当前 P0 连续性缺口，不能把“安全跳过”算作有效事实核验。没有新的 Pending 或 meaningful durable state 时，Workflow 成功结束但不创建 PR。
+早期 Scheduled Run 因开放 Data PR 跳过整轮监测的行为已由 Phase 1A 修复：当前在安全校验后延续同一个 Data-only PR；多个 PR、基线冲突或无法持久化时 Fail Closed。没有新 Pending 或 meaningful durable state 时不创建 PR。每日任务按当前有效生命周期集合检查，不把历史已完赛 Edition 计为漏检。
 数据生命周期：
 Source
 ↓
@@ -197,7 +199,7 @@ Risk Classification
 Pending（Human Review）
 ↓
 Canonical Race Graph
-Fact Candidate 是具有正确 Event / Edition / Category 身份、直接 Evidence，并通过 Validation、Diff 与 Risk Policy 的明确新值；当前只能走 Pending / Human Review。Verification Alert 则是在关键事实可能过时、冲突或来源失效、但尚无可靠新值时发出复核信号；它不能推测 Candidate 或修改 Canonical，正式存储与生产闭环尚未实现。来源级检查、抽取 Hash 与 Critical Fact Freshness 不能混为一谈。详见 [自动维护标准 V1](RACE_DATA_AUTOMATION_STANDARD_V1.md)。
+Fact Candidate 是具有正确 Event / Edition / Category 身份、直接 Evidence，并通过 Validation、Diff 与 Risk Policy 的明确新值；当前只能走 Pending / Human Review。Verification Alert 则是在关键事实可能过时、冲突或来源失效、但尚无可靠新值时发出复核信号；它不能推测 Candidate 或修改 Canonical，已在运行报告中实现，仍不是可直接 Apply 的事实记录。来源级检查、抽取 Hash 与 Critical Fact Freshness 不能混为一谈。真实字段证据才可安全继承为 VERIFIED_INHERITED，不能提高本轮新提取计数。详见 [自动维护标准 V1](RACE_DATA_AUTOMATION_STANDARD_V1.md)。
 Low Risk
 如报名状态、报名日期、报名链接。
 当前即使可信来源 + 验证通过 + 无冲突，也只进入 Pending / Report。Source Registry 尚未实现 field-level authority，Phase 4B-1 的正式 Workflow 已硬性关闭 Canonical auto apply。
@@ -219,7 +221,7 @@ Structural
 - 组别删除
 - 身份冲突
 Needs Review。
-长期可评估经过充分验证的安全自动更新场景，但不改变当前字段风险规则，也不提前打开 Auto Apply。监测必须持续、Pending / State 必须可恢复且重复运行幂等；这一连续性目标当前仍为 P0 Planned。
+长期可评估经过充分验证的安全自动更新场景，但不改变当前字段风险规则，也不提前打开 Auto Apply。监测必须持续、Pending / State 必须可恢复且重复运行幂等；连续性已由 Phase 1A 验收；这不等于字段核验覆盖或低人工维护成本已达标。
 九、Canonical Race Graph
 RaceNext 当前正式事实源：
 race-graph-v1.json

@@ -1,3 +1,4 @@
+import { isDailyMonitoringEdition } from "./editionLifecycle.ts";
 import { createHash } from "node:crypto";
 
 import type {
@@ -26,6 +27,7 @@ export function evaluateVerificationAlerts(input: {
   const alerts = new Map<string, VerificationAlert>();
 
   for (const record of input.snapshot.records) {
+    if (!isDailyMonitoringEdition(record, input.extraction.startedAt)) continue;
     const { edition } = record;
     const sourceReports = input.extraction.sources.filter((source) => source.editionId === edition.editionId);
     const officialRegistrySources = activeFreshnessSources(input.registry, edition.editionId)
@@ -54,9 +56,6 @@ export function evaluateVerificationAlerts(input: {
         checks.push(checkField(record, field, category.categoryId, sourceReports, officialIds, effectiveOfficialIds.size));
       }
     }
-
-    // Past editions have no actionable daily lifecycle or source-health review.
-    if (editionFinished(record, asOf)) continue;
 
     if (officialRegistrySources.length === 0) {
       add({
@@ -257,14 +256,6 @@ function directCurrentFactEvidence(input: {
     && candidate.entityType === (categoryId ? "Category" : "Edition")
     && JSON.stringify(candidate.candidateValue) === JSON.stringify(value)
     && JSON.stringify(candidate.currentValue) === JSON.stringify(value);
-}
-
-function editionFinished(record: RaceGraphSnapshotRecord, asOf: Date): boolean {
-  const lastDay = record.edition.endDate ?? record.edition.raceDate;
-  // With no timezone, a two-day UTC margin is safely beyond every local calendar day.
-  const today = localDate(asOf, record.edition.timezone)
-    ?? new Date(asOf.getTime() - 2 * 86_400_000).toISOString().slice(0, 10);
-  return Boolean(lastDay && today && /^\d{4}-\d{2}-\d{2}/.test(lastDay) && lastDay.slice(0, 10) < today);
 }
 
 function isPastBoundary(value: string | null | undefined, timezone: string | null | undefined, asOf: Date): boolean {

@@ -1,3 +1,4 @@
+import { isDailyMonitoringEdition } from "./editionLifecycle.ts";
 import { createHash } from "node:crypto";
 import { decodeHtml, stripHtml } from "../connectors/shared.ts";
 import type {
@@ -192,18 +193,8 @@ export async function discoverOfficialSources(input: {
           candidates: [],
           newCandidateIds: [],
         };
-        // Old Editions remain historical; no daily discovery review tasks after their full local end day.
-        const lastDay = record.edition.endDate ?? record.edition.raceDate;
-        const parts = new Intl.DateTimeFormat("en-CA", {
-          timeZone: record.edition.timezone ?? "UTC",
-          year: "numeric",
-          month: "2-digit",
-          day: "2-digit",
-        }).formatToParts(new Date(checkedAt));
-        const today = ["year", "month", "day"]
-          .map((type) => parts.find((p) => p.type === type)?.value)
-          .join("-");
-        if (lastDay && lastDay.slice(0, 10) < today) {
+        // Retain historical Ledger entries, but share the fact-monitoring eligibility rule.
+        if (!isDailyMonitoringEdition(record, checkedAt)) {
           result.warnings.push("ENDED_EDITION_DAILY_DISCOVERY_SKIPPED");
           return result;
         }

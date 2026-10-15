@@ -169,7 +169,7 @@ test("zero monitoring and wholly absent Registry fail closed; archived Editions 
   const fixture = scenario(2);
   fixture.snapshot.records[0].edition.lifecycleStatus = "archived";
   equal(
-    buildRaceDailyCheckTargets(fixture.snapshot, fixture.registry).length,
+    buildRaceDailyCheckTargets(fixture.snapshot, fixture.registry, "2026-10-14T11:00:00Z").length,
     1,
   );
   fixture.registry.editions = [];

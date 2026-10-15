@@ -229,7 +229,10 @@ test("date-only boundaries wait until the whole local day ends; historical editi
   ok(tomorrow.verificationAlerts.some((item) => item.editionId === xiamen.edition.editionId
     && item.reasonCode === "REGISTRATION_LIFECYCLE_REVIEW"));
   xiamen.edition.endDate = "2026-09-01";
-  const historical = evaluateVerificationAlerts({ snapshot, registry, extraction: extraction([], NOW) });
+  const conflicting = evaluateVerificationAlerts({ snapshot, registry, extraction: extraction([], NOW) });
+  ok(conflicting.verificationAlerts.some((item) => item.editionId === xiamen.edition.editionId));
+  xiamen.edition.endDate = "2027-01-10";
+  const historical = evaluateVerificationAlerts({ snapshot, registry, extraction: extraction([], "2027-01-11T08:00:00Z") });
   equal(historical.verificationAlerts.some((item) => item.editionId === xiamen.edition.editionId), false);
 });
 

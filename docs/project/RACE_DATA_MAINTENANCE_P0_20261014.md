@@ -2,7 +2,7 @@
 
 ## 2026-10-15｜Human Review by Exception 最小修复
 
-本次开发基线 `2b3d079709982772365f67c0958caf1168951549`。PR #36、#37 均已合并；下文 2026-10-14 能力表保留开发时记录，不替代本节的新决策。新修复尚未合并或进入正式每日生产运行。
+本次开发基线 `2b3d079709982772365f67c0958caf1168951549`。PR #36、#37 均已合并；下文 2026-10-14 能力表保留开发时记录，不替代本节的新决策。[PR #38](https://github.com/zlwison-maker/RaceNext/pull/38) 已于 2026-10-15 合并（`e54b1bc0cfd25965e5142af3aa5c53317114650f`）；新版全量生产效果尚未验收，隔离模型回放与历史生产 Run 不能替代该验收。
 
 - **官网公告**：复用 active `primary_official`、赛事专属官网的 event_home / notice / regulations / registration_notice 身份；同源 HTTPS 公告实际正文及当届身份匹配后，临时加入本轮来源集合，继续现有字段提取、确定性 Evidence / Scope Validation、Diff / Risk / Pending。不逐页写 Registry。域名/父来源撤销、跨域、政府/跨赛事共享站、登录/API、历史年份、正文不明均阻断。类别及受限宁海 JSON 来源不能借此扩大授权。
 - **来源可追溯**：派生 Source ID 绑定父来源与完整 URL；Pending 仍记录实际公告 URL、直接摘录、locator、Hash。后续人工 Apply 继续校验当前父来源权限、URL 身份、Evidence、旧值及 Public Fact Gate，不能绕过审批。网页导航中的“马拉松”不能充当 Marathon Category 证据。
@@ -47,6 +47,14 @@
 唯一新增隔离 Pending：`chg-ca138a69c8a80a19c7963c50`，重庆 2027 `registrationUrl`，`https://www.cqmarathon.com/` → `https://static.cqmarathon.com/mlsreg/cm/z/proj/proj.html`，low / pending，直接报名语义及当前正文链接通过原有校验；仍需 Human Fact Review，未写正式 Store。西安主页的全部无效输出保留 validation_error，临赛关键字段 Alert 仍存在，不因官网身份可信而相信 AI。货币成本无可靠账单，记 Unknown；总 Token 16,017。
 
 完整脱敏回放在忽略目录 `artifacts/race-update/exception-review-validation/pass-1.json` / `pass-2.json`。两轮均逐字节检查 Canonical、Pending、Registry、State 与初始基线相同，正常 Pipeline 的 Pending-before-State 和正式生产 Data PR 未被调用。
+
+## 2026-10-15｜赛事生命周期最小修复
+
+贡嘎 2026 的已确认日期为 2026-09-25 至 2026-09-27、时区 Asia/Shanghai，Canonical.lifecycleStatus 仍为 active。此前 Discovery / Alert 已有独立日期判断，但 dailyCheck 仅排除 archived / cancelled，导致完赛后仍提取常规报名链接。现由统一资格函数控制所有日常入口及覆盖校验；完整本地结束日之后不抓取、不调用模型、不产生新的常规 Fact Pending。
+
+当前基线保留 12 个公开历史 Edition，2026-10-15 的日常有效集合为 11 个；未来扩容至 20–30 场仍动态计算，不能用固定总数掩盖漏检。现有 35 条 Pending 全部保留，其中贡嘎报名链接 `chg-35994c3e6b57c7b2ff509d6f` 仍由人工决定是否因失去当前价值拒绝，本任务不修改其状态。
+
+本修复仅改调度判断、回归测试及项目资料，不改正式 Canonical / Pending / Registry / State、Public DTO、微信小程序或部署配置。日期未确认、身份冲突、未知时区不自动判完赛；历史 Ledger 与审核记录不丢失。开发回归覆盖贡嘎真实基线、跨时区完整结束日、冲突保留、完赛前后 Ledger/Pending/State 保护及跨午夜运行；完整测试、连续性及安全 Gate 的最终结果随 Code PR 交付，不宣称已完成新的生产运行。
 
 ## 决策与当前边界
 
@@ -93,7 +101,7 @@ Candidate 记录稳定 ID、URL、标题、首次发现时间、Edition、入口
 - 可信变化：已批准来源的字段 Evidence、Edition / Category、单位、Diff 与 Risk 验证后进入 Pending，所有事实继续 Human Review。
 - 证据不足、冲突、身份不清：保留 Verification Alert / Needs Review，明确取证动作，不猜测新值。
 - 高影响和结构变化：继续 Human Review 和正式发布 Gate。
-- 已结束 Edition：保留历史事实；现有生命周期 Alert 不再生成未来赛事的每日高优先级任务，Discovery 默认跳过其日常新来源审核。
+- 已完赛 Edition：按[统一生命周期规则](RACE_DATA_AUTOMATION_STANDARD_V1.md#edition-生命周期与日常维护优先级2026-10-15-human-decision)退出日常事实监测、Discovery / 公告处理及当前 Verification Alert；保留历史资产和 Pending 审核，不写 Canonical 或改变公开展示。未确认日期、身份冲突及 uncertain 状态不据此退出；未来 Edition 独立核验。
 
 关键字段报告在现有日期/报名/发枪时间基础上补充起终点、标称距离、爬升和关门时间。只有本轮直接官方 Evidence 与 Canonical 值匹配才算 VERIFIED_THIS_RUN；来源 Hash 未变化不等于事实已重新核验，旧 Run 的 81 项分母保持历史含义，不重写旧指标。
 

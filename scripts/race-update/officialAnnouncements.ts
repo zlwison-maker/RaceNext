@@ -1,3 +1,4 @@
+import { isDailyMonitoringEdition } from "./editionLifecycle.ts";
 import { stripHtml } from "../connectors/shared.ts";
 import { createHash } from "node:crypto";
 import type { OfficialDocumentSnapshot } from "../../types/officialSourceIngestion.ts";
@@ -32,9 +33,7 @@ export async function prepareOfficialAnnouncements(input: {
     decisions.push(decision);
     const record = input.snapshot.records.find(r => r.edition.editionId === c.targetEditionId);
     if (!record) continue;
-    const dateParts = new Intl.DateTimeFormat("en-CA", { timeZone: record.edition.timezone ?? "UTC", year:"numeric",month:"2-digit",day:"2-digit" }).formatToParts(new Date(input.checkedAt));
-    const today=["year","month","day"].map(type=>dateParts.find(p=>p.type===type)?.value).join("-");
-    if (["archived", "cancelled"].includes(record.edition.lifecycleStatus) || (record.edition.endDate ?? record.edition.raceDate ?? "9999").slice(0,10) < today) {
+    if (!isDailyMonitoringEdition(record, input.checkedAt)) {
       decision.status = "ended"; decision.reason = "HISTORICAL_LEDGER_RETAINED"; continue;
     }
     if (classifyEditionIdentity({ title:c.title, targetYear:record.edition.editionYear }) === "year_conflict") {
