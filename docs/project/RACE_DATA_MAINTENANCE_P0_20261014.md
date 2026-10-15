@@ -1,5 +1,29 @@
 # RaceNext 数据自动维护 P0｜2026-10-14
 
+## 2026-10-15｜Human Review by Exception 最小修复
+
+本次开发基线 `2b3d079709982772365f67c0958caf1168951549`。PR #36、#37 均已合并；下文 2026-10-14 能力表保留开发时记录，不替代本节的新决策。新修复尚未合并或进入正式每日生产运行。
+
+- **官网公告**：复用 active `primary_official`、赛事专属官网的 event_home / notice / regulations / registration_notice 身份；同源 HTTPS 公告实际正文及当届身份匹配后，临时加入本轮来源集合，继续现有字段提取、确定性 Evidence / Scope Validation、Diff / Risk / Pending。不逐页写 Registry。域名/父来源撤销、跨域、政府/跨赛事共享站、登录/API、历史年份、正文不明均阻断。类别及受限宁海 JSON 来源不能借此扩大授权。
+- **来源可追溯**：派生 Source ID 绑定父来源与完整 URL；Pending 仍记录实际公告 URL、直接摘录、locator、Hash。后续人工 Apply 继续校验当前父来源权限、URL 身份、Evidence、旧值及 Public Fact Gate，不能绕过审批。网页导航中的“马拉松”不能充当 Marathon Category 证据。
+- **异常分流**：Discovery Ledger 保留列表发现原始证据；其 legacy `official_site_unapproved` / `needs_review` 只表示列表阶段尚未完成正文校验，不等于每页需要人工 Source Approval。日常最终摘要使用正文处理决定：processed / needs_review / historical / ended / deferred，正常公告与真正来源/证据异常分开；每 Edition 每轮最多读取 10 篇，超限显式 deferred。无事实不生成 Pending；高影响、冲突、语义差异继续事实复核。所有真实变更仍等待 Human Review，Auto Apply OFF。
+- **字段证据继承**：复用现有 `race-real-extraction-artifact-v1`，不增加数据库或新的持久化 Schema。trusted-main 的既有 Artifact 恢复入口同时恢复此前完整提取报告；新报告在持久化前校验并脱敏，仍严格 Pending 写入 → Reload / Verify → State 写入，再保存 Artifact。旧报告缺失时，仅可由已 applied 的 Pending 直接证据安全启动，不能用 pending/approved 状态冒充现有 Canonical 验证。
+- **继承条件**：本轮重新抓到相同内容、当前 Event / Edition / Category 身份和字段值一致、当前 Source / 规则仍有效；直接摘录在当前正文中存在，字段值、单位、作用域通过原有校验；保留最初 `evidenceVerifiedAt`，不每日刷新成新核验时间。来源/Canonical 变化、处理规则变化、失败恢复或报名/抽签/临赛/比赛结束等关键边界会要求新提取。失效记录不继承。
+- **统计**：`VERIFIED_THIS_RUN` 与 `VERIFIED_INHERITED` 单独列出；未变且没有字段级证据仍为 NOT_VERIFIED_THIS_RUN。历史报告只有成功 Hash / 汇总计数，不能反推遗漏字段。Artifact 保留 30 天且恢复最多检查 10 个已完成 Run；缺失/损坏不会冒充 Verified，需要直接证据重新建立。单一 Data PR、Data-only Allowlist、生产工作流信任来源及高影响 Gate 不变。
+- **失败去重**：同 Hash、同 Provider / Model / Prompt / Processing Version 的确定性全拒绝结果，可复用既有 Artifact 保留 validation_error 和取证异常，不重复调用模型；绝不推进成功提取 Hash。内容/协议身份变化或生命周期边界触发重试；网络/Provider 暂时失败不当作可信字段证据缓存。部分接受时也保留尚未解决的拒绝记录，而不重复把它们计为本轮新模型输出。
+
+### 已核验的生产基线与当前真实限制
+
+[Run 38677187476](https://github.com/zlwison-maker/RaceNext/actions/runs/38677187476)：12 Editions / 46 Sources，15 个官方来源有效处理，本轮直接字段核验 2，未核验 174，Unknown 35；28 个来源候选、21 个待审；13 个 Verification Alerts 全部去重。该生产报告没有足够完整的已接受字段摘录，不能把 15 个来源或成功 Hash 批量升级为字段已核验。
+
+本次真实只读验证已确认：三个宁海官方 JSON 当前 Hash 与已 applied Pending 证据匹配，**6 个起终点字段可以安全继承，模型调用 0、新 Pending 0、Canonical 写入 0**。这是一场赛事 / 三个来源的局部验证，不能将它与旧 Run 的 2 项新提取相加冒充新的全量生产覆盖结果。
+
+优先核查的西安 2026 十个候选实际正文均为图片；不能以标题、页脚或模型猜测生成事实。当前缺口是图像正文的直接字段取证，**不是重复来源资格审批**。未新增 OCR/视觉提取框架。重庆 4 个同源页面已能通过实际正文身份 Gate；另 2 个查询页仍是不可读取的图片证据。是否产生有效 Candidate 仍由实际提取与字段校验决定，不为满足数量制造 Pending。仅通过身份 Gate 不计入有效 Fact Candidate 或字段 Verified。
+
+开发本地验收：新增专项 10/10；完整测试 421/421、Web/Mini typecheck、lint、build、diff check PASS。正式四份 Store 与 main 字节相同。真实只读样本中的新提取有效 Fact Candidate / 新 Pending 均为 0；6 项为继承字段而非新增候选。完整新版生产指标、真实模型提取及合并状态单独报告，不以样本或 Fixture 外推全站完成。
+
+`exceptionReviewValidationCli.ts` 默认只读抓取和身份检查、不加载 Provider；`--real-provider` 才使用已配置 Provider 做两轮内存回放，输出到忽略的 Artifact 目录，绝不调用正式持久化。实际新模型验证、最终测试数与 PR 以本次验收报告为准；代码完成不等于生产验收完成。
+
 ## 决策与当前边界
 
 最新 Human Decision：数据自动维护是本周唯一开发 P0，下周新增赛事；**12 场只读复盘不再是扩容前置条件**。架构与质量 Gate 不变。宁海 B2 已完成生产闭环，不重复开发或 Apply。
@@ -35,7 +59,7 @@
 
 Candidate 记录稳定 ID、URL、标题、首次发现时间、Edition、入口 Source ID、发现方法、列表 Hash / locator / 摘录和身份判断。相同 URL / Edition 重复出现不产生新 Source Review；既有 URL 的标题/身份改变会计入 changedCandidates，仍保持未批准。过滤脚本、注释、工具导航及 Email Protection；共享政府/多赛事域名要求标题明确匹配目标赛事。标题年份冲突、同域但未核准、跨域、赛事/组别不明均不能获得事实权威性。往届记录保留为低优先级来源审核材料，不计入当前待审数量。
 
-只有经 Human Source Approval 的页面通过独立 Registry Governance Review 登记后，才能进入现有 Fetch → Extraction → Validation → Pending。Discovery 本身不写 Registry、不生成 Fact Pending、无模型调用。RSS/Sitemap 发现的是文章候选 URL；其格式支持不等于 XML 本身已成为可提取事实的来源。
+2026-10-14 的逐页 Source Approval 限制已被本节顶部 2026-10-15 Human Decision 覆盖：可信专属官网内的公告可在实际正文身份及字段 Gate 通过后复用官网权限；新增域名、跨域或身份不清仍需审核。纯 Discovery 本身不写 Registry、不生成 Fact Pending、无模型调用；后续公告 Fact Pipeline 独立记录实际模型调用。RSS/Sitemap 发现的是文章候选 URL，其格式支持不等于 XML 本身已成为可提取事实的来源。
 
 状态明确区分 CANDIDATES_FOUND / NO_NEW_SOURCES / PARTIAL / FAILED / NOT_COVERED；没有静态公告链接、纯 SPA、格式不支持或证书异常不能当作覆盖成功。只读摘要不等于公告正文或正式发布时间证据。
 

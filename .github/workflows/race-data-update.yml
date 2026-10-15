@@ -103,6 +103,7 @@ jobs:
             artifacts/race-update/source-discovery-report.json
             artifacts/race-update/source-discovery-ledger.json
             artifacts/race-update/operations-review-state.json
+            artifacts/race-update/phase3-real-extraction.json
           if-no-files-found: error
           retention-days: 30
 
@@ -115,6 +116,7 @@ jobs:
             artifacts/race-update/source-discovery-report.json
             artifacts/race-update/source-discovery-ledger.json
             artifacts/race-update/operations-review-state.json
+            artifacts/race-update/phase3-real-extraction.json
           if-no-files-found: ignore
           retention-days: 30
 

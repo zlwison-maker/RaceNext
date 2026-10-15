@@ -1,5 +1,7 @@
 # RaceNext 赛事数据自动维护目标与验收标准 V1
 
+> **2026-10-15 Human Decision｜Human Review by Exception**：已登记 active 官方身份和赛事专属域名可以复用于同源新公告；抓取实际正文、确认当届身份和字段作用域、通过直接 Evidence 与确定性 Validation 后，免重复人工 Source Approval、免逐页 Registry 登记，进入原有 Extraction → Diff → Pending。跨域、共享/政府平台、历史冲突、身份/作用域不明和不可读取证据仍 Fail Closed 并分流。网站可信不等于模型输出可信。历史字段证据仅在当前内容 Hash、身份、Canonical 值、规则版本及生命周期边界仍有效且重新校验通过时继承，并与本轮新提取分开报告。成功抓取或成功提取 Hash 不能替代字段证据。此决策优先于本文及历史资料中与之冲突的逐页来源审批描述；其余事实质量 Gate、Human Fact Review、`Auto Apply = OFF` 和 Canonical / 发布边界不变。
+
 ## 1. Purpose & Mission
 
 准确、及时、可追溯的赛事核心事实是跑者信任 RaceNext 的基础。自动维护的长期目标，是在严格的数据可信度约束下，持续降低单位赛事的维护成本：让常规发现、获取、核验和安全更新尽可能自动完成，让人工主要处理证据不足、冲突和高影响异常。赛事从 12 场扩展至 50–100 场时，人工维护量不应与赛事数量同比增长。

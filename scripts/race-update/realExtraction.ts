@@ -14,6 +14,7 @@ import type {
   RealExtractionRejectedCandidate,
   RealExtractionReport,
   RealExtractionSourceReport,
+  RealExtractionArtifact,
 } from "../../types/officialSourceIngestion.ts";
 import type {
   PendingChange,
@@ -37,6 +38,7 @@ import { evaluateRaceUpdateCore } from "./pipeline.ts";
 import { FactExtractionProviderError } from "./qwenProvider.ts";
 import { evaluateFreshnessSourceEligibility, findRegistrySource } from "./sourceRegistry.ts";
 import { validateOfficialFactCandidate } from "./validation.ts";
+import { crossedEvidenceBoundary } from "./verificationAlerts.ts";
 
 export const REAL_EXTRACTION_TARGETS = [
   {
@@ -90,6 +92,8 @@ export async function runRealExtractionDryRun(input: {
   autoApplyLowRisk?: boolean;
   now?: () => string;
   fetcher?: typeof fetch;
+  previousExtraction?: RealExtractionArtifact;
+  documents?: OfficialDocumentSnapshot[];
 }): Promise<PreparedRealExtractionRun> {
   const now = input.now ?? (() => new Date().toISOString());
   const startedAt = now();
@@ -122,7 +126,9 @@ export async function runRealExtractionDryRun(input: {
       };
 
       const previous = findState(state, target.editionId, sourceId);
-      let fetched = await fetchOfficialDocument({
+      const supplied = input.documents?.find(d => d.editionId === target.editionId && d.sourceId === sourceId);
+      if (supplied && supplied.url !== source.url) throw new Error("SUPPLIED_DOCUMENT_SOURCE_MISMATCH");
+      let fetched = supplied ? { ok: true as const, document: supplied } : await fetchOfficialDocument({
         source,
         editionId: target.editionId,
         fetchedAt: checkedAt,
@@ -185,7 +191,36 @@ export async function runRealExtractionDryRun(input: {
         continue;
       }
 
-      if (!input.forceExtract && !shouldExtractDocument(previous, document.contentHash, {
+      const previousAttempt = input.previousExtraction?.report.processingVersion === RACE_FACT_PROCESSING_VERSION
+        ? input.previousExtraction.report.sources.find(s=>s.editionId===target.editionId && s.sourceId===sourceId
+          && s.sourceUrl===document.url && s.contentHash===document.contentHash && s.identity?.status==="matched"
+          && s.processingVersion===RACE_FACT_PROCESSING_VERSION && s.provider===extractionIdentity.provider
+          && s.model===extractionIdentity.model && s.promptVersion===extractionIdentity.promptVersion)
+        : undefined;
+      // A proven deterministic rejection is not a successful extraction. Preserve the exception without re-buying the same model output.
+      if (!input.forceExtract && previous?.lastExtractionStatus==="validation_error"
+        && previous.lastObservedContentHash===document.contentHash && previousAttempt?.extractionStatus==="validation_error"
+        && previousAttempt.validationAcceptedCount===0 && previousAttempt.rejectedCandidates.length>0
+        && !crossedEvidenceBoundary(record,previous.lastCheckedAt,checkedAt)) {
+        upsertState(state,transitionIngestionState({previous,document,outcome:"validation_error",checkedAt}));
+        reports.push({...previousAttempt,fetchedAt:checkedAt,identity,requestStatus:"skipped",latencyMs:null,
+          usage:emptyUsage(),rawCandidateCount:0,validationRejectedCount:0,candidates:[]});
+        continue;
+      }
+      const previousSource = input.previousExtraction?.report.processingVersion === RACE_FACT_PROCESSING_VERSION
+        ? input.previousExtraction.report.sources.find(s => s.editionId === target.editionId && s.sourceId === sourceId
+          && s.sourceUrl === document.url && s.contentHash === document.contentHash
+          && s.processingVersion === RACE_FACT_PROCESSING_VERSION
+          && s.identity?.status === "matched" && ["success", "unchanged"].includes(s.extractionStatus)
+          && s.provider === previous?.lastSuccessfulProvider && s.model === previous?.lastSuccessfulModel
+          && s.promptVersion === previous?.lastSuccessfulPromptVersion)
+        : undefined;
+      const priorFieldChanged = previousSource?.candidates.some(c => c?.action === "no_change"
+        && JSON.stringify(c.candidateValue) !== JSON.stringify(currentFactValue(input.snapshot, c)));
+      const recovering = previous && !["success", "unchanged"].includes(previous.lastExtractionStatus);
+      if (!input.forceExtract && !priorFieldChanged && !recovering
+        && !crossedEvidenceBoundary(record, previous?.lastSuccessfulExtractionAt ?? null, checkedAt)
+        && !shouldExtractDocument(previous, document.contentHash, {
         ...extractionIdentity,
       })) {
         upsertState(state, transitionIngestionState({ previous, document, outcome: "unchanged", checkedAt }));
@@ -202,6 +237,12 @@ export async function runRealExtractionDryRun(input: {
             contentHash: document.contentHash,
           }),
           identity,
+          candidates: inheritedFieldReviews({
+            snapshot: input.snapshot, registry: input.registry, record, source, document, previousSource,
+            pending: input.pendingStore, checkedAt,
+            processingVersion: previous?.lastSuccessfulProcessingVersion,
+          }),
+          rejectedCandidates:previousSource?.rejectedCandidates ?? [],
         });
         continue;
       }
@@ -354,10 +395,10 @@ export async function runRealExtractionDryRun(input: {
   for (const acceptedSource of acceptedSources) {
     const plans = candidatePlans.filter((plan) => plan.acceptedSource === acceptedSource);
     acceptedSource.report.candidates = plans.map(({ review, pending }) => {
-      if (!pending) return review;
+      if (!pending) return { ...review, evidenceVerifiedAt: acceptedSource.checkedAt };
       const durable = resolvedPending.get(pending.changeId);
       if (!durable) throw new Error(`Prepared Pending Store is missing required change: ${pending.changeId}`);
-      return { ...review, changeId: durable.changeId, pendingStatus: durable.status };
+      return { ...review, changeId: durable.changeId, pendingStatus: durable.status, evidenceVerifiedAt: acceptedSource.checkedAt };
     });
     const changeIds = acceptedSource.report.candidates.flatMap(({ changeId }) => changeId ? [changeId] : []);
     pendingRequirements.push({
@@ -452,6 +493,52 @@ export function validateExtractedCandidates(input: {
   return { accepted, rejected };
 }
 
+function inheritedFieldReviews(input: {
+  snapshot: RaceGraphSnapshot; registry: RaceSourceRegistry; record: RaceGraphSnapshotRecord;
+  source: RaceSourceRegistrySource; document: OfficialDocumentSnapshot;
+  previousSource?: RealExtractionSourceReport; pending?: PendingChangeStore;
+  checkedAt: string; processingVersion?: string | null;
+}): RealExtractionCandidateReview[] {
+  if (input.processingVersion !== RACE_FACT_PROCESSING_VERSION || input.source.tier !== "primary_official") return [];
+  const history: Array<{ fact: OfficialFactCandidate; verifiedAt: string; provider: string; model: string; promptVersion: string }> = [];
+  for (const c of input.previousSource?.candidates ?? []) {
+    if (!c || c.action !== "no_change" || c.diff !== "UNCHANGED" || c.authority !== "authoritative") continue;
+    history.push({ fact: { ...c, fetchedAt:input.document.fetchedAt, contentHash:input.document.contentHash,
+      extractionMethod:input.document.extractionMethod }, verifiedAt:c.evidenceVerifiedAt ?? input.previousSource!.fetchedAt,
+      provider:c.provider, model:c.model, promptVersion:c.promptVersion });
+  }
+  // Bootstrap only from actually applied, directly evidenced historical facts, never a successful hash alone.
+  for (const p of input.pending?.changes ?? []) {
+    if (p.status !== "applied" || p.conflict || p.applyBlocked || p.editionId !== input.record.edition.editionId) continue;
+    for (const e of p.evidence) {
+      if (!e || e.contentHash !== input.document.contentHash || e.sourceId !== input.source.sourceId || e.sourceUrl !== input.source.url) continue;
+      history.push({ fact: { ...e, eventId:p.eventId, editionId:p.editionId, categoryId:p.categoryId,
+        entityType:p.entityType, field:p.field, candidateValue:p.candidateValue, fetchedAt:input.document.fetchedAt },
+        verifiedAt:e.fetchedAt, provider:p.provider ?? "historical-reviewed", model:p.model ?? "historical-reviewed", promptVersion:p.promptVersion ?? "historical-reviewed" });
+    }
+  }
+  const reviews = new Map<string, RealExtractionCandidateReview>();
+  for (const h of history) {
+    try {
+      if (crossedEvidenceBoundary(input.record, h.verifiedAt, input.checkedAt)
+        || JSON.stringify(h.fact.candidateValue) !== JSON.stringify(currentFactValue(input.snapshot, h.fact))) continue;
+      const fact = { ...h.fact, evidenceLocator:h.fact.evidenceLocator.replace(/^text:\d+-\d+(?:;\s*)?/, "") };
+      const validation = validateExtractedCandidates({ ...input, candidates:[fact] });
+      const c=validation.accepted[0];
+      if (!c || validation.rejected.length) continue;
+      reviews.set(`${c.entityType}/${c.categoryId}/${c.field}`, {
+        eventId:c.eventId,editionId:c.editionId,categoryId:c.categoryId,entityType:c.entityType,field:c.field,
+        candidateValue:c.candidateValue,sourceId:c.sourceId,sourceUrl:c.sourceUrl,sourceTier:input.source.tier,
+        authority:"authoritative",evidenceText:c.evidenceText,evidenceLocator:c.evidenceLocator,confidence:c.confidence,
+        currentValue:c.candidateValue,diff:"UNCHANGED",risk:null,action:"no_change",changeId:null,pendingStatus:null,
+        reason:"Historical direct field evidence revalidated against the current document, identity, Canonical value and rules.",
+        provider:h.provider,model:h.model,promptVersion:h.promptVersion,evidenceVerifiedAt:h.verifiedAt,
+      });
+    } catch { /* Invalid historical rows never become verification evidence. */ }
+  }
+  return [...reviews.values()];
+}
+
 export function validateCandidatePrecisionEvidence(input: {
   document: OfficialDocumentSnapshot;
   candidate: OfficialFactCandidate;
@@ -460,14 +547,16 @@ export function validateCandidatePrecisionEvidence(input: {
 }): string[] {
   const errors: string[] = [];
   const context = evidenceContext(input.document, input.candidate.evidenceText);
-  const evidenceCategoryMatches = matchedCategoryIds(input.candidate.evidenceText, input.record);
-  const contextCategoryMatches = matchedCategoryIds(context, input.record);
-  const sourceCategoryMatches = matchedCategoryIds(`${input.source.sourceId} ${input.source.url}`, input.record);
+  const announcement = input.source.sourceId.includes("::announcement:");
+  const categoryMatches = announcement ? announcementCategoryIds : matchedCategoryIds;
+  const evidenceCategoryMatches = categoryMatches(input.candidate.evidenceText, input.record);
+  const contextCategoryMatches = categoryMatches(context, input.record);
+  const sourceCategoryMatches = announcement ? [] : matchedCategoryIds(`${input.source.sourceId} ${input.source.url}`, input.record);
   const semanticLocation = isLocationSemanticCandidate(input.record, input.candidate);
 
   if (input.candidate.entityType === "Edition") {
-    const explicitEvidenceCategoryMatches = explicitCategoryIds(input.candidate.evidenceText, input.record);
-    const explicitContextCategoryMatches = explicitCategoryIds(context, input.record);
+    const explicitEvidenceCategoryMatches = announcement ? evidenceCategoryMatches : explicitCategoryIds(input.candidate.evidenceText, input.record);
+    const explicitContextCategoryMatches = announcement ? contextCategoryMatches : explicitCategoryIds(context, input.record);
     const categoryScopedSource = input.source.sourceType === "category_page" || sourceCategoryMatches.length === 1;
     const categoryScopedDate = (input.candidate.field === "raceDate" || input.candidate.field === "endDate")
       && (categoryScopedSource
@@ -476,7 +565,7 @@ export function validateCandidatePrecisionEvidence(input: {
     if (categoryScopedSource || categoryScopedDate || explicitEvidenceCategoryMatches.length > 0) {
       errors.push("ambiguous_entity_scope: Category-specific evidence cannot be promoted to an Edition fact.");
     }
-  } else if (input.record.categories.length > 1 && !semanticLocation) {
+  } else if ((input.record.categories.length > 1 || input.source.sourceId.includes("::announcement:")) && !semanticLocation) {
     const resolvedCategoryMatches = evidenceCategoryMatches.length > 0
       ? evidenceCategoryMatches
       : sourceCategoryMatches.length === 1
@@ -496,6 +585,14 @@ export function validateCandidatePrecisionEvidence(input: {
     errors.push("non_exact_numeric_evidence: Approximate, bounded, or ranged evidence cannot populate an exact numeric field.");
   }
   return errors;
+}
+
+function announcementCategoryIds(value: string, record: RaceGraphSnapshotRecord): string[] {
+  // An Event name containing “Marathon/马拉松” is not evidence for its Marathon Category.
+  const tagged = record.categories.map(c=>({ id:c.categoryId, names:[c.categoryName,c.shortName]
+    .filter((n):n is string=>Boolean(n)).flatMap(n=>[`${n}组`,`${n}项目`,`${n} category`,`组别${n}`,`项目${n}`]).map(normalizeScopeText) }));
+  const selected=selectMatchedNames(normalizeScopeText(value),tagged.flatMap(c=>c.names));
+  return [...new Set([...explicitCategoryIds(value,record),...tagged.filter(c=>c.names.some(n=>selected.has(n))).map(c=>c.id)])];
 }
 
 export function validateCandidateValueEvidence(
@@ -686,7 +783,7 @@ function isLocationSemanticCandidate(
     && (normalizedCandidate.includes(normalizedCurrent) || normalizedCurrent.includes(normalizedCandidate));
 }
 
-function currentFactValue(snapshot: RaceGraphSnapshot, candidate: OfficialFactCandidate): unknown {
+function currentFactValue(snapshot: RaceGraphSnapshot, candidate: Pick<OfficialFactCandidate, "editionId" | "entityType" | "categoryId" | "field">): unknown {
   const record = snapshot.records.find(({ edition }) => edition.editionId === candidate.editionId);
   if (!record) return null;
   const entity = candidate.entityType === "Edition"

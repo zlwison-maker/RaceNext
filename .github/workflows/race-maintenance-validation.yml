@@ -45,6 +45,8 @@ jobs:
           cp artifacts/race-update/source-discovery-ledger.json artifacts/source-discovery-input.json
           node scripts/race-update/sourceDiscoveryCli.ts --all
           node scripts/race-update/discoveryReplayCheckCli.ts
+      - name: Inspect real official articles and existing JSON field evidence without model credentials
+        run: node scripts/race-update/exceptionReviewValidationCli.ts --editions=xian-marathon-2026,chongqing-marathon-2027,ninghai-ultra-trail-2026 --ledger=artifacts/race-update/source-discovery-ledger.json
       - uses: actions/upload-artifact@v4
         with:
           name: race-maintenance-validation-${{ github.run_id }}
@@ -52,5 +54,6 @@ jobs:
             artifacts/race-update/source-discovery-first.json
             artifacts/race-update/source-discovery-report.json
             artifacts/race-update/source-discovery-ledger.json
+            artifacts/race-update/exception-review-validation/article-inspection.json
           if-no-files-found: error
           retention-days: 30

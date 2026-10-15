@@ -1,4 +1,6 @@
 import { readFile } from "node:fs/promises";
+import { createHash } from "node:crypto";
+import { assertPublicDiscoveryUrl } from "./discoveryFetch.ts";
 
 import type {
   FreshnessSourceEligibility,
@@ -102,8 +104,35 @@ export function findRegistrySource(
   registry: RaceSourceRegistry,
   editionId: string,
   sourceId: string,
+  sourceUrl?: string,
 ): RaceSourceRegistrySource | undefined {
-  return findEditionSources(registry, editionId)?.sources.find((source) => source.sourceId === sourceId);
+  const registered = findEditionSources(registry, editionId)?.sources.find((source) => source.sourceId === sourceId);
+  if (registered || !sourceUrl) return registered;
+  const marker = sourceId.lastIndexOf("::announcement:");
+  if (marker < 0) return undefined;
+  const derived = officialAnnouncementSource(registry, editionId, sourceId.slice(0, marker), sourceUrl);
+  return derived?.sourceId === sourceId ? derived : undefined;
+}
+
+/** Human 2026-10-15: a dedicated approved official site delegates document identity, never fact approval. */
+export function officialAnnouncementSource(
+  registry: RaceSourceRegistry, editionId: string, parentId: string, url: string,
+): RaceSourceRegistrySource | undefined {
+  const parent = findEditionSources(registry, editionId)?.sources.find(s => s.sourceId === parentId);
+  if (!parent || parent.status !== "active" || parent.tier !== "primary_official"
+    || !["event_home","notice","regulations","registration_notice"].includes(parent.sourceType)) return;
+  if (findEditionSources(registry,editionId)?.sources.some(s=>s.url===url && (s.status!=="active" || s.tier!=="primary_official"))) return;
+  try {
+    const page = assertPublicDiscoveryUrl(url), entry = assertPublicDiscoveryUrl(parent.url);
+    if (page.origin !== entry.origin || page.protocol !== "https:" || page.hash
+      || /(?:^|\.)gov\.[a-z.]+$/i.test(page.hostname)
+      || registry.editions.some(e => e.editionId.replace(/-\d{4}$/, "") !== editionId.replace(/-\d{4}$/, "")
+        && e.sources.some(s => new URL(s.url).hostname === page.hostname))
+      || /(?:\/app-api\/|\/api\/|\/(?:login|logout|admin|manage|account)\b)/i.test(page.pathname)
+      || [...page.searchParams.keys()].some(k => /token|password|secret|api.?key/i.test(k))) return;
+    return { ...parent, sourceId: `${parentId}::announcement:${createHash("sha256").update(url).digest("hex").slice(0, 24)}`,
+      url, sourceType: "notice", isPrimary: false, notes: `Official-site document delegated by ${parentId}; field evidence and Human Fact Review remain required.` };
+  } catch { return; }
 }
 
 export function evaluateFreshnessSourceEligibility(input: {

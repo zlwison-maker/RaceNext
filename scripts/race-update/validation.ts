@@ -61,7 +61,7 @@ export function validateOfficialFactCandidate(
     add("field", `${candidate.field} is not supported for ${candidate.entityType}.`);
   }
 
-  const source = findRegistrySource(registry, candidate.editionId, candidate.sourceId);
+  const source = findRegistrySource(registry, candidate.editionId, candidate.sourceId, candidate.sourceUrl);
   if (!source) {
     add("sourceId", "Source is not registered for the target Edition.");
   } else {

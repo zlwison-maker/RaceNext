@@ -128,7 +128,7 @@ export function evaluateVerificationAlerts(input: {
     const lifecycleBoundaryPassed = closePassed || lotteryPassed;
     const days = daysUntilRace(record, asOf);
     const nearingRaceWithoutStatusEvidence = days !== null && days >= 0 && days <= IMMINENT_DAYS
-      && statusCheck.status !== "VERIFIED_THIS_RUN";
+      && !["VERIFIED_THIS_RUN", "VERIFIED_INHERITED"].includes(statusCheck.status);
     const actionableStatus = edition.registrationStatus !== "registration_closed";
     if (actionableStatus && (lifecycleBoundaryPassed || nearingRaceWithoutStatusEvidence)) {
       const openLike = ["registration_open", "upcoming", "lottery", "waiting_list"].includes(edition.registrationStatus);
@@ -159,7 +159,7 @@ export function evaluateVerificationAlerts(input: {
 
     if (days !== null && days >= 0 && days <= IMMINENT_DAYS) {
       const unverified = checks.filter((check) => check.editionId === edition.editionId
-        && check.canonicalValuePresent && check.status !== "VERIFIED_THIS_RUN"
+        && check.canonicalValuePresent && !["VERIFIED_THIS_RUN", "VERIFIED_INHERITED"].includes(check.status)
         && (check.field === "raceDate" || check.categoryId !== null));
       if (unverified.length > 0) {
         add({
@@ -197,13 +197,14 @@ function checkField(
   const value = category ? category[field as keyof typeof category] : record.edition[field as keyof typeof record.edition];
   const canonicalValuePresent = value !== null && value !== undefined && value !== ""
     && (!Array.isArray(value) || value.length > 0) && value !== "unknown";
-  const directOfficialEvidenceSourceIds = reports.filter((source) => officialIds.has(source.sourceId)
+  const evidenceSources = reports.filter((source) => officialIds.has(source.sourceId)
     && source.sourceTier === "primary_official"
-    && source.extractionStatus === "success" && source.identity?.status === "matched"
-    && source.requestStatus === "success"
+    && ["success", "unchanged"].includes(source.extractionStatus) && source.identity?.status === "matched"
+    && (source.requestStatus === "success" || (source.extractionStatus === "unchanged" && source.requestStatus === "skipped"))
     && source.candidates.some((candidate) => directCurrentFactEvidence({
       candidate, source, record, field, categoryId, value,
-    }))).map(({ sourceId }) => sourceId).sort();
+    })));
+  const directOfficialEvidenceSourceIds = evidenceSources.map(({sourceId})=>sourceId).sort();
   return {
     editionId: record.edition.editionId,
     categoryId,
@@ -211,9 +212,23 @@ function checkField(
     canonicalValuePresent,
     officialSourcesEffectivelyProcessed,
     status: !canonicalValuePresent ? "UNKNOWN"
-      : directOfficialEvidenceSourceIds.length > 0 ? "VERIFIED_THIS_RUN" : "NOT_VERIFIED_THIS_RUN",
+      : evidenceSources.some(s=>s.extractionStatus==="success") ? "VERIFIED_THIS_RUN"
+        : evidenceSources.length > 0 ? "VERIFIED_INHERITED" : "NOT_VERIFIED_THIS_RUN",
     directOfficialEvidenceSourceIds: [...new Set(directOfficialEvidenceSourceIds)],
   };
+}
+
+/** Time alone never asserts a new fact; crossing a material boundary expires reusable evidence. */
+export function crossedEvidenceBoundary(record: RaceGraphSnapshotRecord, verifiedAt: string | null, checkedAt: string): boolean {
+  const before = new Date(verifiedAt ?? ""), after = new Date(checkedAt);
+  if (!Number.isFinite(before.getTime()) || !Number.isFinite(after.getTime()) || before > after) return true;
+  const e=record.edition;
+  for (const boundary of [e.registrationOpenDate,e.registrationCloseDate,e.lotteryResultDate,e.raceDate,e.endDate]) {
+    if (isPastBoundary(boundary,e.timezone,before) !== isPastBoundary(boundary,e.timezone,after)) return true;
+  }
+  const priorDays=daysUntilRace(record,before), currentDays=daysUntilRace(record,after);
+  return priorDays !== null && currentDays !== null
+    && ((priorDays > IMMINENT_DAYS && currentDays <= IMMINENT_DAYS) || (priorDays > 0 && currentDays <= 0));
 }
 
 function directCurrentFactEvidence(input: {
@@ -226,6 +241,8 @@ function directCurrentFactEvidence(input: {
 }): boolean {
   const { candidate, source, record, field, categoryId, value } = input;
   return candidate.action === "no_change" && candidate.diff === "UNCHANGED"
+    && (source.extractionStatus !== "unchanged" || (Boolean(candidate.evidenceVerifiedAt)
+      && !crossedEvidenceBoundary(record, candidate.evidenceVerifiedAt ?? null, source.fetchedAt)))
     && candidate.authority === "authoritative"
     && candidate.evidenceText.trim().length > 0 && candidate.evidenceLocator.trim().length > 0
     && candidate.eventId === record.event.eventId

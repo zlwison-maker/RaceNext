@@ -257,6 +257,8 @@ export type NoKeyDryRunArtifact = {
 };
 
 export type RealExtractionCandidateReview = {
+  /** Original direct-evidence observation, retained across unchanged-content revalidation. */
+  evidenceVerifiedAt?: string;
   eventId: string;
   editionId: string;
   categoryId: string | null;
@@ -392,7 +394,7 @@ export type CriticalFactVerification = {
     | "startLocation" | "finishLocation" | "distanceKm" | "elevationGain" | "cutoffTimeHours";
   canonicalValuePresent: boolean;
   officialSourcesEffectivelyProcessed: number;
-  status: "VERIFIED_THIS_RUN" | "NOT_VERIFIED_THIS_RUN" | "UNKNOWN";
+  status: "VERIFIED_THIS_RUN" | "VERIFIED_INHERITED" | "NOT_VERIFIED_THIS_RUN" | "UNKNOWN";
   directOfficialEvidenceSourceIds: string[];
 };
 

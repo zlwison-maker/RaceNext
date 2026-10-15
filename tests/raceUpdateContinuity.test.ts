@@ -161,6 +161,7 @@ test("real prepare/finish CLI continues one open PR across two local monitoring 
     match(await shell(checkout, "node", [gateCli, "data-only"], environment), /DATA_ONLY_DIFF=pass/);
     await writeFile(join(checkout, "artifacts/race-update/race-update-report.json"), "{\"status\":\"fixture\"}\n");
     await writeFile(join(checkout, "artifacts/race-update/race-update-pr-body.md"), "Fixture data PR\n");
+    await writeFile(join(checkout, "artifacts/race-update/phase3-real-extraction.json"), "{\"status\":\"fixture field evidence\"}\n");
     match(await shell(checkout, "node", [gateCli, "secret-scan"], {
       ...environment,
       FACT_EXTRACTION_PROVIDER: "fixture",

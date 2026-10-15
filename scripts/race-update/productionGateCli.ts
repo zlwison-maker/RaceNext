@@ -20,6 +20,7 @@ if (command === "data-only") {
   const artifactFiles = [
     "artifacts/race-update/race-update-report.json",
     "artifacts/race-update/race-update-pr-body.md",
+    "artifacts/race-update/phase3-real-extraction.json",
   ];
   for (const path of artifactFiles) {
     const text = await readFile(path, "utf8");
