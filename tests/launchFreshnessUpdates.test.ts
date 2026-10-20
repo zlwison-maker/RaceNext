@@ -1,3 +1,4 @@
+import { expectedPublicEditionIds } from "./fixtures/contentBatch20261020.ts";
 import { deepEqual, equal, ok } from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { test } from "node:test";
@@ -110,7 +111,7 @@ test("public list and priority details expose approved launch values", () => {
   const list = createPublicRaceListResult(canonical);
   equal(list.status, 200);
   if (list.status !== 200) return;
-  equal(list.body.races.length, 12);
+  equal(list.body.races.length, expectedPublicEditionIds.length);
   equal(list.body.races.find(({ editionId }) => editionId === "beijing-marathon-2026")?.registrationStatus, "registration_closed");
   equal(list.body.races.find(({ editionId }) => editionId === "guangzhou-marathon-2026")?.registrationStatus, "registration_closed");
   equal(list.body.races.find(({ editionId }) => editionId === "hk100-2027")?.registrationStatus, "registration_closed");

@@ -1,3 +1,4 @@
+import { expectedPublicEditionIds } from "./fixtures/contentBatch20261020.ts";
 import { deepEqual, equal, ok } from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { test } from "node:test";
@@ -185,26 +186,13 @@ test("First5 and all seven public-ready Batch Seven Editions enter the Public AP
   const result = createPublicRaceListResult(canonical);
   equal(result.status, 200);
   if (result.status !== 200) return;
-  deepEqual(new Set(result.body.races.map(({ editionId }) => editionId)), new Set([
-    "shanghai-marathon-2026",
-    "beijing-marathon-2026",
-    "xiamen-marathon-2027",
-    "hk100-2027",
-    "kailas-gongga-100-2026",
-    "xian-marathon-2026",
-    "ninghai-ultra-trail-2026",
-    "guangzhou-marathon-2026",
-    "chengdu-marathon-2026",
-    "tsaigu-kuocang-2026",
-    "shenzhen-100-2026",
-    "chongqing-marathon-2027",
-  ]));
+  deepEqual(new Set(result.body.races.map(({ editionId }) => editionId)), new Set(expectedPublicEditionIds));
 });
 
 test("every public DTO keeps both Cover and Hero image relations", () => {
   const result = createPublicRaceListResult(canonical);
   equal(result.status, 200);
   if (result.status !== 200) return;
-  equal(result.body.races.length, 12);
+  equal(result.body.races.length, expectedPublicEditionIds.length);
   ok(result.body.races.every(({ coverImage, heroImage }) => Boolean(coverImage) && Boolean(heroImage)));
 });

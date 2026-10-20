@@ -514,5 +514,7 @@ function requestUrl(input: string | URL | Request): string {
 
 function clockIso(): () => string {
   let tick = 0;
-  return () => `2026-09-24T10:${String(tick++).padStart(2, "0")}:00+08:00`;
+  // A growing Registry can make more than 60 clock calls; roll over real hours.
+  const start = Date.parse(FIXTURE_START);
+  return () => new Date(start + tick++ * 60_000).toISOString();
 }

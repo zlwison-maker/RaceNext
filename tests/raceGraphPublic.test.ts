@@ -1,3 +1,4 @@
+import { expectedPublicEditionIds } from "./fixtures/contentBatch20261020.ts";
 import { deepEqual, equal, match, ok } from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { test } from "node:test";
@@ -32,14 +33,21 @@ test("public list returns only publishable canonical editions", () => {
     "chengdu-marathon-2026",
     "tsaigu-kuocang-2026",
     "ninghai-ultra-trail-2026",
+    "nanjing-marathon-2026",
+    "shaoxing-marathon-2026",
     "shanghai-marathon-2026",
+    "shenzhen-marathon-2026",
     "guangzhou-marathon-2026",
     "shenzhen-100-2026",
+    "fuzhou-marathon-2026",
+    "hengqin-marathon-2026",
     "chongqing-marathon-2027",
     "xiamen-marathon-2027",
+    "guangzhou-100-2027",
     "hk100-2027",
+    "panda-shudao-shan-2027",
   ]);
-  equal(result.body.races.length, 12);
+  equal(result.body.races.length, expectedPublicEditionIds.length);
   ok(result.body.races.every(({ coverImage }) => Boolean(coverImage)));
   ok(result.body.races.every(({ heroImage }) => Boolean(heroImage)));
   equal(JSON.stringify(result.body).includes("raceStrategy"), false);

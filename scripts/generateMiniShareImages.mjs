@@ -2,6 +2,7 @@ import { createHash } from "node:crypto";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import sharp from "sharp";
+import { isEditionPublishable } from "../lib/raceGraphPublic.ts";
 
 const projectRoot = join(import.meta.dirname, "..");
 const graphPath = join(projectRoot, "data/canonical/race-graph-v1.json");
@@ -9,16 +10,24 @@ const graph = JSON.parse(readFileSync(graphPath, "utf8"));
 const checkOnly = process.argv.includes("--check");
 
 const outputs = [];
+// Staged Editions have no public share route.
+const publicRecords = graph.records.filter(isEditionPublishable);
 
-for (const record of graph.records) {
+for (const record of publicRecords) {
   const coverImage = record.edition?.coverImage;
   if (typeof coverImage !== "string" || !coverImage.startsWith("/races/")) continue;
 
   const sourcePath = join(projectRoot, "public", coverImage);
   const outputPath = join(dirname(sourcePath), "share-cover-5x4.jpg");
+  const source = await sharp(sourcePath).metadata();
+  if (!source.width || !source.height) throw new Error(`Missing cover dimensions: ${sourcePath}`);
+  // Narrow supplied artwork keeps native pixels; existing wide-cover outputs stay unchanged.
+  const units = source.width < 750 ? Math.floor(Math.min(source.width / 5, source.height / 4)) : 150;
+  if (units < 1) throw new Error(`Cover too small for a 5:4 derivative: ${sourcePath}`);
+  const width = units * 5, height = units * 4;
   const output = await sharp(sourcePath)
     .rotate()
-    .resize(750, 600, { fit: "cover", position: "centre" })
+    .resize(width, height, { fit: "cover", position: "centre" })
     .jpeg({ quality: 88, chromaSubsampling: "4:4:4", progressive: false, mozjpeg: false })
     .toBuffer();
 
@@ -32,7 +41,7 @@ for (const record of graph.records) {
   }
 
   const metadata = await sharp(output).metadata();
-  if (metadata.format !== "jpeg" || metadata.width !== 750 || metadata.height !== 600) {
+  if (metadata.format !== "jpeg" || metadata.width !== width || metadata.height !== height) {
     throw new Error(`Invalid share derivative: ${outputPath}`);
   }
 
@@ -43,8 +52,8 @@ for (const record of graph.records) {
   });
 }
 
-if (outputs.length !== graph.records.length) {
-  throw new Error(`Expected ${graph.records.length} share derivatives, generated ${outputs.length}`);
+if (outputs.length !== publicRecords.length) {
+  throw new Error(`Expected ${publicRecords.length} public share derivatives, generated ${outputs.length}`);
 }
 
 console.log(`${checkOnly ? "Verified" : "Generated"} ${outputs.length} centered 5:4 share derivatives.`);

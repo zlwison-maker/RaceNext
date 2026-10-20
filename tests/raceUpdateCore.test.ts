@@ -1,3 +1,4 @@
+import { existingTwelveEditionIds } from "./fixtures/contentBatch20261020.ts";
 import { deepEqual, equal, match, ok, throws } from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
@@ -69,8 +70,8 @@ function categoryCandidate(overrides: Partial<OfficialFactCandidate> = {}): Offi
 }
 
 test("stable identity helpers are format-stable and leave the formal 12/26 IDs intact", () => {
-  equal(canonical.records.length, 12);
-  equal(canonical.records.flatMap(({ categories }) => categories).length, 26);
+  equal(canonical.records.filter(r => existingTwelveEditionIds.includes(r.edition.editionId)).length, 12);
+  equal(canonical.records.filter(r => existingTwelveEditionIds.includes(r.edition.editionId)).flatMap(({ categories }) => categories).length, 26);
   for (const { event, edition, categories } of canonical.records) {
     equal(createEditionId(event.eventId, edition.editionYear), edition.editionId);
     ok(categories.every(({ categoryId }) => categoryId.startsWith(`${edition.editionId}-`)));
@@ -97,7 +98,7 @@ test("current Registry source types are all explicitly classified for freshness"
         targetEditionId: entry.editionId,
         source,
       });
-      equal(decision.eligible, !excludedTypes.has(source.sourceType), `${entry.editionId}:${source.sourceId}`);
+      equal(decision.eligible, source.status === "active" && !excludedTypes.has(source.sourceType), `${entry.editionId}:${source.sourceId}`);
     }
   }
 

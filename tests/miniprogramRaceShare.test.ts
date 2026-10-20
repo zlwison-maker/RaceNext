@@ -1,3 +1,5 @@
+import { expectedPublicEditionIds } from "./fixtures/contentBatch20261020.ts";
+import { createPublicRaceListResult } from "../lib/raceGraphPublic.ts";
 import { deepEqual, equal, ok } from "node:assert/strict";
 import { execFileSync } from "node:child_process";
 import { existsSync, readFileSync } from "node:fs";
@@ -206,7 +208,7 @@ test("share config leaves imageUrl unset when external Cover and Hero are incomp
   equal("imageUrl" in config.timeline, false);
 });
 
-test("all current race Covers have deterministic centered 5:4 JPEG derivatives", () => {
+test("all public race Covers have deterministic centered 5:4 JPEG derivatives; narrow supplied images are not enlarged", async () => {
   const projectRoot = fileURLToPath(new URL("..", import.meta.url));
   execFileSync(
     process.execPath,
@@ -218,8 +220,13 @@ test("all current race Covers have deterministic centered 5:4 JPEG derivatives",
     new URL("../data/canonical/race-graph-v1.json", import.meta.url),
     "utf8",
   )) as { records: Array<{ edition: { coverImage: string; editionId: string } }> };
-  equal(canonical.records.length, 12);
-  for (const { edition } of canonical.records) {
+  equal(canonical.records.length, 19);
+  const list = createPublicRaceListResult(canonical);
+  equal(list.status, 200);
+  if (list.status !== 200) return;
+  deepEqual(new Set(list.body.races.map(r => r.editionId)), new Set(expectedPublicEditionIds));
+  for (const edition of list.body.races) {
+    ok(edition.coverImage);
     const derivative = new URL(
       `../public${edition.coverImage.replace(/\/[^/]+$/, "/share-cover-5x4.jpg")}`,
       import.meta.url,
@@ -230,6 +237,15 @@ test("all current race Covers have deterministic centered 5:4 JPEG derivatives",
     equal(bytes[1], 0xd8);
     equal(bytes[bytes.length - 2], 0xff);
     equal(bytes[bytes.length - 1], 0xd9);
+    const metadata = await sharp(bytes).metadata();
+    equal(metadata.width! * 4, metadata.height! * 5);
+    if (edition.editionId === "panda-shudao-shan-2027") {
+      deepEqual([metadata.width, metadata.height], [235, 188]);
+      const cover = await sharp(readFileSync(new URL(`../public${edition.coverImage}`, import.meta.url))).metadata();
+      ok(metadata.width! <= cover.width! && metadata.height! <= cover.height!);
+    } else {
+      deepEqual([metadata.width, metadata.height], [750, 600]);
+    }
   }
 });
 

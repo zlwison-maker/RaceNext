@@ -630,6 +630,201 @@
           "notes": "Government background evidence for the date-window change and PB rationale; it does not define the precise 2027 date."
         }
       ]
+    },
+    {
+      "editionId": "guangzhou-100-2027",
+      "sources": [
+        {
+          "sourceId": "guangzhou-100-official-2027",
+          "url": "https://moganshan.saihuitong.com/article?id=71446&mid=57201",
+          "domain": "moganshan.saihuitong.com",
+          "tier": "primary_official",
+          "sourceType": "regulations",
+          "status": "active",
+          "isPrimary": true,
+          "notes": "Identity reviewed 2026-10-20: 2027凯乐石FUGA广州100越野赛. Official 55K cutoff conflict: schedule gives 18h and last wave closes 2027-01-17 02:30; detail states 00:30. cutoffTimeHours remains null; Category held for review. Venue is not used to infer Category start/finish. Actual course lengths 96.39/54.11/32.93/9.77 are excluded from distanceKm. No CP Facts or unapproved Strategy imported. Registry identity is not blanket fact approval. Field evidence must be current-edition and directly scoped."
+        }
+      ]
+    },
+    {
+      "editionId": "nanjing-marathon-2026",
+      "sources": [
+        {
+          "sourceId": "nanjing-marathon-official-2026",
+          "url": "https://nanjing.marathon.org.cn/page/nqAYNxdmyZqxDr12ekZB.html",
+          "domain": "nanjing.marathon.org.cn",
+          "tier": "primary_official",
+          "sourceType": "regulations",
+          "status": "active",
+          "isPrimary": true,
+          "notes": "Identity reviewed 2026-10-20: 2026南京银行南京马拉松.  Registry identity is not blanket fact approval. Field evidence must be current-edition and directly scoped."
+        }
+      ]
+    },
+    {
+      "editionId": "shaoxing-marathon-2026",
+      "sources": [
+        {
+          "sourceId": "shaoxing-marathon-official-2026",
+          "url": "http://www.sxym.org.cn/html/event.html",
+          "domain": "www.sxym.org.cn",
+          "tier": "primary_official",
+          "sourceType": "regulations",
+          "status": "active",
+          "isPrimary": true,
+          "notes": "Identity reviewed 2026-10-20: 2026瑞丰银行绍兴马拉松. Official HTTPS endpoint unavailable in this read-only check. Public official HTTP event.html confirms 2026; historical jsgc.html is not evidence. General first gun 07:30; Category wave times unconfirmed and left null. Registry identity is not blanket fact approval. Field evidence must be current-edition and directly scoped."
+        },
+        {
+          "sourceId": "shaoxing-marathon-official-https-2026",
+          "url": "https://sxym.org.cn/html/event.html",
+          "domain": "sxym.org.cn",
+          "tier": "primary_official",
+          "sourceType": "regulations",
+          "status": "unavailable",
+          "isPrimary": false,
+          "notes": "2026-10-20 read-only check: connection refused; original supplied HTTPS entry retained for provenance. Public official HTTP www.sxym.org.cn/html/event.html was successfully fetched and separately registered; no TLS validation disabled."
+        }
+      ]
+    },
+    {
+      "editionId": "shenzhen-marathon-2026",
+      "sources": [
+        {
+          "sourceId": "shenzhen-marathon-official-2026",
+          "url": "https://www.szns.gov.cn/ztzl/hdrl/content/post_12992578.html",
+          "domain": "www.szns.gov.cn",
+          "tier": "primary_official",
+          "sourceType": "notice",
+          "status": "active",
+          "isPrimary": true,
+          "notes": "Identity reviewed 2026-10-20: 2026深圳马拉松. Government republication explicitly attributed to 深圳马拉松; cross-check of organizer material, not generic calendar date.  Registry identity is not blanket fact approval. Field evidence must be current-edition and directly scoped."
+        },
+        {
+          "sourceId": "shenzhen-marathon-official-home-2026",
+          "url": "https://shenzhenmarathon.org.cn/subject.html?detailId=7447924346894135&topicId=6990420672320300",
+          "domain": "shenzhenmarathon.org.cn",
+          "tier": "primary_official",
+          "sourceType": "event_home",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Checked 2026-10-20: HTTP 200 dynamic shell only; no direct facts extracted. Government organizer republication supplies the dated evidence."
+        }
+      ]
+    },
+    {
+      "editionId": "fuzhou-marathon-2026",
+      "sources": [
+        {
+          "sourceId": "fuzhou-marathon-official-2026",
+          "url": "https://www.fuzhou-marathon.com/",
+          "domain": "www.fuzhou-marathon.com",
+          "tier": "primary_official",
+          "sourceType": "event_home",
+          "status": "active",
+          "isPrimary": true,
+          "notes": "Identity reviewed 2026-10-20: 2026左海·福州马拉松. Source Gap: fetched official HTML does not directly establish date/category dynamic facts. User content is not official field verification. Retain nulls and withhold public eligibility. Registry identity is not blanket fact approval. Field evidence must be current-edition and directly scoped. Supplement: official embedded 2026 poster/route manually verified; HTML extraction gap remains, referenced images separately registered."
+        },
+        {
+          "sourceId": "fuzhou-marathon-republication-2026",
+          "url": "https://news.fznews.com.cn/fzyw/20260911/W75RC3kmNp.shtml",
+          "domain": "news.fznews.com.cn",
+          "tier": "trusted_secondary",
+          "sourceType": "media_report",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Checked 2026-10-20: 福州新闻网, explicitly 来源：福州体育. Trusted official republication / reference only, not an original official regulation. No unverified group-specific finish or date filled."
+        },
+        {
+          "sourceId": "fuzhou-marathon-official-kv-2026",
+          "url": "https://www.fuzhou-marathon.com/t/icon/202609/202609101909521742.jpg",
+          "domain": "www.fuzhou-marathon.com",
+          "tier": "primary_official",
+          "sourceType": "notice",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "2026-10-20 read-only evidence: Official homepage directly embeds this current 2026 artwork. Manual image evidence for name/date only; existing text extractor cannot read image facts. Not a new OCR pipeline."
+        },
+        {
+          "sourceId": "fuzhou-marathon-official-route-2026",
+          "url": "https://www.fuzhou-marathon.com/t/icon/202609/202609101853106432.jpg",
+          "domain": "www.fuzhou-marathon.com",
+          "tier": "primary_official",
+          "sourceType": "category_page",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "2026-10-20 read-only evidence: Homepage 比赛路线 image. Both category routes/finish explicitly labelled. No category wave time or nominal-distance inference. Manual image evidence; automated image parsing unsupported."
+        },
+        {
+          "sourceId": "fuzhou-marathon-launch-media-2026",
+          "url": "https://news.fznews.com.cn/fzyw/20260910/316129C4V6.shtml",
+          "domain": "news.fznews.com.cn",
+          "tier": "trusted_secondary",
+          "sourceType": "media_report",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "2026-10-20 read-only evidence: 福州新闻网 original reporter coverage. Context/cross-check only, including overall 07:30; not primary_official."
+        }
+      ]
+    },
+    {
+      "editionId": "hengqin-marathon-2026",
+      "sources": [
+        {
+          "sourceId": "hengqin-marathon-official-2026",
+          "url": "https://www.hengqinmarathon.com/race-255.html",
+          "domain": "www.hengqinmarathon.com",
+          "tier": "primary_official",
+          "sourceType": "regulations",
+          "status": "active",
+          "isPrimary": true,
+          "notes": "Identity reviewed 2026-10-20: 2026横琴人寿保险横琴马拉松. General first gun 07:30; Category wave times announced separately and left null. Registry identity is not blanket fact approval. Field evidence must be current-edition and directly scoped."
+        }
+      ]
+    },
+    {
+      "editionId": "panda-shudao-shan-2027",
+      "sources": [
+        {
+          "sourceId": "panda-shudao-shan-official-2027",
+          "url": "https://tsaigu.saihuitong.com/event?id=741200&mid=58097",
+          "domain": "tsaigu.saihuitong.com",
+          "tier": "primary_official",
+          "sourceType": "event_home",
+          "status": "active",
+          "isPrimary": true,
+          "notes": "Identity reviewed 2026-10-20: 2027熊猫蜀道山超级越野赛. Source Gap: fetched official HTML does not directly establish date/category dynamic facts. User content is not official field verification. Retain nulls and withhold public eligibility. Registry identity is not blanket fact approval. Field evidence must be current-edition and directly scoped. Supplement: exact organizer outgoing registration link game 7664 and 2027 rules image now verified; original HTML still does not contain detailed rules."
+        },
+        {
+          "sourceId": "panda-shudao-shan-official-list-2027",
+          "url": "https://tsaigu.saihuitong.com/events?mid=58097",
+          "domain": "tsaigu.saihuitong.com",
+          "tier": "primary_official",
+          "sourceType": "event_home",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "2026-10-20 read-only evidence: Only card for event 741200 with 2027 title and 03/26-03/28 supports current dates; older neighboring events excluded."
+        },
+        {
+          "sourceId": "panda-shudao-shan-registration-2027",
+          "url": "https://sport.luojiweiye.com/web/weibu/#/pages/event/gameDetailGuide?id=7664",
+          "domain": "sport.luojiweiye.com",
+          "tier": "primary_official",
+          "sourceType": "registration_platform",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "2026-10-20 read-only evidence: Organizer event 741200 explicitly links to this exact gameDetailGuide?id=7664. Cross-domain authority is scoped to that outgoing link; JS shell is not the evidence body."
+        },
+        {
+          "sourceId": "panda-shudao-shan-official-rules-2027",
+          "url": "https://cdn.rockysports.cn/7664/image/20261013/lm13rkxWtL_hh6MsdygJDLzb0afq.jpg",
+          "domain": "cdn.rockysports.cn",
+          "tier": "primary_official",
+          "sourceType": "regulations",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "2026-10-20 read-only evidence: Exact image src read from rendered official-linked registration inquiryRegistration nav_id=5423 game_id=7664. 2027 rule identity and Category scopes manually verified. CDN URL is evidence only, no blanket CDN approval. Existing text extractor has no image/OCR support."
+        }
+      ]
     }
   ]
 }
