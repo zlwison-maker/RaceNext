@@ -1,6 +1,6 @@
 # RaceNext 1.9 · Seven-race integration handoff · 2026-10-20
 
-> 本文保留初次提交 `2414f9e` 的17场状态及取证缺口。最新事实与准入以[福州/熊猫补证记录](PR44_FUZHOU_PANDA_FACT_SUPPLEMENT_20261020.md)为准：19场事实 Gate PASS，18场 API 公开，熊猫图片 HOLD；未部署。
+> 本文保留初次提交 `2414f9e` 的17场状态及取证缺口。最新事实与准入以[福州/熊猫补证记录](PR44_FUZHOU_PANDA_FACT_SUPPLEMENT_20261020.md)为准：19场事实 Gate PASS，19场本地 API 可公开；Human 最新确认暂用既有熊猫图片，图片发布 HOLD 已解除，低分辨率记录保留；未部署。
 
 **Integrated：YES；自动化 QA：PASS；设备/完整发布 QA：未完成；Deployed：NO；Live Verified：NO。**
 

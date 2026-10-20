@@ -14,7 +14,7 @@ import { assertRaceSourceRegistry, activeFreshnessSources } from "../scripts/rac
 import { buildRaceDailyCheckTargets } from "../scripts/race-update/dailyCheck.ts";
 import { buildCanonicalReleaseManifest } from "../scripts/release/canonicalRelease.ts";
 import type { RaceGraphSnapshot, RaceSourceRegistry } from "../types/raceUpdate.ts";
-import { existingTwelveEditionIds, expectedPublicEditionIds, newPublicEditionIds, stagedEditionIds } from "./fixtures/contentBatch20261020.ts";
+import { existingTwelveEditionIds, expectedPublicEditionIds, newPublicEditionIds } from "./fixtures/contentBatch20261020.ts";
 
 const read = (p: string) => readFileSync(new URL(`../${p}`, import.meta.url));
 const graph = JSON.parse(read("data/canonical/race-graph-v1.json").toString()) as RaceGraphSnapshot;
@@ -62,7 +62,7 @@ test("all 35 approved hotel names, order, copy and opaque Ctrip actions match V2
   }
 });
 
-test("existing Fact Gate accepts supplemented facts; Public API retains the Human Panda image hold", () => {
+test("existing Fact Gate accepts supplemented facts; Public API includes all seven Human-approved Editions", () => {
   assertRaceGraphSnapshot(graph); assertRaceSourceRegistry(registry);
   equal(graph.records.length, 19); equal(newRecords.length, 7);
   const list = createPublicRaceListResult(graph); equal(list.status, 200); if (list.status !== 200) return;
@@ -72,23 +72,17 @@ test("existing Fact Gate accepts supplemented facts; Public API retains the Huma
     const id = r.edition.editionId;
     const gate = evaluatePrePublishFactGate(r, registry.editions.find(e => e.editionId === id));
     const detail = createPublicRaceDetailResult(graph, id);
-    if (stagedEditionIds.includes(id)) {
-      equal(gate.publishable, true); equal(r.edition.raceDate, "2027-03-26"); equal(r.edition.lifecycleStatus, "active"); equal(detail.status, 404);
-      deepEqual(r.edition.governance.internalFlags, ["do_not_publish"]);
-      ok(r.categories.every(c => c.governance.verificationStatus === "verified"));
-    } else {
-      ok(newPublicEditionIds.includes(id)); deepEqual(gate.issues, []); equal(gate.publishable, true); equal(detail.status, 200);
-      if (detail.status === 200) {
-        equal(detail.body.race.name, r.edition.editionName);
-        equal(detail.body.race.accommodationRecommendations.length, 5); ok(detail.body.race.raceGuide);
-        equal(detail.body.race.raceStrategy, null);
-        equal(detail.body.race.coverImage, detail.body.race.heroImage);
-        ok(!JSON.stringify(detail.body).includes("contentHash"));
-      }
+    ok(newPublicEditionIds.includes(id)); deepEqual(gate.issues, []); equal(gate.publishable, true); equal(detail.status, 200);
+    if (detail.status === 200) {
+      equal(detail.body.race.name, r.edition.editionName);
+      equal(detail.body.race.accommodationRecommendations.length, 5); ok(detail.body.race.raceGuide);
+      equal(detail.body.race.raceStrategy, null);
+      equal(detail.body.race.coverImage, detail.body.race.heroImage);
+      ok(!JSON.stringify(detail.body).includes("contentHash"));
     }
   }
   const manifest = buildCanonicalReleaseManifest(graph, registry, "a".repeat(40));
-  equal(manifest.expected.length, 19); // list + 18 public details; image-held Panda does not enter deployment manifest.
+  equal(manifest.expected.length, expectedPublicEditionIds.length + 1); // list + public details.
 });
 
 test("official category precision, wave times and conflict isolation do not infer missing facts", () => {

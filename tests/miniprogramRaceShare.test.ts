@@ -208,7 +208,7 @@ test("share config leaves imageUrl unset when external Cover and Hero are incomp
   equal("imageUrl" in config.timeline, false);
 });
 
-test("all public race Covers have deterministic centered 5:4 JPEG derivatives; staged Editions are excluded", () => {
+test("all public race Covers have deterministic centered 5:4 JPEG derivatives; narrow supplied images are not enlarged", async () => {
   const projectRoot = fileURLToPath(new URL("..", import.meta.url));
   execFileSync(
     process.execPath,
@@ -237,6 +237,15 @@ test("all public race Covers have deterministic centered 5:4 JPEG derivatives; s
     equal(bytes[1], 0xd8);
     equal(bytes[bytes.length - 2], 0xff);
     equal(bytes[bytes.length - 1], 0xd9);
+    const metadata = await sharp(bytes).metadata();
+    equal(metadata.width! * 4, metadata.height! * 5);
+    if (edition.editionId === "panda-shudao-shan-2027") {
+      deepEqual([metadata.width, metadata.height], [235, 188]);
+      const cover = await sharp(readFileSync(new URL(`../public${edition.coverImage}`, import.meta.url))).metadata();
+      ok(metadata.width! <= cover.width! && metadata.height! <= cover.height!);
+    } else {
+      deepEqual([metadata.width, metadata.height], [750, 600]);
+    }
   }
 });
 

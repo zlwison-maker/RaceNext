@@ -10,7 +10,7 @@ const graph = JSON.parse(readFileSync(graphPath, "utf8"));
 const checkOnly = process.argv.includes("--check");
 
 const outputs = [];
-// Staged Editions have no public share route. Do not enlarge their provisional art.
+// Staged Editions have no public share route.
 const publicRecords = graph.records.filter(isEditionPublishable);
 
 for (const record of publicRecords) {
@@ -19,9 +19,15 @@ for (const record of publicRecords) {
 
   const sourcePath = join(projectRoot, "public", coverImage);
   const outputPath = join(dirname(sourcePath), "share-cover-5x4.jpg");
+  const source = await sharp(sourcePath).metadata();
+  if (!source.width || !source.height) throw new Error(`Missing cover dimensions: ${sourcePath}`);
+  // Narrow supplied artwork keeps native pixels; existing wide-cover outputs stay unchanged.
+  const units = source.width < 750 ? Math.floor(Math.min(source.width / 5, source.height / 4)) : 150;
+  if (units < 1) throw new Error(`Cover too small for a 5:4 derivative: ${sourcePath}`);
+  const width = units * 5, height = units * 4;
   const output = await sharp(sourcePath)
     .rotate()
-    .resize(750, 600, { fit: "cover", position: "centre" })
+    .resize(width, height, { fit: "cover", position: "centre" })
     .jpeg({ quality: 88, chromaSubsampling: "4:4:4", progressive: false, mozjpeg: false })
     .toBuffer();
 
@@ -35,7 +41,7 @@ for (const record of publicRecords) {
   }
 
   const metadata = await sharp(output).metadata();
-  if (metadata.format !== "jpeg" || metadata.width !== 750 || metadata.height !== 600) {
+  if (metadata.format !== "jpeg" || metadata.width !== width || metadata.height !== height) {
     throw new Error(`Invalid share derivative: ${outputPath}`);
   }
 

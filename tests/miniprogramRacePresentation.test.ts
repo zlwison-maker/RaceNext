@@ -50,6 +50,7 @@ test("homepage keeps current and future races ordered by raceDate, with unknown 
       "xiamen-marathon-2027",
       "guangzhou-100-2027",
       "hk100-2027",
+      "panda-shudao-shan-2027",
       "unknown-date",
     ],
   );

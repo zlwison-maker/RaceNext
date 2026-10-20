@@ -1,6 +1,6 @@
 # RaceNext Project Context
 
-2026-10-20 集成分支记录：[初次七场 Handoff](SEVEN_RACE_CONTENT_INTEGRATION_20261020.md)；[福州/熊猫官方补证更新](PR44_FUZHOU_PANDA_FACT_SUPPLEMENT_20261020.md)。两场补证后19场通过既有事实 Gate，本地 API 为18场：熊猫因480×189图片仍按 Human 要求 HOLD。未合并、未部署，真机及线上验收未完成；下文保留历史生产状态。
+2026-10-20 集成分支记录：[初次七场 Handoff](SEVEN_RACE_CONTENT_INTEGRATION_20261020.md)；[福州/熊猫官方补证更新](PR44_FUZHOU_PANDA_FACT_SUPPLEMENT_20261020.md)。两场补证后19场通过既有事实 Gate，本地 API 为19场：Human 最新确认暂用既有熊猫480×189图片，解除图片发布 HOLD，仍记录低分辨率及待设备 QA。未合并、未部署，真机及线上验收未完成；下文保留历史生产状态。
 
 ## 1. Current Phase
 

@@ -6122,7 +6122,7 @@
           "lastUpdatedAt": "2026-10-20",
           "schemaVersion": "race-graph-v1",
           "dataQualityLevel": "B",
-          "reviewNotes": "Official 2027 rule image manually read through organizer outbound registration link. Fields verified separately; nominal K categories do not assert measured course distance. IMAGE QA HOLD: original Cover/Hero 480x189, no upscaling/replacement authorized; existing do_not_publish flag retains release hold. CP Facts and 160K Strategy remain absent. Registration window year not inferred from month-only text.",
+          "reviewNotes": "Official 2027 rule image manually read through organizer outbound registration link. Fields verified separately; nominal K categories do not assert measured course distance. Human Decision 2026-10-20: temporarily use the supplied 480x189 Cover/Hero and remove the image publication hold. Originals/display unchanged; low resolution remains documented, without upscaling or claiming full image/device QA PASS. CP Facts and 160K Strategy remain absent. Registration window year not inferred from month-only text.",
           "publicationGate": {
             "requestedEditionYear": 2027,
             "latestRelevantOfficialEditionYear": 2027,
@@ -6138,9 +6138,7 @@
             "publishable": true,
             "checkedAt": "2026-10-20"
           },
-          "internalFlags": [
-            "do_not_publish"
-          ]
+          "internalFlags": []
         }
       },
       "categories": [

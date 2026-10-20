@@ -1,6 +1,8 @@
 # PR #44 · 福州 / 熊猫蜀道山官方事实补证 · 2026-10-20
 
-**结论：19 个 Edition 通过原有 Public Fact Gate；实际本地 Public API 为18场。熊猫因图片 QA HOLD，继续由现有 `do_not_publish` 标记阻止公开。未合并、未部署，生产公开数未发生本轮变更。**
+**最新结论：Human 于2026-10-20确认“熊猫图片暂时先使用已提供的”。据此移除图片发布 HOLD，19 个 Edition 通过原有 Public Fact Gate，本地 Public API 返回19场。继续使用已集成的480×189图片，不替换、不放大；低清质量记录仍保留。未合并、未部署，不能宣称19场已上线。**
+
+下方补证与18场验收保留为 `a93436f` 时的历史证据；最新图片授权及复验见文末。
 
 继续原分支 `codex/seven-race-content-integration-20261020`，补证前 Head `2414f9e80b0c4bcc4a872b8893e9167a3de5eb92`，main 基线仍为 `19982016b49fa49c12b3d1916762ce60529487d0`。本文更新[初次接入记录](SEVEN_RACE_CONTENT_INTEGRATION_20261020.md)，保留其17场及当时证据缺口作为历史记录。
 
@@ -63,7 +65,7 @@ Edition：`panda-shudao-shan-2027`，官方名称 `2027熊猫蜀道山超级越�
 
 人工证据定位：P4的赛事介绍约y=2600–4300，报名资格约y=8800–11000，团队费用约y=12600，总关门章节约y=27100–28600，团队CP间隔规则约y=34800；均以原图1080×43837坐标计。
 
-## 发布状态与图片 HOLD
+## 补证提交时的发布状态与图片 HOLD（历史，a93436f）
 
 两场事实补证后 **19/19 Edition Public Fact Gate PASS**，没有改校验代码。福州实际详情200，本地列表17→18。熊猫 facts已验证、lifecycleStatus=active，但按本轮明确要求继续正式图片 QA HOLD；复用现有 `governance.internalFlags=["do_not_publish"]`，实际详情404，不进入公开列表或Release Manifest，不生成放大的分享图。
 
@@ -71,7 +73,7 @@ Edition：`panda-shudao-shan-2027`，官方名称 `2027熊猫蜀道山超级越�
 
 现有熊猫Cover/Hero仍480×189，七张图片资产/Hash均未替换、未放大；本次附图实际702×277，也未被当作已获正式QA通过的高清替代。Human需提供或明确批准合适高清图并完成压缩/裁切/分享检查，才能解除真实发布HOLD。当前目标“19场一起正式公开”**尚未达成**，剩余阻断为图片，及独立设备/上线授权；不是事实Gate失败。
 
-## 保护、验收及交接
+## 补证提交时的保护、验收及交接（历史，a93436f）
 
 - 七篇冻结Guide、35家酒店/推荐排序/文案、35条AppID/Path零修改；另外17场（原12+已通过5场）的Canonical和Registry条目不变。
 - 正式Pending仍36条、全部审核记录及Ingestion State bytes不变；无生产Pipeline、模型、Workflow Dispatch、Approve/Apply。Auto Apply OFF。
@@ -93,7 +95,7 @@ Edition：`panda-shudao-shan-2027`，官方名称 `2027熊猫蜀道山超级越�
 | P1 | `e460db9b456af43083dae257321bb64caf1eb96888ce498a1b3650379153dccc` | 44,809 |
 | P4 | `b5b07e1c2853d24f746ad214c2d70df185a54440419368128631c0d6d1587a75` | 4,993,288 |
 
-## 最终验收记录
+## 补证提交时的验收记录（历史，a93436f）
 
 | 项目 | 结果 |
 | --- | --- |
@@ -113,3 +115,25 @@ Edition：`panda-shudao-shan-2027`，官方名称 `2027熊猫蜀道山超级越�
 **生产只读数量核对**：2026-10-20 **18:38:10（Asia/Shanghai）**，GET https://racenext.run/api/races 返回200、application/json、12场；响应SHA-256为 `dc52454091adf1a57788a9f1ef857d3591b222da1ca98de2bba66ee8fbc2aedd`。这次读取不执行生产Pipeline或部署。
 
 因此分别为：**19个事实Gate合格 / 分支18场可公开 / 线上实测12场**。不把内存模拟解除HOLD或本地测试当成19场已发布。PR继续Draft，尚需Human审核及独立发布授权。
+
+## 最新 Human 图片决定与复验（2026-10-20）
+
+Human 明确确认：**“熊猫图片暂时先使用已提供的”**。本次据此移除熊猫 Edition 唯一的图片 `do_not_publish` 标记；事实 Gate、证据标准和其他发布限制不变。此前18场及图片 HOLD 记录属于历史状态。
+
+- 实际使用已集成的 **480×189** Original / Display，路径与Hash不变，没有换成新的图或增加像素。Asset Registry 两条 notes 记录本次临时接受，`qualityStatus=needs_higher_resolution` 保留；不宣称高清或完整图片/真机 QA 通过。
+- 为避免新公开的低清图被旧分享生成器放大，宽不足750像素的输入生成不超过原生尺寸的中心5:4缩略图；熊猫为 **235×188**，原有18张分享图 bytes 全部不变。分享URL、比例、API、UI及埋点契约不变。
+- 实际 Canonical 只移除熊猫的图片发布标记、补记 Human 决定；其他18场、熊猫全部组别事实均与 `a93436f` 相同。Registry / Pending（36条及审核历史）/ Ingestion State、七篇Guide、35酒店及其排序/文案/Ctrip动作字节不变。没有模型、生产Pipeline、Workflow、Approve/Apply、Merge或部署；Auto Apply OFF。
+
+| 复验 | 结果 |
+| --- | --- |
+| Public Fact Gate / Schema | 19/19 Edition PASS，未修改 Gate |
+| 本次内容/API/图片/列表定向测试 | 60/60 PASS；显式 `do_not_publish` 的隔离负向测试仍阻止列表、详情及Release Manifest |
+| npm test | 441/441 PASS，0 fail / skip |
+| typecheck / typecheck:miniprogram / lint | PASS |
+| images:share --check | 19/19 PASS；熊猫235×188，其余18张750×600原字节不变 |
+| build --webpack | PASS，配置不变 |
+| 构建后 localhost:3220 HTTP | 列表200/19场；熊猫详情200/5组/Guide/5酒店；85K³名称明确团队赛，Strategy=null，CP均null |
+| HTTP 图片 | 熊猫Cover200/480×189；分享图200/235×188 |
+| diff --check / 本次Markdown链接 | PASS |
+
+当前为 **19个事实Gate合格 / 分支19场可公开 / 尚未部署**。生产12场仅指上文18:38:10的只读快照，不能据本地19场验收宣称线上已扩容。PR #44继续Draft等待Human Review；PR #43独立保留，合并前需再次核对main和数据连续性。高清图后续可替换，但不再是本次Human临时图片决定下的发布阻断。剩余：广州55K关门冲突及福州未证实字段继续保留原隔离/空值；设备图片、实际携程跳转、微信真机及生产发布仍另行验收。

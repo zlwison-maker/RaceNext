@@ -45,6 +45,7 @@ test("public list returns only publishable canonical editions", () => {
     "xiamen-marathon-2027",
     "guangzhou-100-2027",
     "hk100-2027",
+    "panda-shudao-shan-2027",
   ]);
   equal(result.body.races.length, expectedPublicEditionIds.length);
   ok(result.body.races.every(({ coverImage }) => Boolean(coverImage)));
