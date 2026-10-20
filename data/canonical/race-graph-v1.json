@@ -3327,7 +3327,7 @@
         "venue": "广州市体育馆",
         "region": "south_china",
         "timezone": "Asia/Shanghai",
-        "registrationStatus": "unknown",
+        "registrationStatus": "registration_open",
         "registrationOpenDate": "2026-10-13",
         "registrationCloseDate": "2026-11-13",
         "registrationUrl": null,
@@ -3363,7 +3363,22 @@
                 "editionName": "2027凯乐石FUGA广州100越野赛",
                 "registrationOpenDate": "2026-10-13",
                 "registrationCloseDate": "2026-11-13",
-                "venue": "广州市体育馆"
+                "venue": "广州市体育馆",
+                "registrationStatus": "registration_open",
+                "qaEvidence20261020": {
+                  "url": "https://moganshan.saihuitong.com/article?id=71446&mid=57201",
+                  "finalUrl": "https://moganshan.saihuitong.com/article?id=71446&mid=57201",
+                  "status": 200,
+                  "contentType": "text/html;charset=UTF-8",
+                  "sha256": "516bc331a0ab4446d9c50f06a761f19e5cf15394758e56a2e9aaac6d10287e8f",
+                  "bytes": 239641,
+                  "fetchedAt": "2026-10-20T15:02:58.882290+00:00",
+                  "asOf": "2026-10-20",
+                  "registrationStage": "pre-registration and prepayment, 2026-10-13 through 2026-11-13; lottery results 2026-11-20",
+                  "fields": [
+                    "registrationStatus"
+                  ]
+                }
               }
             }
           ],
@@ -3423,6 +3438,13 @@
               "sourceName": "Human-approved seven-race image input, 2026-10-20",
               "confidence": 1,
               "updatedAt": "2026-10-20"
+            },
+            "registrationStatus": {
+              "field": "registrationStatus",
+              "sourceType": "official",
+              "sourceName": "2027凯乐石FUGA广州100越野赛 / 官方页面",
+              "confidence": 0.95,
+              "updatedAt": "2026-10-20"
             }
           },
           "sourcePriority": {
@@ -3465,8 +3487,8 @@
           "elevationGain": 5456,
           "cutoffTimeHours": 26.5,
           "startAt": "2027-01-15T19:30:00+08:00",
-          "startLocation": null,
-          "finishLocation": null,
+          "startLocation": "广州体育馆",
+          "finishLocation": "广州体育馆",
           "capacity": null,
           "shortName": "100公里组",
           "startTimes": [
@@ -3504,7 +3526,28 @@
                     "2027-01-15T19:30:00+08:00",
                     "2027-01-15T20:00:00+08:00",
                     "2027-01-15T20:30:00+08:00"
-                  ]
+                  ],
+                  "startLocation": "广州体育馆",
+                  "finishLocation": "广州体育馆",
+                  "qaEvidence20261020": {
+                    "url": "https://img.saihuitong.com/4717/richtext/13044845/sht/1a12f0df024bd26.png-w702",
+                    "finalUrl": "https://img.saihuitong.com/4717/richtext/13044845/sht/1a12f0df024bd26.png-w702",
+                    "status": 200,
+                    "contentType": "image/png",
+                    "sha256": "1afb38c94ede4ccdafd832cc4923cb62d9a7d83a707c62cc3c0f375e7c3e5071",
+                    "bytes": 673056,
+                    "fetchedAt": "2026-10-20T15:23:36.722864+00:00",
+                    "categoryId": "guangzhou-100-2027-100k",
+                    "fields": [
+                      "startLocation",
+                      "finishLocation"
+                    ],
+                    "referenceChain": [
+                      "https://moganshan.saihuitong.com/article?id=71446&mid=57201",
+                      "https://img.saihuitong.com/4717/richtext/13044845/sht/1a12f0df024bd26.png-w702"
+                    ],
+                    "evidenceLocator": "Current 2027 category map: S/F 广州体育馆, legend 起终点 START/FINISH. Actual distance and CP labels are not imported."
+                  }
                 }
               }
             ],
@@ -3543,6 +3586,20 @@
                 "sourceName": "2027凯乐石FUGA广州100越野赛 / 官方页面",
                 "confidence": 0.95,
                 "updatedAt": "2026-10-20"
+              },
+              "startLocation": {
+                "field": "startLocation",
+                "sourceType": "official",
+                "sourceName": "2027凯乐石FUGA广州100越野赛 / 官方页面",
+                "confidence": 0.95,
+                "updatedAt": "2026-10-20"
+              },
+              "finishLocation": {
+                "field": "finishLocation",
+                "sourceType": "official",
+                "sourceName": "2027凯乐石FUGA广州100越野赛 / 官方页面",
+                "confidence": 0.95,
+                "updatedAt": "2026-10-20"
               }
             },
             "sourcePriority": {
@@ -3553,8 +3610,6 @@
             "verificationStatus": "verified",
             "verifiedAt": "2026-10-20",
             "missingFields": [
-              "startLocation",
-              "finishLocation",
               "capacity"
             ],
             "lastCrawledAt": "2026-10-20",
@@ -3574,8 +3629,8 @@
           "elevationGain": 2531,
           "cutoffTimeHours": null,
           "startAt": "2027-01-16T07:00:00+08:00",
-          "startLocation": null,
-          "finishLocation": null,
+          "startLocation": "广州体育馆",
+          "finishLocation": "广州体育馆",
           "capacity": null,
           "shortName": "55公里组",
           "startTimes": [
@@ -3614,7 +3669,28 @@
                     "2027-01-16T07:30:00+08:00",
                     "2027-01-16T08:00:00+08:00",
                     "2027-01-16T08:30:00+08:00"
-                  ]
+                  ],
+                  "startLocation": "广州体育馆",
+                  "finishLocation": "广州体育馆",
+                  "qaEvidence20261020": {
+                    "url": "https://img.saihuitong.com/4717/richtext/13044845/sht/1a12f0e33431bb3.png-w702",
+                    "finalUrl": "https://img.saihuitong.com/4717/richtext/13044845/sht/1a12f0e33431bb3.png-w702",
+                    "status": 200,
+                    "contentType": "image/png",
+                    "sha256": "44f046a4f2b544611a1c052707265c8fb0fadd76dfdb3b48854ea80c253a4787",
+                    "bytes": 659032,
+                    "fetchedAt": "2026-10-20T15:23:39.184338+00:00",
+                    "categoryId": "guangzhou-100-2027-55k",
+                    "fields": [
+                      "startLocation",
+                      "finishLocation"
+                    ],
+                    "referenceChain": [
+                      "https://moganshan.saihuitong.com/article?id=71446&mid=57201",
+                      "https://img.saihuitong.com/4717/richtext/13044845/sht/1a12f0e33431bb3.png-w702"
+                    ],
+                    "evidenceLocator": "Current 2027 category map: S/F 广州体育馆, legend 起终点 START/FINISH. Actual distance and CP labels are not imported."
+                  }
                 }
               }
             ],
@@ -3646,6 +3722,20 @@
                 "sourceName": "2027凯乐石FUGA广州100越野赛 / 官方页面",
                 "confidence": 0.95,
                 "updatedAt": "2026-10-20"
+              },
+              "startLocation": {
+                "field": "startLocation",
+                "sourceType": "official",
+                "sourceName": "2027凯乐石FUGA广州100越野赛 / 官方页面",
+                "confidence": 0.95,
+                "updatedAt": "2026-10-20"
+              },
+              "finishLocation": {
+                "field": "finishLocation",
+                "sourceType": "official",
+                "sourceName": "2027凯乐石FUGA广州100越野赛 / 官方页面",
+                "confidence": 0.95,
+                "updatedAt": "2026-10-20"
               }
             },
             "sourcePriority": {
@@ -3657,8 +3747,6 @@
             "verifiedAt": null,
             "missingFields": [
               "cutoffTimeHours",
-              "startLocation",
-              "finishLocation",
               "capacity"
             ],
             "lastCrawledAt": "2026-10-20",
@@ -3678,8 +3766,8 @@
           "elevationGain": 1366,
           "cutoffTimeHours": 9,
           "startAt": "2027-01-17T06:00:00+08:00",
-          "startLocation": null,
-          "finishLocation": null,
+          "startLocation": "广州体育馆",
+          "finishLocation": "广州体育馆",
           "capacity": null,
           "shortName": "30公里组",
           "startTimes": [
@@ -3723,7 +3811,28 @@
                     "2027-01-17T07:30:00+08:00",
                     "2027-01-17T08:00:00+08:00",
                     "2027-01-17T08:30:00+08:00"
-                  ]
+                  ],
+                  "startLocation": "广州体育馆",
+                  "finishLocation": "广州体育馆",
+                  "qaEvidence20261020": {
+                    "url": "https://img.saihuitong.com/4717/richtext/13044845/sht/1a133013f6ff0bb.png-w702",
+                    "finalUrl": "https://img.saihuitong.com/4717/richtext/13044845/sht/1a133013f6ff0bb.png-w702",
+                    "status": 200,
+                    "contentType": "image/png",
+                    "sha256": "914e5bf98c4d1b8e28ec9823eecd18c1b68b77fead6728bcd0837d6ef52abd2d",
+                    "bytes": 655453,
+                    "fetchedAt": "2026-10-20T15:23:36.706520+00:00",
+                    "categoryId": "guangzhou-100-2027-30k",
+                    "fields": [
+                      "startLocation",
+                      "finishLocation"
+                    ],
+                    "referenceChain": [
+                      "https://moganshan.saihuitong.com/article?id=71446&mid=57201",
+                      "https://img.saihuitong.com/4717/richtext/13044845/sht/1a133013f6ff0bb.png-w702"
+                    ],
+                    "evidenceLocator": "Current 2027 category map: S/F 广州体育馆, legend 起终点 START/FINISH. Actual distance and CP labels are not imported."
+                  }
                 }
               }
             ],
@@ -3762,6 +3871,20 @@
                 "sourceName": "2027凯乐石FUGA广州100越野赛 / 官方页面",
                 "confidence": 0.95,
                 "updatedAt": "2026-10-20"
+              },
+              "startLocation": {
+                "field": "startLocation",
+                "sourceType": "official",
+                "sourceName": "2027凯乐石FUGA广州100越野赛 / 官方页面",
+                "confidence": 0.95,
+                "updatedAt": "2026-10-20"
+              },
+              "finishLocation": {
+                "field": "finishLocation",
+                "sourceType": "official",
+                "sourceName": "2027凯乐石FUGA广州100越野赛 / 官方页面",
+                "confidence": 0.95,
+                "updatedAt": "2026-10-20"
               }
             },
             "sourcePriority": {
@@ -3772,8 +3895,6 @@
             "verificationStatus": "verified",
             "verifiedAt": "2026-10-20",
             "missingFields": [
-              "startLocation",
-              "finishLocation",
               "capacity"
             ],
             "lastCrawledAt": "2026-10-20",
@@ -3793,8 +3914,8 @@
           "elevationGain": 362,
           "cutoffTimeHours": 3,
           "startAt": "2027-01-16T10:00:00+08:00",
-          "startLocation": null,
-          "finishLocation": null,
+          "startLocation": "广州体育馆",
+          "finishLocation": "广州体育馆",
           "capacity": null,
           "shortName": "10公里百里少年组",
           "startTimes": [
@@ -3828,7 +3949,28 @@
                   "startAt": "2027-01-16T10:00:00+08:00",
                   "startTimes": [
                     "2027-01-16T10:00:00+08:00"
-                  ]
+                  ],
+                  "startLocation": "广州体育馆",
+                  "finishLocation": "广州体育馆",
+                  "qaEvidence20261020": {
+                    "url": "https://img.saihuitong.com/4717/richtext/13044845/sht/1a13301646cf548.png-w702",
+                    "finalUrl": "https://img.saihuitong.com/4717/richtext/13044845/sht/1a13301646cf548.png-w702",
+                    "status": 200,
+                    "contentType": "image/png",
+                    "sha256": "b89db761d4507df373c69e37b82ddaccd5903bdfac7215d7e4a1a55e000302b5",
+                    "bytes": 496545,
+                    "fetchedAt": "2026-10-20T15:23:36.691101+00:00",
+                    "categoryId": "guangzhou-100-2027-10k-youth",
+                    "fields": [
+                      "startLocation",
+                      "finishLocation"
+                    ],
+                    "referenceChain": [
+                      "https://moganshan.saihuitong.com/article?id=71446&mid=57201",
+                      "https://img.saihuitong.com/4717/richtext/13044845/sht/1a13301646cf548.png-w702"
+                    ],
+                    "evidenceLocator": "Current 2027 category map: S/F 广州体育馆, legend 起终点 START/FINISH. Actual distance and CP labels are not imported."
+                  }
                 }
               }
             ],
@@ -3867,6 +4009,20 @@
                 "sourceName": "2027凯乐石FUGA广州100越野赛 / 官方页面",
                 "confidence": 0.95,
                 "updatedAt": "2026-10-20"
+              },
+              "startLocation": {
+                "field": "startLocation",
+                "sourceType": "official",
+                "sourceName": "2027凯乐石FUGA广州100越野赛 / 官方页面",
+                "confidence": 0.95,
+                "updatedAt": "2026-10-20"
+              },
+              "finishLocation": {
+                "field": "finishLocation",
+                "sourceType": "official",
+                "sourceName": "2027凯乐石FUGA广州100越野赛 / 官方页面",
+                "confidence": 0.95,
+                "updatedAt": "2026-10-20"
               }
             },
             "sourcePriority": {
@@ -3877,8 +4033,6 @@
             "verificationStatus": "verified",
             "verifiedAt": "2026-10-20",
             "missingFields": [
-              "startLocation",
-              "finishLocation",
               "capacity"
             ],
             "lastCrawledAt": "2026-10-20",
@@ -3898,8 +4052,8 @@
           "elevationGain": 362,
           "cutoffTimeHours": 3,
           "startAt": "2027-01-16T20:00:00+08:00",
-          "startLocation": null,
-          "finishLocation": null,
+          "startLocation": "广州体育馆",
+          "finishLocation": "广州体育馆",
           "capacity": null,
           "shortName": "10公里夜间体验组",
           "startTimes": [
@@ -3933,7 +4087,28 @@
                   "startAt": "2027-01-16T20:00:00+08:00",
                   "startTimes": [
                     "2027-01-16T20:00:00+08:00"
-                  ]
+                  ],
+                  "startLocation": "广州体育馆",
+                  "finishLocation": "广州体育馆",
+                  "qaEvidence20261020": {
+                    "url": "https://img.saihuitong.com/4717/richtext/13044845/sht/1a12f0fcd58bd0c.png-w702",
+                    "finalUrl": "https://img.saihuitong.com/4717/richtext/13044845/sht/1a12f0fcd58bd0c.png-w702",
+                    "status": 200,
+                    "contentType": "image/png",
+                    "sha256": "b43c2d87a591a23de2c44e4610037bbacc4c995e2770c3530561ed387776a635",
+                    "bytes": 613227,
+                    "fetchedAt": "2026-10-20T15:23:39.002988+00:00",
+                    "categoryId": "guangzhou-100-2027-10k-night",
+                    "fields": [
+                      "startLocation",
+                      "finishLocation"
+                    ],
+                    "referenceChain": [
+                      "https://moganshan.saihuitong.com/article?id=71446&mid=57201",
+                      "https://img.saihuitong.com/4717/richtext/13044845/sht/1a12f0fcd58bd0c.png-w702"
+                    ],
+                    "evidenceLocator": "Current 2027 category map: S/F 广州体育馆, legend 起终点 START/FINISH. Actual distance and CP labels are not imported."
+                  }
                 }
               }
             ],
@@ -3972,6 +4147,20 @@
                 "sourceName": "2027凯乐石FUGA广州100越野赛 / 官方页面",
                 "confidence": 0.95,
                 "updatedAt": "2026-10-20"
+              },
+              "startLocation": {
+                "field": "startLocation",
+                "sourceType": "official",
+                "sourceName": "2027凯乐石FUGA广州100越野赛 / 官方页面",
+                "confidence": 0.95,
+                "updatedAt": "2026-10-20"
+              },
+              "finishLocation": {
+                "field": "finishLocation",
+                "sourceType": "official",
+                "sourceName": "2027凯乐石FUGA广州100越野赛 / 官方页面",
+                "confidence": 0.95,
+                "updatedAt": "2026-10-20"
               }
             },
             "sourcePriority": {
@@ -3982,8 +4171,6 @@
             "verificationStatus": "verified",
             "verifiedAt": "2026-10-20",
             "missingFields": [
-              "startLocation",
-              "finishLocation",
               "capacity"
             ],
             "lastCrawledAt": "2026-10-20",
@@ -4073,10 +4260,10 @@
         "venue": "南京奥林匹克体育中心东门",
         "region": "east_china",
         "timezone": "Asia/Shanghai",
-        "registrationStatus": "unknown",
-        "registrationOpenDate": null,
-        "registrationCloseDate": null,
-        "registrationUrl": null,
+        "registrationStatus": "registration_closed",
+        "registrationOpenDate": "2026-07-28T10:00:00+08:00",
+        "registrationCloseDate": "2026-08-28T17:00:00+08:00",
+        "registrationUrl": "https://www.nj-marathon.cn/page/EA63XdLj8P5wjJqwoMrx.html",
         "officialWebsite": "https://nanjing.marathon.org.cn/page/nqAYNxdmyZqxDr12ekZB.html",
         "rulebookUrl": "https://nanjing.marathon.org.cn/page/nqAYNxdmyZqxDr12ekZB.html",
         "lifecycleStatus": "active",
@@ -4105,6 +4292,41 @@
                 "endDate": null,
                 "editionName": "2026南京银行南京马拉松",
                 "venue": "南京奥林匹克体育中心东门"
+              }
+            },
+            {
+              "sourceType": "official",
+              "sourceName": "2026南京马拉松官方报名须知",
+              "sourceUrl": "https://www.nj-marathon.cn/page/L51XZa20wrP7jAM6vG98.html",
+              "sourceRecordId": "nanjing-marathon-registration-notice-2026",
+              "crawledAt": "2026-10-20",
+              "confidence": 0.98,
+              "rawData": {
+                "editionYear": 2026,
+                "editionId": "nanjing-marathon-2026",
+                "contentHash": "4dd8080b4627dcd54c949ac6eb04397054a085714bedae37b23219f08d67be5d",
+                "fetchedAt": "2026-10-20T15:06:50.360134+00:00",
+                "evidenceLocator": "三（一）2026-07-28 10:00–08-28 17:00; 三（五）6–8: payment closes09-15, waitlist refunds after09-30; medical/pacer recruitment is not ordinary entry.",
+                "registrationStatus": "registration_closed",
+                "registrationOpenDate": "2026-07-28T10:00:00+08:00",
+                "registrationCloseDate": "2026-08-28T17:00:00+08:00",
+                "asOf": "2026-10-20",
+                "registrationStage": "regular entry and waiting-list allocation closed; special invited recruitment is outside this status",
+                "registrationUrl": "https://www.nj-marathon.cn/page/EA63XdLj8P5wjJqwoMrx.html",
+                "registrationLinkEvidence": {
+                  "url": "https://www.nj-marathon.cn/page/EA63XdLj8P5wjJqwoMrx.html",
+                  "finalUrl": "https://www.nj-marathon.cn/page/EA63XdLj8P5wjJqwoMrx.html",
+                  "status": 200,
+                  "contentType": "text/html; charset=UTF-8",
+                  "sha256": "b58fc76f8195be7a652cba56a6fc6ea59fbce96728beb18716dd09ffb52941da",
+                  "bytes": 16032,
+                  "fetchedAt": "2026-10-20T15:33:15.630856+00:00",
+                  "referenceChain": [
+                    "https://www.nj-marathon.cn/page/L51XZa20wrP7jAM6vG98.html",
+                    "https://www.nj-marathon.cn/page/EA63XdLj8P5wjJqwoMrx.html"
+                  ],
+                  "evidenceLocator": "2026 official navigation explicitly links this current Edition registration/runners-service page. Link availability does not reopen closed registration."
+                }
               }
             }
           ],
@@ -4143,6 +4365,34 @@
               "sourceName": "Human-approved seven-race image input, 2026-10-20",
               "confidence": 1,
               "updatedAt": "2026-10-20"
+            },
+            "registrationStatus": {
+              "field": "registrationStatus",
+              "sourceType": "official",
+              "sourceName": "2026南京马拉松官方报名须知",
+              "confidence": 0.98,
+              "updatedAt": "2026-10-20"
+            },
+            "registrationOpenDate": {
+              "field": "registrationOpenDate",
+              "sourceType": "official",
+              "sourceName": "2026南京马拉松官方报名须知",
+              "confidence": 0.98,
+              "updatedAt": "2026-10-20"
+            },
+            "registrationCloseDate": {
+              "field": "registrationCloseDate",
+              "sourceType": "official",
+              "sourceName": "2026南京马拉松官方报名须知",
+              "confidence": 0.98,
+              "updatedAt": "2026-10-20"
+            },
+            "registrationUrl": {
+              "field": "registrationUrl",
+              "sourceType": "official",
+              "sourceName": "2026南京马拉松官方报名须知",
+              "confidence": 0.98,
+              "updatedAt": "2026-10-20"
             }
           },
           "sourcePriority": {
@@ -4152,11 +4402,7 @@
           "verified": true,
           "verificationStatus": "verified",
           "verifiedAt": "2026-10-20",
-          "missingFields": [
-            "registrationUrl",
-            "registrationOpenDate",
-            "registrationCloseDate"
-          ],
+          "missingFields": [],
           "lastCrawledAt": "2026-10-20",
           "lastUpdatedAt": "2026-10-20",
           "schemaVersion": "race-graph-v1",
@@ -4185,7 +4431,7 @@
           "categoryName": "马拉松",
           "distanceKm": 42.195,
           "elevationGain": null,
-          "cutoffTimeHours": null,
+          "cutoffTimeHours": 6,
           "startAt": "2026-11-22T07:30:00+08:00",
           "startLocation": "南京奥林匹克体育中心东门",
           "finishLocation": "燕子矶滨江公园",
@@ -4227,7 +4473,25 @@
                     "2026-11-22T07:30:00+08:00",
                     "2026-11-22T07:45:00+08:00",
                     "2026-11-22T08:00:00+08:00"
-                  ]
+                  ],
+                  "cutoffTimeHours": 6,
+                  "qaEvidence20261020": {
+                    "url": "https://stor.ihuipao.com/image/7273463631557a6d76797071c39962fa.png",
+                    "status": 200,
+                    "contentType": "image/png",
+                    "sha256": "0c7324f8809247567432cd8812f47e85bda9f80b6f4716bb5c10e5122c7d455c",
+                    "bytes": 194216,
+                    "fetchedAt": "2026-10-20T15:21:00.114000+00:00",
+                    "categoryId": "nanjing-marathon-2026-marathon",
+                    "fields": [
+                      "cutoffTimeHours"
+                    ],
+                    "referenceChain": [
+                      "https://nanjing.marathon.org.cn/page/nqAYNxdmyZqxDr12ekZB.html",
+                      "https://stor.ihuipao.com/image/7273463631557a6d76797071c39962fa.png"
+                    ],
+                    "evidenceLocator": "Current official rule embedded cutoff table: finish13:30/13:45/14:00 minus official waves07:30/07:45/08:00 =6h for each wave. Starting-line cutoff row is not a start time."
+                  }
                 }
               }
             ],
@@ -4273,6 +4537,13 @@
                 "sourceName": "2026南京银行南京马拉松 / 官方页面",
                 "confidence": 0.95,
                 "updatedAt": "2026-10-20"
+              },
+              "cutoffTimeHours": {
+                "field": "cutoffTimeHours",
+                "sourceType": "official",
+                "sourceName": "2026南京银行南京马拉松 / 官方页面",
+                "confidence": 0.95,
+                "updatedAt": "2026-10-20"
               }
             },
             "sourcePriority": {
@@ -4283,8 +4554,7 @@
             "verificationStatus": "verified",
             "verifiedAt": "2026-10-20",
             "missingFields": [
-              "elevationGain",
-              "cutoffTimeHours"
+              "elevationGain"
             ],
             "lastCrawledAt": "2026-10-20",
             "lastUpdatedAt": "2026-10-20",
@@ -4371,10 +4641,10 @@
         "venue": "奥体中心东南侧（解放大道与洋江西路交叉口）",
         "region": "east_china",
         "timezone": "Asia/Shanghai",
-        "registrationStatus": "unknown",
-        "registrationOpenDate": null,
-        "registrationCloseDate": null,
-        "registrationUrl": null,
+        "registrationStatus": "registration_closed",
+        "registrationOpenDate": "2026-08-26T10:00:00+08:00",
+        "registrationCloseDate": "2026-09-06T17:00:00+08:00",
+        "registrationUrl": "http://www.sxym.org.cn/b/jiYrMv/entry.html",
         "officialWebsite": "http://www.sxym.org.cn/html/event.html",
         "rulebookUrl": "http://www.sxym.org.cn/html/event.html",
         "lifecycleStatus": "active",
@@ -4404,6 +4674,41 @@
                 "endDate": null,
                 "editionName": "2026瑞丰银行绍兴马拉松",
                 "venue": "奥体中心东南侧（解放大道与洋江西路交叉口）"
+              }
+            },
+            {
+              "sourceType": "official",
+              "sourceName": "2026绍兴马拉松官方报名须知",
+              "sourceUrl": "http://www.sxym.org.cn/html/bmxz.html",
+              "sourceRecordId": "shaoxing-marathon-registration-notice-2026",
+              "crawledAt": "2026-10-20",
+              "confidence": 0.98,
+              "rawData": {
+                "editionYear": 2026,
+                "editionId": "shaoxing-marathon-2026",
+                "contentHash": "a8459db30820f99befc233c907ebee77bcadcd8506e24027cb47c375e4ef9262",
+                "fetchedAt": "2026-10-20T15:09:34.120862+00:00",
+                "evidenceLocator": "三（一）08-26 10:00–09-06 17:00; 三（五）2–5: draw09-18, payment09-24 17:00, final waiting-list draw09-28 and unsuccessful refunds within5 working days.",
+                "registrationStatus": "registration_closed",
+                "registrationOpenDate": "2026-08-26T10:00:00+08:00",
+                "registrationCloseDate": "2026-09-06T17:00:00+08:00",
+                "asOf": "2026-10-20",
+                "registrationStage": "regular and waiting-list draws complete; future team sign-up only for already admitted runners",
+                "registrationUrl": "http://www.sxym.org.cn/b/jiYrMv/entry.html",
+                "registrationLinkEvidence": {
+                  "url": "http://www.sxym.org.cn/b/jiYrMv/entry.html",
+                  "finalUrl": "http://www.sxym.org.cn/b/jiYrMv/entry.html",
+                  "status": 200,
+                  "contentType": "text/html; charset=utf-8",
+                  "sha256": "d7311697965d4344e26f9df2b43a9143426008676ac1c6fed6115da8992d2488",
+                  "bytes": 13187,
+                  "fetchedAt": "2026-10-20T15:33:15.545337+00:00",
+                  "referenceChain": [
+                    "http://www.sxym.org.cn/html/event.html",
+                    "http://www.sxym.org.cn/b/jiYrMv/entry.html"
+                  ],
+                  "evidenceLocator": "2026 official navigation explicitly links this current Edition registration/runners-service page. Link availability does not reopen closed registration."
+                }
               }
             }
           ],
@@ -4442,6 +4747,34 @@
               "sourceName": "Human-approved seven-race image input, 2026-10-20",
               "confidence": 1,
               "updatedAt": "2026-10-20"
+            },
+            "registrationStatus": {
+              "field": "registrationStatus",
+              "sourceType": "official",
+              "sourceName": "2026绍兴马拉松官方报名须知",
+              "confidence": 0.98,
+              "updatedAt": "2026-10-20"
+            },
+            "registrationOpenDate": {
+              "field": "registrationOpenDate",
+              "sourceType": "official",
+              "sourceName": "2026绍兴马拉松官方报名须知",
+              "confidence": 0.98,
+              "updatedAt": "2026-10-20"
+            },
+            "registrationCloseDate": {
+              "field": "registrationCloseDate",
+              "sourceType": "official",
+              "sourceName": "2026绍兴马拉松官方报名须知",
+              "confidence": 0.98,
+              "updatedAt": "2026-10-20"
+            },
+            "registrationUrl": {
+              "field": "registrationUrl",
+              "sourceType": "official",
+              "sourceName": "2026绍兴马拉松官方报名须知",
+              "confidence": 0.98,
+              "updatedAt": "2026-10-20"
             }
           },
           "sourcePriority": {
@@ -4451,11 +4784,7 @@
           "verified": true,
           "verificationStatus": "verified",
           "verifiedAt": "2026-10-20",
-          "missingFields": [
-            "registrationUrl",
-            "registrationOpenDate",
-            "registrationCloseDate"
-          ],
+          "missingFields": [],
           "lastCrawledAt": "2026-10-20",
           "lastUpdatedAt": "2026-10-20",
           "schemaVersion": "race-graph-v1",
@@ -4769,7 +5098,7 @@
         "registrationStatus": "unknown",
         "registrationOpenDate": "2026-09-20T14:00:00+08:00",
         "registrationCloseDate": "2026-09-28T17:00:00+08:00",
-        "registrationUrl": null,
+        "registrationUrl": "https://shenzhen-registration.mararun.com/personal.html?lang=cn",
         "officialWebsite": "https://shenzhenmarathon.org.cn/subject.html?detailId=7447924346894135&topicId=6990420672320300",
         "rulebookUrl": "https://www.szns.gov.cn/ztzl/hdrl/content/post_12992578.html",
         "lifecycleStatus": "active",
@@ -4800,6 +5129,58 @@
                 "registrationOpenDate": "2026-09-20T14:00:00+08:00",
                 "registrationCloseDate": "2026-09-28T17:00:00+08:00",
                 "venue": "深圳市民中心"
+              }
+            },
+            {
+              "sourceType": "official",
+              "sourceName": "2026深圳马拉松官方中签缴费公告",
+              "sourceUrl": "https://shenzhenmarathon.org.cn/content.html?detailId=9071527999859602&topicId=6990423356675002",
+              "sourceRecordId": "shenzhen-marathon-result-2026",
+              "crawledAt": "2026-10-20",
+              "confidence": 0.98,
+              "rawData": {
+                "editionYear": 2026,
+                "editionId": "shenzhen-marathon-2026",
+                "contentHash": "4b4fbc257ff293aa37612e78e74ddbbc5e3b37019a0ffcaf57604faa687b05d4",
+                "fetchedAt": "2026-10-20T15:15:02.114193+00:00",
+                "evidenceLocator": "Organizer article JSON data.content; title explicitly 2026. Draw completed10-15; result/payment10-16 10:00–10-22 17:00; potential second draw date undecided.",
+                "contentUrl": "https://mara-public-res-online.oss-cn-beijing.aliyuncs.com/beta/cms/internal/shenzhenMarathon/detailArticle/9071527999859602.json",
+                "publishedAt": "2026-10-16 10:53:23",
+                "officialUpdatedAt": "2026-10-16 11:08:06",
+                "referenceChain": [
+                  "https://shenzhenmarathon.org.cn/subject.html?detailId=7447924346894135&topicId=6990420672320300",
+                  "https://res.mararun.com/online/mara-race/assets/js/sz/common.fae74916.js",
+                  "https://mara-public-res-online.oss-cn-beijing.aliyuncs.com/beta/cms/internal/shenzhenMarathon/articles/6990423356675002.json",
+                  "https://shenzhenmarathon.org.cn/content.html?detailId=9071527999859602&topicId=6990423356675002",
+                  "https://mara-public-res-online.oss-cn-beijing.aliyuncs.com/beta/cms/internal/shenzhenMarathon/detailArticle/9071527999859602.json"
+                ],
+                "asOf": "2026-10-20",
+                "registrationStage": "lottery_result_payment",
+                "statusMapping": "unknown: current enum has no result-payment stage; do not label completed draw as lottery-in-progress or reopen pre-registration",
+                "paymentOpenAt": "2026-10-16T10:00:00+08:00",
+                "paymentCloseAt": "2026-10-22T17:00:00+08:00"
+              }
+            },
+            {
+              "sourceType": "registration_platform",
+              "sourceName": "2026深圳马拉松官网指定报名平台",
+              "sourceUrl": "https://shenzhen-registration.mararun.com/personal.html?lang=cn",
+              "sourceRecordId": "shenzhen-marathon-registration-platform-2026",
+              "crawledAt": "2026-10-20",
+              "confidence": 0.98,
+              "rawData": {
+                "editionYear": 2026,
+                "editionId": "shenzhen-marathon-2026",
+                "registrationUrl": "https://shenzhen-registration.mararun.com/personal.html?lang=cn",
+                "contentHash": "3f36faf12b7bad7b801eef73b92034721bae8482351155f9c5f1e3bed2a3746c",
+                "fetchedAt": "2026-10-20T15:36:36.586250+00:00",
+                "referenceChain": [
+                  "https://mara-public-res-online.oss-cn-beijing.aliyuncs.com/beta/cms/internal/shenzhenMarathon/homeIndex.json",
+                  "https://shenzhen-registration.mararun.com/personal.html?lang=cn"
+                ],
+                "parentContentHash": "27b89317394bf8d639403b7bcd9b7283285bee7945009cf998b9e2c87c60087f",
+                "evidenceLocator": "Official2026 homeIndex meta.match.data.applyUrl; runStartTime2026-12-06. applyStartTime2024 is stale and deliberately NOT used.",
+                "verificationScope": "public landing URL only; no account, entry submission or payment tested"
               }
             }
           ],
@@ -4852,6 +5233,13 @@
               "sourceName": "Human-approved seven-race image input, 2026-10-20",
               "confidence": 1,
               "updatedAt": "2026-10-20"
+            },
+            "registrationUrl": {
+              "field": "registrationUrl",
+              "sourceType": "registration_platform",
+              "sourceName": "2026深圳马拉松官网指定报名平台",
+              "confidence": 0.98,
+              "updatedAt": "2026-10-20"
             }
           },
           "sourcePriority": {
@@ -4861,14 +5249,12 @@
           "verified": true,
           "verificationStatus": "verified",
           "verifiedAt": "2026-10-20",
-          "missingFields": [
-            "registrationUrl"
-          ],
+          "missingFields": [],
           "lastCrawledAt": "2026-10-20",
           "lastUpdatedAt": "2026-10-20",
           "schemaVersion": "race-graph-v1",
           "dataQualityLevel": "B",
-          "reviewNotes": null,
+          "reviewNotes": " QA2026-10-20: first draw completed; currently admitted-runner payment until10-22 17:00, second draw date unknown. Existing enum cannot faithfully express payment stage; registrationStatus stays unknown for Human Review, not registration_open/lottery/closed.",
           "publicationGate": {
             "requestedEditionYear": 2026,
             "latestRelevantOfficialEditionYear": 2026,
@@ -4892,7 +5278,7 @@
           "categoryName": "马拉松",
           "distanceKm": 42.195,
           "elevationGain": null,
-          "cutoffTimeHours": null,
+          "cutoffTimeHours": 6,
           "startAt": "2026-12-06T07:00:00+08:00",
           "startLocation": "深圳市民中心",
           "finishLocation": "宝安区海滨广场",
@@ -4930,6 +5316,32 @@
                   "capacity": 30000,
                   "startTimes": [
                     "2026-12-06T07:00:00+08:00"
+                  ]
+                }
+              },
+              {
+                "sourceType": "official",
+                "sourceName": "2026深圳马拉松官方竞赛规程",
+                "sourceUrl": "https://shenzhenmarathon.org.cn/content.html?detailId=9030978593023542&topicId=6990423356675002",
+                "sourceRecordId": "shenzhen-marathon-current-rules-2026",
+                "crawledAt": "2026-10-20",
+                "confidence": 0.98,
+                "rawData": {
+                  "editionYear": 2026,
+                  "editionId": "shenzhen-marathon-2026",
+                  "contentHash": "4c5b4c24510c18bdf756d02f72062fb408fd0ba2403fcbc6d664c951db12e10b",
+                  "fetchedAt": "2026-10-20T15:15:02.267425+00:00",
+                  "evidenceLocator": "Organizer article JSON data.content; title explicitly 2026. 十一（六）42.195km row: 6 hours, each wave clock.",
+                  "cutoffTimeHours": 6,
+                  "contentUrl": "https://mara-public-res-online.oss-cn-beijing.aliyuncs.com/beta/cms/internal/shenzhenMarathon/detailArticle/9030978593023542.json",
+                  "publishedAt": "2026-09-18 11:31:10",
+                  "officialUpdatedAt": "2026-09-18 11:41:08",
+                  "referenceChain": [
+                    "https://shenzhenmarathon.org.cn/subject.html?detailId=7447924346894135&topicId=6990420672320300",
+                    "https://res.mararun.com/online/mara-race/assets/js/sz/common.fae74916.js",
+                    "https://mara-public-res-online.oss-cn-beijing.aliyuncs.com/beta/cms/internal/shenzhenMarathon/articles/6990423356675002.json",
+                    "https://shenzhenmarathon.org.cn/content.html?detailId=9030978593023542&topicId=6990423356675002",
+                    "https://mara-public-res-online.oss-cn-beijing.aliyuncs.com/beta/cms/internal/shenzhenMarathon/detailArticle/9030978593023542.json"
                   ]
                 }
               }
@@ -4976,6 +5388,13 @@
                 "sourceName": "2026深圳马拉松 / 深圳市南山区政府转载主办方资料",
                 "confidence": 0.95,
                 "updatedAt": "2026-10-20"
+              },
+              "cutoffTimeHours": {
+                "field": "cutoffTimeHours",
+                "sourceType": "official",
+                "sourceName": "2026深圳马拉松官方竞赛规程",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
               }
             },
             "sourcePriority": {
@@ -4986,8 +5405,7 @@
             "verificationStatus": "verified",
             "verifiedAt": "2026-10-20",
             "missingFields": [
-              "elevationGain",
-              "cutoffTimeHours"
+              "elevationGain"
             ],
             "lastCrawledAt": "2026-10-20",
             "lastUpdatedAt": "2026-10-20",
@@ -5092,8 +5510,8 @@
         "region": "east_china",
         "timezone": "Asia/Shanghai",
         "registrationStatus": "unknown",
-        "registrationOpenDate": null,
-        "registrationCloseDate": null,
+        "registrationOpenDate": "2026-09-10T20:00:00+08:00",
+        "registrationCloseDate": "2026-09-19T17:00:00+08:00",
         "registrationUrl": null,
         "officialWebsite": "https://www.fuzhou-marathon.com/",
         "rulebookUrl": null,
@@ -5182,6 +5600,48 @@
                 "fetchedAt": "2026-10-20T10:19:37.104905+00:00",
                 "evidenceLocator": "2026-09-10 20:41:23; reporter launch coverage; overall start only, not Category wave evidence."
               }
+            },
+            {
+              "sourceType": "media",
+              "sourceName": "福州本地宝：2026福马报名须知转载（非官方原文）",
+              "sourceUrl": "https://fz.bendibao.com/news/2026910/81057.shtm",
+              "sourceRecordId": "fuzhou-marathon-registration-reprint-2026",
+              "crawledAt": "2026-10-20",
+              "confidence": 0.85,
+              "rawData": {
+                "editionYear": 2026,
+                "editionId": "fuzhou-marathon-2026",
+                "contentHash": "cff0c480fd6a74c02ffc963fd240fb748961d5697e5e94589dfb6fbd810a1f3e",
+                "fetchedAt": "2026-10-20T15:17:45.433686+00:00",
+                "evidenceLocator": "2026 title and一（二）official nominal projects: Marathon42.195km, Half21.0975km; 四（一）pre-registration09-10 20:00–09-19 17:00. Not overall wave evidence.",
+                "registrationOpenDate": "2026-09-10T20:00:00+08:00",
+                "registrationCloseDate": "2026-09-19T17:00:00+08:00",
+                "publishedAt": "2026-09-10T15:07:00+08:00",
+                "tier": "trusted_secondary",
+                "directOfficialVerification": false,
+                "crossCheckUrl": "https://chinamarathon.com/events/76249",
+                "crossCheckHash": "b48ac0911b22e5103d7d42181653b23343503ce6f8a3c751f435a50779add3b8",
+                "asOf": "2026-10-20"
+              }
+            },
+            {
+              "sourceType": "official",
+              "sourceName": "福州马拉松官方公众号：2026福马缴费及补录问答",
+              "sourceUrl": "https://mp.weixin.qq.com/s/tRgo2hrix5uYW1d3QMe_GQ",
+              "sourceRecordId": "fuzhou-marathon-payment-faq-2026",
+              "crawledAt": "2026-10-20",
+              "confidence": 0.98,
+              "rawData": {
+                "editionYear": 2026,
+                "editionId": "fuzhou-marathon-2026",
+                "contentHash": "3efc0cc7c1c995bcc76d5907cf19cd6e08688d1ba697b79326f0750054998839",
+                "fetchedAt": "2026-10-20T15:10:46.539356+00:00",
+                "evidenceLocator": "Account nickname福州马拉松, user_name gh_48faf407f407, current2026 title; Q4: second draw conditional, timing to be separately announced.",
+                "publishedAt": "2026-10-03T09:30:00+08:00",
+                "asOf": "2026-10-20",
+                "registrationStage": "first draw payment ended per notice; second draw unconfirmed",
+                "statusMapping": "unknown: no verified later announcement settling the conditional second draw"
+              }
             }
           ],
           "fieldSources": {
@@ -5219,6 +5679,20 @@
               "sourceName": "2026左海·福州马拉松官网比赛路线图",
               "confidence": 0.98,
               "updatedAt": "2026-10-20"
+            },
+            "registrationOpenDate": {
+              "field": "registrationOpenDate",
+              "sourceType": "media",
+              "sourceName": "福州本地宝：2026福马报名须知转载（非官方原文）",
+              "confidence": 0.85,
+              "updatedAt": "2026-10-20"
+            },
+            "registrationCloseDate": {
+              "field": "registrationCloseDate",
+              "sourceType": "media",
+              "sourceName": "福州本地宝：2026福马报名须知转载（非官方原文）",
+              "confidence": 0.85,
+              "updatedAt": "2026-10-20"
             }
           },
           "sourcePriority": {
@@ -5229,15 +5703,13 @@
           "verificationStatus": "verified",
           "verifiedAt": "2026-10-20",
           "missingFields": [
-            "registrationOpenDate",
-            "registrationCloseDate",
             "registrationUrl"
           ],
           "lastCrawledAt": "2026-10-20",
           "lastUpdatedAt": "2026-10-20",
           "schemaVersion": "race-graph-v1",
           "dataQualityLevel": "B",
-          "reviewNotes": "Official poster date and current route manually inspected. Category-specific startAt/startTimes, nominal distances, elevation, cutoff and capacities remain unverified/null. Media 07:30 is overall only. Verified refers to evidenced populated fields, not all possible fields.",
+          "reviewNotes": "Official poster date and current route manually inspected. Category-specific startAt/startTimes, nominal distances, elevation, cutoff and capacities remain unverified/null. Media 07:30 is overall only. Verified refers to evidenced populated fields, not all possible fields. QA2026-10-20: primary official10-03 FAQ leaves second draw conditional; latest post10-12 state not established. registrationStatus stays unknown; regular pre-registration dates separately confirmed at trusted-secondary tier.",
           "publicationGate": {
             "requestedEditionYear": 2026,
             "latestRelevantOfficialEditionYear": 2026,
@@ -5259,7 +5731,7 @@
           "categoryId": "fuzhou-marathon-2026-marathon",
           "editionId": "fuzhou-marathon-2026",
           "categoryName": "马拉松",
-          "distanceKm": null,
+          "distanceKm": 42.195,
           "elevationGain": null,
           "cutoffTimeHours": null,
           "startAt": null,
@@ -5300,6 +5772,35 @@
                   "categoryName": "马拉松",
                   "categoryId": "fuzhou-marathon-2026-marathon"
                 }
+              },
+              {
+                "sourceType": "media",
+                "sourceName": "福州本地宝：2026福马报名须知转载（非官方原文）",
+                "sourceUrl": "https://fz.bendibao.com/news/2026910/81057.shtm",
+                "sourceRecordId": "fuzhou-marathon-registration-reprint-2026",
+                "crawledAt": "2026-10-20",
+                "confidence": 0.85,
+                "rawData": {
+                  "editionYear": 2026,
+                  "editionId": "fuzhou-marathon-2026",
+                  "contentHash": "cff0c480fd6a74c02ffc963fd240fb748961d5697e5e94589dfb6fbd810a1f3e",
+                  "fetchedAt": "2026-10-20T15:17:45.433686+00:00",
+                  "evidenceLocator": "2026 title and一（二）official nominal projects: Marathon42.195km, Half21.0975km; 四（一）pre-registration09-10 20:00–09-19 17:00. Not overall wave evidence.",
+                  "registrationOpenDate": "2026-09-10T20:00:00+08:00",
+                  "registrationCloseDate": "2026-09-19T17:00:00+08:00",
+                  "publishedAt": "2026-09-10T15:07:00+08:00",
+                  "tier": "trusted_secondary",
+                  "directOfficialVerification": false,
+                  "crossCheckUrl": "https://chinamarathon.com/events/76249",
+                  "crossCheckHash": "b48ac0911b22e5103d7d42181653b23343503ce6f8a3c751f435a50779add3b8",
+                  "asOf": "2026-10-20",
+                  "categoryId": "fuzhou-marathon-2026-marathon",
+                  "categoryName": "马拉松",
+                  "distanceKm": 42.195,
+                  "officialNominalCategoryLabel": "马拉松",
+                  "distanceSemantic": "published nominal Category distance; not route marker/GPS/GPX measurement",
+                  "verificationScope": "trusted_secondary_verified; direct official nominal-distance proof pending"
+                }
               }
             ],
             "fieldSources": {
@@ -5323,6 +5824,13 @@
                 "sourceName": "2026左海·福州马拉松官网比赛路线图",
                 "confidence": 0.98,
                 "updatedAt": "2026-10-20"
+              },
+              "distanceKm": {
+                "field": "distanceKm",
+                "sourceType": "media",
+                "sourceName": "福州本地宝：2026福马报名须知转载（非官方原文）",
+                "confidence": 0.85,
+                "updatedAt": "2026-10-20"
               }
             },
             "sourcePriority": {
@@ -5333,7 +5841,6 @@
             "verificationStatus": "verified",
             "verifiedAt": "2026-10-20",
             "missingFields": [
-              "distanceKm",
               "elevationGain",
               "cutoffTimeHours",
               "startAt",
@@ -5344,14 +5851,14 @@
             "lastUpdatedAt": "2026-10-20",
             "schemaVersion": "race-graph-v1",
             "dataQualityLevel": "B",
-            "reviewNotes": "Current official route explicitly labels both 全程/半程终点 and shared start. Distances are not inferred from generic names or intermediate route markers; per-Category wave time remains null. Secondary reporter values are not promoted to primary official facts."
+            "reviewNotes": "Current official route explicitly labels both 全程/半程终点 and shared start. Distances are not inferred from generic names or intermediate route markers; per-Category wave time remains null. Secondary reporter values are not promoted to primary official facts. QA2026-10-20: nominal distance verified against dated trusted-secondary 2026 registration notice reproduction and independent crosscheck, not Official Verified. Original official nominal-distance document still requested for follow-up. Overall07:30 is not applied to both categories."
           }
         },
         {
           "categoryId": "fuzhou-marathon-2026-half-marathon",
           "editionId": "fuzhou-marathon-2026",
           "categoryName": "半程马拉松",
-          "distanceKm": null,
+          "distanceKm": 21.0975,
           "elevationGain": null,
           "cutoffTimeHours": null,
           "startAt": null,
@@ -5392,6 +5899,35 @@
                   "categoryName": "半程马拉松",
                   "categoryId": "fuzhou-marathon-2026-half-marathon"
                 }
+              },
+              {
+                "sourceType": "media",
+                "sourceName": "福州本地宝：2026福马报名须知转载（非官方原文）",
+                "sourceUrl": "https://fz.bendibao.com/news/2026910/81057.shtm",
+                "sourceRecordId": "fuzhou-marathon-registration-reprint-2026",
+                "crawledAt": "2026-10-20",
+                "confidence": 0.85,
+                "rawData": {
+                  "editionYear": 2026,
+                  "editionId": "fuzhou-marathon-2026",
+                  "contentHash": "cff0c480fd6a74c02ffc963fd240fb748961d5697e5e94589dfb6fbd810a1f3e",
+                  "fetchedAt": "2026-10-20T15:17:45.433686+00:00",
+                  "evidenceLocator": "2026 title and一（二）official nominal projects: Marathon42.195km, Half21.0975km; 四（一）pre-registration09-10 20:00–09-19 17:00. Not overall wave evidence.",
+                  "registrationOpenDate": "2026-09-10T20:00:00+08:00",
+                  "registrationCloseDate": "2026-09-19T17:00:00+08:00",
+                  "publishedAt": "2026-09-10T15:07:00+08:00",
+                  "tier": "trusted_secondary",
+                  "directOfficialVerification": false,
+                  "crossCheckUrl": "https://chinamarathon.com/events/76249",
+                  "crossCheckHash": "b48ac0911b22e5103d7d42181653b23343503ce6f8a3c751f435a50779add3b8",
+                  "asOf": "2026-10-20",
+                  "categoryId": "fuzhou-marathon-2026-half-marathon",
+                  "categoryName": "半程马拉松",
+                  "distanceKm": 21.0975,
+                  "officialNominalCategoryLabel": "半程马拉松",
+                  "distanceSemantic": "published nominal Category distance; not route marker/GPS/GPX measurement",
+                  "verificationScope": "trusted_secondary_verified; direct official nominal-distance proof pending"
+                }
               }
             ],
             "fieldSources": {
@@ -5415,6 +5951,13 @@
                 "sourceName": "2026左海·福州马拉松官网比赛路线图",
                 "confidence": 0.98,
                 "updatedAt": "2026-10-20"
+              },
+              "distanceKm": {
+                "field": "distanceKm",
+                "sourceType": "media",
+                "sourceName": "福州本地宝：2026福马报名须知转载（非官方原文）",
+                "confidence": 0.85,
+                "updatedAt": "2026-10-20"
               }
             },
             "sourcePriority": {
@@ -5425,7 +5968,6 @@
             "verificationStatus": "verified",
             "verifiedAt": "2026-10-20",
             "missingFields": [
-              "distanceKm",
               "elevationGain",
               "cutoffTimeHours",
               "startAt",
@@ -5436,7 +5978,7 @@
             "lastUpdatedAt": "2026-10-20",
             "schemaVersion": "race-graph-v1",
             "dataQualityLevel": "B",
-            "reviewNotes": "Current official route explicitly labels both 全程/半程终点 and shared start. Distances are not inferred from generic names or intermediate route markers; per-Category wave time remains null. Secondary reporter values are not promoted to primary official facts."
+            "reviewNotes": "Current official route explicitly labels both 全程/半程终点 and shared start. Distances are not inferred from generic names or intermediate route markers; per-Category wave time remains null. Secondary reporter values are not promoted to primary official facts. QA2026-10-20: nominal distance verified against dated trusted-secondary 2026 registration notice reproduction and independent crosscheck, not Official Verified. Original official nominal-distance document still requested for follow-up. Overall07:30 is not applied to both categories."
           }
         }
       ]
@@ -5520,7 +6062,7 @@
         "registrationStatus": "unknown",
         "registrationOpenDate": "2026-08-18T10:00:00+08:00",
         "registrationCloseDate": "2026-09-12T22:00:00+08:00",
-        "registrationUrl": null,
+        "registrationUrl": "https://hq-registration.mararun.com",
         "officialWebsite": "https://www.hengqinmarathon.com/race-255.html",
         "rulebookUrl": "https://www.hengqinmarathon.com/race-255.html",
         "lifecycleStatus": "active",
@@ -5552,6 +6094,49 @@
                 "registrationOpenDate": "2026-08-18T10:00:00+08:00",
                 "registrationCloseDate": "2026-09-12T22:00:00+08:00",
                 "venue": "横琴金融岛中央公园"
+              }
+            },
+            {
+              "sourceType": "official",
+              "sourceName": "2026横琴马拉松官方抽签结果与候补说明",
+              "sourceUrl": "https://www.hengqinmarathon.com/news_detail-285.html",
+              "sourceRecordId": "hengqin-marathon-result-2026",
+              "crawledAt": "2026-10-20",
+              "confidence": 0.98,
+              "rawData": {
+                "editionYear": 2026,
+                "editionId": "hengqin-marathon-2026",
+                "contentHash": "eba9f51826586ce4fc26c0bc2d115420cde2f3cfce282d690fe5e9baba0bde1d",
+                "fetchedAt": "2026-10-20T15:06:50.536682+00:00",
+                "evidenceLocator": "Official09-21 notice: payment closes10-08 22:00, afterwards sequential paid-waitlist replacement; no explicit replacement end. Original报名须知 instead says early-October supplement/refund. Do not infer all channels closed.",
+                "publishedAt": "2026-09-21T10:29:10+08:00",
+                "asOf": "2026-10-20",
+                "registrationStage": "regular pre-registration closed; current paid waitlist end unresolved",
+                "conflictingSourceUrl": "https://www.hengqinmarathon.com/race-256.html",
+                "conflictingSourceHash": "c0239bce3f20ecb638db7ce72ec4d48b45cd3246b4bf5d6086e7d8d0741242b5",
+                "statusMapping": "unknown pending Human Review of waitlist end; not automatically closed because pre-registration deadline passed"
+              }
+            },
+            {
+              "sourceType": "registration_platform",
+              "sourceName": "2026横琴马拉松官网指定报名平台",
+              "sourceUrl": "https://hq-registration.mararun.com",
+              "sourceRecordId": "hengqin-marathon-registration-platform-2026",
+              "crawledAt": "2026-10-20",
+              "confidence": 0.98,
+              "rawData": {
+                "editionYear": 2026,
+                "editionId": "hengqin-marathon-2026",
+                "registrationUrl": "https://hq-registration.mararun.com",
+                "contentHash": "0a169f1a994490d6f1de8a1a44e873e286feccbeea382172b9d17f284f3de199",
+                "fetchedAt": "2026-10-20T15:33:15.723711+00:00",
+                "referenceChain": [
+                  "https://www.hengqinmarathon.com/race-255.html",
+                  "https://hq-registration.mararun.com"
+                ],
+                "parentContentHash": "9fb95780bcfe24671137cfd6db0014c885087cf8400b24e1b000a087c106fd0f",
+                "evidenceLocator": "Official2026 competition rules navigation href hq-registration.mararun.com. Current portal binding from organizer link, not guessed domain.",
+                "verificationScope": "public landing URL only; no account, entry submission or payment tested"
               }
             }
           ],
@@ -5604,6 +6189,13 @@
               "sourceName": "Human-approved seven-race image input, 2026-10-20",
               "confidence": 1,
               "updatedAt": "2026-10-20"
+            },
+            "registrationUrl": {
+              "field": "registrationUrl",
+              "sourceType": "registration_platform",
+              "sourceName": "2026横琴马拉松官网指定报名平台",
+              "confidence": 0.98,
+              "updatedAt": "2026-10-20"
             }
           },
           "sourcePriority": {
@@ -5613,14 +6205,12 @@
           "verified": true,
           "verificationStatus": "verified",
           "verifiedAt": "2026-10-20",
-          "missingFields": [
-            "registrationUrl"
-          ],
+          "missingFields": [],
           "lastCrawledAt": "2026-10-20",
           "lastUpdatedAt": "2026-10-20",
           "schemaVersion": "race-graph-v1",
           "dataQualityLevel": "B",
-          "reviewNotes": "General first gun 07:30; Category wave times announced separately and left null.",
+          "reviewNotes": "General first gun 07:30; Category wave times announced separately and left null. QA2026-10-20: keep unknown: official result notice allows sequential waitlist after10-08 payment close but registration notice describes early-October supplement end/refund. Latest definitive waitlist end not verified; wave-specific starts remain unpublished.",
           "publicationGate": {
             "requestedEditionYear": 2026,
             "latestRelevantOfficialEditionYear": 2026,
@@ -5949,7 +6539,7 @@
         "venue": "白鹿音乐广场",
         "region": "southwest_china",
         "timezone": "Asia/Shanghai",
-        "registrationStatus": "unknown",
+        "registrationStatus": "registration_open",
         "registrationOpenDate": null,
         "registrationCloseDate": null,
         "registrationUrl": "https://sport.luojiweiye.com/web/weibu/#/pages/event/gameDetailGuide?id=7664",
@@ -5998,7 +6588,26 @@
                 "endDate": "2027-03-28",
                 "contentHash": "7f98ae03b535ab6bc0e094bf4c290db444eb52a4b405fab488ee469a8307ad03",
                 "fetchedAt": "2026-10-20T10:19:37.262282+00:00",
-                "evidenceLocator": "2027 card href event?id=741200&mid=58097; 03/26-03/28 on that card only. Adjacent 2026 cards excluded."
+                "evidenceLocator": "2027 card href event?id=741200&mid=58097; 03/26-03/28 on that card only. Adjacent 2026 cards excluded.",
+                "registrationStatus": "registration_open",
+                "qaEvidence20261020": {
+                  "url": "https://tsaigu.saihuitong.com/events?mid=58097",
+                  "finalUrl": "https://tsaigu.saihuitong.com/events?mid=58097",
+                  "status": 200,
+                  "contentType": "text/html;charset=UTF-8",
+                  "sha256": "eeff0d725da11955b525ef758e960e70a1baaa4604d1357648f565441d8432de",
+                  "bytes": 38211,
+                  "fetchedAt": "2026-10-20T15:10:46.588722+00:00",
+                  "asOf": "2026-10-20",
+                  "fields": [
+                    "registrationStatus"
+                  ],
+                  "evidenceLocator": "Only the card linked event?id=741200&mid=58097: 2027熊猫蜀道山, 我要报名. Adjacent2026 cards markedended excluded.",
+                  "registrationStage": "pre-registration with prepayment, lottery11-11 14:00",
+                  "rulesWindowOriginal": "10月3日10:00至11月5日10:00",
+                  "rulesHash": "b5b07e1c2853d24f746ad214c2d70df185a54440419368128631c0d6d1587a75",
+                  "rulesEvidenceLocator": "1080x43837 rules image, 报名办法 y11000–13200; window omits year. Dates remain null rather than assigning a year from image upload path."
+                }
               }
             },
             {
@@ -6105,6 +6714,13 @@
               "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
               "confidence": 0.98,
               "updatedAt": "2026-10-20"
+            },
+            "registrationStatus": {
+              "field": "registrationStatus",
+              "sourceType": "official",
+              "sourceName": "柴古唐斯熊猫赛事列表：仅2027当届卡片",
+              "confidence": 0.98,
+              "updatedAt": "2026-10-20"
             }
           },
           "sourcePriority": {
@@ -6122,7 +6738,7 @@
           "lastUpdatedAt": "2026-10-20",
           "schemaVersion": "race-graph-v1",
           "dataQualityLevel": "B",
-          "reviewNotes": "Official 2027 rule image manually read through organizer outbound registration link. Fields verified separately; nominal K categories do not assert measured course distance. Human Decision 2026-10-20: temporarily use the supplied 480x189 Cover/Hero and remove the image publication hold. Originals/display unchanged; low resolution remains documented, without upscaling or claiming full image/device QA PASS. CP Facts and 160K Strategy remain absent. Registration window year not inferred from month-only text.",
+          "reviewNotes": "Official 2027 rule image manually read through organizer outbound registration link. Fields verified separately; nominal K categories do not assert measured course distance. Human Decision 2026-10-20: temporarily use the supplied 480x189 Cover/Hero and remove the image publication hold. Originals/display unchanged; low resolution remains documented, without upscaling or claiming full image/device QA PASS. CP Facts and 160K Strategy remain absent. Registration window year not inferred from month-only text. QA2026-10-20: current2027 organizer card + rules confirm open pre-registration; month/day window preserved as raw evidence, dates not normalized without explicit year evidence. 85K³ team semantics unchanged.",
           "publicationGate": {
             "requestedEditionYear": 2027,
             "latestRelevantOfficialEditionYear": 2027,
