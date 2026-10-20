@@ -1,3 +1,4 @@
+import { expectedPublicEditionIds } from "./fixtures/contentBatch20261020.ts";
 import { deepEqual, equal, ok } from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { test } from "node:test";
@@ -213,7 +214,7 @@ test("list API does not expose coursePoints while Detail API does", () => {
   const list = createPublicRaceListResult(canonical);
   equal(list.status, 200);
   if (list.status === 200) {
-    equal(list.body.races.length, 12);
+    equal(list.body.races.length, expectedPublicEditionIds.length);
     ok(list.body.races.every((race) => !("coursePoints" in race)));
   }
 
@@ -244,7 +245,7 @@ test("First5 public Race Facts and Race Guide remain available", () => {
   const list = createPublicRaceListResult(canonical);
   equal(list.status, 200);
   if (list.status !== 200) return;
-  equal(list.body.races.length, 12);
+  equal(list.body.races.length, expectedPublicEditionIds.length);
   for (const race of list.body.races) {
     ok(race.name && race.raceDate && race.locationDisplay);
     const detail = createPublicRaceDetailResult(canonical, race.editionId);

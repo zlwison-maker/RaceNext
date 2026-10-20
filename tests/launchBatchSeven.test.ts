@@ -1,3 +1,4 @@
+import { expectedPublicEditionIds } from "./fixtures/contentBatch20261020.ts";
 import { deepEqual, equal, ok } from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { existsSync, readFileSync, statSync } from "node:fs";
@@ -444,7 +445,7 @@ test("First5, V1.3 trail data and V1.4 Accommodation remain unchanged", () => {
   const list = createPublicRaceListResult(canonical);
   equal(list.status, 200);
   if (list.status !== 200) return;
-  equal(list.body.races.length, 12);
+  equal(list.body.races.length, expectedPublicEditionIds.length);
   ok(first5EditionIds.every((editionId) => list.body.races.some((race) => race.editionId === editionId)));
   ok(list.body.races.every(({ coverImage, heroImage }) => Boolean(coverImage) && Boolean(heroImage)));
 
@@ -515,7 +516,7 @@ test("field-level conflict does not keep an otherwise public-ready Batch Seven E
     equal(share.timeline.imageUrl, shareImage);
   }
 
-  equal(list.body.races.length, 12);
+  equal(list.body.races.length, expectedPublicEditionIds.length);
 });
 
 test("selected image files match Asset Registry bytes and do not cross races", () => {

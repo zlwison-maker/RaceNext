@@ -1,3 +1,4 @@
+import { expectedPublicEditionIds } from "./fixtures/contentBatch20261020.ts";
 import { createHash } from "node:crypto";
 import { existsSync, readFileSync, statSync } from "node:fs";
 import { fileURLToPath } from "node:url";
@@ -86,8 +87,8 @@ function fileSha256(file: URL): string {
 }
 
 test("Display Asset V1 files match the registry and preserve every Original Asset", async () => {
-  equal(registry.assets.length, 24);
-  equal(registry.assets.filter(({ publicPath }) => publicPath.includes("-display-v1.")).length, 17);
+  equal(registry.assets.length, canonical.records.length * 2);
+  equal(registry.assets.filter(({ publicPath }) => publicPath.includes("-display-v1.")).length, 17); // Historical role-specific V1 assets; shared batch assets checked below.
 
   for (const asset of registry.assets) {
     const key = `${asset.editionId}|${asset.role}`;
@@ -121,11 +122,11 @@ test("Display Asset V1 files match the registry and preserve every Original Asse
   }
 });
 
-test("Canonical and Public DTOs expose all 12 selected Display Asset paths", () => {
+test("Canonical selects registered assets; Public DTOs expose only eligible Editions", () => {
   const list = createPublicRaceListResult(canonical);
   equal(list.status, 200);
   if (list.status !== 200) return;
-  equal(list.body.races.length, 12);
+  equal(list.body.races.length, expectedPublicEditionIds.length);
 
   for (const record of canonical.records) {
     const { edition } = record;
@@ -137,6 +138,10 @@ test("Canonical and Public DTOs expose all 12 selected Display Asset paths", () 
     match(edition.coverImage, /^\/races\/.+\.(?:jpe?g|png|webp)$/);
     match(edition.heroImage, /^\/races\/.+\.(?:jpe?g|png|webp)$/);
 
+    if (!expectedPublicEditionIds.includes(edition.editionId)) {
+      equal(createPublicRaceDetailResult(canonical, edition.editionId).status, 404);
+      continue;
+    }
     const listItem: { editionId: string; coverImage: string | null; heroImage: string | null } | undefined =
       list.body.races.find(({ editionId }) => editionId === edition.editionId);
     equal(listItem?.coverImage, edition.coverImage);
@@ -160,7 +165,7 @@ test("Web First5 uses the same Cover and Hero asset paths as Canonical", () => {
   }
 });
 
-test("selected 12-race Cover and Hero assets remain below one MiB each", () => {
+test("all selected Cover and Hero assets remain below one MiB each", () => {
   for (const asset of registry.assets) {
     ok(asset.fileSizeBytes < 1024 * 1024, `${asset.assetId ?? `${asset.editionId}-${asset.role}`} exceeds one MiB`);
   }

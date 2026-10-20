@@ -1,3 +1,4 @@
+import { batch20261020RaceGuides } from "./batch-20261020.ts";
 import { beijingMarathonRaceGuide } from "./beijing-marathon.ts";
 import { chengduMarathonRaceGuide } from "./chengdu-marathon.ts";
 import { chongqingMarathonRaceGuide } from "./chongqing-marathon.ts";
@@ -14,6 +15,7 @@ import { getRaceStrategyContent } from "../race-strategies/index.ts";
 import type { RaceEditorialContent } from "../../types/raceDetail.ts";
 
 const raceGuidesByEventId = {
+  ...batch20261020RaceGuides,
   "beijing-marathon": beijingMarathonRaceGuide,
   "chengdu-marathon": chengduMarathonRaceGuide,
   "chongqing-marathon": chongqingMarathonRaceGuide,

@@ -1,3 +1,4 @@
+import { expectedPublicEditionIds } from "./fixtures/contentBatch20261020.ts";
 import { equal, ok, rejects, throws } from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { test } from "node:test";
@@ -17,7 +18,7 @@ const registry = await loadRaceSourceRegistry();
 const sha = "a".repeat(40);
 test("release is dynamic, excludes metadata-only triggers, and validates all Public Fact Gates", () => {
   const first = buildCanonicalReleaseManifest(snapshot, registry, sha);
-  equal(first.expected.length, snapshot.records.length + 1);
+  equal(first.expected.length, expectedPublicEditionIds.length + 1);
   const metadata = structuredClone(snapshot);
   metadata.generatedAt = "2026-10-15T00:00:00Z";
   equal(

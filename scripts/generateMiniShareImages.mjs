@@ -2,6 +2,7 @@ import { createHash } from "node:crypto";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import sharp from "sharp";
+import { isEditionPublishable } from "../lib/raceGraphPublic.ts";
 
 const projectRoot = join(import.meta.dirname, "..");
 const graphPath = join(projectRoot, "data/canonical/race-graph-v1.json");
@@ -9,8 +10,10 @@ const graph = JSON.parse(readFileSync(graphPath, "utf8"));
 const checkOnly = process.argv.includes("--check");
 
 const outputs = [];
+// Staged Editions have no public share route. Do not enlarge their provisional art.
+const publicRecords = graph.records.filter(isEditionPublishable);
 
-for (const record of graph.records) {
+for (const record of publicRecords) {
   const coverImage = record.edition?.coverImage;
   if (typeof coverImage !== "string" || !coverImage.startsWith("/races/")) continue;
 
@@ -43,8 +46,8 @@ for (const record of graph.records) {
   });
 }
 
-if (outputs.length !== graph.records.length) {
-  throw new Error(`Expected ${graph.records.length} share derivatives, generated ${outputs.length}`);
+if (outputs.length !== publicRecords.length) {
+  throw new Error(`Expected ${publicRecords.length} public share derivatives, generated ${outputs.length}`);
 }
 
 console.log(`${checkOnly ? "Verified" : "Generated"} ${outputs.length} centered 5:4 share derivatives.`);

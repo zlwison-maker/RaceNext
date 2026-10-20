@@ -24,10 +24,10 @@ test("actual confirmed Gongga date excludes its active Edition but retains every
   assert.equal(gongga.edition.endDate, "2026-09-27");
   const targets = buildRaceDailyCheckTargets(original, registry, NOW);
   assert.deepEqual(targets.map(t => t.editionId), original.records.filter(r => r !== gongga).map(r => r.edition.editionId));
-  assert.equal(targets.length, 11);
+  assert.equal(targets.length, original.records.length - 1);
   assert.equal(targets.reduce((n, t) => n + t.sourceIds.length, 0), original.records.filter(r => r !== gongga)
     .reduce((n, r) => n + activeFreshnessSources(registry, r.edition.editionId).length, 0));
-  assert.equal(original.records.length, 12); // Public/historical inventory is not the monitoring target count.
+  assert.equal(original.records.length, 19); // Public/historical inventory is not the monitoring target count.
   for (let i = 0; i < paths.length; i++) assert.deepEqual(await readFile(new URL(`../${paths[i]}`, import.meta.url)), bytes[i]);
 });
 
