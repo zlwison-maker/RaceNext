@@ -1,5 +1,7 @@
 # RaceNext 1.9 · Seven-race integration handoff · 2026-10-20
 
+> 本文保留初次提交 `2414f9e` 的17场状态及取证缺口。最新事实与准入以[福州/熊猫补证记录](PR44_FUZHOU_PANDA_FACT_SUPPLEMENT_20261020.md)为准：19场事实 Gate PASS，18场 API 公开，熊猫图片 HOLD；未部署。
+
 **Integrated：YES；自动化 QA：PASS；设备/完整发布 QA：未完成；Deployed：NO；Live Verified：NO。**
 
 基线 `19982016b49fa49c12b3d1916762ce60529487d0`；分支 `codex/seven-race-content-integration-20261020`。未合并，最终 main commit、正式发布时间未定。原工作树和未跟踪预览图保留。本轮不运行生产监测、不 Merge、不部署。

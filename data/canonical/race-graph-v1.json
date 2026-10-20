@@ -5026,6 +5026,27 @@
                 "fetchedAt": "2026-10-20T09:17:38.619377+00:00",
                 "evidenceLocator": "Current official identity only; detailed field evidence unavailable in fetched HTML."
               }
+            },
+            {
+              "sourceType": "official",
+              "sourceName": "2026左海·福州马拉松官网当届主海报",
+              "sourceUrl": "https://www.fuzhou-marathon.com/t/icon/202609/202609101909521742.jpg",
+              "sourceRecordId": "fuzhou-marathon-official-kv-2026",
+              "crawledAt": "2026-10-20",
+              "confidence": 0.98,
+              "rawData": {
+                "editionYear": 2026,
+                "latestRelevantOfficialEditionYear": 2026,
+                "editionName": "2026左海·福州马拉松",
+                "raceDate": "2026-12-27",
+                "contentHash": "46edc29c4fa5454c65d3be09388aa6356895893bb458f982de889bf23c46b097",
+                "fetchedAt": "2026-10-20T10:21:06.197025+00:00",
+                "evidenceLocator": "4324x2162 official image: title; bottom 2026.12.27 FUZHOU CHINA.",
+                "referenceChain": [
+                  "https://www.fuzhou-marathon.com/",
+                  "https://www.fuzhou-marathon.com/t/icon/202609/202609101909521742.jpg"
+                ]
+              }
             }
           ],
           "fieldSources": {
@@ -5049,7 +5070,7 @@
           "lastUpdatedAt": "2026-10-20",
           "schemaVersion": "race-graph-v1",
           "dataQualityLevel": "B",
-          "reviewNotes": "Source Gap: fetched official HTML does not directly establish date/category dynamic facts. User content is not official field verification. Retain nulls and withhold public eligibility."
+          "reviewNotes": "Current official poster and route supplement earlier HTML-only gap; brand identity unchanged."
         }
       },
       "edition": {
@@ -5057,7 +5078,7 @@
         "eventId": "fuzhou-marathon",
         "editionName": "2026左海·福州马拉松",
         "editionYear": 2026,
-        "raceDate": null,
+        "raceDate": "2026-12-27",
         "endDate": null,
         "coverImage": "/races/fuzhou-marathon/2026/display-v1.jpg",
         "heroImage": "/races/fuzhou-marathon/2026/display-v1.jpg",
@@ -5067,7 +5088,7 @@
         "province": "福建省",
         "city": "福州市",
         "district": null,
-        "venue": null,
+        "venue": "五一广场",
         "region": "east_china",
         "timezone": "Asia/Shanghai",
         "registrationStatus": "unknown",
@@ -5076,7 +5097,7 @@
         "registrationUrl": null,
         "officialWebsite": "https://www.fuzhou-marathon.com/",
         "rulebookUrl": null,
-        "lifecycleStatus": "uncertain",
+        "lifecycleStatus": "active",
         "raceDistanceKm": null,
         "raceDistances": [],
         "createdAt": "2026-10-20",
@@ -5095,16 +5116,75 @@
                 "fetchedAt": "2026-10-20T09:17:38.619377+00:00",
                 "evidenceLocator": "Current official identity only; detailed field evidence unavailable in fetched HTML."
               }
+            },
+            {
+              "sourceType": "official",
+              "sourceName": "2026左海·福州马拉松官网当届主海报",
+              "sourceUrl": "https://www.fuzhou-marathon.com/t/icon/202609/202609101909521742.jpg",
+              "sourceRecordId": "fuzhou-marathon-official-kv-2026",
+              "crawledAt": "2026-10-20",
+              "confidence": 0.98,
+              "rawData": {
+                "editionYear": 2026,
+                "latestRelevantOfficialEditionYear": 2026,
+                "editionName": "2026左海·福州马拉松",
+                "raceDate": "2026-12-27",
+                "contentHash": "46edc29c4fa5454c65d3be09388aa6356895893bb458f982de889bf23c46b097",
+                "fetchedAt": "2026-10-20T10:21:06.197025+00:00",
+                "evidenceLocator": "4324x2162 official image: title; bottom 2026.12.27 FUZHOU CHINA.",
+                "referenceChain": [
+                  "https://www.fuzhou-marathon.com/",
+                  "https://www.fuzhou-marathon.com/t/icon/202609/202609101909521742.jpg"
+                ]
+              }
+            },
+            {
+              "sourceType": "official",
+              "sourceName": "2026左海·福州马拉松官网比赛路线图",
+              "sourceUrl": "https://www.fuzhou-marathon.com/t/icon/202609/202609101853106432.jpg",
+              "sourceRecordId": "fuzhou-marathon-official-route-2026",
+              "crawledAt": "2026-10-20",
+              "confidence": 0.98,
+              "rawData": {
+                "editionYear": 2026,
+                "editionName": "2026左海·福州马拉松",
+                "categoryNames": [
+                  "马拉松",
+                  "半程马拉松"
+                ],
+                "startLocation": "五一广场",
+                "finishLocation": "海峡国际会展中心",
+                "contentHash": "b331b7bc81880b68e6ade544e76996c80a1f099bd197ea515a7f734398dc7584",
+                "fetchedAt": "2026-10-20T10:21:07.073525+00:00",
+                "evidenceLocator": "4961x3508: 2026 title; magenta Marathon / blue Half Marathon legend; common start at 五一广场; explicit 全程/半程终点 at 海峡国际会展中心. No exact nominal full-distance or wave time inferred.",
+                "referenceChain": [
+                  "https://www.fuzhou-marathon.com/",
+                  "https://www.fuzhou-marathon.com/t/icon/202609/202609101853106432.jpg"
+                ]
+              }
+            },
+            {
+              "sourceType": "media",
+              "sourceName": "福州新闻网记者陈君沂现场报道（媒体，非主办方原文）",
+              "sourceUrl": "https://news.fznews.com.cn/fzyw/20260910/316129C4V6.shtml",
+              "sourceRecordId": "fuzhou-marathon-launch-media-2026",
+              "crawledAt": "2026-10-20",
+              "confidence": 0.98,
+              "rawData": {
+                "editionYear": 2026,
+                "raceDate": "2026-12-27",
+                "overallStartTime": "07:30",
+                "categoryCapacities": {
+                  "马拉松": 20000,
+                  "半程马拉松": 15000
+                },
+                "contentHash": "1fe28cdc60c4a858e441e51f0dc2f5cdaf13ed7a8a7ad89d03c9e6d7801504b0",
+                "fetchedAt": "2026-10-20T10:19:37.104905+00:00",
+                "evidenceLocator": "2026-09-10 20:41:23; reporter launch coverage; overall start only, not Category wave evidence."
+              }
             }
           ],
           "fieldSources": {
-            "editionName": {
-              "field": "editionName",
-              "sourceType": "manual",
-              "sourceName": "Human-approved V2 title; cross-checked 福州体育 republication, not homepage regulation",
-              "confidence": 0.9,
-              "updatedAt": "2026-10-20"
-            },
             "coverImage": {
               "field": "coverImage",
               "sourceType": "manual",
@@ -5118,28 +5198,60 @@
               "sourceName": "Human-approved seven-race image input, 2026-10-20",
               "confidence": 1,
               "updatedAt": "2026-10-20"
+            },
+            "editionName": {
+              "field": "editionName",
+              "sourceType": "official",
+              "sourceName": "2026左海·福州马拉松官网当届主海报",
+              "confidence": 0.98,
+              "updatedAt": "2026-10-20"
+            },
+            "raceDate": {
+              "field": "raceDate",
+              "sourceType": "official",
+              "sourceName": "2026左海·福州马拉松官网当届主海报",
+              "confidence": 0.98,
+              "updatedAt": "2026-10-20"
+            },
+            "venue": {
+              "field": "venue",
+              "sourceType": "official",
+              "sourceName": "2026左海·福州马拉松官网比赛路线图",
+              "confidence": 0.98,
+              "updatedAt": "2026-10-20"
             }
           },
           "sourcePriority": {
             "official": 100
           },
-          "confidence": 0.5,
-          "verified": false,
-          "verificationStatus": "pending",
-          "verifiedAt": null,
+          "confidence": 0.98,
+          "verified": true,
+          "verificationStatus": "verified",
+          "verifiedAt": "2026-10-20",
           "missingFields": [
-            "raceDate",
-            "venue",
-            "registrationUrl",
             "registrationOpenDate",
-            "registrationCloseDate"
+            "registrationCloseDate",
+            "registrationUrl"
           ],
           "lastCrawledAt": "2026-10-20",
           "lastUpdatedAt": "2026-10-20",
           "schemaVersion": "race-graph-v1",
-          "dataQualityLevel": "D",
-          "reviewNotes": "Source Gap: fetched official HTML does not directly establish date/category dynamic facts. User content is not official field verification. Retain nulls and withhold public eligibility.",
-          "publicationGate": null
+          "dataQualityLevel": "B",
+          "reviewNotes": "Official poster date and current route manually inspected. Category-specific startAt/startTimes, nominal distances, elevation, cutoff and capacities remain unverified/null. Media 07:30 is overall only. Verified refers to evidenced populated fields, not all possible fields.",
+          "publicationGate": {
+            "requestedEditionYear": 2026,
+            "latestRelevantOfficialEditionYear": 2026,
+            "latestOfficialEditionSourceRecordId": "fuzhou-marathon-official-kv-2026",
+            "primarySourceRecordId": "fuzhou-marathon-official-kv-2026",
+            "secondarySourceRecordId": null,
+            "raceDateSourceRecordIds": [
+              "fuzhou-marathon-official-kv-2026"
+            ],
+            "dateEvidenceStatus": "verified",
+            "conflictStatus": "none",
+            "publishable": true,
+            "checkedAt": "2026-10-20"
+          }
         }
       },
       "categories": [
@@ -5151,8 +5263,8 @@
           "elevationGain": null,
           "cutoffTimeHours": null,
           "startAt": null,
-          "startLocation": null,
-          "finishLocation": null,
+          "startLocation": "五一广场",
+          "finishLocation": "海峡国际会展中心",
           "capacity": null,
           "shortName": "马拉松",
           "startTimes": null,
@@ -5164,40 +5276,75 @@
             "sources": [
               {
                 "sourceType": "official",
-                "sourceName": "2026左海·福州马拉松 / 官方页面",
-                "sourceUrl": "https://www.fuzhou-marathon.com/",
-                "sourceRecordId": "fuzhou-marathon-official-2026",
+                "sourceName": "2026左海·福州马拉松官网比赛路线图",
+                "sourceUrl": "https://www.fuzhou-marathon.com/t/icon/202609/202609101853106432.jpg",
+                "sourceRecordId": "fuzhou-marathon-official-route-2026",
                 "crawledAt": "2026-10-20",
-                "confidence": 0.5,
+                "confidence": 0.98,
                 "rawData": {
-                  "contentHash": "e1e04f5dccff3d09b880dd81d0019c8653092a681b8f82456b39f72b45d6b547",
-                  "fetchedAt": "2026-10-20T09:17:38.619377+00:00",
-                  "evidenceLocator": "Current official identity only; detailed field evidence unavailable in fetched HTML."
+                  "editionYear": 2026,
+                  "editionName": "2026左海·福州马拉松",
+                  "categoryNames": [
+                    "马拉松",
+                    "半程马拉松"
+                  ],
+                  "startLocation": "五一广场",
+                  "finishLocation": "海峡国际会展中心",
+                  "contentHash": "b331b7bc81880b68e6ade544e76996c80a1f099bd197ea515a7f734398dc7584",
+                  "fetchedAt": "2026-10-20T10:21:07.073525+00:00",
+                  "evidenceLocator": "4961x3508: 2026 title; magenta Marathon / blue Half Marathon legend; common start at 五一广场; explicit 全程/半程终点 at 海峡国际会展中心. No exact nominal full-distance or wave time inferred.",
+                  "referenceChain": [
+                    "https://www.fuzhou-marathon.com/",
+                    "https://www.fuzhou-marathon.com/t/icon/202609/202609101853106432.jpg"
+                  ],
+                  "categoryName": "马拉松",
+                  "categoryId": "fuzhou-marathon-2026-marathon"
                 }
               }
             ],
-            "fieldSources": {},
+            "fieldSources": {
+              "categoryName": {
+                "field": "categoryName",
+                "sourceType": "official",
+                "sourceName": "2026左海·福州马拉松官网比赛路线图",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "startLocation": {
+                "field": "startLocation",
+                "sourceType": "official",
+                "sourceName": "2026左海·福州马拉松官网比赛路线图",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "finishLocation": {
+                "field": "finishLocation",
+                "sourceType": "official",
+                "sourceName": "2026左海·福州马拉松官网比赛路线图",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              }
+            },
             "sourcePriority": {
               "official": 100
             },
-            "confidence": 0.5,
-            "verified": false,
-            "verificationStatus": "pending",
-            "verifiedAt": null,
+            "confidence": 0.98,
+            "verified": true,
+            "verificationStatus": "verified",
+            "verifiedAt": "2026-10-20",
             "missingFields": [
               "distanceKm",
               "elevationGain",
               "cutoffTimeHours",
               "startAt",
-              "startLocation",
-              "finishLocation",
+              "startTimes",
               "capacity"
             ],
             "lastCrawledAt": "2026-10-20",
             "lastUpdatedAt": "2026-10-20",
             "schemaVersion": "race-graph-v1",
-            "dataQualityLevel": "D",
-            "reviewNotes": "Source Gap: fetched official HTML does not directly establish date/category dynamic facts. User content is not official field verification. Retain nulls and withhold public eligibility."
+            "dataQualityLevel": "B",
+            "reviewNotes": "Current official route explicitly labels both 全程/半程终点 and shared start. Distances are not inferred from generic names or intermediate route markers; per-Category wave time remains null. Secondary reporter values are not promoted to primary official facts."
           }
         },
         {
@@ -5208,8 +5355,8 @@
           "elevationGain": null,
           "cutoffTimeHours": null,
           "startAt": null,
-          "startLocation": null,
-          "finishLocation": null,
+          "startLocation": "五一广场",
+          "finishLocation": "海峡国际会展中心",
           "capacity": null,
           "shortName": "半程马拉松",
           "startTimes": null,
@@ -5221,40 +5368,75 @@
             "sources": [
               {
                 "sourceType": "official",
-                "sourceName": "2026左海·福州马拉松 / 官方页面",
-                "sourceUrl": "https://www.fuzhou-marathon.com/",
-                "sourceRecordId": "fuzhou-marathon-official-2026",
+                "sourceName": "2026左海·福州马拉松官网比赛路线图",
+                "sourceUrl": "https://www.fuzhou-marathon.com/t/icon/202609/202609101853106432.jpg",
+                "sourceRecordId": "fuzhou-marathon-official-route-2026",
                 "crawledAt": "2026-10-20",
-                "confidence": 0.5,
+                "confidence": 0.98,
                 "rawData": {
-                  "contentHash": "e1e04f5dccff3d09b880dd81d0019c8653092a681b8f82456b39f72b45d6b547",
-                  "fetchedAt": "2026-10-20T09:17:38.619377+00:00",
-                  "evidenceLocator": "Current official identity only; detailed field evidence unavailable in fetched HTML."
+                  "editionYear": 2026,
+                  "editionName": "2026左海·福州马拉松",
+                  "categoryNames": [
+                    "马拉松",
+                    "半程马拉松"
+                  ],
+                  "startLocation": "五一广场",
+                  "finishLocation": "海峡国际会展中心",
+                  "contentHash": "b331b7bc81880b68e6ade544e76996c80a1f099bd197ea515a7f734398dc7584",
+                  "fetchedAt": "2026-10-20T10:21:07.073525+00:00",
+                  "evidenceLocator": "4961x3508: 2026 title; magenta Marathon / blue Half Marathon legend; common start at 五一广场; explicit 全程/半程终点 at 海峡国际会展中心. No exact nominal full-distance or wave time inferred.",
+                  "referenceChain": [
+                    "https://www.fuzhou-marathon.com/",
+                    "https://www.fuzhou-marathon.com/t/icon/202609/202609101853106432.jpg"
+                  ],
+                  "categoryName": "半程马拉松",
+                  "categoryId": "fuzhou-marathon-2026-half-marathon"
                 }
               }
             ],
-            "fieldSources": {},
+            "fieldSources": {
+              "categoryName": {
+                "field": "categoryName",
+                "sourceType": "official",
+                "sourceName": "2026左海·福州马拉松官网比赛路线图",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "startLocation": {
+                "field": "startLocation",
+                "sourceType": "official",
+                "sourceName": "2026左海·福州马拉松官网比赛路线图",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "finishLocation": {
+                "field": "finishLocation",
+                "sourceType": "official",
+                "sourceName": "2026左海·福州马拉松官网比赛路线图",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              }
+            },
             "sourcePriority": {
               "official": 100
             },
-            "confidence": 0.5,
-            "verified": false,
-            "verificationStatus": "pending",
-            "verifiedAt": null,
+            "confidence": 0.98,
+            "verified": true,
+            "verificationStatus": "verified",
+            "verifiedAt": "2026-10-20",
             "missingFields": [
               "distanceKm",
               "elevationGain",
               "cutoffTimeHours",
               "startAt",
-              "startLocation",
-              "finishLocation",
+              "startTimes",
               "capacity"
             ],
             "lastCrawledAt": "2026-10-20",
             "lastUpdatedAt": "2026-10-20",
             "schemaVersion": "race-graph-v1",
-            "dataQualityLevel": "D",
-            "reviewNotes": "Source Gap: fetched official HTML does not directly establish date/category dynamic facts. User content is not official field verification. Retain nulls and withhold public eligibility."
+            "dataQualityLevel": "B",
+            "reviewNotes": "Current official route explicitly labels both 全程/半程终点 and shared start. Distances are not inferred from generic names or intermediate route markers; per-Category wave time remains null. Secondary reporter values are not promoted to primary official facts."
           }
         }
       ]
@@ -5698,6 +5880,31 @@
                 "fetchedAt": "2026-10-20T09:17:38.750620+00:00",
                 "evidenceLocator": "Current official identity only; detailed field evidence unavailable in fetched HTML."
               }
+            },
+            {
+              "sourceType": "official",
+              "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+              "sourceUrl": "https://cdn.rockysports.cn/7664/image/20261013/lm13rkxWtL_hh6MsdygJDLzb0afq.jpg",
+              "sourceRecordId": "panda-shudao-shan-official-rules-2027",
+              "crawledAt": "2026-10-20",
+              "confidence": 0.98,
+              "rawData": {
+                "editionYear": 2027,
+                "latestRelevantOfficialEditionYear": 2027,
+                "editionName": "2027熊猫蜀道山超级越野赛",
+                "raceDate": "2027-03-26",
+                "endDate": "2027-03-28",
+                "venue": "白鹿音乐广场",
+                "contentHash": "b5b07e1c2853d24f746ad214c2d70df185a54440419368128631c0d6d1587a75",
+                "fetchedAt": "2026-10-20T10:22:19.500596+00:00",
+                "evidenceLocator": "1080x43837 official image; header explicitly 2027竞赛规程; 赛事介绍 y=2600..4300; 报名资格 y=8800..11000; 报名办法 y=11900..13000; cutoff section y=27100..28600; 85K³ team fee and CP rule y~12600 and y~34900.",
+                "referenceChain": [
+                  "https://tsaigu.saihuitong.com/event?id=741200&mid=58097",
+                  "https://sport.luojiweiye.com/web/weibu/#/pages/event/gameDetailGuide?id=7664",
+                  "https://sport.luojiweiye.com/web/weibu/#/pages/event/inquiryRegistration?nav_id=5423&game_id=7664&title=%E6%8A%A5%E5%90%8D%E9%A1%BB%E7%9F%A5",
+                  "https://cdn.rockysports.cn/7664/image/20261013/lm13rkxWtL_hh6MsdygJDLzb0afq.jpg"
+                ]
+              }
             }
           ],
           "fieldSources": {
@@ -5721,7 +5928,7 @@
           "lastUpdatedAt": "2026-10-20",
           "schemaVersion": "race-graph-v1",
           "dataQualityLevel": "B",
-          "reviewNotes": "Source Gap: fetched official HTML does not directly establish date/category dynamic facts. User content is not official field verification. Retain nulls and withhold public eligibility."
+          "reviewNotes": "2027 current rule image and organizer registration reference chain verified. Historical 2026 dynamic facts excluded."
         }
       },
       "edition": {
@@ -5729,8 +5936,8 @@
         "eventId": "panda-shudao-shan",
         "editionName": "2027熊猫蜀道山超级越野赛",
         "editionYear": 2027,
-        "raceDate": null,
-        "endDate": null,
+        "raceDate": "2027-03-26",
+        "endDate": "2027-03-28",
         "coverImage": "/races/panda-shudao-shan/2027/display-v1.jpg",
         "heroImage": "/races/panda-shudao-shan/2027/display-v1.jpg",
         "primaryCategoryId": "panda-shudao-shan-2027-160k",
@@ -5738,19 +5945,25 @@
         "country": "中国",
         "province": "四川省",
         "city": "成都市",
-        "district": null,
-        "venue": null,
+        "district": "彭州市",
+        "venue": "白鹿音乐广场",
         "region": "southwest_china",
         "timezone": "Asia/Shanghai",
         "registrationStatus": "unknown",
         "registrationOpenDate": null,
         "registrationCloseDate": null,
-        "registrationUrl": null,
+        "registrationUrl": "https://sport.luojiweiye.com/web/weibu/#/pages/event/gameDetailGuide?id=7664",
         "officialWebsite": "https://tsaigu.saihuitong.com/event?id=741200&mid=58097",
-        "rulebookUrl": null,
-        "lifecycleStatus": "uncertain",
-        "raceDistanceKm": null,
-        "raceDistances": [],
+        "rulebookUrl": "https://sport.luojiweiye.com/web/weibu/#/pages/event/inquiryRegistration?nav_id=5423&game_id=7664&title=%E6%8A%A5%E5%90%8D%E9%A1%BB%E7%9F%A5",
+        "lifecycleStatus": "active",
+        "raceDistanceKm": 160,
+        "raceDistances": [
+          25,
+          60,
+          85,
+          105,
+          160
+        ],
         "createdAt": "2026-10-20",
         "updatedAt": "2026-10-20",
         "governance": {
@@ -5770,16 +5983,52 @@
                 "evidenceLocator": "Current official identity only; detailed field evidence unavailable in fetched HTML.",
                 "editionName": "2027熊猫蜀道山超级越野赛"
               }
+            },
+            {
+              "sourceType": "official",
+              "sourceName": "柴古唐斯熊猫赛事列表：仅2027当届卡片",
+              "sourceUrl": "https://tsaigu.saihuitong.com/events?mid=58097",
+              "sourceRecordId": "panda-shudao-shan-official-list-2027",
+              "crawledAt": "2026-10-20",
+              "confidence": 0.98,
+              "rawData": {
+                "editionYear": 2027,
+                "latestRelevantOfficialEditionYear": 2027,
+                "raceDate": "2027-03-26",
+                "endDate": "2027-03-28",
+                "contentHash": "7f98ae03b535ab6bc0e094bf4c290db444eb52a4b405fab488ee469a8307ad03",
+                "fetchedAt": "2026-10-20T10:19:37.262282+00:00",
+                "evidenceLocator": "2027 card href event?id=741200&mid=58097; 03/26-03/28 on that card only. Adjacent 2026 cards excluded."
+              }
+            },
+            {
+              "sourceType": "official",
+              "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+              "sourceUrl": "https://cdn.rockysports.cn/7664/image/20261013/lm13rkxWtL_hh6MsdygJDLzb0afq.jpg",
+              "sourceRecordId": "panda-shudao-shan-official-rules-2027",
+              "crawledAt": "2026-10-20",
+              "confidence": 0.98,
+              "rawData": {
+                "editionYear": 2027,
+                "latestRelevantOfficialEditionYear": 2027,
+                "editionName": "2027熊猫蜀道山超级越野赛",
+                "raceDate": "2027-03-26",
+                "endDate": "2027-03-28",
+                "venue": "白鹿音乐广场",
+                "contentHash": "b5b07e1c2853d24f746ad214c2d70df185a54440419368128631c0d6d1587a75",
+                "fetchedAt": "2026-10-20T10:22:19.500596+00:00",
+                "evidenceLocator": "1080x43837 official image; header explicitly 2027竞赛规程; 赛事介绍 y=2600..4300; 报名资格 y=8800..11000; 报名办法 y=11900..13000; cutoff section y=27100..28600; 85K³ team fee and CP rule y~12600 and y~34900.",
+                "referenceChain": [
+                  "https://tsaigu.saihuitong.com/event?id=741200&mid=58097",
+                  "https://sport.luojiweiye.com/web/weibu/#/pages/event/gameDetailGuide?id=7664",
+                  "https://sport.luojiweiye.com/web/weibu/#/pages/event/inquiryRegistration?nav_id=5423&game_id=7664&title=%E6%8A%A5%E5%90%8D%E9%A1%BB%E7%9F%A5",
+                  "https://cdn.rockysports.cn/7664/image/20261013/lm13rkxWtL_hh6MsdygJDLzb0afq.jpg"
+                ],
+                "district": "彭州市"
+              }
             }
           ],
           "fieldSources": {
-            "editionName": {
-              "field": "editionName",
-              "sourceType": "official",
-              "sourceName": "2027熊猫蜀道山超级越野赛 / 官方页面",
-              "confidence": 0.95,
-              "updatedAt": "2026-10-20"
-            },
             "coverImage": {
               "field": "coverImage",
               "sourceType": "manual",
@@ -5793,39 +6042,105 @@
               "sourceName": "Human-approved seven-race image input, 2026-10-20",
               "confidence": 1,
               "updatedAt": "2026-10-20"
+            },
+            "editionName": {
+              "field": "editionName",
+              "sourceType": "official",
+              "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+              "confidence": 0.98,
+              "updatedAt": "2026-10-20"
+            },
+            "raceDate": {
+              "field": "raceDate",
+              "sourceType": "official",
+              "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+              "confidence": 0.98,
+              "updatedAt": "2026-10-20"
+            },
+            "endDate": {
+              "field": "endDate",
+              "sourceType": "official",
+              "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+              "confidence": 0.98,
+              "updatedAt": "2026-10-20"
+            },
+            "venue": {
+              "field": "venue",
+              "sourceType": "official",
+              "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+              "confidence": 0.98,
+              "updatedAt": "2026-10-20"
+            },
+            "registrationUrl": {
+              "field": "registrationUrl",
+              "sourceType": "official",
+              "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+              "confidence": 0.98,
+              "updatedAt": "2026-10-20"
+            },
+            "rulebookUrl": {
+              "field": "rulebookUrl",
+              "sourceType": "official",
+              "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+              "confidence": 0.98,
+              "updatedAt": "2026-10-20"
+            },
+            "raceDistanceKm": {
+              "field": "raceDistanceKm",
+              "sourceType": "official",
+              "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+              "confidence": 0.98,
+              "updatedAt": "2026-10-20"
+            },
+            "raceDistances": {
+              "field": "raceDistances",
+              "sourceType": "official",
+              "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+              "confidence": 0.98,
+              "updatedAt": "2026-10-20"
+            },
+            "district": {
+              "field": "district",
+              "sourceType": "official",
+              "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+              "confidence": 0.98,
+              "updatedAt": "2026-10-20"
             }
           },
           "sourcePriority": {
             "official": 100
           },
-          "confidence": 0.5,
-          "verified": false,
-          "verificationStatus": "pending",
-          "verifiedAt": null,
+          "confidence": 0.98,
+          "verified": true,
+          "verificationStatus": "verified",
+          "verifiedAt": "2026-10-20",
           "missingFields": [
-            "raceDate",
-            "venue",
-            "registrationUrl",
             "registrationOpenDate",
             "registrationCloseDate"
           ],
           "lastCrawledAt": "2026-10-20",
           "lastUpdatedAt": "2026-10-20",
           "schemaVersion": "race-graph-v1",
-          "dataQualityLevel": "D",
-          "reviewNotes": "Source Gap: fetched official HTML does not directly establish date/category dynamic facts. User content is not official field verification. Retain nulls and withhold public eligibility.",
+          "dataQualityLevel": "B",
+          "reviewNotes": "Official 2027 rule image manually read through organizer outbound registration link. Fields verified separately; nominal K categories do not assert measured course distance. IMAGE QA HOLD: original Cover/Hero 480x189, no upscaling/replacement authorized; existing do_not_publish flag retains release hold. CP Facts and 160K Strategy remain absent. Registration window year not inferred from month-only text.",
           "publicationGate": {
             "requestedEditionYear": 2027,
             "latestRelevantOfficialEditionYear": 2027,
-            "latestOfficialEditionSourceRecordId": "panda-shudao-shan-official-2027",
-            "primarySourceRecordId": "panda-shudao-shan-official-2027",
+            "latestOfficialEditionSourceRecordId": "panda-shudao-shan-official-rules-2027",
+            "primarySourceRecordId": "panda-shudao-shan-official-rules-2027",
             "secondarySourceRecordId": null,
-            "raceDateSourceRecordIds": [],
-            "dateEvidenceStatus": "pending_review",
+            "raceDateSourceRecordIds": [
+              "panda-shudao-shan-official-list-2027",
+              "panda-shudao-shan-official-rules-2027"
+            ],
+            "dateEvidenceStatus": "verified",
             "conflictStatus": "none",
-            "publishable": false,
+            "publishable": true,
             "checkedAt": "2026-10-20"
-          }
+          },
+          "internalFlags": [
+            "do_not_publish"
+          ]
         }
       },
       "categories": [
@@ -5833,16 +6148,18 @@
           "categoryId": "panda-shudao-shan-2027-160k",
           "editionId": "panda-shudao-shan-2027",
           "categoryName": "160K",
-          "distanceKm": null,
-          "elevationGain": null,
-          "cutoffTimeHours": null,
-          "startAt": null,
-          "startLocation": null,
-          "finishLocation": null,
+          "distanceKm": 160,
+          "elevationGain": 9300,
+          "cutoffTimeHours": 46,
+          "startAt": "2027-03-26T15:30:00+08:00",
+          "startLocation": "白鹿音乐广场",
+          "finishLocation": "白鹿音乐广场",
           "capacity": null,
           "shortName": "160K",
-          "startTimes": null,
-          "registrationUrl": null,
+          "startTimes": [
+            "2027-03-26T15:30:00+08:00"
+          ],
+          "registrationUrl": "https://sport.luojiweiye.com/web/weibu/#/pages/event/gameDetailGuide?id=7664",
           "displayOrder": 1,
           "createdAt": "2026-10-20",
           "updatedAt": "2026-10-20",
@@ -5850,42 +6167,126 @@
             "sources": [
               {
                 "sourceType": "official",
-                "sourceName": "2027熊猫蜀道山超级越野赛 / 官方页面",
-                "sourceUrl": "https://tsaigu.saihuitong.com/event?id=741200&mid=58097",
-                "sourceRecordId": "panda-shudao-shan-official-2027",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "sourceUrl": "https://cdn.rockysports.cn/7664/image/20261013/lm13rkxWtL_hh6MsdygJDLzb0afq.jpg",
+                "sourceRecordId": "panda-shudao-shan-official-rules-2027",
                 "crawledAt": "2026-10-20",
-                "confidence": 0.5,
+                "confidence": 0.98,
                 "rawData": {
                   "editionYear": 2027,
                   "latestRelevantOfficialEditionYear": 2027,
-                  "contentHash": "eeac7665ebf7c013b2ec1241f3fb008f8fbf11a8bac1bc523d79297eaa72c0bb",
-                  "fetchedAt": "2026-10-20T09:17:38.750620+00:00",
-                  "evidenceLocator": "Current official identity only; detailed field evidence unavailable in fetched HTML."
+                  "editionName": "2027熊猫蜀道山超级越野赛",
+                  "raceDate": "2027-03-26",
+                  "endDate": "2027-03-28",
+                  "venue": "白鹿音乐广场",
+                  "contentHash": "b5b07e1c2853d24f746ad214c2d70df185a54440419368128631c0d6d1587a75",
+                  "fetchedAt": "2026-10-20T10:22:19.500596+00:00",
+                  "evidenceLocator": "1080x43837 official image; header explicitly 2027竞赛规程; 赛事介绍 y=2600..4300; 报名资格 y=8800..11000; 报名办法 y=11900..13000; cutoff section y=27100..28600; 85K³ team fee and CP rule y~12600 and y~34900.",
+                  "referenceChain": [
+                    "https://tsaigu.saihuitong.com/event?id=741200&mid=58097",
+                    "https://sport.luojiweiye.com/web/weibu/#/pages/event/gameDetailGuide?id=7664",
+                    "https://sport.luojiweiye.com/web/weibu/#/pages/event/inquiryRegistration?nav_id=5423&game_id=7664&title=%E6%8A%A5%E5%90%8D%E9%A1%BB%E7%9F%A5",
+                    "https://cdn.rockysports.cn/7664/image/20261013/lm13rkxWtL_hh6MsdygJDLzb0afq.jpg"
+                  ],
+                  "categoryName": "160K",
+                  "distanceKm": 160,
+                  "elevationGain": 9300,
+                  "cutoffTimeHours": 46,
+                  "startAt": "2027-03-26T15:30:00+08:00",
+                  "startTimes": [
+                    "2027-03-26T15:30:00+08:00"
+                  ],
+                  "startLocation": "白鹿音乐广场",
+                  "finishLocation": "白鹿音乐广场",
+                  "registrationUrl": "https://sport.luojiweiye.com/web/weibu/#/pages/event/gameDetailGuide?id=7664",
+                  "categoryId": "panda-shudao-shan-2027-160k",
+                  "officialNominalCategoryLabel": "160K",
+                  "elevationQualifier": "约",
+                  "actualCourseDistanceKm": null
                 }
               }
             ],
-            "fieldSources": {},
+            "fieldSources": {
+              "categoryName": {
+                "field": "categoryName",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "distanceKm": {
+                "field": "distanceKm",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "elevationGain": {
+                "field": "elevationGain",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "cutoffTimeHours": {
+                "field": "cutoffTimeHours",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "startAt": {
+                "field": "startAt",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "startTimes": {
+                "field": "startTimes",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "startLocation": {
+                "field": "startLocation",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "finishLocation": {
+                "field": "finishLocation",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "registrationUrl": {
+                "field": "registrationUrl",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              }
+            },
             "sourcePriority": {
               "official": 100
             },
-            "confidence": 0.5,
-            "verified": false,
-            "verificationStatus": "pending",
-            "verifiedAt": null,
+            "confidence": 0.98,
+            "verified": true,
+            "verificationStatus": "verified",
+            "verifiedAt": "2026-10-20",
             "missingFields": [
-              "distanceKm",
-              "elevationGain",
-              "cutoffTimeHours",
-              "startAt",
-              "startLocation",
-              "finishLocation",
-              "capacity"
+              "capacity",
+              "coursePoints"
             ],
             "lastCrawledAt": "2026-10-20",
             "lastUpdatedAt": "2026-10-20",
             "schemaVersion": "race-graph-v1",
-            "dataQualityLevel": "D",
-            "reviewNotes": "Source Gap: fetched official HTML does not directly establish date/category dynamic facts. User content is not official field verification. Retain nulls and withhold public eligibility."
+            "dataQualityLevel": "B",
+            "reviewNotes": "2027 rule 赛事介绍 directly binds this Category profile; nominal official K class retained, actual measured course distance not supplied. Elevation is approximate in the source. Subject to organizer route/construction adjustments; no CP list or Strategy inferred."
           },
           "coursePoints": null,
           "coursePointDataStatus": "unknown"
@@ -5894,16 +6295,18 @@
           "categoryId": "panda-shudao-shan-2027-105k",
           "editionId": "panda-shudao-shan-2027",
           "categoryName": "105K",
-          "distanceKm": null,
-          "elevationGain": null,
-          "cutoffTimeHours": null,
-          "startAt": null,
-          "startLocation": null,
-          "finishLocation": null,
+          "distanceKm": 105,
+          "elevationGain": 5550,
+          "cutoffTimeHours": 29,
+          "startAt": "2027-03-27T06:00:00+08:00",
+          "startLocation": "白鹿音乐广场",
+          "finishLocation": "白鹿音乐广场",
           "capacity": null,
           "shortName": "105K",
-          "startTimes": null,
-          "registrationUrl": null,
+          "startTimes": [
+            "2027-03-27T06:00:00+08:00"
+          ],
+          "registrationUrl": "https://sport.luojiweiye.com/web/weibu/#/pages/event/gameDetailGuide?id=7664",
           "displayOrder": 2,
           "createdAt": "2026-10-20",
           "updatedAt": "2026-10-20",
@@ -5911,42 +6314,126 @@
             "sources": [
               {
                 "sourceType": "official",
-                "sourceName": "2027熊猫蜀道山超级越野赛 / 官方页面",
-                "sourceUrl": "https://tsaigu.saihuitong.com/event?id=741200&mid=58097",
-                "sourceRecordId": "panda-shudao-shan-official-2027",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "sourceUrl": "https://cdn.rockysports.cn/7664/image/20261013/lm13rkxWtL_hh6MsdygJDLzb0afq.jpg",
+                "sourceRecordId": "panda-shudao-shan-official-rules-2027",
                 "crawledAt": "2026-10-20",
-                "confidence": 0.5,
+                "confidence": 0.98,
                 "rawData": {
                   "editionYear": 2027,
                   "latestRelevantOfficialEditionYear": 2027,
-                  "contentHash": "eeac7665ebf7c013b2ec1241f3fb008f8fbf11a8bac1bc523d79297eaa72c0bb",
-                  "fetchedAt": "2026-10-20T09:17:38.750620+00:00",
-                  "evidenceLocator": "Current official identity only; detailed field evidence unavailable in fetched HTML."
+                  "editionName": "2027熊猫蜀道山超级越野赛",
+                  "raceDate": "2027-03-27",
+                  "endDate": "2027-03-28",
+                  "venue": "白鹿音乐广场",
+                  "contentHash": "b5b07e1c2853d24f746ad214c2d70df185a54440419368128631c0d6d1587a75",
+                  "fetchedAt": "2026-10-20T10:22:19.500596+00:00",
+                  "evidenceLocator": "1080x43837 official image; header explicitly 2027竞赛规程; 赛事介绍 y=2600..4300; 报名资格 y=8800..11000; 报名办法 y=11900..13000; cutoff section y=27100..28600; 85K³ team fee and CP rule y~12600 and y~34900.",
+                  "referenceChain": [
+                    "https://tsaigu.saihuitong.com/event?id=741200&mid=58097",
+                    "https://sport.luojiweiye.com/web/weibu/#/pages/event/gameDetailGuide?id=7664",
+                    "https://sport.luojiweiye.com/web/weibu/#/pages/event/inquiryRegistration?nav_id=5423&game_id=7664&title=%E6%8A%A5%E5%90%8D%E9%A1%BB%E7%9F%A5",
+                    "https://cdn.rockysports.cn/7664/image/20261013/lm13rkxWtL_hh6MsdygJDLzb0afq.jpg"
+                  ],
+                  "categoryName": "105K",
+                  "distanceKm": 105,
+                  "elevationGain": 5550,
+                  "cutoffTimeHours": 29,
+                  "startAt": "2027-03-27T06:00:00+08:00",
+                  "startTimes": [
+                    "2027-03-27T06:00:00+08:00"
+                  ],
+                  "startLocation": "白鹿音乐广场",
+                  "finishLocation": "白鹿音乐广场",
+                  "registrationUrl": "https://sport.luojiweiye.com/web/weibu/#/pages/event/gameDetailGuide?id=7664",
+                  "categoryId": "panda-shudao-shan-2027-105k",
+                  "officialNominalCategoryLabel": "105K",
+                  "elevationQualifier": "约",
+                  "actualCourseDistanceKm": null
                 }
               }
             ],
-            "fieldSources": {},
+            "fieldSources": {
+              "categoryName": {
+                "field": "categoryName",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "distanceKm": {
+                "field": "distanceKm",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "elevationGain": {
+                "field": "elevationGain",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "cutoffTimeHours": {
+                "field": "cutoffTimeHours",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "startAt": {
+                "field": "startAt",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "startTimes": {
+                "field": "startTimes",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "startLocation": {
+                "field": "startLocation",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "finishLocation": {
+                "field": "finishLocation",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "registrationUrl": {
+                "field": "registrationUrl",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              }
+            },
             "sourcePriority": {
               "official": 100
             },
-            "confidence": 0.5,
-            "verified": false,
-            "verificationStatus": "pending",
-            "verifiedAt": null,
+            "confidence": 0.98,
+            "verified": true,
+            "verificationStatus": "verified",
+            "verifiedAt": "2026-10-20",
             "missingFields": [
-              "distanceKm",
-              "elevationGain",
-              "cutoffTimeHours",
-              "startAt",
-              "startLocation",
-              "finishLocation",
-              "capacity"
+              "capacity",
+              "coursePoints"
             ],
             "lastCrawledAt": "2026-10-20",
             "lastUpdatedAt": "2026-10-20",
             "schemaVersion": "race-graph-v1",
-            "dataQualityLevel": "D",
-            "reviewNotes": "Source Gap: fetched official HTML does not directly establish date/category dynamic facts. User content is not official field verification. Retain nulls and withhold public eligibility."
+            "dataQualityLevel": "B",
+            "reviewNotes": "2027 rule 赛事介绍 directly binds this Category profile; nominal official K class retained, actual measured course distance not supplied. Elevation is approximate in the source. Subject to organizer route/construction adjustments; no CP list or Strategy inferred."
           },
           "coursePoints": null,
           "coursePointDataStatus": "unknown"
@@ -5954,17 +6441,19 @@
         {
           "categoryId": "panda-shudao-shan-2027-85k",
           "editionId": "panda-shudao-shan-2027",
-          "categoryName": "85K³",
-          "distanceKm": null,
-          "elevationGain": null,
-          "cutoffTimeHours": null,
-          "startAt": null,
-          "startLocation": null,
-          "finishLocation": null,
+          "categoryName": "85K³（团队赛）",
+          "distanceKm": 85,
+          "elevationGain": 4600,
+          "cutoffTimeHours": 24,
+          "startAt": "2027-03-27T10:00:00+08:00",
+          "startLocation": "海窝子古镇",
+          "finishLocation": "白鹿音乐广场",
           "capacity": null,
-          "shortName": "85K³",
-          "startTimes": null,
-          "registrationUrl": null,
+          "shortName": "85K³（团队赛）",
+          "startTimes": [
+            "2027-03-27T10:00:00+08:00"
+          ],
+          "registrationUrl": "https://sport.luojiweiye.com/web/weibu/#/pages/event/gameDetailGuide?id=7664",
           "displayOrder": 3,
           "createdAt": "2026-10-20",
           "updatedAt": "2026-10-20",
@@ -5972,60 +6461,172 @@
             "sources": [
               {
                 "sourceType": "official",
-                "sourceName": "2027熊猫蜀道山超级越野赛 / 官方页面",
-                "sourceUrl": "https://tsaigu.saihuitong.com/event?id=741200&mid=58097",
-                "sourceRecordId": "panda-shudao-shan-official-2027",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "sourceUrl": "https://cdn.rockysports.cn/7664/image/20261013/lm13rkxWtL_hh6MsdygJDLzb0afq.jpg",
+                "sourceRecordId": "panda-shudao-shan-official-rules-2027",
                 "crawledAt": "2026-10-20",
-                "confidence": 0.5,
+                "confidence": 0.98,
                 "rawData": {
                   "editionYear": 2027,
                   "latestRelevantOfficialEditionYear": 2027,
-                  "contentHash": "eeac7665ebf7c013b2ec1241f3fb008f8fbf11a8bac1bc523d79297eaa72c0bb",
-                  "fetchedAt": "2026-10-20T09:17:38.750620+00:00",
-                  "evidenceLocator": "Current official identity only; detailed field evidence unavailable in fetched HTML."
+                  "editionName": "2027熊猫蜀道山超级越野赛",
+                  "raceDate": "2027-03-27",
+                  "endDate": "2027-03-28",
+                  "venue": "白鹿音乐广场",
+                  "contentHash": "b5b07e1c2853d24f746ad214c2d70df185a54440419368128631c0d6d1587a75",
+                  "fetchedAt": "2026-10-20T10:22:19.500596+00:00",
+                  "evidenceLocator": "1080x43837 official image; header explicitly 2027竞赛规程; 赛事介绍 y=2600..4300; 报名资格 y=8800..11000; 报名办法 y=11900..13000; cutoff section y=27100..28600; 85K³ team fee and CP rule y~12600 and y~34900.",
+                  "referenceChain": [
+                    "https://tsaigu.saihuitong.com/event?id=741200&mid=58097",
+                    "https://sport.luojiweiye.com/web/weibu/#/pages/event/gameDetailGuide?id=7664",
+                    "https://sport.luojiweiye.com/web/weibu/#/pages/event/inquiryRegistration?nav_id=5423&game_id=7664&title=%E6%8A%A5%E5%90%8D%E9%A1%BB%E7%9F%A5",
+                    "https://cdn.rockysports.cn/7664/image/20261013/lm13rkxWtL_hh6MsdygJDLzb0afq.jpg"
+                  ],
+                  "categoryName": "85K³（团队赛）",
+                  "distanceKm": 85,
+                  "elevationGain": 4600,
+                  "cutoffTimeHours": 24,
+                  "startAt": "2027-03-27T10:00:00+08:00",
+                  "startTimes": [
+                    "2027-03-27T10:00:00+08:00"
+                  ],
+                  "startLocation": "海窝子古镇",
+                  "finishLocation": "白鹿音乐广场",
+                  "registrationUrl": "https://sport.luojiweiye.com/web/weibu/#/pages/event/gameDetailGuide?id=7664",
+                  "qualificationRequired": true,
+                  "qualificationRules": "团队赛，官方列2人/3人团队费用；每位队员均须满足85K³报名资格；各CP点（包括终点）队员打卡间隔超过2分钟将累计罚时。不是普通个人85K，也不是85×3公里。",
+                  "categoryId": "panda-shudao-shan-2027-85k",
+                  "officialNominalCategoryLabel": "85K³",
+                  "elevationQualifier": "约",
+                  "actualCourseDistanceKm": null,
+                  "teamEvidence": {
+                    "feeForTwo": 1760,
+                    "feeForThree": 2400,
+                    "allMembersMustQualify": true,
+                    "cpPunchGapMinutes": 2
+                  }
                 }
               }
             ],
-            "fieldSources": {},
+            "fieldSources": {
+              "categoryName": {
+                "field": "categoryName",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "distanceKm": {
+                "field": "distanceKm",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "elevationGain": {
+                "field": "elevationGain",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "cutoffTimeHours": {
+                "field": "cutoffTimeHours",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "startAt": {
+                "field": "startAt",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "startTimes": {
+                "field": "startTimes",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "startLocation": {
+                "field": "startLocation",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "finishLocation": {
+                "field": "finishLocation",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "registrationUrl": {
+                "field": "registrationUrl",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "qualificationRequired": {
+                "field": "qualificationRequired",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "qualificationRules": {
+                "field": "qualificationRules",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              }
+            },
             "sourcePriority": {
               "official": 100
             },
-            "confidence": 0.5,
-            "verified": false,
-            "verificationStatus": "pending",
-            "verifiedAt": null,
+            "confidence": 0.98,
+            "verified": true,
+            "verificationStatus": "verified",
+            "verifiedAt": "2026-10-20",
             "missingFields": [
-              "distanceKm",
-              "elevationGain",
-              "cutoffTimeHours",
-              "startAt",
-              "startLocation",
-              "finishLocation",
-              "capacity"
+              "capacity",
+              "coursePoints"
             ],
             "lastCrawledAt": "2026-10-20",
             "lastUpdatedAt": "2026-10-20",
             "schemaVersion": "race-graph-v1",
-            "dataQualityLevel": "D",
-            "reviewNotes": "Source Gap: fetched official HTML does not directly establish date/category dynamic facts. User content is not official field verification. Retain nulls and withhold public eligibility."
+            "dataQualityLevel": "B",
+            "reviewNotes": "2027 rule 赛事介绍 directly binds this Category profile; nominal official K class retained, actual measured course distance not supplied. Elevation is approximate in the source. Subject to organizer route/construction adjustments; no CP list or Strategy inferred. Team format explicit in public name and existing qualificationRules."
           },
           "coursePoints": null,
-          "coursePointDataStatus": "unknown"
+          "coursePointDataStatus": "unknown",
+          "qualificationRequired": true,
+          "qualificationRules": "团队赛，官方列2人/3人团队费用；每位队员均须满足85K³报名资格；各CP点（包括终点）队员打卡间隔超过2分钟将累计罚时。不是普通个人85K，也不是85×3公里。"
         },
         {
           "categoryId": "panda-shudao-shan-2027-60k",
           "editionId": "panda-shudao-shan-2027",
           "categoryName": "60K",
-          "distanceKm": null,
-          "elevationGain": null,
-          "cutoffTimeHours": null,
-          "startAt": null,
-          "startLocation": null,
-          "finishLocation": null,
+          "distanceKm": 60,
+          "elevationGain": 2600,
+          "cutoffTimeHours": 12.5,
+          "startAt": "2027-03-27T08:00:00+08:00",
+          "startLocation": "龙门山镇宝山广场",
+          "finishLocation": "白鹿音乐广场",
           "capacity": null,
           "shortName": "60K",
-          "startTimes": null,
-          "registrationUrl": null,
+          "startTimes": [
+            "2027-03-27T08:00:00+08:00",
+            "2027-03-27T08:30:00+08:00",
+            "2027-03-27T09:00:00+08:00"
+          ],
+          "registrationUrl": "https://sport.luojiweiye.com/web/weibu/#/pages/event/gameDetailGuide?id=7664",
           "displayOrder": 4,
           "createdAt": "2026-10-20",
           "updatedAt": "2026-10-20",
@@ -6033,42 +6634,128 @@
             "sources": [
               {
                 "sourceType": "official",
-                "sourceName": "2027熊猫蜀道山超级越野赛 / 官方页面",
-                "sourceUrl": "https://tsaigu.saihuitong.com/event?id=741200&mid=58097",
-                "sourceRecordId": "panda-shudao-shan-official-2027",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "sourceUrl": "https://cdn.rockysports.cn/7664/image/20261013/lm13rkxWtL_hh6MsdygJDLzb0afq.jpg",
+                "sourceRecordId": "panda-shudao-shan-official-rules-2027",
                 "crawledAt": "2026-10-20",
-                "confidence": 0.5,
+                "confidence": 0.98,
                 "rawData": {
                   "editionYear": 2027,
                   "latestRelevantOfficialEditionYear": 2027,
-                  "contentHash": "eeac7665ebf7c013b2ec1241f3fb008f8fbf11a8bac1bc523d79297eaa72c0bb",
-                  "fetchedAt": "2026-10-20T09:17:38.750620+00:00",
-                  "evidenceLocator": "Current official identity only; detailed field evidence unavailable in fetched HTML."
+                  "editionName": "2027熊猫蜀道山超级越野赛",
+                  "raceDate": "2027-03-27",
+                  "endDate": "2027-03-28",
+                  "venue": "白鹿音乐广场",
+                  "contentHash": "b5b07e1c2853d24f746ad214c2d70df185a54440419368128631c0d6d1587a75",
+                  "fetchedAt": "2026-10-20T10:22:19.500596+00:00",
+                  "evidenceLocator": "1080x43837 official image; header explicitly 2027竞赛规程; 赛事介绍 y=2600..4300; 报名资格 y=8800..11000; 报名办法 y=11900..13000; cutoff section y=27100..28600; 85K³ team fee and CP rule y~12600 and y~34900.",
+                  "referenceChain": [
+                    "https://tsaigu.saihuitong.com/event?id=741200&mid=58097",
+                    "https://sport.luojiweiye.com/web/weibu/#/pages/event/gameDetailGuide?id=7664",
+                    "https://sport.luojiweiye.com/web/weibu/#/pages/event/inquiryRegistration?nav_id=5423&game_id=7664&title=%E6%8A%A5%E5%90%8D%E9%A1%BB%E7%9F%A5",
+                    "https://cdn.rockysports.cn/7664/image/20261013/lm13rkxWtL_hh6MsdygJDLzb0afq.jpg"
+                  ],
+                  "categoryName": "60K",
+                  "distanceKm": 60,
+                  "elevationGain": 2600,
+                  "cutoffTimeHours": 12.5,
+                  "startAt": "2027-03-27T08:00:00+08:00",
+                  "startTimes": [
+                    "2027-03-27T08:00:00+08:00",
+                    "2027-03-27T08:30:00+08:00",
+                    "2027-03-27T09:00:00+08:00"
+                  ],
+                  "startLocation": "龙门山镇宝山广场",
+                  "finishLocation": "白鹿音乐广场",
+                  "registrationUrl": "https://sport.luojiweiye.com/web/weibu/#/pages/event/gameDetailGuide?id=7664",
+                  "categoryId": "panda-shudao-shan-2027-60k",
+                  "officialNominalCategoryLabel": "60K",
+                  "elevationQualifier": "约",
+                  "actualCourseDistanceKm": null
                 }
               }
             ],
-            "fieldSources": {},
+            "fieldSources": {
+              "categoryName": {
+                "field": "categoryName",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "distanceKm": {
+                "field": "distanceKm",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "elevationGain": {
+                "field": "elevationGain",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "cutoffTimeHours": {
+                "field": "cutoffTimeHours",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "startAt": {
+                "field": "startAt",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "startTimes": {
+                "field": "startTimes",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "startLocation": {
+                "field": "startLocation",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "finishLocation": {
+                "field": "finishLocation",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "registrationUrl": {
+                "field": "registrationUrl",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              }
+            },
             "sourcePriority": {
               "official": 100
             },
-            "confidence": 0.5,
-            "verified": false,
-            "verificationStatus": "pending",
-            "verifiedAt": null,
+            "confidence": 0.98,
+            "verified": true,
+            "verificationStatus": "verified",
+            "verifiedAt": "2026-10-20",
             "missingFields": [
-              "distanceKm",
-              "elevationGain",
-              "cutoffTimeHours",
-              "startAt",
-              "startLocation",
-              "finishLocation",
-              "capacity"
+              "capacity",
+              "coursePoints"
             ],
             "lastCrawledAt": "2026-10-20",
             "lastUpdatedAt": "2026-10-20",
             "schemaVersion": "race-graph-v1",
-            "dataQualityLevel": "D",
-            "reviewNotes": "Source Gap: fetched official HTML does not directly establish date/category dynamic facts. User content is not official field verification. Retain nulls and withhold public eligibility."
+            "dataQualityLevel": "B",
+            "reviewNotes": "2027 rule 赛事介绍 directly binds this Category profile; nominal official K class retained, actual measured course distance not supplied. Elevation is approximate in the source. Subject to organizer route/construction adjustments; no CP list or Strategy inferred."
           },
           "coursePoints": null,
           "coursePointDataStatus": "unknown"
@@ -6077,16 +6764,20 @@
           "categoryId": "panda-shudao-shan-2027-25k",
           "editionId": "panda-shudao-shan-2027",
           "categoryName": "25K",
-          "distanceKm": null,
-          "elevationGain": null,
-          "cutoffTimeHours": null,
-          "startAt": null,
-          "startLocation": null,
-          "finishLocation": null,
+          "distanceKm": 25,
+          "elevationGain": 1100,
+          "cutoffTimeHours": 6.5,
+          "startAt": "2027-03-28T09:00:00+08:00",
+          "startLocation": "白鹿音乐广场",
+          "finishLocation": "白鹿音乐广场",
           "capacity": null,
           "shortName": "25K",
-          "startTimes": null,
-          "registrationUrl": null,
+          "startTimes": [
+            "2027-03-28T09:00:00+08:00",
+            "2027-03-28T09:30:00+08:00",
+            "2027-03-28T10:00:00+08:00"
+          ],
+          "registrationUrl": "https://sport.luojiweiye.com/web/weibu/#/pages/event/gameDetailGuide?id=7664",
           "displayOrder": 5,
           "createdAt": "2026-10-20",
           "updatedAt": "2026-10-20",
@@ -6094,42 +6785,128 @@
             "sources": [
               {
                 "sourceType": "official",
-                "sourceName": "2027熊猫蜀道山超级越野赛 / 官方页面",
-                "sourceUrl": "https://tsaigu.saihuitong.com/event?id=741200&mid=58097",
-                "sourceRecordId": "panda-shudao-shan-official-2027",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "sourceUrl": "https://cdn.rockysports.cn/7664/image/20261013/lm13rkxWtL_hh6MsdygJDLzb0afq.jpg",
+                "sourceRecordId": "panda-shudao-shan-official-rules-2027",
                 "crawledAt": "2026-10-20",
-                "confidence": 0.5,
+                "confidence": 0.98,
                 "rawData": {
                   "editionYear": 2027,
                   "latestRelevantOfficialEditionYear": 2027,
-                  "contentHash": "eeac7665ebf7c013b2ec1241f3fb008f8fbf11a8bac1bc523d79297eaa72c0bb",
-                  "fetchedAt": "2026-10-20T09:17:38.750620+00:00",
-                  "evidenceLocator": "Current official identity only; detailed field evidence unavailable in fetched HTML."
+                  "editionName": "2027熊猫蜀道山超级越野赛",
+                  "raceDate": "2027-03-28",
+                  "endDate": "2027-03-28",
+                  "venue": "白鹿音乐广场",
+                  "contentHash": "b5b07e1c2853d24f746ad214c2d70df185a54440419368128631c0d6d1587a75",
+                  "fetchedAt": "2026-10-20T10:22:19.500596+00:00",
+                  "evidenceLocator": "1080x43837 official image; header explicitly 2027竞赛规程; 赛事介绍 y=2600..4300; 报名资格 y=8800..11000; 报名办法 y=11900..13000; cutoff section y=27100..28600; 85K³ team fee and CP rule y~12600 and y~34900.",
+                  "referenceChain": [
+                    "https://tsaigu.saihuitong.com/event?id=741200&mid=58097",
+                    "https://sport.luojiweiye.com/web/weibu/#/pages/event/gameDetailGuide?id=7664",
+                    "https://sport.luojiweiye.com/web/weibu/#/pages/event/inquiryRegistration?nav_id=5423&game_id=7664&title=%E6%8A%A5%E5%90%8D%E9%A1%BB%E7%9F%A5",
+                    "https://cdn.rockysports.cn/7664/image/20261013/lm13rkxWtL_hh6MsdygJDLzb0afq.jpg"
+                  ],
+                  "categoryName": "25K",
+                  "distanceKm": 25,
+                  "elevationGain": 1100,
+                  "cutoffTimeHours": 6.5,
+                  "startAt": "2027-03-28T09:00:00+08:00",
+                  "startTimes": [
+                    "2027-03-28T09:00:00+08:00",
+                    "2027-03-28T09:30:00+08:00",
+                    "2027-03-28T10:00:00+08:00"
+                  ],
+                  "startLocation": "白鹿音乐广场",
+                  "finishLocation": "白鹿音乐广场",
+                  "registrationUrl": "https://sport.luojiweiye.com/web/weibu/#/pages/event/gameDetailGuide?id=7664",
+                  "categoryId": "panda-shudao-shan-2027-25k",
+                  "officialNominalCategoryLabel": "25K",
+                  "elevationQualifier": "约",
+                  "actualCourseDistanceKm": null
                 }
               }
             ],
-            "fieldSources": {},
+            "fieldSources": {
+              "categoryName": {
+                "field": "categoryName",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "distanceKm": {
+                "field": "distanceKm",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "elevationGain": {
+                "field": "elevationGain",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "cutoffTimeHours": {
+                "field": "cutoffTimeHours",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "startAt": {
+                "field": "startAt",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "startTimes": {
+                "field": "startTimes",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "startLocation": {
+                "field": "startLocation",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "finishLocation": {
+                "field": "finishLocation",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              },
+              "registrationUrl": {
+                "field": "registrationUrl",
+                "sourceType": "official",
+                "sourceName": "柴古唐斯2027熊猫蜀道山竞赛规程（官网链接的微步报名须知）",
+                "confidence": 0.98,
+                "updatedAt": "2026-10-20"
+              }
+            },
             "sourcePriority": {
               "official": 100
             },
-            "confidence": 0.5,
-            "verified": false,
-            "verificationStatus": "pending",
-            "verifiedAt": null,
+            "confidence": 0.98,
+            "verified": true,
+            "verificationStatus": "verified",
+            "verifiedAt": "2026-10-20",
             "missingFields": [
-              "distanceKm",
-              "elevationGain",
-              "cutoffTimeHours",
-              "startAt",
-              "startLocation",
-              "finishLocation",
-              "capacity"
+              "capacity",
+              "coursePoints"
             ],
             "lastCrawledAt": "2026-10-20",
             "lastUpdatedAt": "2026-10-20",
             "schemaVersion": "race-graph-v1",
-            "dataQualityLevel": "D",
-            "reviewNotes": "Source Gap: fetched official HTML does not directly establish date/category dynamic facts. User content is not official field verification. Retain nulls and withhold public eligibility."
+            "dataQualityLevel": "B",
+            "reviewNotes": "2027 rule 赛事介绍 directly binds this Category profile; nominal official K class retained, actual measured course distance not supplied. Elevation is approximate in the source. Subject to organizer route/construction adjustments; no CP list or Strategy inferred."
           },
           "coursePoints": null,
           "coursePointDataStatus": "unknown"

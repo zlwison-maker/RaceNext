@@ -1,6 +1,6 @@
 # RaceNext Project Context
 
-2026-10-20 集成分支记录：[七场内容、图片与事实准入 Handoff](SEVEN_RACE_CONTENT_INTEGRATION_20261020.md)。7 篇冻结 Guide / 35 家酒店和携程原始 Path 已集成；本地 API 按既有 Gate 返回17场，福州与熊猫等待官方补证。尚未合并、未部署、设备与线上验收未完成，不覆盖下文历史生产状态。
+2026-10-20 集成分支记录：[初次七场 Handoff](SEVEN_RACE_CONTENT_INTEGRATION_20261020.md)；[福州/熊猫官方补证更新](PR44_FUZHOU_PANDA_FACT_SUPPLEMENT_20261020.md)。两场补证后19场通过既有事实 Gate，本地 API 为18场：熊猫因480×189图片仍按 Human 要求 HOLD。未合并、未部署，真机及线上验收未完成；下文保留历史生产状态。
 
 ## 1. Current Phase
 

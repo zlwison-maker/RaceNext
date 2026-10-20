@@ -44,6 +44,7 @@ test("homepage keeps current and future races ordered by raceDate, with unknown 
       "shenzhen-marathon-2026",
       "guangzhou-marathon-2026",
       "shenzhen-100-2026",
+      "fuzhou-marathon-2026",
       "hengqin-marathon-2026",
       "chongqing-marathon-2027",
       "xiamen-marathon-2027",

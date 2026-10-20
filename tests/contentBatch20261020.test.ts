@@ -62,7 +62,7 @@ test("all 35 approved hotel names, order, copy and opaque Ctrip actions match V2
   }
 });
 
-test("existing Public Fact Gate releases five qualified additions and withholds two source gaps", () => {
+test("existing Fact Gate accepts supplemented facts; Public API retains the Human Panda image hold", () => {
   assertRaceGraphSnapshot(graph); assertRaceSourceRegistry(registry);
   equal(graph.records.length, 19); equal(newRecords.length, 7);
   const list = createPublicRaceListResult(graph); equal(list.status, 200); if (list.status !== 200) return;
@@ -73,8 +73,9 @@ test("existing Public Fact Gate releases five qualified additions and withholds 
     const gate = evaluatePrePublishFactGate(r, registry.editions.find(e => e.editionId === id));
     const detail = createPublicRaceDetailResult(graph, id);
     if (stagedEditionIds.includes(id)) {
-      equal(gate.publishable, false); equal(r.edition.raceDate, null); equal(r.edition.lifecycleStatus, "uncertain"); equal(detail.status, 404);
-      ok(r.categories.every(c => c.governance.verificationStatus === "pending" && c.distanceKm === null));
+      equal(gate.publishable, true); equal(r.edition.raceDate, "2027-03-26"); equal(r.edition.lifecycleStatus, "active"); equal(detail.status, 404);
+      deepEqual(r.edition.governance.internalFlags, ["do_not_publish"]);
+      ok(r.categories.every(c => c.governance.verificationStatus === "verified"));
     } else {
       ok(newPublicEditionIds.includes(id)); deepEqual(gate.issues, []); equal(gate.publishable, true); equal(detail.status, 200);
       if (detail.status === 200) {
@@ -87,7 +88,7 @@ test("existing Public Fact Gate releases five qualified additions and withholds 
     }
   }
   const manifest = buildCanonicalReleaseManifest(graph, registry, "a".repeat(40));
-  equal(manifest.expected.length, 18); // list + 17 public details; two staged Editions never enter deployment manifest.
+  equal(manifest.expected.length, 19); // list + 18 public details; image-held Panda does not enter deployment manifest.
 });
 
 test("official category precision, wave times and conflict isolation do not infer missing facts", () => {

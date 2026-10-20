@@ -39,6 +39,7 @@ test("public list returns only publishable canonical editions", () => {
     "shenzhen-marathon-2026",
     "guangzhou-marathon-2026",
     "shenzhen-100-2026",
+    "fuzhou-marathon-2026",
     "hengqin-marathon-2026",
     "chongqing-marathon-2027",
     "xiamen-marathon-2027",
