@@ -658,6 +658,16 @@
           "status": "active",
           "isPrimary": true,
           "notes": "Identity reviewed 2026-10-20: 2026南京银行南京马拉松.  Registry identity is not blanket fact approval. Field evidence must be current-edition and directly scoped."
+        },
+        {
+          "sourceId": "nanjing-marathon-registration-notice-2026",
+          "url": "https://www.nj-marathon.cn/page/L51XZa20wrP7jAM6vG98.html",
+          "domain": "www.nj-marathon.cn",
+          "tier": "primary_official",
+          "sourceType": "registration_notice",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "2026-10-20 seven-race targeted QA. Exact current-Edition document only; no whole-domain authorization or automatic fact approval. Includes complete lottery/payment/waitlist end rules; does not close special invited recruitment."
         }
       ]
     },
@@ -683,6 +693,16 @@
           "status": "unavailable",
           "isPrimary": false,
           "notes": "2026-10-20 read-only check: connection refused; original supplied HTTPS entry retained for provenance. Public official HTTP www.sxym.org.cn/html/event.html was successfully fetched and separately registered; no TLS validation disabled."
+        },
+        {
+          "sourceId": "shaoxing-marathon-registration-notice-2026",
+          "url": "http://www.sxym.org.cn/html/bmxz.html",
+          "domain": "www.sxym.org.cn",
+          "tier": "primary_official",
+          "sourceType": "registration_notice",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "2026-10-20 seven-race targeted QA. Exact current-Edition document only; no whole-domain authorization or automatic fact approval. HTTP original is readable; HTTPS currently TLS EOF. Covers 2026 only, not future team entry for already admitted runners."
         }
       ]
     },
@@ -708,6 +728,36 @@
           "status": "active",
           "isPrimary": false,
           "notes": "Checked 2026-10-20: HTTP 200 dynamic shell only; no direct facts extracted. Government organizer republication supplies the dated evidence."
+        },
+        {
+          "sourceId": "shenzhen-marathon-current-rules-2026",
+          "url": "https://shenzhenmarathon.org.cn/content.html?detailId=9030978593023542&topicId=6990423356675002",
+          "domain": "shenzhenmarathon.org.cn",
+          "tier": "primary_official",
+          "sourceType": "regulations",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "2026-10-20 seven-race targeted QA. Exact current-Edition document only; no whole-domain authorization or automatic fact approval. Exact organizer article and public JSON response verified; the existing HTML fetcher still sees a JS shell. This does not authorize all object-storage URLs."
+        },
+        {
+          "sourceId": "shenzhen-marathon-result-2026",
+          "url": "https://shenzhenmarathon.org.cn/content.html?detailId=9071527999859602&topicId=6990423356675002",
+          "domain": "shenzhenmarathon.org.cn",
+          "tier": "primary_official",
+          "sourceType": "notice",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "2026-10-20 seven-race targeted QA. Exact current-Edition document only; no whole-domain authorization or automatic fact approval. Exact organizer article and public JSON response verified; the existing HTML fetcher still sees a JS shell. This does not authorize all object-storage URLs."
+        },
+        {
+          "sourceId": "shenzhen-marathon-registration-platform-2026",
+          "url": "https://shenzhen-registration.mararun.com/personal.html?lang=cn",
+          "domain": "shenzhen-registration.mararun.com",
+          "tier": "primary_official",
+          "sourceType": "registration_platform",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "2026-10-20 exact organizer-linked current Edition platform. Reference https://mara-public-res-online.oss-cn-beijing.aliyuncs.com/beta/cms/internal/shenzhenMarathon/homeIndex.json. Public landing URL verified only; no blanket mararun.com identity delegation, login, payment or current-status inference."
         }
       ]
     },
@@ -763,6 +813,26 @@
           "status": "active",
           "isPrimary": false,
           "notes": "2026-10-20 read-only evidence: 福州新闻网 original reporter coverage. Context/cross-check only, including overall 07:30; not primary_official."
+        },
+        {
+          "sourceId": "fuzhou-marathon-registration-reprint-2026",
+          "url": "https://fz.bendibao.com/news/2026910/81057.shtm",
+          "domain": "fz.bendibao.com",
+          "tier": "trusted_secondary",
+          "sourceType": "media_report",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "2026-10-20 seven-race targeted QA. Exact current-Edition document only; no whole-domain authorization or automatic fact approval. Faithful dated 2026 notice reproduction, independently crosschecked against chinamarathon.com/events/76249. Official original notice still not retrieved. Secondary evidence only; excluded from automatic official Fact Pipeline. No attribution upgrade to primary_official."
+        },
+        {
+          "sourceId": "fuzhou-marathon-payment-faq-2026",
+          "url": "https://mp.weixin.qq.com/s/tRgo2hrix5uYW1d3QMe_GQ",
+          "domain": "mp.weixin.qq.com",
+          "tier": "primary_official",
+          "sourceType": "notice",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "2026-10-20 seven-race targeted QA. Exact current-Edition document only; no whole-domain authorization or automatic fact approval. Exact official account gh_48faf407f407 article only; no mp.weixin.qq.com whole-domain approval. Does not settle post-payment second draw."
         }
       ]
     },
@@ -778,6 +848,26 @@
           "status": "active",
           "isPrimary": true,
           "notes": "Identity reviewed 2026-10-20: 2026横琴人寿保险横琴马拉松. General first gun 07:30; Category wave times announced separately and left null. Registry identity is not blanket fact approval. Field evidence must be current-edition and directly scoped."
+        },
+        {
+          "sourceId": "hengqin-marathon-result-2026",
+          "url": "https://www.hengqinmarathon.com/news_detail-285.html",
+          "domain": "www.hengqinmarathon.com",
+          "tier": "primary_official",
+          "sourceType": "notice",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "2026-10-20 seven-race targeted QA. Exact current-Edition document only; no whole-domain authorization or automatic fact approval. Exact current official notice. Current waitlist end cannot be reconciled with early-October registration schedule; do not claim all entry channels closed."
+        },
+        {
+          "sourceId": "hengqin-marathon-registration-platform-2026",
+          "url": "https://hq-registration.mararun.com",
+          "domain": "hq-registration.mararun.com",
+          "tier": "primary_official",
+          "sourceType": "registration_platform",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "2026-10-20 exact organizer-linked current Edition platform. Reference https://www.hengqinmarathon.com/race-255.html. Public landing URL verified only; no blanket mararun.com identity delegation, login, payment or current-status inference."
         }
       ]
     },

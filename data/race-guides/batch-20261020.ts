@@ -5,7 +5,7 @@ export const batch20261020RaceGuides = {
   "guangzhou-100": {
     "impression": {
       "eyebrow": "RACE GUIDE",
-      "title": "Opening",
+      "title": "跑广州100，是一种什么体验？",
       "paragraphs": [
         {
           "text": "广州100很有辨识度的一点，是它从广州体育馆这样的城市空间出发，却把比赛带向城市周边的山林。往届赛事经过白云山一带，跑者从熟悉的城市环境进入山径、台阶与连续起伏的山路。它不是远离城市的荒野赛事，却依然有真正的越野难度。"
@@ -16,7 +16,7 @@ export const batch20261020RaceGuides = {
       ]
     },
     "viewpoint": {
-      "title": "RaceNext Judgment",
+      "title": "RaceNext 怎么看广州100？",
       "paragraphs": [
         {
           "text": "如果你希望找一场交通相对方便、同时又有足够山地挑战的越野赛，广州100值得考虑。它的吸引力不仅在城市与山野的结合，还在于不同距离组别提供了明显不同的参赛选择。"
@@ -31,7 +31,7 @@ export const batch20261020RaceGuides = {
       ]
     },
     "evidence": {
-      "title": "Core Experiences × 3",
+      "title": "广州100有哪些值得关注的特点？",
       "sections": [
         {
           "number": "01",
@@ -63,7 +63,7 @@ export const batch20261020RaceGuides = {
       ]
     },
     "suitability": {
-      "title": "Runner Fit × 3",
+      "title": "广州100适合你吗？",
       "introduction": "",
       "items": [
         {
@@ -97,7 +97,7 @@ export const batch20261020RaceGuides = {
   "nanjing-marathon": {
     "impression": {
       "eyebrow": "RACE GUIDE",
-      "title": "Opening",
+      "title": "跑南马，是一种什么体验？",
       "paragraphs": [
         {
           "text": "南京马拉松让人记住的，是42公里里不断变化的城市风景。从河西新城出发，经过中华路、长江路等老城道路，跑到玄武湖畔，再沿着滨江道路前往燕子矶，赛道把南京的现代城区、历史街巷与山水景观串联了起来。"
@@ -108,7 +108,7 @@ export const batch20261020RaceGuides = {
       ]
     },
     "viewpoint": {
-      "title": "RaceNext Judgment",
+      "title": "RaceNext 怎么看南马？",
       "paragraphs": [
         {
           "text": "如果你希望参加一场赛道成熟、城市体验鲜明，又能认真追求比赛成绩的全程马拉松，南京马拉松值得放进候选清单。它的吸引力，在于不需要为了欣赏城市而放弃竞速目标，也不必为了追求成绩而忽略比赛本身的体验。"
@@ -123,7 +123,7 @@ export const batch20261020RaceGuides = {
       ]
     },
     "evidence": {
-      "title": "Core Experiences × 3",
+      "title": "南京马拉松有哪些值得关注的特点？",
       "sections": [
         {
           "number": "01",
@@ -155,7 +155,7 @@ export const batch20261020RaceGuides = {
       ]
     },
     "suitability": {
-      "title": "Runner Fit × 3",
+      "title": "南马适合你吗？",
       "introduction": "",
       "items": [
         {
@@ -189,7 +189,7 @@ export const batch20261020RaceGuides = {
   "shaoxing-marathon": {
     "impression": {
       "eyebrow": "RACE GUIDE",
-      "title": "Opening",
+      "title": "跑越马，是一种什么体验？",
       "paragraphs": [
         {
           "text": "有些马拉松让人记住的是终点成绩，绍兴马拉松还会让人记住赛道经过的那座城。从镜湖新城出发，跨过水乡的桥，跑进鲁迅故里，经过古轩亭口与府山公园，再沿着古城街道继续向前，绍兴的历史和日常生活就在奔跑途中展开。"
@@ -200,7 +200,7 @@ export const batch20261020RaceGuides = {
       ]
     },
     "viewpoint": {
-      "title": "RaceNext Judgment",
+      "title": "RaceNext 怎么看越马？",
       "paragraphs": [
         {
           "text": "如果你希望参加一场城市特色鲜明、赛道值得记住，同时又能认真跑成绩的马拉松，绍兴马拉松值得考虑。它把鲁迅故里、古轩亭口、府山公园等文化地标放进了真实赛道，而不是让跑者只能在比赛结束以后再去观光。"
@@ -215,7 +215,7 @@ export const batch20261020RaceGuides = {
       ]
     },
     "evidence": {
-      "title": "Core Experiences × 3",
+      "title": "绍兴马拉松有哪些值得关注的特点？",
       "sections": [
         {
           "number": "01",
@@ -247,7 +247,7 @@ export const batch20261020RaceGuides = {
       ]
     },
     "suitability": {
-      "title": "Runner Fit × 3",
+      "title": "越马适合你吗？",
       "introduction": "",
       "items": [
         {
@@ -281,7 +281,7 @@ export const batch20261020RaceGuides = {
   "shenzhen-marathon": {
     "impression": {
       "eyebrow": "RACE GUIDE",
-      "title": "Opening｜赛事印象",
+      "title": "跑深马，是一种什么体验？",
       "paragraphs": [
         {
           "text": "从深圳市民中心出发，沿着深南大道一路向西，深圳马拉松把这座城市的不同面貌串进了42公里。从高楼林立的城市中心，到深圳湾一带的开阔景色，再到不断变化的前海城区，跑者能在一场比赛里看到深圳充满活力的一面。"
@@ -292,7 +292,7 @@ export const batch20261020RaceGuides = {
       ]
     },
     "viewpoint": {
-      "title": "RaceNext Judgment｜RaceNext 怎么看",
+      "title": "RaceNext 怎么看深马？",
       "paragraphs": [
         {
           "text": "如果你希望参加一场城市体验鲜明、赛事氛围热烈，同时又能认真追求成绩的全程马拉松，深圳马拉松值得考虑。它的吸引力不只在于途经深圳的代表性道路与滨海区域，还在于比赛过程中能够持续感受到这座城市的活力。"
@@ -307,7 +307,7 @@ export const batch20261020RaceGuides = {
       ]
     },
     "evidence": {
-      "title": "Core Experiences｜三个核心特点",
+      "title": "深圳马拉松有哪些值得关注的特点？",
       "sections": [
         {
           "number": "01",
@@ -339,7 +339,7 @@ export const batch20261020RaceGuides = {
       ]
     },
     "suitability": {
-      "title": "Runner Fit｜这场比赛适合你吗？",
+      "title": "深马适合你吗？",
       "introduction": "",
       "items": [
         {
@@ -373,7 +373,7 @@ export const batch20261020RaceGuides = {
   "fuzhou-marathon": {
     "impression": {
       "eyebrow": "RACE GUIDE",
-      "title": "Opening｜赛事印象",
+      "title": "跑福马，是一种什么体验？",
       "paragraphs": [
         {
           "text": "福州马拉松很有意思的一点，是跑一场比赛，也像认真逛了一遍福州。从五一广场出发，经过三坊七巷一带的历史城区，再沿着闽江两岸奔跑，沿途有老街巷、跨江大桥，也有不断变化的现代城市景观。"
@@ -384,7 +384,7 @@ export const batch20261020RaceGuides = {
       ]
     },
     "viewpoint": {
-      "title": "RaceNext Judgment｜RaceNext 怎么看",
+      "title": "RaceNext 怎么看福马？",
       "paragraphs": [
         {
           "text": "如果你希望找一场能认真追求成绩，又能在比赛中感受城市历史与人文氛围的马拉松，福州马拉松值得放进候选清单。它的吸引力，在于相对友好的赛道特点与丰富的城市体验并不冲突，跑者可以带着明确的比赛目标来到这里，也可以把参赛安排成一次福州旅行。"
@@ -399,7 +399,7 @@ export const batch20261020RaceGuides = {
       ]
     },
     "evidence": {
-      "title": "Core Experiences｜三个核心特点",
+      "title": "福州马拉松有哪些值得关注的特点？",
       "sections": [
         {
           "number": "01",
@@ -431,7 +431,7 @@ export const batch20261020RaceGuides = {
       ]
     },
     "suitability": {
-      "title": "Runner Fit｜这场比赛适合你吗？",
+      "title": "福马适合你吗？",
       "introduction": "",
       "items": [
         {
@@ -465,7 +465,7 @@ export const batch20261020RaceGuides = {
   "hengqin-marathon": {
     "impression": {
       "eyebrow": "RACE GUIDE",
-      "title": "Opening｜赛事印象",
+      "title": "跑横琴马拉松，是一种什么体验？",
       "paragraphs": [
         {
           "text": "横琴马拉松很特别的一点，是跑者始终离海湾与澳门不远。从横琴金融岛中央公园出发，沿着横琴的城市道路与环岛路段奔跑，沿途既有现代城区，也有湿地、花海长廊和开阔的滨海景观。隔着水面远眺澳门，这种琴澳相望的体验，让横马拥有不同于一般城市马拉松的辨识度。"
@@ -476,7 +476,7 @@ export const batch20261020RaceGuides = {
       ]
     },
     "viewpoint": {
-      "title": "RaceNext Judgment｜RaceNext 怎么看",
+      "title": "RaceNext 怎么看横琴马拉松？",
       "paragraphs": [
         {
           "text": "如果你希望找一场风景有辨识度、道路相对平坦，同时能够认真追求成绩的马拉松，横琴马拉松值得考虑。它的吸引力不仅在于滨海赛道，还在于琴澳两地独特的地理与城市氛围，让比赛本身有了成绩之外的体验价值。"
@@ -491,7 +491,7 @@ export const batch20261020RaceGuides = {
       ]
     },
     "evidence": {
-      "title": "Core Experiences｜三个核心特点",
+      "title": "横琴马拉松有哪些值得关注的特点？",
       "sections": [
         {
           "number": "01",
@@ -523,7 +523,7 @@ export const batch20261020RaceGuides = {
       ]
     },
     "suitability": {
-      "title": "Runner Fit｜这场比赛适合你吗？",
+      "title": "横琴马拉松适合你吗？",
       "introduction": "",
       "items": [
         {
@@ -557,7 +557,7 @@ export const batch20261020RaceGuides = {
   "panda-shudao-shan": {
     "impression": {
       "eyebrow": "RACE GUIDE",
-      "title": "Opening｜赛事印象",
+      "title": "跑熊猫蜀道山，是一种什么体验？",
       "paragraphs": [
         {
           "text": "熊猫蜀道山超级越野赛最鲜明的体验，是从彭州的小镇走进龙门山，真正感受到山地越野与普通跑步的不同。这里不只有连绵的山林与乡村道路，也有陡坡、泥地和需要小心应对的技术路段。往届比赛中，有人记住了雨后湿滑的山径，也有人记住了白鹿镇的晨雾与海窝子古镇的热闹。"
@@ -568,7 +568,7 @@ export const batch20261020RaceGuides = {
       ]
     },
     "viewpoint": {
-      "title": "RaceNext Judgment｜RaceNext 怎么看",
+      "title": "RaceNext 怎么看熊猫蜀道山？",
       "paragraphs": [
         {
           "text": "如果你希望参加一场真正具有山地挑战、同时又能感受川西山村与古镇氛围的越野赛，熊猫蜀道山值得考虑。它的吸引力不仅在于龙门山的复杂地形，也在于比赛把山野、地方文化与跑者之间的连接放在了同一段旅程里。"
@@ -583,7 +583,7 @@ export const batch20261020RaceGuides = {
       ]
     },
     "evidence": {
-      "title": "Core Experiences｜三个核心特点",
+      "title": "熊猫蜀道山有哪些值得关注的特点？",
       "sections": [
         {
           "number": "01",
@@ -618,7 +618,7 @@ export const batch20261020RaceGuides = {
       ]
     },
     "suitability": {
-      "title": "Runner Fit｜这场比赛适合你吗？",
+      "title": "熊猫蜀道山适合你吗？",
       "introduction": "",
       "items": [
         {

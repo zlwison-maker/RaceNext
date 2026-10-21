@@ -15,17 +15,17 @@ const fz = graph.records.find(r => r.edition.editionId === "fuzhou-marathon-2026
 const panda = graph.records.find(r => r.edition.editionId === "panda-shudao-shan-2027")!;
 const ruleHash = "b5b07e1c2853d24f746ad214c2d70df185a54440419368128631c0d6d1587a75";
 
-test("Fuzhou date and both route endpoints have official image evidence; generic 07:30 and distances stay unverified", () => {
+test("Fuzhou date and both route endpoints have official image evidence; generic 07:30 stays unverified; nominal distances use explicit secondary evidence", () => {
   equal(fz.edition.raceDate, "2026-12-27");
   const kv = fz.edition.governance.sources.find(s => s.sourceRecordId === "fuzhou-marathon-official-kv-2026")!;
   equal(kv.sourceType, "official"); equal(kv.rawData?.contentHash, "46edc29c4fa5454c65d3be09388aa6356895893bb458f982de889bf23c46b097");
   equal(kv.rawData?.raceDate, fz.edition.raceDate);
   equal(fz.categories.length, 2);
-  for (const c of fz.categories) {
+  for (const [index, c] of fz.categories.entries()) {
     equal(c.startLocation, "五一广场"); equal(c.finishLocation, "海峡国际会展中心");
-    equal(c.startAt, null); equal(c.startTimes, null); equal(c.distanceKm, null); equal(c.cutoffTimeHours, null);
-    ok(!c.governance.fieldSources.startAt && !c.governance.fieldSources.distanceKm);
-    ok(c.governance.missingFields.includes("startAt") && c.governance.missingFields.includes("distanceKm"));
+    equal(c.startAt, null); equal(c.startTimes, null); equal(c.distanceKm, [42.195, 21.0975][index]); equal(c.cutoffTimeHours, null);
+    ok(!c.governance.fieldSources.startAt); equal(c.governance.fieldSources.distanceKm.sourceType, "media");
+    ok(c.governance.missingFields.includes("startAt") && !c.governance.missingFields.includes("distanceKm"));
     const evidence = c.governance.sources[0]; equal(evidence.rawData?.categoryId, c.categoryId);
     equal(evidence.rawData?.contentHash, "b331b7bc81880b68e6ade544e76996c80a1f099bd197ea515a7f734398dc7584");
     equal(evidence.rawData?.startLocation, c.startLocation); equal(evidence.rawData?.finishLocation, c.finishLocation);

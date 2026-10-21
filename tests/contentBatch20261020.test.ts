@@ -91,7 +91,7 @@ test("official category precision, wave times and conflict isolation do not infe
   deepEqual(gz.categories.map(c => c.startTimes?.length), [3, 4, 6, 1, 1]);
   equal(gz.categories[0].startAt, "2027-01-15T19:30:00+08:00"); equal(gz.categories[0].elevationGain, 5456);
   equal(gz.categories[1].cutoffTimeHours, null); equal(gz.categories[1].governance.verificationStatus, "pending");
-  ok(gz.categories.every(c => c.startLocation === null && c.finishLocation === null && c.coursePoints === null));
+  ok(gz.categories.every(c => c.startLocation === "广州体育馆" && c.finishLocation === "广州体育馆" && c.coursePoints === null));
   const detail = createPublicRaceDetailResult(graph, gz.edition.editionId); equal(detail.status, 200);
   if (detail.status === 200) ok(!detail.body.race.categories.some(c => c.categoryId === gz.categories[1].categoryId));
   const sz = newRecords.find(r => r.event.eventId === "shenzhen-marathon")!;
@@ -102,7 +102,7 @@ test("official category precision, wave times and conflict isolation do not infe
     ok(r.categories.every(c => c.startAt === null && c.startTimes === null && c.elevationGain === null));
   }
   const nj = newRecords.find(r => r.event.eventId === "nanjing-marathon")!;
-  equal(nj.categories[0].startTimes?.length, 3); equal(nj.categories[0].cutoffTimeHours, null);
+  equal(nj.categories[0].startTimes?.length, 3); equal(nj.categories[0].cutoffTimeHours, 6);
 });
 
 test("new registry identities are unique, domain-matched and usable without changing daily discovery or approval rules", () => {
