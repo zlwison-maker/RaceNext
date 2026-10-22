@@ -2071,6 +2071,138 @@
       "reviewedAt": null,
       "reviewReason": null,
       "appliedAt": null
+    },
+    {
+      "changeId": "chg-9834639d42eb109c8315f709",
+      "eventId": "hengqin-marathon",
+      "editionId": "hengqin-marathon-2026",
+      "categoryId": null,
+      "entityType": "Edition",
+      "field": "registrationOpenDate",
+      "currentValue": "2026-08-18T10:00:00+08:00",
+      "sourceId": "hengqin-marathon-official-2026::announcement:7549c4f386ca39f947307b61",
+      "sourceUrl": "https://www.hengqinmarathon.com/news_detail-280.html",
+      "evidenceText": "从8月18日10:00报名启动",
+      "evidenceLocator": "text:129-144; untrustedDocumentText:paragraph_1",
+      "confidence": 0.95,
+      "fetchedAt": "2026-10-22T05:04:53.360Z",
+      "contentHash": "c3f36ea23bd56061669fe67ee14543f052b156c3ac8a8bb203398d02e12f4590",
+      "extractionMethod": "aliyun-qwen-structured-output",
+      "provider": "aliyun-model-studio",
+      "model": "qwen3.8-flash",
+      "promptVersion": "race-fact-extraction-v1.4",
+      "evidence": [
+        {
+          "sourceId": "hengqin-marathon-official-2026::announcement:7549c4f386ca39f947307b61",
+          "sourceUrl": "https://www.hengqinmarathon.com/news_detail-280.html",
+          "evidenceText": "从8月18日10:00报名启动",
+          "evidenceLocator": "text:129-144; untrustedDocumentText:paragraph_1",
+          "confidence": 0.95,
+          "fetchedAt": "2026-10-22T05:04:53.360Z",
+          "contentHash": "c3f36ea23bd56061669fe67ee14543f052b156c3ac8a8bb203398d02e12f4590",
+          "extractionMethod": "aliyun-qwen-structured-output"
+        },
+        {
+          "sourceId": "hengqin-marathon-result-2026",
+          "sourceUrl": "https://www.hengqinmarathon.com/news_detail-285.html",
+          "evidenceText": "今日（9月21日）10:00起 抽签结果查询与缴费通道同步开放",
+          "evidenceLocator": "text:209-240; untrustedDocumentText",
+          "confidence": 0.95,
+          "fetchedAt": "2026-10-22T05:10:14.235Z",
+          "contentHash": "f83e87616bec448ac22d4945025538c7222a44449b8fc3961c9e0196fd44cd59",
+          "extractionMethod": "aliyun-qwen-structured-output"
+        }
+      ],
+      "conflict": true,
+      "candidateOptions": [
+        {
+          "value": "2026-08-18T10:00:00+08:00",
+          "sourceIds": [
+            "hengqin-marathon-official-2026::announcement:7549c4f386ca39f947307b61"
+          ],
+          "evidence": [
+            {
+              "sourceId": "hengqin-marathon-official-2026::announcement:7549c4f386ca39f947307b61",
+              "sourceUrl": "https://www.hengqinmarathon.com/news_detail-280.html",
+              "evidenceText": "从8月18日10:00报名启动",
+              "evidenceLocator": "text:129-144; untrustedDocumentText:paragraph_1",
+              "confidence": 0.95,
+              "fetchedAt": "2026-10-22T05:04:53.360Z",
+              "contentHash": "c3f36ea23bd56061669fe67ee14543f052b156c3ac8a8bb203398d02e12f4590",
+              "extractionMethod": "aliyun-qwen-structured-output"
+            }
+          ]
+        },
+        {
+          "value": "2026-09-21T10:00:00+08:00",
+          "sourceIds": [
+            "hengqin-marathon-result-2026"
+          ],
+          "evidence": [
+            {
+              "sourceId": "hengqin-marathon-result-2026",
+              "sourceUrl": "https://www.hengqinmarathon.com/news_detail-285.html",
+              "evidenceText": "今日（9月21日）10:00起 抽签结果查询与缴费通道同步开放",
+              "evidenceLocator": "text:209-240; untrustedDocumentText",
+              "confidence": 0.95,
+              "fetchedAt": "2026-10-22T05:10:14.235Z",
+              "contentHash": "f83e87616bec448ac22d4945025538c7222a44449b8fc3961c9e0196fd44cd59",
+              "extractionMethod": "aliyun-qwen-structured-output"
+            }
+          ]
+        }
+      ],
+      "applyBlocked": true,
+      "risk": "low",
+      "reason": "source_value_conflict Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
+      "status": "pending",
+      "createdAt": "2026-10-22T05:10:53.063Z",
+      "reviewedAt": null,
+      "reviewReason": null,
+      "appliedAt": null
+    },
+    {
+      "changeId": "chg-d7a5958f51bb08370aaf0149",
+      "eventId": "hengqin-marathon",
+      "editionId": "hengqin-marathon-2026",
+      "categoryId": null,
+      "entityType": "Edition",
+      "field": "registrationCloseDate",
+      "currentValue": "2026-09-12T22:00:00+08:00",
+      "candidateValue": "2026-10-08T22:00:00+08:00",
+      "sourceId": "hengqin-marathon-result-2026",
+      "sourceUrl": "https://www.hengqinmarathon.com/news_detail-285.html",
+      "evidenceText": "中签选手须在 10月8日22:00前完成缴费",
+      "evidenceLocator": "text:263-285; untrustedDocumentText",
+      "confidence": 0.95,
+      "fetchedAt": "2026-10-22T05:10:14.235Z",
+      "contentHash": "f83e87616bec448ac22d4945025538c7222a44449b8fc3961c9e0196fd44cd59",
+      "extractionMethod": "aliyun-qwen-structured-output",
+      "provider": "aliyun-model-studio",
+      "model": "qwen3.8-flash",
+      "promptVersion": "race-fact-extraction-v1.4",
+      "evidence": [
+        {
+          "sourceId": "hengqin-marathon-result-2026",
+          "sourceUrl": "https://www.hengqinmarathon.com/news_detail-285.html",
+          "evidenceText": "中签选手须在 10月8日22:00前完成缴费",
+          "evidenceLocator": "text:263-285; untrustedDocumentText",
+          "confidence": 0.95,
+          "fetchedAt": "2026-10-22T05:10:14.235Z",
+          "contentHash": "f83e87616bec448ac22d4945025538c7222a44449b8fc3961c9e0196fd44cd59",
+          "extractionMethod": "aliyun-qwen-structured-output"
+        }
+      ],
+      "conflict": false,
+      "candidateOptions": [],
+      "applyBlocked": false,
+      "risk": "low",
+      "reason": "Validated low-risk change from an eligible, conflict-free source. Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
+      "status": "pending",
+      "createdAt": "2026-10-22T05:10:53.063Z",
+      "reviewedAt": null,
+      "reviewReason": null,
+      "appliedAt": null
     }
   ]
 }
