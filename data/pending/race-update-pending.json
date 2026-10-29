@@ -2203,6 +2203,49 @@
       "reviewedAt": null,
       "reviewReason": null,
       "appliedAt": null
+    },
+    {
+      "changeId": "chg-41fb6f93698d6bcc41f7c00e",
+      "eventId": "shaoxing-marathon",
+      "editionId": "shaoxing-marathon-2026",
+      "categoryId": "shaoxing-marathon-2026-half-marathon",
+      "entityType": "Category",
+      "field": "finishLocation",
+      "currentValue": "奥体中心东南侧（解放大道与洋江西路交叉口）",
+      "candidateValue": "奥体中心东南侧(终点，设在解放大道与洋江西路交叉口)",
+      "sourceId": "shaoxing-marathon-registration-notice-2026",
+      "sourceUrl": "http://www.sxym.org.cn/html/bmxz.html",
+      "evidenceText": "奥体中心东南侧(终点，设在解放大道与洋江西路交叉口)",
+      "evidenceLocator": "text:622-648; untrustedDocumentText.一、赛事基本信息 （四）比赛线路 2.半程马拉松路线",
+      "confidence": 1,
+      "fetchedAt": "2026-10-29T06:07:44.203Z",
+      "contentHash": "1cd4ce64aa6be20f37fd30c4efb1b9eb7881f91b81f11966bc4e4f6f772a4f1f",
+      "extractionMethod": "aliyun-qwen-structured-output",
+      "provider": "aliyun-model-studio",
+      "model": "qwen3.8-flash",
+      "promptVersion": "race-fact-extraction-v1.4",
+      "evidence": [
+        {
+          "sourceId": "shaoxing-marathon-registration-notice-2026",
+          "sourceUrl": "http://www.sxym.org.cn/html/bmxz.html",
+          "evidenceText": "奥体中心东南侧(终点，设在解放大道与洋江西路交叉口)",
+          "evidenceLocator": "text:622-648; untrustedDocumentText.一、赛事基本信息 （四）比赛线路 2.半程马拉松路线",
+          "confidence": 1,
+          "fetchedAt": "2026-10-29T06:07:44.203Z",
+          "contentHash": "1cd4ce64aa6be20f37fd30c4efb1b9eb7881f91b81f11966bc4e4f6f772a4f1f",
+          "extractionMethod": "aliyun-qwen-structured-output"
+        }
+      ],
+      "conflict": false,
+      "candidateOptions": [],
+      "applyBlocked": false,
+      "risk": "high_impact",
+      "reason": "High-impact race fact cannot be auto-applied in V1. Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
+      "status": "pending",
+      "createdAt": "2026-10-29T06:08:54.752Z",
+      "reviewedAt": null,
+      "reviewReason": null,
+      "appliedAt": null
     }
   ]
 }
