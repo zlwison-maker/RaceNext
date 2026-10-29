@@ -44,9 +44,11 @@ const gongga60 = category("kailas-gongga-100-2026-snow-60");
 const gongga40 = category("kailas-gongga-100-2026-trail-40");
 const hkThird = category("hk100-2027-the-third-34k");
 const hkHalf = category("hk100-2027-the-half-53k");
-const allTrailCategories = [gongga, gongga60, gongga40, hk100, hkThird, hkHalf];
+const ninghai60 = category("ninghai-ultra-trail-2026-cnh-60");
+const completeTrailCategories = [gongga, gongga60, gongga40, hk100, hkThird, hkHalf];
+const allTrailCategories = [...completeTrailCategories, ninghai60];
 
-test("coursePoints belong to all six accepted trail Categories", () => {
+test("coursePoints belong to the seven accepted trail Categories", () => {
   equal(canonical.records.some(({ edition }) => "coursePoints" in edition), false);
   const categoriesWithPoints = canonical.records.flatMap(({ categories }) => categories)
     .filter(({ coursePoints }) => Array.isArray(coursePoints));
@@ -57,6 +59,7 @@ test("coursePoints belong to all six accepted trail Categories", () => {
     "kailas-gongga-100-2026-glacier-100",
     "kailas-gongga-100-2026-snow-60",
     "kailas-gongga-100-2026-trail-40",
+    "ninghai-ultra-trail-2026-cnh-60",
   ]);
 });
 
@@ -79,7 +82,7 @@ test("displayOrder is unique and distanceKm is monotonic inside each Category", 
 });
 
 test("full offset cutoffs stay monotonic across midnight", () => {
-  for (const category of allTrailCategories) {
+  for (const category of completeTrailCategories) {
     const timestamps = category.coursePoints!.map(({ cutoffAt }) => Date.parse(cutoffAt!));
     ok(timestamps.every((timestamp, index) => index === 0 || timestamp >= timestamps[index - 1]));
     ok(category.coursePoints!.every(({ cutoffAt }) => /(?:Z|[+-]\d{2}:\d{2})$/.test(cutoffAt!)));
@@ -109,9 +112,74 @@ test("Public mapper preserves the distinct null and empty-array service meanings
 });
 
 test("complete core Course Point data remains available when every service is null", () => {
-  for (const category of allTrailCategories) {
+  for (const category of completeTrailCategories) {
     const points = category.coursePoints!.map((point) => ({ ...point, services: null }));
     deepEqual(validateCoursePointDataStatus(category.categoryId, points, "available"), []);
+  }
+});
+
+test("Ninghai CNH-60 preserves the official six checkpoints and Finish, including N/A and actual course distance", () => {
+  const expected = [
+    ["fengshan-village-first-pass", "峰山村", 9.2, "08:05"],
+    ["wailiao", "外辽", 16.4, "09:50"],
+    ["baisha-forest-farm", "白沙林场", 26.4, null],
+    ["liliao", "里辽", 33.9, "14:05"],
+    ["fengshan-village-second-pass", "峰山村", 43.1, "16:30"],
+    ["tuaocai", "屠岙蔡", 53, "18:50"],
+    ["ximen-gate-finish", "西门城楼", 58.8, "20:20"],
+  ] as const;
+  deepEqual(ninghai60.coursePoints, expected.map(([identity, name, distanceKm, cutoff], index) => ({
+    pointId: `${ninghai60.categoryId}-${identity}`,
+    type: index === 6 ? "finish" : "checkpoint", name, displayOrder: index + 1, distanceKm,
+    cutoffAt: cutoff === null ? null : `2026-11-13T${cutoff}:00+08:00`, services: null,
+  })));
+  equal(ninghai60.coursePointDataStatus, "partial");
+  deepEqual(validateCoursePointDataStatus(ninghai60.categoryId, ninghai60.coursePoints, "partial"), []);
+  ok(validateCoursePointDataStatus(ninghai60.categoryId, ninghai60.coursePoints, "available").length > 0);
+  equal(ninghai60.distanceKm, 60);
+  equal(ninghai60.elevationGain, 2400);
+  deepEqual(ninghai60.startTimes, ["2026-11-13T06:00:00+08:00", "2026-11-13T06:20:00+08:00"]);
+  equal(ninghai60.startAt, null);
+  ok(ninghai60.coursePoints![0].pointId !== ninghai60.coursePoints![4].pointId);
+  equal(ninghai60.governance.dataQualityLevel, "B");
+  const source = ninghai60.governance.sources.find(({ sourceRecordId }) => sourceRecordId === "ninghai100-official-cnh60-course-points-2026");
+  ok(source);
+  equal(source.sourceUrl, "https://ninghai100.com/page/CNH-60");
+  equal(source.rawData?.editionYear, 2026);
+  equal(source.rawData?.categoryName, "CNH-60");
+  equal(ninghai60.governance.fieldSources.coursePoints.sourceName, source.sourceName);
+  equal(ninghai60.governance.fieldSources.coursePointDataStatus.sourceName, source.sourceName);
+  const rows = source.rawData?.coursePointRows as Array<{ officialLabel: string; pointId: string; name: string; cumulativeDistanceKm: number; cutoffText: string }>;
+  deepEqual(rows.map(({ officialLabel }) => officialLabel), ["CP1", "CP2", "CP3", "CP4", "CP5", "CP6", "终点"]);
+  for (const point of ninghai60.coursePoints!) {
+    const evidence = rows.find(({ pointId }) => pointId === point.pointId)!;
+    equal(evidence.name, point.name);
+    equal(evidence.cumulativeDistanceKm, point.distanceKm);
+    equal(evidence.cutoffText === "N/A" ? null : evidence.cutoffText.padStart(5, "0"), point.cutoffAt?.slice(11, 16) ?? null);
+  }
+  equal(ninghai60.governance.missingFields.includes("coursePoints"), false);
+  ok(ninghai60.governance.missingFields.includes("coursePoints.CP3.cutoffAt"));
+  ok(ninghai60.governance.missingFields.includes("coursePointServices"));
+});
+
+test("Ninghai Detail publishes partial CNH-60 points without source leakage or cross-Category inheritance", () => {
+  const detail = createPublicRaceDetailResult(canonical, "ninghai-ultra-trail-2026");
+  equal(detail.status, 200);
+  if (detail.status !== 200) return;
+  const sixty = detail.body.race.categories.find(({ categoryId }) => categoryId === ninghai60.categoryId)!;
+  equal(sixty.coursePointDataStatus, "partial");
+  deepEqual(sixty.coursePoints, ninghai60.coursePoints);
+  equal(sixty.distanceKm, 60);
+  for (const point of sixty.coursePoints!) {
+    deepEqual(Object.keys(point).sort(), ["cutoffAt", "displayOrder", "distanceKm", "name", "pointId", "services", "type"]);
+  }
+  for (const other of detail.body.race.categories.filter(({ categoryId }) => categoryId !== ninghai60.categoryId)) {
+    equal(other.coursePoints, null);
+    equal(other.coursePointDataStatus, "unknown");
+  }
+  const publicText = JSON.stringify(detail.body.race.categories);
+  for (const internal of ["governance", "sourceUrl", "evidenceLocator", "confidence", "rawData", "reviewNotes"]) {
+    equal(publicText.includes(`"${internal}"`), false);
   }
 });
 
