@@ -136,8 +136,14 @@ test("Trail primary Categories and unresolved Course Point status stay explicit"
 
   for (const eventId of ["tsaigu-kuocang", "ninghai-ultra-trail", "shenzhen-100"]) {
     for (const item of record(eventId).categories) {
-      equal(item.coursePoints, null);
-      ok(item.coursePointDataStatus === "unknown" || item.coursePointDataStatus === "not_published");
+      if (item.categoryId === "ninghai-ultra-trail-2026-cnh-60") {
+        equal(item.coursePoints?.length, 7);
+        equal(item.coursePointDataStatus, "partial");
+        equal(item.coursePoints?.[2].cutoffAt, null);
+      } else {
+        equal(item.coursePoints, null);
+        ok(item.coursePointDataStatus === "unknown" || item.coursePointDataStatus === "not_published");
+      }
     }
   }
 });
