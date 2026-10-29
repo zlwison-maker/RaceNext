@@ -15,8 +15,12 @@ import {
   planAutomationDataPr,
   type AutomationDataPr,
 } from "../scripts/race-update/productionPrContinuity.ts";
-import { mergeDurablePendingChanges } from "../scripts/race-update/realExtraction.ts";
-import type { PendingChange, PendingChangeStore } from "../types/raceUpdate.ts";
+import { createRealExtractionChangeId, mergeDurablePendingChanges, PendingChangeCollisionError } from "../scripts/race-update/realExtraction.ts";
+import { persistPreparedRealExtraction } from "../scripts/race-update/realExtractionDurability.ts";
+import { assertPendingChangeStore } from "../scripts/race-update/persistence.ts";
+import type { OfficialSourceIngestionState } from "../types/officialSourceIngestion.ts";
+import type { PendingChange, PendingChangeStore, RaceGraphSnapshot, RaceSourceRegistry } from "../types/raceUpdate.ts";
+import { hengqinConflict, replayHengqinConflict } from "./fixtures/hengqinPendingCollision.ts";
 
 const exec = promisify(execFile);
 const cli = new URL("../scripts/race-update/productionPrContinuityCli.ts", import.meta.url).pathname;
@@ -79,6 +83,197 @@ test("reviewed Pending is retained; identical evidence dedups and new official e
   }
 });
 
+test("PR #46 conflict identity survives duplicate discovery and changed retrieval metadata", () => {
+  const existing: PendingChangeStore = { schemaVersion: "race-update-pending-v1", changes: [structuredClone(hengqinConflict)] };
+  assertPendingChangeStore(existing);
+  deepEqual(mergeDurablePendingChanges(existing, [hengqinConflict, hengqinConflict]), existing);
+  const incoming: PendingChange = structuredClone(hengqinConflict);
+  incoming.fetchedAt = "2026-10-29T05:00:00.000Z";
+  incoming.contentHash = "a".repeat(64);
+  for (const evidence of [...incoming.evidence, ...incoming.candidateOptions!.flatMap(({ evidence }) => evidence)]) {
+    evidence.fetchedAt = incoming.fetchedAt;
+    evidence.contentHash = incoming.contentHash;
+    evidence.evidenceLocator = "text:300-350";
+    evidence.confidence = 0.96;
+  }
+  deepEqual(mergeDurablePendingChanges(existing, [incoming, incoming]), existing);
+  deepEqual(existing.changes[0], hengqinConflict);
+});
+
+test("conflict merges new substantive evidence into its matching value without losing old evidence", () => {
+  const existing: PendingChangeStore = { schemaVersion: "race-update-pending-v1", changes: [structuredClone(hengqinConflict)] };
+  const incoming = withAdditionalEvidence();
+  const merged = mergeDurablePendingChanges(existing, [incoming, incoming]);
+  equal(merged.changes.length, 1);
+  const record = merged.changes[0];
+  equal(record.evidence.length, 3);
+  deepEqual(record.evidence.slice(0, 2), hengqinConflict.evidence);
+  equal(record.candidateOptions![0].evidence.length, 2);
+  deepEqual(record.candidateOptions![1], hengqinConflict.candidateOptions[1]);
+  equal(record.status, "pending");
+  equal(record.conflict, true);
+  equal(record.applyBlocked, true);
+  deepEqual(mergeDurablePendingChanges(merged, [incoming]), merged);
+  // Same-batch duplicates must merge into the cloned store, never mutate the caller's input.
+  const batched = mergeDurablePendingChanges({ ...existing, changes: [] }, [hengqinConflict, incoming]);
+  deepEqual(batched, merged);
+  equal(hengqinConflict.evidence.length, 2);
+  deepEqual(existing.changes[0], hengqinConflict);
+});
+
+test("true identity differences fail closed with structured safe diagnostics, different IDs retain distinct facts", () => {
+  const existing: PendingChangeStore = { schemaVersion: "race-update-pending-v1", changes: [structuredClone(hengqinConflict)] };
+  const variants: Array<(change: PendingChange) => void> = [
+    (c) => { c.eventId = "different-event"; },
+    (c) => { c.editionId = "hengqin-marathon-2027"; },
+    (c) => { c.categoryId = "different-category"; c.entityType = "Category"; },
+    (c) => { c.field = "registrationCloseDate"; },
+    (c) => { c.sourceId = "different-source"; },
+    (c) => { c.currentValue = null; },
+    (c) => { c.conflict = false; c.candidateValue = "different-value"; },
+    (c) => { c.candidateOptions![1].value = "2026-09-22T10:00:00+08:00"; },
+    (c) => { c.candidateOptions![1].sourceIds = ["different-source-scope"]; },
+  ];
+  for (const mutate of variants) {
+    const incoming: PendingChange = structuredClone(hengqinConflict);
+    mutate(incoming);
+    incoming.sourceUrl = "https://example.test/?token=private-test-value";
+    throws(() => mergeDurablePendingChanges(existing, [incoming]), (error: unknown) => {
+      ok(error instanceof PendingChangeCollisionError);
+      equal(error.diagnostic.code, "PENDING_CHANGE_ID_COLLISION");
+      equal(error.diagnostic.reason, "identity_mismatch");
+      equal(error.diagnostic.changeId, hengqinConflict.changeId);
+      equal(error.diagnostic.existing.editionId, hengqinConflict.editionId);
+      equal(error.diagnostic.incoming.field, incoming.field);
+      ok(error.diagnostic.existing.candidateIdentity !== error.diagnostic.incoming.candidateIdentity);
+      const logged = JSON.parse(error.message.slice(error.message.indexOf("{")));
+      deepEqual(logged, error.diagnostic);
+      ok(!error.message.includes("private-test-value"));
+      ok(!error.message.includes(hengqinConflict.evidenceText));
+      return true;
+    });
+    deepEqual(existing.changes[0], hengqinConflict);
+  }
+  const different: PendingChange = structuredClone(hengqinConflict);
+  different.changeId = "chg-distinct-conflict";
+  different.candidateOptions![1].value = "2026-09-22T10:00:00+08:00";
+  const merged = mergeDurablePendingChanges(existing, [different, different]);
+  equal(merged.changes.length, 2);
+  deepEqual(merged.changes[0], hengqinConflict);
+  deepEqual(merged.changes[1], different);
+});
+
+test("reviewed conflicts remain immutable; new evidence fails closed rather than silently disappearing", () => {
+  for (const status of ["approved", "rejected", "applied"] as const) {
+    const reviewed: PendingChange = structuredClone(hengqinConflict);
+    reviewed.status = status;
+    reviewed.reviewedAt = "2026-10-28T05:00:00.000Z";
+    reviewed.reviewReason = "Fixture review history";
+    reviewed.appliedAt = status === "applied" ? "2026-10-28T06:00:00.000Z" : null;
+    const existing: PendingChangeStore = { schemaVersion: "race-update-pending-v1", changes: [reviewed] };
+    deepEqual(mergeDurablePendingChanges(existing, [hengqinConflict]), existing);
+    throws(() => mergeDurablePendingChanges(existing, [withAdditionalEvidence()]), (error: unknown) => {
+      ok(error instanceof PendingChangeCollisionError);
+      equal(error.diagnostic.reason, "reviewed_evidence_changed");
+      return true;
+    });
+    deepEqual(existing.changes[0], reviewed);
+  }
+});
+
+test("ordinary candidates keep value/hash identity protection and distinct values are never deduplicated", () => {
+  const record: PendingChange & { candidateValue: string } = {
+    ...structuredClone(hengqinConflict), conflict: false, applyBlocked: false, candidateOptions: [],
+    candidateValue: "2026-09-21T10:00:00+08:00",
+  };
+  record.changeId = createRealExtractionChangeId(record);
+  const existing: PendingChangeStore = { schemaVersion: "race-update-pending-v1", changes: [record] };
+  for (const edit of [
+    { candidateValue: "2026-09-22T10:00:00+08:00" },
+    { contentHash: "b".repeat(64) },
+  ]) {
+    throws(() => mergeDurablePendingChanges(existing, [{ ...record, ...edit }]), PendingChangeCollisionError);
+  }
+  const different = { ...record, candidateValue: "2026-09-22T10:00:00+08:00" };
+  different.changeId = createRealExtractionChangeId(different);
+  ok(different.changeId !== record.changeId);
+  const merged = mergeDurablePendingChanges(existing, [different, different]);
+  equal(merged.changes.length, 2);
+  deepEqual(merged.changes, [record, different]);
+});
+
+test("conflict extraction, durable Pending reload and State commit survive consecutive forced replays", async () => {
+  const snapshot = JSON.parse(await readFile(new URL("../data/canonical/race-graph-v1.json", import.meta.url), "utf8")) as RaceGraphSnapshot;
+  const registry = JSON.parse(await readFile(new URL("../data/sources/race-source-registry.json", import.meta.url), "utf8")) as RaceSourceRegistry;
+  const snapshotBefore = structuredClone(snapshot);
+  // This is a simulated conflict scenario, independent of future Canonical/review decisions.
+  snapshot.records.find(({ edition }) => edition.editionId === hengqinConflict.editionId)!.edition.registrationOpenDate = hengqinConflict.currentValue;
+  const history: PendingChangeStore = { ...productionPending, changes: [
+    ...productionPending.changes.filter(({ changeId }) => changeId !== hengqinConflict.changeId),
+    structuredClone(hengqinConflict),
+  ] };
+  const root = await mkdtemp(join(tmpdir(), "racenext-conflict-replay-"));
+  const pendingFile = join(root, "pending.json"), stateFile = join(root, "state.json");
+  await writeFile(pendingFile, JSON.stringify(history));
+  await writeFile(stateFile, productionState);
+  const unsafe = structuredClone(history);
+  unsafe.changes.find(({ changeId }) => changeId === hengqinConflict.changeId)!.candidateOptions![1].value = "different-fact";
+  const filesBefore = await Promise.all([readFile(pendingFile, "utf8"), readFile(stateFile, "utf8")]);
+  await rejects(async () => {
+    const { prepared } = await replayHengqinConflict({ snapshot, registry, pendingStore: unsafe,
+      state: JSON.parse(productionState), checkedAt: "2026-10-29T04:59:00.000Z", forceExtract: true,
+    });
+    await persistPreparedRealExtraction({ prepared, pendingPath: pendingFile, statePath: stateFile });
+  }, PendingChangeCollisionError);
+  deepEqual(await Promise.all([readFile(pendingFile, "utf8"), readFile(stateFile, "utf8")]), filesBefore);
+  for (const checkedAt of ["2026-10-29T05:00:00.000Z", "2026-10-30T05:00:00.000Z"]) {
+    const pendingStore = JSON.parse(await readFile(pendingFile, "utf8")) as PendingChangeStore;
+    const state = JSON.parse(await readFile(stateFile, "utf8")) as OfficialSourceIngestionState;
+    const { prepared, modelCalls } = await replayHengqinConflict({ snapshot, registry, pendingStore, state, checkedAt, forceExtract: true });
+    equal(modelCalls, 2);
+    equal(prepared.report.sources.length, 2);
+    ok(prepared.report.sources.every((source) => source.identity?.status === "matched" && source.validationAcceptedCount === 1));
+    deepEqual(prepared.createdPendingChangeIds, []);
+    deepEqual(prepared.pendingStore, history);
+    equal(prepared.pendingRequirements.length, 2);
+    ok(prepared.pendingRequirements.every(({ changeIds }) => changeIds.length === 1 && changeIds[0] === hengqinConflict.changeId));
+    ok(prepared.changes.every(({ action, conflict, applyBlocked }) => action !== "auto_apply" && conflict && applyBlocked));
+    const stateBefore = await readFile(stateFile, "utf8");
+    await rejects(persistPreparedRealExtraction({ prepared, pendingPath: pendingFile, statePath: stateFile,
+      operations: { persistPending: async () => { throw new Error("simulated write failure"); } },
+    }), /simulated write failure/);
+    equal(await readFile(stateFile, "utf8"), stateBefore);
+    await persistPreparedRealExtraction({ prepared, pendingPath: pendingFile, statePath: stateFile });
+    deepEqual(JSON.parse(await readFile(pendingFile, "utf8")), history);
+    const persistedState = JSON.parse(await readFile(stateFile, "utf8")) as OfficialSourceIngestionState;
+    for (const requirement of prepared.pendingRequirements) {
+      const saved = persistedState.sources.find(({ sourceId, editionId }) => sourceId === requirement.sourceId && editionId === requirement.editionId)!;
+      equal(saved.lastSuccessfulExtractionAt, checkedAt);
+      equal(saved.lastExtractionStatus, "success");
+      const old = state.sources.filter(({ sourceId }) => !prepared.pendingRequirements.some((r) => r.sourceId === sourceId));
+      deepEqual(persistedState.sources.filter(({ sourceId }) => !prepared.pendingRequirements.some((r) => r.sourceId === sourceId)), old);
+    }
+  }
+  // A subsequent normal run skips both identical content hashes without buying extraction again.
+  const unchanged = await replayHengqinConflict({ snapshot, registry,
+    pendingStore: JSON.parse(await readFile(pendingFile, "utf8")), state: JSON.parse(await readFile(stateFile, "utf8")),
+    checkedAt: "2026-10-30T05:01:00.000Z",
+  });
+  equal(unchanged.modelCalls, 0);
+  deepEqual(unchanged.prepared.pendingStore, history);
+  ok(unchanged.prepared.report.sources.every(({ extractionStatus }) => extractionStatus === "unchanged"));
+  snapshot.records.find(({ edition }) => edition.editionId === hengqinConflict.editionId)!.edition.registrationOpenDate = snapshotBefore.records.find(({ edition }) => edition.editionId === hengqinConflict.editionId)!.edition.registrationOpenDate;
+  deepEqual(snapshot, snapshotBefore);
+});
+
+function withAdditionalEvidence(): PendingChange {
+  const incoming: PendingChange = structuredClone(hengqinConflict);
+  const evidence = { ...incoming.evidence[0], evidenceText: "补充直接证据：从8月18日10:00报名启动", evidenceLocator: "fixture:additional-paragraph" };
+  incoming.evidence.push(evidence);
+  incoming.candidateOptions![0].evidence.push(structuredClone(evidence));
+  return incoming;
+}
+
 test("real prepare/finish CLI continues one open PR across two local monitoring runs", async () => {
   const root = await mkdtemp(join(tmpdir(), "racenext-two-run-"));
   const productionSummary = join(root, "production-summary.md");
@@ -104,8 +299,10 @@ test("real prepare/finish CLI continues one open PR across two local monitoring 
   const mainSha = (await shell(checkout, "git", ["rev-parse", "HEAD"])).trim();
 
   await shell(checkout, "git", ["switch", "-c", pr.headRef]);
-  const recordA = { ...structuredClone(productionPending.changes[0]), changeId: "chg-continuity-a" };
-  const firstPrStore: PendingChangeStore = { ...productionPending, changes: [...productionPending.changes, recordA] };
+  const recordA = structuredClone(hengqinConflict);
+  const firstPrStore: PendingChangeStore = { ...productionPending, changes: [
+    ...productionPending.changes.filter(({ changeId }) => changeId !== recordA.changeId), recordA,
+  ] };
   const firstPrState = JSON.parse(productionState) as { sources: Array<{ lastObservedContentHash: string | null }> };
   firstPrState.sources[0].lastObservedContentHash = "b".repeat(64);
   await writeFile(join(checkout, pendingPath), `${JSON.stringify(firstPrStore)}\n`);
@@ -154,7 +351,10 @@ test("real prepare/finish CLI continues one open PR across two local monitoring 
       ...structuredClone(productionPending.changes[1]),
       changeId: "chg-continuity-b", candidateValue: "Fixture-only alternative finish line",
     };
-    const withB = mergeDurablePendingChanges(day1, [recordB]);
+    const rediscovered = structuredClone(recordA);
+    rediscovered.candidateOptions[0].evidence[0].fetchedAt = "2026-10-29T05:00:00.000Z";
+    const withB = mergeDurablePendingChanges(day1, [rediscovered, recordB]);
+    deepEqual(withB.changes.find(({ changeId }) => changeId === recordA.changeId), recordA);
     await writeFile(join(checkout, pendingPath), `${JSON.stringify(withB)}\n`);
     inheritedState.sources[0].lastObservedContentHash = "c".repeat(64);
     await writeFile(join(checkout, statePath), `${JSON.stringify(inheritedState)}\n`);
@@ -187,7 +387,8 @@ test("real prepare/finish CLI continues one open PR across two local monitoring 
     equal(day2.changes.at(-1)?.changeId, recordB.changeId);
     const day2State = JSON.parse(await readFile(join(checkout, statePath), "utf8")) as typeof firstPrState;
     equal(day2State.sources[0].lastObservedContentHash, "c".repeat(64));
-    const repeated = mergeDurablePendingChanges(day2, [recordB]);
+    rediscovered.candidateOptions[0].evidence[0].fetchedAt = "2026-10-30T05:00:00.000Z";
+    const repeated = mergeDurablePendingChanges(day2, [rediscovered, recordB]);
     deepEqual(repeated, day2);
     equal(day2.changes.filter(({ status }) => status === "rejected").length,
       productionPending.changes.filter(({ status }) => status === "rejected").length);
