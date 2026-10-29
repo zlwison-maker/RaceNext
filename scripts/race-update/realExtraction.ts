@@ -821,15 +821,42 @@ export function mergeDurablePendingChanges(
     const durable = byId.get(change.changeId) ?? findEquivalentPendingChange(next.changes, change);
     if (durable) {
       if (durable.changeId === change.changeId && durableIdentity(durable) !== durableIdentity(change)) {
-        throw new Error(`Pending changeId collision: ${change.changeId}`);
+        throw new PendingChangeCollisionError(durable, change, "identity_mismatch");
+      }
+      // A reviewed record is immutable. New substantive evidence must not disappear behind its ID.
+      if (durable.status !== "pending" && !hasMatchingEvidence(durable, change)) {
+        throw new PendingChangeCollisionError(durable, change, "reviewed_evidence_changed");
       }
       if (durable.status === "pending") mergeEvidence(durable, change);
       continue;
     }
-    next.changes.push(structuredClone(change));
-    byId.set(change.changeId, change);
+    const added = structuredClone(change);
+    next.changes.push(added);
+    byId.set(added.changeId, added);
   }
   return next;
+}
+
+export class PendingChangeCollisionError extends Error {
+  readonly diagnostic;
+
+  constructor(existing: PendingChange, incoming: PendingChange, reason: "identity_mismatch" | "reviewed_evidence_changed") {
+    const describe = (change: PendingChange) => ({
+      eventId: change.eventId, editionId: change.editionId, categoryId: change.categoryId,
+      entityType: change.entityType, field: change.field, sourceId: change.sourceId,
+      conflict: change.conflict === true, status: change.status,
+      candidateIdentity: createHash("sha256").update(durableIdentity(change)).digest("hex"),
+    });
+    const diagnostic = {
+      code: "PENDING_CHANGE_ID_COLLISION", reason, changeId: incoming.changeId,
+      existing: describe(existing), incoming: describe(incoming),
+    };
+    // JSON remains available in failed CLI logs, before any Pending/State persistence.
+    // Only scope IDs and identity digests are emitted; no URLs, raw evidence or candidate values.
+    super(`Pending changeId collision: ${incoming.changeId}; ${JSON.stringify(diagnostic)}`);
+    this.name = "PendingChangeCollisionError";
+    this.diagnostic = diagnostic;
+  }
 }
 
 export function findDurablePendingChange(store: PendingChangeStore, incoming: PendingChange): PendingChange | undefined {
@@ -896,6 +923,10 @@ function comparePendingAuthority(
 }
 
 function samePendingFact(left: PendingChange, right: PendingChange): boolean {
+  if (left.conflict || right.conflict) {
+    return left.conflict === true && right.conflict === true
+      && durableIdentity(left) === durableIdentity(right);
+  }
   return !left.conflict
     && !right.conflict
     && sameTarget(left, right)
@@ -912,11 +943,20 @@ function findEquivalentPendingChange(changes: PendingChange[], incoming: Pending
 }
 
 function mergeEvidence(target: PendingChange, incoming: PendingChange): void {
-  const evidenceKeys = new Set(target.evidence.map(evidenceIdentity));
-  for (const evidence of incoming.evidence) {
+  appendEvidence(target.evidence, incoming.evidence);
+  // Conflict evidence must remain attached to the value it supports as well as the overall Change.
+  for (const option of target.candidateOptions ?? []) {
+    const addition = incoming.candidateOptions?.find((candidate) => conflictOptionIdentity(candidate) === conflictOptionIdentity(option));
+    if (addition) appendEvidence(option.evidence, addition.evidence);
+  }
+}
+
+function appendEvidence(target: PendingChange["evidence"], incoming: PendingChange["evidence"]): void {
+  const evidenceKeys = new Set(target.map(evidenceIdentity));
+  for (const evidence of incoming) {
     const key = evidenceIdentity(evidence);
     if (!evidenceKeys.has(key)) {
-      target.evidence.push(structuredClone(evidence));
+      target.push(structuredClone(evidence));
       evidenceKeys.add(key);
     }
   }
@@ -925,7 +965,12 @@ function mergeEvidence(target: PendingChange, incoming: PendingChange): void {
 function hasMatchingEvidence(existing: PendingChange, incoming: PendingChange): boolean {
   if (incoming.evidence.length === 0) return false;
   const keys = new Set(existing.evidence.map(evidenceIdentity));
-  return incoming.evidence.every((evidence) => keys.has(evidenceIdentity(evidence)));
+  return incoming.evidence.every((evidence) => keys.has(evidenceIdentity(evidence)))
+    && (incoming.candidateOptions ?? []).every((option) => {
+      const previous = existing.candidateOptions?.find((candidate) => conflictOptionIdentity(candidate) === conflictOptionIdentity(option));
+      const optionKeys = new Set(previous?.evidence.map(evidenceIdentity));
+      return previous && option.evidence.every((evidence) => optionKeys.has(evidenceIdentity(evidence)));
+    });
 }
 
 function evidenceIdentity(evidence: PendingChange["evidence"][number]): string {
@@ -938,13 +983,25 @@ function evidenceIdentity(evidence: PendingChange["evidence"][number]): string {
 
 function durableIdentity(change: PendingChange): string {
   return [
+    change.eventId,
     change.editionId,
     change.categoryId ?? "edition",
+    change.entityType,
     change.field,
+    stableJson(change.currentValue),
+    change.conflict === true,
     change.sourceId,
-    change.contentHash,
-    stableJson(change.conflict ? change.candidateOptions : change.candidateValue),
+    // Conflict IDs bind candidate values and their source scopes, not retrieval metadata.
+    // Keep the original IDs: fetching the same conflict later must not create a new identity.
+    change.conflict ? "" : change.contentHash,
+    change.conflict
+      ? stableJson(change.candidateOptions?.map(conflictOptionIdentity).sort())
+      : stableJson(change.candidateValue),
   ].join("|");
+}
+
+function conflictOptionIdentity(option: NonNullable<PendingChange["candidateOptions"]>[number]): string {
+  return stableJson({ value: option.value, sourceIds: [...option.sourceIds].sort() });
 }
 
 function createConflictChangeId(change: RaceFieldChange): string {
