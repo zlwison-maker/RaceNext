@@ -1,4 +1,4 @@
-import { equal, ok } from "node:assert/strict";
+import { deepEqual, equal, ok } from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { registerHooks } from "node:module";
 import { test } from "node:test";
@@ -37,6 +37,37 @@ function getPublicRace(editionId: string): PublicRaceDetail {
 const shanghai = getPublicRace("shanghai-marathon-2026");
 const gongga = getPublicRace("kailas-gongga-100-2026");
 const hk100 = getPublicRace("hk100-2027");
+const ninghai = getPublicRace("ninghai-ultra-trail-2026");
+
+test("Ninghai CNH-60 partial points render with missing cutoff/services and remain isolated on tab switches", async () => {
+  let requestCount = 0;
+  const response: PublicRaceDetailResponse = {
+    schemaVersion: "race-graph-public-v1", dataUpdatedAt: "2026-10-29T00:00:00.000Z", race: ninghai,
+  };
+  const loaded = await loadRaceDetail(ninghai.editionId, async () => { requestCount++; return response; });
+  equal(loaded.loadState, "success");
+  equal(requestCount, 1);
+  ok(loaded.race);
+  const initial = createRaceDetailViewModel(loaded.race);
+  equal(initial.selectedCategory?.categoryId, "ninghai-ultra-trail-2026-utnh-100");
+  equal(initial.selectedCategory.coursePointSection, null);
+  const selected = selectRaceCategory(initial, "ninghai-ultra-trail-2026-cnh-60");
+  const section = selected.selectedCategory?.coursePointSection;
+  ok(section);
+  equal(section.title, "补给与关门");
+  equal(section.points.length, 7);
+  deepEqual(section.points.map(({ pointLabel }) => pointLabel), ["01", "02", "03", "04", "05", "06", "FINISH"]);
+  equal(toPointLine(section.points[0]), "01 峰山村 · 9.2 km · 关门 08:05");
+  equal(toPointLine(section.points[2]), "03 白沙林场 · 26.4 km");
+  equal(toPointLine(section.points[6]), "FINISH 西门城楼 · 58.8 km · 关门 20:20");
+  ok(section.points.every(({ serviceDisplay }) => serviceDisplay === null));
+  const twentyFive = selectRaceCategory(selected, "ninghai-ultra-trail-2026-ynh-25");
+  equal(twentyFive.selectedCategory?.coursePointSection, null);
+  const hundred = selectRaceCategory(twentyFive, "ninghai-ultra-trail-2026-utnh-100");
+  equal(hundred.selectedCategory?.coursePointSection, null);
+  deepEqual(selectRaceCategory(hundred, "ninghai-ultra-trail-2026-cnh-60").selectedCategory?.coursePointSection, section);
+  equal(selected.raceGuide, initial.raceGuide);
+});
 
 test("road races never show Course Points, even if point data is present", () => {
   const roadWithPoints = structuredClone(shanghai);
