@@ -1,11 +1,13 @@
 import { expectedPublicEditionIds } from "./fixtures/contentBatch20261020.ts";
 import { deepEqual, equal, ok } from "node:assert/strict";
 import { readFileSync } from "node:fs";
+import { createHash } from "node:crypto";
 import { test } from "node:test";
 
 import { createPublicRaceDetailResult, createPublicRaceListResult } from "../lib/raceGraphPublic.ts";
 import { validateCoursePointDataStatus, validateTrailCoursePoints } from "../lib/trailCoursePoints.ts";
 import type { Category, CoursePoint } from "../types/event.ts";
+import type { PublicRaceCategory } from "../types/publicRaceGraph.ts";
 
 type CanonicalRecord = {
   event: { eventId: string };
@@ -45,10 +47,12 @@ const gongga40 = category("kailas-gongga-100-2026-trail-40");
 const hkThird = category("hk100-2027-the-third-34k");
 const hkHalf = category("hk100-2027-the-half-53k");
 const ninghai60 = category("ninghai-ultra-trail-2026-cnh-60");
-const completeTrailCategories = [gongga, gongga60, gongga40, hk100, hkThird, hkHalf];
+const ninghai100 = category("ninghai-ultra-trail-2026-utnh-100");
+const ninghai25 = category("ninghai-ultra-trail-2026-ynh-25");
+const completeTrailCategories = [gongga, gongga60, gongga40, hk100, hkThird, hkHalf, ninghai100, ninghai25];
 const allTrailCategories = [...completeTrailCategories, ninghai60];
 
-test("coursePoints belong to the seven accepted trail Categories", () => {
+test("coursePoints belong to the nine accepted trail Categories", () => {
   equal(canonical.records.some(({ edition }) => "coursePoints" in edition), false);
   const categoriesWithPoints = canonical.records.flatMap(({ categories }) => categories)
     .filter(({ coursePoints }) => Array.isArray(coursePoints));
@@ -60,6 +64,8 @@ test("coursePoints belong to the seven accepted trail Categories", () => {
     "kailas-gongga-100-2026-snow-60",
     "kailas-gongga-100-2026-trail-40",
     "ninghai-ultra-trail-2026-cnh-60",
+    "ninghai-ultra-trail-2026-utnh-100",
+    "ninghai-ultra-trail-2026-ynh-25",
   ]);
 });
 
@@ -162,7 +168,116 @@ test("Ninghai CNH-60 preserves the official six checkpoints and Finish, includin
   ok(ninghai60.governance.missingFields.includes("coursePointServices"));
 });
 
-test("Ninghai Detail publishes partial CNH-60 points without source leakage or cross-Category inheritance", () => {
+test("Ninghai UTNH-100 preserves the updated CP2, repeated visits and explicit next-day cutoffs", () => {
+  const expected = [
+    ["fengshan-village-first-pass", "峰山村", 9.2, "2026-11-14T07:30:00+08:00"],
+    ["liliao-first-pass", "里辽", 18.6, "2026-11-14T09:40:00+08:00"],
+    ["feikeng", "榧坑", 29.2, "2026-11-14T11:40:00+08:00"],
+    ["zhangliao", "张辽", 36.9, "2026-11-14T13:20:00+08:00"],
+    ["guanfeng", "冠峰", 50.5, "2026-11-14T16:50:00+08:00"],
+    ["tianhe-village", "天河村", 59.5, "2026-11-14T18:50:00+08:00"],
+    ["shanyang-village", "山洋村", 64.8, "2026-11-14T20:20:00+08:00"],
+    ["liliao-second-pass", "里辽", 75.7, "2026-11-14T23:40:00+08:00"],
+    ["fengshan-village-second-pass", "峰山村", 84.9, "2026-11-15T02:10:00+08:00"],
+    ["tuaocai", "屠岙蔡", 94.8, "2026-11-15T04:40:00+08:00"],
+    ["ximen-gate-finish", "西门城楼", 100.6, "2026-11-15T06:00:00+08:00"],
+  ] as const;
+  deepEqual(ninghai100.coursePoints, expected.map(([identity, name, distanceKm, cutoffAt], index) => ({
+    pointId: `${ninghai100.categoryId}-${identity}`, type: index === 10 ? "finish" : "checkpoint",
+    name, displayOrder: index + 1, distanceKm, cutoffAt, services: null,
+  })));
+  equal(ninghai100.coursePointDataStatus, "available");
+  equal(ninghai100.distanceKm, 100);
+  equal(ninghai100.elevationGain, 4986);
+  equal(ninghai100.startAt, "2026-11-14T06:00:00+08:00");
+  equal(ninghai100.cutoffTimeHours, 24);
+  equal(ninghai100.coursePoints!.some(({ name }) => name === "外辽"), false);
+  for (const name of ["里辽", "峰山村"]) {
+    const visits: CoursePoint[] = ninghai100.coursePoints!.filter((point) => point.name === name);
+    equal(visits.length, 2);
+    equal(new Set(visits.map(({ pointId }) => pointId)).size, 2);
+  }
+});
+
+test("Ninghai YNH-25 publishes its own two CPs and Finish without deriving cutoffs from start waves", () => {
+  const expected = [
+    ["fengshan-village", "峰山村", 9, "09:40"],
+    ["tuaocai", "屠岙蔡", 19, "11:55"],
+    ["ximen-gate-finish", "西门城楼", 24.8, "13:40"],
+  ] as const;
+  deepEqual(ninghai25.coursePoints, expected.map(([identity, name, distanceKm, cutoff], index) => ({
+    pointId: `${ninghai25.categoryId}-${identity}`, type: index === 2 ? "finish" : "checkpoint",
+    name, displayOrder: index + 1, distanceKm, cutoffAt: `2026-11-15T${cutoff}:00+08:00`, services: null,
+  })));
+  equal(ninghai25.coursePointDataStatus, "available");
+  equal(ninghai25.distanceKm, 25);
+  equal(ninghai25.elevationGain, 618);
+  equal(ninghai25.startAt, null);
+  deepEqual(ninghai25.startTimes, [
+    "2026-11-15T07:00:00+08:00", "2026-11-15T07:20:00+08:00", "2026-11-15T07:40:00+08:00",
+  ]);
+  equal(ninghai25.cutoffTimeHours, 6);
+});
+
+test("new Ninghai CP facts retain reproducible per-row official evidence without changing other field provenance", () => {
+  for (const [target, slug, day] of [[ninghai100, "UNTH-100", "14"], [ninghai25, "YNH-25", "15"]] as const) {
+    const source = target.governance.sources.find(({ sourceRecordId }) =>
+      sourceRecordId === `ninghai100-official-${target.categoryName.toLowerCase().replaceAll("-", "")}-course-points-2026`);
+    ok(source);
+    equal(source.sourceType, "official");
+    equal(source.sourceUrl, `https://ninghai100.com/page/${slug}`);
+    const raw = source.rawData!;
+    equal(raw.editionYear, 2026);
+    equal(raw.categoryName, target.categoryName);
+    equal(raw.categoryDateText, `比赛日期 11月${day}日`);
+    equal(raw.contentHash, createHash("sha256").update(JSON.stringify(raw.tableRows)).digest("hex"));
+    const identity = raw.editionIdentityEvidence as { title: string; sourceUrl: string; evidenceText: string };
+    equal(identity.sourceUrl, "https://ninghai100.com/page/competition-rules");
+    ok(identity.title.includes("2026"));
+    equal(identity.evidenceText, "三、赛事日期：2026年11月13-15日");
+    const rows = raw.coursePointRows as Array<{
+      officialLabel: string; pointId: string; name: string; cumulativeDistanceKm: number;
+      cutoffText: string; evidenceLocator: string;
+    }>;
+    deepEqual(rows.map(({ officialLabel }) => officialLabel), [
+      ...target.coursePoints!.slice(0, -1).map((_, index) => `CP${index + 1}`), "终点",
+    ]);
+    const tableRows = raw.tableRows as string[][];
+    equal(tableRows.length, rows.length + 2);
+    for (const [index, point] of target.coursePoints!.entries()) {
+      const row = rows[index];
+      equal(row.pointId, point.pointId);
+      equal(row.name, point.name);
+      equal(row.cumulativeDistanceKm, point.distanceKm);
+      equal(tableRows[index + 2][0], row.officialLabel);
+      equal(tableRows[index + 2][1], point.name);
+      equal(Number(tableRows[index + 2][2]), point.distanceKm);
+      equal(tableRows[index + 2][5], row.cutoffText);
+      const nextDay = row.cutoffText.endsWith("(+1)");
+      const date = nextDay ? "15" : day;
+      equal(point.cutoffAt, `2026-11-${date}T${row.cutoffText.replace("(+1)", "").padStart(5, "0")}:00+08:00`);
+      equal(point.services, null);
+      ok(row.evidenceLocator.includes(`row[站点=${row.officialLabel}]`));
+    }
+    const start = raw.excludedStartRow as { officialLabel: string; cutoffText: string };
+    equal(start.officialLabel, "起点");
+    equal(start.cutoffText, tableRows[1][5]);
+    equal(target.coursePoints!.some(({ distanceKm }) => distanceKm === 0), false);
+    for (const field of ["coursePoints", "coursePointDataStatus"]) {
+      equal(target.governance.fieldSources[field].sourceName, source.sourceName);
+    }
+    equal(target.governance.fieldSources.distanceKm.sourceType, "registration_platform");
+    equal(target.governance.fieldSources.elevationGain.sourceType, "registration_platform");
+    equal(target.governance.dataQualityLevel, "B");
+    equal(target.governance.missingFields.includes("coursePoints"), false);
+    ok(target.governance.missingFields.includes("registrationUrl"));
+    ok(target.governance.missingFields.includes("coursePointServices"));
+  }
+  const source = ninghai100.governance.sources.at(-1)!;
+  equal(source.rawData?.routeNotice, "*提醒：CP2位置由16.4km外辽调整至18.6km里辽，关门时间延长30分钟。");
+});
+
+test("Ninghai Detail publishes each route's own points without source leakage or cross-Category inheritance", () => {
   const detail = createPublicRaceDetailResult(canonical, "ninghai-ultra-trail-2026");
   equal(detail.status, 200);
   if (detail.status !== 200) return;
@@ -173,10 +288,16 @@ test("Ninghai Detail publishes partial CNH-60 points without source leakage or c
   for (const point of sixty.coursePoints!) {
     deepEqual(Object.keys(point).sort(), ["cutoffAt", "displayOrder", "distanceKm", "name", "pointId", "services", "type"]);
   }
-  for (const other of detail.body.race.categories.filter(({ categoryId }) => categoryId !== ninghai60.categoryId)) {
-    equal(other.coursePoints, null);
-    equal(other.coursePointDataStatus, "unknown");
+  for (const target of [ninghai100, ninghai25]) {
+    const published: PublicRaceCategory = detail.body.race.categories
+      .find(({ categoryId }) => categoryId === target.categoryId)!;
+    deepEqual(published.coursePoints, target.coursePoints);
+    equal(published.coursePointDataStatus, "available");
+    ok(published.coursePoints!.every(({ pointId }) => pointId.startsWith(`${target.categoryId}-`)));
   }
+  const allIds = detail.body.race.categories.flatMap(({ coursePoints }) => coursePoints!.map(({ pointId }) => pointId));
+  equal(allIds.length, 21);
+  equal(new Set(allIds).size, 21);
   const publicText = JSON.stringify(detail.body.race.categories);
   for (const internal of ["governance", "sourceUrl", "evidenceLocator", "confidence", "rawData", "reviewNotes"]) {
     equal(publicText.includes(`"${internal}"`), false);

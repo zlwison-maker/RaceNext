@@ -3088,36 +3088,487 @@
       },
       "categories": [
         {
-          "categoryId": "ninghai-ultra-trail-2026-utnh-100", "editionId": "ninghai-ultra-trail-2026", "categoryName": "UTNH-100", "shortName": "UTNH-100", "startAt": "2026-11-14T06:00:00+08:00", "startLocation": "西门城楼", "finishLocation": "西门城楼", "registrationUrl": null, "displayOrder": 1, "distanceKm": 100, "elevationGain": 4986, "cutoffTimeHours": 24, "surfaceType": "trail", "coursePoints": null, "coursePointDataStatus": "unknown", "createdAt": "2026-09-15", "updatedAt": "2026-10-14T10:02:46.841Z",
-          "governance": {"sources": [{"sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "sourceUrl": "https://gobichina.com/events/85637", "sourceRecordId": "gobichina-ninghai-2026", "crawledAt": "2026-09-15", "confidence": 0.82, "rawData": {"raceDate": "2026-11-14", "distanceKm": 100, "elevationGain": 4986, "cutoffTimeHours": 24, "startTime": "06:00"}},
+          "categoryId": "ninghai-ultra-trail-2026-utnh-100",
+          "editionId": "ninghai-ultra-trail-2026",
+          "categoryName": "UTNH-100",
+          "shortName": "UTNH-100",
+          "startAt": "2026-11-14T06:00:00+08:00",
+          "startLocation": "西门城楼",
+          "finishLocation": "西门城楼",
+          "registrationUrl": null,
+          "displayOrder": 1,
+          "distanceKm": 100,
+          "elevationGain": 4986,
+          "cutoffTimeHours": 24,
+          "surfaceType": "trail",
+          "coursePoints": [
             {
-              "sourceType": "official",
-              "sourceName": "ninghai100-official-category-6-2026",
-              "sourceUrl": "https://ninghai100.com/app-api/race/group/get?id=6",
-              "sourceRecordId": "ninghai100-official-category-6-2026",
-              "crawledAt": "2026-10-14T08:52:05.989Z",
-              "confidence": 1,
-              "rawData": {
-                "evidenceText": "UTNH-100 data.startPoint: 西门城楼\nUTNH-100 data.endPoint: 西门城楼",
-                "evidenceLocator": "text:120-150; data.startPoint\ntext:151-179; data.endPoint",
-                "contentHash": "ad54dda2e33aec8133bd0fb86cb95ff31475b7b1e19b321154763cbc420e2c00",
-                "extractionMethod": "structured_json"
-              }
-            }], "fieldSources": {"distanceKm": {"field": "distanceKm", "sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "confidence": 0.82, "updatedAt": "2026-09-15"}, "elevationGain": {"field": "elevationGain", "sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "confidence": 0.82, "updatedAt": "2026-09-15"}, "cutoffTimeHours": {"field": "cutoffTimeHours", "sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "confidence": 0.82, "updatedAt": "2026-09-15"}, "startAt": {"field": "startAt", "sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "confidence": 0.82, "updatedAt": "2026-09-15"},
-            "startLocation": {
-              "field": "startLocation",
-              "sourceType": "official",
-              "sourceName": "ninghai100-official-category-6-2026",
-              "confidence": 1,
-              "updatedAt": "2026-10-14T10:02:46.509Z"
+              "pointId": "ninghai-ultra-trail-2026-utnh-100-fengshan-village-first-pass",
+              "type": "checkpoint",
+              "name": "峰山村",
+              "displayOrder": 1,
+              "distanceKm": 9.2,
+              "cutoffAt": "2026-11-14T07:30:00+08:00",
+              "services": null
             },
-            "finishLocation": {
-              "field": "finishLocation",
-              "sourceType": "official",
-              "sourceName": "ninghai100-official-category-6-2026",
-              "confidence": 1,
-              "updatedAt": "2026-10-14T10:02:46.841Z"
-            }}, "sourcePriority": {"registration_platform": 70}, "confidence": 0.82, "verified": true, "verificationStatus": "verified", "verifiedAt": "2026-09-15", "missingFields": ["registrationUrl", "coursePoints"], "reviewNotes": "Precise Category fields are human-reviewed Tier 2 facts pending official rulebook confirmation.", "lastCrawledAt": "2026-10-14T08:52:05.989Z", "lastUpdatedAt": "2026-10-14T10:02:46.841Z", "schemaVersion": "race-graph-v1", "dataQualityLevel": "B"}
+            {
+              "pointId": "ninghai-ultra-trail-2026-utnh-100-liliao-first-pass",
+              "type": "checkpoint",
+              "name": "里辽",
+              "displayOrder": 2,
+              "distanceKm": 18.6,
+              "cutoffAt": "2026-11-14T09:40:00+08:00",
+              "services": null
+            },
+            {
+              "pointId": "ninghai-ultra-trail-2026-utnh-100-feikeng",
+              "type": "checkpoint",
+              "name": "榧坑",
+              "displayOrder": 3,
+              "distanceKm": 29.2,
+              "cutoffAt": "2026-11-14T11:40:00+08:00",
+              "services": null
+            },
+            {
+              "pointId": "ninghai-ultra-trail-2026-utnh-100-zhangliao",
+              "type": "checkpoint",
+              "name": "张辽",
+              "displayOrder": 4,
+              "distanceKm": 36.9,
+              "cutoffAt": "2026-11-14T13:20:00+08:00",
+              "services": null
+            },
+            {
+              "pointId": "ninghai-ultra-trail-2026-utnh-100-guanfeng",
+              "type": "checkpoint",
+              "name": "冠峰",
+              "displayOrder": 5,
+              "distanceKm": 50.5,
+              "cutoffAt": "2026-11-14T16:50:00+08:00",
+              "services": null
+            },
+            {
+              "pointId": "ninghai-ultra-trail-2026-utnh-100-tianhe-village",
+              "type": "checkpoint",
+              "name": "天河村",
+              "displayOrder": 6,
+              "distanceKm": 59.5,
+              "cutoffAt": "2026-11-14T18:50:00+08:00",
+              "services": null
+            },
+            {
+              "pointId": "ninghai-ultra-trail-2026-utnh-100-shanyang-village",
+              "type": "checkpoint",
+              "name": "山洋村",
+              "displayOrder": 7,
+              "distanceKm": 64.8,
+              "cutoffAt": "2026-11-14T20:20:00+08:00",
+              "services": null
+            },
+            {
+              "pointId": "ninghai-ultra-trail-2026-utnh-100-liliao-second-pass",
+              "type": "checkpoint",
+              "name": "里辽",
+              "displayOrder": 8,
+              "distanceKm": 75.7,
+              "cutoffAt": "2026-11-14T23:40:00+08:00",
+              "services": null
+            },
+            {
+              "pointId": "ninghai-ultra-trail-2026-utnh-100-fengshan-village-second-pass",
+              "type": "checkpoint",
+              "name": "峰山村",
+              "displayOrder": 9,
+              "distanceKm": 84.9,
+              "cutoffAt": "2026-11-15T02:10:00+08:00",
+              "services": null
+            },
+            {
+              "pointId": "ninghai-ultra-trail-2026-utnh-100-tuaocai",
+              "type": "checkpoint",
+              "name": "屠岙蔡",
+              "displayOrder": 10,
+              "distanceKm": 94.8,
+              "cutoffAt": "2026-11-15T04:40:00+08:00",
+              "services": null
+            },
+            {
+              "pointId": "ninghai-ultra-trail-2026-utnh-100-ximen-gate-finish",
+              "type": "finish",
+              "name": "西门城楼",
+              "displayOrder": 11,
+              "distanceKm": 100.6,
+              "cutoffAt": "2026-11-15T06:00:00+08:00",
+              "services": null
+            }
+          ],
+          "coursePointDataStatus": "available",
+          "createdAt": "2026-09-15",
+          "updatedAt": "2026-10-29T10:53:24.085Z",
+          "governance": {
+            "sources": [
+              {
+                "sourceType": "registration_platform",
+                "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛",
+                "sourceUrl": "https://gobichina.com/events/85637",
+                "sourceRecordId": "gobichina-ninghai-2026",
+                "crawledAt": "2026-09-15",
+                "confidence": 0.82,
+                "rawData": {
+                  "raceDate": "2026-11-14",
+                  "distanceKm": 100,
+                  "elevationGain": 4986,
+                  "cutoffTimeHours": 24,
+                  "startTime": "06:00"
+                }
+              },
+              {
+                "sourceType": "official",
+                "sourceName": "ninghai100-official-category-6-2026",
+                "sourceUrl": "https://ninghai100.com/app-api/race/group/get?id=6",
+                "sourceRecordId": "ninghai100-official-category-6-2026",
+                "crawledAt": "2026-10-14T08:52:05.989Z",
+                "confidence": 1,
+                "rawData": {
+                  "evidenceText": "UTNH-100 data.startPoint: 西门城楼\nUTNH-100 data.endPoint: 西门城楼",
+                  "evidenceLocator": "text:120-150; data.startPoint\ntext:151-179; data.endPoint",
+                  "contentHash": "ad54dda2e33aec8133bd0fb86cb95ff31475b7b1e19b321154763cbc420e2c00",
+                  "extractionMethod": "structured_json"
+                }
+              },
+              {
+                "sourceType": "official",
+                "sourceName": "2026 宁海越野挑战赛 UTNH-100 官网赛道时间表",
+                "sourceUrl": "https://ninghai100.com/page/UNTH-100",
+                "sourceRecordId": "ninghai100-official-utnh100-course-points-2026",
+                "crawledAt": "2026-10-29T10:53:24.085Z",
+                "confidence": 0.99,
+                "rawData": {
+                  "editionYear": 2026,
+                  "categoryName": "UTNH-100",
+                  "evidenceLocator": "UTNH-100 > 时间表 > rows CP1–CP10 and 终点",
+                  "extractionMethod": "browser_rendered_dom_table",
+                  "contentHash": "ad88ffa9bfcb4c6a8b5c8f4aeeee968e86045a0f225876cad504149d3d5ba68e",
+                  "contentHashScope": "SHA-256 of UTF-8 JSON.stringify(tableRows), including header and excluded start row, read from the rendered official table DOM.",
+                  "tableRows": [
+                    [
+                      "站点",
+                      "补给站",
+                      "距离（km）",
+                      "总爬升（m）",
+                      "总下降（m）",
+                      "关门时间"
+                    ],
+                    [
+                      "起点",
+                      "西门城楼",
+                      "0",
+                      "0",
+                      "0",
+                      "6:05"
+                    ],
+                    [
+                      "CP1",
+                      "峰山村",
+                      "9.2",
+                      "251",
+                      "48",
+                      "7:30"
+                    ],
+                    [
+                      "CP2",
+                      "里辽",
+                      "18.6",
+                      "1080",
+                      "765",
+                      "9:40"
+                    ],
+                    [
+                      "CP3",
+                      "榧坑",
+                      "29.2",
+                      "1387",
+                      "1035",
+                      "11:40"
+                    ],
+                    [
+                      "CP4",
+                      "张辽",
+                      "36.9",
+                      "1803",
+                      "1220",
+                      "13:20"
+                    ],
+                    [
+                      "CP5",
+                      "冠峰",
+                      "50.5",
+                      "2781",
+                      "2126",
+                      "16:50"
+                    ],
+                    [
+                      "CP6",
+                      "天河村",
+                      "59.5",
+                      "2888",
+                      "2830",
+                      "18:50"
+                    ],
+                    [
+                      "CP7",
+                      "山洋村",
+                      "64.8",
+                      "3320",
+                      "3020",
+                      "20:20"
+                    ],
+                    [
+                      "CP8",
+                      "里辽",
+                      "75.7",
+                      "4172",
+                      "3733",
+                      "23:40"
+                    ],
+                    [
+                      "CP9",
+                      "峰山村",
+                      "84.9",
+                      "4608",
+                      "4384",
+                      "2:10(+1)"
+                    ],
+                    [
+                      "CP10",
+                      "屠岙蔡",
+                      "94.8",
+                      "4822",
+                      "4819",
+                      "4:40(+1)"
+                    ],
+                    [
+                      "终点",
+                      "西门城楼",
+                      "100.6",
+                      "4986",
+                      "4986",
+                      "6:00(+1)"
+                    ]
+                  ],
+                  "categoryDateText": "比赛日期 11月14日",
+                  "editionIdentityEvidence": {
+                    "sourceUrl": "https://ninghai100.com/page/competition-rules",
+                    "title": "2026可隆宁海越野挑战赛竞赛规程",
+                    "evidenceText": "三、赛事日期：2026年11月13-15日"
+                  },
+                  "timeNormalization": "Official UTNH-100 November 14 timetable + linked official 2026 regulations; Asia/Shanghai (+08:00). Explicit (+1) markers place CP9, CP10 and Finish on November 15; other published cutoffs occur on November 14.",
+                  "actualCourseDistanceKm": 100.6,
+                  "cumulativeElevationGainM": 4986,
+                  "cumulativeElevationLossM": 4986,
+                  "routeNotice": "*提醒：CP2位置由16.4km外辽调整至18.6km里辽，关门时间延长30分钟。",
+                  "coursePointRows": [
+                    {
+                      "officialLabel": "CP1",
+                      "pointId": "ninghai-ultra-trail-2026-utnh-100-fengshan-village-first-pass",
+                      "name": "峰山村",
+                      "cumulativeDistanceKm": 9.2,
+                      "cumulativeGainM": 251,
+                      "cumulativeLossM": 48,
+                      "cutoffText": "7:30",
+                      "evidenceLocator": "UTNH-100 > 时间表 > row[站点=CP1]"
+                    },
+                    {
+                      "officialLabel": "CP2",
+                      "pointId": "ninghai-ultra-trail-2026-utnh-100-liliao-first-pass",
+                      "name": "里辽",
+                      "cumulativeDistanceKm": 18.6,
+                      "cumulativeGainM": 1080,
+                      "cumulativeLossM": 765,
+                      "cutoffText": "9:40",
+                      "evidenceLocator": "UTNH-100 > 时间表 > row[站点=CP2]"
+                    },
+                    {
+                      "officialLabel": "CP3",
+                      "pointId": "ninghai-ultra-trail-2026-utnh-100-feikeng",
+                      "name": "榧坑",
+                      "cumulativeDistanceKm": 29.2,
+                      "cumulativeGainM": 1387,
+                      "cumulativeLossM": 1035,
+                      "cutoffText": "11:40",
+                      "evidenceLocator": "UTNH-100 > 时间表 > row[站点=CP3]"
+                    },
+                    {
+                      "officialLabel": "CP4",
+                      "pointId": "ninghai-ultra-trail-2026-utnh-100-zhangliao",
+                      "name": "张辽",
+                      "cumulativeDistanceKm": 36.9,
+                      "cumulativeGainM": 1803,
+                      "cumulativeLossM": 1220,
+                      "cutoffText": "13:20",
+                      "evidenceLocator": "UTNH-100 > 时间表 > row[站点=CP4]"
+                    },
+                    {
+                      "officialLabel": "CP5",
+                      "pointId": "ninghai-ultra-trail-2026-utnh-100-guanfeng",
+                      "name": "冠峰",
+                      "cumulativeDistanceKm": 50.5,
+                      "cumulativeGainM": 2781,
+                      "cumulativeLossM": 2126,
+                      "cutoffText": "16:50",
+                      "evidenceLocator": "UTNH-100 > 时间表 > row[站点=CP5]"
+                    },
+                    {
+                      "officialLabel": "CP6",
+                      "pointId": "ninghai-ultra-trail-2026-utnh-100-tianhe-village",
+                      "name": "天河村",
+                      "cumulativeDistanceKm": 59.5,
+                      "cumulativeGainM": 2888,
+                      "cumulativeLossM": 2830,
+                      "cutoffText": "18:50",
+                      "evidenceLocator": "UTNH-100 > 时间表 > row[站点=CP6]"
+                    },
+                    {
+                      "officialLabel": "CP7",
+                      "pointId": "ninghai-ultra-trail-2026-utnh-100-shanyang-village",
+                      "name": "山洋村",
+                      "cumulativeDistanceKm": 64.8,
+                      "cumulativeGainM": 3320,
+                      "cumulativeLossM": 3020,
+                      "cutoffText": "20:20",
+                      "evidenceLocator": "UTNH-100 > 时间表 > row[站点=CP7]"
+                    },
+                    {
+                      "officialLabel": "CP8",
+                      "pointId": "ninghai-ultra-trail-2026-utnh-100-liliao-second-pass",
+                      "name": "里辽",
+                      "cumulativeDistanceKm": 75.7,
+                      "cumulativeGainM": 4172,
+                      "cumulativeLossM": 3733,
+                      "cutoffText": "23:40",
+                      "evidenceLocator": "UTNH-100 > 时间表 > row[站点=CP8]"
+                    },
+                    {
+                      "officialLabel": "CP9",
+                      "pointId": "ninghai-ultra-trail-2026-utnh-100-fengshan-village-second-pass",
+                      "name": "峰山村",
+                      "cumulativeDistanceKm": 84.9,
+                      "cumulativeGainM": 4608,
+                      "cumulativeLossM": 4384,
+                      "cutoffText": "2:10(+1)",
+                      "evidenceLocator": "UTNH-100 > 时间表 > row[站点=CP9]"
+                    },
+                    {
+                      "officialLabel": "CP10",
+                      "pointId": "ninghai-ultra-trail-2026-utnh-100-tuaocai",
+                      "name": "屠岙蔡",
+                      "cumulativeDistanceKm": 94.8,
+                      "cumulativeGainM": 4822,
+                      "cumulativeLossM": 4819,
+                      "cutoffText": "4:40(+1)",
+                      "evidenceLocator": "UTNH-100 > 时间表 > row[站点=CP10]"
+                    },
+                    {
+                      "officialLabel": "终点",
+                      "pointId": "ninghai-ultra-trail-2026-utnh-100-ximen-gate-finish",
+                      "name": "西门城楼",
+                      "cumulativeDistanceKm": 100.6,
+                      "cumulativeGainM": 4986,
+                      "cumulativeLossM": 4986,
+                      "cutoffText": "6:00(+1)",
+                      "evidenceLocator": "UTNH-100 > 时间表 > row[站点=终点]"
+                    }
+                  ],
+                  "excludedStartRow": {
+                    "officialLabel": "起点",
+                    "name": "西门城楼",
+                    "distanceKm": 0,
+                    "cutoffText": "6:05",
+                    "reason": "V0.1 does not support a start point type; this is not a new Category start time."
+                  },
+                  "servicesEvidence": "The timetable names supply stations but does not specify any V0.1 services per point. All services remain null; optional service details do not downgrade complete P0 core structure.",
+                  "sourceSelection": "Human-curated URL supplied for this update; source trust is accepted. Proposed Canonical facts await Draft PR Human Review; no Fact Approval timestamp is fabricated."
+                }
+              }
+            ],
+            "fieldSources": {
+              "distanceKm": {
+                "field": "distanceKm",
+                "sourceType": "registration_platform",
+                "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛",
+                "confidence": 0.82,
+                "updatedAt": "2026-09-15"
+              },
+              "elevationGain": {
+                "field": "elevationGain",
+                "sourceType": "registration_platform",
+                "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛",
+                "confidence": 0.82,
+                "updatedAt": "2026-09-15"
+              },
+              "cutoffTimeHours": {
+                "field": "cutoffTimeHours",
+                "sourceType": "registration_platform",
+                "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛",
+                "confidence": 0.82,
+                "updatedAt": "2026-09-15"
+              },
+              "startAt": {
+                "field": "startAt",
+                "sourceType": "registration_platform",
+                "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛",
+                "confidence": 0.82,
+                "updatedAt": "2026-09-15"
+              },
+              "startLocation": {
+                "field": "startLocation",
+                "sourceType": "official",
+                "sourceName": "ninghai100-official-category-6-2026",
+                "confidence": 1,
+                "updatedAt": "2026-10-14T10:02:46.509Z"
+              },
+              "finishLocation": {
+                "field": "finishLocation",
+                "sourceType": "official",
+                "sourceName": "ninghai100-official-category-6-2026",
+                "confidence": 1,
+                "updatedAt": "2026-10-14T10:02:46.841Z"
+              },
+              "coursePoints": {
+                "field": "coursePoints",
+                "sourceType": "official",
+                "sourceName": "2026 宁海越野挑战赛 UTNH-100 官网赛道时间表",
+                "confidence": 0.99,
+                "updatedAt": "2026-10-29T10:53:24.085Z"
+              },
+              "coursePointDataStatus": {
+                "field": "coursePointDataStatus",
+                "sourceType": "official",
+                "sourceName": "2026 宁海越野挑战赛 UTNH-100 官网赛道时间表",
+                "confidence": 0.99,
+                "updatedAt": "2026-10-29T10:53:24.085Z"
+              }
+            },
+            "sourcePriority": {
+              "registration_platform": 70
+            },
+            "confidence": 0.82,
+            "verified": true,
+            "verificationStatus": "verified",
+            "verifiedAt": "2026-09-15",
+            "missingFields": [
+              "registrationUrl",
+              "coursePointServices"
+            ],
+            "reviewNotes": "Precise Category fields are human-reviewed Tier 2 facts pending official rulebook confirmation.",
+            "lastCrawledAt": "2026-10-29T10:53:24.085Z",
+            "lastUpdatedAt": "2026-10-29T10:53:24.085Z",
+            "schemaVersion": "race-graph-v1",
+            "dataQualityLevel": "B",
+            "mergeNotes": [
+              "2026-10-29 Human-curated UTNH-100 official timetable: 10 checkpoints and Finish proposed with complete P0 core structure (available); services remain null. CP2 uses the explicit updated 18.6km 里辽 row, and repeated 里辽/峰山村 visits have distinct semantic IDs. Explicit (+1) cutoffs are on November 15. Category distanceKm stays 100 while Finish cumulative course distance is 100.6. Start times, elevation and other facts are not re-verified or changed."
+            ]
+          }
         },
         {
           "categoryId": "ninghai-ultra-trail-2026-cnh-60",
@@ -3491,36 +3942,281 @@
           }
         },
         {
-          "categoryId": "ninghai-ultra-trail-2026-ynh-25", "editionId": "ninghai-ultra-trail-2026", "categoryName": "YNH-25", "shortName": "YNH-25", "startAt": null, "startTimes": ["2026-11-15T07:00:00+08:00", "2026-11-15T07:20:00+08:00", "2026-11-15T07:40:00+08:00"], "startLocation": "西门城楼", "finishLocation": "西门城楼", "registrationUrl": null, "displayOrder": 3, "distanceKm": 25, "elevationGain": 618, "cutoffTimeHours": 6, "surfaceType": "trail", "coursePoints": null, "coursePointDataStatus": "unknown", "createdAt": "2026-09-15", "updatedAt": "2026-10-14T10:02:48.170Z",
-          "governance": {"sources": [{"sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "sourceUrl": "https://gobichina.com/events/85637", "sourceRecordId": "gobichina-ninghai-2026", "crawledAt": "2026-09-15", "confidence": 0.82, "rawData": {"raceDate": "2026-11-15", "distanceKm": 25, "elevationGain": 618, "cutoffTimeHours": 6, "startWaves": ["07:00", "07:20", "07:40"]}},
+          "categoryId": "ninghai-ultra-trail-2026-ynh-25",
+          "editionId": "ninghai-ultra-trail-2026",
+          "categoryName": "YNH-25",
+          "shortName": "YNH-25",
+          "startAt": null,
+          "startTimes": [
+            "2026-11-15T07:00:00+08:00",
+            "2026-11-15T07:20:00+08:00",
+            "2026-11-15T07:40:00+08:00"
+          ],
+          "startLocation": "西门城楼",
+          "finishLocation": "西门城楼",
+          "registrationUrl": null,
+          "displayOrder": 3,
+          "distanceKm": 25,
+          "elevationGain": 618,
+          "cutoffTimeHours": 6,
+          "surfaceType": "trail",
+          "coursePoints": [
             {
-              "sourceType": "official",
-              "sourceName": "ninghai100-official-category-4-2026",
-              "sourceUrl": "https://ninghai100.com/app-api/race/group/get?id=4",
-              "sourceRecordId": "ninghai100-official-category-4-2026",
-              "crawledAt": "2026-10-14T08:52:07.729Z",
-              "confidence": 1,
-              "rawData": {
-                "evidenceText": "YNH-25 data.startPoint: 西门城楼\nYNH-25 data.endPoint: 西门城楼",
-                "evidenceLocator": "text:112-140; data.startPoint\ntext:141-167; data.endPoint",
-                "contentHash": "0712cfeed494726f241c4416ac25a956a7b6abe698317ea14140bf7e4d898ba4",
-                "extractionMethod": "structured_json"
-              }
-            }], "fieldSources": {"distanceKm": {"field": "distanceKm", "sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "confidence": 0.82, "updatedAt": "2026-09-15"}, "elevationGain": {"field": "elevationGain", "sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "confidence": 0.82, "updatedAt": "2026-09-15"}, "cutoffTimeHours": {"field": "cutoffTimeHours", "sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "confidence": 0.82, "updatedAt": "2026-09-15"}, "startTimes": {"field": "startTimes", "sourceType": "registration_platform", "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛", "confidence": 0.82, "updatedAt": "2026-09-21"},
-            "startLocation": {
-              "field": "startLocation",
-              "sourceType": "official",
-              "sourceName": "ninghai100-official-category-4-2026",
-              "confidence": 1,
-              "updatedAt": "2026-10-14T10:02:47.839Z"
+              "pointId": "ninghai-ultra-trail-2026-ynh-25-fengshan-village",
+              "type": "checkpoint",
+              "name": "峰山村",
+              "displayOrder": 1,
+              "distanceKm": 9,
+              "cutoffAt": "2026-11-15T09:40:00+08:00",
+              "services": null
             },
-            "finishLocation": {
-              "field": "finishLocation",
-              "sourceType": "official",
-              "sourceName": "ninghai100-official-category-4-2026",
-              "confidence": 1,
-              "updatedAt": "2026-10-14T10:02:48.170Z"
-            }}, "sourcePriority": {"registration_platform": 70}, "confidence": 0.82, "verified": true, "verificationStatus": "verified", "verifiedAt": "2026-09-15", "missingFields": ["registrationUrl", "coursePoints"], "mergeNotes": ["Three Tier 2 starts are stored in startTimes; startAt remains null."], "reviewNotes": "Precise Category fields are human-reviewed Tier 2 facts pending official rulebook confirmation.", "lastCrawledAt": "2026-10-14T08:52:07.729Z", "lastUpdatedAt": "2026-10-14T10:02:48.170Z", "schemaVersion": "race-graph-v1", "dataQualityLevel": "B"}
+            {
+              "pointId": "ninghai-ultra-trail-2026-ynh-25-tuaocai",
+              "type": "checkpoint",
+              "name": "屠岙蔡",
+              "displayOrder": 2,
+              "distanceKm": 19,
+              "cutoffAt": "2026-11-15T11:55:00+08:00",
+              "services": null
+            },
+            {
+              "pointId": "ninghai-ultra-trail-2026-ynh-25-ximen-gate-finish",
+              "type": "finish",
+              "name": "西门城楼",
+              "displayOrder": 3,
+              "distanceKm": 24.8,
+              "cutoffAt": "2026-11-15T13:40:00+08:00",
+              "services": null
+            }
+          ],
+          "coursePointDataStatus": "available",
+          "createdAt": "2026-09-15",
+          "updatedAt": "2026-10-29T10:53:24.085Z",
+          "governance": {
+            "sources": [
+              {
+                "sourceType": "registration_platform",
+                "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛",
+                "sourceUrl": "https://gobichina.com/events/85637",
+                "sourceRecordId": "gobichina-ninghai-2026",
+                "crawledAt": "2026-09-15",
+                "confidence": 0.82,
+                "rawData": {
+                  "raceDate": "2026-11-15",
+                  "distanceKm": 25,
+                  "elevationGain": 618,
+                  "cutoffTimeHours": 6,
+                  "startWaves": [
+                    "07:00",
+                    "07:20",
+                    "07:40"
+                  ]
+                }
+              },
+              {
+                "sourceType": "official",
+                "sourceName": "ninghai100-official-category-4-2026",
+                "sourceUrl": "https://ninghai100.com/app-api/race/group/get?id=4",
+                "sourceRecordId": "ninghai100-official-category-4-2026",
+                "crawledAt": "2026-10-14T08:52:07.729Z",
+                "confidence": 1,
+                "rawData": {
+                  "evidenceText": "YNH-25 data.startPoint: 西门城楼\nYNH-25 data.endPoint: 西门城楼",
+                  "evidenceLocator": "text:112-140; data.startPoint\ntext:141-167; data.endPoint",
+                  "contentHash": "0712cfeed494726f241c4416ac25a956a7b6abe698317ea14140bf7e4d898ba4",
+                  "extractionMethod": "structured_json"
+                }
+              },
+              {
+                "sourceType": "official",
+                "sourceName": "2026 宁海越野挑战赛 YNH-25 官网赛道时间表",
+                "sourceUrl": "https://ninghai100.com/page/YNH-25",
+                "sourceRecordId": "ninghai100-official-ynh25-course-points-2026",
+                "crawledAt": "2026-10-29T10:53:24.085Z",
+                "confidence": 0.99,
+                "rawData": {
+                  "editionYear": 2026,
+                  "categoryName": "YNH-25",
+                  "evidenceLocator": "YNH-25 > 时间表 > rows CP1–CP2 and 终点",
+                  "extractionMethod": "browser_rendered_dom_table",
+                  "contentHash": "9d289300a0b0df58e0df0f69e278e7215c8b586509b5c5575aaed42f2b182a5c",
+                  "contentHashScope": "SHA-256 of UTF-8 JSON.stringify(tableRows), including header and excluded start row, read from the rendered official table DOM.",
+                  "tableRows": [
+                    [
+                      "站点",
+                      "补给站",
+                      "距离（km）",
+                      "总爬升（m）",
+                      "总下降（m）",
+                      "关门时间"
+                    ],
+                    [
+                      "起点",
+                      "西门城楼",
+                      "0",
+                      "0",
+                      "0",
+                      "7:45"
+                    ],
+                    [
+                      "CP1",
+                      "峰山村",
+                      "9",
+                      "251",
+                      "48",
+                      "9:40"
+                    ],
+                    [
+                      "CP2",
+                      "屠岙蔡",
+                      "19",
+                      "454",
+                      "451",
+                      "11:55"
+                    ],
+                    [
+                      "终点",
+                      "西门城楼",
+                      "24.8",
+                      "618",
+                      "618",
+                      "13:40"
+                    ]
+                  ],
+                  "categoryDateText": "比赛日期 11月15日",
+                  "editionIdentityEvidence": {
+                    "sourceUrl": "https://ninghai100.com/page/competition-rules",
+                    "title": "2026可隆宁海越野挑战赛竞赛规程",
+                    "evidenceText": "三、赛事日期：2026年11月13-15日"
+                  },
+                  "timeNormalization": "Official YNH-25 November 15 timetable + linked official 2026 regulations; Asia/Shanghai (+08:00). All published CP and Finish cutoffs occur on November 15; no wave-relative cutoff inference is used.",
+                  "actualCourseDistanceKm": 24.8,
+                  "cumulativeElevationGainM": 618,
+                  "cumulativeElevationLossM": 618,
+                  "routeNotice": "*组委会保留轻微调整赛道的权利。",
+                  "coursePointRows": [
+                    {
+                      "officialLabel": "CP1",
+                      "pointId": "ninghai-ultra-trail-2026-ynh-25-fengshan-village",
+                      "name": "峰山村",
+                      "cumulativeDistanceKm": 9,
+                      "cumulativeGainM": 251,
+                      "cumulativeLossM": 48,
+                      "cutoffText": "9:40",
+                      "evidenceLocator": "YNH-25 > 时间表 > row[站点=CP1]"
+                    },
+                    {
+                      "officialLabel": "CP2",
+                      "pointId": "ninghai-ultra-trail-2026-ynh-25-tuaocai",
+                      "name": "屠岙蔡",
+                      "cumulativeDistanceKm": 19,
+                      "cumulativeGainM": 454,
+                      "cumulativeLossM": 451,
+                      "cutoffText": "11:55",
+                      "evidenceLocator": "YNH-25 > 时间表 > row[站点=CP2]"
+                    },
+                    {
+                      "officialLabel": "终点",
+                      "pointId": "ninghai-ultra-trail-2026-ynh-25-ximen-gate-finish",
+                      "name": "西门城楼",
+                      "cumulativeDistanceKm": 24.8,
+                      "cumulativeGainM": 618,
+                      "cumulativeLossM": 618,
+                      "cutoffText": "13:40",
+                      "evidenceLocator": "YNH-25 > 时间表 > row[站点=终点]"
+                    }
+                  ],
+                  "excludedStartRow": {
+                    "officialLabel": "起点",
+                    "name": "西门城楼",
+                    "distanceKm": 0,
+                    "cutoffText": "7:45",
+                    "reason": "V0.1 does not support a start point type; this is not a new Category start time."
+                  },
+                  "servicesEvidence": "The timetable names supply stations but does not specify any V0.1 services per point. All services remain null; optional service details do not downgrade complete P0 core structure.",
+                  "sourceSelection": "Human-curated URL supplied for this update; source trust is accepted. Proposed Canonical facts await Draft PR Human Review; no Fact Approval timestamp is fabricated."
+                }
+              }
+            ],
+            "fieldSources": {
+              "distanceKm": {
+                "field": "distanceKm",
+                "sourceType": "registration_platform",
+                "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛",
+                "confidence": 0.82,
+                "updatedAt": "2026-09-15"
+              },
+              "elevationGain": {
+                "field": "elevationGain",
+                "sourceType": "registration_platform",
+                "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛",
+                "confidence": 0.82,
+                "updatedAt": "2026-09-15"
+              },
+              "cutoffTimeHours": {
+                "field": "cutoffTimeHours",
+                "sourceType": "registration_platform",
+                "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛",
+                "confidence": 0.82,
+                "updatedAt": "2026-09-15"
+              },
+              "startTimes": {
+                "field": "startTimes",
+                "sourceType": "registration_platform",
+                "sourceName": "戈壁之眼赛事平台 2026 宁海越野挑战赛",
+                "confidence": 0.82,
+                "updatedAt": "2026-09-21"
+              },
+              "startLocation": {
+                "field": "startLocation",
+                "sourceType": "official",
+                "sourceName": "ninghai100-official-category-4-2026",
+                "confidence": 1,
+                "updatedAt": "2026-10-14T10:02:47.839Z"
+              },
+              "finishLocation": {
+                "field": "finishLocation",
+                "sourceType": "official",
+                "sourceName": "ninghai100-official-category-4-2026",
+                "confidence": 1,
+                "updatedAt": "2026-10-14T10:02:48.170Z"
+              },
+              "coursePoints": {
+                "field": "coursePoints",
+                "sourceType": "official",
+                "sourceName": "2026 宁海越野挑战赛 YNH-25 官网赛道时间表",
+                "confidence": 0.99,
+                "updatedAt": "2026-10-29T10:53:24.085Z"
+              },
+              "coursePointDataStatus": {
+                "field": "coursePointDataStatus",
+                "sourceType": "official",
+                "sourceName": "2026 宁海越野挑战赛 YNH-25 官网赛道时间表",
+                "confidence": 0.99,
+                "updatedAt": "2026-10-29T10:53:24.085Z"
+              }
+            },
+            "sourcePriority": {
+              "registration_platform": 70
+            },
+            "confidence": 0.82,
+            "verified": true,
+            "verificationStatus": "verified",
+            "verifiedAt": "2026-09-15",
+            "missingFields": [
+              "registrationUrl",
+              "coursePointServices"
+            ],
+            "mergeNotes": [
+              "Three Tier 2 starts are stored in startTimes; startAt remains null.",
+              "2026-10-29 Human-curated YNH-25 official timetable: 2 checkpoints and Finish proposed with complete P0 core structure (available); services remain null. Category distanceKm stays 25 while Finish cumulative course distance is 24.8. Start times, elevation and other facts are not re-verified or changed."
+            ],
+            "reviewNotes": "Precise Category fields are human-reviewed Tier 2 facts pending official rulebook confirmation.",
+            "lastCrawledAt": "2026-10-29T10:53:24.085Z",
+            "lastUpdatedAt": "2026-10-29T10:53:24.085Z",
+            "schemaVersion": "race-graph-v1",
+            "dataQualityLevel": "B"
+          }
         }
       ]
     },
