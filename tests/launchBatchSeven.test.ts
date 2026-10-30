@@ -140,6 +140,14 @@ test("Trail primary Categories and unresolved Course Point status stay explicit"
         equal(item.coursePoints?.length, 7);
         equal(item.coursePointDataStatus, "partial");
         equal(item.coursePoints?.[2].cutoffAt, null);
+      } else if (item.categoryId === "ninghai-ultra-trail-2026-utnh-100") {
+        equal(item.coursePoints?.length, 11);
+        equal(item.coursePointDataStatus, "available");
+        equal(item.coursePoints?.at(-1)?.cutoffAt, "2026-11-15T06:00:00+08:00");
+      } else if (item.categoryId === "ninghai-ultra-trail-2026-ynh-25") {
+        equal(item.coursePoints?.length, 3);
+        equal(item.coursePointDataStatus, "available");
+        equal(item.coursePoints?.at(-1)?.distanceKm, 24.8);
       } else {
         equal(item.coursePoints, null);
         ok(item.coursePointDataStatus === "unknown" || item.coursePointDataStatus === "not_published");

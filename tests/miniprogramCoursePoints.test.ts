@@ -39,7 +39,7 @@ const gongga = getPublicRace("kailas-gongga-100-2026");
 const hk100 = getPublicRace("hk100-2027");
 const ninghai = getPublicRace("ninghai-ultra-trail-2026");
 
-test("Ninghai CNH-60 partial points render with missing cutoff/services and remain isolated on tab switches", async () => {
+test("Ninghai route switching preserves 100K next-day cutoffs, partial CNH-60 and independent YNH-25 points", async () => {
   let requestCount = 0;
   const response: PublicRaceDetailResponse = {
     schemaVersion: "race-graph-public-v1", dataUpdatedAt: "2026-10-29T00:00:00.000Z", race: ninghai,
@@ -50,7 +50,15 @@ test("Ninghai CNH-60 partial points render with missing cutoff/services and rema
   ok(loaded.race);
   const initial = createRaceDetailViewModel(loaded.race);
   equal(initial.selectedCategory?.categoryId, "ninghai-ultra-trail-2026-utnh-100");
-  equal(initial.selectedCategory.coursePointSection, null);
+  const hundredSection = initial.selectedCategory.coursePointSection;
+  ok(hundredSection);
+  equal(hundredSection.points.length, 11);
+  equal(toPointLine(hundredSection.points[1]), "02 里辽 · 18.6 km · 关门 09:40");
+  equal(toPointLine(hundredSection.points[7]), "08 里辽 · 75.7 km · 关门 23:40");
+  equal(toPointLine(hundredSection.points[8]), "09 峰山村 · 84.9 km · 次日 02:10");
+  equal(toPointLine(hundredSection.points[9]), "10 屠岙蔡 · 94.8 km · 次日 04:40");
+  equal(toPointLine(hundredSection.points[10]), "FINISH 西门城楼 · 100.6 km · 次日 06:00");
+  ok(hundredSection.points.every(({ serviceDisplay }) => serviceDisplay === null));
   const selected = selectRaceCategory(initial, "ninghai-ultra-trail-2026-cnh-60");
   const section = selected.selectedCategory?.coursePointSection;
   ok(section);
@@ -62,11 +70,22 @@ test("Ninghai CNH-60 partial points render with missing cutoff/services and rema
   equal(toPointLine(section.points[6]), "FINISH 西门城楼 · 58.8 km · 关门 20:20");
   ok(section.points.every(({ serviceDisplay }) => serviceDisplay === null));
   const twentyFive = selectRaceCategory(selected, "ninghai-ultra-trail-2026-ynh-25");
-  equal(twentyFive.selectedCategory?.coursePointSection, null);
+  const shortSection = twentyFive.selectedCategory?.coursePointSection;
+  ok(shortSection);
+  equal(shortSection.points.length, 3);
+  deepEqual(shortSection.points.map(toPointLine), [
+    "01 峰山村 · 9 km · 关门 09:40",
+    "02 屠岙蔡 · 19 km · 关门 11:55",
+    "FINISH 西门城楼 · 24.8 km · 关门 13:40",
+  ]);
+  ok(shortSection.points.every(({ serviceDisplay }) => serviceDisplay === null));
   const hundred = selectRaceCategory(twentyFive, "ninghai-ultra-trail-2026-utnh-100");
-  equal(hundred.selectedCategory?.coursePointSection, null);
+  deepEqual(hundred.selectedCategory?.coursePointSection, hundredSection);
   deepEqual(selectRaceCategory(hundred, "ninghai-ultra-trail-2026-cnh-60").selectedCategory?.coursePointSection, section);
   equal(selected.raceGuide, initial.raceGuide);
+  equal(twentyFive.raceGuide, initial.raceGuide);
+  equal(hundred.raceGuide, initial.raceGuide);
+  equal(requestCount, 1);
 });
 
 test("road races never show Course Points, even if point data is present", () => {
