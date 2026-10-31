@@ -1651,6 +1651,644 @@
       "reviewedAt": null,
       "reviewReason": null,
       "appliedAt": null
+    },
+    {
+      "changeId": "chg-acb6e6af098eb154ad888ace",
+      "eventId": "tsaigu-kuocang",
+      "editionId": "tsaigu-kuocang-2026",
+      "categoryId": null,
+      "entityType": "Edition",
+      "field": "registrationCloseDate",
+      "currentValue": "2026-06-26T10:00:00+08:00",
+      "candidateValue": "2026-10-08T18:00:00+08:00",
+      "sourceId": "tsaigu-2026-rules::announcement:c26521575e725c9657b1ebe7",
+      "sourceUrl": "https://tsaigu.com/article?id=71449&mid=48690",
+      "evidenceText": "住宿登记请扫描下方二维码（截止时间2026年10月8日18:00，登记后可于此时间前修改住宿日期）",
+      "evidenceLocator": "text:307-356; untrustedDocumentText",
+      "confidence": 0.95,
+      "fetchedAt": "2026-10-21T05:02:37.659Z",
+      "contentHash": "fa5cef274388a9adb5fb4acc133d05d70e9cb47b97063442ee8e9b8cc3381441",
+      "extractionMethod": "aliyun-qwen-structured-output",
+      "provider": "aliyun-model-studio",
+      "model": "qwen3.8-flash",
+      "promptVersion": "race-fact-extraction-v1.4",
+      "evidence": [
+        {
+          "sourceId": "tsaigu-2026-rules::announcement:c26521575e725c9657b1ebe7",
+          "sourceUrl": "https://tsaigu.com/article?id=71449&mid=48690",
+          "evidenceText": "住宿登记请扫描下方二维码（截止时间2026年10月8日18:00，登记后可于此时间前修改住宿日期）",
+          "evidenceLocator": "text:307-356; untrustedDocumentText",
+          "confidence": 0.95,
+          "fetchedAt": "2026-10-21T05:02:37.659Z",
+          "contentHash": "fa5cef274388a9adb5fb4acc133d05d70e9cb47b97063442ee8e9b8cc3381441",
+          "extractionMethod": "aliyun-qwen-structured-output"
+        }
+      ],
+      "conflict": false,
+      "candidateOptions": [],
+      "applyBlocked": false,
+      "risk": "low",
+      "reason": "Validated low-risk change from an eligible, conflict-free source. Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
+      "status": "pending",
+      "createdAt": "2026-10-21T05:11:33.873Z",
+      "reviewedAt": null,
+      "reviewReason": null,
+      "appliedAt": null
+    },
+    {
+      "changeId": "chg-cc4cae8ffbe0bb0dcfe4b517",
+      "eventId": "nanjing-marathon",
+      "editionId": "nanjing-marathon-2026",
+      "categoryId": null,
+      "entityType": "Edition",
+      "field": "registrationOpenDate",
+      "currentValue": "2026-07-28T10:00:00+08:00",
+      "sourceId": "nanjing-marathon-official-2026",
+      "sourceUrl": "https://nanjing.marathon.org.cn/page/nqAYNxdmyZqxDr12ekZB.html",
+      "evidenceText": "跑团赛中赛将于2026年11月2日10:00-11月9日17:00开放组队申请。",
+      "evidenceLocator": "text:2198-2238; 九、参赛办法 （八）跑团赛中赛报名办法",
+      "confidence": 0.95,
+      "fetchedAt": "2026-10-21T05:08:32.628Z",
+      "contentHash": "9fdb2501293bbe4dd5dfc1d4b48b232c503b2ca50b7088789a66d1a08c79078e",
+      "extractionMethod": "aliyun-qwen-structured-output",
+      "provider": "aliyun-model-studio",
+      "model": "qwen3.8-flash",
+      "promptVersion": "race-fact-extraction-v1.4",
+      "evidence": [
+        {
+          "sourceId": "nanjing-marathon-official-2026",
+          "sourceUrl": "https://nanjing.marathon.org.cn/page/nqAYNxdmyZqxDr12ekZB.html",
+          "evidenceText": "跑团赛中赛将于2026年11月2日10:00-11月9日17:00开放组队申请。",
+          "evidenceLocator": "text:2198-2238; 九、参赛办法 （八）跑团赛中赛报名办法",
+          "confidence": 1,
+          "fetchedAt": "2026-10-21T05:08:32.628Z",
+          "contentHash": "9fdb2501293bbe4dd5dfc1d4b48b232c503b2ca50b7088789a66d1a08c79078e",
+          "extractionMethod": "aliyun-qwen-structured-output"
+        },
+        {
+          "sourceId": "nanjing-marathon-official-2026::announcement:3145645fddfbcae7913d9de4",
+          "sourceUrl": "https://nanjing.marathon.org.cn/page/L51XZa20wrP7jAM6vG98.html",
+          "evidenceText": "（一）报名时间 2026年7月28日（周二）10:00 – 2026年8月28日（周五）17:00",
+          "evidenceLocator": "text:869-918; untrustedDocumentText",
+          "confidence": 0.95,
+          "fetchedAt": "2026-10-21T05:02:37.659Z",
+          "contentHash": "42a08b84095963fb4875423868c3bf782889939417df87c0391ccc397ffc5308",
+          "extractionMethod": "aliyun-qwen-structured-output"
+        }
+      ],
+      "conflict": true,
+      "candidateOptions": [
+        {
+          "value": "2026-07-28T10:00:00+08:00",
+          "sourceIds": [
+            "nanjing-marathon-official-2026::announcement:3145645fddfbcae7913d9de4"
+          ],
+          "evidence": [
+            {
+              "sourceId": "nanjing-marathon-official-2026::announcement:3145645fddfbcae7913d9de4",
+              "sourceUrl": "https://nanjing.marathon.org.cn/page/L51XZa20wrP7jAM6vG98.html",
+              "evidenceText": "（一）报名时间 2026年7月28日（周二）10:00 – 2026年8月28日（周五）17:00",
+              "evidenceLocator": "text:869-918; untrustedDocumentText",
+              "confidence": 0.95,
+              "fetchedAt": "2026-10-21T05:02:37.659Z",
+              "contentHash": "42a08b84095963fb4875423868c3bf782889939417df87c0391ccc397ffc5308",
+              "extractionMethod": "aliyun-qwen-structured-output"
+            }
+          ]
+        },
+        {
+          "value": "2026-11-02T10:00:00+08:00",
+          "sourceIds": [
+            "nanjing-marathon-official-2026"
+          ],
+          "evidence": [
+            {
+              "sourceId": "nanjing-marathon-official-2026",
+              "sourceUrl": "https://nanjing.marathon.org.cn/page/nqAYNxdmyZqxDr12ekZB.html",
+              "evidenceText": "跑团赛中赛将于2026年11月2日10:00-11月9日17:00开放组队申请。",
+              "evidenceLocator": "text:2198-2238; 九、参赛办法 （八）跑团赛中赛报名办法",
+              "confidence": 1,
+              "fetchedAt": "2026-10-21T05:08:32.628Z",
+              "contentHash": "9fdb2501293bbe4dd5dfc1d4b48b232c503b2ca50b7088789a66d1a08c79078e",
+              "extractionMethod": "aliyun-qwen-structured-output"
+            }
+          ]
+        }
+      ],
+      "applyBlocked": true,
+      "risk": "low",
+      "reason": "source_value_conflict Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
+      "status": "pending",
+      "createdAt": "2026-10-21T05:11:33.873Z",
+      "reviewedAt": null,
+      "reviewReason": null,
+      "appliedAt": null
+    },
+    {
+      "changeId": "chg-df3472eba87c772fd68318d1",
+      "eventId": "nanjing-marathon",
+      "editionId": "nanjing-marathon-2026",
+      "categoryId": null,
+      "entityType": "Edition",
+      "field": "registrationCloseDate",
+      "currentValue": "2026-08-28T17:00:00+08:00",
+      "sourceId": "nanjing-marathon-official-2026",
+      "sourceUrl": "https://nanjing.marathon.org.cn/page/nqAYNxdmyZqxDr12ekZB.html",
+      "evidenceText": "跑团赛中赛将于2026年11月2日10:00-11月9日17:00开放组队申请。",
+      "evidenceLocator": "text:2198-2238; 九、参赛办法 （八）跑团赛中赛报名办法",
+      "confidence": 0.95,
+      "fetchedAt": "2026-10-21T05:08:32.628Z",
+      "contentHash": "9fdb2501293bbe4dd5dfc1d4b48b232c503b2ca50b7088789a66d1a08c79078e",
+      "extractionMethod": "aliyun-qwen-structured-output",
+      "provider": "aliyun-model-studio",
+      "model": "qwen3.8-flash",
+      "promptVersion": "race-fact-extraction-v1.4",
+      "evidence": [
+        {
+          "sourceId": "nanjing-marathon-official-2026",
+          "sourceUrl": "https://nanjing.marathon.org.cn/page/nqAYNxdmyZqxDr12ekZB.html",
+          "evidenceText": "跑团赛中赛将于2026年11月2日10:00-11月9日17:00开放组队申请。",
+          "evidenceLocator": "text:2198-2238; 九、参赛办法 （八）跑团赛中赛报名办法",
+          "confidence": 1,
+          "fetchedAt": "2026-10-21T05:08:32.628Z",
+          "contentHash": "9fdb2501293bbe4dd5dfc1d4b48b232c503b2ca50b7088789a66d1a08c79078e",
+          "extractionMethod": "aliyun-qwen-structured-output"
+        },
+        {
+          "sourceId": "nanjing-marathon-official-2026::announcement:3145645fddfbcae7913d9de4",
+          "sourceUrl": "https://nanjing.marathon.org.cn/page/L51XZa20wrP7jAM6vG98.html",
+          "evidenceText": "（一）报名时间 2026年7月28日（周二）10:00 – 2026年8月28日（周五）17:00",
+          "evidenceLocator": "text:869-918; untrustedDocumentText",
+          "confidence": 0.95,
+          "fetchedAt": "2026-10-21T05:02:37.659Z",
+          "contentHash": "42a08b84095963fb4875423868c3bf782889939417df87c0391ccc397ffc5308",
+          "extractionMethod": "aliyun-qwen-structured-output"
+        }
+      ],
+      "conflict": true,
+      "candidateOptions": [
+        {
+          "value": "2026-08-28T17:00:00+08:00",
+          "sourceIds": [
+            "nanjing-marathon-official-2026::announcement:3145645fddfbcae7913d9de4"
+          ],
+          "evidence": [
+            {
+              "sourceId": "nanjing-marathon-official-2026::announcement:3145645fddfbcae7913d9de4",
+              "sourceUrl": "https://nanjing.marathon.org.cn/page/L51XZa20wrP7jAM6vG98.html",
+              "evidenceText": "（一）报名时间 2026年7月28日（周二）10:00 – 2026年8月28日（周五）17:00",
+              "evidenceLocator": "text:869-918; untrustedDocumentText",
+              "confidence": 0.95,
+              "fetchedAt": "2026-10-21T05:02:37.659Z",
+              "contentHash": "42a08b84095963fb4875423868c3bf782889939417df87c0391ccc397ffc5308",
+              "extractionMethod": "aliyun-qwen-structured-output"
+            }
+          ]
+        },
+        {
+          "value": "2026-11-09T17:00:00+08:00",
+          "sourceIds": [
+            "nanjing-marathon-official-2026"
+          ],
+          "evidence": [
+            {
+              "sourceId": "nanjing-marathon-official-2026",
+              "sourceUrl": "https://nanjing.marathon.org.cn/page/nqAYNxdmyZqxDr12ekZB.html",
+              "evidenceText": "跑团赛中赛将于2026年11月2日10:00-11月9日17:00开放组队申请。",
+              "evidenceLocator": "text:2198-2238; 九、参赛办法 （八）跑团赛中赛报名办法",
+              "confidence": 1,
+              "fetchedAt": "2026-10-21T05:08:32.628Z",
+              "contentHash": "9fdb2501293bbe4dd5dfc1d4b48b232c503b2ca50b7088789a66d1a08c79078e",
+              "extractionMethod": "aliyun-qwen-structured-output"
+            }
+          ]
+        }
+      ],
+      "applyBlocked": true,
+      "risk": "low",
+      "reason": "source_value_conflict Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
+      "status": "pending",
+      "createdAt": "2026-10-21T05:11:33.873Z",
+      "reviewedAt": null,
+      "reviewReason": null,
+      "appliedAt": null
+    },
+    {
+      "changeId": "chg-5fb1a512958ccfef34eb6ccd",
+      "eventId": "hengqin-marathon",
+      "editionId": "hengqin-marathon-2026",
+      "categoryId": null,
+      "entityType": "Edition",
+      "field": "registrationOpenDate",
+      "currentValue": "2026-08-18T10:00:00+08:00",
+      "sourceId": "hengqin-marathon-official-2026",
+      "sourceUrl": "https://www.hengqinmarathon.com/race-255.html",
+      "evidenceText": "8 月 18 日 10:00 开启预报名",
+      "evidenceLocator": "text:2259-2279; 九 、参赛办法 （ 四 ）报名办法 4. 报名时间及费用",
+      "confidence": 0.9,
+      "fetchedAt": "2026-10-21T05:10:13.287Z",
+      "contentHash": "55b1ac45dcd5a13b170408355e2b4326eda2da4b3d265816397c7f0bcad364a6",
+      "extractionMethod": "aliyun-qwen-structured-output",
+      "provider": "aliyun-model-studio",
+      "model": "qwen3.8-flash",
+      "promptVersion": "race-fact-extraction-v1.4",
+      "evidence": [
+        {
+          "sourceId": "hengqin-marathon-official-2026",
+          "sourceUrl": "https://www.hengqinmarathon.com/race-255.html",
+          "evidenceText": "8 月 18 日 10:00 开启预报名",
+          "evidenceLocator": "text:2259-2279; 九 、参赛办法 （ 四 ）报名办法 4. 报名时间及费用",
+          "confidence": 0.9,
+          "fetchedAt": "2026-10-21T05:10:13.287Z",
+          "contentHash": "55b1ac45dcd5a13b170408355e2b4326eda2da4b3d265816397c7f0bcad364a6",
+          "extractionMethod": "aliyun-qwen-structured-output"
+        },
+        {
+          "sourceId": "hengqin-marathon-official-2026::announcement:7549c4f386ca39f947307b61",
+          "sourceUrl": "https://www.hengqinmarathon.com/news_detail-280.html",
+          "evidenceText": "从8月18日10:00报名启动",
+          "evidenceLocator": "text:129-144; untrustedDocumentText",
+          "confidence": 0.95,
+          "fetchedAt": "2026-10-21T05:02:37.659Z",
+          "contentHash": "3a7ae71ee87cd38055d9deac4d3eab14bde4c85c18e8e9ab6d5cef403e8f19f8",
+          "extractionMethod": "aliyun-qwen-structured-output"
+        },
+        {
+          "sourceId": "hengqin-marathon-result-2026",
+          "sourceUrl": "https://www.hengqinmarathon.com/news_detail-285.html",
+          "evidenceText": "今日（9月21日）10:00起 抽签结果查询与缴费通道同步开放",
+          "evidenceLocator": "text:209-240; untrustedDocumentText.body",
+          "confidence": 0.95,
+          "fetchedAt": "2026-10-21T05:10:47.676Z",
+          "contentHash": "418620d9528e150b36fc4e1e85b6927ead0445222807f8722690c59d633da7bb",
+          "extractionMethod": "aliyun-qwen-structured-output"
+        }
+      ],
+      "conflict": true,
+      "candidateOptions": [
+        {
+          "value": "2026-08-18T10:00:00+08:00",
+          "sourceIds": [
+            "hengqin-marathon-official-2026",
+            "hengqin-marathon-official-2026::announcement:7549c4f386ca39f947307b61"
+          ],
+          "evidence": [
+            {
+              "sourceId": "hengqin-marathon-official-2026",
+              "sourceUrl": "https://www.hengqinmarathon.com/race-255.html",
+              "evidenceText": "8 月 18 日 10:00 开启预报名",
+              "evidenceLocator": "text:2259-2279; 九 、参赛办法 （ 四 ）报名办法 4. 报名时间及费用",
+              "confidence": 0.9,
+              "fetchedAt": "2026-10-21T05:10:13.287Z",
+              "contentHash": "55b1ac45dcd5a13b170408355e2b4326eda2da4b3d265816397c7f0bcad364a6",
+              "extractionMethod": "aliyun-qwen-structured-output"
+            },
+            {
+              "sourceId": "hengqin-marathon-official-2026::announcement:7549c4f386ca39f947307b61",
+              "sourceUrl": "https://www.hengqinmarathon.com/news_detail-280.html",
+              "evidenceText": "从8月18日10:00报名启动",
+              "evidenceLocator": "text:129-144; untrustedDocumentText",
+              "confidence": 0.95,
+              "fetchedAt": "2026-10-21T05:02:37.659Z",
+              "contentHash": "3a7ae71ee87cd38055d9deac4d3eab14bde4c85c18e8e9ab6d5cef403e8f19f8",
+              "extractionMethod": "aliyun-qwen-structured-output"
+            }
+          ]
+        },
+        {
+          "value": "2026-09-21T10:00:00+08:00",
+          "sourceIds": [
+            "hengqin-marathon-result-2026"
+          ],
+          "evidence": [
+            {
+              "sourceId": "hengqin-marathon-result-2026",
+              "sourceUrl": "https://www.hengqinmarathon.com/news_detail-285.html",
+              "evidenceText": "今日（9月21日）10:00起 抽签结果查询与缴费通道同步开放",
+              "evidenceLocator": "text:209-240; untrustedDocumentText.body",
+              "confidence": 0.95,
+              "fetchedAt": "2026-10-21T05:10:47.676Z",
+              "contentHash": "418620d9528e150b36fc4e1e85b6927ead0445222807f8722690c59d633da7bb",
+              "extractionMethod": "aliyun-qwen-structured-output"
+            }
+          ]
+        }
+      ],
+      "applyBlocked": true,
+      "risk": "low",
+      "reason": "source_value_conflict Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
+      "status": "pending",
+      "createdAt": "2026-10-21T05:11:33.873Z",
+      "reviewedAt": null,
+      "reviewReason": null,
+      "appliedAt": null
+    },
+    {
+      "changeId": "chg-fd7054d74b6ee865aad55f6c",
+      "eventId": "hengqin-marathon",
+      "editionId": "hengqin-marathon-2026",
+      "categoryId": null,
+      "entityType": "Edition",
+      "field": "registrationCloseDate",
+      "currentValue": "2026-09-12T22:00:00+08:00",
+      "sourceId": "hengqin-marathon-official-2026",
+      "sourceUrl": "https://www.hengqinmarathon.com/race-255.html",
+      "evidenceText": "9 月 12 日 22:00 截止预报名",
+      "evidenceLocator": "text:2281-2301; 九 、参赛办法 （ 四 ）报名办法 4. 报名时间及费用",
+      "confidence": 0.9,
+      "fetchedAt": "2026-10-21T05:10:13.287Z",
+      "contentHash": "55b1ac45dcd5a13b170408355e2b4326eda2da4b3d265816397c7f0bcad364a6",
+      "extractionMethod": "aliyun-qwen-structured-output",
+      "provider": "aliyun-model-studio",
+      "model": "qwen3.8-flash",
+      "promptVersion": "race-fact-extraction-v1.4",
+      "evidence": [
+        {
+          "sourceId": "hengqin-marathon-official-2026",
+          "sourceUrl": "https://www.hengqinmarathon.com/race-255.html",
+          "evidenceText": "9 月 12 日 22:00 截止预报名",
+          "evidenceLocator": "text:2281-2301; 九 、参赛办法 （ 四 ）报名办法 4. 报名时间及费用",
+          "confidence": 0.9,
+          "fetchedAt": "2026-10-21T05:10:13.287Z",
+          "contentHash": "55b1ac45dcd5a13b170408355e2b4326eda2da4b3d265816397c7f0bcad364a6",
+          "extractionMethod": "aliyun-qwen-structured-output"
+        },
+        {
+          "sourceId": "hengqin-marathon-result-2026",
+          "sourceUrl": "https://www.hengqinmarathon.com/news_detail-285.html",
+          "evidenceText": "中签选手须在 10月8日22:00前完成缴费",
+          "evidenceLocator": "text:263-285; untrustedDocumentText.body",
+          "confidence": 0.95,
+          "fetchedAt": "2026-10-21T05:10:47.676Z",
+          "contentHash": "418620d9528e150b36fc4e1e85b6927ead0445222807f8722690c59d633da7bb",
+          "extractionMethod": "aliyun-qwen-structured-output"
+        }
+      ],
+      "conflict": true,
+      "candidateOptions": [
+        {
+          "value": "2026-09-12T22:00:00+08:00",
+          "sourceIds": [
+            "hengqin-marathon-official-2026"
+          ],
+          "evidence": [
+            {
+              "sourceId": "hengqin-marathon-official-2026",
+              "sourceUrl": "https://www.hengqinmarathon.com/race-255.html",
+              "evidenceText": "9 月 12 日 22:00 截止预报名",
+              "evidenceLocator": "text:2281-2301; 九 、参赛办法 （ 四 ）报名办法 4. 报名时间及费用",
+              "confidence": 0.9,
+              "fetchedAt": "2026-10-21T05:10:13.287Z",
+              "contentHash": "55b1ac45dcd5a13b170408355e2b4326eda2da4b3d265816397c7f0bcad364a6",
+              "extractionMethod": "aliyun-qwen-structured-output"
+            }
+          ]
+        },
+        {
+          "value": "2026-10-08T22:00:00+08:00",
+          "sourceIds": [
+            "hengqin-marathon-result-2026"
+          ],
+          "evidence": [
+            {
+              "sourceId": "hengqin-marathon-result-2026",
+              "sourceUrl": "https://www.hengqinmarathon.com/news_detail-285.html",
+              "evidenceText": "中签选手须在 10月8日22:00前完成缴费",
+              "evidenceLocator": "text:263-285; untrustedDocumentText.body",
+              "confidence": 0.95,
+              "fetchedAt": "2026-10-21T05:10:47.676Z",
+              "contentHash": "418620d9528e150b36fc4e1e85b6927ead0445222807f8722690c59d633da7bb",
+              "extractionMethod": "aliyun-qwen-structured-output"
+            }
+          ]
+        }
+      ],
+      "applyBlocked": true,
+      "risk": "low",
+      "reason": "source_value_conflict Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
+      "status": "pending",
+      "createdAt": "2026-10-21T05:11:33.873Z",
+      "reviewedAt": null,
+      "reviewReason": null,
+      "appliedAt": null
+    },
+    {
+      "changeId": "chg-9834639d42eb109c8315f709",
+      "eventId": "hengqin-marathon",
+      "editionId": "hengqin-marathon-2026",
+      "categoryId": null,
+      "entityType": "Edition",
+      "field": "registrationOpenDate",
+      "currentValue": "2026-08-18T10:00:00+08:00",
+      "sourceId": "hengqin-marathon-official-2026::announcement:7549c4f386ca39f947307b61",
+      "sourceUrl": "https://www.hengqinmarathon.com/news_detail-280.html",
+      "evidenceText": "从8月18日10:00报名启动",
+      "evidenceLocator": "text:129-144; untrustedDocumentText:paragraph_1",
+      "confidence": 0.95,
+      "fetchedAt": "2026-10-22T05:04:53.360Z",
+      "contentHash": "c3f36ea23bd56061669fe67ee14543f052b156c3ac8a8bb203398d02e12f4590",
+      "extractionMethod": "aliyun-qwen-structured-output",
+      "provider": "aliyun-model-studio",
+      "model": "qwen3.8-flash",
+      "promptVersion": "race-fact-extraction-v1.4",
+      "evidence": [
+        {
+          "sourceId": "hengqin-marathon-official-2026::announcement:7549c4f386ca39f947307b61",
+          "sourceUrl": "https://www.hengqinmarathon.com/news_detail-280.html",
+          "evidenceText": "从8月18日10:00报名启动",
+          "evidenceLocator": "text:129-144; untrustedDocumentText:paragraph_1",
+          "confidence": 0.95,
+          "fetchedAt": "2026-10-22T05:04:53.360Z",
+          "contentHash": "c3f36ea23bd56061669fe67ee14543f052b156c3ac8a8bb203398d02e12f4590",
+          "extractionMethod": "aliyun-qwen-structured-output"
+        },
+        {
+          "sourceId": "hengqin-marathon-result-2026",
+          "sourceUrl": "https://www.hengqinmarathon.com/news_detail-285.html",
+          "evidenceText": "今日（9月21日）10:00起 抽签结果查询与缴费通道同步开放",
+          "evidenceLocator": "text:209-240; untrustedDocumentText",
+          "confidence": 0.95,
+          "fetchedAt": "2026-10-22T05:10:14.235Z",
+          "contentHash": "f83e87616bec448ac22d4945025538c7222a44449b8fc3961c9e0196fd44cd59",
+          "extractionMethod": "aliyun-qwen-structured-output"
+        }
+      ],
+      "conflict": true,
+      "candidateOptions": [
+        {
+          "value": "2026-08-18T10:00:00+08:00",
+          "sourceIds": [
+            "hengqin-marathon-official-2026::announcement:7549c4f386ca39f947307b61"
+          ],
+          "evidence": [
+            {
+              "sourceId": "hengqin-marathon-official-2026::announcement:7549c4f386ca39f947307b61",
+              "sourceUrl": "https://www.hengqinmarathon.com/news_detail-280.html",
+              "evidenceText": "从8月18日10:00报名启动",
+              "evidenceLocator": "text:129-144; untrustedDocumentText:paragraph_1",
+              "confidence": 0.95,
+              "fetchedAt": "2026-10-22T05:04:53.360Z",
+              "contentHash": "c3f36ea23bd56061669fe67ee14543f052b156c3ac8a8bb203398d02e12f4590",
+              "extractionMethod": "aliyun-qwen-structured-output"
+            }
+          ]
+        },
+        {
+          "value": "2026-09-21T10:00:00+08:00",
+          "sourceIds": [
+            "hengqin-marathon-result-2026"
+          ],
+          "evidence": [
+            {
+              "sourceId": "hengqin-marathon-result-2026",
+              "sourceUrl": "https://www.hengqinmarathon.com/news_detail-285.html",
+              "evidenceText": "今日（9月21日）10:00起 抽签结果查询与缴费通道同步开放",
+              "evidenceLocator": "text:209-240; untrustedDocumentText",
+              "confidence": 0.95,
+              "fetchedAt": "2026-10-22T05:10:14.235Z",
+              "contentHash": "f83e87616bec448ac22d4945025538c7222a44449b8fc3961c9e0196fd44cd59",
+              "extractionMethod": "aliyun-qwen-structured-output"
+            }
+          ]
+        }
+      ],
+      "applyBlocked": true,
+      "risk": "low",
+      "reason": "source_value_conflict Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
+      "status": "pending",
+      "createdAt": "2026-10-22T05:10:53.063Z",
+      "reviewedAt": null,
+      "reviewReason": null,
+      "appliedAt": null
+    },
+    {
+      "changeId": "chg-d7a5958f51bb08370aaf0149",
+      "eventId": "hengqin-marathon",
+      "editionId": "hengqin-marathon-2026",
+      "categoryId": null,
+      "entityType": "Edition",
+      "field": "registrationCloseDate",
+      "currentValue": "2026-09-12T22:00:00+08:00",
+      "candidateValue": "2026-10-08T22:00:00+08:00",
+      "sourceId": "hengqin-marathon-result-2026",
+      "sourceUrl": "https://www.hengqinmarathon.com/news_detail-285.html",
+      "evidenceText": "中签选手须在 10月8日22:00前完成缴费",
+      "evidenceLocator": "text:263-285; untrustedDocumentText",
+      "confidence": 0.95,
+      "fetchedAt": "2026-10-22T05:10:14.235Z",
+      "contentHash": "f83e87616bec448ac22d4945025538c7222a44449b8fc3961c9e0196fd44cd59",
+      "extractionMethod": "aliyun-qwen-structured-output",
+      "provider": "aliyun-model-studio",
+      "model": "qwen3.8-flash",
+      "promptVersion": "race-fact-extraction-v1.4",
+      "evidence": [
+        {
+          "sourceId": "hengqin-marathon-result-2026",
+          "sourceUrl": "https://www.hengqinmarathon.com/news_detail-285.html",
+          "evidenceText": "中签选手须在 10月8日22:00前完成缴费",
+          "evidenceLocator": "text:263-285; untrustedDocumentText",
+          "confidence": 0.95,
+          "fetchedAt": "2026-10-22T05:10:14.235Z",
+          "contentHash": "f83e87616bec448ac22d4945025538c7222a44449b8fc3961c9e0196fd44cd59",
+          "extractionMethod": "aliyun-qwen-structured-output"
+        }
+      ],
+      "conflict": false,
+      "candidateOptions": [],
+      "applyBlocked": false,
+      "risk": "low",
+      "reason": "Validated low-risk change from an eligible, conflict-free source. Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
+      "status": "pending",
+      "createdAt": "2026-10-22T05:10:53.063Z",
+      "reviewedAt": null,
+      "reviewReason": null,
+      "appliedAt": null
+    },
+    {
+      "changeId": "chg-41fb6f93698d6bcc41f7c00e",
+      "eventId": "shaoxing-marathon",
+      "editionId": "shaoxing-marathon-2026",
+      "categoryId": "shaoxing-marathon-2026-half-marathon",
+      "entityType": "Category",
+      "field": "finishLocation",
+      "currentValue": "奥体中心东南侧（解放大道与洋江西路交叉口）",
+      "candidateValue": "奥体中心东南侧(终点，设在解放大道与洋江西路交叉口)",
+      "sourceId": "shaoxing-marathon-registration-notice-2026",
+      "sourceUrl": "http://www.sxym.org.cn/html/bmxz.html",
+      "evidenceText": "奥体中心东南侧(终点，设在解放大道与洋江西路交叉口)",
+      "evidenceLocator": "text:622-648; untrustedDocumentText.一、赛事基本信息 （四）比赛线路 2.半程马拉松路线",
+      "confidence": 1,
+      "fetchedAt": "2026-10-29T06:07:44.203Z",
+      "contentHash": "1cd4ce64aa6be20f37fd30c4efb1b9eb7881f91b81f11966bc4e4f6f772a4f1f",
+      "extractionMethod": "aliyun-qwen-structured-output",
+      "provider": "aliyun-model-studio",
+      "model": "qwen3.8-flash",
+      "promptVersion": "race-fact-extraction-v1.4",
+      "evidence": [
+        {
+          "sourceId": "shaoxing-marathon-registration-notice-2026",
+          "sourceUrl": "http://www.sxym.org.cn/html/bmxz.html",
+          "evidenceText": "奥体中心东南侧(终点，设在解放大道与洋江西路交叉口)",
+          "evidenceLocator": "text:622-648; untrustedDocumentText.一、赛事基本信息 （四）比赛线路 2.半程马拉松路线",
+          "confidence": 1,
+          "fetchedAt": "2026-10-29T06:07:44.203Z",
+          "contentHash": "1cd4ce64aa6be20f37fd30c4efb1b9eb7881f91b81f11966bc4e4f6f772a4f1f",
+          "extractionMethod": "aliyun-qwen-structured-output"
+        }
+      ],
+      "conflict": false,
+      "candidateOptions": [],
+      "applyBlocked": false,
+      "risk": "high_impact",
+      "reason": "High-impact race fact cannot be auto-applied in V1. Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
+      "status": "pending",
+      "createdAt": "2026-10-29T06:08:54.752Z",
+      "reviewedAt": null,
+      "reviewReason": null,
+      "appliedAt": null
+    },
+    {
+      "changeId": "chg-32e3e80855ca07581756ad66",
+      "eventId": "hengqin-marathon",
+      "editionId": "hengqin-marathon-2026",
+      "categoryId": null,
+      "entityType": "Edition",
+      "field": "registrationOpenDate",
+      "currentValue": "2026-08-18T10:00:00+08:00",
+      "candidateValue": "2026-09-21T10:00:00+08:00",
+      "sourceId": "hengqin-marathon-result-2026",
+      "sourceUrl": "https://www.hengqinmarathon.com/news_detail-285.html",
+      "evidenceText": "今日（9月21日）10:00起 抽签结果查询与缴费通道同步开放",
+      "evidenceLocator": "text:209-240; untrustedDocumentText.body",
+      "confidence": 0.95,
+      "fetchedAt": "2026-10-31T06:03:28.234Z",
+      "contentHash": "03ff892d18f31ecd5c1c28a0508b75cc527771f8c05b187c84096265648a6d52",
+      "extractionMethod": "aliyun-qwen-structured-output",
+      "provider": "aliyun-model-studio",
+      "model": "qwen3.8-flash",
+      "promptVersion": "race-fact-extraction-v1.4",
+      "evidence": [
+        {
+          "sourceId": "hengqin-marathon-result-2026",
+          "sourceUrl": "https://www.hengqinmarathon.com/news_detail-285.html",
+          "evidenceText": "今日（9月21日）10:00起 抽签结果查询与缴费通道同步开放",
+          "evidenceLocator": "text:209-240; untrustedDocumentText.body",
+          "confidence": 0.95,
+          "fetchedAt": "2026-10-31T06:03:28.234Z",
+          "contentHash": "03ff892d18f31ecd5c1c28a0508b75cc527771f8c05b187c84096265648a6d52",
+          "extractionMethod": "aliyun-qwen-structured-output"
+        }
+      ],
+      "conflict": false,
+      "candidateOptions": [],
+      "applyBlocked": false,
+      "risk": "low",
+      "reason": "Validated low-risk change from an eligible, conflict-free source. Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
+      "status": "pending",
+      "createdAt": "2026-10-31T06:03:58.988Z",
+      "reviewedAt": null,
+      "reviewReason": null,
+      "appliedAt": null
     }
   ]
 }
