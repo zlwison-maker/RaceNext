@@ -4,7 +4,7 @@ import type {
   OfficialSourceIngestionStateEntry,
 } from "../../types/officialSourceIngestion.ts";
 
-export const RACE_FACT_PROCESSING_VERSION = "race-fact-processing-v4";
+export const RACE_FACT_PROCESSING_VERSION = "race-fact-processing-v5";
 
 const POST_OBSERVATION_STATUSES = new Set<OfficialIngestionStatus>([
   "success",

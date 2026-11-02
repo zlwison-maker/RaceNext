@@ -395,6 +395,7 @@ export async function runRealExtractionDryRun(input: {
   for (const acceptedSource of acceptedSources) {
     const plans = candidatePlans.filter((plan) => plan.acceptedSource === acceptedSource);
     acceptedSource.report.candidates = plans.map(({ review, pending }) => {
+      if (review.action === "semantic_review") return review;
       if (!pending) return { ...review, evidenceVerifiedAt: acceptedSource.checkedAt };
       const durable = resolvedPending.get(pending.changeId);
       if (!durable) throw new Error(`Prepared Pending Store is missing required change: ${pending.changeId}`);
@@ -552,7 +553,8 @@ export function validateCandidatePrecisionEvidence(input: {
   const evidenceCategoryMatches = categoryMatches(input.candidate.evidenceText, input.record);
   const contextCategoryMatches = categoryMatches(context, input.record);
   const sourceCategoryMatches = announcement ? [] : matchedCategoryIds(`${input.source.sourceId} ${input.source.url}`, input.record);
-  const semanticLocation = isLocationSemanticCandidate(input.record, input.candidate);
+  // New format/role equivalence is routing only, never an exemption from Category scope validation.
+  const semanticLocation = isLocationSemanticCandidate(input.record, input.candidate, false);
 
   if (input.candidate.entityType === "Edition") {
     const explicitEvidenceCategoryMatches = announcement ? evidenceCategoryMatches : explicitCategoryIds(input.candidate.evidenceText, input.record);
@@ -644,12 +646,67 @@ export function validateCandidateValueEvidence(
       return `${candidate.field} lost an explicit source time and must preserve source precision.`;
     }
   }
+  if ((candidate.field === "registrationOpenDate" || candidate.field === "registrationCloseDate")
+    && typeof value === "string" && !hasRegistrationBoundaryEvidence(candidate.field, value, evidence)) {
+    return `${candidate.field} requires an explicit edition-wide registration boundary tied to this date; pre-registration, results, payment and ambiguous dates are not that fact.`;
+  }
+  if (candidate.field === "startAt" && hasMultipleStartTimes(evidence)) {
+    return "startAt cannot select one wave from explicit multiple start times; preserve the complete ordered startTimes evidence.";
+  }
   if (candidate.field === "startTimes" && Array.isArray(value)) {
     if (value.length < 2) return "startTimes requires at least two explicit ordered start times; use startAt for one time.";
     const missingTime = value.find((entry) => typeof entry !== "string" || !timeEvidenceContains(evidence, entry.slice(11, 16)));
     if (missingTime !== undefined) return "Every startTimes time must occur directly in its evidence text.";
   }
   return null;
+}
+
+function hasMultipleStartTimes(evidence: string): boolean {
+  const time = "(?:[01]?\\d|2[0-3])[:：][0-5]\\d";
+  const times = [...evidence.matchAll(/(?<!\d)([01]?\d|2[0-3])[:：]([0-5]\d)(?!\d)/g)]
+    .map(([, hour, minute]) => `${hour.padStart(2, "0")}:${minute}`);
+  if (new Set(times).size < 2) return false;
+  const waveLabels = [...evidence.matchAll(/第[一二三四五六七八九十\d]+波|\bwave\s*\d+\b/gi)].length;
+  return waveLabels > 1 || /(?:多波|两波|分波|waves\b|staggered\s+starts?)/i.test(evidence)
+    || new RegExp(`(?:发枪|起跑|鸣枪|出发|start(?:ing)?\\s+times?).{0,24}${time}\\s*(?:、|,|，|/|and|和|及)\\s*${time}`, "i").test(evidence);
+}
+
+/** Bind the candidate to a registration boundary in the same clause, not a nearby payment/results date. */
+function hasRegistrationBoundaryEvidence(field: string, value: string, evidence: string): boolean {
+  const date = /^(\d{4})-(\d{2})-(\d{2})/.exec(value);
+  if (!date) return false;
+  const [, year, month, day] = date;
+  const m = Number(month), d = Number(day);
+  const months = ["jan(?:uary)?", "feb(?:ruary)?", "mar(?:ch)?", "apr(?:il)?", "may", "jun(?:e)?", "jul(?:y)?", "aug(?:ust)?", "sep(?:tember)?", "oct(?:ober)?", "nov(?:ember)?", "dec(?:ember)?"];
+  const datePattern = new RegExp(`(?<!\\d)(?:${year}[-/.]0?${m}[-/.]0?${d}(?!\\d)|(?:${year}年)?0?${m}月0?${d}日|\\b${d}\\s+${months[m - 1]}\\b|\\b${months[m - 1]}\\s+${d}\\b)`, "i");
+  const opening = field === "registrationOpenDate";
+  const start = /(?:开始|开启|开放|启动|起报|开报|\b(?:opens?|starts?|begins?)\b)/i;
+  const end = /(?:截止|截至|结束|关闭|\b(?:closes?|ends?|deadline)\b)/i;
+  const partialPhase = /(?:预报名|预登记|候补|补录|定向报名|优先报名|抽签|中签|缴费|付款|支付|尚未|未开始|未开放|暂未|另行公布|待定|pre[-\s]?registration|lottery|ballot|drawing|results?|payments?|paying|fees?|not\s+(?:yet\s+)?(?:open|start|begin))/i;
+  // Deferred payment notes are not registration boundaries; bind only dates remaining outside them.
+  const boundaryEvidence = evidence.normalize("NFKC").replace(/\(([^()]*)\)/g, (annotation, note: string) => (
+    /^中签后/.test(note.trim()) && /缴费/.test(note) && !/(?:报名|registration)/i.test(note) ? " " : annotation
+  ));
+  const clauses = boundaryEvidence.split(/[。！？!?;；\n]|\.(?:\s+|$)/u)
+    .flatMap(sentence => partialPhase.test(sentence) ? sentence.split(/[,，]/u) : [sentence]);
+  for (const clause of clauses) {
+    if (!/(?:报名|registration|applications?|entries|entry)/i.test(clause)
+      || partialPhase.test(clause)
+      || !datePattern.test(clause)
+      || (value.includes("T") && !timeEvidenceContains(clause, value.slice(11, 16)))) continue;
+    const explicitYears = [...clause.matchAll(new RegExp(
+      `(20\\d{2})(?:年\\s*0?${m}月0?${d}日|[-/.]0?${m}[-/.]0?${d}(?!\\d))|\\b${d}\\s+${months[m - 1]}\\s+(20\\d{2})\\b|\\b${months[m - 1]}\\s+${d}\\s+(20\\d{2})\\b`, "gi"))];
+    if (explicitYears.some(match => (match[1] ?? match[2] ?? match[3]) !== year)) continue;
+    // A compact '-' must follow a complete day/time and precede the next date, never an ISO date component.
+    const range = /(?:至|到|\s(?:to|until|through)\s|[~～–—]|\s-\s|(?<=日|\d{1,2}:\d{2}|\d{4}-\d{2}-\d{2})-(?=\s*(?:\d{4}[-/.年])?\d{1,2}(?:月|[-/.])))/i.exec(clause);
+    if (range && /(?:报名\s*(?:时间|日期)|registration\s*(?:period|window)|\bfrom\b)/i.test(clause)) {
+      const side = opening ? clause.slice(0, range.index) : clause.slice(range.index + range[0].length);
+      if (datePattern.test(side) && (!value.includes("T") || timeEvidenceContains(side, value.slice(11, 16)))) return true;
+      continue;
+    }
+    if ((opening ? start.test(clause) && !end.test(clause) : end.test(clause) && !start.test(clause))) return true;
+  }
+  return false;
 }
 
 export function verifyEvidence(
@@ -765,6 +822,7 @@ export function isLocationSemanticReview(
 function isLocationSemanticCandidate(
   record: RaceGraphSnapshotRecord,
   candidate: OfficialFactCandidate,
+  includeFormatEquivalence = true,
 ): boolean {
   if (candidate.field !== "startLocation" && candidate.field !== "finishLocation") return false;
   if (typeof candidate.candidateValue !== "string") return false;
@@ -773,14 +831,28 @@ function isLocationSemanticCandidate(
     : record.categories.find(({ categoryId }) => categoryId === candidate.categoryId);
   const current = entity ? (entity as unknown as Record<string, unknown>)[candidate.field] ?? null : null;
   if (typeof current !== "string" || !current.trim()) return false;
+  if (current === candidate.candidateValue) return false;
+  const normalizedRole = normalizeLocationRole(current, candidate.field);
+  if (includeFormatEquivalence && normalizedRole
+    && normalizedRole === normalizeLocationRole(candidate.candidateValue, candidate.field)) return true;
   const normalizedCurrent = normalizeLocation(current);
   const normalizedCandidate = normalizeLocation(candidate.candidateValue);
   if (!normalizedCurrent || !normalizedCandidate || normalizedCurrent === normalizedCandidate) return false;
   if (/(?:→|->|至|到|及|和|\/)/.test(candidate.candidateValue)) return false;
+  // A side, entrance, floor or street number is substantive, even when the venue name is shared.
+  const qualifiers = (text: string) => text.match(/[东西南北]{1,2}(?:侧|门|口|翼|区|端|面|角)|[东西南北]{1,2}$|\d+|[一二三四五六七八九十]+[号门楼层]/g)?.join("|") ?? "";
+  if (qualifiers(normalizedCurrent) !== qualifiers(normalizedCandidate)) return false;
   const shorter = Math.min(normalizedCurrent.length, normalizedCandidate.length);
   const longer = Math.max(normalizedCurrent.length, normalizedCandidate.length);
   return shorter / longer >= 0.5
     && (normalizedCandidate.includes(normalizedCurrent) || normalizedCurrent.includes(normalizedCandidate));
+}
+
+function normalizeLocationRole(value: string, field: string): string {
+  const role = field === "startLocation" ? "起点" : "终点";
+  return value.normalize("NFKC").toLowerCase()
+    .replace(new RegExp(`(^|\\()\\s*${role}(?:\\s*[,，:：]\\s*(?:设在|设于|位于)?\\s*|\\s*(?:设在|设于|位于)\\s*)`, "g"), "$1")
+    .replace(/[\s(),，、。:：]/g, "");
 }
 
 function currentFactValue(snapshot: RaceGraphSnapshot, candidate: Pick<OfficialFactCandidate, "editionId" | "entityType" | "categoryId" | "field">): unknown {
