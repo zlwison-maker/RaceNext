@@ -103,6 +103,7 @@ export async function replayHengqinConflict(input: {
   snapshot: RaceGraphSnapshot; registry: RaceSourceRegistry;
   pendingStore: PendingChangeStore; state: OfficialSourceIngestionState;
   checkedAt: string; forceExtract?: boolean;
+  explicitRegistrationEvidence?: boolean;
 }) {
   const registry = structuredClone(input.registry);
   const entry = registry.editions.find(({ editionId }) => editionId === hengqinConflict.editionId)!;
@@ -112,7 +113,12 @@ export async function replayHengqinConflict(input: {
     if (!entry.sources.some(({ sourceId }) => sourceId === evidence.sourceId)) {
       entry.sources.push({ ...official, sourceId: evidence.sourceId, url: evidence.sourceUrl, isPrimary: false });
     }
-    const text = `2026 ${record.event.canonicalName}\n${evidence.evidenceText}`;
+    // Synthetic valid conflict for durability tests; the original historical record above remains exact.
+    const option = hengqinConflict.candidateOptions.find(({ sourceIds }) => sourceIds.includes(evidence.sourceId))!;
+    const quote = input.explicitRegistrationEvidence
+      ? `正式报名开始时间：${String(option.value).slice(0, 10)} ${String(option.value).slice(11, 16)}`
+      : evidence.evidenceText;
+    const text = `2026 ${record.event.canonicalName}\n${quote}`;
     return {
       sourceId: evidence.sourceId, editionId: hengqinConflict.editionId, url: evidence.sourceUrl,
       title: `2026 ${record.event.canonicalName}`, contentType: "text/html", httpStatus: 200,
@@ -134,7 +140,8 @@ export async function replayHengqinConflict(input: {
         output: { contractVersion: "official-fact-extraction-v1", facts: [{
           eventId: hengqinConflict.eventId, editionId: hengqinConflict.editionId, categoryId: null,
           entityType: "Edition", field: "registrationOpenDate", candidateValue: option.value,
-          ...evidence, sourceUrl: document.url, contentHash: document.contentHash, fetchedAt: document.fetchedAt,
+          ...evidence, ...(input.explicitRegistrationEvidence ? { evidenceText: document.text.split("\n")[1] } : {}),
+          sourceUrl: document.url, contentHash: document.contentHash, fetchedAt: document.fetchedAt,
           evidenceLocator: "fixture:durable-evidence-text", extractionMethod: "fixture-structured-output",
         }] },
       };

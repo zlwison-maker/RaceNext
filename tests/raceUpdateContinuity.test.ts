@@ -208,9 +208,15 @@ test("conflict extraction, durable Pending reload and State commit survive conse
   const snapshotBefore = structuredClone(snapshot);
   // This is a simulated conflict scenario, independent of future Canonical/review decisions.
   snapshot.records.find(({ edition }) => edition.editionId === hengqinConflict.editionId)!.edition.registrationOpenDate = hengqinConflict.currentValue;
+  // The real payment assertion is now invalid. Seed a valid synthetic conflict to retain the
+  // collision/durability assertions without pretending the historical payment quote is registration.
+  const seeded = await replayHengqinConflict({ snapshot, registry,
+    pendingStore: { schemaVersion: "race-update-pending-v1", changes: [] }, state: JSON.parse(productionState),
+    checkedAt: "2026-10-29T04:58:00.000Z", forceExtract: true, explicitRegistrationEvidence: true });
+  equal(seeded.prepared.pendingStore.changes.length, 1);
   const history: PendingChangeStore = { ...productionPending, changes: [
     ...productionPending.changes.filter(({ changeId }) => changeId !== hengqinConflict.changeId),
-    structuredClone(hengqinConflict),
+    seeded.prepared.pendingStore.changes[0],
   ] };
   const root = await mkdtemp(join(tmpdir(), "racenext-conflict-replay-"));
   const pendingFile = join(root, "pending.json"), stateFile = join(root, "state.json");
@@ -220,7 +226,7 @@ test("conflict extraction, durable Pending reload and State commit survive conse
   unsafe.changes.find(({ changeId }) => changeId === hengqinConflict.changeId)!.candidateOptions![1].value = "different-fact";
   const filesBefore = await Promise.all([readFile(pendingFile, "utf8"), readFile(stateFile, "utf8")]);
   await rejects(async () => {
-    const { prepared } = await replayHengqinConflict({ snapshot, registry, pendingStore: unsafe,
+    const { prepared } = await replayHengqinConflict({ snapshot, registry, pendingStore: unsafe, explicitRegistrationEvidence: true,
       state: JSON.parse(productionState), checkedAt: "2026-10-29T04:59:00.000Z", forceExtract: true,
     });
     await persistPreparedRealExtraction({ prepared, pendingPath: pendingFile, statePath: stateFile });
@@ -229,7 +235,7 @@ test("conflict extraction, durable Pending reload and State commit survive conse
   for (const checkedAt of ["2026-10-29T05:00:00.000Z", "2026-10-30T05:00:00.000Z"]) {
     const pendingStore = JSON.parse(await readFile(pendingFile, "utf8")) as PendingChangeStore;
     const state = JSON.parse(await readFile(stateFile, "utf8")) as OfficialSourceIngestionState;
-    const { prepared, modelCalls } = await replayHengqinConflict({ snapshot, registry, pendingStore, state, checkedAt, forceExtract: true });
+    const { prepared, modelCalls } = await replayHengqinConflict({ snapshot, registry, pendingStore, state, checkedAt, forceExtract: true, explicitRegistrationEvidence: true });
     equal(modelCalls, 2);
     equal(prepared.report.sources.length, 2);
     ok(prepared.report.sources.every((source) => source.identity?.status === "matched" && source.validationAcceptedCount === 1));
@@ -255,7 +261,7 @@ test("conflict extraction, durable Pending reload and State commit survive conse
     }
   }
   // A subsequent normal run skips both identical content hashes without buying extraction again.
-  const unchanged = await replayHengqinConflict({ snapshot, registry,
+  const unchanged = await replayHengqinConflict({ snapshot, registry, explicitRegistrationEvidence: true,
     pendingStore: JSON.parse(await readFile(pendingFile, "utf8")), state: JSON.parse(await readFile(stateFile, "utf8")),
     checkedAt: "2026-10-30T05:01:00.000Z",
   });

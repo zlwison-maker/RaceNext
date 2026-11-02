@@ -141,15 +141,15 @@ test("evidence validation rejects absent evidence, wrong Edition and unknown Cat
 });
 
 test("startTimes, elevationLoss and date precision are validated without inference", () => {
-  const document = fixtureDocument("2026 Beijing Marathon 马拉松 exact facts 7:00 07:30 07:45 elevation loss 321 registration date 2026-09-17");
+  const document = fixtureDocument("2026 Beijing Marathon 马拉松 exact facts 7:00 07:30 07:45 elevation loss 321 registration opens on 2026-09-17");
   const categories = snapshot.records.find(({ edition }) => edition.editionId === "beijing-marathon-2026")!.categories;
   const categoryId = categories[0].categoryId;
   const facts: OfficialFactCandidate[] = [
     candidate({ evidenceText: document.text, entityType: "Category", categoryId, field: "startTimes", candidateValue: ["2026-10-18T07:30:00+08:00", "2026-10-18T07:45:00+08:00"] }),
     candidate({ evidenceText: document.text, entityType: "Category", categoryId, field: "startAt", candidateValue: "2026-10-18T07:00:00+08:00" }),
     candidate({ evidenceText: document.text, entityType: "Category", categoryId, field: "elevationLoss", candidateValue: 321 }),
-    candidate({ evidenceText: "registration date 2026-09-17", field: "registrationOpenDate", candidateValue: "2026-09-17" }),
-    candidate({ evidenceText: "registration date 2026-09-17", field: "registrationCloseDate", candidateValue: "2026-09-22T00:00:00" }),
+    candidate({ evidenceText: "registration opens on 2026-09-17", field: "registrationOpenDate", candidateValue: "2026-09-17" }),
+    candidate({ evidenceText: "registration opens on 2026-09-17", field: "registrationCloseDate", candidateValue: "2026-09-22T00:00:00" }),
   ];
   const result = validateExtractedCandidates({ document, snapshot, registry, candidates: facts });
   equal(result.accepted.length, 4);
