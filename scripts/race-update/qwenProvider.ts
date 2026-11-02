@@ -8,7 +8,7 @@ import type {
 } from "../../types/officialSourceIngestion.ts";
 import { isSupportedFactField } from "./officialFacts.ts";
 
-export const RACE_FACT_EXTRACTION_PROMPT_VERSION = "race-fact-extraction-v1.4";
+export const RACE_FACT_EXTRACTION_PROMPT_VERSION = "race-fact-extraction-v1.5";
 export const QWEN_EXTRACTION_METHOD = "aliyun-qwen-structured-output";
 export const QWEN_PROVIDER_TIMEOUT_MS = 60_000;
 
@@ -114,7 +114,10 @@ Emit startLocation only from explicit start/start-line wording. Emit finishLocat
 Category-specific evidence must remain Category-scoped with the one exact categoryId. Never promote a Category date or Category fact to Edition scope. If Category scope is ambiguous, omit the fact.
 Numeric fields represent exact values. Omit approximate, ranged, lower-bound, or upper-bound values such as about, around, over, at least, 约, 超过, or 以上.
 If registration evidence includes a specific time, preserve that time in registrationOpenDate or registrationCloseDate.
+registrationOpenDate and registrationCloseDate require an explicit edition-wide registration opening or closing boundary tied to the quoted date. Results queries, lottery/payment windows, pre-registration, partial channels and announcement publication dates are not global registration boundaries. Omit ambiguous or conflicting boundaries. A separate later payment clause does not invalidate an explicitly stated registration boundary.
+Keep an existing location's exact place description when supported; do not add start/finish role labels to the place value. Formatting or role annotations do not prove relocation. Never infer location equivalence.
 Use startAt for one start time. Emit startTimes only when the source explicitly lists two or more ordered start times.
+If evidence explicitly gives multiple waves, never emit only the first wave as startAt; preserve the complete ordered startTimes or omit the unsupported candidate.
 Output only the strict JSON Schema response.`;
 
 export class FactExtractionProviderError extends Error {

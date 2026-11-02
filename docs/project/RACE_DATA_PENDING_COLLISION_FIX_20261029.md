@@ -187,3 +187,64 @@ Human 已确认生产 Review PASS。本轮独立读取四轮 GitHub Run 元数�
 3. **可复用证据覆盖与重复处理成本**：跨运行恢复已通过，但有效核验仅约一成。横琴结果公告四轮 Hash 均不同，而关键报名误映射的引用相同，持续购买提取；**正文是否真的未变、是否模板/动态内容造成 Hash 波动，目前无法确定**，Artifact 未保留足够完整逐字正文来归因。建议只读对照正文/快照 Hash 与证据，再用既有合同验证稳定正文复用。成本低至中；目标为稳定、已验证样本重复模型调用=0，字段/身份/规则/生命周期变化时错误继承=0，并记录每次有效变化的调用、Tokens、Human 分钟数，才评估收益。不得只调高 Verified 数或拿成功 Hash 替代直接证据。
 
 以上是诊断和待 Human 决策的验证建议。没有实现、派发生产运行、修改 Workflow/数据/Registry、合并/关闭 PR #46、开启 Auto Apply 或执行部署。本次 Docs-only 提交仅做链接、数字、范围和 whitespace 检查，不声称重新运行业务测试。
+
+
+## 2026-11-02 P1 字段语义最小修复（待 Human Review，未生产验收）
+
+开发基线 `47269aee67d9959445356eacd98389022faa1de3`，即已合并的 PR #51。PR #46 本轮只读核对为 Open，Head `150151696e39286cf06fbc5996703a4f13b58272`，45 条 Pending / 82 条 State；不修改或迁移其分支。前述 P0 结项不因本 P1 改写。
+
+### 规则与边界
+
+- `registrationOpenDate` / `registrationCloseDate` 必须在直接引用中绑定明确的全局报名开始/截止日期与时间；预报名、抽签结果、缴费和模糊发布日期拒绝。按分句区分“明确报名开始，后续中签缴费”，不会因同段另有缴费就拒绝正确报名事实。范围起止端点不能互换，跨年仍受既有届次规则约束。
+- 仅对格式、有限的起终点角色说明和已有描述性扩展进入现有 `semantic_review`，无新 Fact Pending、无 `evidenceVerifiedAt`、不计入 VERIFIED。新增格式/角色分流不绕过 Category 作用域校验；方位、门号/楼层/数字变化仍保留高影响待审，null→直接地点仍为真实候选。不改变全局 `sameFactValue` 或 Apply 旧值检查。
+- 明确多个波次或起跑时间列表时，不得压成单一 `startAt`；保留完整 `startTimes`、原顺序和高影响审核。单一发枪时间加关门时间不是两个波次。未新增 Schema、Pipeline 或规则引擎。
+
+### 25 项固定回放前后对照
+
+完整值、引用、来源、标注和旧结果保存在 [固定样本](../../tests/fixtures/factSemanticReplay.json)，[回归测试](../../tests/raceUpdateSemanticReplay.test.ts)逐项断言。真实生产引用保留，但上下文为隔离重建，Replay Hash 仅对应该片段，不冒充历史全文 Hash。宁海两条 rejected 反例在空历史场景暴露原语义缺口；带原审核记录时仍必须保持 rejected 且零新增。
+
+修复前 17/25 符合人工标注，修复后 25/25；不是生产准确率或泛化能力指标。
+
+| # | 样本 | 修复前 | 修复后 |
+| --- | --- | --- | --- |
+| 1 | 横琴抽签/缴费误作报名开始 | `pending` | `rejected` |
+| 2 | 绍兴终点角色说明 | `pending` | `semantic_review` |
+| 3 | 宁海预报名开始 | `pending` | `rejected` |
+| 4 | 宁海预报名结束 | `pending` | `rejected` |
+| 5 | 明确报名开始 | `no_change` | `no_change` |
+| 6 | 明确报名截止 | `pending` | `pending` |
+| 7 | 明确报名及后续缴费 | `pending` | `pending` |
+| 8 | 缴费截止误作报名截止 | `pending` | `rejected` |
+| 9 | 模糊报名信息日期 | `pending` | `rejected` |
+| 10 | 报名时间精度丢失 | `rejected` | `rejected` |
+| 11 | 从窗口推断报名状态 | `rejected` | `rejected` |
+| 12 | 错误届次报名日期 | `rejected` | `rejected` |
+| 13 | 地点括号标点差异 | `pending` | `semantic_review` |
+| 14 | 地点描述性扩展 | `semantic_review` | `semantic_review` |
+| 15 | 缺失地点到直接事实 | `pending` | `pending` |
+| 16 | 真实方位变化 | `pending` | `pending` |
+| 17 | 无终点语义 | `rejected` | `rejected` |
+| 18 | 错误组别地点 | `rejected` | `rejected` |
+| 19 | 标称距离60km | `no_change` | `no_change` |
+| 20 | 实际赛道58.8km | `rejected` | `rejected` |
+| 21 | 近似距离 | `rejected` | `rejected` |
+| 22 | 完整两波 | `no_change` | `no_change` |
+| 23 | 波次顺序改变 | `pending` | `pending` |
+| 24 | 单元素startTimes | `rejected` | `rejected` |
+| 25 | 两波压为startAt | `pending` | `rejected` |
+
+### 历史保护、版本成本与误杀风险
+
+原横琴 collision Fixture 的历史记录保持原貌；其缴费引用在新规则下应拒绝，不再伪称有效报名证据。原持久化/collision 测试使用明确标注的合成有效报名冲突，继续覆盖同 ID 冲突、正常/强制重复、Pending 失败时 State 不前进、持久回读和历史审核保留；另测真实旧冲突在拒绝缴费候选后仍原样保留。没有审批、拒绝或清理任何正式 Pending。
+
+Prompt `v1.4 → v1.5`、Processing `v4 → v5` 沿用现有版本合同，使旧结果和旧 VERIFIED 证据不能跳过新校验。没有 force-extract、额外重试、缓存改造或手动生产运行。基于 PR #46 最新 State 和 11-02 的生命周期过滤做只读估算：14 个日常 Edition、53 个基础来源，其中 3 个 deterministic-json 不调用模型；其余 50 个基础模型来源里 12 个最近成功/unchanged、3 个 validation_error；仍适用 Edition 的 11 个历史公告 State 中另有 7 个成功/unchanged、4 个 validation_error。假设内容不变、原 Artifact 完整恢复、这些公告仍 eligible 且抓取/身份都通过，旧跳过机会最多约 **19 个成功来源 + 7 个确定性失败来源 = 26 个一次性复验调用**；不是必然增加 26 次，也不能把所有 82 条 State 算作调用。抓取/身份失败仍不会买模型；两个版本同步失效只触发同一轮复验，不叠加两轮。新版本成功或确定性失败后，连续相同 Hash 的第二轮复用原合同跳过，专项测试验证零额外 Provider 调用。
+
+潜在误杀：未覆盖的表达、跨句省略、混合阶段且无法明确绑定日期、非 HH:mm 波次时间、未识别的地点措辞仍可能漏检或进入异常复核。本次有限规则不证明可理解任意公告；拒绝不等于来源错误。旧错误 Pending 不会被本修复自动改状态，仍需 Human 独立处理。
+
+下一轮自然运行观察：错误报名阶段新增 Pending=0；已知地点同义新增 Pending=0且不计 Verified；真实地点/时间/距离变化及冲突仍可见；记录拒绝理由、语义分流数及误杀正例；分开记录一次性版本复验与后续重复调用，并检查原 Pending/State、PR #46、Auto Apply OFF、Canonical 自动写入 0。只有真实运行证据才能评价生产质量，离线通过不能替代验收。
+
+### 本次离线验收与变更范围
+
+- 25 项固定样本全部符合人工标注；包含边界/历史/版本回归的专项文件 31/31，完整 `npm test` 490/490，`prePublishFactGate.test.ts` 10/10。`npm run typecheck`、`npm run typecheck:miniprogram`、`npm run lint`、`git diff --check` 均 PASS。完整测试包含原连续性/碰撞/去重及 API 回归；使用临时目录和本机模拟服务，无真实模型请求。没有声称运行生产 Data-only CLI 来接受 Code PR；原安全边界由相关回归测试继续覆盖。
+- 仅修改 realExtraction、Qwen 提示、处理版本、直接相关 Fixture/测试及本 Handoff；Canonical / Pending / State / Registry / Workflow / API / 小程序 / types / lib 全部零修改。原横琴历史 conflict Fixture 常量逐字保留，新增合成输入与原证据明确区分。
+- Draft Code PR 待 Human Review；未合并、未部署、未触发生产监测。生产质量、真实误杀率、成本收益均待后续自然运行验收。
