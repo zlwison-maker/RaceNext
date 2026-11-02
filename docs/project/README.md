@@ -87,6 +87,8 @@ Investor BP 用于理解战略与商业背景，不是代码实现约束，也�
 
 ## 7. 当前数据维护 P0
 
+[2026-11-02 Pending collision / 生产连续性 P0 结项与质量诊断](RACE_DATA_PENDING_COLLISION_FIX_20261029.md#2026-11-02-生产连续性-p0-结项与质量诊断)：四轮自然运行独立核对 PASS；PR #46 原 44 条 Pending 与 82 个 State 来源身份完整保留，最终 45 条，Auto Apply OFF、Canonical 自动写入 0。**仅结项工程连续性；来源覆盖、事实准确性和维护成本仍未验收**。字段 Artifact 跨运行恢复现有真实证据；自动部署仍无生产验收。当前指标、错误候选及下一步只读验证建议集中见该 Handoff，不另建重复报告。
+
 [数据自动维护 P0 生产 Closeout（2026-10-15）](RACE_DATA_MAINTENANCE_P0_20261014.md#2026-10-15-生产验收-closeout)：工程 P0 阶段性交付完成；Run #38691682744 已提供生产 Workflow、动态监测、生命周期过滤、公告处理及部分字段继承的真实证据，数据质量与规模化效率继续观察。完整指标集中见 Closeout，不以 Pipeline Success 代替事实准确性 PASS。
 
 2026-10-15 最新 Human Decision：**Human Review by Exception**。已登记、有效的赛事专属官网身份可用于同源公告；实际正文通过 Event / Edition / 字段作用域及确定性 Evidence 校验后，无需逐页重复来源审批或登记，直接进入既有 Fact Pipeline。跨域、共享平台、身份/适用性不明和证据不足仍复核。内容未变仅在真实字段证据仍匹配时单独记 `VERIFIED_INHERITED`；不以成功 Hash 冒充字段核验。该规则覆盖历史“每篇公告都必须单独 Source Approval”的冲突表述，**不改变 Auto Apply OFF、事实 Pending / Human Review、Public Fact Gate 或发布权限**。实现与真实限制见上述 P0 文档的 2026-10-15 补充。
