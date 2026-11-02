@@ -1,6 +1,8 @@
 # Pending changeId Collision P0 修复交接 · 2026-10-29
 
-状态：代码修复待 Human Review；**生产 P0 尚未关闭**。
+状态：**2026-11-02 生产连续性修复 P0 验收 PASS**。仅结项工程运行、changeId collision 故障及历史数据连续性；来源覆盖、事实准确性和规模化维护成本尚未验收。
+
+原交接在 2026-10-29 的状态为“代码修复待 Human Review；生产 P0 尚未关闭”。下列故障、隔离重放、工程验证和原验收计划保留原貌；最新生产证据与质量诊断见本文末尾。
 
 ## 基线与范围
 
@@ -115,3 +117,73 @@
 6. 两轮均确认 Canonical/Registry 不变、Auto Apply OFF、Data-only/Secret Scan/完整测试 PASS、单一 Data PR 连续延续，异常日志可追踪且无敏感信息。
 7. 对新的安全 collision 或模型/来源失败停止并保留证据，不自动反复重跑、不关闭 Guard。记录默认构建器在 CI 的真实结果；本机构建环境限制不得冒充默认构建 PASS。
 8. 只有两轮真实有效运行及 Pending/State 安全验收完成后，才记录 Production Closeout；本地 Replay PASS 和 Draft PR 均不足以关闭本 P0。
+
+## 2026-11-02 生产连续性 P0 结项与质量诊断
+
+### 验收结论与范围
+
+Human 已确认生产 Review PASS。本轮独立读取四轮 GitHub Run 元数据、完整 job log、每轮 `race-update-report-<Run ID>` Artifact 内的五份报告，以及 PR #46 的逐轮 Git 提交，结论一致：**原定两轮有效自然监测与历史数据保护条件已由四轮满足，生产连续性修复 P0 正式验收 PASS**。不是来源质量、事实准确性或 Phase 2–3 成本门槛 PASS。
+
+本次文档基线 main：`7f554f574a23e5c88eefd71dcbdf7f2015b36c01`；PR #47 修复 Merge：`43ebb8b29fd32693f1852636c0d9675c1e186bb8`，是四轮运行代码的祖先。以下日期为北京时间，四轮均 `event=schedule`、首个 attempt、completed/success；没有将手动重跑或本地 Fixture 计入生产轮数。
+
+| 自然运行 | 官方有效处理 / 其中本轮新提取成功 | Pending 前→后 | PR #46 本轮结束 Head | 完整测试 |
+| --- | ---: | ---: | --- | ---: |
+| 10-29 [40826744392](https://github.com/zlwison-maker/RaceNext/actions/runs/40826744392) | 24 / 9 | 43 → 44 | `b274f683913f66d9956f8576e4c0d113c04263fb` | 453 / 453 |
+| 10-30 [41011738585](https://github.com/zlwison-maker/RaceNext/actions/runs/41011738585) | 23 / 10 | 44 → 44 | `8340a81051bb9ee44c7545f1d8a026a1710824f5` | 459 / 459 |
+| 10-31 [41174621572](https://github.com/zlwison-maker/RaceNext/actions/runs/41174621572) | 23 / 4 | 44 → 45 | `7e9287566acbd5db596828e118b08f266588dc70` | 459 / 459 |
+| 11-01 [41280854109](https://github.com/zlwison-maker/RaceNext/actions/runs/41280854109) | 23 / 8 | 45 → 45 | `251a9c2ba3178d2b2c83a71c99ebfe64de260ef8` | 459 / 459 |
+
+“有效处理”包含成功提取及安全 unchanged，不等于全部新调用。四轮都有本轮新提取成功的官方来源，非空跑。横琴 `news_detail-280.html` / `news_detail-285.html` 在 10-29、10-30 均为 fetch success、identity matched、extraction success，复用了旧冲突 ID，未再触发中断。后两轮 280 公告因 `ARTICLE_EDITION_APPLICABILITY_UNCLEAR` 留在异常复核，未进入提取；285 继续成功。不能宣称两篇公告四轮都成功，也不能把语义争议消失当作 collision 修复的效果。
+
+- PR #46 保持单一 Open Data PR；截至核对时 Head 为 `251a9c2ba3178d2b2c83a71c99ebfe64de260ef8`，相对 main 仅含 Pending / State。手工合并 PR #48/#50 后的普通 merge 迁移与定时运行提交分开辨认，没有计作生产运行或自动 Canonical 更新。
+- 逐轮检查所有旧 Change ID、status、reviewedAt、appliedAt、Evidence 和 candidateOptions：旧记录全部 deepEqual，无重复 ID。以 10-29 结束的 44 条为基线，最终 45 条中的原 44 条完全未变；最新为 23 pending / 14 rejected / 8 applied。
+- State 82 个 `(editionId, sourceId)` 身份逐轮完整保留，检查/成功提取元数据正常推进；不把“记录保留”误写为整个 State 文件字节不变。
+- 每轮 `canonicalWrites=0`、`lowRiskCanonicalUpdates=[]`、所有 source `canonicalWritten=false`、`autoApplyLowRisk=false`；bot 提交逐一只改 Pending / State，Canonical / Registry 与各自本轮基线字节一致。跨日 Canonical 的人工 CP 发布不能误算为自动写入。
+- 四轮 Data-only、Secret Scan、165 项定向测试、完整测试、48 项 Public Fact Gate、TypeScript 和 `CONTINUITY_RESULT=DATA_PR_UPDATED` 均 PASS。沿用 Pending 写入→回读校验→State 写入安全边界，不宣称跨文件事务原子性。
+- `phase3-real-extraction.json` 内 `dryRun:true` 是提取阶段不直接写 Canonical 的合同；外层生产持久化由 `localPersistenceCompleted=true`、finish 日志与真实 bot 提交共同证明，不能据此误判空跑。
+- 10-30→10-31→11-01 日志均明确恢复上一成功 Run 的 Discovery、Operations、Evidence Artifact；安全继承字段分别为 14 / 24 / 19。本轮还逐项核对继承来源的同 Hash、URL、身份、skipped 请求及直接字段证据。字段 Artifact 跨运行恢复现已获得真实生产证据，不再沿用 10-15 的“尚未验证”结论。
+- 最终 Pending SHA-256：`b34fcb00b436decd91d15e6c83b98d851256b28b421233a5b7aae9c2c656ad3c`；State SHA-256：`a93c3843463500b5ee298899c250735470838e7c2d965b923883aaa621ace2f5`。
+
+四轮 Workflow 没有 Build Step，本次不宣称 CI 默认构建或自动部署已通过。手工 CP 发布及真机 QA 是独立验收，不替代自动部署验收。Artifact retention 仍为 30 天；本机诊断下载在 `/private/tmp/racenext-p0-closeout-20261102/`，不是永久生产证据库。
+
+### 数据质量实测
+
+| Run 日期 | Healthy / 监测 | 来源 checked / failed | 新核验 / 安全继承 / 总检查项 | Alerts（HIGH / REVIEW） | 模型调用 | 新增 / 去重 Pending |
+| --- | --- | --- | --- | --- | ---: | --- |
+| 10-29 | 4 / 15 | 66 / 40 | 9 / 17 / 294 | 15（5 / 10） | 18 | 1 / 5 |
+| 10-30 | 3 / 15 | 65 / 39 | 12 / 14 / 294 | 17（6 / 11） | 16 | 0 / 5 |
+| 10-31 | 4 / 15 | 66 / 41 | 11 / 24 / 294 | 15（5 / 10） | 13 | 1 / 2 |
+| 11-01 | 3 / 15 | 66 / 40 | 8 / 19 / 294 | 16（6 / 10） | 15 | 0 / 5 |
+
+**已有直接证据：**
+
+1. 19 场公开历史 Edition 中，北京、西安、成都、贡嘎因已结束退出日常事实监测，15 场分母正确；保留历史页面与数据。Discovery 的 19 场 Ledger 扫描口径不能混为事实监测分母。
+2. [dailyCheck.ts](../../scripts/race-update/dailyCheck.ts) 的 HEALTHY 要求有有效官方来源且所有本轮来源均成功/unchanged；有一个失败就可能 PARTIAL。11-01 为 3 HEALTHY / 9 PARTIAL / 3 FAILED；宁海 3 个官方 JSON 有效但其他来源失败，仍为 PARTIAL。广州马、重庆马、广州100来源数量较少且大多处理成功，常为 HEALTHY；绍兴在 11-01 两来源均抓取失败而转 FAILED。HEALTHY 不是字段准确率，也不能靠删除失败来源抬高指标。
+3. 每轮 294 个关键字段检查中，46 个 Canonical 值缺失/unknown，213–222 个本轮未验证；新核验+安全继承仅 26–35 项，占 8.8%–11.9%。11-01 为 27/294。CoursePoint 不在该检查合同中；“本轮未验证”不等于已获 Human Review 的 Canonical/CP 错误。
+4. 四轮 263 次来源处理有 160 次失败/无效；原因分解见下表。每日约 40 不能全部称为抓取失败。
+
+| 环节 / 四轮累计次数 | 实际原因 | 可修复性与边界 |
+| --- | --- | --- |
+| fetch / 82 | HK100 十个来源每轮 HTTP 403，累计 40；HTTP 567 为 4、受限响应正文为 4；通用 fetch failed 为 17、明确超时为 1；404 为 4；JPEG 为 8；超体积为 4 | 403/567/受限页是当前访问限制，不绕过防护；JPEG/体积是当前文本链路能力边界，优先可读官方文字替代。本轮不做 OCR 或扩限。AIMS 404 可核对 URL；通用 fetch failed 尚不能区分 DNS/TLS/网络/站方问题，不能保证可修复。 |
+| identity / 41 | 28 次 year missing 导致 uncertain；13 次别名/届次不匹配；包括缺年官网/图库和共享报名平台 | 优先核对当届文章/规程与确切 URL。域名可信不能代替当届、组别身份；真正缺失或冲突仍 HOLD，不放宽 Identity Gate。 |
+| validation / 36 | 每轮 8–10 个来源全部候选未过确定性校验：组别作用域、原文引用、标称/实际距离、报名阶段、日期精度等 | 是字段提取/内容适用性问题，部分是模型错误，部分是正文不支持目标字段；保留严格拒绝，不将其一概称为网页不可访问。每轮已有 4 个同 Hash 的确定性失败请求被安全跳过，不能假称此前没有缓存。 |
+| provider / 1 | 10-30 广州100 `network_error` | 单次 Provider 网络错误；需小样本复测，不能据此归因全部来源失败或扩大重试。 |
+
+5. 四轮模型共 62 次报告调用、230,792 Tokens；428 个本轮候选接受 81、拒绝 347（约 81.1%）。接受不等于新增正确事实。账单、实际重试计费、Human 分钟数和漏报真值集缺失，不能计算货币节省或规模化效率。
+6. 累计 63 次 Alert 呈现中 57 次为重复；6 次新增/重现涉及 5 个唯一 ID，横琴生命周期 Alert 有消失后重现。Operations 去重已工作，不能把 15–17 个存量 Alert 都算每天新增人工任务。11-01 仍有 39 个来源/证据异常；它们不是 39 条 Fact Pending，也不全是重新申请 Source Approval。
+
+### 新 Pending 的价值与 Human 优先级
+
+- 10-29 绍兴半马终点 `chg-41fb6f93698d6bcc41f7c00e`：官方报名须知支持终点定位，但旧值“奥体中心东南侧（解放大道与洋江西路交叉口）”与候选“奥体中心东南侧(终点，设在解放大道与洋江西路交叉口)”指向相同位置。**合理判断为措辞差异，尚未证明真实地点发生变化**，不因 high_impact 标签就算高价值变化。
+- 10-31 横琴 `chg-32e3e80855ca07581756ad66`：将报名开始从 8-18 改为 9-21，唯一直接 Evidence 是“今日（9月21日）10:00起 抽签结果查询与缴费通道同步开放”。**证据不支持 registrationOpenDate，属于阶段语义误映射，应优先交 Human 拒绝/处理**。当前 `risk=low / conflict=false / applyBlocked=false`，但 Auto Apply OFF 阻止其自动落地；旧冲突 `chg-9834639d42eb109c8315f709` 仍原样 pending/blocked，不能因没有 collision 就视为争议已解决。本轮不更改任何审核状态。
+- 因而四轮有两条新记录，但尚不能举证一个高价值的真实赛事事实变化；“44→45”也不能用作数据质量提高的证明。发现有用的来源退化/证据风险，与发现正确的新赛事事实，应分开验收。
+- Human 应优先核对临近比赛的绍兴、柴古、宁海的日期/发枪与起终点证据，以及厦门报名状态越过截止边界、官方来源全部无效等高影响风险。11-01 的六个 HIGH 是福州、HK100、绍兴、深圳马、厦门的官方有效来源缺失及厦门生命周期复核；不能仅按 HIGH 数量判断事实已错。
+- 23 条待审中另有厦门同组起点相同候选值的三个不同 ID；这是同义待审负担，不是重复 Change ID。贡嘎两条历史报名链接可按既有生命周期规则由 Human 低优先级关闭/拒绝；宁海标称距离、CNH-60 多波次起跑及 ITRA 爬升精度争议继续独立审核，不从实际路线距离推翻 100/60/25。均不在本轮处理。
+
+### 前三瓶颈与下一步最小验证建议（本轮不实施）
+
+1. **来源可访问性与当届作用域覆盖**：fetch+identity 占失败 123/160；仅 HK100 403 就占 40/160。建议先选临近比赛或高权重来源做一组有界只读复测，核对失效 URL、官方文字替代、当届文章；遇访问防护或无直接证据明确保留限制。预期提高有效覆盖，成本低至中（估计，需先验证）；建议样本 5–8 个来源、连续三轮有效处理率目标 ≥80%，同时错误届次接入为 0，不能通过移除失败项改分母。
+2. **字段语义及同义 Diff**：347 个拒绝仍挡不住横琴阶段误映射，绍兴措辞变化又产生高影响待审。建议用这两个真实反例和现有冻结距离/波次反例，做小规模离线人工标注回放；不需新系统。预期减少误报与无价值 Pending，成本低；验收目标为已标注错误报名阶段接受数=0、同义地点新 Pending=0，真实高影响差异仍保留 Human Review，旧 ID/审核历史零改写。这里是下一轮验证目标，不是已实现能力。
+3. **可复用证据覆盖与重复处理成本**：跨运行恢复已通过，但有效核验仅约一成。横琴结果公告四轮 Hash 均不同，而关键报名误映射的引用相同，持续购买提取；**正文是否真的未变、是否模板/动态内容造成 Hash 波动，目前无法确定**，Artifact 未保留足够完整逐字正文来归因。建议只读对照正文/快照 Hash 与证据，再用既有合同验证稳定正文复用。成本低至中；目标为稳定、已验证样本重复模型调用=0，字段/身份/规则/生命周期变化时错误继承=0，并记录每次有效变化的调用、Tokens、Human 分钟数，才评估收益。不得只调高 Verified 数或拿成功 Hash 替代直接证据。
+
+以上是诊断和待 Human 决策的验证建议。没有实现、派发生产运行、修改 Workflow/数据/Registry、合并/关闭 PR #46、开启 Auto Apply 或执行部署。本次 Docs-only 提交仅做链接、数字、范围和 whitespace 检查，不声称重新运行业务测试。
