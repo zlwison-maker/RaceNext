@@ -683,7 +683,11 @@ function hasRegistrationBoundaryEvidence(field: string, value: string, evidence:
   const start = /(?:开始|开启|开放|启动|起报|开报|\b(?:opens?|starts?|begins?)\b)/i;
   const end = /(?:截止|截至|结束|关闭|\b(?:closes?|ends?|deadline)\b)/i;
   const partialPhase = /(?:预报名|预登记|候补|补录|定向报名|优先报名|抽签|中签|缴费|付款|支付|尚未|未开始|未开放|暂未|另行公布|待定|pre[-\s]?registration|lottery|ballot|drawing|results?|payments?|paying|fees?|not\s+(?:yet\s+)?(?:open|start|begin))/i;
-  const clauses = evidence.normalize("NFKC").split(/[。！？!?;；\n]|\.(?:\s+|$)/u)
+  // Deferred payment notes are not registration boundaries; bind only dates remaining outside them.
+  const boundaryEvidence = evidence.normalize("NFKC").replace(/\(([^()]*)\)/g, (annotation, note: string) => (
+    /^中签后/.test(note.trim()) && /缴费/.test(note) && !/(?:报名|registration)/i.test(note) ? " " : annotation
+  ));
+  const clauses = boundaryEvidence.split(/[。！？!?;；\n]|\.(?:\s+|$)/u)
     .flatMap(sentence => partialPhase.test(sentence) ? sentence.split(/[,，]/u) : [sentence]);
   for (const clause of clauses) {
     if (!/(?:报名|registration|applications?|entries|entry)/i.test(clause)
@@ -693,7 +697,8 @@ function hasRegistrationBoundaryEvidence(field: string, value: string, evidence:
     const explicitYears = [...clause.matchAll(new RegExp(
       `(20\\d{2})(?:年\\s*0?${m}月0?${d}日|[-/.]0?${m}[-/.]0?${d}(?!\\d))|\\b${d}\\s+${months[m - 1]}\\s+(20\\d{2})\\b|\\b${months[m - 1]}\\s+${d}\\s+(20\\d{2})\\b`, "gi"))];
     if (explicitYears.some(match => (match[1] ?? match[2] ?? match[3]) !== year)) continue;
-    const range = /(?:至|到|\s(?:to|until|through)\s|[~～–—]|\s-\s)/i.exec(clause);
+    // A compact '-' must follow a complete day/time and precede the next date, never an ISO date component.
+    const range = /(?:至|到|\s(?:to|until|through)\s|[~～–—]|\s-\s|(?<=日|\d{1,2}:\d{2}|\d{4}-\d{2}-\d{2})-(?=\s*(?:\d{4}[-/.年])?\d{1,2}(?:月|[-/.])))/i.exec(clause);
     if (range && /(?:报名\s*(?:时间|日期)|registration\s*(?:period|window)|\bfrom\b)/i.test(clause)) {
       const side = opening ? clause.slice(0, range.index) : clause.slice(range.index + range[0].length);
       if (datePattern.test(side) && (!value.includes("T") || timeEvidenceContains(side, value.slice(11, 16)))) return true;
