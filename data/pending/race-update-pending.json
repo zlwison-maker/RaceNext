@@ -2289,6 +2289,49 @@
       "reviewedAt": null,
       "reviewReason": null,
       "appliedAt": null
+    },
+    {
+      "changeId": "chg-99cb69eaf4d2471564876ba5",
+      "eventId": "guangzhou-100",
+      "editionId": "guangzhou-100-2027",
+      "categoryId": "guangzhou-100-2027-55k",
+      "entityType": "Category",
+      "field": "cutoffTimeHours",
+      "currentValue": null,
+      "candidateValue": 16,
+      "sourceId": "guangzhou-100-official-2027",
+      "sourceUrl": "https://moganshan.saihuitong.com/article?id=71446&mid=57201",
+      "evidenceText": "4 1月16日7:00 55km 1 1月17日1:00 16小时",
+      "evidenceLocator": "text:877-910; untrustedDocumentText:table_start_times",
+      "confidence": 0.95,
+      "fetchedAt": "2026-11-04T06:45:53.819Z",
+      "contentHash": "c0a47cdf87048db97767bff0ad890d7d49bebe7000a12d63c012e2286617efcd",
+      "extractionMethod": "aliyun-qwen-structured-output",
+      "provider": "aliyun-model-studio",
+      "model": "qwen3.8-flash",
+      "promptVersion": "race-fact-extraction-v1.5",
+      "evidence": [
+        {
+          "sourceId": "guangzhou-100-official-2027",
+          "sourceUrl": "https://moganshan.saihuitong.com/article?id=71446&mid=57201",
+          "evidenceText": "4 1月16日7:00 55km 1 1月17日1:00 16小时",
+          "evidenceLocator": "text:877-910; untrustedDocumentText:table_start_times",
+          "confidence": 0.95,
+          "fetchedAt": "2026-11-04T06:45:53.819Z",
+          "contentHash": "c0a47cdf87048db97767bff0ad890d7d49bebe7000a12d63c012e2286617efcd",
+          "extractionMethod": "aliyun-qwen-structured-output"
+        }
+      ],
+      "conflict": false,
+      "candidateOptions": [],
+      "applyBlocked": false,
+      "risk": "high_impact",
+      "reason": "High-impact race fact cannot be auto-applied in V1. Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
+      "status": "pending",
+      "createdAt": "2026-11-04T06:48:00.118Z",
+      "reviewedAt": null,
+      "reviewReason": null,
+      "appliedAt": null
     }
   ]
 }
