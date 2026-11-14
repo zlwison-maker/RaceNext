@@ -564,6 +564,16 @@
           "fetchedAt": "2026-09-29T07:59:48.984Z",
           "contentHash": "82edf46aa27274496403b9348347995b2367d715958308e8f7a13f92137964e3",
           "extractionMethod": "aliyun-qwen-structured-output"
+        },
+        {
+          "sourceId": "itra-ninghai-cnh60-2026",
+          "sourceUrl": "https://itra.run/Races/RaceDetails/KOLON.SPORT.Ultra.Trail%C2%AE.Ninghai.CNH.60/2026/118117",
+          "evidenceText": "Elevation Loss: -2378",
+          "evidenceLocator": "text:463-484; untrustedDocumentText",
+          "confidence": 1,
+          "fetchedAt": "2026-11-14T06:47:45.968Z",
+          "contentHash": "82edf46aa27274496403b9348347995b2367d715958308e8f7a13f92137964e3",
+          "extractionMethod": "aliyun-qwen-structured-output"
         }
       ],
       "conflict": false,
@@ -2329,6 +2339,95 @@
       "reason": "High-impact race fact cannot be auto-applied in V1. Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
       "status": "pending",
       "createdAt": "2026-11-04T06:48:00.118Z",
+      "reviewedAt": null,
+      "reviewReason": null,
+      "appliedAt": null
+    },
+    {
+      "changeId": "chg-591fcc3c2a6be86f7b2c0287",
+      "eventId": "ninghai-ultra-trail",
+      "editionId": "ninghai-ultra-trail-2026",
+      "categoryId": "ninghai-ultra-trail-2026-cnh-60",
+      "entityType": "Category",
+      "field": "elevationGain",
+      "currentValue": 2400,
+      "sourceId": "ninghai100-official-category-5-2026",
+      "sourceUrl": "https://ninghai100.com/app-api/race/group/get?id=5",
+      "evidenceText": "CNH-60 data.elevationGain: 2400",
+      "evidenceLocator": "text:81-112; data.elevationGain",
+      "confidence": 1,
+      "fetchedAt": "2026-11-14T06:48:00.653Z",
+      "contentHash": "486bc5c6b4690af1fc533cf97b693f6b95cc1b872a842d53b22e1c4d733bfc21",
+      "extractionMethod": "structured_json",
+      "provider": "official-json-deterministic",
+      "model": "none",
+      "promptVersion": "ninghai-category-json-v1",
+      "evidence": [
+        {
+          "sourceId": "itra-ninghai-cnh60-2026",
+          "sourceUrl": "https://itra.run/Races/RaceDetails/KOLON.SPORT.Ultra.Trail%C2%AE.Ninghai.CNH.60/2026/118117",
+          "evidenceText": "Elevation Gain: +2378",
+          "evidenceLocator": "text:441-462; untrustedDocumentText",
+          "confidence": 1,
+          "fetchedAt": "2026-11-14T06:47:45.968Z",
+          "contentHash": "82edf46aa27274496403b9348347995b2367d715958308e8f7a13f92137964e3",
+          "extractionMethod": "aliyun-qwen-structured-output"
+        },
+        {
+          "sourceId": "ninghai100-official-category-5-2026",
+          "sourceUrl": "https://ninghai100.com/app-api/race/group/get?id=5",
+          "evidenceText": "CNH-60 data.elevationGain: 2400",
+          "evidenceLocator": "text:81-112; data.elevationGain",
+          "confidence": 1,
+          "fetchedAt": "2026-11-14T06:48:00.653Z",
+          "contentHash": "486bc5c6b4690af1fc533cf97b693f6b95cc1b872a842d53b22e1c4d733bfc21",
+          "extractionMethod": "structured_json"
+        }
+      ],
+      "conflict": true,
+      "candidateOptions": [
+        {
+          "value": 2378,
+          "sourceIds": [
+            "itra-ninghai-cnh60-2026"
+          ],
+          "evidence": [
+            {
+              "sourceId": "itra-ninghai-cnh60-2026",
+              "sourceUrl": "https://itra.run/Races/RaceDetails/KOLON.SPORT.Ultra.Trail%C2%AE.Ninghai.CNH.60/2026/118117",
+              "evidenceText": "Elevation Gain: +2378",
+              "evidenceLocator": "text:441-462; untrustedDocumentText",
+              "confidence": 1,
+              "fetchedAt": "2026-11-14T06:47:45.968Z",
+              "contentHash": "82edf46aa27274496403b9348347995b2367d715958308e8f7a13f92137964e3",
+              "extractionMethod": "aliyun-qwen-structured-output"
+            }
+          ]
+        },
+        {
+          "value": 2400,
+          "sourceIds": [
+            "ninghai100-official-category-5-2026"
+          ],
+          "evidence": [
+            {
+              "sourceId": "ninghai100-official-category-5-2026",
+              "sourceUrl": "https://ninghai100.com/app-api/race/group/get?id=5",
+              "evidenceText": "CNH-60 data.elevationGain: 2400",
+              "evidenceLocator": "text:81-112; data.elevationGain",
+              "confidence": 1,
+              "fetchedAt": "2026-11-14T06:48:00.653Z",
+              "contentHash": "486bc5c6b4690af1fc533cf97b693f6b95cc1b872a842d53b22e1c4d733bfc21",
+              "extractionMethod": "structured_json"
+            }
+          ]
+        }
+      ],
+      "applyBlocked": true,
+      "risk": "high_impact",
+      "reason": "source_value_conflict Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
+      "status": "pending",
+      "createdAt": "2026-11-14T06:50:58.217Z",
       "reviewedAt": null,
       "reviewReason": null,
       "appliedAt": null
