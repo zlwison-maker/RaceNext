@@ -1,6 +1,6 @@
 {
   "schemaVersion": "race-graph-v1",
-  "generatedAt": "2026-10-14T10:02:48.170Z",
+  "generatedAt": "2026-11-16T08:11:13.049Z",
   "records": [
     {
       "event": {
@@ -165,13 +165,13 @@
           "categoryName": "马拉松",
           "shortName": "全马",
           "startAt": null,
-          "startLocation": null,
+          "startLocation": "Bund Bull in Huangpu district",
           "finishLocation": null,
           "registrationUrl": null,
           "displayOrder": 1,
           "distanceKm": 42.195,
           "createdAt": "2026-08-04",
-          "updatedAt": "2026-08-04",
+          "updatedAt": "2026-11-16T08:08:55.243Z",
           "governance": {
             "sources": [
               {
@@ -181,9 +181,31 @@
                 "sourceRecordId": "first5:shanghai-marathon:2026",
                 "crawledAt": "2026-08-04",
                 "confidence": 0.9
+              },
+              {
+                "sourceType": "official",
+                "sourceName": "shanghai-marathon-official-notice-2026",
+                "sourceUrl": "https://english.shanghai.gov.cn/en-SportsEvents/20260427/8152288074a44b44a7efbfd4b0b67797.html",
+                "sourceRecordId": "shanghai-marathon-official-notice-2026",
+                "crawledAt": "2026-09-29T07:51:45.714Z",
+                "confidence": 0.95,
+                "rawData": {
+                  "evidenceText": "starting at the Bund Bull in Huangpu district",
+                  "evidenceLocator": "text:454-499; untrustedDocumentText:paragraph_race_schedule",
+                  "contentHash": "e4888d7bc5278eca6a118eb836430c109aca6b37a064aa83700eb3aa6191cfc5",
+                  "extractionMethod": "aliyun-qwen-structured-output"
+                }
               }
             ],
-            "fieldSources": {},
+            "fieldSources": {
+              "startLocation": {
+                "field": "startLocation",
+                "sourceType": "official",
+                "sourceName": "shanghai-marathon-official-notice-2026",
+                "confidence": 0.95,
+                "updatedAt": "2026-11-16T08:08:55.243Z"
+              }
+            },
             "sourcePriority": {
               "official": 100
             },
@@ -193,12 +215,11 @@
             "verifiedAt": "2026-08-04",
             "missingFields": [
               "startAt",
-              "startLocation",
               "finishLocation",
               "registrationUrl"
             ],
-            "lastCrawledAt": "2026-08-04",
-            "lastUpdatedAt": "2026-08-04",
+            "lastCrawledAt": "2026-11-16T08:08:55.243Z",
+            "lastUpdatedAt": "2026-11-16T08:08:55.243Z",
             "schemaVersion": "race-graph-v1",
             "dataQualityLevel": "A"
           }
@@ -681,13 +702,13 @@
           "categoryName": "马拉松",
           "shortName": "全马",
           "startAt": "2027-01-10T07:00:00+08:00",
-          "startLocation": null,
+          "startLocation": "厦门国际会展中心",
           "finishLocation": null,
           "registrationUrl": null,
           "displayOrder": 1,
           "distanceKm": 42.195,
           "createdAt": "2026-09-10",
-          "updatedAt": "2026-09-24",
+          "updatedAt": "2026-11-16T08:11:13.049Z",
           "governance": {
             "sources": [
               {
@@ -700,9 +721,31 @@
                 "rawData": {
                   "raceDate": "2027-01-10"
                 }
+              },
+              {
+                "sourceType": "official",
+                "sourceName": "xiamen-marathon-official-home::announcement:bd38d105de63e811491b1502",
+                "sourceUrl": "https://www.xmim.org/information/detail/2100793180791853058",
+                "sourceRecordId": "xiamen-marathon-official-home::announcement:bd38d105de63e811491b1502",
+                "crawledAt": "2026-11-16T08:11:12.905Z",
+                "confidence": 0.99,
+                "rawData": {
+                  "evidenceText": "厦门国际会展中心（起点）",
+                  "evidenceLocator": "text:105-117; 组委会中文版，第十一节比赛路线。SHA-256 对应浏览器渲染节选",
+                  "contentHash": "3b5b0a0e2c5175409c5d54429b342a1ed718f32d31a03caa43030fe1322da434",
+                  "extractionMethod": "manual-rendered-official-excerpt"
+                }
               }
             ],
-            "fieldSources": {},
+            "fieldSources": {
+              "startLocation": {
+                "field": "startLocation",
+                "sourceType": "official",
+                "sourceName": "xiamen-marathon-official-home::announcement:bd38d105de63e811491b1502",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-16T08:11:13.049Z"
+              }
+            },
             "sourcePriority": {
               "partner": 80
             },
@@ -711,12 +754,11 @@
             "verificationStatus": "verified",
             "verifiedAt": "2026-09-10",
             "missingFields": [
-              "startLocation",
               "finishLocation",
               "registrationUrl"
             ],
-            "lastCrawledAt": "2026-09-10",
-            "lastUpdatedAt": "2026-09-24",
+            "lastCrawledAt": "2026-11-16T08:11:13.049Z",
+            "lastUpdatedAt": "2026-11-16T08:11:13.049Z",
             "schemaVersion": "race-graph-v1",
             "dataQualityLevel": "B"
           }

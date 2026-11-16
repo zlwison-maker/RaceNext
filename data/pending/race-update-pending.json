@@ -131,15 +131,25 @@
           "fetchedAt": "2026-10-14T08:47:19.962Z",
           "contentHash": "1e53dee5f2b1a65196216ad69a720930909c5aaab3f12951a30f652b99977244",
           "extractionMethod": "aliyun-qwen-structured-output"
+        },
+        {
+          "sourceId": "xiamen-marathon-official-home::announcement:bd38d105de63e811491b1502",
+          "sourceUrl": "https://www.xmim.org/information/detail/2100793180791853058",
+          "evidenceText": "厦门国际会展中心（起点）",
+          "evidenceLocator": "text:105-117; 组委会中文版，第十一节比赛路线。SHA-256 对应浏览器渲染节选",
+          "confidence": 0.99,
+          "fetchedAt": "2026-11-16T08:11:12.905Z",
+          "contentHash": "3b5b0a0e2c5175409c5d54429b342a1ed718f32d31a03caa43030fe1322da434",
+          "extractionMethod": "manual-rendered-official-excerpt"
         }
       ],
       "risk": "high_impact",
       "reason": "High-impact race fact cannot be auto-applied in V1. Phase 3 requires durable human review and forbids auto-apply.",
-      "status": "pending",
+      "status": "applied",
       "createdAt": "2026-09-29T06:25:06.156Z",
-      "reviewedAt": null,
+      "reviewedAt": "2026-11-16T08:11:12.983Z",
       "reviewReason": null,
-      "appliedAt": null
+      "appliedAt": "2026-11-16T08:11:13.049Z"
     },
     {
       "changeId": "chg-9e80e3fa553bf500bbb23425",
@@ -178,11 +188,11 @@
       "applyBlocked": false,
       "risk": "high_impact",
       "reason": "High-impact race fact cannot be auto-applied in V1. Phase 3/4 safe baseline requires durable human review and forbids auto-apply.",
-      "status": "pending",
+      "status": "applied",
       "createdAt": "2026-09-29T08:01:04.581Z",
-      "reviewedAt": null,
+      "reviewedAt": "2026-11-16T08:08:55.173Z",
       "reviewReason": null,
-      "appliedAt": null
+      "appliedAt": "2026-11-16T08:08:55.243Z"
     },
     {
       "changeId": "chg-dee72cca8c595640ef07df8f",
