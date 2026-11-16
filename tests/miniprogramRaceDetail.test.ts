@@ -290,13 +290,18 @@ test("Edition facts use a natural vertical reading axis", () => {
 });
 
 test("single-Category Shanghai and Chongqing keep only populated facts", () => {
-  const shanghaiDetail = createRaceDetailViewModel(shanghai);
+  const shanghaiWithoutStart = structuredClone(shanghai);
+  shanghaiWithoutStart.categories[0].startLocation = null;
+  const shanghaiDetail = createRaceDetailViewModel(shanghaiWithoutStart);
   const chongqingDetail = createRaceDetailViewModel(chongqing);
 
   equal(shanghaiDetail.showCategorySelector, false);
   equal(shanghaiDetail.selectedCategory?.name, "马拉松");
   deepEqual(shanghaiDetail.selectedCategory?.coreFacts.map(({ value }) => value), ["42.195 km"]);
   deepEqual(shanghaiDetail.selectedCategory?.executionFacts, []);
+  deepEqual(createRaceDetailViewModel(shanghai).selectedCategory?.executionFacts, [
+    { key: "start", label: "起点", value: "Bund Bull in Huangpu district" },
+  ]);
 
   equal(chongqingDetail.showCategorySelector, false);
   equal(chongqingDetail.selectedCategory?.name, "马拉松");
