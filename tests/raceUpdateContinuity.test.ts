@@ -356,6 +356,7 @@ test("real prepare/finish CLI continues one open PR across two local monitoring 
     const recordB = {
       ...structuredClone(productionPending.changes[1]),
       changeId: "chg-continuity-b", candidateValue: "Fixture-only alternative finish line",
+      status: "pending" as const, reviewedAt: null, appliedAt: null, reviewReason: null,
     };
     const rediscovered = structuredClone(recordA);
     rediscovered.candidateOptions[0].evidence[0].fetchedAt = "2026-10-29T05:00:00.000Z";
@@ -396,8 +397,10 @@ test("real prepare/finish CLI continues one open PR across two local monitoring 
     rediscovered.candidateOptions[0].evidence[0].fetchedAt = "2026-10-30T05:00:00.000Z";
     const repeated = mergeDurablePendingChanges(day2, [rediscovered, recordB]);
     deepEqual(repeated, day2);
-    equal(day2.changes.filter(({ status }) => status === "rejected").length,
-      productionPending.changes.filter(({ status }) => status === "rejected").length);
+    deepEqual(
+      day2.changes.filter(({ status }) => status === "rejected"),
+      firstPrStore.changes.filter(({ status }) => status === "rejected"),
+    );
     await shell(checkout, "node", [cli, "finish"], { ...environment, MEANINGFUL_DATA_CHANGE: "false" });
     equal((await shell(checkout, "git", ["rev-parse", `refs/remotes/origin/${pr.headRef}`])).trim(), firstHead);
     equal((await shell(checkout, "git", ["rev-parse", "main"])).trim(), mainSha);

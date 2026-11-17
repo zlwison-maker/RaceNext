@@ -37,11 +37,24 @@ function store(...changes: PendingChange[]): PendingChangeStore {
   return { schemaVersion: "race-update-pending-v1", changes };
 }
 
+function xiamenBeforeReview(changeId: string): PendingChange {
+  const change = prior(changeId);
+  return {
+    ...change,
+    status: "pending",
+    reviewedAt: null,
+    appliedAt: null,
+    reviewReason: null,
+    // Recreate the original directory-only observation before official corroboration.
+    evidence: change.evidence.filter(({ sourceId }) => sourceId === change.sourceId),
+  };
+}
+
 test("Xiamen historical same-source startLocation survives content-hash drift without another Pending", () => {
   const existing = store(
-    prior("chg-a028496658a542cd1bc9399a"),
-    prior("chg-faa8b5cd4b2a7d5712313968"),
-    prior("chg-d035c423bbaa8dc5e36bf68f"),
+    xiamenBeforeReview("chg-a028496658a542cd1bc9399a"),
+    xiamenBeforeReview("chg-faa8b5cd4b2a7d5712313968"),
+    xiamenBeforeReview("chg-d035c423bbaa8dc5e36bf68f"),
   );
   const incoming = drift(existing.changes[0], "chg-a3dba0230d05304eaa67fbf4");
   const merged = mergeDurablePendingChanges(existing, [incoming]);
@@ -145,7 +158,7 @@ test("same field and value do not cross Edition, Category, Event or source revie
 });
 
 test("existing Pending safely accumulates distinct evidence without duplicate entries or status changes", () => {
-  const pending = prior("chg-a028496658a542cd1bc9399a");
+  const pending = xiamenBeforeReview("chg-a028496658a542cd1bc9399a");
   pending.evidence = [pending.evidence[0]];
   const additional = drift(pending, "chg-additional-evidence", "在厦门国际会展中心开跑");
   const merged = mergeDurablePendingChanges(store(pending), [additional, additional]);
