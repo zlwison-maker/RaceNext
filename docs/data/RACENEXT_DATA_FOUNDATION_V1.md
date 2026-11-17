@@ -4,21 +4,21 @@
 
 - Architecture: **FROZEN**
 - Real AI Fact Extraction: **IMPLEMENTED; MANUAL PRODUCTION FLOW VERIFIED**
-- 12-Race Monitoring + Pending Review: **IMPLEMENTED**
+- Dynamic Edition Monitoring + Pending Review: **IMPLEMENTED**
 - Manual GitHub Workflow: **ACTIVE**
 - Daily Cron: **ACTIVE — 08:23 ASIA/SHANGHAI / 00:23 UTC**
 - Phase 4B-2 First Natural Scheduled Run: **COMPLETED — 2026-10-09**
 - Data Automation Phase 1A / 1B: **IMPLEMENTED, MERGED, PRODUCTION ACCEPTED — 2026-10-12**
-- Open Data PR Continuous Monitoring: **PROVEN — RUN #9 + RUN #10; PR #15 MERGED**
+- Open Data PR Continuous Monitoring: **PROVEN / 14 CONSECUTIVE SCHEDULED RUNS SUCCESSFUL — 2026-11-03 TO 2026-11-16**
 - Data Automation Phase 2: **DISCOVERY / OFFICIAL ANNOUNCEMENT PRODUCTION EVIDENCED; FULL QUALITY GATES NOT CLOSED**
 - Gate 5 Real Production Change Closed Loop: **PROVEN**
-- Remote Read: **IMPLEMENTED; 12 PUBLIC EDITIONS**
+- Canonical / Remote Read: **IMPLEMENTED; 19 EDITION RECORDS**
 - Data Maintenance Engineering P0: **STAGE DELIVERY COMPLETE — 2026-10-15; RUN #38691682744 PRODUCTION EVIDENCED**
-- Official Identity Reuse / Partial Field Evidence Inheritance: **PRODUCTION EVIDENCED; HISTORICAL FIELD ARTIFACT RESTORE NOT YET VERIFIED**
+- Official Identity Reuse / Partial Field Evidence Inheritance: **PRODUCTION EVIDENCED; FIELD ARTIFACT RESTORE VERIFIED — 2026-11-02**
 - Ninghai B2 Fact-to-Terminal Closed Loop: **PRODUCTION VERIFIED — 2026-10-14**
-- Critical Fact Maintenance Effectiveness: **NINGHAI SINGLE-RACE CLOSED / 12-RACE VERIFICATION COVERAGE AND CHANGE DETECTION NOT YET PROVEN**
+- Critical Fact Maintenance Effectiveness: **NINGHAI CLOSED / CROSS-RACE QUALITY, CHANGE DETECTION AND COST NOT YET PROVEN**
 
-数据基础设施 V1 的核心、12 场监控、Qwen 抽取、Pending Review 与人工生产闭环已实现。Phase 4B-2 的首次自然 `schedule` 已在 2026-10-09 执行成功，但该轮没有主动识别北京马、广州马、HK100 三项已知报名状态错误；三项错误已通过独立 Hotfix 修复上线。随后 Phase 1A 监测连续性与安全延续、Phase 1B Verification Alert 已合并并通过真实生产验收。Phase 2 在北京只读试点基础上已有跨赛事监测与官方公告处理的真实生产证据；完整质量与规模化成本门槛仍未达标。**执行成功仍不等于关键事实准确性得到维护。**Auto Apply 继续关闭，Human Review、Human Merge 与必要的生产部署仍是正式事实更新的边界。Phase 1 证据与未解决限制见[收尾及 Handoff](#15-phase-1-closeout--handoff)。
+数据基础设施 V1 的核心、动态赛事监控、Qwen 抽取、Pending Review 与人工生产闭环已实现。2026-11-03 至 11-16 已有连续 14 次成功 Scheduled Run；PR #52 的事实语义最小修复已进入自然监测，字段 Artifact 跨运行恢复也已获生产验证。**执行成功仍不等于关键事实准确性、变化发现效果或维护成本优势已经成立。**Auto Apply 继续关闭，Human Review、Human Merge 与必要的生产部署仍是正式事实更新边界。最新状态见[数据维护 Handoff](../project/RACE_DATA_PENDING_COLLISION_FIX_20261029.md#2026-11-17-状态同步)，历史 Phase 1 证据与限制见[收尾及 Handoff](#15-phase-1-closeout--handoff)。
 
 本文件记录当前技术与生产状态；长期质量目标及 Phase 1–3 验收标准见 [RaceNext 赛事数据自动维护目标与验收标准 V1](../project/RACE_DATA_AUTOMATION_STANDARD_V1.md)。
 
