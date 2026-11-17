@@ -25,6 +25,16 @@
           "notes": "Existing reviewed First5 source; registry stores only where to check, not race facts."
         },
         {
+          "sourceId": "shanghai-marathon-official-notice-zh-2026",
+          "url": "https://cmp.whlyj.sh.gov.cn/CMP/news_view.ac?id=46d8f83ba8ff4659b9f68dcd054a7805",
+          "domain": "cmp.whlyj.sh.gov.cn",
+          "tier": "primary_official",
+          "sourceType": "notice",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "Shanghai Municipal Administration of Culture and Tourism notice, originally from 上海发布. Human directly verified the Chinese full-marathon start location for the 2026 edition."
+        },
+        {
           "sourceId": "runchina",
           "url": "https://www.runchina.org.cn/#/race/v/list",
           "domain": "www.runchina.org.cn",
