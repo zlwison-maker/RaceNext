@@ -1,6 +1,6 @@
 # Human Curated Source Update Workflow V1
 
-状态：2026-10-29 Human Decision；本文件待文档提交审核。适用于已有 Race Graph 能表达的人工可信来源数据更新。
+状态：**CURRENT / HUMAN APPROVED**。2026-10-29 Human Decision，经 PR #49 合入。适用于已有 Race Graph 能表达的人工可信来源事实与 CoursePoint 更新。
 
 ## 分工与边界
 
@@ -8,7 +8,7 @@ Human 提供赛事/Edition、目标 Category、可信来源 URL 和更新类型�
 
 来源可信不代表内容适用于当届、目标组别或目标字段。Codex 仍须核对身份、届次、字段作用域、原文语义与 Canonical Diff；页面与历史数据冲突时，明确列出双方证据，不静默覆盖。本规则优先于旧文档中要求对每个 Human 已筛选来源重复审批、或机械要求第二来源的冲突表述。
 
-本流程是受控的数据与内容提交，不表示现有每日 Pipeline 已支持 CP 自动抽取。Auto Apply 保持 OFF；来源批准、事实 Human Review、Git Merge 与生产发布仍分别验收。
+本流程是受控的单场事实 / CoursePoint 更新，不替代完整赛事内容生产流程，也不表示现有每日 Pipeline 已支持 CP 自动抽取。Auto Apply 保持 OFF；来源批准、事实 Human Review、Git Merge 与生产发布仍分别验收。
 
 ## 标准步骤
 
@@ -29,7 +29,7 @@ Human 提供赛事/Edition、目标 Category、可信来源 URL 和更新类型�
 - 普通缺失字段：保持缺失，继续交付其他可靠数据，不因非必填项缺失阻断整组。
 - 不为单次读取失败建设爬虫平台、后台、数据库或长期 Agent。只有重复实测证明有必要时，另行评估通用能力。
 
-## 首次验证：宁海 2026 CNH-60
+## 首次验证（历史）：宁海 2026 CNH-60
 
 - Human 来源：[CNH-60 官方页面](https://ninghai100.com/page/CNH-60)。网页读取工具失败后，真实浏览器读取时间表；关联官方 2026 规程只用于届次归属核对。
 - 6 个 CP + Finish；CP3 白沙林场 cutoffAt:null，全部 services:null，因此 coursePointDataStatus:partial。
@@ -39,3 +39,10 @@ Human 提供赛事/Edition、目标 Category、可信来源 URL 和更新类型�
 - 本轮任务发起后无额外 Human 补录或事实提取干预。主要低效环节是浏览器下载等待；下一次优先读取可见表格，不让非必需下载阻断已有证据。
 
 字段语义以 [Trail Course Point Schema V0.1](TRAIL_COURSE_POINT_SCHEMA_V0_1.md)、[数据系统 V1](RACENEXT_DATA_SYSTEM_V1.md) 和 [数据内容维护原则](DATA_CONTENT_MAINTENANCE_PRINCIPLES_V1.md) 为准；本文件不新增 Schema 或发布规则。
+
+## 当前生产验证
+
+- CNH-60 的 6 个 CP + Finish 经 [PR #48](https://github.com/zlwison-maker/RaceNext/pull/48) 合入。
+- UTNH-100 的 10 个 CP + Finish、YNH-25 的 2 个 CP + Finish 经 [PR #50](https://github.com/zlwison-maker/RaceNext/pull/50) 合入。
+- 三个组别的 CoursePoint 已正式发布并完成微信真机 QA；这证明 Human Curated Source Update 可用于单场直接事实接入，不证明每日自动 Pipeline 已具备 CP 自动抽取能力。
+- 普通事实更新不强制转换为 GPT Research Package。完整新赛事内容仍按 [Project Context](README.md#5-current-collaboration-workflows) 中的 GPT + Human + Codex 流程执行。

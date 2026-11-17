@@ -136,3 +136,5 @@ Open PR 安全检查的价值仍是避免状态丢失、重复 Pending 与 PR �
 ## 12. Status
 
 **工程 P0 阶段性交付完成（2026-10-15）；质量与规模化效率继续观察；FROZEN TARGET & GATES / PHASE 1 ACCEPTED / PHASE 2–3 QUALITY AND COST GATES NOT CLOSED**。本文冻结业务目标、事实可信度边界及 Phase 1–3 验收门槛；生产执行证据不等于事实准确性或成本优势已获证明。历史口径见 [10-15 P0 Closeout](RACE_DATA_MAINTENANCE_P0_20261014.md#2026-10-15-生产验收-closeout)；2026-11-02 的四轮生产证据已使 **Pending collision / 历史连续性修复 P0 验收 PASS，字段 Artifact 跨运行恢复得到验证**，但自动部署、来源质量及成本门槛仍未验收，详见[最新结项 Handoff](RACE_DATA_PENDING_COLLISION_FIX_20261029.md#2026-11-02-生产连续性-p0-结项与质量诊断)。Phase 1A / 1B 的实现及生产验收证据见 [Data Foundation V1](../data/RACENEXT_DATA_FOUNDATION_V1.md#15-phase-1-closeout--handoff)。当前生产仍为 **Auto Apply OFF / All Fact Candidates Require Human Review**。Workflow 成功不能替代关键事实准确性或字段级核验覆盖验收。
+
+2026-11-17 状态同步：PR #52 已合并，事实语义最小修复已进入自然监测；11-03 至 11-16 的 Race Data Update Run #37–#50 连续 14 次 Scheduled Run 均成功。PR #46 仍 Open，Head `5e81744eb521cb8159b8021aebbed354f04937bf`，47 条累计记录中 35 rejected / 8 applied / 4 pending，State 82。21 条 Reject 已正式写入；两条已批准起点位于独立 Draft PR #53，尚未合并或发布。以上只更新生产现状，不改变任何冻结 Gate；数据质量、变化发现能力、人工维护成本和自动部署仍未验收，`Auto Apply = OFF`。
