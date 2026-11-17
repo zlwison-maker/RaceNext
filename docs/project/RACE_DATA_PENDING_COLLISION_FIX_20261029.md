@@ -248,3 +248,11 @@ Prompt `v1.4 → v1.5`、Processing `v4 → v5` 沿用现有版本合同，使�
 - 25 项固定样本全部符合人工标注；包含边界/历史/版本回归的专项文件 31/31，完整 `npm test` 490/490，`prePublishFactGate.test.ts` 10/10。`npm run typecheck`、`npm run typecheck:miniprogram`、`npm run lint`、`git diff --check` 均 PASS。完整测试包含原连续性/碰撞/去重及 API 回归；使用临时目录和本机模拟服务，无真实模型请求。没有声称运行生产 Data-only CLI 来接受 Code PR；原安全边界由相关回归测试继续覆盖。
 - 仅修改 realExtraction、Qwen 提示、处理版本、直接相关 Fixture/测试及本 Handoff；Canonical / Pending / State / Registry / Workflow / API / 小程序 / types / lib 全部零修改。原横琴历史 conflict Fixture 常量逐字保留，新增合成输入与原证据明确区分。
 - Draft Code PR 待 Human Review；未合并、未部署、未触发生产监测。生产质量、真实误杀率、成本收益均待后续自然运行验收。
+
+## 2026-11-17 状态同步
+
+- [PR #52](https://github.com/zlwison-maker/RaceNext/pull/52) 已合并，merge commit `3f752f68686b1fdd20ef54fc8d3ee04f2a68adf8`；事实语义最小修复进入自然监测。上文“待 Human Review / 未生产验收”保留为 2026-11-02 的历史时点结论。
+- GitHub Actions 显示 2026-11-03 至 11-16 的 Race Data Update Run #37–#50 共 14 次均为 `Scheduled / completed successfully`。连续成功证明工程运行持续，但不证明事实变化发现准确率或维护成本改善。
+- [PR #46](https://github.com/zlwison-maker/RaceNext/pull/46) 仍为 Open，Head `5e81744eb521cb8159b8021aebbed354f04937bf`；当前 47 条累计记录为 35 rejected / 8 applied / 4 pending，State 82。11-16 的 commit `5e81744` 已正式写入 21 条 Human Reject，不得继续描述为仅有审核建议。
+- [Draft PR #53](https://github.com/zlwison-maker/RaceNext/pull/53) 承载上海马 2026、厦门马 2027 两条已批准起点及对应治理 / 测试修改，仍为 Open Draft，尚未合并、部署或迁回 PR #46。不得把隔离预演的 35 rejected / 10 applied / 2 pending 记为当前正式账本。
+- `Auto Apply = OFF`；PR #46 审核 / 合并、PR #53 发布、数据质量、变化发现能力、人工维护成本及自动部署继续分别验收。本节只同步状态，不执行任何审核、Apply、Merge、Workflow 或部署操作。

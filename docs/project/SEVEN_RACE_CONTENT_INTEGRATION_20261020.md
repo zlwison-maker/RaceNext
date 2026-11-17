@@ -1,5 +1,7 @@
 # RaceNext 1.9 · Seven-race integration handoff · 2026-10-20
 
+> **2026-11-17 状态说明：** PR #44 已通过 merge commit `5a825c12b7bb5bdf8f50a8d12f2ee248336079ae` 合入，后续 P0 事实 / 内容修复 PR #45 也已通过 merge commit `b4624c666166e3951e01ba95de609a64b5ebc22e` 合入。Canonical 当前为 19 个 Edition；[P0 Handoff](SEVEN_RACE_P0_FACT_CONTENT_QA_20261020.md)在修复开始前已记录生产只读 API 19 场及“已上线七场”。下文 `Deployed: NO` 等状态只表示初次集成分支的历史交付时点，不是当前项目状态。
+
 > 本文保留初次提交 `2414f9e` 的17场状态及取证缺口。最新事实与准入以[福州/熊猫补证记录](PR44_FUZHOU_PANDA_FACT_SUPPLEMENT_20261020.md)为准：19场事实 Gate PASS，19场本地 API 可公开；Human 最新确认暂用既有熊猫图片，图片发布 HOLD 已解除，低分辨率记录保留；未部署。
 
 **Integrated：YES；自动化 QA：PASS；设备/完整发布 QA：未完成；Deployed：NO；Live Verified：NO。**
