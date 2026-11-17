@@ -1,6 +1,6 @@
 {
   "schemaVersion": "race-graph-v1",
-  "generatedAt": "2026-11-16T08:11:13.049Z",
+  "generatedAt": "2026-11-17T07:58:31.377Z",
   "records": [
     {
       "event": {
@@ -165,13 +165,13 @@
           "categoryName": "马拉松",
           "shortName": "全马",
           "startAt": null,
-          "startLocation": "Bund Bull in Huangpu district",
+          "startLocation": "外滩金牛广场",
           "finishLocation": null,
           "registrationUrl": null,
           "displayOrder": 1,
           "distanceKm": 42.195,
           "createdAt": "2026-08-04",
-          "updatedAt": "2026-11-16T08:08:55.243Z",
+          "updatedAt": "2026-11-17T07:58:31.377Z",
           "governance": {
             "sources": [
               {
@@ -195,15 +195,29 @@
                   "contentHash": "e4888d7bc5278eca6a118eb836430c109aca6b37a064aa83700eb3aa6191cfc5",
                   "extractionMethod": "aliyun-qwen-structured-output"
                 }
+              },
+              {
+                "sourceType": "official",
+                "sourceName": "shanghai-marathon-official-notice-zh-2026",
+                "sourceUrl": "https://cmp.whlyj.sh.gov.cn/CMP/news_view.ac?id=46d8f83ba8ff4659b9f68dcd054a7805",
+                "sourceRecordId": "shanghai-marathon-official-notice-zh-2026",
+                "crawledAt": "2026-11-17T07:58:31.228Z",
+                "confidence": 0.99,
+                "rawData": {
+                  "evidenceText": "2026上海马拉松将于12月6日在外滩金牛广场起跑，竞赛项目共设置马拉松、竞速轮椅马拉松两项，竞速轮椅项目将率先于6:45开始，马拉松项目将于7:00分枪起跑。",
+                  "evidenceLocator": "text:174-254; 上海市文化和旅游局公告正文，第三段赛事安排",
+                  "contentHash": "1e586b996ba9ab06267eb389991ef584d36d4d8325c8eb8b3776817a7b577531",
+                  "extractionMethod": "html_text"
+                }
               }
             ],
             "fieldSources": {
               "startLocation": {
                 "field": "startLocation",
                 "sourceType": "official",
-                "sourceName": "shanghai-marathon-official-notice-2026",
-                "confidence": 0.95,
-                "updatedAt": "2026-11-16T08:08:55.243Z"
+                "sourceName": "shanghai-marathon-official-notice-zh-2026",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-17T07:58:31.377Z"
               }
             },
             "sourcePriority": {
@@ -218,8 +232,8 @@
               "finishLocation",
               "registrationUrl"
             ],
-            "lastCrawledAt": "2026-11-16T08:08:55.243Z",
-            "lastUpdatedAt": "2026-11-16T08:08:55.243Z",
+            "lastCrawledAt": "2026-11-17T07:58:31.377Z",
+            "lastUpdatedAt": "2026-11-17T07:58:31.377Z",
             "schemaVersion": "race-graph-v1",
             "dataQualityLevel": "A"
           }

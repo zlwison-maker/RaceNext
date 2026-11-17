@@ -300,7 +300,7 @@ test("single-Category Shanghai and Chongqing keep only populated facts", () => {
   deepEqual(shanghaiDetail.selectedCategory?.coreFacts.map(({ value }) => value), ["42.195 km"]);
   deepEqual(shanghaiDetail.selectedCategory?.executionFacts, []);
   deepEqual(createRaceDetailViewModel(shanghai).selectedCategory?.executionFacts, [
-    { key: "start", label: "起点", value: "Bund Bull in Huangpu district" },
+    { key: "start", label: "起点", value: "外滩金牛广场" },
   ]);
 
   equal(chongqingDetail.showCategorySelector, false);

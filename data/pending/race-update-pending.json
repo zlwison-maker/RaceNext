@@ -1661,6 +1661,46 @@
       "reviewedAt": null,
       "reviewReason": null,
       "appliedAt": null
+    },
+    {
+      "eventId": "shanghai-marathon",
+      "editionId": "shanghai-marathon-2026",
+      "categoryId": "shanghai-marathon-2026-marathon",
+      "field": "startLocation",
+      "entityType": "Category",
+      "candidateValue": "外滩金牛广场",
+      "sourceId": "shanghai-marathon-official-notice-zh-2026",
+      "sourceUrl": "https://cmp.whlyj.sh.gov.cn/CMP/news_view.ac?id=46d8f83ba8ff4659b9f68dcd054a7805",
+      "evidenceText": "2026上海马拉松将于12月6日在外滩金牛广场起跑，竞赛项目共设置马拉松、竞速轮椅马拉松两项，竞速轮椅项目将率先于6:45开始，马拉松项目将于7:00分枪起跑。",
+      "evidenceLocator": "text:174-254; 上海市文化和旅游局公告正文，第三段赛事安排",
+      "confidence": 0.99,
+      "fetchedAt": "2026-11-17T07:58:31.228Z",
+      "contentHash": "1e586b996ba9ab06267eb389991ef584d36d4d8325c8eb8b3776817a7b577531",
+      "extractionMethod": "html_text",
+      "changeId": "chg-53fd5816817b9adb3e240e0d",
+      "currentValue": "Bund Bull in Huangpu district",
+      "evidence": [
+        {
+          "sourceId": "shanghai-marathon-official-notice-zh-2026",
+          "sourceUrl": "https://cmp.whlyj.sh.gov.cn/CMP/news_view.ac?id=46d8f83ba8ff4659b9f68dcd054a7805",
+          "evidenceText": "2026上海马拉松将于12月6日在外滩金牛广场起跑，竞赛项目共设置马拉松、竞速轮椅马拉松两项，竞速轮椅项目将率先于6:45开始，马拉松项目将于7:00分枪起跑。",
+          "evidenceLocator": "text:174-254; 上海市文化和旅游局公告正文，第三段赛事安排",
+          "confidence": 0.99,
+          "fetchedAt": "2026-11-17T07:58:31.228Z",
+          "contentHash": "1e586b996ba9ab06267eb389991ef584d36d4d8325c8eb8b3776817a7b577531",
+          "extractionMethod": "html_text"
+        }
+      ],
+      "conflict": false,
+      "candidateOptions": [],
+      "applyBlocked": false,
+      "risk": "high_impact",
+      "reason": "Human approved the official Chinese name of the full-marathon start (2026-11-17). This follows chg-9e80e3fa553bf500bbb23425; the physical start and original English review evidence are preserved.",
+      "status": "applied",
+      "createdAt": "2026-11-17T07:58:31.236Z",
+      "reviewedAt": "2026-11-17T07:58:31.314Z",
+      "reviewReason": null,
+      "appliedAt": "2026-11-17T07:58:31.377Z"
     }
   ]
 }
