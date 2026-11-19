@@ -925,6 +925,126 @@
           "notes": "2026-10-20 read-only evidence: Exact image src read from rendered official-linked registration inquiryRegistration nav_id=5423 game_id=7664. 2027 rule identity and Category scopes manually verified. CDN URL is evidence only, no blanket CDN approval. Existing text extractor has no image/OCR support."
         }
       ]
+    },
+    {
+      "editionId": "standard-chartered-hong-kong-marathon-2027",
+      "sources": [
+        {
+          "sourceId": "standard-chartered-hong-kong-marathon-official-home",
+          "url": "https://www.hkmarathon.com/zh-hant/",
+          "domain": "www.hkmarathon.com",
+          "tier": "primary_official",
+          "sourceType": "event_home",
+          "status": "active",
+          "isPrimary": true,
+          "notes": "2027 official source observed 2026-11-19T08:18:43.881149+00:00. Scope current event identity only; do not mix historical navigation dates or infer all categories registration state."
+        },
+        {
+          "sourceId": "standard-chartered-hong-kong-marathon-official-race-information-2027",
+          "url": "https://www.hkmarathon.com/zh-hant/race-information",
+          "domain": "www.hkmarathon.com",
+          "tier": "primary_official",
+          "sourceType": "notice",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "2027 official source observed 2026-11-19T08:18:43.330233+00:00. Scope direct current edition/project fields only; field validation and Human Review still required."
+        },
+        {
+          "sourceId": "standard-chartered-hong-kong-marathon-official-important-dates-2027",
+          "url": "https://www.hkmarathon.com/zh-hant/important-dates",
+          "domain": "www.hkmarathon.com",
+          "tier": "primary_official",
+          "sourceType": "notice",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "2027 official source observed 2026-11-19T08:18:43.651090+00:00. Scope direct current edition/project fields only; field validation and Human Review still required."
+        }
+      ]
+    },
+    {
+      "editionId": "ultra-trail-mogan-by-utmb-2027",
+      "sources": [
+        {
+          "sourceId": "ultra-trail-mogan-by-utmb-official-home",
+          "url": "https://mogan.utmb.world/zh-Hans",
+          "domain": "mogan.utmb.world",
+          "tier": "primary_official",
+          "sourceType": "event_home",
+          "status": "active",
+          "isPrimary": true,
+          "notes": "2027 official source observed 2026-11-19T08:19:01.795773+00:00. Scope current event identity only; do not mix historical navigation dates or infer all categories registration state."
+        },
+        {
+          "sourceId": "ultra-trail-mogan-by-utmb-official-registration-2027",
+          "url": "https://mogan.utmb.world/registrations",
+          "domain": "mogan.utmb.world",
+          "tier": "primary_official",
+          "sourceType": "notice",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "2027 official source observed 2026-11-19T08:18:57.934927+00:00. Scope direct current edition/project fields only; field validation and Human Review still required."
+        },
+        {
+          "sourceId": "ultra-trail-mogan-by-utmb-official-dmg-2027",
+          "url": "https://mogan.utmb.world/races/DMG",
+          "domain": "mogan.utmb.world",
+          "tier": "primary_official",
+          "sourceType": "category_page",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "2027 official source observed 2026-11-19T08:18:58.003043+00:00. Scope direct current edition/project fields only; field validation and Human Review still required."
+        },
+        {
+          "sourceId": "ultra-trail-mogan-by-utmb-official-cmg-2027",
+          "url": "https://mogan.utmb.world/races/CMG",
+          "domain": "mogan.utmb.world",
+          "tier": "primary_official",
+          "sourceType": "category_page",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "2027 official source observed 2026-11-19T08:20:12.476315+00:00. Scope direct current edition/project fields only; field validation and Human Review still required."
+        },
+        {
+          "sourceId": "ultra-trail-mogan-by-utmb-official-mmg-2027",
+          "url": "https://mogan.utmb.world/races/MMG",
+          "domain": "mogan.utmb.world",
+          "tier": "primary_official",
+          "sourceType": "category_page",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "2027 official source observed 2026-11-19T08:19:03.348497+00:00. Scope direct current edition/project fields only; field validation and Human Review still required."
+        },
+        {
+          "sourceId": "ultra-trail-mogan-by-utmb-official-nmg-2027",
+          "url": "https://mogan.utmb.world/races/NMG",
+          "domain": "mogan.utmb.world",
+          "tier": "primary_official",
+          "sourceType": "category_page",
+          "status": "pending_review",
+          "isPrimary": false,
+          "notes": "2027 official source observed 2026-11-19T08:19:08.813596+00:00. Scope direct current edition/project fields only; field validation and Human Review still required. NMG route-template narrative contains unrelated-place content. Pending source review excludes this page from automatic extraction until corrected; the independently evidenced numeric fields remain staged in the pending Category."
+        },
+        {
+          "sourceId": "ultra-trail-mogan-by-utmb-official-emg-2027",
+          "url": "https://mogan.utmb.world/races/EMG",
+          "domain": "mogan.utmb.world",
+          "tier": "primary_official",
+          "sourceType": "category_page",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "2027 official source observed 2026-11-19T08:20:44.715924+00:00. Scope direct current edition/project fields only; field validation and Human Review still required."
+        },
+        {
+          "sourceId": "ultra-trail-mogan-by-utmb-official-10k-2027",
+          "url": "https://mogan.utmb.world/races/10K",
+          "domain": "mogan.utmb.world",
+          "tier": "primary_official",
+          "sourceType": "category_page",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "2027 official source observed 2026-11-19T08:19:10.421039+00:00. Scope direct current edition/project fields only; field validation and Human Review still required."
+        }
+      ]
     }
   ]
 }

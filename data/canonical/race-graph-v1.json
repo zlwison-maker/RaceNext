@@ -8617,6 +8617,1703 @@
           "coursePointDataStatus": "unknown"
         }
       ]
+    },
+    {
+      "event": {
+        "eventId": "standard-chartered-hong-kong-marathon",
+        "canonicalName": "渣打香港馬拉松",
+        "aliases": [
+          "香港马拉松",
+          "香港馬拉松",
+          "Standard Chartered Hong Kong Marathon"
+        ],
+        "eventType": "marathon",
+        "homeCountry": "中国",
+        "homeProvince": "香港特别行政区",
+        "homeCity": "香港",
+        "officialWebsite": "https://www.hkmarathon.com/zh-hant/",
+        "organizer": null,
+        "lifecycleStatus": "active",
+        "createdAt": "2026-11-19T08:22:53.128Z",
+        "updatedAt": "2026-11-19T08:22:53.128Z",
+        "governance": {
+          "sources": [
+            {
+              "sourceType": "official",
+              "sourceName": "standard-chartered-hong-kong-marathon-official-home",
+              "sourceUrl": "https://www.hkmarathon.com/zh-hant/",
+              "sourceRecordId": "standard-chartered-hong-kong-marathon-official-home",
+              "crawledAt": "2026-11-19T08:18:43.881149+00:00",
+              "confidence": 0.98,
+              "rawData": {
+                "editionYear": 2027,
+                "latestRelevantOfficialEditionYear": 2027,
+                "contentHash": "c9c73e101eeb9e7e8afc19c82b1cfce42494c0760ecd06cdc22d206a2bf5865e",
+                "fetchedAt": "2026-11-19T08:18:43.881149+00:00",
+                "evidenceText": "渣打香港馬拉松2027主賽事逾14萬人報名 創歷年新高",
+                "evidenceLocator": "html_text:867-894; observed 2026-11-19",
+                "editionName": "渣打香港馬拉松2027"
+              }
+            }
+          ],
+          "fieldSources": {
+            "canonicalName": {
+              "field": "canonicalName",
+              "sourceType": "official",
+              "sourceName": "standard-chartered-hong-kong-marathon-official-home",
+              "confidence": 0.98,
+              "updatedAt": "2026-11-19T08:22:53.128Z"
+            }
+          },
+          "sourcePriority": {
+            "official": 100
+          },
+          "confidence": 0.98,
+          "verified": true,
+          "verificationStatus": "verified",
+          "verifiedAt": "2026-11-19T08:22:53.128Z",
+          "missingFields": [],
+          "lastCrawledAt": "2026-11-19T08:22:53.128Z",
+          "lastUpdatedAt": "2026-11-19T08:22:53.128Z",
+          "schemaVersion": "race-graph-v1",
+          "dataQualityLevel": "B",
+          "reviewNotes": null,
+          "internalFlags": []
+        }
+      },
+      "edition": {
+        "editionId": "standard-chartered-hong-kong-marathon-2027",
+        "eventId": "standard-chartered-hong-kong-marathon",
+        "editionName": "渣打香港馬拉松2027",
+        "editionYear": 2027,
+        "raceDate": "2027-01-17",
+        "endDate": null,
+        "coverImage": "/races/standard-chartered-hong-kong-marathon/2027/display-v1.jpg",
+        "heroImage": "/races/standard-chartered-hong-kong-marathon/2027/display-v1.jpg",
+        "primaryCategoryId": "standard-chartered-hong-kong-marathon-2027-marathon",
+        "primaryCategoryName": "馬拉松",
+        "country": "中国",
+        "province": "香港特别行政区",
+        "city": "香港",
+        "district": null,
+        "venue": null,
+        "region": "hongkong_macao_taiwan",
+        "timezone": "Asia/Hong_Kong",
+        "registrationStatus": "registration_closed",
+        "registrationOpenDate": null,
+        "registrationCloseDate": null,
+        "registrationUrl": null,
+        "officialWebsite": "https://www.hkmarathon.com/zh-hant/",
+        "rulebookUrl": null,
+        "lifecycleStatus": "active",
+        "raceDistanceKm": 42.195,
+        "raceDistances": [
+          42.195
+        ],
+        "createdAt": "2026-11-19T08:22:53.128Z",
+        "updatedAt": "2026-11-19T08:22:53.128Z",
+        "governance": {
+          "sources": [
+            {
+              "sourceType": "official",
+              "sourceName": "standard-chartered-hong-kong-marathon-official-home",
+              "sourceUrl": "https://www.hkmarathon.com/zh-hant/",
+              "sourceRecordId": "standard-chartered-hong-kong-marathon-official-home",
+              "crawledAt": "2026-11-19T08:18:43.881149+00:00",
+              "confidence": 0.98,
+              "rawData": {
+                "editionYear": 2027,
+                "latestRelevantOfficialEditionYear": 2027,
+                "contentHash": "c9c73e101eeb9e7e8afc19c82b1cfce42494c0760ecd06cdc22d206a2bf5865e",
+                "fetchedAt": "2026-11-19T08:18:43.881149+00:00",
+                "evidenceText": "渣打香港馬拉松2027主賽事逾14萬人報名 創歷年新高",
+                "evidenceLocator": "html_text:867-894; observed 2026-11-19",
+                "editionName": "渣打香港馬拉松2027"
+              }
+            },
+            {
+              "sourceType": "official",
+              "sourceName": "standard-chartered-hong-kong-marathon-official-race-information-2027",
+              "sourceUrl": "https://www.hkmarathon.com/zh-hant/race-information",
+              "sourceRecordId": "standard-chartered-hong-kong-marathon-official-race-information-2027",
+              "crawledAt": "2026-11-19T08:18:43.330233+00:00",
+              "confidence": 0.98,
+              "rawData": {
+                "editionYear": 2027,
+                "latestRelevantOfficialEditionYear": 2027,
+                "contentHash": "f481c5085f565ff6dd033e13db134bcde11961cc44344b92fd6ff4f671b2d39e",
+                "fetchedAt": "2026-11-19T08:18:43.330233+00:00",
+                "evidenceText": "距離 42.195公里 比賽日期 2027年1月17日（星期日） 名額 18,000 報名費 本地參賽者 600港元正 非本地參賽者 90美元正 報名日期 2026年9月11日（星期五）下午2時正 至2026年9月20日（星期日）晚上7時正 起點 九龍尖沙咀彌敦道 比賽時限（全程） 6小時 組別^及起步時間 馬拉松挑戰組（壯年組 / 先進一至八組） 上午6時正 馬拉松一組 上午6時25分 馬拉松二組 上午 6 時 50 分 終點 香港維多利亞公園",
+                "evidenceLocator": "html_text:113-338; observed 2026-11-19",
+                "editionName": "渣打香港馬拉松2027",
+                "raceDate": "2027-01-17",
+                "distanceKm": 42.195,
+                "startTimes": [
+                  "2027-01-17T06:00:00+08:00",
+                  "2027-01-17T06:25:00+08:00",
+                  "2027-01-17T06:50:00+08:00"
+                ],
+                "startLocation": "九龍尖沙咀彌敦道",
+                "finishLocation": "香港維多利亞公園",
+                "cutoffTimeHours": 6
+              }
+            },
+            {
+              "sourceType": "official",
+              "sourceName": "standard-chartered-hong-kong-marathon-official-important-dates-2027",
+              "sourceUrl": "https://www.hkmarathon.com/zh-hant/important-dates",
+              "sourceRecordId": "standard-chartered-hong-kong-marathon-official-important-dates-2027",
+              "crawledAt": "2026-11-19T08:18:43.651090+00:00",
+              "confidence": 0.98,
+              "rawData": {
+                "editionYear": 2027,
+                "latestRelevantOfficialEditionYear": 2027,
+                "contentHash": "3a0f79db4454df719609866b85359462b6c1c88320db3177f6836cd2bc8238c6",
+                "fetchedAt": "2026-11-19T08:18:43.651090+00:00",
+                "evidenceText": "9月11日（星期五）下午2時正 「公眾抽籤」開始接受報名 「公眾抽籤 – 隊制」開始接受報名 「跑•住•食」住宿優惠開始接受報名 「馬拉松慈善計劃」開始接受跑手報名 9月14日（星期一）晚上11時59分 「達標跑手優先報名」截止付款 9月20日（星期日）晚上7時正 「公眾抽籤」截止報名 「公眾抽籤 – 隊制」截止報名 9月25日（星期五）下午2時正 「公眾抽籤」公佈第一輪抽籤結果及開始接受付款 「公眾抽籤 – 隊制」公佈第一輪抽籤結果及開始接受付款 10月2日（星期五）晚上11時59分 「公眾抽籤」第一輪截止付款 「公眾抽籤 – 隊制」第一輪截止付款 10月7日（星期三）下午2時正 「公眾抽籤」公佈第二輪抽籤結果及開始接受付款 「公眾抽籤 – 隊制」公佈第二輪抽籤結果及開始接受付款 10月10日（星期六）晚上11時59分",
+                "evidenceLocator": "html_text:227-592; observed 2026-11-19",
+                "registrationStatus": "registration_closed",
+                "scope": "2027 main-race public ballot and its payment phases, excludes January 16 side races"
+              }
+            }
+          ],
+          "fieldSources": {
+            "editionName": {
+              "field": "editionName",
+              "sourceType": "official",
+              "sourceName": "standard-chartered-hong-kong-marathon-official-home",
+              "confidence": 0.98,
+              "updatedAt": "2026-11-19T08:22:53.128Z"
+            },
+            "raceDate": {
+              "field": "raceDate",
+              "sourceType": "official",
+              "sourceName": "standard-chartered-hong-kong-marathon-official-race-information-2027",
+              "confidence": 0.98,
+              "updatedAt": "2026-11-19T08:22:53.128Z"
+            },
+            "registrationStatus": {
+              "field": "registrationStatus",
+              "sourceType": "official",
+              "sourceName": "standard-chartered-hong-kong-marathon-official-important-dates-2027",
+              "confidence": 0.98,
+              "updatedAt": "2026-11-19T08:22:53.128Z"
+            }
+          },
+          "sourcePriority": {
+            "official": 100
+          },
+          "confidence": 0.98,
+          "verified": true,
+          "verificationStatus": "verified",
+          "verifiedAt": "2026-11-19T08:22:53.128Z",
+          "missingFields": [
+            "registrationUrl"
+          ],
+          "lastCrawledAt": "2026-11-19T08:22:53.128Z",
+          "lastUpdatedAt": "2026-11-19T08:22:53.128Z",
+          "schemaVersion": "race-graph-v1",
+          "dataQualityLevel": "B",
+          "reviewNotes": "Official main-project public ballot and payment windows have ended. Registration platform returns HTTP 403, so its action is retained only in internal evidence. Half marathon/10K/wheelchair facts remain pending.",
+          "internalFlags": [],
+          "publicationGate": {
+            "requestedEditionYear": 2027,
+            "latestRelevantOfficialEditionYear": 2027,
+            "latestOfficialEditionSourceRecordId": "standard-chartered-hong-kong-marathon-official-race-information-2027",
+            "primarySourceRecordId": "standard-chartered-hong-kong-marathon-official-race-information-2027",
+            "secondarySourceRecordId": "standard-chartered-hong-kong-marathon-official-important-dates-2027",
+            "raceDateSourceRecordIds": [
+              "standard-chartered-hong-kong-marathon-official-race-information-2027"
+            ],
+            "dateEvidenceStatus": "verified",
+            "conflictStatus": "none",
+            "publishable": true,
+            "checkedAt": "2026-11-19T08:22:53.128Z"
+          }
+        }
+      },
+      "categories": [
+        {
+          "categoryId": "standard-chartered-hong-kong-marathon-2027-marathon",
+          "editionId": "standard-chartered-hong-kong-marathon-2027",
+          "categoryName": "馬拉松",
+          "shortName": "馬拉松",
+          "displayOrder": 1,
+          "distanceKm": 42.195,
+          "elevationGain": null,
+          "elevationLoss": null,
+          "cutoffTimeHours": 6,
+          "startAt": null,
+          "startTimes": [
+            "2027-01-17T06:00:00+08:00",
+            "2027-01-17T06:25:00+08:00",
+            "2027-01-17T06:50:00+08:00"
+          ],
+          "startLocation": "九龍尖沙咀彌敦道",
+          "finishLocation": "香港維多利亞公園",
+          "registrationUrl": null,
+          "coursePoints": null,
+          "coursePointDataStatus": "unknown",
+          "createdAt": "2026-11-19T08:22:53.128Z",
+          "updatedAt": "2026-11-19T08:22:53.128Z",
+          "governance": {
+            "sources": [
+              {
+                "sourceType": "official",
+                "sourceName": "standard-chartered-hong-kong-marathon-official-race-information-2027",
+                "sourceUrl": "https://www.hkmarathon.com/zh-hant/race-information",
+                "sourceRecordId": "standard-chartered-hong-kong-marathon-official-race-information-2027",
+                "crawledAt": "2026-11-19T08:18:43.330233+00:00",
+                "confidence": 0.98,
+                "rawData": {
+                  "editionYear": 2027,
+                  "latestRelevantOfficialEditionYear": 2027,
+                  "contentHash": "f481c5085f565ff6dd033e13db134bcde11961cc44344b92fd6ff4f671b2d39e",
+                  "fetchedAt": "2026-11-19T08:18:43.330233+00:00",
+                  "evidenceText": "距離 42.195公里 比賽日期 2027年1月17日（星期日） 名額 18,000 報名費 本地參賽者 600港元正 非本地參賽者 90美元正 報名日期 2026年9月11日（星期五）下午2時正 至2026年9月20日（星期日）晚上7時正 起點 九龍尖沙咀彌敦道 比賽時限（全程） 6小時 組別^及起步時間 馬拉松挑戰組（壯年組 / 先進一至八組） 上午6時正 馬拉松一組 上午6時25分 馬拉松二組 上午 6 時 50 分 終點 香港維多利亞公園",
+                  "evidenceLocator": "html_text:113-338; observed 2026-11-19",
+                  "editionName": "渣打香港馬拉松2027",
+                  "raceDate": "2027-01-17",
+                  "distanceKm": 42.195,
+                  "startTimes": [
+                    "2027-01-17T06:00:00+08:00",
+                    "2027-01-17T06:25:00+08:00",
+                    "2027-01-17T06:50:00+08:00"
+                  ],
+                  "startLocation": "九龍尖沙咀彌敦道",
+                  "finishLocation": "香港維多利亞公園",
+                  "cutoffTimeHours": 6
+                }
+              }
+            ],
+            "fieldSources": {
+              "distanceKm": {
+                "field": "distanceKm",
+                "sourceType": "official",
+                "sourceName": "standard-chartered-hong-kong-marathon-official-race-information-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "startTimes": {
+                "field": "startTimes",
+                "sourceType": "official",
+                "sourceName": "standard-chartered-hong-kong-marathon-official-race-information-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "startLocation": {
+                "field": "startLocation",
+                "sourceType": "official",
+                "sourceName": "standard-chartered-hong-kong-marathon-official-race-information-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "finishLocation": {
+                "field": "finishLocation",
+                "sourceType": "official",
+                "sourceName": "standard-chartered-hong-kong-marathon-official-race-information-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "cutoffTimeHours": {
+                "field": "cutoffTimeHours",
+                "sourceType": "official",
+                "sourceName": "standard-chartered-hong-kong-marathon-official-race-information-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              }
+            },
+            "sourcePriority": {
+              "official": 100
+            },
+            "confidence": 0.98,
+            "verified": true,
+            "verificationStatus": "verified",
+            "verifiedAt": "2026-11-19T08:22:53.128Z",
+            "missingFields": [
+              "elevationGain",
+              "elevationLoss",
+              "startAt",
+              "coursePoints"
+            ],
+            "lastCrawledAt": "2026-11-19T08:22:53.128Z",
+            "lastUpdatedAt": "2026-11-19T08:22:53.128Z",
+            "schemaVersion": "race-graph-v1",
+            "dataQualityLevel": "B",
+            "reviewNotes": "Three ordered starts belong to the marathon project. Single startAt and absolute cutoffAt are unconfirmed. No individual wave is substituted for all waves.",
+            "internalFlags": []
+          }
+        },
+        {
+          "categoryId": "standard-chartered-hong-kong-marathon-2027-half-marathon",
+          "editionId": "standard-chartered-hong-kong-marathon-2027",
+          "categoryName": "半馬拉松",
+          "shortName": "半馬拉松",
+          "displayOrder": 2,
+          "distanceKm": null,
+          "elevationGain": null,
+          "elevationLoss": null,
+          "cutoffTimeHours": null,
+          "startAt": null,
+          "startTimes": null,
+          "startLocation": null,
+          "finishLocation": null,
+          "registrationUrl": null,
+          "coursePoints": null,
+          "coursePointDataStatus": "unknown",
+          "createdAt": "2026-11-19T08:22:53.128Z",
+          "updatedAt": "2026-11-19T08:22:53.128Z",
+          "governance": {
+            "sources": [
+              {
+                "sourceType": "official",
+                "sourceName": "standard-chartered-hong-kong-marathon-official-important-dates-2027",
+                "sourceUrl": "https://www.hkmarathon.com/zh-hant/important-dates",
+                "sourceRecordId": "standard-chartered-hong-kong-marathon-official-important-dates-2027",
+                "crawledAt": "2026-11-19T08:18:43.651090+00:00",
+                "confidence": 0.98,
+                "rawData": {
+                  "editionYear": 2027,
+                  "latestRelevantOfficialEditionYear": 2027,
+                  "contentHash": "3a0f79db4454df719609866b85359462b6c1c88320db3177f6836cd2bc8238c6",
+                  "fetchedAt": "2026-11-19T08:18:43.651090+00:00",
+                  "evidenceText": "1月17日（星期日） 馬拉松、半馬拉松、十公里及十公里輪椅賽比賽日！",
+                  "evidenceLocator": "html_text:843-877; observed 2026-11-19",
+                  "raceDate": "2027-01-17",
+                  "categoryName": "半馬拉松"
+                }
+              }
+            ],
+            "fieldSources": {
+              "categoryName": {
+                "field": "categoryName",
+                "sourceType": "official",
+                "sourceName": "standard-chartered-hong-kong-marathon-official-important-dates-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              }
+            },
+            "sourcePriority": {
+              "official": 100
+            },
+            "confidence": 0.98,
+            "verified": false,
+            "verificationStatus": "pending",
+            "verifiedAt": null,
+            "missingFields": [
+              "distanceKm",
+              "startTimes",
+              "startLocation",
+              "finishLocation",
+              "cutoffTimeHours"
+            ],
+            "lastCrawledAt": "2026-11-19T08:22:53.128Z",
+            "lastUpdatedAt": "2026-11-19T08:22:53.128Z",
+            "schemaVersion": "race-graph-v1",
+            "dataQualityLevel": "C",
+            "reviewNotes": "Project identified for January 17; project-specific official facts have not been verified. Excluded from Public Category DTO until reviewed.",
+            "internalFlags": []
+          }
+        },
+        {
+          "categoryId": "standard-chartered-hong-kong-marathon-2027-10k",
+          "editionId": "standard-chartered-hong-kong-marathon-2027",
+          "categoryName": "十公里",
+          "shortName": "十公里",
+          "displayOrder": 3,
+          "distanceKm": null,
+          "elevationGain": null,
+          "elevationLoss": null,
+          "cutoffTimeHours": null,
+          "startAt": null,
+          "startTimes": null,
+          "startLocation": null,
+          "finishLocation": null,
+          "registrationUrl": null,
+          "coursePoints": null,
+          "coursePointDataStatus": "unknown",
+          "createdAt": "2026-11-19T08:22:53.128Z",
+          "updatedAt": "2026-11-19T08:22:53.128Z",
+          "governance": {
+            "sources": [
+              {
+                "sourceType": "official",
+                "sourceName": "standard-chartered-hong-kong-marathon-official-important-dates-2027",
+                "sourceUrl": "https://www.hkmarathon.com/zh-hant/important-dates",
+                "sourceRecordId": "standard-chartered-hong-kong-marathon-official-important-dates-2027",
+                "crawledAt": "2026-11-19T08:18:43.651090+00:00",
+                "confidence": 0.98,
+                "rawData": {
+                  "editionYear": 2027,
+                  "latestRelevantOfficialEditionYear": 2027,
+                  "contentHash": "3a0f79db4454df719609866b85359462b6c1c88320db3177f6836cd2bc8238c6",
+                  "fetchedAt": "2026-11-19T08:18:43.651090+00:00",
+                  "evidenceText": "1月17日（星期日） 馬拉松、半馬拉松、十公里及十公里輪椅賽比賽日！",
+                  "evidenceLocator": "html_text:843-877; observed 2026-11-19",
+                  "raceDate": "2027-01-17",
+                  "categoryName": "十公里"
+                }
+              }
+            ],
+            "fieldSources": {
+              "categoryName": {
+                "field": "categoryName",
+                "sourceType": "official",
+                "sourceName": "standard-chartered-hong-kong-marathon-official-important-dates-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              }
+            },
+            "sourcePriority": {
+              "official": 100
+            },
+            "confidence": 0.98,
+            "verified": false,
+            "verificationStatus": "pending",
+            "verifiedAt": null,
+            "missingFields": [
+              "distanceKm",
+              "startTimes",
+              "startLocation",
+              "finishLocation",
+              "cutoffTimeHours"
+            ],
+            "lastCrawledAt": "2026-11-19T08:22:53.128Z",
+            "lastUpdatedAt": "2026-11-19T08:22:53.128Z",
+            "schemaVersion": "race-graph-v1",
+            "dataQualityLevel": "C",
+            "reviewNotes": "Project identified for January 17; project-specific official facts have not been verified. Excluded from Public Category DTO until reviewed.",
+            "internalFlags": []
+          }
+        },
+        {
+          "categoryId": "standard-chartered-hong-kong-marathon-2027-10k-wheelchair",
+          "editionId": "standard-chartered-hong-kong-marathon-2027",
+          "categoryName": "十公里輪椅賽",
+          "shortName": "十公里輪椅賽",
+          "displayOrder": 4,
+          "distanceKm": null,
+          "elevationGain": null,
+          "elevationLoss": null,
+          "cutoffTimeHours": null,
+          "startAt": null,
+          "startTimes": null,
+          "startLocation": null,
+          "finishLocation": null,
+          "registrationUrl": null,
+          "coursePoints": null,
+          "coursePointDataStatus": "unknown",
+          "createdAt": "2026-11-19T08:22:53.128Z",
+          "updatedAt": "2026-11-19T08:22:53.128Z",
+          "governance": {
+            "sources": [
+              {
+                "sourceType": "official",
+                "sourceName": "standard-chartered-hong-kong-marathon-official-important-dates-2027",
+                "sourceUrl": "https://www.hkmarathon.com/zh-hant/important-dates",
+                "sourceRecordId": "standard-chartered-hong-kong-marathon-official-important-dates-2027",
+                "crawledAt": "2026-11-19T08:18:43.651090+00:00",
+                "confidence": 0.98,
+                "rawData": {
+                  "editionYear": 2027,
+                  "latestRelevantOfficialEditionYear": 2027,
+                  "contentHash": "3a0f79db4454df719609866b85359462b6c1c88320db3177f6836cd2bc8238c6",
+                  "fetchedAt": "2026-11-19T08:18:43.651090+00:00",
+                  "evidenceText": "1月17日（星期日） 馬拉松、半馬拉松、十公里及十公里輪椅賽比賽日！",
+                  "evidenceLocator": "html_text:843-877; observed 2026-11-19",
+                  "raceDate": "2027-01-17",
+                  "categoryName": "十公里輪椅賽"
+                }
+              }
+            ],
+            "fieldSources": {
+              "categoryName": {
+                "field": "categoryName",
+                "sourceType": "official",
+                "sourceName": "standard-chartered-hong-kong-marathon-official-important-dates-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              }
+            },
+            "sourcePriority": {
+              "official": 100
+            },
+            "confidence": 0.98,
+            "verified": false,
+            "verificationStatus": "pending",
+            "verifiedAt": null,
+            "missingFields": [
+              "distanceKm",
+              "startTimes",
+              "startLocation",
+              "finishLocation",
+              "cutoffTimeHours"
+            ],
+            "lastCrawledAt": "2026-11-19T08:22:53.128Z",
+            "lastUpdatedAt": "2026-11-19T08:22:53.128Z",
+            "schemaVersion": "race-graph-v1",
+            "dataQualityLevel": "C",
+            "reviewNotes": "Project identified for January 17; project-specific official facts have not been verified. Excluded from Public Category DTO until reviewed.",
+            "internalFlags": []
+          }
+        }
+      ]
+    },
+    {
+      "event": {
+        "eventId": "ultra-trail-mogan-by-utmb",
+        "canonicalName": "莫干山越野赛 by UTMB®",
+        "aliases": [
+          "Ultra-Trail Mogan by UTMB®",
+          "莫干山 by UTMB"
+        ],
+        "eventType": "utmb",
+        "homeCountry": "中国",
+        "homeProvince": "浙江省",
+        "homeCity": "湖州市",
+        "officialWebsite": "https://mogan.utmb.world/zh-Hans",
+        "organizer": null,
+        "lifecycleStatus": "active",
+        "createdAt": "2026-11-19T08:22:53.128Z",
+        "updatedAt": "2026-11-19T08:22:53.128Z",
+        "governance": {
+          "sources": [
+            {
+              "sourceType": "official",
+              "sourceName": "ultra-trail-mogan-by-utmb-official-home",
+              "sourceUrl": "https://mogan.utmb.world/zh-Hans",
+              "sourceRecordId": "ultra-trail-mogan-by-utmb-official-home",
+              "crawledAt": "2026-11-19T08:19:01.795773+00:00",
+              "confidence": 0.98,
+              "rawData": {
+                "editionYear": 2027,
+                "latestRelevantOfficialEditionYear": 2027,
+                "contentHash": "88ce6c2971df976efb079c462e28ba62264bc090f289140ed383846c43303e5f",
+                "fetchedAt": "2026-11-19T08:19:01.795773+00:00",
+                "evidenceText": "莫干山越野赛 by UTMB®",
+                "evidenceLocator": "html_text:0-15; observed 2026-11-19",
+                "editionName": "2027 莫干山越野赛 by UTMB®"
+              }
+            }
+          ],
+          "fieldSources": {
+            "canonicalName": {
+              "field": "canonicalName",
+              "sourceType": "official",
+              "sourceName": "ultra-trail-mogan-by-utmb-official-home",
+              "confidence": 0.98,
+              "updatedAt": "2026-11-19T08:22:53.128Z"
+            }
+          },
+          "sourcePriority": {
+            "official": 100
+          },
+          "confidence": 0.98,
+          "verified": true,
+          "verificationStatus": "verified",
+          "verifiedAt": "2026-11-19T08:22:53.128Z",
+          "missingFields": [],
+          "lastCrawledAt": "2026-11-19T08:22:53.128Z",
+          "lastUpdatedAt": "2026-11-19T08:22:53.128Z",
+          "schemaVersion": "race-graph-v1",
+          "dataQualityLevel": "B",
+          "reviewNotes": null,
+          "internalFlags": []
+        }
+      },
+      "edition": {
+        "editionId": "ultra-trail-mogan-by-utmb-2027",
+        "eventId": "ultra-trail-mogan-by-utmb",
+        "editionName": "2027 莫干山越野赛 by UTMB®",
+        "editionYear": 2027,
+        "raceDate": "2027-04-16",
+        "endDate": "2027-04-18",
+        "coverImage": "/races/ultra-trail-mogan-by-utmb/2027/display-v1.jpg",
+        "heroImage": "/races/ultra-trail-mogan-by-utmb/2027/display-v1.jpg",
+        "primaryCategoryId": "ultra-trail-mogan-by-utmb-2027-dmg",
+        "primaryCategoryName": "DMG 100K",
+        "country": "中国",
+        "province": "浙江省",
+        "city": "湖州市",
+        "district": "德清县",
+        "venue": "莫干山国际旅游度假区",
+        "region": "east_china",
+        "timezone": "Asia/Shanghai",
+        "registrationStatus": "unknown",
+        "registrationOpenDate": null,
+        "registrationCloseDate": null,
+        "registrationUrl": null,
+        "officialWebsite": "https://mogan.utmb.world/zh-Hans",
+        "rulebookUrl": null,
+        "lifecycleStatus": "active",
+        "raceDistanceKm": 100,
+        "raceDistances": [
+          10,
+          20,
+          35,
+          50,
+          65,
+          100
+        ],
+        "createdAt": "2026-11-19T08:22:53.128Z",
+        "updatedAt": "2026-11-19T08:22:53.128Z",
+        "governance": {
+          "sources": [
+            {
+              "sourceType": "official",
+              "sourceName": "ultra-trail-mogan-by-utmb-official-home",
+              "sourceUrl": "https://mogan.utmb.world/zh-Hans",
+              "sourceRecordId": "ultra-trail-mogan-by-utmb-official-home",
+              "crawledAt": "2026-11-19T08:19:01.795773+00:00",
+              "confidence": 0.98,
+              "rawData": {
+                "editionYear": 2027,
+                "latestRelevantOfficialEditionYear": 2027,
+                "contentHash": "88ce6c2971df976efb079c462e28ba62264bc090f289140ed383846c43303e5f",
+                "fetchedAt": "2026-11-19T08:19:01.795773+00:00",
+                "evidenceText": "莫干山越野赛 by UTMB®",
+                "evidenceLocator": "html_text:0-15; observed 2026-11-19",
+                "editionName": "2027 莫干山越野赛 by UTMB®"
+              }
+            },
+            {
+              "sourceType": "official",
+              "sourceName": "ultra-trail-mogan-by-utmb-official-registration-2027",
+              "sourceUrl": "https://mogan.utmb.world/registrations",
+              "sourceRecordId": "ultra-trail-mogan-by-utmb-official-registration-2027",
+              "crawledAt": "2026-11-19T08:18:57.934927+00:00",
+              "confidence": 0.98,
+              "rawData": {
+                "editionYear": 2027,
+                "latestRelevantOfficialEditionYear": 2027,
+                "contentHash": "81c6bf73bd44bb574b6d10280fec74dc1b5100a9413963bf6da81711e30bd3ea",
+                "fetchedAt": "2026-11-19T08:18:57.934927+00:00",
+                "evidenceText": "Registration overview Race date : April 16-18, 2027 Event location : Moganshan International Tourism Resort, Deqing County, China Race Categories : DMG 100K, CMG 65K, MMG 50K, NMG35K, EMG 20K, 10K ",
+                "evidenceLocator": "html_text:1988-2185; observed 2026-11-19",
+                "raceDate": "2027-04-16",
+                "endDate": "2027-04-18",
+                "officialCategoryLabels": [
+                  "DMG 100K",
+                  "CMG 65K",
+                  "MMG 50K",
+                  "NMG35K",
+                  "EMG 20K",
+                  "10K"
+                ],
+                "distanceHumanDecision": "2026-11-19 Human approved nominal distanceKm 100/65/50/35/20/10; page Distance stays separately evidenced."
+              }
+            }
+          ],
+          "fieldSources": {
+            "editionName": {
+              "field": "editionName",
+              "sourceType": "official",
+              "sourceName": "ultra-trail-mogan-by-utmb-official-home",
+              "confidence": 0.98,
+              "updatedAt": "2026-11-19T08:22:53.128Z"
+            },
+            "raceDate": {
+              "field": "raceDate",
+              "sourceType": "official",
+              "sourceName": "ultra-trail-mogan-by-utmb-official-registration-2027",
+              "confidence": 0.98,
+              "updatedAt": "2026-11-19T08:22:53.128Z"
+            },
+            "endDate": {
+              "field": "endDate",
+              "sourceType": "official",
+              "sourceName": "ultra-trail-mogan-by-utmb-official-registration-2027",
+              "confidence": 0.98,
+              "updatedAt": "2026-11-19T08:22:53.128Z"
+            },
+            "venue": {
+              "field": "venue",
+              "sourceType": "official",
+              "sourceName": "ultra-trail-mogan-by-utmb-official-registration-2027",
+              "confidence": 0.98,
+              "updatedAt": "2026-11-19T08:22:53.128Z"
+            }
+          },
+          "sourcePriority": {
+            "official": 100
+          },
+          "confidence": 0.98,
+          "verified": true,
+          "verificationStatus": "verified",
+          "verifiedAt": "2026-11-19T08:22:53.128Z",
+          "missingFields": [
+            "registrationStatus",
+            "registrationUrl"
+          ],
+          "lastCrawledAt": "2026-11-19T08:22:53.128Z",
+          "lastUpdatedAt": "2026-11-19T08:22:53.128Z",
+          "schemaVersion": "race-graph-v1",
+          "dataQualityLevel": "B",
+          "reviewNotes": "2027 registration overview gives dates and official nominal categories. Per-category registration states differ on current home page; no unified open/closed status inferred. DMG Strategy HOLD. No inherited CP facts.",
+          "internalFlags": [],
+          "publicationGate": {
+            "requestedEditionYear": 2027,
+            "latestRelevantOfficialEditionYear": 2027,
+            "latestOfficialEditionSourceRecordId": "ultra-trail-mogan-by-utmb-official-registration-2027",
+            "primarySourceRecordId": "ultra-trail-mogan-by-utmb-official-registration-2027",
+            "secondarySourceRecordId": "ultra-trail-mogan-by-utmb-official-home",
+            "raceDateSourceRecordIds": [
+              "ultra-trail-mogan-by-utmb-official-registration-2027"
+            ],
+            "dateEvidenceStatus": "verified",
+            "conflictStatus": "none",
+            "publishable": true,
+            "checkedAt": "2026-11-19T08:22:53.128Z"
+          }
+        }
+      },
+      "categories": [
+        {
+          "categoryId": "ultra-trail-mogan-by-utmb-2027-dmg",
+          "editionId": "ultra-trail-mogan-by-utmb-2027",
+          "categoryName": "DMG 100K",
+          "shortName": "DMG 100K",
+          "displayOrder": 1,
+          "distanceKm": 100,
+          "elevationGain": 5000,
+          "elevationLoss": null,
+          "cutoffTimeHours": 28,
+          "startAt": "2027-04-16T20:00:00+08:00",
+          "startTimes": [
+            "2027-04-16T20:00:00+08:00"
+          ],
+          "startLocation": "Jun'anli",
+          "finishLocation": "Jun'anli",
+          "registrationUrl": null,
+          "coursePoints": null,
+          "coursePointDataStatus": "unknown",
+          "createdAt": "2026-11-19T08:22:53.128Z",
+          "updatedAt": "2026-11-19T08:22:53.128Z",
+          "runningStones": 3,
+          "governance": {
+            "sources": [
+              {
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-dmg-2027",
+                "sourceUrl": "https://mogan.utmb.world/races/DMG",
+                "sourceRecordId": "ultra-trail-mogan-by-utmb-official-dmg-2027",
+                "crawledAt": "2026-11-19T08:18:58.003043+00:00",
+                "confidence": 0.98,
+                "rawData": {
+                  "editionYear": 2027,
+                  "latestRelevantOfficialEditionYear": 2027,
+                  "contentHash": "25421493fa77a2e47d1aea82b74623e6824531120aaa068df9d3cebb660636e2",
+                  "fetchedAt": "2026-11-19T08:18:58.003043+00:00",
+                  "evidenceText": "Running Stones 3 Finals Access Distance 96 KM Elevation Gain 5000 M+ Start Date Friday 16th April 2027 Race Start Jun'anli - 20:00 Max Allowed Race Time 28 Hours Presentation Course Presentation The 100K is the crown jewel and the ultimate test — a loop from Jun'anli through bamboo ridges, historic hill stations and the Duhekou reservoir, returning via the naked Castle trails. A true endurance expedition in the heart of Jiangnan, with assistance areas and a finish back where you started.",
+                  "evidenceLocator": "html_text:2112-2604; observed 2026-11-19",
+                  "raceDate": "2027-04-16",
+                  "categoryName": "DMG 100K",
+                  "pageDistanceKm": 96,
+                  "elevationGain": 5000,
+                  "startAt": "2027-04-16T20:00:00+08:00",
+                  "cutoffTimeHours": 28,
+                  "startLocation": "Jun'anli",
+                  "runningStones": 3,
+                  "finishLocation": "Jun'anli",
+                  "nominalDistanceKm": 100,
+                  "distanceHumanDecision": {
+                    "approvedAtDate": "2026-11-19",
+                    "field": "Category.distanceKm",
+                    "value": 100,
+                    "basisSourceRecordId": "ultra-trail-mogan-by-utmb-official-registration-2027",
+                    "pageDistanceFieldIsSeparate": true
+                  },
+                  "categoryId": "ultra-trail-mogan-by-utmb-2027-dmg"
+                }
+              },
+              {
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-registration-2027",
+                "sourceUrl": "https://mogan.utmb.world/registrations",
+                "sourceRecordId": "ultra-trail-mogan-by-utmb-official-registration-2027",
+                "crawledAt": "2026-11-19T08:18:57.934927+00:00",
+                "confidence": 0.98,
+                "rawData": {
+                  "editionYear": 2027,
+                  "latestRelevantOfficialEditionYear": 2027,
+                  "contentHash": "81c6bf73bd44bb574b6d10280fec74dc1b5100a9413963bf6da81711e30bd3ea",
+                  "fetchedAt": "2026-11-19T08:18:57.934927+00:00",
+                  "evidenceText": "Registration overview Race date : April 16-18, 2027 Event location : Moganshan International Tourism Resort, Deqing County, China Race Categories : DMG 100K, CMG 65K, MMG 50K, NMG35K, EMG 20K, 10K ",
+                  "evidenceLocator": "html_text:1988-2185; observed 2026-11-19",
+                  "raceDate": "2027-04-16",
+                  "endDate": "2027-04-18",
+                  "officialCategoryLabels": [
+                    "DMG 100K",
+                    "CMG 65K",
+                    "MMG 50K",
+                    "NMG35K",
+                    "EMG 20K",
+                    "10K"
+                  ],
+                  "distanceHumanDecision": "2026-11-19 Human approved nominal distanceKm 100/65/50/35/20/10; page Distance stays separately evidenced."
+                }
+              }
+            ],
+            "fieldSources": {
+              "elevationGain": {
+                "field": "elevationGain",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-dmg-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "startAt": {
+                "field": "startAt",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-dmg-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "cutoffTimeHours": {
+                "field": "cutoffTimeHours",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-dmg-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "startLocation": {
+                "field": "startLocation",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-dmg-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "runningStones": {
+                "field": "runningStones",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-dmg-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "finishLocation": {
+                "field": "finishLocation",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-dmg-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "distanceKm": {
+                "field": "distanceKm",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-registration-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "startTimes": {
+                "field": "startTimes",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-dmg-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              }
+            },
+            "sourcePriority": {
+              "official": 100
+            },
+            "confidence": 0.98,
+            "verified": true,
+            "verificationStatus": "verified",
+            "verifiedAt": "2026-11-19T08:22:53.128Z",
+            "missingFields": [
+              "coursePoints"
+            ],
+            "lastCrawledAt": "2026-11-19T08:22:53.128Z",
+            "lastUpdatedAt": "2026-11-19T08:22:53.128Z",
+            "schemaVersion": "race-graph-v1",
+            "dataQualityLevel": "B",
+            "reviewNotes": "Human 2026-11-19 approved nominal category distance. Official page Distance remains in raw evidence only. Official route directly binds start and finish. No 2026 course points, supplies or Strategy inherited.",
+            "internalFlags": []
+          }
+        },
+        {
+          "categoryId": "ultra-trail-mogan-by-utmb-2027-cmg",
+          "editionId": "ultra-trail-mogan-by-utmb-2027",
+          "categoryName": "CMG 65K",
+          "shortName": "CMG 65K",
+          "displayOrder": 2,
+          "distanceKm": 65,
+          "elevationGain": 3400,
+          "elevationLoss": null,
+          "cutoffTimeHours": 19,
+          "startAt": "2027-04-17T07:00:00+08:00",
+          "startTimes": [
+            "2027-04-17T07:00:00+08:00"
+          ],
+          "startLocation": "naked Stables",
+          "finishLocation": "Jun'anli",
+          "registrationUrl": null,
+          "coursePoints": null,
+          "coursePointDataStatus": "unknown",
+          "createdAt": "2026-11-19T08:22:53.128Z",
+          "updatedAt": "2026-11-19T08:22:53.128Z",
+          "runningStones": 3,
+          "governance": {
+            "sources": [
+              {
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-cmg-2027",
+                "sourceUrl": "https://mogan.utmb.world/races/CMG",
+                "sourceRecordId": "ultra-trail-mogan-by-utmb-official-cmg-2027",
+                "crawledAt": "2026-11-19T08:20:12.476315+00:00",
+                "confidence": 0.98,
+                "rawData": {
+                  "editionYear": 2027,
+                  "latestRelevantOfficialEditionYear": 2027,
+                  "contentHash": "8d09ef657eff9a227e2423118290672860da6387b5cf317df5b4f6df77a13b7b",
+                  "fetchedAt": "2026-11-19T08:20:12.476315+00:00",
+                  "evidenceText": "Running Stones 3 Distance 67 KM Elevation Gain 3400 M+ Start Date Saturday 17th April 2027 Race Start naked Stables - 07:00 Max Allowed Race Time 19 Hours Presentation Course Presentation The 65K starts at the naked retreats, crosses Shizishan (Lion Hill) and drops to Fatou, then shares its entire second half with the 100K to finish on the lawn at Jun'anli. Point to point, it condenses the best of Moganshan — bamboo seas, mountain villages, the reservoir and hillside resorts unfolding one after another — the smart way to taste the marquee course.",
+                  "evidenceLocator": "html_text:2014-2566; observed 2026-11-19",
+                  "raceDate": "2027-04-17",
+                  "categoryName": "CMG 65K",
+                  "pageDistanceKm": 67,
+                  "elevationGain": 3400,
+                  "startAt": "2027-04-17T07:00:00+08:00",
+                  "cutoffTimeHours": 19,
+                  "startLocation": "naked Stables",
+                  "runningStones": 3,
+                  "finishLocation": "Jun'anli",
+                  "nominalDistanceKm": 65,
+                  "distanceHumanDecision": {
+                    "approvedAtDate": "2026-11-19",
+                    "field": "Category.distanceKm",
+                    "value": 65,
+                    "basisSourceRecordId": "ultra-trail-mogan-by-utmb-official-registration-2027",
+                    "pageDistanceFieldIsSeparate": true
+                  },
+                  "categoryId": "ultra-trail-mogan-by-utmb-2027-cmg"
+                }
+              },
+              {
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-registration-2027",
+                "sourceUrl": "https://mogan.utmb.world/registrations",
+                "sourceRecordId": "ultra-trail-mogan-by-utmb-official-registration-2027",
+                "crawledAt": "2026-11-19T08:18:57.934927+00:00",
+                "confidence": 0.98,
+                "rawData": {
+                  "editionYear": 2027,
+                  "latestRelevantOfficialEditionYear": 2027,
+                  "contentHash": "81c6bf73bd44bb574b6d10280fec74dc1b5100a9413963bf6da81711e30bd3ea",
+                  "fetchedAt": "2026-11-19T08:18:57.934927+00:00",
+                  "evidenceText": "Registration overview Race date : April 16-18, 2027 Event location : Moganshan International Tourism Resort, Deqing County, China Race Categories : DMG 100K, CMG 65K, MMG 50K, NMG35K, EMG 20K, 10K ",
+                  "evidenceLocator": "html_text:1988-2185; observed 2026-11-19",
+                  "raceDate": "2027-04-16",
+                  "endDate": "2027-04-18",
+                  "officialCategoryLabels": [
+                    "DMG 100K",
+                    "CMG 65K",
+                    "MMG 50K",
+                    "NMG35K",
+                    "EMG 20K",
+                    "10K"
+                  ],
+                  "distanceHumanDecision": "2026-11-19 Human approved nominal distanceKm 100/65/50/35/20/10; page Distance stays separately evidenced."
+                }
+              }
+            ],
+            "fieldSources": {
+              "elevationGain": {
+                "field": "elevationGain",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-cmg-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "startAt": {
+                "field": "startAt",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-cmg-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "cutoffTimeHours": {
+                "field": "cutoffTimeHours",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-cmg-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "startLocation": {
+                "field": "startLocation",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-cmg-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "runningStones": {
+                "field": "runningStones",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-cmg-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "finishLocation": {
+                "field": "finishLocation",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-cmg-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "distanceKm": {
+                "field": "distanceKm",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-registration-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "startTimes": {
+                "field": "startTimes",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-cmg-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              }
+            },
+            "sourcePriority": {
+              "official": 100
+            },
+            "confidence": 0.98,
+            "verified": true,
+            "verificationStatus": "verified",
+            "verifiedAt": "2026-11-19T08:22:53.128Z",
+            "missingFields": [
+              "coursePoints"
+            ],
+            "lastCrawledAt": "2026-11-19T08:22:53.128Z",
+            "lastUpdatedAt": "2026-11-19T08:22:53.128Z",
+            "schemaVersion": "race-graph-v1",
+            "dataQualityLevel": "B",
+            "reviewNotes": "Human 2026-11-19 approved nominal category distance. Official page Distance remains in raw evidence only. Official route directly binds start and finish. No 2026 course points, supplies or Strategy inherited.",
+            "internalFlags": []
+          }
+        },
+        {
+          "categoryId": "ultra-trail-mogan-by-utmb-2027-mmg",
+          "editionId": "ultra-trail-mogan-by-utmb-2027",
+          "categoryName": "MMG 50K",
+          "shortName": "MMG 50K",
+          "displayOrder": 3,
+          "distanceKm": 50,
+          "elevationGain": 2900,
+          "elevationLoss": null,
+          "cutoffTimeHours": 15,
+          "startAt": "2027-04-16T22:00:00+08:00",
+          "startTimes": [
+            "2027-04-16T22:00:00+08:00"
+          ],
+          "startLocation": "Jun'anli",
+          "finishLocation": "Jun'anli",
+          "registrationUrl": null,
+          "coursePoints": null,
+          "coursePointDataStatus": "unknown",
+          "createdAt": "2026-11-19T08:22:53.128Z",
+          "updatedAt": "2026-11-19T08:22:53.128Z",
+          "runningStones": 2,
+          "governance": {
+            "sources": [
+              {
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-mmg-2027",
+                "sourceUrl": "https://mogan.utmb.world/races/MMG",
+                "sourceRecordId": "ultra-trail-mogan-by-utmb-official-mmg-2027",
+                "crawledAt": "2026-11-19T08:19:03.348497+00:00",
+                "confidence": 0.98,
+                "rawData": {
+                  "editionYear": 2027,
+                  "latestRelevantOfficialEditionYear": 2027,
+                  "contentHash": "2f55ac22de78aa6915ce4ef0944240b82c29774cb0bf1fb501a69ef3b56eccdf",
+                  "fetchedAt": "2026-11-19T08:19:03.348497+00:00",
+                  "evidenceText": "Running Stones 2 Finals Access Distance 52 KM Elevation Gain 2900 M+ Start Date Friday 16th April 2027 Race Start Jun'anli - 22:00 Max Allowed Race Time 15 Hours Presentation Course Presentation The 50K is the perfect stepping stone — a loop that shares the bamboo-ridge opening with the 100K, branches off at Fatou toward the naked retreats, then rejoins the shared course to finish back at Jun'anli. Intensity and rhythm in balance: a full-day panorama of Moganshan.",
+                  "evidenceLocator": "html_text:2014-2482; observed 2026-11-19",
+                  "raceDate": "2027-04-16",
+                  "categoryName": "MMG 50K",
+                  "pageDistanceKm": 52,
+                  "elevationGain": 2900,
+                  "startAt": "2027-04-16T22:00:00+08:00",
+                  "cutoffTimeHours": 15,
+                  "startLocation": "Jun'anli",
+                  "runningStones": 2,
+                  "finishLocation": "Jun'anli",
+                  "nominalDistanceKm": 50,
+                  "distanceHumanDecision": {
+                    "approvedAtDate": "2026-11-19",
+                    "field": "Category.distanceKm",
+                    "value": 50,
+                    "basisSourceRecordId": "ultra-trail-mogan-by-utmb-official-registration-2027",
+                    "pageDistanceFieldIsSeparate": true
+                  },
+                  "categoryId": "ultra-trail-mogan-by-utmb-2027-mmg"
+                }
+              },
+              {
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-registration-2027",
+                "sourceUrl": "https://mogan.utmb.world/registrations",
+                "sourceRecordId": "ultra-trail-mogan-by-utmb-official-registration-2027",
+                "crawledAt": "2026-11-19T08:18:57.934927+00:00",
+                "confidence": 0.98,
+                "rawData": {
+                  "editionYear": 2027,
+                  "latestRelevantOfficialEditionYear": 2027,
+                  "contentHash": "81c6bf73bd44bb574b6d10280fec74dc1b5100a9413963bf6da81711e30bd3ea",
+                  "fetchedAt": "2026-11-19T08:18:57.934927+00:00",
+                  "evidenceText": "Registration overview Race date : April 16-18, 2027 Event location : Moganshan International Tourism Resort, Deqing County, China Race Categories : DMG 100K, CMG 65K, MMG 50K, NMG35K, EMG 20K, 10K ",
+                  "evidenceLocator": "html_text:1988-2185; observed 2026-11-19",
+                  "raceDate": "2027-04-16",
+                  "endDate": "2027-04-18",
+                  "officialCategoryLabels": [
+                    "DMG 100K",
+                    "CMG 65K",
+                    "MMG 50K",
+                    "NMG35K",
+                    "EMG 20K",
+                    "10K"
+                  ],
+                  "distanceHumanDecision": "2026-11-19 Human approved nominal distanceKm 100/65/50/35/20/10; page Distance stays separately evidenced."
+                }
+              }
+            ],
+            "fieldSources": {
+              "elevationGain": {
+                "field": "elevationGain",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-mmg-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "startAt": {
+                "field": "startAt",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-mmg-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "cutoffTimeHours": {
+                "field": "cutoffTimeHours",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-mmg-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "startLocation": {
+                "field": "startLocation",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-mmg-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "runningStones": {
+                "field": "runningStones",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-mmg-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "finishLocation": {
+                "field": "finishLocation",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-mmg-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "distanceKm": {
+                "field": "distanceKm",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-registration-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "startTimes": {
+                "field": "startTimes",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-mmg-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              }
+            },
+            "sourcePriority": {
+              "official": 100
+            },
+            "confidence": 0.98,
+            "verified": true,
+            "verificationStatus": "verified",
+            "verifiedAt": "2026-11-19T08:22:53.128Z",
+            "missingFields": [
+              "coursePoints"
+            ],
+            "lastCrawledAt": "2026-11-19T08:22:53.128Z",
+            "lastUpdatedAt": "2026-11-19T08:22:53.128Z",
+            "schemaVersion": "race-graph-v1",
+            "dataQualityLevel": "B",
+            "reviewNotes": "Human 2026-11-19 approved nominal category distance. Official page Distance remains in raw evidence only. Official route directly binds start and finish. No 2026 course points, supplies or Strategy inherited.",
+            "internalFlags": []
+          }
+        },
+        {
+          "categoryId": "ultra-trail-mogan-by-utmb-2027-nmg",
+          "editionId": "ultra-trail-mogan-by-utmb-2027",
+          "categoryName": "NMG 35K",
+          "shortName": "NMG 35K",
+          "displayOrder": 4,
+          "distanceKm": 35,
+          "elevationGain": 1900,
+          "elevationLoss": null,
+          "cutoffTimeHours": 11,
+          "startAt": "2027-04-17T09:00:00+08:00",
+          "startTimes": [
+            "2027-04-17T09:00:00+08:00"
+          ],
+          "startLocation": "J.LALLI VALLEY",
+          "finishLocation": null,
+          "registrationUrl": null,
+          "coursePoints": null,
+          "coursePointDataStatus": "unknown",
+          "createdAt": "2026-11-19T08:22:53.128Z",
+          "updatedAt": "2026-11-19T08:22:53.128Z",
+          "runningStones": 2,
+          "governance": {
+            "sources": [
+              {
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-nmg-2027",
+                "sourceUrl": "https://mogan.utmb.world/races/NMG",
+                "sourceRecordId": "ultra-trail-mogan-by-utmb-official-nmg-2027",
+                "crawledAt": "2026-11-19T08:19:08.813596+00:00",
+                "confidence": 0.98,
+                "rawData": {
+                  "editionYear": 2027,
+                  "latestRelevantOfficialEditionYear": 2027,
+                  "contentHash": "e9a73fdd20326dded840747e2418b270c5f458575f226f744a236e89f4c3ec52",
+                  "fetchedAt": "2026-11-19T08:19:08.813596+00:00",
+                  "evidenceText": "Running Stones 2 Distance 36 KM Elevation Gain 1900 M+ Start Date Saturday 17th April 2027 Race Start J.LALLI VALLEY - 09:00 Max Allowed Race Time 11 Hours",
+                  "evidenceLocator": "html_text:2270-2425; observed 2026-11-19",
+                  "raceDate": "2027-04-17",
+                  "categoryName": "NMG 35K",
+                  "pageDistanceKm": 36,
+                  "elevationGain": 1900,
+                  "startAt": "2027-04-17T09:00:00+08:00",
+                  "cutoffTimeHours": 11,
+                  "startLocation": "J.LALLI VALLEY",
+                  "runningStones": 2,
+                  "nominalDistanceKm": 35,
+                  "distanceHumanDecision": {
+                    "approvedAtDate": "2026-11-19",
+                    "field": "Category.distanceKm",
+                    "value": 35,
+                    "basisSourceRecordId": "ultra-trail-mogan-by-utmb-official-registration-2027",
+                    "pageDistanceFieldIsSeparate": true
+                  },
+                  "categoryId": "ultra-trail-mogan-by-utmb-2027-nmg"
+                }
+              },
+              {
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-registration-2027",
+                "sourceUrl": "https://mogan.utmb.world/registrations",
+                "sourceRecordId": "ultra-trail-mogan-by-utmb-official-registration-2027",
+                "crawledAt": "2026-11-19T08:18:57.934927+00:00",
+                "confidence": 0.98,
+                "rawData": {
+                  "editionYear": 2027,
+                  "latestRelevantOfficialEditionYear": 2027,
+                  "contentHash": "81c6bf73bd44bb574b6d10280fec74dc1b5100a9413963bf6da81711e30bd3ea",
+                  "fetchedAt": "2026-11-19T08:18:57.934927+00:00",
+                  "evidenceText": "Registration overview Race date : April 16-18, 2027 Event location : Moganshan International Tourism Resort, Deqing County, China Race Categories : DMG 100K, CMG 65K, MMG 50K, NMG35K, EMG 20K, 10K ",
+                  "evidenceLocator": "html_text:1988-2185; observed 2026-11-19",
+                  "raceDate": "2027-04-16",
+                  "endDate": "2027-04-18",
+                  "officialCategoryLabels": [
+                    "DMG 100K",
+                    "CMG 65K",
+                    "MMG 50K",
+                    "NMG35K",
+                    "EMG 20K",
+                    "10K"
+                  ],
+                  "distanceHumanDecision": "2026-11-19 Human approved nominal distanceKm 100/65/50/35/20/10; page Distance stays separately evidenced."
+                }
+              }
+            ],
+            "fieldSources": {
+              "elevationGain": {
+                "field": "elevationGain",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-nmg-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "startAt": {
+                "field": "startAt",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-nmg-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "cutoffTimeHours": {
+                "field": "cutoffTimeHours",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-nmg-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "startLocation": {
+                "field": "startLocation",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-nmg-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "runningStones": {
+                "field": "runningStones",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-nmg-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "distanceKm": {
+                "field": "distanceKm",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-registration-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "startTimes": {
+                "field": "startTimes",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-nmg-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              }
+            },
+            "sourcePriority": {
+              "official": 100
+            },
+            "confidence": 0.98,
+            "verified": false,
+            "verificationStatus": "pending",
+            "verifiedAt": null,
+            "missingFields": [
+              "coursePoints",
+              "finishLocation",
+              "startLocation"
+            ],
+            "lastCrawledAt": "2026-11-19T08:22:53.128Z",
+            "lastUpdatedAt": "2026-11-19T08:22:53.128Z",
+            "schemaVersion": "race-graph-v1",
+            "dataQualityLevel": "C",
+            "reviewNotes": "Human 2026-11-19 approved nominal category distance. Official page Distance remains in raw evidence only. Start label is literal J.LALLI VALLEY; precise entry/finish remain unconfirmed. Excluded from public categories. NMG template narrative is excluded.",
+            "internalFlags": []
+          }
+        },
+        {
+          "categoryId": "ultra-trail-mogan-by-utmb-2027-emg",
+          "editionId": "ultra-trail-mogan-by-utmb-2027",
+          "categoryName": "EMG 20K",
+          "shortName": "EMG 20K",
+          "displayOrder": 5,
+          "distanceKm": 20,
+          "elevationGain": 1200,
+          "elevationLoss": null,
+          "cutoffTimeHours": 7,
+          "startAt": "2027-04-18T09:00:00+08:00",
+          "startTimes": [
+            "2027-04-18T09:00:00+08:00"
+          ],
+          "startLocation": "J.LALLI VALLEY",
+          "finishLocation": null,
+          "registrationUrl": null,
+          "coursePoints": null,
+          "coursePointDataStatus": "unknown",
+          "createdAt": "2026-11-19T08:22:53.128Z",
+          "updatedAt": "2026-11-19T08:22:53.128Z",
+          "runningStones": 1,
+          "governance": {
+            "sources": [
+              {
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-emg-2027",
+                "sourceUrl": "https://mogan.utmb.world/races/EMG",
+                "sourceRecordId": "ultra-trail-mogan-by-utmb-official-emg-2027",
+                "crawledAt": "2026-11-19T08:20:44.715924+00:00",
+                "confidence": 0.98,
+                "rawData": {
+                  "editionYear": 2027,
+                  "latestRelevantOfficialEditionYear": 2027,
+                  "contentHash": "de7568491441dd0b716fa88b0bb14d5eec69579b4c71ad94acf5a8a618162b27",
+                  "fetchedAt": "2026-11-19T08:20:44.715924+00:00",
+                  "evidenceText": "Running Stones 1 Distance 23 KM Elevation Gain 1200 M+ Start Date Sunday 18th April 2027 Race Start J.LALLI VALLEY - 09:00 Max Allowed Race Time 07 Hours",
+                  "evidenceLocator": "html_text:1991-2144; observed 2026-11-19",
+                  "raceDate": "2027-04-18",
+                  "categoryName": "EMG 20K",
+                  "pageDistanceKm": 23,
+                  "elevationGain": 1200,
+                  "startAt": "2027-04-18T09:00:00+08:00",
+                  "cutoffTimeHours": 7,
+                  "startLocation": "J.LALLI VALLEY",
+                  "runningStones": 1,
+                  "nominalDistanceKm": 20,
+                  "distanceHumanDecision": {
+                    "approvedAtDate": "2026-11-19",
+                    "field": "Category.distanceKm",
+                    "value": 20,
+                    "basisSourceRecordId": "ultra-trail-mogan-by-utmb-official-registration-2027",
+                    "pageDistanceFieldIsSeparate": true
+                  },
+                  "categoryId": "ultra-trail-mogan-by-utmb-2027-emg"
+                }
+              },
+              {
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-registration-2027",
+                "sourceUrl": "https://mogan.utmb.world/registrations",
+                "sourceRecordId": "ultra-trail-mogan-by-utmb-official-registration-2027",
+                "crawledAt": "2026-11-19T08:18:57.934927+00:00",
+                "confidence": 0.98,
+                "rawData": {
+                  "editionYear": 2027,
+                  "latestRelevantOfficialEditionYear": 2027,
+                  "contentHash": "81c6bf73bd44bb574b6d10280fec74dc1b5100a9413963bf6da81711e30bd3ea",
+                  "fetchedAt": "2026-11-19T08:18:57.934927+00:00",
+                  "evidenceText": "Registration overview Race date : April 16-18, 2027 Event location : Moganshan International Tourism Resort, Deqing County, China Race Categories : DMG 100K, CMG 65K, MMG 50K, NMG35K, EMG 20K, 10K ",
+                  "evidenceLocator": "html_text:1988-2185; observed 2026-11-19",
+                  "raceDate": "2027-04-16",
+                  "endDate": "2027-04-18",
+                  "officialCategoryLabels": [
+                    "DMG 100K",
+                    "CMG 65K",
+                    "MMG 50K",
+                    "NMG35K",
+                    "EMG 20K",
+                    "10K"
+                  ],
+                  "distanceHumanDecision": "2026-11-19 Human approved nominal distanceKm 100/65/50/35/20/10; page Distance stays separately evidenced."
+                }
+              }
+            ],
+            "fieldSources": {
+              "elevationGain": {
+                "field": "elevationGain",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-emg-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "startAt": {
+                "field": "startAt",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-emg-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "cutoffTimeHours": {
+                "field": "cutoffTimeHours",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-emg-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "startLocation": {
+                "field": "startLocation",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-emg-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "runningStones": {
+                "field": "runningStones",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-emg-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "distanceKm": {
+                "field": "distanceKm",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-registration-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "startTimes": {
+                "field": "startTimes",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-emg-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              }
+            },
+            "sourcePriority": {
+              "official": 100
+            },
+            "confidence": 0.98,
+            "verified": false,
+            "verificationStatus": "pending",
+            "verifiedAt": null,
+            "missingFields": [
+              "coursePoints",
+              "finishLocation",
+              "startLocation"
+            ],
+            "lastCrawledAt": "2026-11-19T08:22:53.128Z",
+            "lastUpdatedAt": "2026-11-19T08:22:53.128Z",
+            "schemaVersion": "race-graph-v1",
+            "dataQualityLevel": "C",
+            "reviewNotes": "Human 2026-11-19 approved nominal category distance. Official page Distance remains in raw evidence only. Start label is literal J.LALLI VALLEY; precise entry/finish remain unconfirmed. Excluded from public categories. NMG template narrative is excluded.",
+            "internalFlags": []
+          }
+        },
+        {
+          "categoryId": "ultra-trail-mogan-by-utmb-2027-10k",
+          "editionId": "ultra-trail-mogan-by-utmb-2027",
+          "categoryName": "10K",
+          "shortName": "10K",
+          "displayOrder": 6,
+          "distanceKm": 10,
+          "elevationGain": 300,
+          "elevationLoss": null,
+          "cutoffTimeHours": 3.5,
+          "startAt": "2027-04-18T10:00:00+08:00",
+          "startTimes": [
+            "2027-04-18T10:00:00+08:00"
+          ],
+          "startLocation": "J.LALLI VALLEY",
+          "finishLocation": null,
+          "registrationUrl": null,
+          "coursePoints": null,
+          "coursePointDataStatus": "unknown",
+          "createdAt": "2026-11-19T08:22:53.128Z",
+          "updatedAt": "2026-11-19T08:22:53.128Z",
+          "governance": {
+            "sources": [
+              {
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-10k-2027",
+                "sourceUrl": "https://mogan.utmb.world/races/10K",
+                "sourceRecordId": "ultra-trail-mogan-by-utmb-official-10k-2027",
+                "crawledAt": "2026-11-19T08:19:10.421039+00:00",
+                "confidence": 0.98,
+                "rawData": {
+                  "editionYear": 2027,
+                  "latestRelevantOfficialEditionYear": 2027,
+                  "contentHash": "1883342143b1fdab201f9b5684e668e47b8d17df4835077bd49c8c345bc488c1",
+                  "fetchedAt": "2026-11-19T08:19:10.421039+00:00",
+                  "evidenceText": "Distance 10 KM Elevation Gain 300 M+ Start Date Sunday 18th April 2027 Race Start J.LALLI VALLEY - 10:00 Max Allowed Race Time 03 Hours 30 Minutes",
+                  "evidenceLocator": "html_text:1973-2119; observed 2026-11-19",
+                  "raceDate": "2027-04-18",
+                  "categoryName": "10K",
+                  "pageDistanceKm": 10,
+                  "elevationGain": 300,
+                  "startAt": "2027-04-18T10:00:00+08:00",
+                  "cutoffTimeHours": 3.5,
+                  "startLocation": "J.LALLI VALLEY",
+                  "nominalDistanceKm": 10,
+                  "distanceHumanDecision": {
+                    "approvedAtDate": "2026-11-19",
+                    "field": "Category.distanceKm",
+                    "value": 10,
+                    "basisSourceRecordId": "ultra-trail-mogan-by-utmb-official-registration-2027",
+                    "pageDistanceFieldIsSeparate": true
+                  },
+                  "categoryId": "ultra-trail-mogan-by-utmb-2027-10k"
+                }
+              },
+              {
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-registration-2027",
+                "sourceUrl": "https://mogan.utmb.world/registrations",
+                "sourceRecordId": "ultra-trail-mogan-by-utmb-official-registration-2027",
+                "crawledAt": "2026-11-19T08:18:57.934927+00:00",
+                "confidence": 0.98,
+                "rawData": {
+                  "editionYear": 2027,
+                  "latestRelevantOfficialEditionYear": 2027,
+                  "contentHash": "81c6bf73bd44bb574b6d10280fec74dc1b5100a9413963bf6da81711e30bd3ea",
+                  "fetchedAt": "2026-11-19T08:18:57.934927+00:00",
+                  "evidenceText": "Registration overview Race date : April 16-18, 2027 Event location : Moganshan International Tourism Resort, Deqing County, China Race Categories : DMG 100K, CMG 65K, MMG 50K, NMG35K, EMG 20K, 10K ",
+                  "evidenceLocator": "html_text:1988-2185; observed 2026-11-19",
+                  "raceDate": "2027-04-16",
+                  "endDate": "2027-04-18",
+                  "officialCategoryLabels": [
+                    "DMG 100K",
+                    "CMG 65K",
+                    "MMG 50K",
+                    "NMG35K",
+                    "EMG 20K",
+                    "10K"
+                  ],
+                  "distanceHumanDecision": "2026-11-19 Human approved nominal distanceKm 100/65/50/35/20/10; page Distance stays separately evidenced."
+                }
+              }
+            ],
+            "fieldSources": {
+              "elevationGain": {
+                "field": "elevationGain",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-10k-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "startAt": {
+                "field": "startAt",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-10k-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "cutoffTimeHours": {
+                "field": "cutoffTimeHours",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-10k-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "startLocation": {
+                "field": "startLocation",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-10k-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "distanceKm": {
+                "field": "distanceKm",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-registration-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              },
+              "startTimes": {
+                "field": "startTimes",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-10k-2027",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-19T08:22:53.128Z"
+              }
+            },
+            "sourcePriority": {
+              "official": 100
+            },
+            "confidence": 0.98,
+            "verified": false,
+            "verificationStatus": "pending",
+            "verifiedAt": null,
+            "missingFields": [
+              "coursePoints",
+              "finishLocation",
+              "startLocation"
+            ],
+            "lastCrawledAt": "2026-11-19T08:22:53.128Z",
+            "lastUpdatedAt": "2026-11-19T08:22:53.128Z",
+            "schemaVersion": "race-graph-v1",
+            "dataQualityLevel": "C",
+            "reviewNotes": "Human 2026-11-19 approved nominal category distance. Official page Distance remains in raw evidence only. Start label is literal J.LALLI VALLEY; precise entry/finish remain unconfirmed. Excluded from public categories. NMG template narrative is excluded.",
+            "internalFlags": []
+          }
+        }
+      ]
     }
   ]
 }
