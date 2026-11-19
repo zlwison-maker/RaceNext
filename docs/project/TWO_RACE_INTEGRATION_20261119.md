@@ -1,5 +1,79 @@
 # 2027 香港马拉松与莫干山 by UTMB 接入 Handoff
 
+## PR #55 莫干山详情页 QA 补证，2026-11-19
+
+本节为 de4f0c6 后的最新状态；其后的首次接入记录保留为历史取证，不代表本轮仍使用英文地点或缺失中文起终点。
+
+### 三个问题的结果
+
+1. **中文地点修正完成**：DMG 100K「郡安里→郡安里」、CMG 65K「裸心谷生态度假区→郡安里」、MMG 50K「郡安里→郡安里」。依据当届[DMG中文页](https://mogan.utmb.world/zh-Hans/races/DMG)、[CMG中文页](https://mogan.utmb.world/zh-Hans/races/CMG)、[MMG中文页](https://mogan.utmb.world/zh-Hans/races/MMG)的明确路线描述，更新Canonical用户展示字段和对应fieldSources，所有原英文SourceRecord及Raw Data保留。未精确到建筑或运动员入口，原距离、爬升和时间不变。
+2. **三个未公开组别已完成调查，继续HOLD**：主办方官方规程补足了中文起终点，但与UTMB官网数值有实质冲突。只写入有直接表格证据的「郡安里→郡安里」，不选择冲突的数字；整体verificationStatus仍为pending、verified=false、verifiedAt=null，现有Gate继续将它们排除。未删除历史SourceRecord，未放宽isCategoryPublishable。
+3. **报名维持unknown，并显示「报名信息待确认」**：主办方2027入口实际返回APPLYING；规程写明报名、抽签和补录阶段，但UTMB中文首页同时显示已截止或不一致的组别卡片。无法证明差异的确切原因，所以不自行选择全届报名状态，registrationOpenDate/CloseDate/Url均保持原值null。采用现有ViewModel的通用unknown文案映射，仅增加一行；没有莫干山ID特例，没有硬编码报名中。
+
+unknown文案是共享状态的真实兜底，因此原有深圳马、福州马、横琴马中同为unknown的状态也会显示「报名信息待确认」。这三场的Canonical、API字段、指南、住宿及动作均不变；其他报名状态文案和香港「报名已结束」不变。本轮没有新增页面结构。
+
+### 主办方身份与直接证据
+
+取证链：[2027官网报名页](https://mogan.utmb.world/registrations)→中国居民入口[隆景体育](https://lungkingos.lungking.com/s/evps2696)→公开getRaceInfo/getCategoryList/getIntroduction查询。入口重定向明确绑定raceId=2c908c04a1ce915301a1cf4a7b7a4862，返回赛事名2027莫干山越野赛by UTMB®及六个组别。只读查询使用官网前端原有的POST接口，无登录、无报名/支付提交、无个人资料。categoryStatus=NOT_STARTED表示比赛尚未开赛，不能据此推断报名尚未开始；mileage=0为平台空值，未当作距离。
+
+getIntroduction的三张官方规程长图已实际下载、查看原始分辨率分段，记录SHA-256和像素定位。本轮手工读图转录，不建立OCR/提取系统。路线和报名数字由以下官方规程证据提供，最酷仅作为第三方交叉印证，tier=trusted_secondary、sourceType=media_report，未冒充官方。
+
+[完整QA证据、原始URL/Hash/查询参数及字段对照](inputs/two-races-20261119/mogan-qa-evidence.json)
+
+### 未公开组别逐项对照
+
+时间均为2027年、Asia/Shanghai（UTC+8）；赛事窗口4月16日至18日。标称距离沿用Human在2026-11-19已批准的35/20/10，不因路线实测差异修改。
+
+| 字段 | NMG 35K | EMG 20K | 10K / 规程称FMG10K |
+| --- | --- | --- | --- |
+| 当届身份 | 官网与官方平台均有NMG35K | 官网与平台均有EMG20K | 官网10K，平台及规程FMG10K；Stable ID未改 |
+| 标称distanceKm | 35，批准不变 | 20，批准不变 | 10，批准不变 |
+| 实际距离：官网/官方规程 | 36 / 35.6 km，冲突 | 23 / 23 km，一致 | 10 / 11.3 km，冲突 |
+| 爬升：官网/官方规程 | 1900 / 2180 m，冲突 | 1200 / 1260 m，冲突 | 300 / 340 m，冲突 |
+| 发枪：两方一致 | 04-17 09:00 | 04-18 09:00 | 04-18 10:00 |
+| 关门总时限：两方一致 | 11h | 7h | 3.5h |
+| 官网起点卡片 | J.LALLI VALLEY | J.LALLI VALLEY | J.LALLI VALLEY |
+| 官方规程中文起点/终点 | 郡安里 / 郡安里 | 郡安里 / 郡安里 | 郡安里 / 郡安里 |
+| 当届中文页问题 | HTTP500，英文页另有异地模板污染 | 标题/key figures为10K、正文为20K，身份混杂 | HTTP500 |
+| Canonical本轮动作 | 仅补中文起终点和冲突证据；原数字保留待审 | 同左 | 同左 |
+| 公共输出 | HOLD，不公开 | HOLD，不公开 | HOLD，不公开 |
+
+官网分别为[NMG](https://mogan.utmb.world/races/NMG)、[EMG](https://mogan.utmb.world/races/EMG)、[10K](https://mogan.utmb.world/races/10K)。官方规程为QA证据JSON中officialRulebookImages[0]，其「赛事信息」表明确写中文起终点，地图同时列有中英文起终点名称；未由J.LALLI VALLEY猜测翻译。各组名下的数值由本组专属栏目读取，没有用Edition.venue推导。
+
+没有统一绝对关门钟点直证，未由总时长自动推算。没有接入任何CP或DMG Strategy。
+
+### 报名阶段与冲突
+
+官方规程表列：2026-11-12至12-20 23:59报名及缴费；报名人数超过限定名额时抽签；12-21至12-29抽签；12-30 10:00公布结果；12-30 10:00至2027-03-15 23:59补录。填报/缴费只取得等待抽签的资格，不保证获得参赛名额。当前11月19日落在规程所述报名窗口，官方平台同时为APPLYING。
+
+但UTMB中文首页DMG/CMG/MMG/10K等卡片显示已截止，NMG即将推出，另有20K/10K卡片混用。不同国内/国际报名渠道或内容更新不同步是合理推断，未取得官方解释，不标成已确认根因。不把官网卡片与主办方入口任何一方单独提升为全届最终状态，也不将未来抽签日期误映射成报名开始日。
+
+### 仍需Human决定
+
+- 裁定三个HOLD组别应采用的当届权威数字；尤其NMG实际35.6/36、爬升2180/1900，EMG爬升1260/1200，10K实际11.3/10、爬升340/300。审核通过后才可另行将对应Category标为verified并验证Gate。
+- 同一官方规程另列DMG 96.5km/5110m、CMG 67.6km/3350m、MMG 52.5km/3030m，与此前已登记官网96/5000、67/3400、52/2900存在差异。本轮严格只改这三个组别中文地点，未改已批准数字；后续如需改数值，必须独立裁定。
+- 如要显示明确报名中/预报名中，仍需裁定国内/国际渠道状态冲突及对全届的适用范围。当前安全展示为报名信息待确认。
+- 首次接入的图片/真机/携程待验项仍有效，本轮未修改图片、分享、Analytics、Guide或酒店。
+
+新增7个Registry来源：三个中文组别页active；两张官方规程图、隆景SPA入口、最酷条目pending_review，仅供人工证据核对，不新增JSON/OCR自动处理能力，不为本次调查激活未支持的内容类型。原NMG来源pending_review不变。已有的英文SourceRecord全部原样保留。
+
+### 本轮验证与保护
+
+- 完整 `npm test`：499/499 PASS，无跳过。
+- 新批次、详情展示、组别切换与Public Fact Gate专项：60/60 PASS；原10家酒店及Guide逐字回归仍通过。
+- `npm run typecheck`、`npm run typecheck:miniprogram`、`npm run lint`、默认 `npm run build`：PASS。默认构建118个静态页面，仅保留既存metadataBase提醒。
+- `git diff --check`及完整本轮Scope核对：PASS。
+- [实际本地HTTP及ViewModel验收](inputs/two-races-20261119/mogan-local-qa.json)：列表及21个详情共22请求HTTP200；其余20场详情在排除全局dataUpdatedAt后完整相等，列表内容不变。莫干山只公开原3个组别，全部中文地点，unknown明确展示；三组切换成功，5家酒店不变，无Strategy/内部字段泄漏。
+- 初轮受限环境的3个连续性测试因本地端口EPERM未能运行；允许隔离回环端口后按原命令全量重跑499/499通过，未修改连续性测试或Guard。
+- 原两条“unknown隐藏”展示测试已按本次待确认展示要求更新断言，仍验证位置兜底、无报名中承诺及源状态不变。
+- 微信开发者工具/真机的新一轮人工QA：NOT VERIFIED；没有替Human声称通过。
+
+原19场及香港Canonical/Source Registry条目逐项不变，10家酒店及动作、两篇指南、所有图片/分享文件不变；Pending/State字节不变。PR #46保持Open且未操作，Auto Apply OFF，Schema、Fact Gate、Workflow和调度均不变。
+
+---
+
+## 首次接入记录，历史基线 de4f0c6
+
 本轮交付为独立分支集成，等待 Human Review。正式生产当前为 19 场，本地 Fact Gate 与 Public API 接受 21 场。图片发布、真机体验与携程真实转化仍有待验项。
 
 - 分支为 `codex/add-hk-marathon-mogan-utmb-2027`。

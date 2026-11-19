@@ -133,8 +133,8 @@ test("Mogan uses the reviewed nominal distances and preserves distinct actual-pa
   deepEqual(record.categories.map(c => c.elevationGain), [5000, 3400, 2900, 1900, 1200, 300]);
   deepEqual(record.categories.map(c => c.cutoffTimeHours), [28, 19, 15, 11, 7, 3.5]);
   deepEqual(record.categories.map(c => c.startAt), ["2027-04-16T20:00:00+08:00", "2027-04-17T07:00:00+08:00", "2027-04-16T22:00:00+08:00", "2027-04-17T09:00:00+08:00", "2027-04-18T09:00:00+08:00", "2027-04-18T10:00:00+08:00"]);
-  equal(record.categories[1].startLocation, "naked Stables"); equal(record.categories[1].finishLocation, "Jun'anli");
-  ok(record.categories.slice(3).every(c => c.finishLocation === null && c.governance.verificationStatus === "pending"));
+  equal(record.categories[1].startLocation, "裸心谷生态度假区"); equal(record.categories[1].finishLocation, "郡安里");
+  ok(record.categories.slice(3).every(c => c.startLocation === "郡安里" && c.finishLocation === "郡安里" && c.governance.verificationStatus === "pending"));
   ok(!/Jiameng|Dazhao|Liujiayan/.test(JSON.stringify(record)));
   ok(record.categories.every(c => c.coursePoints === null && c.coursePointDataStatus === "unknown"));
   const result = createPublicRaceDetailResult(graph, record.edition.editionId);
@@ -146,6 +146,59 @@ test("Mogan uses the reviewed nominal distances and preserves distinct actual-pa
   view = selectRaceCategory(view, record.categories[1].categoryId);
   equal(view.selectedCategoryId, record.categories[1].categoryId);
   equal(view.showRaceStrategy, false);
+});
+
+test("Mogan Chinese locations retain original English evidence and conflicting groups stay withheld", () => {
+  const record = records[1];
+  deepEqual(record.categories.slice(0, 3).map(c => [c.startLocation, c.finishLocation]), [
+    ["郡安里", "郡安里"], ["裸心谷生态度假区", "郡安里"], ["郡安里", "郡安里"],
+  ]);
+  for (const [index, c] of record.categories.entries()) {
+    const original = c.governance.sources[0];
+    equal(original.rawData?.startLocation, index === 1 ? "naked Stables" : index < 3 ? "Jun'anli" : "J.LALLI VALLEY");
+    const startSource = c.governance.fieldSources.startLocation;
+    const finishSource = c.governance.fieldSources.finishLocation;
+    ok(startSource); ok(finishSource);
+    ok(c.governance.sources.some(s => s.sourceName === startSource.sourceName && s.rawData?.evidenceText));
+    ok(c.governance.sources.some(s => s.sourceName === finishSource.sourceName && s.rawData?.evidenceText));
+    if (index >= 3) {
+      equal(c.governance.verified, false);
+      equal(c.governance.verificationStatus, "pending"); equal(c.governance.verifiedAt, null);
+      const rule = c.governance.sources.find(s => s.sourceRecordId?.endsWith("-official-rulebook-image-2027"))!;
+      const facts = rule.rawData?.categoryFacts as { elevationGain: number; actualCourseDistanceKm: number };
+      equal(facts.elevationGain, [2180, 1260, 340][index - 3]);
+      equal(facts.actualCourseDistanceKm, [35.6, 23, 11.3][index - 3]);
+      ok(facts.elevationGain !== c.elevationGain);
+      ok(String(rule.rawData?.conflictResolution).includes("Human decision required"));
+      ok(!c.governance.missingFields.includes("finishLocation"));
+    }
+  }
+  const response = createPublicRaceDetailResult(graph, record.edition.editionId);
+  equal(response.status, 200); if (response.status !== 200) return;
+  deepEqual(response.body.race.categories.map(c => c.name), ["DMG 100K", "CMG 65K", "MMG 50K"]);
+  let view = createRaceDetailViewModel(response.body.race);
+  for (const category of response.body.race.categories) {
+    view = selectRaceCategory(view, category.categoryId);
+    equal(view.selectedCategoryId, category.categoryId);
+    ok(!/Jun'anli|naked Stables|J\.LALLI/.test(JSON.stringify(view)));
+  }
+});
+
+test("unresolved registration has a visible truthful fallback without inferring a race place", () => {
+  const response = createPublicRaceDetailResult(graph, records[1].edition.editionId);
+  equal(response.status, 200); if (response.status !== 200) return;
+  equal(response.body.race.registrationStatus, "unknown");
+  equal(response.body.race.registrationUrl, null);
+  const view = createRaceDetailViewModel(response.body.race);
+  equal(view.registrationDisplay, "报名信息待确认");
+  ok(view.headerMetaDisplay.includes("报名信息待确认"));
+  ok(!view.headerMetaDisplay.includes("报名中"));
+  const entry = records[1].edition.governance.sources.find(s => s.sourceRecordId?.endsWith("-official-lungking-entry-2027"))!;
+  equal(entry.rawData?.registrationStatus, "APPLYING");
+  equal(entry.rawData?.entryDoesNotConferRacePlace, true);
+  const hongKong = createPublicRaceDetailResult(graph, records[0].edition.editionId);
+  equal(hongKong.status, 200); if (hongKong.status !== 200) return;
+  equal(createRaceDetailViewModel(hongKong.body.race).registrationDisplay, "报名已结束");
 });
 
 test("both Edition Fact Gates and public contracts pass without exposing internal evidence", () => {
