@@ -1,5 +1,45 @@
 # 2027 香港马拉松与莫干山 by UTMB 接入 Handoff
 
+## Production Release Closeout｜2026-11-20
+
+**最终状态：`RELEASE_PASS` / `SECURITY_PRODUCTION_PASS`，微信正式版真机 Human QA PASS。** 本节是本次发布的最终有效记录。下方开发、HOLD、取证及各轮 QA 保留为历史记录，其中的发布前状态以本节为准。以下时间均为北京时间（UTC+08:00）。
+
+### Security Hotfix
+
+- [PR #56](https://github.com/zlwison-maker/RaceNext/pull/56) 已合并。Security Merge SHA 为 `6f6bac85f28886f40eb24b8cdf37b9a6395ac9c5`。
+- 2026-11-20 16:36 完成安全版生产验收，公开赛事保持 19 场。
+- 生产运行版本为 Node.js 22.23.2、Next.js 16.4.6、Sharp 0.35.5。生产依赖审计为 0 Critical / 0 High / 1 Moderate。
+
+### 赛事内容发布
+
+- [PR #55](https://github.com/zlwison-maker/RaceNext/pull/55) 已合并。Merge SHA 与 Production SHA 均为 `75fc7540d57fe40d7b8b4c27380be9d8c7bc33f0`。
+- 2026-11-20 17:10 完成生产验收，[Public API](https://racenext.run/api/races) 公开赛事从 19 场增至 21 场。
+- 新增 2027 渣打香港马拉松和 2027 莫干山越野赛 by UTMB®。莫干山六组别正式公开，报名状态为「报名中」。
+
+### Production QA
+
+- [GitHub CI](https://github.com/zlwison-maker/RaceNext/actions/runs/44704416918)、499/499 测试、Web / Mini TypeScript、Lint、Build 全部 PASS。
+- 生产 Public API 返回 21 场，原有 19 场详情全部 HTTP 200。两场 Race Guide、10 家酒店、Cover / Hero、分享图及图片优化链路正常。PM2 在线，Nginx 正常。
+- 发布前，Human 已在真机确认酒店跳转和图片展示。
+- 发布后，Codex 验证了生产 API 及 10 家酒店的 Ctrip Action 参数，包括跳转类型和对应酒店 ID。该核验仅覆盖 API 响应和参数。
+- 发布后，Human 确认微信正式版真机 QA PASS。
+
+### 治理与安全状态
+
+- [PR #46](https://github.com/zlwison-maker/RaceNext/pull/46) 保持 Open，Pending / State 与切换前逐字节一致，Auto Apply 保持 OFF。
+- 生产部署成功，无回滚。上一安全版本保留于 `/home/ubuntu/RaceNext-before-pr55-6f6bac85-20261120`。
+- PM2 切换期间首个探测短暂返回一次 HTTP 502，约 2 秒内恢复，最终生产验收 PASS。
+
+### 非阻断遗留事项
+
+- 生产依赖仍有 1 项 Moderate 安全告警（`baseline-browser-mapping`）。
+- 香港马拉松独立 Web 详情页仍为 HTTP 404。本次交付范围为小程序 Public API 与图片资源，独立 Web 页面开发不纳入本次发布。
+- 酒店联盟的真实交易、转化归因及收入尚未验证。
+
+上述事项不阻断 Closeout，本次 Release 已关闭。
+
+---
+
 ## 最终事实裁定与六组别公开，2026-11-20
 
 本节为当前有效状态，取代下方2026-11-19 QA中的三个组别HOLD和报名unknown结论；下方原始取证、差异和历史判断全部保留。本轮仅完成PR #55数据及自动验收，不表示合并、部署或微信真机通过。

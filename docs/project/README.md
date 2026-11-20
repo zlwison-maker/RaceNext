@@ -1,6 +1,8 @@
 # RaceNext Project Context
 
-截至 2026-11-17，1.9 七场内容与事实修复已分别通过 PR #44 / #45 合入 `main`，Canonical 为 19 个 Edition；[初次七场 Handoff](SEVEN_RACE_CONTENT_INTEGRATION_20261020.md)、[福州/熊猫补证](PR44_FUZHOU_PANDA_FACT_SUPPLEMENT_20261020.md)及[P0 修复 Handoff](SEVEN_RACE_P0_FACT_CONTENT_QA_20261020.md)继续保留各自时点结论。宁海 2026 CNH-60、UTNH-100、YNH-25 三组 CoursePoint 已正式发布并完成微信真机 QA。历史 Handoff 中的“未合并 / 未部署”不得再当作当前项目状态。
+截至 2026-11-20，RaceNext 生产 Public API 已公开 **21 场赛事**。[PR #56 安全修复](https://github.com/zlwison-maker/RaceNext/pull/56)和 [PR #55 两场赛事接入](https://github.com/zlwison-maker/RaceNext/pull/55)均已合并并完成生产发布，微信正式版真机验收 PASS。详见 [PR #55 Production Release Closeout](TWO_RACE_INTEGRATION_20261119.md#production-release-closeout2026-11-20)。
+
+历史基线（2026-11-17）：1.9 七场内容与事实修复已分别通过 PR #44 / #45 合入 `main`，当时 Canonical 为 19 个 Edition。[初次七场 Handoff](SEVEN_RACE_CONTENT_INTEGRATION_20261020.md)、[福州/熊猫补证](PR44_FUZHOU_PANDA_FACT_SUPPLEMENT_20261020.md)及[P0 修复 Handoff](SEVEN_RACE_P0_FACT_CONTENT_QA_20261020.md)继续保留各自时点结论。宁海 2026 CNH-60、UTNH-100、YNH-25 三组 CoursePoint 已正式发布并完成微信真机 QA。
 
 ## 1. Current Phase
 
@@ -41,10 +43,11 @@
 ### Release Handoff
 
 14. [微信小程序 1.0.1 Release Handoff](MINIPROGRAM_RELEASE_1_0_1_HANDOFF.md) — **RELEASED / HUMAN CONFIRMED 2026-10-14**
+15. [PR #55 Production Release Closeout（含 PR #56 安全发布）](TWO_RACE_INTEGRATION_20261119.md#production-release-closeout2026-11-20) — **`RELEASE_PASS` / `SECURITY_PRODUCTION_PASS` / HUMAN DEVICE QA PASS，2026-11-20**
 
 ### P1｜战略背景
 
-15. RaceNext Investor BP 202608 (`reference/RaceNext_Investor_BP_202608.pdf`) — **REFERENCE / 2026.08 / Not Found**
+16. RaceNext Investor BP 202608 (`reference/RaceNext_Investor_BP_202608.pdf`) — **REFERENCE / 2026.08 / Not Found**
 
 Investor BP 用于理解战略与商业背景，不是代码实现约束，也不能自动生成开发需求。
 
@@ -104,7 +107,7 @@ Human 提供可靠来源 URL 后，Codex 按 [Human Curated Source Update Workfl
 
 ## 8. 当前数据维护 P0
 
-[最新数据维护 Handoff](RACE_DATA_PENDING_COLLISION_FIX_20261029.md#2026-11-17-状态同步)：PR #52 已合并；2026-11-03 至 11-16 的 Race Data Update Run #37–#50 连续 14 次 Scheduled Run 均成功。PR #46 仍 Open，Head `5e81744eb521cb8159b8021aebbed354f04937bf`，当前 47 条累计记录为 35 rejected / 8 applied / 4 pending，State 82；其中 21 条 Reject 已于 11-16 正式写入监测账本。另有 Draft PR #53 承载两条已批准起点，尚未合并或发布，不得记为 main 已完成。`Auto Apply = OFF`。**工程连续性已验收；来源覆盖、事实准确性、变化发现能力和维护成本仍未验收。**
+[数据维护 Handoff 的 2026-11-17 历史快照](RACE_DATA_PENDING_COLLISION_FIX_20261029.md#2026-11-17-状态同步)：PR #52 已合并；2026-11-03 至 11-16 的 Race Data Update Run #37–#50 连续 14 次 Scheduled Run 均成功。该快照中 PR #46 为 Open，Head `5e81744eb521cb8159b8021aebbed354f04937bf`，47 条累计记录为 35 rejected / 8 applied / 4 pending，State 82；其中 21 条 Reject 已于 11-16 正式写入监测账本。当时 PR #53 尚为 Draft，随后于 11-17 合并并完成两条起点的生产发布。11-20 发布验收时 PR #46 仍为 Open，Pending / State 未因发布而改变，`Auto Apply = OFF`。**工程连续性已验收；来源覆盖、事实准确性、变化发现能力和维护成本仍未验收。**
 
 [数据自动维护 P0 生产 Closeout（2026-10-15）](RACE_DATA_MAINTENANCE_P0_20261014.md#2026-10-15-生产验收-closeout)：工程 P0 阶段性交付完成；Run #38691682744 已提供生产 Workflow、动态监测、生命周期过滤、公告处理及部分字段继承的真实证据，数据质量与规模化效率继续观察。完整指标集中见 Closeout，不以 Pipeline Success 代替事实准确性 PASS。
 
