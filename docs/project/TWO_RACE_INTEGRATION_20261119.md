@@ -1,5 +1,79 @@
 # 2027 香港马拉松与莫干山 by UTMB 接入 Handoff
 
+## 最终事实裁定与六组别公开，2026-11-20
+
+本节为当前有效状态，取代下方2026-11-19 QA中的三个组别HOLD和报名unknown结论；下方原始取证、差异和历史判断全部保留。本轮仅完成PR #55数据及自动验收，不表示合并、部署或微信真机通过。
+
+事实修复 Commit：`4e45364b9b81ea075de21b742c69d25131e2018d`；本节为随后文档提交的归档记录，PR最新Head见PR #55。
+
+### 来源优先级与实际复核
+
+Human于2026-11-20明确裁定：同一2027届次的主办方正式竞赛规程及国内报名系统优先，UTMB组别展示页面其次，第三方仅交叉印证。该裁定仅用于本次Edition，不改冻结距离语义、Schema或自动提取Pipeline。
+
+重新访问[官网报名页](https://mogan.utmb.world/registrations)及[国内官方入口](https://lungkingos.lungking.com/s/evps2696)，实际getRaceInfo仍为APPLYING，赛事名、raceId和2027-04-16至18日期匹配；getCategoryList的前六个普通参赛组别为DMG100K/CMG65K/MMG50K/NMG35K/EMG20K/FMG10K，精英直通通道没有被重复建模为额外组别。
+
+getIntroduction引用的三张正式规程原图本轮重新下载，逐组查看原始分辨率分段；三张SHA-256与11月19日完全相同。图1核对六组时间、起终点、实际距离及爬升，图2核对报名/抽签/补录和资格语义，图3核对组委会落款2026年11月及规程身份。未只凭Human表格写入，也没有推算CP、分段/绝对关门钟点。
+
+[本轮实时取证、逐组Before/After、完整查询响应及Human裁定](inputs/two-races-20261119/mogan-final-fact-evidence-20261120.json)
+
+### 六组别最终事实
+
+全部为2027年、UTC+08:00，顺序与Stable ID保持不变。组别标称distanceKm继续使用100/65/50/35/20/10，实际距离仅在内部Evidence/Raw Data，不新增Public DTO字段或展示模块。
+
+| Stable ID后缀 | 显示名称 | distanceKm | 规程实际km（内部） | 累计爬升m | 总时限h | 发枪时间 | 中文起点→终点 | Governance / Public |
+| --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- |
+| dmg | DMG 100K | 100 | 96.5 | 5110 | 28 | 04-16 20:00 | 郡安里→郡安里 | Verified / PASS |
+| cmg | CMG 65K | 65 | 67.6 | 3350 | 19 | 04-17 07:00 | 裸心谷生态度假区→郡安里 | Verified / PASS |
+| mmg | MMG 50K | 50 | 52.5 | 3030 | 15 | 04-16 22:00 | 郡安里→郡安里 | Verified / PASS |
+| nmg | NMG 35K | 35 | 35.6 | 2180 | 11 | 04-17 09:00 | 郡安里→郡安里 | Verified / PASS |
+| emg | EMG 20K | 20 | 23 | 1260 | 7 | 04-18 09:00 | 郡安里→郡安里 | Verified / PASS |
+| 10k | FMG 10K | 10 | 11.3 | 340 | 3.5 | 04-18 10:00 | 郡安里→郡安里 | Verified / PASS |
+
+完整Category ID为`ultra-trail-mogan-by-utmb-2027-<后缀>`，没有删除、重建或重复Category。官网10K与主办方FMG10K属于同一届唯一标称10公里组，发枪4月18日10:00、总时限3.5h及起终点对应，显示名采用正式规程FMG 10K，原`-10k` ID不变。CMG完整中文地点仍由当届中文官网支持，不精确到某栋建筑/入口。
+
+### 此前三个公开组别爬升变更，供Human复核
+
+| Category | 原官网值 | 正式规程值 | 变化 |
+| --- | ---: | ---: | ---: |
+| DMG 100K | 5000m | 5110m | +110m |
+| CMG 65K | 3400m | 3350m | -50m |
+| MMG 50K | 2900m | 3030m | +130m |
+
+NMG 1900→2180m、EMG 1200→1260m、10K 300→340m同时统一到正式规程口径。所有原官网距离/爬升、英文地名和11月19日待审记录保持原样；新增本轮复核观察及Human decisionDate=2026-11-20。fieldSources指向当前正式规程观察，CMG起点继续保留中文官网直接来源。verifiedAt使用实际执行时间，不回填审批日期。
+
+三个原HOLD组别现在有完整的正式当届直证及本次Human裁定，标记verified/verificationStatus=verified，通过现有Category发布规则。负例测试将三组复制为未完成审核状态后，现有Gate仍只返回原三个组别；未修改或绕过isCategoryPublishable。
+
+### 国内报名状态
+
+本轮执行日期2026-11-20位于正式规程2026-11-12至12-20 23:59报名窗口内，国内系统实际返回APPLYING，因此Edition.registrationStatus=registration_open，现有ViewModel映射为「报名中」。当前事实作用域明确为中国大陆官方报名通道的报名及抽签资格申请，缴费/提交不代表已中签或已获得参赛名额；规程计划12月30日10:00公布抽签结果。
+
+国际官网卡片旧的已截止提示作为不同来源观察保留，不覆盖本次国内通道事实。不自行宣称卡片差异根因已查明。registrationOpenDate/CloseDate/Url保持原值null，没有推造报名开启的绝对时刻或把阶段窗口扩成所有渠道全局日期。unknown→「报名信息待确认」通用兜底保持原样，其他赛事展示不变。
+
+### Source Registry与安全边界
+
+仅为既有莫干山规程图/国内入口Registry notes补充本次事实裁定；URL、Source ID、tier和status均未改变，eligible source集合不变。本轮批准的是已实际读取证据的事实选择，不扩展自动图像/SPA处理：原pending_review仍表示自动接入/激活有待独立审核。新增的当前复核记录和原始历史记录共同保留，不因优先来源裁定而清理不同意见。
+
+自动监测以后仍可能从旧官网参数提出建议，本轮未修改Pipeline来源选择逻辑。这类建议应参考本次已记录的Human裁定审核；Auto Apply继续OFF，不会据此自动回退Canonical。PR #46保持Open且未操作，Pending/State字节不变。
+
+### 测试与当前状态
+
+- `npm test`：499/499 PASS，无跳过。
+- `node --test --experimental-strip-types tests/contentBatch20261119.test.ts tests/prePublishFactGate.test.ts`：19/19 PASS。覆盖六组直证/来源裁定、报名中映射、unknown兜底、六组切换及撤销审核后仍Fail Closed的负例。
+- `npm run typecheck` / `npm run typecheck:miniprogram` / `npm run lint`：PASS。
+- 标准 `npm run build`：PASS，默认Turbopack生成118个静态页面，只有既存metadataBase提醒。
+- `git diff --check`、Source Registry结构和eligible source集合保护：PASS。
+- [实际本地API与ViewModel证据](inputs/two-races-20261119/mogan-final-local-api-20261120.json)：22个HTTP请求200，公开21场；莫干山六组全部返回，距离/爬升/时限/发枪/中文地点逐项相符，六组均可切换，报名中正常显示，5家酒店不变、无Strategy/CP section、无内部字段泄漏。
+- 原19场及香港20个详情排除全局dataUpdatedAt后完整相等；列表仅莫干山registrationStatus发生预期变化。
+- 保护检查：原20场Canonical/Registry相等，原始SourceRecord作为前缀逐项相等；Guide、酒店动作、资产、ViewModel、Gate、Schema和Pending/State字节不变。
+- 本地服务验收后已停止。微信开发者工具/真机新一轮人工QA：NOT VERIFIED；Merge / Deploy / 生产监测触发：NOT RUN。
+
+本轮变更：莫干山Canonical、对应Registry notes、直接相关测试、本Handoff、两份隔离证据JSON。香港和其他19场Canonical/Registry保持相等；指南、酒店/携程动作、图片/分享、ViewModel实现、API DTO、Schema、Gate、Analytics、Workflow、调度均未改动。原有20场实际API详情排除全局dataUpdatedAt后逐字段相等。
+
+本轮事实目标无剩余阻断。初始接入的香港图片裁切、图片许可、实际携程归因及微信真机仍属未验事项，本轮没有宣称其通过。Draft保持；不Merge、不Deploy、不触发生产监测。
+
+---
+
+
 ## PR #55 莫干山详情页 QA 补证，2026-11-19
 
 本节为 de4f0c6 后的最新状态；其后的首次接入记录保留为历史取证，不代表本轮仍使用英文地点或缺失中文起终点。
