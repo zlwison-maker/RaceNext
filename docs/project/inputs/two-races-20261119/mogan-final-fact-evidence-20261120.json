@@ -1,0 +1,598 @@
+{
+  "observedAt": "2026-11-20T02:10:41.133Z",
+  "executionLocalDate": "2026-11-20",
+  "baselineCommit": "5121c493fce95fa5681eb9d78a5db677b6ce37b4",
+  "humanDecision": {
+    "humanDecisionDate": "2026-11-20",
+    "executionReviewedAt": "2026-11-20T02:10:41.133Z",
+    "scope": "ultra-trail-mogan-by-utmb-2027",
+    "priority": [
+      "2027 organizer formal rulebook and domestic registration system",
+      "2027 UTMB category detail",
+      "third-party corroboration only"
+    ],
+    "distanceKmSemantics": "official nominal labels approved 2026-11-19; actual course distance internal only",
+    "conflictDecision": "Use the identity/year-verified 2027 organizer formal rulebook for this edition; retain UTMB website values as lower-priority observations, not unresolved publication blockers."
+  },
+  "fetchedSources": {
+    "registration-page": {
+      "url": "https://mogan.utmb.world/registrations",
+      "http": [
+        "200",
+        "https://mogan.utmb.world/registrations",
+        "text/html; charset=utf-8"
+      ],
+      "curlExit": 0,
+      "bytes": 509914,
+      "contentHash": "20406ff096fa584908ab7fa242499e4de6c3c4e7b9bcb138f1b2efa84a1c5018",
+      "fetchedAt": "2026-11-20T02:07:43.748080+00:00"
+    },
+    "official-entry": {
+      "url": "https://lungkingos.lungking.com/s/evps2696",
+      "http": [
+        "200",
+        "https://lungkingos.lungking.com/static/app/m/#/lungking/race/detail/2c908c04a1ce915301a1cf4a7b7a4862/info",
+        "text/html"
+      ],
+      "curlExit": 0,
+      "bytes": 2546,
+      "contentHash": "daf55e2169141a885311576f6f454710c4c5aeaa58b478ad15d314ee794151e2",
+      "fetchedAt": "2026-11-20T02:07:10.121457+00:00"
+    },
+    "getRaceInfo": {
+      "url": "https://lungkingos.lungking.com/index/app/race/detail/getRaceInfo",
+      "http": [
+        "200",
+        "https://lungkingos.lungking.com/index/app/race/detail/getRaceInfo",
+        "text/html;charset=UTF-8"
+      ],
+      "curlExit": 0,
+      "bytes": 4754,
+      "contentHash": "8f35c2752fca784c72b84bce51dd4da9bb1b3ec5280ceb36d2d8b5928a3e2ffe",
+      "fetchedAt": "2026-11-20T02:07:10.165028+00:00"
+    },
+    "getCategoryList": {
+      "url": "https://lungkingos.lungking.com/index/app/race/detail/getCategoryList",
+      "http": [
+        "200",
+        "https://lungkingos.lungking.com/index/app/race/detail/getCategoryList",
+        "text/html;charset=UTF-8"
+      ],
+      "curlExit": 0,
+      "bytes": 3640,
+      "contentHash": "948b115643df22a59fb695707505eddd46cb6b7acfa81f7b15a26de32f93d7bf",
+      "fetchedAt": "2026-11-20T02:07:10.496031+00:00"
+    },
+    "getIntroduction": {
+      "url": "https://lungkingos.lungking.com/index/app/race/detail/getIntroduction",
+      "http": [
+        "200",
+        "https://lungkingos.lungking.com/index/app/race/detail/getIntroduction",
+        "text/html;charset=UTF-8"
+      ],
+      "curlExit": 0,
+      "bytes": 1004,
+      "contentHash": "851698da86b902b466b714fb9d4017abd65adb2e644e2d1db87367db0ce80480",
+      "fetchedAt": "2026-11-20T02:07:10.116917+00:00"
+    }
+  },
+  "rulebookImages": [
+    {
+      "url": "https://lungkingos.lungking.com/resource/image/a101f3f85f2ea99be10861636128e1136247ed6daf395b82ce54f91146727ee364e122be03ead27df6df95caaa7904db2922295983ca910d",
+      "contentHash": "9bec9bbf201cb0a4391a1ceb175064170afb94ff3178dafdc30bdef5df415f21",
+      "bytes": 1362306,
+      "fetchedAt": "2026-11-20T02:07:48.708954+00:00",
+      "curlExit": 0
+    },
+    {
+      "url": "https://lungkingos.lungking.com/resource/image/a101f3f85f2ea99bf0ceee714d07851d1cd92cbbe507a0490e0b6fccb48a7e252b53308fbc3d331e077ae6c2649ef3bf3986351d04b82b25",
+      "contentHash": "cea629c9e3623820162ef81840332627e88e3702858b75afb5454311009dc320",
+      "bytes": 4606750,
+      "fetchedAt": "2026-11-20T02:07:48.835040+00:00",
+      "curlExit": 0
+    },
+    {
+      "url": "https://lungkingos.lungking.com/resource/image/a101f3f85f2ea99b92678a8cf33c28b43aac348d211aa0e0488982a3f2ef41476d750dd983e74de2999428403b890c26ce7b577b95a4f4b8",
+      "contentHash": "d34659b2f833f847c4d9ac4eeb281c4cbb17159b7e08f9dbc6b93cdce86a8342",
+      "bytes": 1131010,
+      "fetchedAt": "2026-11-20T02:07:48.663901+00:00",
+      "curlExit": 0
+    }
+  ],
+  "rulebookHashesMatchPreviousReview": true,
+  "domesticPlatform": {
+    "raceId": "2c908c04a1ce915301a1cf4a7b7a4862",
+    "raceName": "2027莫干山越野赛by UTMB®",
+    "raceStatus": "APPLYING",
+    "startDate": "2027-04-16 20:00:00",
+    "endDate": "2027-04-18 16:00:00",
+    "categories": [
+      {
+        "categoryId": "2c908c04a1ce915301a1cf4a7ba94863",
+        "categoryName": "DMG100K"
+      },
+      {
+        "categoryId": "2c908c04a1ce915301a1cf4a7bb04868",
+        "categoryName": "CMG65K"
+      },
+      {
+        "categoryId": "2c908c04a1ce915301a1cf4a7bb0486d",
+        "categoryName": "MMG50K"
+      },
+      {
+        "categoryId": "2c908c04a1ce915301a1cf4a7bb04872",
+        "categoryName": "NMG35K"
+      },
+      {
+        "categoryId": "2c908c04a1ce915301a1cf4a7bb14877",
+        "categoryName": "EMG20K"
+      },
+      {
+        "categoryId": "2c908c04a1ce915301a1cf4a7bb1487c",
+        "categoryName": "FMG10K"
+      }
+    ]
+  },
+  "registrationResolution": {
+    "status": "registration_open",
+    "channel": "domestic official",
+    "dateWithinWindow": true,
+    "windowFromDate": "2026-11-12",
+    "windowUntil": "2026-12-20T23:59+08:00",
+    "drawResultsAt": "2026-12-30T10:00+08:00",
+    "entryDoesNotConferRacePlace": true
+  },
+  "categoryFacts": [
+    {
+      "before": {
+        "categoryName": "DMG 100K",
+        "elevationGain": 5000,
+        "verificationStatus": "verified"
+      },
+      "after": {
+        "categoryId": "ultra-trail-mogan-by-utmb-2027-dmg",
+        "categoryName": "DMG 100K",
+        "nominalDistanceKm": 100,
+        "actualCourseDistanceKm": 96.5,
+        "elevationGain": 5110,
+        "raceDate": "2027-04-16",
+        "startAt": "2027-04-16T20:00:00+08:00",
+        "startTimes": [
+          "2027-04-16T20:00:00+08:00"
+        ],
+        "cutoffTimeHours": 28,
+        "startLocation": "郡安里",
+        "finishLocation": "郡安里"
+      },
+      "governance": {
+        "verified": true,
+        "verificationStatus": "verified",
+        "verifiedAt": "2026-11-20T02:10:41.133Z"
+      }
+    },
+    {
+      "before": {
+        "categoryName": "CMG 65K",
+        "elevationGain": 3400,
+        "verificationStatus": "verified"
+      },
+      "after": {
+        "categoryId": "ultra-trail-mogan-by-utmb-2027-cmg",
+        "categoryName": "CMG 65K",
+        "nominalDistanceKm": 65,
+        "actualCourseDistanceKm": 67.6,
+        "elevationGain": 3350,
+        "raceDate": "2027-04-17",
+        "startAt": "2027-04-17T07:00:00+08:00",
+        "startTimes": [
+          "2027-04-17T07:00:00+08:00"
+        ],
+        "cutoffTimeHours": 19,
+        "startLocation": "裸心谷生态度假区",
+        "finishLocation": "郡安里"
+      },
+      "governance": {
+        "verified": true,
+        "verificationStatus": "verified",
+        "verifiedAt": "2026-11-20T02:10:41.133Z"
+      }
+    },
+    {
+      "before": {
+        "categoryName": "MMG 50K",
+        "elevationGain": 2900,
+        "verificationStatus": "verified"
+      },
+      "after": {
+        "categoryId": "ultra-trail-mogan-by-utmb-2027-mmg",
+        "categoryName": "MMG 50K",
+        "nominalDistanceKm": 50,
+        "actualCourseDistanceKm": 52.5,
+        "elevationGain": 3030,
+        "raceDate": "2027-04-16",
+        "startAt": "2027-04-16T22:00:00+08:00",
+        "startTimes": [
+          "2027-04-16T22:00:00+08:00"
+        ],
+        "cutoffTimeHours": 15,
+        "startLocation": "郡安里",
+        "finishLocation": "郡安里"
+      },
+      "governance": {
+        "verified": true,
+        "verificationStatus": "verified",
+        "verifiedAt": "2026-11-20T02:10:41.133Z"
+      }
+    },
+    {
+      "before": {
+        "categoryName": "NMG 35K",
+        "elevationGain": 1900,
+        "verificationStatus": "pending"
+      },
+      "after": {
+        "categoryId": "ultra-trail-mogan-by-utmb-2027-nmg",
+        "categoryName": "NMG 35K",
+        "nominalDistanceKm": 35,
+        "actualCourseDistanceKm": 35.6,
+        "elevationGain": 2180,
+        "raceDate": "2027-04-17",
+        "startAt": "2027-04-17T09:00:00+08:00",
+        "startTimes": [
+          "2027-04-17T09:00:00+08:00"
+        ],
+        "cutoffTimeHours": 11,
+        "startLocation": "郡安里",
+        "finishLocation": "郡安里"
+      },
+      "governance": {
+        "verified": true,
+        "verificationStatus": "verified",
+        "verifiedAt": "2026-11-20T02:10:41.133Z"
+      }
+    },
+    {
+      "before": {
+        "categoryName": "EMG 20K",
+        "elevationGain": 1200,
+        "verificationStatus": "pending"
+      },
+      "after": {
+        "categoryId": "ultra-trail-mogan-by-utmb-2027-emg",
+        "categoryName": "EMG 20K",
+        "nominalDistanceKm": 20,
+        "actualCourseDistanceKm": 23,
+        "elevationGain": 1260,
+        "raceDate": "2027-04-18",
+        "startAt": "2027-04-18T09:00:00+08:00",
+        "startTimes": [
+          "2027-04-18T09:00:00+08:00"
+        ],
+        "cutoffTimeHours": 7,
+        "startLocation": "郡安里",
+        "finishLocation": "郡安里"
+      },
+      "governance": {
+        "verified": true,
+        "verificationStatus": "verified",
+        "verifiedAt": "2026-11-20T02:10:41.133Z"
+      }
+    },
+    {
+      "before": {
+        "categoryName": "10K",
+        "elevationGain": 300,
+        "verificationStatus": "pending"
+      },
+      "after": {
+        "categoryId": "ultra-trail-mogan-by-utmb-2027-10k",
+        "categoryName": "FMG 10K",
+        "nominalDistanceKm": 10,
+        "actualCourseDistanceKm": 11.3,
+        "elevationGain": 340,
+        "raceDate": "2027-04-18",
+        "startAt": "2027-04-18T10:00:00+08:00",
+        "startTimes": [
+          "2027-04-18T10:00:00+08:00"
+        ],
+        "cutoffTimeHours": 3.5,
+        "startLocation": "郡安里",
+        "finishLocation": "郡安里"
+      },
+      "governance": {
+        "verified": true,
+        "verificationStatus": "verified",
+        "verifiedAt": "2026-11-20T02:10:41.133Z"
+      }
+    }
+  ],
+  "rawPublicResponses": {
+    "getRaceInfo": {
+      "data": {
+        "raceId": "2c908c04a1ce915301a1cf4a7b7a4862",
+        "routeMap": "<div data-element=\"root\" class=\"am-engine\"><p data-id=\"p1dr9j7ls-1ea3hu7y3vds0\"><img src=\"/resource/image/a101f3f85f2ea99b2fd01ff1acf5b28791f16091f703caee43544522f33c0ee4b99595bb6a1b8b2d698d1d8f17c332f4c4d5beb4d4fd4444\" style=\"width: 878px; visibility: visible; height: 1174px;\" data-type=\"inline\"><img src=\"/resource/image/a101f3f85f2ea99b87e173a8ca03c1e9f2492522aa8309356a85f197eea7831e7ca1b7e36398e87775e577e8a88e68f77523e96887256e73\" style=\"width: 878px; visibility: visible; height: 1173px;\" data-type=\"inline\"><img src=\"/resource/image/a101f3f85f2ea99bdc1f8c4017fd80cfd88a3cab629e5e351cf25f2bde7205b301cdd61b2895733ce61a6d35afb8f00d448fb2e065a3fe94\" style=\"width: 878px; visibility: visible; height: 1174px;\" data-type=\"inline\"><img src=\"/resource/image/a101f3f85f2ea99b0ec56379f9bfd339e66927392bfc7ed15ccef8b19271fb4adf30f74438b690eac3b6eed60981c172702e519ef100d0a8\" style=\"width: 878px; visibility: visible; height: 1174px;\" data-type=\"inline\"><img src=\"/resource/image/a101f3f85f2ea99bd4714b44a903450c9687bc92cd09601a490f9b01ff44efb7f7c8dbf8a780686693d63ac53426d8f1c9c36e9f35c4e8e7\" style=\"width: 878px; visibility: visible; height: 1174px;\" data-type=\"inline\"><img src=\"/resource/image/a101f3f85f2ea99b2fd01ff1acf5b28798c938bb2590ed42146dca9d86a58890ac01a226de8d186087c7be9a738180ddab25be30c8269e6d\" style=\"width: 878px; visibility: visible; height: 1174px;\" data-type=\"inline\"></p></div>",
+        "raceType": "越野赛",
+        "address": "莫干山镇",
+        "coverImg": "/resource/ea4ff50f6bc2aede59134888a034da1810c0456e85e4a211836182d007439a2dd6fbb1a2a33e67140e2a9848a02247a19db60b0e616f3c8613b9e4deed7ab76c",
+        "city": "湖州市",
+        "endDate": "2027-04-18 16:00:00",
+        "addressType": "DOMESTIC",
+        "scorePublish": 0,
+        "secondaryNavs": [
+          {
+            "code": "RACE_INTRO",
+            "displayName": "赛事介绍",
+            "sortOrder": 2,
+            "navType": "SYSTEM",
+            "id": "2c908c04a1ce915301a1cf4a7e005daf",
+            "phaseStatus": "PRE_RACE,IN_RACE,POST_RACE"
+          },
+          {
+            "code": "ENROLL_RECORD",
+            "displayName": "查询报名",
+            "sortOrder": 3,
+            "navType": "SYSTEM",
+            "id": "2c908c04a1ce915301a1cf4a7e005db1",
+            "phaseStatus": "PRE_RACE,IN_RACE,POST_RACE"
+          },
+          {
+            "code": "ROUTE_MAP",
+            "displayName": "路线图",
+            "sortOrder": 4,
+            "navType": "SYSTEM",
+            "id": "2c908c04a1ce915301a1cf4a7e005db3",
+            "phaseStatus": "PRE_RACE,IN_RACE,POST_RACE"
+          },
+          {
+            "code": "CONTACT_US",
+            "displayName": "联系客服",
+            "sortOrder": 5,
+            "navType": "SYSTEM",
+            "id": "2c908c04a1ce915301a1cf4a7e005db5",
+            "phaseStatus": "PRE_RACE,IN_RACE,POST_RACE"
+          },
+          {
+            "code": "INVITE_CODE",
+            "displayName": "邀请码专属通道",
+            "sortOrder": 6,
+            "navType": "SYSTEM",
+            "id": "2c908c04a1ce915301a1cf4a7e005db6",
+            "phaseStatus": "PRE_RACE,IN_RACE,POST_RACE"
+          },
+          {
+            "code": "NAME_CORRECTION",
+            "displayName": "英文名校正",
+            "sortOrder": 7,
+            "navType": "SYSTEM",
+            "id": "2c908c04a1ce915301a1cf4a7e005db7",
+            "phaseStatus": "PRE_RACE,IN_RACE,POST_RACE"
+          },
+          {
+            "code": "REFUND",
+            "displayName": "退费申请",
+            "sortOrder": 11,
+            "navType": "SYSTEM",
+            "id": "2c908c04a1ce915301a1cf4a7e025dbb",
+            "phaseStatus": "PRE_RACE,IN_RACE,POST_RACE"
+          }
+        ],
+        "scoreOpenMode": 1,
+        "scoreQueryRules": [],
+        "province": "浙江省",
+        "miniProgramShareImg": "/resource/image/ea4ff50f6bc2aede59134888a034da1811092d83b68da812242eb9ea13938e346c805770c742976528553e7a0a224bae76c85ec12e37059313b9e4deed7ab76c",
+        "carouselItems": [],
+        "primaryNavs": [
+          {
+            "code": "WEATHER",
+            "displayName": "天气",
+            "sortOrder": 2,
+            "navType": "SYSTEM",
+            "id": "2c908c04a1ce915301a1cf4a7e005dae",
+            "phaseStatus": "PRE_RACE,IN_RACE,POST_RACE"
+          },
+          {
+            "code": "COUNTDOWN",
+            "displayName": "倒计时",
+            "sortOrder": 3,
+            "navType": "SYSTEM",
+            "id": "2c908c04a1ce915301a1cf4a7e005db0",
+            "phaseStatus": "PRE_RACE,IN_RACE,POST_RACE"
+          },
+          {
+            "code": "SIGNUP",
+            "displayName": "立即报名",
+            "sortOrder": 4,
+            "navType": "SYSTEM",
+            "id": "2c908c04a1ce915301a1cf4a7e005db2",
+            "phaseStatus": "PRE_RACE,IN_RACE,POST_RACE"
+          }
+        ],
+        "district": "德清县",
+        "raceName": "2027莫干山越野赛by UTMB®",
+        "raceStatus": "APPLYING",
+        "startDate": "2027-04-16 20:00:00",
+        "introduction": "<div data-element=\"root\" class=\"am-engine\"><p data-id=\"p1dr9j7ls-88u4y6z0f3000\"><img src=\"/resource/image/a101f3f85f2ea99be10861636128e1136247ed6daf395b82ce54f91146727ee364e122be03ead27df6df95caaa7904db2922295983ca910d\" style=\"width: 675px; visibility: visible; height: 8884px;\" data-type=\"inline\"><img src=\"/resource/image/a101f3f85f2ea99bf0ceee714d07851d1cd92cbbe507a0490e0b6fccb48a7e252b53308fbc3d331e077ae6c2649ef3bf3986351d04b82b25\" style=\"width: 675px; visibility: visible; height: 11929px;\" data-type=\"inline\"><img src=\"/resource/image/a101f3f85f2ea99b92678a8cf33c28b43aac348d211aa0e0488982a3f2ef41476d750dd983e74de2999428403b890c26ce7b577b95a4f4b8\" style=\"width: 675px; visibility: visible; height: 5610px;\" data-type=\"inline\"></p></div>",
+        "introductionEnglish": ""
+      },
+      "errorCode": 0,
+      "message": "请求成功",
+      "responseCode": "SUCCESS"
+    },
+    "getCategoryList": {
+      "data": {
+        "categoryList": [
+          {
+            "finishedCount": 0,
+            "dqPublish": 0,
+            "participantCount": 0,
+            "categoryStatus": "NOT_STARTED",
+            "finishedRate": 0.0,
+            "categoryName": "DMG100K",
+            "categoryId": "2c908c04a1ce915301a1cf4a7ba94863",
+            "scheduleId": "2c908c04a1ce915301a1cf4a7bb04867",
+            "mileage": 0.0
+          },
+          {
+            "finishedCount": 0,
+            "dqPublish": 0,
+            "participantCount": 0,
+            "categoryStatus": "NOT_STARTED",
+            "finishedRate": 0.0,
+            "categoryName": "CMG65K",
+            "categoryId": "2c908c04a1ce915301a1cf4a7bb04868",
+            "scheduleId": "2c908c04a1ce915301a1cf4a7bb0486c",
+            "mileage": 0.0
+          },
+          {
+            "finishedCount": 0,
+            "dqPublish": 0,
+            "participantCount": 0,
+            "categoryStatus": "NOT_STARTED",
+            "finishedRate": 0.0,
+            "categoryName": "MMG50K",
+            "categoryId": "2c908c04a1ce915301a1cf4a7bb0486d",
+            "scheduleId": "2c908c04a1ce915301a1cf4a7bb04871",
+            "mileage": 0.0
+          },
+          {
+            "finishedCount": 0,
+            "dqPublish": 0,
+            "participantCount": 0,
+            "categoryStatus": "NOT_STARTED",
+            "finishedRate": 0.0,
+            "categoryName": "NMG35K",
+            "categoryId": "2c908c04a1ce915301a1cf4a7bb04872",
+            "scheduleId": "2c908c04a1ce915301a1cf4a7bb04876",
+            "mileage": 0.0
+          },
+          {
+            "finishedCount": 0,
+            "dqPublish": 0,
+            "participantCount": 0,
+            "categoryStatus": "NOT_STARTED",
+            "finishedRate": 0.0,
+            "categoryName": "EMG20K",
+            "categoryId": "2c908c04a1ce915301a1cf4a7bb14877",
+            "scheduleId": "2c908c04a1ce915301a1cf4a7bb1487b",
+            "mileage": 0.0
+          },
+          {
+            "finishedCount": 0,
+            "dqPublish": 0,
+            "participantCount": 0,
+            "categoryStatus": "NOT_STARTED",
+            "finishedRate": 0.0,
+            "categoryName": "FMG10K",
+            "categoryId": "2c908c04a1ce915301a1cf4a7bb1487c",
+            "scheduleId": "2c908c04a1ce915301a1cf4a7bb24880",
+            "mileage": 0.0
+          },
+          {
+            "finishedCount": 0,
+            "dqPublish": 0,
+            "participantCount": 0,
+            "categoryStatus": "NOT_STARTED",
+            "finishedRate": 0.0,
+            "categoryName": "精英选手-DMG100K免费直通",
+            "categoryId": "2c908c04a1ce915301a1cf4a7bb34881",
+            "scheduleId": "2c908c04a1ce915301a1cf4a7bb34885",
+            "mileage": 0.0
+          },
+          {
+            "finishedCount": 0,
+            "dqPublish": 0,
+            "participantCount": 0,
+            "categoryStatus": "NOT_STARTED",
+            "finishedRate": 0.0,
+            "categoryName": "精英选手-DMG100K付费直通",
+            "categoryId": "2c908c04a1ce915301a1cf4a7bb34886",
+            "scheduleId": "2c908c04a1ce915301a1cf4a7bb3488a",
+            "mileage": 0.0
+          },
+          {
+            "finishedCount": 0,
+            "dqPublish": 0,
+            "participantCount": 0,
+            "categoryStatus": "NOT_STARTED",
+            "finishedRate": 0.0,
+            "categoryName": "精英选手-CMG65K免费直通",
+            "categoryId": "2c908c04a1ce915301a1cf4a7bb3488b",
+            "scheduleId": "2c908c04a1ce915301a1cf4a7bb3488f",
+            "mileage": 0.0
+          },
+          {
+            "finishedCount": 0,
+            "dqPublish": 0,
+            "participantCount": 0,
+            "categoryStatus": "NOT_STARTED",
+            "finishedRate": 0.0,
+            "categoryName": "精英选手-CMG65K付费直通",
+            "categoryId": "2c908c04a1ce915301a1cf4a7bb34890",
+            "scheduleId": "2c908c04a1ce915301a1cf4a7bb34894",
+            "mileage": 0.0
+          },
+          {
+            "finishedCount": 0,
+            "dqPublish": 0,
+            "participantCount": 0,
+            "categoryStatus": "NOT_STARTED",
+            "finishedRate": 0.0,
+            "categoryName": "精英选手-MMG50K免费直通",
+            "categoryId": "2c908c04a1ce915301a1cf4a7bb34895",
+            "scheduleId": "2c908c04a1ce915301a1cf4a7bb34899",
+            "mileage": 0.0
+          },
+          {
+            "finishedCount": 0,
+            "dqPublish": 0,
+            "participantCount": 0,
+            "categoryStatus": "NOT_STARTED",
+            "finishedRate": 0.0,
+            "categoryName": "精英选手-MMG50K付费直通",
+            "categoryId": "2c908c04a1ce915301a1cf4a7bb3489a",
+            "scheduleId": "2c908c04a1ce915301a1cf4a7bb3489e",
+            "mileage": 0.0
+          },
+          {
+            "finishedCount": 0,
+            "dqPublish": 0,
+            "participantCount": 0,
+            "categoryStatus": "NOT_STARTED",
+            "finishedRate": 0.0,
+            "categoryName": "精英选手-NMG35K免费直通",
+            "categoryId": "2c908c04a1ce915301a1cf4a7bb3489f",
+            "scheduleId": "2c908c04a1ce915301a1cf4a7bb348a3",
+            "mileage": 0.0
+          },
+          {
+            "finishedCount": 0,
+            "dqPublish": 0,
+            "participantCount": 0,
+            "categoryStatus": "NOT_STARTED",
+            "finishedRate": 0.0,
+            "categoryName": "精英选手-NMG35K付费直通",
+            "categoryId": "2c908c04a1ce915301a1cf4a7bb348a4",
+            "scheduleId": "2c908c04a1ce915301a1cf4a7bb348a8",
+            "mileage": 0.0
+          }
+        ]
+      },
+      "errorCode": 0,
+      "message": "请求成功",
+      "responseCode": "SUCCESS"
+    },
+    "getIntroduction": {
+      "data": {
+        "raceId": "2c908c04a1ce915301a1cf4a7b7a4862",
+        "titleEnglish": "",
+        "raceName": "2027莫干山越野赛by UTMB®",
+        "title": "",
+        "introduction": "<div data-element=\"root\" class=\"am-engine\"><p data-id=\"p1dr9j7ls-88u4y6z0f3000\"><img src=\"/resource/image/a101f3f85f2ea99be10861636128e1136247ed6daf395b82ce54f91146727ee364e122be03ead27df6df95caaa7904db2922295983ca910d\" style=\"width: 675px; visibility: visible; height: 8884px;\" data-type=\"inline\"><img src=\"/resource/image/a101f3f85f2ea99bf0ceee714d07851d1cd92cbbe507a0490e0b6fccb48a7e252b53308fbc3d331e077ae6c2649ef3bf3986351d04b82b25\" style=\"width: 675px; visibility: visible; height: 11929px;\" data-type=\"inline\"><img src=\"/resource/image/a101f3f85f2ea99b92678a8cf33c28b43aac348d211aa0e0488982a3f2ef41476d750dd983e74de2999428403b890c26ce7b577b95a4f4b8\" style=\"width: 675px; visibility: visible; height: 5610px;\" data-type=\"inline\"></p></div>",
+        "introductionEnglish": ""
+      },
+      "errorCode": 0,
+      "message": "请求成功",
+      "responseCode": "SUCCESS"
+    }
+  }
+}

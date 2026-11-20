@@ -1534,6 +1534,174 @@
         "sha256": "090cf9d155c82c081b37ac3321003bfcf57681f4cc47d01e115c9308c1c0383c",
         "derivation": "resize=max_width_1600_without_enlargement;encode=jpeg_quality_88_mozjpeg_progressive_4:4:4;no_crop;shared_cover_hero"
       }
+    },
+    {
+      "assetId": "standard-chartered-hong-kong-marathon-2027-cover",
+      "editionId": "standard-chartered-hong-kong-marathon-2027",
+      "role": "cover",
+      "publicPath": "/races/standard-chartered-hong-kong-marathon/2027/display-v1.jpg",
+      "originalPublicPath": "/races/standard-chartered-hong-kong-marathon/2027/original.png",
+      "originalFilename": "hk-marathon-2027-original.png",
+      "imageYear": 2027,
+      "imageYearEvidence": "Visible 2027 artwork text.",
+      "qualityStatus": "temporary",
+      "width": 1600,
+      "height": 513,
+      "aspectRatio": 3.1189,
+      "format": "jpeg",
+      "fileSizeBytes": 224394,
+      "sha256": "0d7e9b306a8de05d8c5862b6b5761722178ed0e3664e6da6050c5f9e0a57b162",
+      "source": {
+        "type": "user_provided",
+        "receivedAt": "2026-11-19",
+        "sourceUrl": null,
+        "usageRightsStatus": "unverified"
+      },
+      "notes": "Human selected for branch integration. Original author and usage license not supplied. IMAGE_QA_HOLD pending real-device crop and explicit rights confirmation. Center crop removes both side logos and covers bottom slogan on list; no pixel movement or logo deletion.",
+      "original": {
+        "width": 2048,
+        "height": 657,
+        "aspectRatio": 3.1172,
+        "format": "png",
+        "fileSizeBytes": 2270230,
+        "sha256": "916d35704bbcd81ae1a6c2ba06ceeff78779ffd5b40cc4e8eb04d48a9a06798e"
+      },
+      "derived": {
+        "publicPath": "/races/standard-chartered-hong-kong-marathon/2027/display-v1.jpg",
+        "width": 1600,
+        "height": 513,
+        "aspectRatio": 3.1189,
+        "format": "jpeg",
+        "fileSizeBytes": 224394,
+        "sha256": "0d7e9b306a8de05d8c5862b6b5761722178ed0e3664e6da6050c5f9e0a57b162",
+        "derivation": "Human package offline display derivative; max_width_1600_without_enlargement; jpeg; no_crop; shared_cover_hero; source_hash=916d35704bbcd81ae1a6c2ba06ceeff78779ffd5b40cc4e8eb04d48a9a06798e"
+      }
+    },
+    {
+      "assetId": "standard-chartered-hong-kong-marathon-2027-hero",
+      "editionId": "standard-chartered-hong-kong-marathon-2027",
+      "role": "hero",
+      "publicPath": "/races/standard-chartered-hong-kong-marathon/2027/display-v1.jpg",
+      "originalPublicPath": "/races/standard-chartered-hong-kong-marathon/2027/original.png",
+      "originalFilename": "hk-marathon-2027-original.png",
+      "imageYear": 2027,
+      "imageYearEvidence": "Visible 2027 artwork text.",
+      "qualityStatus": "temporary",
+      "width": 1600,
+      "height": 513,
+      "aspectRatio": 3.1189,
+      "format": "jpeg",
+      "fileSizeBytes": 224394,
+      "sha256": "0d7e9b306a8de05d8c5862b6b5761722178ed0e3664e6da6050c5f9e0a57b162",
+      "source": {
+        "type": "user_provided",
+        "receivedAt": "2026-11-19",
+        "sourceUrl": null,
+        "usageRightsStatus": "unverified"
+      },
+      "notes": "Human selected for branch integration. Original author and usage license not supplied. IMAGE_QA_HOLD pending real-device crop and explicit rights confirmation. Center crop removes both side logos and covers bottom slogan on list; no pixel movement or logo deletion.",
+      "original": {
+        "width": 2048,
+        "height": 657,
+        "aspectRatio": 3.1172,
+        "format": "png",
+        "fileSizeBytes": 2270230,
+        "sha256": "916d35704bbcd81ae1a6c2ba06ceeff78779ffd5b40cc4e8eb04d48a9a06798e"
+      },
+      "derived": {
+        "publicPath": "/races/standard-chartered-hong-kong-marathon/2027/display-v1.jpg",
+        "width": 1600,
+        "height": 513,
+        "aspectRatio": 3.1189,
+        "format": "jpeg",
+        "fileSizeBytes": 224394,
+        "sha256": "0d7e9b306a8de05d8c5862b6b5761722178ed0e3664e6da6050c5f9e0a57b162",
+        "derivation": "Human package offline display derivative; max_width_1600_without_enlargement; jpeg; no_crop; shared_cover_hero; source_hash=916d35704bbcd81ae1a6c2ba06ceeff78779ffd5b40cc4e8eb04d48a9a06798e"
+      }
+    },
+    {
+      "assetId": "ultra-trail-mogan-by-utmb-2027-cover",
+      "editionId": "ultra-trail-mogan-by-utmb-2027",
+      "role": "cover",
+      "publicPath": "/races/ultra-trail-mogan-by-utmb/2027/display-v1.jpg",
+      "originalPublicPath": "/races/ultra-trail-mogan-by-utmb/2027/original.png",
+      "originalFilename": "mogan-utmb-2027-original.png",
+      "imageYear": null,
+      "imageYearEvidence": "Human selected this campaign visual for 2027; image contains no verifiable year.",
+      "qualityStatus": "temporary",
+      "width": 1600,
+      "height": 816,
+      "aspectRatio": 1.9608,
+      "format": "jpeg",
+      "fileSizeBytes": 191202,
+      "sha256": "db8866592baa066b190cc531400d769ca1a695789971c1d0d098e27df279e92c",
+      "source": {
+        "type": "user_provided",
+        "receivedAt": "2026-11-19",
+        "sourceUrl": null,
+        "usageRightsStatus": "unverified"
+      },
+      "notes": "Human selected for branch integration. Original author and usage license not supplied. IMAGE_QA_HOLD pending real-device crop and explicit rights confirmation. Central logo preserved. Detail title is outside Hero in current WXML.",
+      "original": {
+        "width": 1792,
+        "height": 914,
+        "aspectRatio": 1.9606,
+        "format": "png",
+        "fileSizeBytes": 2023824,
+        "sha256": "65e82569718df9b1439a4705b344c3e7c8a49baa11cb18c33f89afce9dd5053d"
+      },
+      "derived": {
+        "publicPath": "/races/ultra-trail-mogan-by-utmb/2027/display-v1.jpg",
+        "width": 1600,
+        "height": 816,
+        "aspectRatio": 1.9608,
+        "format": "jpeg",
+        "fileSizeBytes": 191202,
+        "sha256": "db8866592baa066b190cc531400d769ca1a695789971c1d0d098e27df279e92c",
+        "derivation": "Human package offline display derivative; max_width_1600_without_enlargement; jpeg; no_crop; shared_cover_hero; source_hash=65e82569718df9b1439a4705b344c3e7c8a49baa11cb18c33f89afce9dd5053d"
+      }
+    },
+    {
+      "assetId": "ultra-trail-mogan-by-utmb-2027-hero",
+      "editionId": "ultra-trail-mogan-by-utmb-2027",
+      "role": "hero",
+      "publicPath": "/races/ultra-trail-mogan-by-utmb/2027/display-v1.jpg",
+      "originalPublicPath": "/races/ultra-trail-mogan-by-utmb/2027/original.png",
+      "originalFilename": "mogan-utmb-2027-original.png",
+      "imageYear": null,
+      "imageYearEvidence": "Human selected this campaign visual for 2027; image contains no verifiable year.",
+      "qualityStatus": "temporary",
+      "width": 1600,
+      "height": 816,
+      "aspectRatio": 1.9608,
+      "format": "jpeg",
+      "fileSizeBytes": 191202,
+      "sha256": "db8866592baa066b190cc531400d769ca1a695789971c1d0d098e27df279e92c",
+      "source": {
+        "type": "user_provided",
+        "receivedAt": "2026-11-19",
+        "sourceUrl": null,
+        "usageRightsStatus": "unverified"
+      },
+      "notes": "Human selected for branch integration. Original author and usage license not supplied. IMAGE_QA_HOLD pending real-device crop and explicit rights confirmation. Central logo preserved. Detail title is outside Hero in current WXML.",
+      "original": {
+        "width": 1792,
+        "height": 914,
+        "aspectRatio": 1.9606,
+        "format": "png",
+        "fileSizeBytes": 2023824,
+        "sha256": "65e82569718df9b1439a4705b344c3e7c8a49baa11cb18c33f89afce9dd5053d"
+      },
+      "derived": {
+        "publicPath": "/races/ultra-trail-mogan-by-utmb/2027/display-v1.jpg",
+        "width": 1600,
+        "height": 816,
+        "aspectRatio": 1.9608,
+        "format": "jpeg",
+        "fileSizeBytes": 191202,
+        "sha256": "db8866592baa066b190cc531400d769ca1a695789971c1d0d098e27df279e92c",
+        "derivation": "Human package offline display derivative; max_width_1600_without_enlargement; jpeg; no_crop; shared_cover_hero; source_hash=65e82569718df9b1439a4705b344c3e7c8a49baa11cb18c33f89afce9dd5053d"
+      }
     }
   ]
 }

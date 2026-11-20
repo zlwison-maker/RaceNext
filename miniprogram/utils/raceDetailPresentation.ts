@@ -389,6 +389,7 @@ function formatRegistrationStatus(status: RegistrationStatus): string | null {
     registration_closed: "报名已结束",
     race_finished: "赛事已结束",
     cancelled: "赛事已取消",
+    unknown: "报名信息待确认",
   };
   return labels[status] ?? null;
 }

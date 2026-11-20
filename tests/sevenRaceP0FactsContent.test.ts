@@ -1,3 +1,4 @@
+import { expectedPublicEditionIds } from "./fixtures/contentBatch20261020.ts";
 import { deepEqual, equal, ok } from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
@@ -103,10 +104,10 @@ test("cutoff image and dynamic JSON gaps are filled without inferring unpublishe
   }
 });
 
-test("19-race list and all seven details preserve facts, hotels, Guides, team semantics and Strategy/CP boundaries", () => {
+test("public list and all seven details preserve facts, hotels, Guides, team semantics and Strategy/CP boundaries", () => {
   assertRaceGraphSnapshot(graph); assertRaceSourceRegistry(registry);
   const list = createPublicRaceListResult(graph); equal(list.status, 200);
-  if (list.status === 200) equal(list.body.races.length, 19);
+  if (list.status === 200) equal(list.body.races.length, expectedPublicEditionIds.length);
   for (const id of targets) {
     equal(evaluatePrePublishFactGate(get(id), registry.editions.find(e => e.editionId === id)).publishable, true);
     const detail = createPublicRaceDetailResult(graph, id); equal(detail.status, 200);

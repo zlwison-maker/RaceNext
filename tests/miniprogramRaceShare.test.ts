@@ -220,7 +220,7 @@ test("all public race Covers have deterministic centered 5:4 JPEG derivatives; n
     new URL("../data/canonical/race-graph-v1.json", import.meta.url),
     "utf8",
   )) as { records: Array<{ edition: { coverImage: string; editionId: string } }> };
-  equal(canonical.records.length, 19);
+  equal(canonical.records.length, expectedPublicEditionIds.length);
   const list = createPublicRaceListResult(canonical);
   equal(list.status, 200);
   if (list.status !== 200) return;
