@@ -42,7 +42,7 @@
       "lastSuccessfulProcessingVersion": "race-fact-processing-v5",
       "lastSuccessfulExtractionAt": "2026-11-05T07:03:31.795Z",
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:41:31.702Z",
+      "lastCheckedAt": "2026-11-20T07:32:36.217Z",
       "lastFetchStatus": "success",
       "lastExtractionStatus": "unchanged"
     },
@@ -57,7 +57,7 @@
       "lastSuccessfulProcessingVersion": "race-fact-processing-v5",
       "lastSuccessfulExtractionAt": "2026-11-18T07:45:24.555Z",
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:41:32.230Z",
+      "lastCheckedAt": "2026-11-20T07:32:36.717Z",
       "lastFetchStatus": "fetch_error",
       "lastExtractionStatus": "not_attempted"
     },
@@ -72,7 +72,7 @@
       "lastSuccessfulProcessingVersion": null,
       "lastSuccessfulExtractionAt": null,
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:41:24.350Z",
+      "lastCheckedAt": "2026-11-20T07:32:34.561Z",
       "lastFetchStatus": "success",
       "lastExtractionStatus": "identity_uncertain"
     },
@@ -87,7 +87,7 @@
       "lastSuccessfulProcessingVersion": null,
       "lastSuccessfulExtractionAt": null,
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:41:17.409Z",
+      "lastCheckedAt": "2026-11-20T07:32:27.714Z",
       "lastFetchStatus": "success",
       "lastExtractionStatus": "identity_mismatch"
     },
@@ -102,7 +102,7 @@
       "lastSuccessfulProcessingVersion": null,
       "lastSuccessfulExtractionAt": null,
       "lastExtractionMethod": null,
-      "lastCheckedAt": "2026-11-19T07:41:21.433Z",
+      "lastCheckedAt": "2026-11-20T07:32:31.516Z",
       "lastFetchStatus": "fetch_error",
       "lastExtractionStatus": "not_attempted"
     },
@@ -162,7 +162,7 @@
       "lastSuccessfulProcessingVersion": null,
       "lastSuccessfulExtractionAt": null,
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:41:32.328Z",
+      "lastCheckedAt": "2026-11-20T07:32:36.863Z",
       "lastFetchStatus": "fetch_error",
       "lastExtractionStatus": "not_attempted"
     },
@@ -177,7 +177,7 @@
       "lastSuccessfulProcessingVersion": null,
       "lastSuccessfulExtractionAt": null,
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:41:32.386Z",
+      "lastCheckedAt": "2026-11-20T07:32:36.948Z",
       "lastFetchStatus": "fetch_error",
       "lastExtractionStatus": "not_attempted"
     },
@@ -192,7 +192,7 @@
       "lastSuccessfulProcessingVersion": null,
       "lastSuccessfulExtractionAt": null,
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:41:32.419Z",
+      "lastCheckedAt": "2026-11-20T07:32:36.987Z",
       "lastFetchStatus": "fetch_error",
       "lastExtractionStatus": "not_attempted"
     },
@@ -207,7 +207,7 @@
       "lastSuccessfulProcessingVersion": null,
       "lastSuccessfulExtractionAt": null,
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:41:32.500Z",
+      "lastCheckedAt": "2026-11-20T07:32:37.121Z",
       "lastFetchStatus": "fetch_error",
       "lastExtractionStatus": "not_attempted"
     },
@@ -222,7 +222,7 @@
       "lastSuccessfulProcessingVersion": null,
       "lastSuccessfulExtractionAt": null,
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:41:32.519Z",
+      "lastCheckedAt": "2026-11-20T07:32:37.166Z",
       "lastFetchStatus": "fetch_error",
       "lastExtractionStatus": "not_attempted"
     },
@@ -312,7 +312,7 @@
       "lastSuccessfulProcessingVersion": "race-fact-processing-v5",
       "lastSuccessfulExtractionAt": "2026-11-03T07:04:05.899Z",
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:41:35.877Z",
+      "lastCheckedAt": "2026-11-20T07:32:58.431Z",
       "lastFetchStatus": "success",
       "lastExtractionStatus": "unchanged"
     },
@@ -327,7 +327,7 @@
       "lastSuccessfulProcessingVersion": null,
       "lastSuccessfulExtractionAt": null,
       "lastExtractionMethod": null,
-      "lastCheckedAt": "2026-11-19T07:41:35.958Z",
+      "lastCheckedAt": "2026-11-20T07:32:58.707Z",
       "lastFetchStatus": "fetch_error",
       "lastExtractionStatus": "not_attempted"
     },
@@ -342,7 +342,7 @@
       "lastSuccessfulProcessingVersion": "race-fact-processing-v5",
       "lastSuccessfulExtractionAt": "2026-11-03T07:04:14.363Z",
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:41:37.696Z",
+      "lastCheckedAt": "2026-11-20T07:33:00.268Z",
       "lastFetchStatus": "success",
       "lastExtractionStatus": "unchanged"
     },
@@ -357,7 +357,7 @@
       "lastSuccessfulProcessingVersion": "race-fact-processing-v4",
       "lastSuccessfulExtractionAt": "2026-09-29T11:03:42.753Z",
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:41:39.661Z",
+      "lastCheckedAt": "2026-11-20T07:33:01.257Z",
       "lastFetchStatus": "success",
       "lastExtractionStatus": "validation_error"
     },
@@ -372,7 +372,7 @@
       "lastSuccessfulProcessingVersion": "race-fact-processing-v5",
       "lastSuccessfulExtractionAt": "2026-11-16T06:51:55.550Z",
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:41:18.693Z",
+      "lastCheckedAt": "2026-11-20T07:32:28.569Z",
       "lastFetchStatus": "success",
       "lastExtractionStatus": "unchanged"
     },
@@ -387,7 +387,7 @@
       "lastSuccessfulProcessingVersion": "race-fact-processing-v4",
       "lastSuccessfulExtractionAt": "2026-09-29T07:52:48.081Z",
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:41:32.301Z",
+      "lastCheckedAt": "2026-11-20T07:32:36.823Z",
       "lastFetchStatus": "fetch_error",
       "lastExtractionStatus": "not_attempted"
     },
@@ -402,7 +402,7 @@
       "lastSuccessfulProcessingVersion": "race-fact-processing-v4",
       "lastSuccessfulExtractionAt": "2026-09-29T07:53:20.140Z",
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:41:32.357Z",
+      "lastCheckedAt": "2026-11-20T07:32:36.909Z",
       "lastFetchStatus": "fetch_error",
       "lastExtractionStatus": "not_attempted"
     },
@@ -417,7 +417,7 @@
       "lastSuccessfulProcessingVersion": "race-fact-processing-v4",
       "lastSuccessfulExtractionAt": "2026-09-29T07:53:56.595Z",
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:41:32.450Z",
+      "lastCheckedAt": "2026-11-20T07:32:37.026Z",
       "lastFetchStatus": "fetch_error",
       "lastExtractionStatus": "not_attempted"
     },
@@ -432,7 +432,7 @@
       "lastSuccessfulProcessingVersion": "race-fact-processing-v4",
       "lastSuccessfulExtractionAt": "2026-09-29T07:54:11.277Z",
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:41:32.476Z",
+      "lastCheckedAt": "2026-11-20T07:32:37.069Z",
       "lastFetchStatus": "fetch_error",
       "lastExtractionStatus": "not_attempted"
     },
@@ -447,7 +447,7 @@
       "lastSuccessfulProcessingVersion": "race-fact-processing-v4",
       "lastSuccessfulExtractionAt": "2026-09-29T07:54:40.899Z",
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:41:32.546Z",
+      "lastCheckedAt": "2026-11-20T07:32:37.198Z",
       "lastFetchStatus": "fetch_error",
       "lastExtractionStatus": "not_attempted"
     },
@@ -597,7 +597,7 @@
       "lastSuccessfulProcessingVersion": "race-fact-processing-v5",
       "lastSuccessfulExtractionAt": "2026-11-03T07:03:43.117Z",
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:41:32.919Z",
+      "lastCheckedAt": "2026-11-20T07:32:56.571Z",
       "lastFetchStatus": "success",
       "lastExtractionStatus": "unchanged"
     },
@@ -612,7 +612,7 @@
       "lastSuccessfulProcessingVersion": "race-fact-processing-v5",
       "lastSuccessfulExtractionAt": "2026-11-07T06:17:18.765Z",
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:41:37.751Z",
+      "lastCheckedAt": "2026-11-20T07:33:00.350Z",
       "lastFetchStatus": "success",
       "lastExtractionStatus": "unchanged"
     },
@@ -627,14 +627,14 @@
       "lastSuccessfulProcessingVersion": "race-fact-processing-v5",
       "lastSuccessfulExtractionAt": "2026-11-03T07:01:53.624Z",
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:41:32.569Z",
+      "lastCheckedAt": "2026-11-20T07:32:37.228Z",
       "lastFetchStatus": "success",
       "lastExtractionStatus": "unchanged"
     },
     {
       "sourceId": "hk100-hkjogging-2027",
       "editionId": "hk100-2027",
-      "lastObservedContentHash": "fc5207a21e791cc66c3918a8903eae820f20af81095f6b15db3ad22f322058e8",
+      "lastObservedContentHash": "472875f3cb13f081569d773d89589a873c4bc728645a50b71a3b4db86420964b",
       "lastSuccessfulExtractionHash": null,
       "lastSuccessfulProvider": null,
       "lastSuccessfulModel": null,
@@ -642,7 +642,7 @@
       "lastSuccessfulProcessingVersion": null,
       "lastSuccessfulExtractionAt": null,
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:41:32.755Z",
+      "lastCheckedAt": "2026-11-20T07:32:37.601Z",
       "lastFetchStatus": "success",
       "lastExtractionStatus": "validation_error"
     },
@@ -717,7 +717,7 @@
       "lastSuccessfulProcessingVersion": "race-fact-processing-v5",
       "lastSuccessfulExtractionAt": "2026-11-03T07:05:22.318Z",
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:41:41.459Z",
+      "lastCheckedAt": "2026-11-20T07:33:02.273Z",
       "lastFetchStatus": "success",
       "lastExtractionStatus": "unchanged"
     },
@@ -732,7 +732,7 @@
       "lastSuccessfulProcessingVersion": "race-fact-processing-v5",
       "lastSuccessfulExtractionAt": "2026-11-06T07:04:31.237Z",
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:41:41.462Z",
+      "lastCheckedAt": "2026-11-20T07:33:02.277Z",
       "lastFetchStatus": "success",
       "lastExtractionStatus": "unchanged"
     },
@@ -777,7 +777,7 @@
       "lastSuccessfulProcessingVersion": null,
       "lastSuccessfulExtractionAt": null,
       "lastExtractionMethod": null,
-      "lastCheckedAt": "2026-11-19T07:41:45.292Z",
+      "lastCheckedAt": "2026-11-20T07:35:04.865Z",
       "lastFetchStatus": "fetch_error",
       "lastExtractionStatus": "not_attempted"
     },
@@ -785,16 +785,16 @@
       "sourceId": "nanjing-marathon-official-2026::announcement:98ecd8c6bda1bbbead18bab7",
       "editionId": "nanjing-marathon-2026",
       "lastObservedContentHash": "0e9b4df2af559c4a1ab10bc395fbe13963dd94d0657457f16d9d92c4591d39fe",
-      "lastSuccessfulExtractionHash": "cf5e7a18ecf42b8604a2703e6e1b9c934bb8ee39d02e5246c2c4feaaaa74174c",
+      "lastSuccessfulExtractionHash": "0e9b4df2af559c4a1ab10bc395fbe13963dd94d0657457f16d9d92c4591d39fe",
       "lastSuccessfulProvider": "aliyun-model-studio",
       "lastSuccessfulModel": "qwen3.8-flash",
       "lastSuccessfulPromptVersion": "race-fact-extraction-v1.5",
       "lastSuccessfulProcessingVersion": "race-fact-processing-v5",
-      "lastSuccessfulExtractionAt": "2026-11-16T06:54:53.513Z",
+      "lastSuccessfulExtractionAt": "2026-11-20T07:35:07.960Z",
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:41:47.983Z",
+      "lastCheckedAt": "2026-11-20T07:35:07.960Z",
       "lastFetchStatus": "success",
-      "lastExtractionStatus": "extraction_error"
+      "lastExtractionStatus": "success"
     },
     {
       "sourceId": "shaoxing-marathon-official-2026",
@@ -807,9 +807,9 @@
       "lastSuccessfulProcessingVersion": "race-fact-processing-v5",
       "lastSuccessfulExtractionAt": "2026-11-18T07:46:41.057Z",
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:41:48.491Z",
-      "lastFetchStatus": "fetch_error",
-      "lastExtractionStatus": "not_attempted"
+      "lastCheckedAt": "2026-11-20T07:35:10.146Z",
+      "lastFetchStatus": "success",
+      "lastExtractionStatus": "validation_error"
     },
     {
       "sourceId": "shenzhen-marathon-official-2026",
@@ -822,7 +822,7 @@
       "lastSuccessfulProcessingVersion": null,
       "lastSuccessfulExtractionAt": null,
       "lastExtractionMethod": null,
-      "lastCheckedAt": "2026-11-19T07:42:30.255Z",
+      "lastCheckedAt": "2026-11-20T07:35:53.220Z",
       "lastFetchStatus": "fetch_error",
       "lastExtractionStatus": "not_attempted"
     },
@@ -837,7 +837,7 @@
       "lastSuccessfulProcessingVersion": null,
       "lastSuccessfulExtractionAt": null,
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:42:31.257Z",
+      "lastCheckedAt": "2026-11-20T07:35:54.116Z",
       "lastFetchStatus": "success",
       "lastExtractionStatus": "identity_uncertain"
     },
@@ -852,7 +852,7 @@
       "lastSuccessfulProcessingVersion": null,
       "lastSuccessfulExtractionAt": null,
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:42:32.586Z",
+      "lastCheckedAt": "2026-11-20T07:35:55.260Z",
       "lastFetchStatus": "success",
       "lastExtractionStatus": "identity_uncertain"
     },
@@ -867,7 +867,7 @@
       "lastSuccessfulProcessingVersion": null,
       "lastSuccessfulExtractionAt": null,
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:42:32.872Z",
+      "lastCheckedAt": "2026-11-20T07:35:55.491Z",
       "lastFetchStatus": "success",
       "lastExtractionStatus": "identity_uncertain"
     },
@@ -882,7 +882,7 @@
       "lastSuccessfulProcessingVersion": null,
       "lastSuccessfulExtractionAt": null,
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:42:33.147Z",
+      "lastCheckedAt": "2026-11-20T07:35:55.720Z",
       "lastFetchStatus": "success",
       "lastExtractionStatus": "identity_mismatch"
     },
@@ -897,7 +897,7 @@
       "lastSuccessfulProcessingVersion": null,
       "lastSuccessfulExtractionAt": null,
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:42:34.724Z",
+      "lastCheckedAt": "2026-11-20T07:35:56.938Z",
       "lastFetchStatus": "success",
       "lastExtractionStatus": "identity_uncertain"
     },
@@ -912,7 +912,7 @@
       "lastSuccessfulProcessingVersion": null,
       "lastSuccessfulExtractionAt": null,
       "lastExtractionMethod": null,
-      "lastCheckedAt": "2026-11-19T07:42:36.522Z",
+      "lastCheckedAt": "2026-11-20T07:35:58.619Z",
       "lastFetchStatus": "unsupported_content_type",
       "lastExtractionStatus": "not_attempted"
     },
@@ -927,7 +927,7 @@
       "lastSuccessfulProcessingVersion": null,
       "lastSuccessfulExtractionAt": null,
       "lastExtractionMethod": null,
-      "lastCheckedAt": "2026-11-19T07:42:39.090Z",
+      "lastCheckedAt": "2026-11-20T07:35:59.691Z",
       "lastFetchStatus": "parse_error",
       "lastExtractionStatus": "not_attempted"
     },
@@ -942,7 +942,7 @@
       "lastSuccessfulProcessingVersion": "race-fact-processing-v5",
       "lastSuccessfulExtractionAt": "2026-11-17T08:13:32.886Z",
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:42:40.855Z",
+      "lastCheckedAt": "2026-11-20T07:36:01.024Z",
       "lastFetchStatus": "success",
       "lastExtractionStatus": "unchanged"
     },
@@ -957,7 +957,7 @@
       "lastSuccessfulProcessingVersion": null,
       "lastSuccessfulExtractionAt": null,
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:42:47.033Z",
+      "lastCheckedAt": "2026-11-20T07:36:11.252Z",
       "lastFetchStatus": "success",
       "lastExtractionStatus": "identity_mismatch"
     },
@@ -972,14 +972,14 @@
       "lastSuccessfulProcessingVersion": null,
       "lastSuccessfulExtractionAt": null,
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:42:48.840Z",
+      "lastCheckedAt": "2026-11-20T07:36:23.199Z",
       "lastFetchStatus": "success",
       "lastExtractionStatus": "validation_error"
     },
     {
       "sourceId": "hengqin-marathon-official-2026::announcement:bab67acdd08456113e86fab4",
       "editionId": "hengqin-marathon-2026",
-      "lastObservedContentHash": "9628145ee7cae3f7eb525768ad391058da123f765d6f750794c984e58f5b4148",
+      "lastObservedContentHash": "62224bcb7c0644427bc168bf67e6ed7b3acac97614f62e0d70efb2c47f124311",
       "lastSuccessfulExtractionHash": null,
       "lastSuccessfulProvider": null,
       "lastSuccessfulModel": null,
@@ -987,14 +987,14 @@
       "lastSuccessfulProcessingVersion": null,
       "lastSuccessfulExtractionAt": null,
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:42:48.840Z",
+      "lastCheckedAt": "2026-11-20T07:36:23.199Z",
       "lastFetchStatus": "success",
-      "lastExtractionStatus": "extraction_error"
+      "lastExtractionStatus": "validation_error"
     },
     {
       "sourceId": "hengqin-marathon-official-2026::announcement:a0895ed395fd1cec15ccd0b4",
       "editionId": "hengqin-marathon-2026",
-      "lastObservedContentHash": "d7769746d4cacc38f0e84738358870c00fe1eb30c2721e2b25fe1c347d4d7c57",
+      "lastObservedContentHash": "6cb51d55aad2cb849317aedc37dc4f9c1c660bf1b1183367522970125cfdf4ba",
       "lastSuccessfulExtractionHash": null,
       "lastSuccessfulProvider": null,
       "lastSuccessfulModel": null,
@@ -1002,9 +1002,9 @@
       "lastSuccessfulProcessingVersion": null,
       "lastSuccessfulExtractionAt": null,
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:42:49.343Z",
+      "lastCheckedAt": "2026-11-20T07:36:35.233Z",
       "lastFetchStatus": "success",
-      "lastExtractionStatus": "extraction_error"
+      "lastExtractionStatus": "validation_error"
     },
     {
       "sourceId": "panda-shudao-shan-official-list-2027",
@@ -1017,7 +1017,7 @@
       "lastSuccessfulProcessingVersion": "race-fact-processing-v5",
       "lastSuccessfulExtractionAt": "2026-11-17T08:14:17.548Z",
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:42:52.481Z",
+      "lastCheckedAt": "2026-11-20T07:36:54.547Z",
       "lastFetchStatus": "success",
       "lastExtractionStatus": "unchanged"
     },
@@ -1032,7 +1032,7 @@
       "lastSuccessfulProcessingVersion": null,
       "lastSuccessfulExtractionAt": null,
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:42:53.604Z",
+      "lastCheckedAt": "2026-11-20T07:36:56.110Z",
       "lastFetchStatus": "success",
       "lastExtractionStatus": "identity_mismatch"
     },
@@ -1047,7 +1047,7 @@
       "lastSuccessfulProcessingVersion": null,
       "lastSuccessfulExtractionAt": null,
       "lastExtractionMethod": null,
-      "lastCheckedAt": "2026-11-19T07:42:54.946Z",
+      "lastCheckedAt": "2026-11-20T07:36:57.134Z",
       "lastFetchStatus": "unsupported_content_type",
       "lastExtractionStatus": "not_attempted"
     },
@@ -1069,17 +1069,17 @@
     {
       "sourceId": "guangzhou-100-official-2027",
       "editionId": "guangzhou-100-2027",
-      "lastObservedContentHash": "23fa25877cbc6ca12601a37592d4145ae142b2d8b74e9a90bf433001f78181ef",
-      "lastSuccessfulExtractionHash": "7958787c00791087d0b9f801883634d0dc5d8d1274fcfcc0fbe6386fbbc5cba2",
+      "lastObservedContentHash": "aab614e3d1af40eec62d38b71e4c4e5fb6b1f9ec675b889d9ad4c18f44b9aaff",
+      "lastSuccessfulExtractionHash": "aab614e3d1af40eec62d38b71e4c4e5fb6b1f9ec675b889d9ad4c18f44b9aaff",
       "lastSuccessfulProvider": "aliyun-model-studio",
       "lastSuccessfulModel": "qwen3.8-flash",
       "lastSuccessfulPromptVersion": "race-fact-extraction-v1.5",
       "lastSuccessfulProcessingVersion": "race-fact-processing-v5",
-      "lastSuccessfulExtractionAt": "2026-11-18T07:45:50.914Z",
+      "lastSuccessfulExtractionAt": "2026-11-20T07:33:02.277Z",
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:41:41.463Z",
+      "lastCheckedAt": "2026-11-20T07:33:02.277Z",
       "lastFetchStatus": "success",
-      "lastExtractionStatus": "extraction_error"
+      "lastExtractionStatus": "success"
     },
     {
       "sourceId": "nanjing-marathon-official-2026",
@@ -1092,7 +1092,7 @@
       "lastSuccessfulProcessingVersion": "race-fact-processing-v5",
       "lastSuccessfulExtractionAt": "2026-11-03T07:06:57.549Z",
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:41:43.672Z",
+      "lastCheckedAt": "2026-11-20T07:35:02.867Z",
       "lastFetchStatus": "success",
       "lastExtractionStatus": "validation_error"
     },
@@ -1107,7 +1107,7 @@
       "lastSuccessfulProcessingVersion": "race-fact-processing-v5",
       "lastSuccessfulExtractionAt": "2026-11-08T06:24:55.800Z",
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:41:48.487Z",
+      "lastCheckedAt": "2026-11-20T07:35:10.142Z",
       "lastFetchStatus": "success",
       "lastExtractionStatus": "unchanged"
     },
@@ -1122,9 +1122,9 @@
       "lastSuccessfulProcessingVersion": "race-fact-processing-v5",
       "lastSuccessfulExtractionAt": "2026-11-18T07:47:04.559Z",
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:42:09.271Z",
-      "lastFetchStatus": "fetch_error",
-      "lastExtractionStatus": "not_attempted"
+      "lastCheckedAt": "2026-11-20T07:35:27.482Z",
+      "lastFetchStatus": "success",
+      "lastExtractionStatus": "validation_error"
     },
     {
       "sourceId": "hengqin-marathon-official-2026",
@@ -1137,39 +1137,39 @@
       "lastSuccessfulProcessingVersion": "race-fact-processing-v5",
       "lastSuccessfulExtractionAt": "2026-11-03T07:09:24.490Z",
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:42:43.900Z",
+      "lastCheckedAt": "2026-11-20T07:36:03.622Z",
       "lastFetchStatus": "success",
       "lastExtractionStatus": "unchanged"
     },
     {
       "sourceId": "hengqin-marathon-result-2026",
       "editionId": "hengqin-marathon-2026",
-      "lastObservedContentHash": "2c1153a1614442b8b0a16bbaac69e9d254d076c302e0b2dbd146891bbf28cbf5",
-      "lastSuccessfulExtractionHash": "3d31b5a623899c9228d557cc0d1db3fe75b7f5755bf7e9a572e0a4f3b9a4e4d2",
+      "lastObservedContentHash": "5f721389e6ef71a9a3b0ae54afbf98626613641c8db8e978dfc23af803425938",
+      "lastSuccessfulExtractionHash": "5f721389e6ef71a9a3b0ae54afbf98626613641c8db8e978dfc23af803425938",
       "lastSuccessfulProvider": "aliyun-model-studio",
       "lastSuccessfulModel": "qwen3.8-flash",
       "lastSuccessfulPromptVersion": "race-fact-extraction-v1.5",
       "lastSuccessfulProcessingVersion": "race-fact-processing-v5",
-      "lastSuccessfulExtractionAt": "2026-11-18T07:47:52.315Z",
+      "lastSuccessfulExtractionAt": "2026-11-20T07:36:04.962Z",
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:42:45.907Z",
+      "lastCheckedAt": "2026-11-20T07:36:04.962Z",
       "lastFetchStatus": "success",
-      "lastExtractionStatus": "extraction_error"
+      "lastExtractionStatus": "success"
     },
     {
       "sourceId": "hengqin-marathon-official-2026::announcement:ee00260daf9747a1f304af5a",
       "editionId": "hengqin-marathon-2026",
-      "lastObservedContentHash": "adeb933cb1c96f5dbcc94c79c2f39620a97834e55c2a19240b9fd2080dde5d67",
-      "lastSuccessfulExtractionHash": "81fe23aa37a5f36ebe08678904d3ad9ccf6b547d8231d3a065351e3f8c52b3d4",
+      "lastObservedContentHash": "92c06244b76d5cedc7940e9d3132a85c21b5dea417fb9e984982b911ad3ee74e",
+      "lastSuccessfulExtractionHash": "92c06244b76d5cedc7940e9d3132a85c21b5dea417fb9e984982b911ad3ee74e",
       "lastSuccessfulProvider": "aliyun-model-studio",
       "lastSuccessfulModel": "qwen3.8-flash",
       "lastSuccessfulPromptVersion": "race-fact-extraction-v1.5",
       "lastSuccessfulProcessingVersion": "race-fact-processing-v5",
-      "lastSuccessfulExtractionAt": "2026-11-18T07:48:02.418Z",
+      "lastSuccessfulExtractionAt": "2026-11-20T07:36:12.455Z",
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:42:48.335Z",
+      "lastCheckedAt": "2026-11-20T07:36:12.455Z",
       "lastFetchStatus": "success",
-      "lastExtractionStatus": "extraction_error"
+      "lastExtractionStatus": "success"
     },
     {
       "sourceId": "hengqin-marathon-official-2026::announcement:548545703574f996048abf54",
@@ -1182,24 +1182,24 @@
       "lastSuccessfulProcessingVersion": "race-fact-processing-v5",
       "lastSuccessfulExtractionAt": "2026-11-03T07:10:19.584Z",
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:42:48.839Z",
+      "lastCheckedAt": "2026-11-20T07:36:23.198Z",
       "lastFetchStatus": "success",
       "lastExtractionStatus": "unchanged"
     },
     {
       "sourceId": "hengqin-marathon-official-2026::announcement:7549c4f386ca39f947307b61",
       "editionId": "hengqin-marathon-2026",
-      "lastObservedContentHash": "21376be81d0e16e7db29daf30ecc547eeac00c5f9bb207334a24b727c524a29a",
-      "lastSuccessfulExtractionHash": "771b695ca03f976d61af08a7f100960f15ab9d28684dea7feb972863234bc453",
+      "lastObservedContentHash": "579f301bdf5d0ccff08aa4fc60e6ff7e8d8e52a938bfae2891359d5315b7fc5d",
+      "lastSuccessfulExtractionHash": "579f301bdf5d0ccff08aa4fc60e6ff7e8d8e52a938bfae2891359d5315b7fc5d",
       "lastSuccessfulProvider": "aliyun-model-studio",
       "lastSuccessfulModel": "qwen3.8-flash",
       "lastSuccessfulPromptVersion": "race-fact-extraction-v1.5",
       "lastSuccessfulProcessingVersion": "race-fact-processing-v5",
-      "lastSuccessfulExtractionAt": "2026-11-18T07:48:24.282Z",
+      "lastSuccessfulExtractionAt": "2026-11-20T07:36:40.121Z",
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:42:50.351Z",
+      "lastCheckedAt": "2026-11-20T07:36:40.121Z",
       "lastFetchStatus": "success",
-      "lastExtractionStatus": "extraction_error"
+      "lastExtractionStatus": "success"
     },
     {
       "sourceId": "panda-shudao-shan-official-2027",
@@ -1212,24 +1212,24 @@
       "lastSuccessfulProcessingVersion": "race-fact-processing-v5",
       "lastSuccessfulExtractionAt": "2026-11-06T07:06:45.305Z",
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:42:50.854Z",
+      "lastCheckedAt": "2026-11-20T07:36:46.098Z",
       "lastFetchStatus": "success",
-      "lastExtractionStatus": "extraction_error"
+      "lastExtractionStatus": "validation_error"
     },
     {
       "sourceId": "hengqin-marathon-official-2026::announcement:4f96c7d650d7cdb4128e0168",
       "editionId": "hengqin-marathon-2026",
-      "lastObservedContentHash": "668b8492ff8a7216d3e1707c38caa150a3293b20003bce930d4c31e60017b868",
-      "lastSuccessfulExtractionHash": "a0eaf6706e26babe54512d9184eea4b84acd5074c94dac72c038e0e82d5ff5aa",
+      "lastObservedContentHash": "139724aa8715d1254c3660aa5a0607a573b3459ea5f20f610663e72e0d52df85",
+      "lastSuccessfulExtractionHash": "139724aa8715d1254c3660aa5a0607a573b3459ea5f20f610663e72e0d52df85",
       "lastSuccessfulProvider": "aliyun-model-studio",
       "lastSuccessfulModel": "qwen3.8-flash",
       "lastSuccessfulPromptVersion": "race-fact-extraction-v1.5",
       "lastSuccessfulProcessingVersion": "race-fact-processing-v5",
-      "lastSuccessfulExtractionAt": "2026-11-18T07:48:22.139Z",
+      "lastSuccessfulExtractionAt": "2026-11-20T07:36:38.839Z",
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:42:49.848Z",
+      "lastCheckedAt": "2026-11-20T07:36:38.839Z",
       "lastFetchStatus": "success",
-      "lastExtractionStatus": "extraction_error"
+      "lastExtractionStatus": "success"
     },
     {
       "sourceId": "shanghai-marathon-official-notice-zh-2026",
@@ -1242,7 +1242,7 @@
       "lastSuccessfulProcessingVersion": null,
       "lastSuccessfulExtractionAt": null,
       "lastExtractionMethod": "html_text",
-      "lastCheckedAt": "2026-11-19T07:41:19.496Z",
+      "lastCheckedAt": "2026-11-20T07:32:29.434Z",
       "lastFetchStatus": "success",
       "lastExtractionStatus": "validation_error"
     }
