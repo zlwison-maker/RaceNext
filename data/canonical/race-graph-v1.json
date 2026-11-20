@@ -9239,7 +9239,7 @@
         "venue": "莫干山国际旅游度假区",
         "region": "east_china",
         "timezone": "Asia/Shanghai",
-        "registrationStatus": "unknown",
+        "registrationStatus": "registration_open",
         "registrationOpenDate": null,
         "registrationCloseDate": null,
         "registrationUrl": null,
@@ -9256,7 +9256,7 @@
           100
         ],
         "createdAt": "2026-11-19T08:22:53.128Z",
-        "updatedAt": "2026-11-19T10:50:09.892Z",
+        "updatedAt": "2026-11-20T02:10:41.133Z",
         "governance": {
           "sources": [
             {
@@ -9366,6 +9366,68 @@
                 "entryDoesNotConferRacePlace": true,
                 "conflict": "UTMB Chinese homepage closed labels; channel/template explanation not proven"
               }
+            },
+            {
+              "sourceType": "official",
+              "sourceName": "ultra-trail-mogan-by-utmb-official-lungking-entry-2027 (domestic status verified 2026-11-20)",
+              "sourceUrl": "https://lungkingos.lungking.com/s/evps2696",
+              "sourceRecordId": "ultra-trail-mogan-by-utmb-official-lungking-entry-2027",
+              "crawledAt": "2026-11-20T02:07:10.165028+00:00",
+              "confidence": 0.99,
+              "rawData": {
+                "editionYear": 2027,
+                "evidenceFormat": "official_entry_linked_public_api_plus_official_rulebook",
+                "evidenceText": "2027莫干山越野赛by UTMB®; raceStatus=APPLYING; 国内报名开启2026.11.12至2026.12.20 23:59，名额超限将抽签，2026.12.30 10:00公布结果。",
+                "evidenceLocator": "getRaceInfo $.data.raceName/raceStatus/startDate/endDate; image2 registration table y=950..2200 and qualification wording y=2250..2650",
+                "publicQuery": {
+                  "url": "https://lungkingos.lungking.com/index/app/race/detail/getRaceInfo",
+                  "http": [
+                    "200",
+                    "https://lungkingos.lungking.com/index/app/race/detail/getRaceInfo",
+                    "text/html;charset=UTF-8"
+                  ],
+                  "curlExit": 0,
+                  "bytes": 4754,
+                  "contentHash": "8f35c2752fca784c72b84bce51dd4da9bb1b3ec5280ceb36d2d8b5928a3e2ffe",
+                  "fetchedAt": "2026-11-20T02:07:10.165028+00:00",
+                  "method": "POST read-only public detail query",
+                  "parameters": {
+                    "raceId": "2c908c04a1ce915301a1cf4a7b7a4862",
+                    "tenantCode": "lungking"
+                  }
+                },
+                "registrationRulebookImage": {
+                  "url": "https://lungkingos.lungking.com/resource/image/a101f3f85f2ea99bf0ceee714d07851d1cd92cbbe507a0490e0b6fccb48a7e252b53308fbc3d331e077ae6c2649ef3bf3986351d04b82b25",
+                  "contentHash": "cea629c9e3623820162ef81840332627e88e3702858b75afb5454311009dc320",
+                  "bytes": 4606750,
+                  "fetchedAt": "2026-11-20T02:07:48.835040+00:00",
+                  "curlExit": 0
+                },
+                "registrationRulebookContentHash": "cea629c9e3623820162ef81840332627e88e3702858b75afb5454311009dc320",
+                "registrationStatus": "registration_open",
+                "observedDomesticStatus": "APPLYING",
+                "channelScope": "China mainland domestic official registration channel",
+                "registrationWindow": {
+                  "fromDate": "2026-11-12",
+                  "until": "2026-12-20T23:59+08:00"
+                },
+                "observedLocalDate": "2026-11-20",
+                "drawResultsAt": "2026-12-30T10:00+08:00",
+                "entryDoesNotConferRacePlace": true,
+                "internationalCardObservation": "UTMB closed cards retained in 2026-11-19 QA evidence; not authoritative for current domestic channel under Human 2026-11-20 decision",
+                "humanReviewDecision": {
+                  "humanDecisionDate": "2026-11-20",
+                  "executionReviewedAt": "2026-11-20T02:10:41.133Z",
+                  "scope": "ultra-trail-mogan-by-utmb-2027",
+                  "priority": [
+                    "2027 organizer formal rulebook and domestic registration system",
+                    "2027 UTMB category detail",
+                    "third-party corroboration only"
+                  ],
+                  "distanceKmSemantics": "official nominal labels approved 2026-11-19; actual course distance internal only",
+                  "conflictDecision": "Use the identity/year-verified 2027 organizer formal rulebook for this edition; retain UTMB website values as lower-priority observations, not unresolved publication blockers."
+                }
+              }
             }
           ],
           "fieldSources": {
@@ -9396,6 +9458,13 @@
               "sourceName": "ultra-trail-mogan-by-utmb-official-registration-2027",
               "confidence": 0.98,
               "updatedAt": "2026-11-19T08:22:53.128Z"
+            },
+            "registrationStatus": {
+              "field": "registrationStatus",
+              "sourceType": "official",
+              "sourceName": "ultra-trail-mogan-by-utmb-official-lungking-entry-2027 (domestic status verified 2026-11-20)",
+              "confidence": 0.99,
+              "updatedAt": "2026-11-20T02:10:41.133Z"
             }
           },
           "sourcePriority": {
@@ -9406,14 +9475,13 @@
           "verificationStatus": "verified",
           "verifiedAt": "2026-11-19T08:22:53.128Z",
           "missingFields": [
-            "registrationStatus",
             "registrationUrl"
           ],
-          "lastCrawledAt": "2026-11-19T10:50:09.892Z",
-          "lastUpdatedAt": "2026-11-19T10:50:09.892Z",
+          "lastCrawledAt": "2026-11-20T02:10:41.133Z",
+          "lastUpdatedAt": "2026-11-20T02:10:41.133Z",
           "schemaVersion": "race-graph-v1",
           "dataQualityLevel": "B",
-          "reviewNotes": "2027 registration overview gives dates and official nominal categories. Per-category registration states differ on current home page; no unified open/closed status inferred. DMG Strategy HOLD. No inherited CP facts. 2026-11-19 QA: official organizer entry is APPLYING, with rulebook entry/draw/supplement phases; UTMB homepage simultaneously shows closed/inconsistent group labels. Exact channel/update explanation is unproven, so Edition.registrationStatus remains unknown. No seat guarantee, open/close dates or automatic approval inferred. Display unknown as 报名信息待确认.",
+          "reviewNotes": "CURRENT 2026-11-20: live domestic official channel APPLYING and official 2027 rulebook window verified. Human approved registration_open scoped to domestic applications and lottery eligibility, not a confirmed race place. UTMB international/display-card differences retained as separate observations. No inferred absolute opening instant or global phase dates. HISTORICAL REVIEW: 2027 registration overview gives dates and official nominal categories. Per-category registration states differ on current home page; no unified open/closed status inferred. DMG Strategy HOLD. No inherited CP facts. 2026-11-19 QA: official organizer entry is APPLYING, with rulebook entry/draw/supplement phases; UTMB homepage simultaneously shows closed/inconsistent group labels. Exact channel/update explanation is unproven, so Edition.registrationStatus remains unknown. No seat guarantee, open/close dates or automatic approval inferred. Display unknown as 报名信息待确认.",
           "internalFlags": [],
           "publicationGate": {
             "requestedEditionYear": 2027,
@@ -9439,7 +9507,7 @@
           "shortName": "DMG 100K",
           "displayOrder": 1,
           "distanceKm": 100,
-          "elevationGain": 5000,
+          "elevationGain": 5110,
           "elevationLoss": null,
           "cutoffTimeHours": 28,
           "startAt": "2027-04-16T20:00:00+08:00",
@@ -9452,7 +9520,7 @@
           "coursePoints": null,
           "coursePointDataStatus": "unknown",
           "createdAt": "2026-11-19T08:22:53.128Z",
-          "updatedAt": "2026-11-19T10:50:09.892Z",
+          "updatedAt": "2026-11-20T02:10:41.133Z",
           "runningStones": 3,
           "governance": {
             "sources": [
@@ -9538,36 +9606,119 @@
                     "finishLocation": "Jun'anli"
                   }
                 }
+              },
+              {
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; dmg)",
+                "sourceUrl": "https://lungkingos.lungking.com/resource/image/a101f3f85f2ea99be10861636128e1136247ed6daf395b82ce54f91146727ee364e122be03ead27df6df95caaa7904db2922295983ca910d",
+                "sourceRecordId": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027",
+                "crawledAt": "2026-11-20T02:07:48.708954+00:00",
+                "confidence": 0.99,
+                "rawData": {
+                  "editionYear": 2027,
+                  "contentHash": "9bec9bbf201cb0a4391a1ceb175064170afb94ff3178dafdc30bdef5df415f21",
+                  "fetchedAt": "2026-11-20T02:07:48.708954+00:00",
+                  "evidenceFormat": "visually_rechecked_official_rulebook_image",
+                  "manualTranscription": true,
+                  "evidenceLocator": "image1:y=920..1010 and 2300..2580",
+                  "evidenceText": "DMG 100K; 实际距离 96.5 km; 累计爬升 5110 米; 出发 2027-04-16T20:00:00+08:00; 总时限 28 h; 起点 郡安里; 终点 郡安里",
+                  "rulebookIdentityEvidence": {
+                    "editionHeader": "2027年4月16日至4月18日",
+                    "issuer": "莫干山越野赛by UTMB®组委会",
+                    "issuedMonth": "2026年11月",
+                    "signatureImageUrl": "https://lungkingos.lungking.com/resource/image/a101f3f85f2ea99b92678a8cf33c28b43aac348d211aa0e0488982a3f2ef41476d750dd983e74de2999428403b890c26ce7b577b95a4f4b8",
+                    "signatureImageContentHash": "d34659b2f833f847c4d9ac4eeb281c4cbb17159b7e08f9dbc6b93cdce86a8342",
+                    "signatureLocator": "image3:y=2940..3410"
+                  },
+                  "officialReferenceChain": [
+                    "https://mogan.utmb.world/registrations",
+                    "https://lungkingos.lungking.com/s/evps2696",
+                    "https://lungkingos.lungking.com/index/app/race/detail/getIntroduction"
+                  ],
+                  "domesticPlatformCategoryName": "DMG100K",
+                  "domesticPlatformCategoryId": "2c908c04a1ce915301a1cf4a7ba94863",
+                  "humanReviewDecision": {
+                    "humanDecisionDate": "2026-11-20",
+                    "executionReviewedAt": "2026-11-20T02:10:41.133Z",
+                    "scope": "ultra-trail-mogan-by-utmb-2027",
+                    "priority": [
+                      "2027 organizer formal rulebook and domestic registration system",
+                      "2027 UTMB category detail",
+                      "third-party corroboration only"
+                    ],
+                    "distanceKmSemantics": "official nominal labels approved 2026-11-19; actual course distance internal only",
+                    "conflictDecision": "Use the identity/year-verified 2027 organizer formal rulebook for this edition; retain UTMB website values as lower-priority observations, not unresolved publication blockers."
+                  },
+                  "previousWebsiteObservation": {
+                    "editionYear": 2027,
+                    "latestRelevantOfficialEditionYear": 2027,
+                    "contentHash": "25421493fa77a2e47d1aea82b74623e6824531120aaa068df9d3cebb660636e2",
+                    "fetchedAt": "2026-11-19T08:18:58.003043+00:00",
+                    "evidenceText": "Running Stones 3 Finals Access Distance 96 KM Elevation Gain 5000 M+ Start Date Friday 16th April 2027 Race Start Jun'anli - 20:00 Max Allowed Race Time 28 Hours Presentation Course Presentation The 100K is the crown jewel and the ultimate test — a loop from Jun'anli through bamboo ridges, historic hill stations and the Duhekou reservoir, returning via the naked Castle trails. A true endurance expedition in the heart of Jiangnan, with assistance areas and a finish back where you started.",
+                    "evidenceLocator": "html_text:2112-2604; observed 2026-11-19",
+                    "raceDate": "2027-04-16",
+                    "categoryName": "DMG 100K",
+                    "pageDistanceKm": 96,
+                    "elevationGain": 5000,
+                    "startAt": "2027-04-16T20:00:00+08:00",
+                    "cutoffTimeHours": 28,
+                    "startLocation": "Jun'anli",
+                    "runningStones": 3,
+                    "finishLocation": "Jun'anli",
+                    "nominalDistanceKm": 100,
+                    "distanceHumanDecision": {
+                      "approvedAtDate": "2026-11-19",
+                      "field": "Category.distanceKm",
+                      "value": 100,
+                      "basisSourceRecordId": "ultra-trail-mogan-by-utmb-official-registration-2027",
+                      "pageDistanceFieldIsSeparate": true
+                    },
+                    "categoryId": "ultra-trail-mogan-by-utmb-2027-dmg"
+                  },
+                  "categoryId": "ultra-trail-mogan-by-utmb-2027-dmg",
+                  "categoryName": "DMG 100K",
+                  "nominalDistanceKm": 100,
+                  "actualCourseDistanceKm": 96.5,
+                  "elevationGain": 5110,
+                  "raceDate": "2027-04-16",
+                  "startAt": "2027-04-16T20:00:00+08:00",
+                  "startTimes": [
+                    "2027-04-16T20:00:00+08:00"
+                  ],
+                  "cutoffTimeHours": 28,
+                  "startLocation": "郡安里",
+                  "finishLocation": "郡安里"
+                }
               }
             ],
             "fieldSources": {
               "elevationGain": {
                 "field": "elevationGain",
                 "sourceType": "official",
-                "sourceName": "ultra-trail-mogan-by-utmb-official-dmg-2027",
-                "confidence": 0.98,
-                "updatedAt": "2026-11-19T08:22:53.128Z"
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; dmg)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
               },
               "startAt": {
                 "field": "startAt",
                 "sourceType": "official",
-                "sourceName": "ultra-trail-mogan-by-utmb-official-dmg-2027",
-                "confidence": 0.98,
-                "updatedAt": "2026-11-19T08:22:53.128Z"
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; dmg)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
               },
               "cutoffTimeHours": {
                 "field": "cutoffTimeHours",
                 "sourceType": "official",
-                "sourceName": "ultra-trail-mogan-by-utmb-official-dmg-2027",
-                "confidence": 0.98,
-                "updatedAt": "2026-11-19T08:22:53.128Z"
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; dmg)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
               },
               "startLocation": {
                 "field": "startLocation",
                 "sourceType": "official",
-                "sourceName": "ultra-trail-mogan-by-utmb-official-dmg-zh-2027",
-                "confidence": 0.98,
-                "updatedAt": "2026-11-19T10:50:09.892Z"
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; dmg)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
               },
               "runningStones": {
                 "field": "runningStones",
@@ -9579,9 +9730,9 @@
               "finishLocation": {
                 "field": "finishLocation",
                 "sourceType": "official",
-                "sourceName": "ultra-trail-mogan-by-utmb-official-dmg-zh-2027",
-                "confidence": 0.98,
-                "updatedAt": "2026-11-19T10:50:09.892Z"
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; dmg)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
               },
               "distanceKm": {
                 "field": "distanceKm",
@@ -9593,9 +9744,16 @@
               "startTimes": {
                 "field": "startTimes",
                 "sourceType": "official",
-                "sourceName": "ultra-trail-mogan-by-utmb-official-dmg-2027",
-                "confidence": 0.98,
-                "updatedAt": "2026-11-19T08:22:53.128Z"
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; dmg)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
+              },
+              "categoryName": {
+                "field": "categoryName",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; dmg)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
               }
             },
             "sourcePriority": {
@@ -9604,15 +9762,15 @@
             "confidence": 0.98,
             "verified": true,
             "verificationStatus": "verified",
-            "verifiedAt": "2026-11-19T10:50:09.892Z",
+            "verifiedAt": "2026-11-20T02:10:41.133Z",
             "missingFields": [
               "coursePoints"
             ],
-            "lastCrawledAt": "2026-11-19T10:50:09.892Z",
-            "lastUpdatedAt": "2026-11-19T10:50:09.892Z",
+            "lastCrawledAt": "2026-11-20T02:10:41.133Z",
+            "lastUpdatedAt": "2026-11-20T02:10:41.133Z",
             "schemaVersion": "race-graph-v1",
             "dataQualityLevel": "B",
-            "reviewNotes": "Human 2026-11-19 approved nominal category distance. Official page Distance remains in raw evidence only. Official route directly binds start and finish. No 2026 course points, supplies or Strategy inherited. 2026-11-19 QA: directly verified Chinese start/finish in official Chinese 2027 route; original English source records retained unchanged. No athlete-entry/building precision inferred. Organizer rulebook has a separate elevation/page-distance discrepancy, recorded in QA Handoff; those existing numeric fields are not changed by this location correction.",
+            "reviewNotes": "CURRENT 2026-11-20: original 2027 organizer rulebook images re-fetched and visually checked; unchanged image hashes and live domestic category identities verified. Human selected formal organizer rulebook as preferred course-parameter source for this edition. Numeric discrepancy adjudicated, not deleted. Nominal distance unchanged, original sources and prior review observations retained. No CP, Strategy or absolute cutoff inference. HISTORICAL REVIEW: Human 2026-11-19 approved nominal category distance. Official page Distance remains in raw evidence only. Official route directly binds start and finish. No 2026 course points, supplies or Strategy inherited. 2026-11-19 QA: directly verified Chinese start/finish in official Chinese 2027 route; original English source records retained unchanged. No athlete-entry/building precision inferred. Organizer rulebook has a separate elevation/page-distance discrepancy, recorded in QA Handoff; those existing numeric fields are not changed by this location correction.",
             "internalFlags": []
           }
         },
@@ -9623,7 +9781,7 @@
           "shortName": "CMG 65K",
           "displayOrder": 2,
           "distanceKm": 65,
-          "elevationGain": 3400,
+          "elevationGain": 3350,
           "elevationLoss": null,
           "cutoffTimeHours": 19,
           "startAt": "2027-04-17T07:00:00+08:00",
@@ -9636,7 +9794,7 @@
           "coursePoints": null,
           "coursePointDataStatus": "unknown",
           "createdAt": "2026-11-19T08:22:53.128Z",
-          "updatedAt": "2026-11-19T10:50:09.892Z",
+          "updatedAt": "2026-11-20T02:10:41.133Z",
           "runningStones": 3,
           "governance": {
             "sources": [
@@ -9722,29 +9880,114 @@
                     "finishLocation": "Jun'anli"
                   }
                 }
+              },
+              {
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; cmg)",
+                "sourceUrl": "https://lungkingos.lungking.com/resource/image/a101f3f85f2ea99be10861636128e1136247ed6daf395b82ce54f91146727ee364e122be03ead27df6df95caaa7904db2922295983ca910d",
+                "sourceRecordId": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027",
+                "crawledAt": "2026-11-20T02:07:48.708954+00:00",
+                "confidence": 0.99,
+                "rawData": {
+                  "editionYear": 2027,
+                  "contentHash": "9bec9bbf201cb0a4391a1ceb175064170afb94ff3178dafdc30bdef5df415f21",
+                  "fetchedAt": "2026-11-20T02:07:48.708954+00:00",
+                  "evidenceFormat": "visually_rechecked_official_rulebook_image",
+                  "manualTranscription": true,
+                  "evidenceLocator": "image1:y=1010..1070 and 3400..3680",
+                  "evidenceText": "CMG 65K; 实际距离 67.6 km; 累计爬升 3350 米; 出发 2027-04-17T07:00:00+08:00; 总时限 19 h; 起点 裸心谷; 终点 郡安里",
+                  "rulebookIdentityEvidence": {
+                    "editionHeader": "2027年4月16日至4月18日",
+                    "issuer": "莫干山越野赛by UTMB®组委会",
+                    "issuedMonth": "2026年11月",
+                    "signatureImageUrl": "https://lungkingos.lungking.com/resource/image/a101f3f85f2ea99b92678a8cf33c28b43aac348d211aa0e0488982a3f2ef41476d750dd983e74de2999428403b890c26ce7b577b95a4f4b8",
+                    "signatureImageContentHash": "d34659b2f833f847c4d9ac4eeb281c4cbb17159b7e08f9dbc6b93cdce86a8342",
+                    "signatureLocator": "image3:y=2940..3410"
+                  },
+                  "officialReferenceChain": [
+                    "https://mogan.utmb.world/registrations",
+                    "https://lungkingos.lungking.com/s/evps2696",
+                    "https://lungkingos.lungking.com/index/app/race/detail/getIntroduction"
+                  ],
+                  "domesticPlatformCategoryName": "CMG65K",
+                  "domesticPlatformCategoryId": "2c908c04a1ce915301a1cf4a7bb04868",
+                  "humanReviewDecision": {
+                    "humanDecisionDate": "2026-11-20",
+                    "executionReviewedAt": "2026-11-20T02:10:41.133Z",
+                    "scope": "ultra-trail-mogan-by-utmb-2027",
+                    "priority": [
+                      "2027 organizer formal rulebook and domestic registration system",
+                      "2027 UTMB category detail",
+                      "third-party corroboration only"
+                    ],
+                    "distanceKmSemantics": "official nominal labels approved 2026-11-19; actual course distance internal only",
+                    "conflictDecision": "Use the identity/year-verified 2027 organizer formal rulebook for this edition; retain UTMB website values as lower-priority observations, not unresolved publication blockers."
+                  },
+                  "previousWebsiteObservation": {
+                    "editionYear": 2027,
+                    "latestRelevantOfficialEditionYear": 2027,
+                    "contentHash": "8d09ef657eff9a227e2423118290672860da6387b5cf317df5b4f6df77a13b7b",
+                    "fetchedAt": "2026-11-19T08:20:12.476315+00:00",
+                    "evidenceText": "Running Stones 3 Distance 67 KM Elevation Gain 3400 M+ Start Date Saturday 17th April 2027 Race Start naked Stables - 07:00 Max Allowed Race Time 19 Hours Presentation Course Presentation The 65K starts at the naked retreats, crosses Shizishan (Lion Hill) and drops to Fatou, then shares its entire second half with the 100K to finish on the lawn at Jun'anli. Point to point, it condenses the best of Moganshan — bamboo seas, mountain villages, the reservoir and hillside resorts unfolding one after another — the smart way to taste the marquee course.",
+                    "evidenceLocator": "html_text:2014-2566; observed 2026-11-19",
+                    "raceDate": "2027-04-17",
+                    "categoryName": "CMG 65K",
+                    "pageDistanceKm": 67,
+                    "elevationGain": 3400,
+                    "startAt": "2027-04-17T07:00:00+08:00",
+                    "cutoffTimeHours": 19,
+                    "startLocation": "naked Stables",
+                    "runningStones": 3,
+                    "finishLocation": "Jun'anli",
+                    "nominalDistanceKm": 65,
+                    "distanceHumanDecision": {
+                      "approvedAtDate": "2026-11-19",
+                      "field": "Category.distanceKm",
+                      "value": 65,
+                      "basisSourceRecordId": "ultra-trail-mogan-by-utmb-official-registration-2027",
+                      "pageDistanceFieldIsSeparate": true
+                    },
+                    "categoryId": "ultra-trail-mogan-by-utmb-2027-cmg"
+                  },
+                  "categoryId": "ultra-trail-mogan-by-utmb-2027-cmg",
+                  "categoryName": "CMG 65K",
+                  "nominalDistanceKm": 65,
+                  "actualCourseDistanceKm": 67.6,
+                  "elevationGain": 3350,
+                  "raceDate": "2027-04-17",
+                  "startAt": "2027-04-17T07:00:00+08:00",
+                  "startTimes": [
+                    "2027-04-17T07:00:00+08:00"
+                  ],
+                  "cutoffTimeHours": 19,
+                  "startLocation": "裸心谷生态度假区",
+                  "finishLocation": "郡安里",
+                  "locationDisplayBasisSourceRecordId": "ultra-trail-mogan-by-utmb-official-cmg-zh-2027",
+                  "tableStartLocation": "裸心谷"
+                }
               }
             ],
             "fieldSources": {
               "elevationGain": {
                 "field": "elevationGain",
                 "sourceType": "official",
-                "sourceName": "ultra-trail-mogan-by-utmb-official-cmg-2027",
-                "confidence": 0.98,
-                "updatedAt": "2026-11-19T08:22:53.128Z"
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; cmg)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
               },
               "startAt": {
                 "field": "startAt",
                 "sourceType": "official",
-                "sourceName": "ultra-trail-mogan-by-utmb-official-cmg-2027",
-                "confidence": 0.98,
-                "updatedAt": "2026-11-19T08:22:53.128Z"
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; cmg)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
               },
               "cutoffTimeHours": {
                 "field": "cutoffTimeHours",
                 "sourceType": "official",
-                "sourceName": "ultra-trail-mogan-by-utmb-official-cmg-2027",
-                "confidence": 0.98,
-                "updatedAt": "2026-11-19T08:22:53.128Z"
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; cmg)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
               },
               "startLocation": {
                 "field": "startLocation",
@@ -9763,9 +10006,9 @@
               "finishLocation": {
                 "field": "finishLocation",
                 "sourceType": "official",
-                "sourceName": "ultra-trail-mogan-by-utmb-official-cmg-zh-2027",
-                "confidence": 0.98,
-                "updatedAt": "2026-11-19T10:50:09.892Z"
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; cmg)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
               },
               "distanceKm": {
                 "field": "distanceKm",
@@ -9777,9 +10020,16 @@
               "startTimes": {
                 "field": "startTimes",
                 "sourceType": "official",
-                "sourceName": "ultra-trail-mogan-by-utmb-official-cmg-2027",
-                "confidence": 0.98,
-                "updatedAt": "2026-11-19T08:22:53.128Z"
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; cmg)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
+              },
+              "categoryName": {
+                "field": "categoryName",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; cmg)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
               }
             },
             "sourcePriority": {
@@ -9788,15 +10038,15 @@
             "confidence": 0.98,
             "verified": true,
             "verificationStatus": "verified",
-            "verifiedAt": "2026-11-19T10:50:09.892Z",
+            "verifiedAt": "2026-11-20T02:10:41.133Z",
             "missingFields": [
               "coursePoints"
             ],
-            "lastCrawledAt": "2026-11-19T10:50:09.892Z",
-            "lastUpdatedAt": "2026-11-19T10:50:09.892Z",
+            "lastCrawledAt": "2026-11-20T02:10:41.133Z",
+            "lastUpdatedAt": "2026-11-20T02:10:41.133Z",
             "schemaVersion": "race-graph-v1",
             "dataQualityLevel": "B",
-            "reviewNotes": "Human 2026-11-19 approved nominal category distance. Official page Distance remains in raw evidence only. Official route directly binds start and finish. No 2026 course points, supplies or Strategy inherited. 2026-11-19 QA: directly verified Chinese start/finish in official Chinese 2027 route; original English source records retained unchanged. No athlete-entry/building precision inferred. Organizer rulebook has a separate elevation/page-distance discrepancy, recorded in QA Handoff; those existing numeric fields are not changed by this location correction.",
+            "reviewNotes": "CURRENT 2026-11-20: original 2027 organizer rulebook images re-fetched and visually checked; unchanged image hashes and live domestic category identities verified. Human selected formal organizer rulebook as preferred course-parameter source for this edition. Numeric discrepancy adjudicated, not deleted. Nominal distance unchanged, original sources and prior review observations retained. No CP, Strategy or absolute cutoff inference. HISTORICAL REVIEW: Human 2026-11-19 approved nominal category distance. Official page Distance remains in raw evidence only. Official route directly binds start and finish. No 2026 course points, supplies or Strategy inherited. 2026-11-19 QA: directly verified Chinese start/finish in official Chinese 2027 route; original English source records retained unchanged. No athlete-entry/building precision inferred. Organizer rulebook has a separate elevation/page-distance discrepancy, recorded in QA Handoff; those existing numeric fields are not changed by this location correction.",
             "internalFlags": []
           }
         },
@@ -9807,7 +10057,7 @@
           "shortName": "MMG 50K",
           "displayOrder": 3,
           "distanceKm": 50,
-          "elevationGain": 2900,
+          "elevationGain": 3030,
           "elevationLoss": null,
           "cutoffTimeHours": 15,
           "startAt": "2027-04-16T22:00:00+08:00",
@@ -9820,7 +10070,7 @@
           "coursePoints": null,
           "coursePointDataStatus": "unknown",
           "createdAt": "2026-11-19T08:22:53.128Z",
-          "updatedAt": "2026-11-19T10:50:09.892Z",
+          "updatedAt": "2026-11-20T02:10:41.133Z",
           "runningStones": 2,
           "governance": {
             "sources": [
@@ -9906,36 +10156,119 @@
                     "finishLocation": "Jun'anli"
                   }
                 }
+              },
+              {
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; mmg)",
+                "sourceUrl": "https://lungkingos.lungking.com/resource/image/a101f3f85f2ea99be10861636128e1136247ed6daf395b82ce54f91146727ee364e122be03ead27df6df95caaa7904db2922295983ca910d",
+                "sourceRecordId": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027",
+                "crawledAt": "2026-11-20T02:07:48.708954+00:00",
+                "confidence": 0.99,
+                "rawData": {
+                  "editionYear": 2027,
+                  "contentHash": "9bec9bbf201cb0a4391a1ceb175064170afb94ff3178dafdc30bdef5df415f21",
+                  "fetchedAt": "2026-11-20T02:07:48.708954+00:00",
+                  "evidenceFormat": "visually_rechecked_official_rulebook_image",
+                  "manualTranscription": true,
+                  "evidenceLocator": "image1:y=1070..1130 and 4480..4790",
+                  "evidenceText": "MMG 50K; 实际距离 52.5 km; 累计爬升 3030 米; 出发 2027-04-16T22:00:00+08:00; 总时限 15 h; 起点 郡安里; 终点 郡安里",
+                  "rulebookIdentityEvidence": {
+                    "editionHeader": "2027年4月16日至4月18日",
+                    "issuer": "莫干山越野赛by UTMB®组委会",
+                    "issuedMonth": "2026年11月",
+                    "signatureImageUrl": "https://lungkingos.lungking.com/resource/image/a101f3f85f2ea99b92678a8cf33c28b43aac348d211aa0e0488982a3f2ef41476d750dd983e74de2999428403b890c26ce7b577b95a4f4b8",
+                    "signatureImageContentHash": "d34659b2f833f847c4d9ac4eeb281c4cbb17159b7e08f9dbc6b93cdce86a8342",
+                    "signatureLocator": "image3:y=2940..3410"
+                  },
+                  "officialReferenceChain": [
+                    "https://mogan.utmb.world/registrations",
+                    "https://lungkingos.lungking.com/s/evps2696",
+                    "https://lungkingos.lungking.com/index/app/race/detail/getIntroduction"
+                  ],
+                  "domesticPlatformCategoryName": "MMG50K",
+                  "domesticPlatformCategoryId": "2c908c04a1ce915301a1cf4a7bb0486d",
+                  "humanReviewDecision": {
+                    "humanDecisionDate": "2026-11-20",
+                    "executionReviewedAt": "2026-11-20T02:10:41.133Z",
+                    "scope": "ultra-trail-mogan-by-utmb-2027",
+                    "priority": [
+                      "2027 organizer formal rulebook and domestic registration system",
+                      "2027 UTMB category detail",
+                      "third-party corroboration only"
+                    ],
+                    "distanceKmSemantics": "official nominal labels approved 2026-11-19; actual course distance internal only",
+                    "conflictDecision": "Use the identity/year-verified 2027 organizer formal rulebook for this edition; retain UTMB website values as lower-priority observations, not unresolved publication blockers."
+                  },
+                  "previousWebsiteObservation": {
+                    "editionYear": 2027,
+                    "latestRelevantOfficialEditionYear": 2027,
+                    "contentHash": "2f55ac22de78aa6915ce4ef0944240b82c29774cb0bf1fb501a69ef3b56eccdf",
+                    "fetchedAt": "2026-11-19T08:19:03.348497+00:00",
+                    "evidenceText": "Running Stones 2 Finals Access Distance 52 KM Elevation Gain 2900 M+ Start Date Friday 16th April 2027 Race Start Jun'anli - 22:00 Max Allowed Race Time 15 Hours Presentation Course Presentation The 50K is the perfect stepping stone — a loop that shares the bamboo-ridge opening with the 100K, branches off at Fatou toward the naked retreats, then rejoins the shared course to finish back at Jun'anli. Intensity and rhythm in balance: a full-day panorama of Moganshan.",
+                    "evidenceLocator": "html_text:2014-2482; observed 2026-11-19",
+                    "raceDate": "2027-04-16",
+                    "categoryName": "MMG 50K",
+                    "pageDistanceKm": 52,
+                    "elevationGain": 2900,
+                    "startAt": "2027-04-16T22:00:00+08:00",
+                    "cutoffTimeHours": 15,
+                    "startLocation": "Jun'anli",
+                    "runningStones": 2,
+                    "finishLocation": "Jun'anli",
+                    "nominalDistanceKm": 50,
+                    "distanceHumanDecision": {
+                      "approvedAtDate": "2026-11-19",
+                      "field": "Category.distanceKm",
+                      "value": 50,
+                      "basisSourceRecordId": "ultra-trail-mogan-by-utmb-official-registration-2027",
+                      "pageDistanceFieldIsSeparate": true
+                    },
+                    "categoryId": "ultra-trail-mogan-by-utmb-2027-mmg"
+                  },
+                  "categoryId": "ultra-trail-mogan-by-utmb-2027-mmg",
+                  "categoryName": "MMG 50K",
+                  "nominalDistanceKm": 50,
+                  "actualCourseDistanceKm": 52.5,
+                  "elevationGain": 3030,
+                  "raceDate": "2027-04-16",
+                  "startAt": "2027-04-16T22:00:00+08:00",
+                  "startTimes": [
+                    "2027-04-16T22:00:00+08:00"
+                  ],
+                  "cutoffTimeHours": 15,
+                  "startLocation": "郡安里",
+                  "finishLocation": "郡安里"
+                }
               }
             ],
             "fieldSources": {
               "elevationGain": {
                 "field": "elevationGain",
                 "sourceType": "official",
-                "sourceName": "ultra-trail-mogan-by-utmb-official-mmg-2027",
-                "confidence": 0.98,
-                "updatedAt": "2026-11-19T08:22:53.128Z"
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; mmg)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
               },
               "startAt": {
                 "field": "startAt",
                 "sourceType": "official",
-                "sourceName": "ultra-trail-mogan-by-utmb-official-mmg-2027",
-                "confidence": 0.98,
-                "updatedAt": "2026-11-19T08:22:53.128Z"
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; mmg)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
               },
               "cutoffTimeHours": {
                 "field": "cutoffTimeHours",
                 "sourceType": "official",
-                "sourceName": "ultra-trail-mogan-by-utmb-official-mmg-2027",
-                "confidence": 0.98,
-                "updatedAt": "2026-11-19T08:22:53.128Z"
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; mmg)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
               },
               "startLocation": {
                 "field": "startLocation",
                 "sourceType": "official",
-                "sourceName": "ultra-trail-mogan-by-utmb-official-mmg-zh-2027",
-                "confidence": 0.98,
-                "updatedAt": "2026-11-19T10:50:09.892Z"
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; mmg)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
               },
               "runningStones": {
                 "field": "runningStones",
@@ -9947,9 +10280,9 @@
               "finishLocation": {
                 "field": "finishLocation",
                 "sourceType": "official",
-                "sourceName": "ultra-trail-mogan-by-utmb-official-mmg-zh-2027",
-                "confidence": 0.98,
-                "updatedAt": "2026-11-19T10:50:09.892Z"
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; mmg)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
               },
               "distanceKm": {
                 "field": "distanceKm",
@@ -9961,9 +10294,16 @@
               "startTimes": {
                 "field": "startTimes",
                 "sourceType": "official",
-                "sourceName": "ultra-trail-mogan-by-utmb-official-mmg-2027",
-                "confidence": 0.98,
-                "updatedAt": "2026-11-19T08:22:53.128Z"
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; mmg)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
+              },
+              "categoryName": {
+                "field": "categoryName",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; mmg)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
               }
             },
             "sourcePriority": {
@@ -9972,15 +10312,15 @@
             "confidence": 0.98,
             "verified": true,
             "verificationStatus": "verified",
-            "verifiedAt": "2026-11-19T10:50:09.892Z",
+            "verifiedAt": "2026-11-20T02:10:41.133Z",
             "missingFields": [
               "coursePoints"
             ],
-            "lastCrawledAt": "2026-11-19T10:50:09.892Z",
-            "lastUpdatedAt": "2026-11-19T10:50:09.892Z",
+            "lastCrawledAt": "2026-11-20T02:10:41.133Z",
+            "lastUpdatedAt": "2026-11-20T02:10:41.133Z",
             "schemaVersion": "race-graph-v1",
             "dataQualityLevel": "B",
-            "reviewNotes": "Human 2026-11-19 approved nominal category distance. Official page Distance remains in raw evidence only. Official route directly binds start and finish. No 2026 course points, supplies or Strategy inherited. 2026-11-19 QA: directly verified Chinese start/finish in official Chinese 2027 route; original English source records retained unchanged. No athlete-entry/building precision inferred. Organizer rulebook has a separate elevation/page-distance discrepancy, recorded in QA Handoff; those existing numeric fields are not changed by this location correction.",
+            "reviewNotes": "CURRENT 2026-11-20: original 2027 organizer rulebook images re-fetched and visually checked; unchanged image hashes and live domestic category identities verified. Human selected formal organizer rulebook as preferred course-parameter source for this edition. Numeric discrepancy adjudicated, not deleted. Nominal distance unchanged, original sources and prior review observations retained. No CP, Strategy or absolute cutoff inference. HISTORICAL REVIEW: Human 2026-11-19 approved nominal category distance. Official page Distance remains in raw evidence only. Official route directly binds start and finish. No 2026 course points, supplies or Strategy inherited. 2026-11-19 QA: directly verified Chinese start/finish in official Chinese 2027 route; original English source records retained unchanged. No athlete-entry/building precision inferred. Organizer rulebook has a separate elevation/page-distance discrepancy, recorded in QA Handoff; those existing numeric fields are not changed by this location correction.",
             "internalFlags": []
           }
         },
@@ -9991,7 +10331,7 @@
           "shortName": "NMG 35K",
           "displayOrder": 4,
           "distanceKm": 35,
-          "elevationGain": 1900,
+          "elevationGain": 2180,
           "elevationLoss": null,
           "cutoffTimeHours": 11,
           "startAt": "2027-04-17T09:00:00+08:00",
@@ -10004,7 +10344,7 @@
           "coursePoints": null,
           "coursePointDataStatus": "unknown",
           "createdAt": "2026-11-19T08:22:53.128Z",
-          "updatedAt": "2026-11-19T10:50:09.892Z",
+          "updatedAt": "2026-11-20T02:10:41.133Z",
           "runningStones": 2,
           "governance": {
             "sources": [
@@ -10108,36 +10448,118 @@
                   },
                   "conflictResolution": "unresolved; Human decision required; official numeric values not selected automatically"
                 }
+              },
+              {
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; nmg)",
+                "sourceUrl": "https://lungkingos.lungking.com/resource/image/a101f3f85f2ea99be10861636128e1136247ed6daf395b82ce54f91146727ee364e122be03ead27df6df95caaa7904db2922295983ca910d",
+                "sourceRecordId": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027",
+                "crawledAt": "2026-11-20T02:07:48.708954+00:00",
+                "confidence": 0.99,
+                "rawData": {
+                  "editionYear": 2027,
+                  "contentHash": "9bec9bbf201cb0a4391a1ceb175064170afb94ff3178dafdc30bdef5df415f21",
+                  "fetchedAt": "2026-11-20T02:07:48.708954+00:00",
+                  "evidenceFormat": "visually_rechecked_official_rulebook_image",
+                  "manualTranscription": true,
+                  "evidenceLocator": "image1:y=1130..1190 and 5550..5890",
+                  "evidenceText": "NMG 35K; 实际距离 35.6 km; 累计爬升 2180 米; 出发 2027-04-17T09:00:00+08:00; 总时限 11 h; 起点 郡安里; 终点 郡安里",
+                  "rulebookIdentityEvidence": {
+                    "editionHeader": "2027年4月16日至4月18日",
+                    "issuer": "莫干山越野赛by UTMB®组委会",
+                    "issuedMonth": "2026年11月",
+                    "signatureImageUrl": "https://lungkingos.lungking.com/resource/image/a101f3f85f2ea99b92678a8cf33c28b43aac348d211aa0e0488982a3f2ef41476d750dd983e74de2999428403b890c26ce7b577b95a4f4b8",
+                    "signatureImageContentHash": "d34659b2f833f847c4d9ac4eeb281c4cbb17159b7e08f9dbc6b93cdce86a8342",
+                    "signatureLocator": "image3:y=2940..3410"
+                  },
+                  "officialReferenceChain": [
+                    "https://mogan.utmb.world/registrations",
+                    "https://lungkingos.lungking.com/s/evps2696",
+                    "https://lungkingos.lungking.com/index/app/race/detail/getIntroduction"
+                  ],
+                  "domesticPlatformCategoryName": "NMG35K",
+                  "domesticPlatformCategoryId": "2c908c04a1ce915301a1cf4a7bb04872",
+                  "humanReviewDecision": {
+                    "humanDecisionDate": "2026-11-20",
+                    "executionReviewedAt": "2026-11-20T02:10:41.133Z",
+                    "scope": "ultra-trail-mogan-by-utmb-2027",
+                    "priority": [
+                      "2027 organizer formal rulebook and domestic registration system",
+                      "2027 UTMB category detail",
+                      "third-party corroboration only"
+                    ],
+                    "distanceKmSemantics": "official nominal labels approved 2026-11-19; actual course distance internal only",
+                    "conflictDecision": "Use the identity/year-verified 2027 organizer formal rulebook for this edition; retain UTMB website values as lower-priority observations, not unresolved publication blockers."
+                  },
+                  "previousWebsiteObservation": {
+                    "editionYear": 2027,
+                    "latestRelevantOfficialEditionYear": 2027,
+                    "contentHash": "e9a73fdd20326dded840747e2418b270c5f458575f226f744a236e89f4c3ec52",
+                    "fetchedAt": "2026-11-19T08:19:08.813596+00:00",
+                    "evidenceText": "Running Stones 2 Distance 36 KM Elevation Gain 1900 M+ Start Date Saturday 17th April 2027 Race Start J.LALLI VALLEY - 09:00 Max Allowed Race Time 11 Hours",
+                    "evidenceLocator": "html_text:2270-2425; observed 2026-11-19",
+                    "raceDate": "2027-04-17",
+                    "categoryName": "NMG 35K",
+                    "pageDistanceKm": 36,
+                    "elevationGain": 1900,
+                    "startAt": "2027-04-17T09:00:00+08:00",
+                    "cutoffTimeHours": 11,
+                    "startLocation": "J.LALLI VALLEY",
+                    "runningStones": 2,
+                    "nominalDistanceKm": 35,
+                    "distanceHumanDecision": {
+                      "approvedAtDate": "2026-11-19",
+                      "field": "Category.distanceKm",
+                      "value": 35,
+                      "basisSourceRecordId": "ultra-trail-mogan-by-utmb-official-registration-2027",
+                      "pageDistanceFieldIsSeparate": true
+                    },
+                    "categoryId": "ultra-trail-mogan-by-utmb-2027-nmg"
+                  },
+                  "categoryId": "ultra-trail-mogan-by-utmb-2027-nmg",
+                  "categoryName": "NMG 35K",
+                  "nominalDistanceKm": 35,
+                  "actualCourseDistanceKm": 35.6,
+                  "elevationGain": 2180,
+                  "raceDate": "2027-04-17",
+                  "startAt": "2027-04-17T09:00:00+08:00",
+                  "startTimes": [
+                    "2027-04-17T09:00:00+08:00"
+                  ],
+                  "cutoffTimeHours": 11,
+                  "startLocation": "郡安里",
+                  "finishLocation": "郡安里"
+                }
               }
             ],
             "fieldSources": {
               "elevationGain": {
                 "field": "elevationGain",
                 "sourceType": "official",
-                "sourceName": "ultra-trail-mogan-by-utmb-official-nmg-2027",
-                "confidence": 0.98,
-                "updatedAt": "2026-11-19T08:22:53.128Z"
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; nmg)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
               },
               "startAt": {
                 "field": "startAt",
                 "sourceType": "official",
-                "sourceName": "ultra-trail-mogan-by-utmb-official-nmg-2027",
-                "confidence": 0.98,
-                "updatedAt": "2026-11-19T08:22:53.128Z"
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; nmg)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
               },
               "cutoffTimeHours": {
                 "field": "cutoffTimeHours",
                 "sourceType": "official",
-                "sourceName": "ultra-trail-mogan-by-utmb-official-nmg-2027",
-                "confidence": 0.98,
-                "updatedAt": "2026-11-19T08:22:53.128Z"
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; nmg)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
               },
               "startLocation": {
                 "field": "startLocation",
                 "sourceType": "official",
-                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027",
-                "confidence": 0.98,
-                "updatedAt": "2026-11-19T10:50:09.892Z"
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; nmg)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
               },
               "runningStones": {
                 "field": "runningStones",
@@ -10156,33 +10578,40 @@
               "startTimes": {
                 "field": "startTimes",
                 "sourceType": "official",
-                "sourceName": "ultra-trail-mogan-by-utmb-official-nmg-2027",
-                "confidence": 0.98,
-                "updatedAt": "2026-11-19T08:22:53.128Z"
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; nmg)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
               },
               "finishLocation": {
                 "field": "finishLocation",
                 "sourceType": "official",
-                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027",
-                "confidence": 0.98,
-                "updatedAt": "2026-11-19T10:50:09.892Z"
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; nmg)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
+              },
+              "categoryName": {
+                "field": "categoryName",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; nmg)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
               }
             },
             "sourcePriority": {
               "official": 100
             },
             "confidence": 0.98,
-            "verified": false,
-            "verificationStatus": "pending",
-            "verifiedAt": null,
+            "verified": true,
+            "verificationStatus": "verified",
+            "verifiedAt": "2026-11-20T02:10:41.133Z",
             "missingFields": [
               "coursePoints"
             ],
-            "lastCrawledAt": "2026-11-19T10:50:09.892Z",
-            "lastUpdatedAt": "2026-11-19T10:50:09.892Z",
+            "lastCrawledAt": "2026-11-20T02:10:41.133Z",
+            "lastUpdatedAt": "2026-11-20T02:10:41.133Z",
             "schemaVersion": "race-graph-v1",
             "dataQualityLevel": "C",
-            "reviewNotes": "2026-11-19 QA: official 2027 organizer rulebook table directly states start and finish 郡安里. English J.LALLI VALLEY is retained in original evidence, not translated by inference. Publication HOLD: official website vs official organizer rulebook differ in elevation and/or actual-course distance; numeric values remain unselected pending Human decision. Existing nominal distance Human Approval retained. NMG template pollution, Chinese EMG identity mismatch and Chinese NMG/10K error pages separately documented. Not public; no CP or Strategy.",
+            "reviewNotes": "CURRENT 2026-11-20: original 2027 organizer rulebook images re-fetched and visually checked; unchanged image hashes and live domestic category identities verified. Human selected formal organizer rulebook as preferred course-parameter source for this edition. Numeric discrepancy adjudicated, not deleted. Nominal distance unchanged, original sources and prior review observations retained. No CP, Strategy or absolute cutoff inference. HISTORICAL REVIEW: 2026-11-19 QA: official 2027 organizer rulebook table directly states start and finish 郡安里. English J.LALLI VALLEY is retained in original evidence, not translated by inference. Publication HOLD: official website vs official organizer rulebook differ in elevation and/or actual-course distance; numeric values remain unselected pending Human decision. Existing nominal distance Human Approval retained. NMG template pollution, Chinese EMG identity mismatch and Chinese NMG/10K error pages separately documented. Not public; no CP or Strategy.",
             "internalFlags": []
           }
         },
@@ -10193,7 +10622,7 @@
           "shortName": "EMG 20K",
           "displayOrder": 5,
           "distanceKm": 20,
-          "elevationGain": 1200,
+          "elevationGain": 1260,
           "elevationLoss": null,
           "cutoffTimeHours": 7,
           "startAt": "2027-04-18T09:00:00+08:00",
@@ -10206,7 +10635,7 @@
           "coursePoints": null,
           "coursePointDataStatus": "unknown",
           "createdAt": "2026-11-19T08:22:53.128Z",
-          "updatedAt": "2026-11-19T10:50:09.892Z",
+          "updatedAt": "2026-11-20T02:10:41.133Z",
           "runningStones": 1,
           "governance": {
             "sources": [
@@ -10310,36 +10739,118 @@
                   },
                   "conflictResolution": "unresolved; Human decision required; official numeric values not selected automatically"
                 }
+              },
+              {
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; emg)",
+                "sourceUrl": "https://lungkingos.lungking.com/resource/image/a101f3f85f2ea99be10861636128e1136247ed6daf395b82ce54f91146727ee364e122be03ead27df6df95caaa7904db2922295983ca910d",
+                "sourceRecordId": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027",
+                "crawledAt": "2026-11-20T02:07:48.708954+00:00",
+                "confidence": 0.99,
+                "rawData": {
+                  "editionYear": 2027,
+                  "contentHash": "9bec9bbf201cb0a4391a1ceb175064170afb94ff3178dafdc30bdef5df415f21",
+                  "fetchedAt": "2026-11-20T02:07:48.708954+00:00",
+                  "evidenceFormat": "visually_rechecked_official_rulebook_image",
+                  "manualTranscription": true,
+                  "evidenceLocator": "image1:y=1190..1250 and 6700..6960",
+                  "evidenceText": "EMG 20K; 实际距离 23 km; 累计爬升 1260 米; 出发 2027-04-18T09:00:00+08:00; 总时限 7 h; 起点 郡安里; 终点 郡安里",
+                  "rulebookIdentityEvidence": {
+                    "editionHeader": "2027年4月16日至4月18日",
+                    "issuer": "莫干山越野赛by UTMB®组委会",
+                    "issuedMonth": "2026年11月",
+                    "signatureImageUrl": "https://lungkingos.lungking.com/resource/image/a101f3f85f2ea99b92678a8cf33c28b43aac348d211aa0e0488982a3f2ef41476d750dd983e74de2999428403b890c26ce7b577b95a4f4b8",
+                    "signatureImageContentHash": "d34659b2f833f847c4d9ac4eeb281c4cbb17159b7e08f9dbc6b93cdce86a8342",
+                    "signatureLocator": "image3:y=2940..3410"
+                  },
+                  "officialReferenceChain": [
+                    "https://mogan.utmb.world/registrations",
+                    "https://lungkingos.lungking.com/s/evps2696",
+                    "https://lungkingos.lungking.com/index/app/race/detail/getIntroduction"
+                  ],
+                  "domesticPlatformCategoryName": "EMG20K",
+                  "domesticPlatformCategoryId": "2c908c04a1ce915301a1cf4a7bb14877",
+                  "humanReviewDecision": {
+                    "humanDecisionDate": "2026-11-20",
+                    "executionReviewedAt": "2026-11-20T02:10:41.133Z",
+                    "scope": "ultra-trail-mogan-by-utmb-2027",
+                    "priority": [
+                      "2027 organizer formal rulebook and domestic registration system",
+                      "2027 UTMB category detail",
+                      "third-party corroboration only"
+                    ],
+                    "distanceKmSemantics": "official nominal labels approved 2026-11-19; actual course distance internal only",
+                    "conflictDecision": "Use the identity/year-verified 2027 organizer formal rulebook for this edition; retain UTMB website values as lower-priority observations, not unresolved publication blockers."
+                  },
+                  "previousWebsiteObservation": {
+                    "editionYear": 2027,
+                    "latestRelevantOfficialEditionYear": 2027,
+                    "contentHash": "de7568491441dd0b716fa88b0bb14d5eec69579b4c71ad94acf5a8a618162b27",
+                    "fetchedAt": "2026-11-19T08:20:44.715924+00:00",
+                    "evidenceText": "Running Stones 1 Distance 23 KM Elevation Gain 1200 M+ Start Date Sunday 18th April 2027 Race Start J.LALLI VALLEY - 09:00 Max Allowed Race Time 07 Hours",
+                    "evidenceLocator": "html_text:1991-2144; observed 2026-11-19",
+                    "raceDate": "2027-04-18",
+                    "categoryName": "EMG 20K",
+                    "pageDistanceKm": 23,
+                    "elevationGain": 1200,
+                    "startAt": "2027-04-18T09:00:00+08:00",
+                    "cutoffTimeHours": 7,
+                    "startLocation": "J.LALLI VALLEY",
+                    "runningStones": 1,
+                    "nominalDistanceKm": 20,
+                    "distanceHumanDecision": {
+                      "approvedAtDate": "2026-11-19",
+                      "field": "Category.distanceKm",
+                      "value": 20,
+                      "basisSourceRecordId": "ultra-trail-mogan-by-utmb-official-registration-2027",
+                      "pageDistanceFieldIsSeparate": true
+                    },
+                    "categoryId": "ultra-trail-mogan-by-utmb-2027-emg"
+                  },
+                  "categoryId": "ultra-trail-mogan-by-utmb-2027-emg",
+                  "categoryName": "EMG 20K",
+                  "nominalDistanceKm": 20,
+                  "actualCourseDistanceKm": 23,
+                  "elevationGain": 1260,
+                  "raceDate": "2027-04-18",
+                  "startAt": "2027-04-18T09:00:00+08:00",
+                  "startTimes": [
+                    "2027-04-18T09:00:00+08:00"
+                  ],
+                  "cutoffTimeHours": 7,
+                  "startLocation": "郡安里",
+                  "finishLocation": "郡安里"
+                }
               }
             ],
             "fieldSources": {
               "elevationGain": {
                 "field": "elevationGain",
                 "sourceType": "official",
-                "sourceName": "ultra-trail-mogan-by-utmb-official-emg-2027",
-                "confidence": 0.98,
-                "updatedAt": "2026-11-19T08:22:53.128Z"
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; emg)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
               },
               "startAt": {
                 "field": "startAt",
                 "sourceType": "official",
-                "sourceName": "ultra-trail-mogan-by-utmb-official-emg-2027",
-                "confidence": 0.98,
-                "updatedAt": "2026-11-19T08:22:53.128Z"
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; emg)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
               },
               "cutoffTimeHours": {
                 "field": "cutoffTimeHours",
                 "sourceType": "official",
-                "sourceName": "ultra-trail-mogan-by-utmb-official-emg-2027",
-                "confidence": 0.98,
-                "updatedAt": "2026-11-19T08:22:53.128Z"
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; emg)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
               },
               "startLocation": {
                 "field": "startLocation",
                 "sourceType": "official",
-                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027",
-                "confidence": 0.98,
-                "updatedAt": "2026-11-19T10:50:09.892Z"
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; emg)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
               },
               "runningStones": {
                 "field": "runningStones",
@@ -10358,44 +10869,51 @@
               "startTimes": {
                 "field": "startTimes",
                 "sourceType": "official",
-                "sourceName": "ultra-trail-mogan-by-utmb-official-emg-2027",
-                "confidence": 0.98,
-                "updatedAt": "2026-11-19T08:22:53.128Z"
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; emg)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
               },
               "finishLocation": {
                 "field": "finishLocation",
                 "sourceType": "official",
-                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027",
-                "confidence": 0.98,
-                "updatedAt": "2026-11-19T10:50:09.892Z"
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; emg)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
+              },
+              "categoryName": {
+                "field": "categoryName",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; emg)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
               }
             },
             "sourcePriority": {
               "official": 100
             },
             "confidence": 0.98,
-            "verified": false,
-            "verificationStatus": "pending",
-            "verifiedAt": null,
+            "verified": true,
+            "verificationStatus": "verified",
+            "verifiedAt": "2026-11-20T02:10:41.133Z",
             "missingFields": [
               "coursePoints"
             ],
-            "lastCrawledAt": "2026-11-19T10:50:09.892Z",
-            "lastUpdatedAt": "2026-11-19T10:50:09.892Z",
+            "lastCrawledAt": "2026-11-20T02:10:41.133Z",
+            "lastUpdatedAt": "2026-11-20T02:10:41.133Z",
             "schemaVersion": "race-graph-v1",
             "dataQualityLevel": "C",
-            "reviewNotes": "2026-11-19 QA: official 2027 organizer rulebook table directly states start and finish 郡安里. English J.LALLI VALLEY is retained in original evidence, not translated by inference. Publication HOLD: official website vs official organizer rulebook differ in elevation and/or actual-course distance; numeric values remain unselected pending Human decision. Existing nominal distance Human Approval retained. NMG template pollution, Chinese EMG identity mismatch and Chinese NMG/10K error pages separately documented. Not public; no CP or Strategy.",
+            "reviewNotes": "CURRENT 2026-11-20: original 2027 organizer rulebook images re-fetched and visually checked; unchanged image hashes and live domestic category identities verified. Human selected formal organizer rulebook as preferred course-parameter source for this edition. Numeric discrepancy adjudicated, not deleted. Nominal distance unchanged, original sources and prior review observations retained. No CP, Strategy or absolute cutoff inference. HISTORICAL REVIEW: 2026-11-19 QA: official 2027 organizer rulebook table directly states start and finish 郡安里. English J.LALLI VALLEY is retained in original evidence, not translated by inference. Publication HOLD: official website vs official organizer rulebook differ in elevation and/or actual-course distance; numeric values remain unselected pending Human decision. Existing nominal distance Human Approval retained. NMG template pollution, Chinese EMG identity mismatch and Chinese NMG/10K error pages separately documented. Not public; no CP or Strategy.",
             "internalFlags": []
           }
         },
         {
           "categoryId": "ultra-trail-mogan-by-utmb-2027-10k",
           "editionId": "ultra-trail-mogan-by-utmb-2027",
-          "categoryName": "10K",
-          "shortName": "10K",
+          "categoryName": "FMG 10K",
+          "shortName": "FMG 10K",
           "displayOrder": 6,
           "distanceKm": 10,
-          "elevationGain": 300,
+          "elevationGain": 340,
           "elevationLoss": null,
           "cutoffTimeHours": 3.5,
           "startAt": "2027-04-18T10:00:00+08:00",
@@ -10408,7 +10926,7 @@
           "coursePoints": null,
           "coursePointDataStatus": "unknown",
           "createdAt": "2026-11-19T08:22:53.128Z",
-          "updatedAt": "2026-11-19T10:50:09.892Z",
+          "updatedAt": "2026-11-20T02:10:41.133Z",
           "governance": {
             "sources": [
               {
@@ -10510,36 +11028,118 @@
                   },
                   "conflictResolution": "unresolved; Human decision required; official numeric values not selected automatically"
                 }
+              },
+              {
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; 10k)",
+                "sourceUrl": "https://lungkingos.lungking.com/resource/image/a101f3f85f2ea99be10861636128e1136247ed6daf395b82ce54f91146727ee364e122be03ead27df6df95caaa7904db2922295983ca910d",
+                "sourceRecordId": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027",
+                "crawledAt": "2026-11-20T02:07:48.708954+00:00",
+                "confidence": 0.99,
+                "rawData": {
+                  "editionYear": 2027,
+                  "contentHash": "9bec9bbf201cb0a4391a1ceb175064170afb94ff3178dafdc30bdef5df415f21",
+                  "fetchedAt": "2026-11-20T02:07:48.708954+00:00",
+                  "evidenceFormat": "visually_rechecked_official_rulebook_image",
+                  "manualTranscription": true,
+                  "evidenceLocator": "image1:y=1250..1305 and 7770..8070",
+                  "evidenceText": "FMG 10K; 实际距离 11.3 km; 累计爬升 340 米; 出发 2027-04-18T10:00:00+08:00; 总时限 3.5 h; 起点 郡安里; 终点 郡安里",
+                  "rulebookIdentityEvidence": {
+                    "editionHeader": "2027年4月16日至4月18日",
+                    "issuer": "莫干山越野赛by UTMB®组委会",
+                    "issuedMonth": "2026年11月",
+                    "signatureImageUrl": "https://lungkingos.lungking.com/resource/image/a101f3f85f2ea99b92678a8cf33c28b43aac348d211aa0e0488982a3f2ef41476d750dd983e74de2999428403b890c26ce7b577b95a4f4b8",
+                    "signatureImageContentHash": "d34659b2f833f847c4d9ac4eeb281c4cbb17159b7e08f9dbc6b93cdce86a8342",
+                    "signatureLocator": "image3:y=2940..3410"
+                  },
+                  "officialReferenceChain": [
+                    "https://mogan.utmb.world/registrations",
+                    "https://lungkingos.lungking.com/s/evps2696",
+                    "https://lungkingos.lungking.com/index/app/race/detail/getIntroduction"
+                  ],
+                  "domesticPlatformCategoryName": "FMG10K",
+                  "domesticPlatformCategoryId": "2c908c04a1ce915301a1cf4a7bb1487c",
+                  "humanReviewDecision": {
+                    "humanDecisionDate": "2026-11-20",
+                    "executionReviewedAt": "2026-11-20T02:10:41.133Z",
+                    "scope": "ultra-trail-mogan-by-utmb-2027",
+                    "priority": [
+                      "2027 organizer formal rulebook and domestic registration system",
+                      "2027 UTMB category detail",
+                      "third-party corroboration only"
+                    ],
+                    "distanceKmSemantics": "official nominal labels approved 2026-11-19; actual course distance internal only",
+                    "conflictDecision": "Use the identity/year-verified 2027 organizer formal rulebook for this edition; retain UTMB website values as lower-priority observations, not unresolved publication blockers."
+                  },
+                  "previousWebsiteObservation": {
+                    "editionYear": 2027,
+                    "latestRelevantOfficialEditionYear": 2027,
+                    "contentHash": "1883342143b1fdab201f9b5684e668e47b8d17df4835077bd49c8c345bc488c1",
+                    "fetchedAt": "2026-11-19T08:19:10.421039+00:00",
+                    "evidenceText": "Distance 10 KM Elevation Gain 300 M+ Start Date Sunday 18th April 2027 Race Start J.LALLI VALLEY - 10:00 Max Allowed Race Time 03 Hours 30 Minutes",
+                    "evidenceLocator": "html_text:1973-2119; observed 2026-11-19",
+                    "raceDate": "2027-04-18",
+                    "categoryName": "10K",
+                    "pageDistanceKm": 10,
+                    "elevationGain": 300,
+                    "startAt": "2027-04-18T10:00:00+08:00",
+                    "cutoffTimeHours": 3.5,
+                    "startLocation": "J.LALLI VALLEY",
+                    "nominalDistanceKm": 10,
+                    "distanceHumanDecision": {
+                      "approvedAtDate": "2026-11-19",
+                      "field": "Category.distanceKm",
+                      "value": 10,
+                      "basisSourceRecordId": "ultra-trail-mogan-by-utmb-official-registration-2027",
+                      "pageDistanceFieldIsSeparate": true
+                    },
+                    "categoryId": "ultra-trail-mogan-by-utmb-2027-10k"
+                  },
+                  "categoryId": "ultra-trail-mogan-by-utmb-2027-10k",
+                  "categoryName": "FMG 10K",
+                  "nominalDistanceKm": 10,
+                  "actualCourseDistanceKm": 11.3,
+                  "elevationGain": 340,
+                  "raceDate": "2027-04-18",
+                  "startAt": "2027-04-18T10:00:00+08:00",
+                  "startTimes": [
+                    "2027-04-18T10:00:00+08:00"
+                  ],
+                  "cutoffTimeHours": 3.5,
+                  "startLocation": "郡安里",
+                  "finishLocation": "郡安里",
+                  "categoryIdentityResolution": "UTMB 10K and organizer FMG10K are the same unique sixth 10km nominal category: same 2027 edition, April18 10:00, 3.5h and start/finish. Preserve stable -10k ID; use formal FMG 10K display name."
+                }
               }
             ],
             "fieldSources": {
               "elevationGain": {
                 "field": "elevationGain",
                 "sourceType": "official",
-                "sourceName": "ultra-trail-mogan-by-utmb-official-10k-2027",
-                "confidence": 0.98,
-                "updatedAt": "2026-11-19T08:22:53.128Z"
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; 10k)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
               },
               "startAt": {
                 "field": "startAt",
                 "sourceType": "official",
-                "sourceName": "ultra-trail-mogan-by-utmb-official-10k-2027",
-                "confidence": 0.98,
-                "updatedAt": "2026-11-19T08:22:53.128Z"
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; 10k)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
               },
               "cutoffTimeHours": {
                 "field": "cutoffTimeHours",
                 "sourceType": "official",
-                "sourceName": "ultra-trail-mogan-by-utmb-official-10k-2027",
-                "confidence": 0.98,
-                "updatedAt": "2026-11-19T08:22:53.128Z"
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; 10k)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
               },
               "startLocation": {
                 "field": "startLocation",
                 "sourceType": "official",
-                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027",
-                "confidence": 0.98,
-                "updatedAt": "2026-11-19T10:50:09.892Z"
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; 10k)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
               },
               "distanceKm": {
                 "field": "distanceKm",
@@ -10551,33 +11151,40 @@
               "startTimes": {
                 "field": "startTimes",
                 "sourceType": "official",
-                "sourceName": "ultra-trail-mogan-by-utmb-official-10k-2027",
-                "confidence": 0.98,
-                "updatedAt": "2026-11-19T08:22:53.128Z"
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; 10k)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
               },
               "finishLocation": {
                 "field": "finishLocation",
                 "sourceType": "official",
-                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027",
-                "confidence": 0.98,
-                "updatedAt": "2026-11-19T10:50:09.892Z"
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; 10k)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
+              },
+              "categoryName": {
+                "field": "categoryName",
+                "sourceType": "official",
+                "sourceName": "ultra-trail-mogan-by-utmb-official-rulebook-image-2027 (Human reviewed 2026-11-20; 10k)",
+                "confidence": 0.99,
+                "updatedAt": "2026-11-20T02:10:41.133Z"
               }
             },
             "sourcePriority": {
               "official": 100
             },
             "confidence": 0.98,
-            "verified": false,
-            "verificationStatus": "pending",
-            "verifiedAt": null,
+            "verified": true,
+            "verificationStatus": "verified",
+            "verifiedAt": "2026-11-20T02:10:41.133Z",
             "missingFields": [
               "coursePoints"
             ],
-            "lastCrawledAt": "2026-11-19T10:50:09.892Z",
-            "lastUpdatedAt": "2026-11-19T10:50:09.892Z",
+            "lastCrawledAt": "2026-11-20T02:10:41.133Z",
+            "lastUpdatedAt": "2026-11-20T02:10:41.133Z",
             "schemaVersion": "race-graph-v1",
             "dataQualityLevel": "C",
-            "reviewNotes": "2026-11-19 QA: official 2027 organizer rulebook table directly states start and finish 郡安里. English J.LALLI VALLEY is retained in original evidence, not translated by inference. Publication HOLD: official website vs official organizer rulebook differ in elevation and/or actual-course distance; numeric values remain unselected pending Human decision. Existing nominal distance Human Approval retained. NMG template pollution, Chinese EMG identity mismatch and Chinese NMG/10K error pages separately documented. Not public; no CP or Strategy.",
+            "reviewNotes": "CURRENT 2026-11-20: original 2027 organizer rulebook images re-fetched and visually checked; unchanged image hashes and live domestic category identities verified. Human selected formal organizer rulebook as preferred course-parameter source for this edition. Numeric discrepancy adjudicated, not deleted. Nominal distance unchanged, original sources and prior review observations retained. No CP, Strategy or absolute cutoff inference. HISTORICAL REVIEW: 2026-11-19 QA: official 2027 organizer rulebook table directly states start and finish 郡安里. English J.LALLI VALLEY is retained in original evidence, not translated by inference. Publication HOLD: official website vs official organizer rulebook differ in elevation and/or actual-course distance; numeric values remain unselected pending Human decision. Existing nominal distance Human Approval retained. NMG template pollution, Chinese EMG identity mismatch and Chinese NMG/10K error pages separately documented. Not public; no CP or Strategy.",
             "internalFlags": []
           }
         }

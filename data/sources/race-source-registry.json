@@ -1082,7 +1082,7 @@
           "sourceType": "regulations",
           "status": "pending_review",
           "isPrimary": false,
-          "notes": "2027 organizer rulebook reached from current UTMB official registration link -> lungking entry -> public getIntroduction. Visually read and hashed, not an HTML extraction source. Retained for QA evidence; conflicting numeric/registration facts await Human decision, excluded from automatic freshness processing."
+          "notes": "2027 organizer rulebook reached from current UTMB official registration link -> lungking entry -> public getIntroduction. Visually read and hashed, not an HTML extraction source. Retained for QA evidence; conflicting numeric/registration facts await Human decision, excluded from automatic freshness processing. 2026-11-20: fact-level Human adjudication completed after original images and live domestic system recheck. Organizer formal rulebook selected for course parameters; domestic APPLYING governs registration_open, not a confirmed place. Prior website values retained. Registry activation for automated image/SPA processing remains separately pending; this task adds no extractor and leaves status/eligible source set unchanged."
         },
         {
           "sourceId": "ultra-trail-mogan-by-utmb-official-registration-rulebook-2027",
@@ -1092,7 +1092,7 @@
           "sourceType": "registration_notice",
           "status": "pending_review",
           "isPrimary": false,
-          "notes": "2027 organizer rulebook reached from current UTMB official registration link -> lungking entry -> public getIntroduction. Visually read and hashed, not an HTML extraction source. Retained for QA evidence; conflicting numeric/registration facts await Human decision, excluded from automatic freshness processing."
+          "notes": "2027 organizer rulebook reached from current UTMB official registration link -> lungking entry -> public getIntroduction. Visually read and hashed, not an HTML extraction source. Retained for QA evidence; conflicting numeric/registration facts await Human decision, excluded from automatic freshness processing. 2026-11-20: fact-level Human adjudication completed after original images and live domestic system recheck. Organizer formal rulebook selected for course parameters; domestic APPLYING governs registration_open, not a confirmed place. Prior website values retained. Registry activation for automated image/SPA processing remains separately pending; this task adds no extractor and leaves status/eligible source set unchanged."
         },
         {
           "sourceId": "ultra-trail-mogan-by-utmb-official-lungking-entry-2027",
@@ -1102,7 +1102,7 @@
           "sourceType": "registration_platform",
           "status": "pending_review",
           "isPrimary": false,
-          "notes": "Current UTMB official registration page links here. Public getRaceInfo identifies 2027 edition and APPLYING; rulebook describes entry and conditional draw. Conflict with UTMB cards remains unresolved. SPA/API is read-only evidence, not a newly enabled JSON extractor."
+          "notes": "Current UTMB official registration page links here. Public getRaceInfo identifies 2027 edition and APPLYING; rulebook describes entry and conditional draw. Conflict with UTMB cards remains unresolved. SPA/API is read-only evidence, not a newly enabled JSON extractor. 2026-11-20: fact-level Human adjudication completed after original images and live domestic system recheck. Organizer formal rulebook selected for course parameters; domestic APPLYING governs registration_open, not a confirmed place. Prior website values retained. Registry activation for automated image/SPA processing remains separately pending; this task adds no extractor and leaves status/eligible source set unchanged."
         },
         {
           "sourceId": "ultra-trail-mogan-by-utmb-zuicool-2027-qa",

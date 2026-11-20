@@ -125,21 +125,21 @@ test("Mogan uses the reviewed nominal distances and preserves distinct actual-pa
   const record = records[1];
   equal(record.edition.editionName, "2027 莫干山越野赛 by UTMB®");
   deepEqual([record.edition.raceDate, record.edition.endDate], ["2027-04-16", "2027-04-18"]);
-  equal(record.edition.registrationStatus, "unknown");
+  equal(record.edition.registrationStatus, "registration_open");
   equal(registry.editions.find(e => e.editionId === record.edition.editionId)!.sources.find(s => s.sourceId.endsWith("-nmg-2027"))!.status, "pending_review");
   ok(!activeFreshnessSources(registry, record.edition.editionId).some(s => s.sourceId.endsWith("-nmg-2027")));
   deepEqual(record.categories.map(c => c.distanceKm), [100, 65, 50, 35, 20, 10]);
   deepEqual(record.categories.map(c => c.governance.sources[0].rawData?.pageDistanceKm), [96, 67, 52, 36, 23, 10]);
-  deepEqual(record.categories.map(c => c.elevationGain), [5000, 3400, 2900, 1900, 1200, 300]);
+  deepEqual(record.categories.map(c => c.elevationGain), [5110, 3350, 3030, 2180, 1260, 340]);
   deepEqual(record.categories.map(c => c.cutoffTimeHours), [28, 19, 15, 11, 7, 3.5]);
   deepEqual(record.categories.map(c => c.startAt), ["2027-04-16T20:00:00+08:00", "2027-04-17T07:00:00+08:00", "2027-04-16T22:00:00+08:00", "2027-04-17T09:00:00+08:00", "2027-04-18T09:00:00+08:00", "2027-04-18T10:00:00+08:00"]);
   equal(record.categories[1].startLocation, "裸心谷生态度假区"); equal(record.categories[1].finishLocation, "郡安里");
-  ok(record.categories.slice(3).every(c => c.startLocation === "郡安里" && c.finishLocation === "郡安里" && c.governance.verificationStatus === "pending"));
+  ok(record.categories.slice(3).every(c => c.startLocation === "郡安里" && c.finishLocation === "郡安里" && c.governance.verificationStatus === "verified"));
   ok(!/Jiameng|Dazhao|Liujiayan/.test(JSON.stringify(record)));
   ok(record.categories.every(c => c.coursePoints === null && c.coursePointDataStatus === "unknown"));
   const result = createPublicRaceDetailResult(graph, record.edition.editionId);
   equal(result.status, 200); if (result.status !== 200) return;
-  deepEqual(result.body.race.categories.map(c => c.distanceKm), [100, 65, 50]);
+  deepEqual(result.body.race.categories.map(c => c.distanceKm), [100, 65, 50, 35, 20, 10]);
   equal(result.body.race.raceStrategy, null);
   let view = createRaceDetailViewModel(result.body.race);
   equal(view.showCategorySelector, true);
@@ -148,54 +148,73 @@ test("Mogan uses the reviewed nominal distances and preserves distinct actual-pa
   equal(view.showRaceStrategy, false);
 });
 
-test("Mogan Chinese locations retain original English evidence and conflicting groups stay withheld", () => {
+test("Human-adjudicated rulebook facts publish six stable Categories while preserving earlier observations", () => {
   const record = records[1];
-  deepEqual(record.categories.slice(0, 3).map(c => [c.startLocation, c.finishLocation]), [
+  const evidence = JSON.parse(read("docs/project/inputs/two-races-20261119/mogan-final-fact-evidence-20261120.json").toString());
+  deepEqual(record.categories.map(c => c.categoryId), ["dmg", "cmg", "mmg", "nmg", "emg", "10k"].map(id => `${record.edition.editionId}-${id}`));
+  deepEqual(record.categories.map(c => c.categoryName), ["DMG 100K", "CMG 65K", "MMG 50K", "NMG 35K", "EMG 20K", "FMG 10K"]);
+  deepEqual(record.categories.map(c => [c.startLocation, c.finishLocation]), [
     ["郡安里", "郡安里"], ["裸心谷生态度假区", "郡安里"], ["郡安里", "郡安里"],
+    ["郡安里", "郡安里"], ["郡安里", "郡安里"], ["郡安里", "郡安里"],
   ]);
   for (const [index, c] of record.categories.entries()) {
     const original = c.governance.sources[0];
     equal(original.rawData?.startLocation, index === 1 ? "naked Stables" : index < 3 ? "Jun'anli" : "J.LALLI VALLEY");
-    const startSource = c.governance.fieldSources.startLocation;
-    const finishSource = c.governance.fieldSources.finishLocation;
-    ok(startSource); ok(finishSource);
-    ok(c.governance.sources.some(s => s.sourceName === startSource.sourceName && s.rawData?.evidenceText));
-    ok(c.governance.sources.some(s => s.sourceName === finishSource.sourceName && s.rawData?.evidenceText));
+    equal(original.rawData?.elevationGain, [5000, 3400, 2900, 1900, 1200, 300][index]);
+    equal(c.governance.verified, true); equal(c.governance.verificationStatus, "verified");
+    ok(c.governance.verifiedAt && Number.isFinite(Date.parse(c.governance.verifiedAt)));
+    const rule = c.governance.sources.at(-1)!;
+    equal(rule.sourceType, "official");
+    equal(rule.rawData?.contentHash, evidence.rulebookImages[0].contentHash);
+    const decision = rule.rawData?.humanReviewDecision as { humanDecisionDate: string; scope: string };
+    equal(decision.humanDecisionDate, "2026-11-20"); equal(decision.scope, record.edition.editionId);
+    equal(rule.rawData?.actualCourseDistanceKm, [96.5, 67.6, 52.5, 35.6, 23, 11.3][index]);
+    equal(rule.rawData?.elevationGain, c.elevationGain);
+    equal(rule.rawData?.nominalDistanceKm, c.distanceKm);
+    equal(c.governance.fieldSources.elevationGain.sourceName, rule.sourceName);
+    ok(!c.governance.missingFields.includes("finishLocation"));
     if (index >= 3) {
-      equal(c.governance.verified, false);
-      equal(c.governance.verificationStatus, "pending"); equal(c.governance.verifiedAt, null);
-      const rule = c.governance.sources.find(s => s.sourceRecordId?.endsWith("-official-rulebook-image-2027"))!;
-      const facts = rule.rawData?.categoryFacts as { elevationGain: number; actualCourseDistanceKm: number };
-      equal(facts.elevationGain, [2180, 1260, 340][index - 3]);
-      equal(facts.actualCourseDistanceKm, [35.6, 23, 11.3][index - 3]);
-      ok(facts.elevationGain !== c.elevationGain);
-      ok(String(rule.rawData?.conflictResolution).includes("Human decision required"));
-      ok(!c.governance.missingFields.includes("finishLocation"));
+      const historical = c.governance.sources.find(source => source.rawData?.conflictResolution)!;
+      ok(historical); ok(String(historical.rawData?.conflictResolution).includes("Human decision required"));
     }
   }
   const response = createPublicRaceDetailResult(graph, record.edition.editionId);
   equal(response.status, 200); if (response.status !== 200) return;
-  deepEqual(response.body.race.categories.map(c => c.name), ["DMG 100K", "CMG 65K", "MMG 50K"]);
+  deepEqual(response.body.race.categories.map(c => c.categoryId), record.categories.map(c => c.categoryId));
   let view = createRaceDetailViewModel(response.body.race);
   for (const category of response.body.race.categories) {
     view = selectRaceCategory(view, category.categoryId);
     equal(view.selectedCategoryId, category.categoryId);
     ok(!/Jun'anli|naked Stables|J\.LALLI/.test(JSON.stringify(view)));
+    equal(view.showRaceStrategy, false);
   }
+  // The unchanged publication rule must still withhold a Category without completed review.
+  const unreviewed = structuredClone(graph);
+  const target = unreviewed.records.find(r => r.edition.editionId === record.edition.editionId)!;
+  for (const category of target.categories.slice(3)) {
+    category.governance.verified = false;
+    category.governance.verificationStatus = "pending";
+    category.governance.verifiedAt = null;
+  }
+  const held = createPublicRaceDetailResult(unreviewed, record.edition.editionId);
+  equal(held.status, 200); if (held.status !== 200) return;
+  deepEqual(held.body.race.categories.map(c => c.name), ["DMG 100K", "CMG 65K", "MMG 50K"]);
 });
 
-test("unresolved registration has a visible truthful fallback without inferring a race place", () => {
+test("current domestic registration maps to open while lottery eligibility and unknown fallback remain distinct", () => {
   const response = createPublicRaceDetailResult(graph, records[1].edition.editionId);
   equal(response.status, 200); if (response.status !== 200) return;
-  equal(response.body.race.registrationStatus, "unknown");
+  equal(response.body.race.registrationStatus, "registration_open");
   equal(response.body.race.registrationUrl, null);
   const view = createRaceDetailViewModel(response.body.race);
-  equal(view.registrationDisplay, "报名信息待确认");
-  ok(view.headerMetaDisplay.includes("报名信息待确认"));
-  ok(!view.headerMetaDisplay.includes("报名中"));
-  const entry = records[1].edition.governance.sources.find(s => s.sourceRecordId?.endsWith("-official-lungking-entry-2027"))!;
-  equal(entry.rawData?.registrationStatus, "APPLYING");
+  equal(view.registrationDisplay, "报名中"); ok(view.headerMetaDisplay.includes("报名中"));
+  const entry = records[1].edition.governance.sources.at(-1)!;
+  equal(entry.rawData?.registrationStatus, "registration_open");
+  equal(entry.rawData?.observedDomesticStatus, "APPLYING");
   equal(entry.rawData?.entryDoesNotConferRacePlace, true);
+  equal(entry.rawData?.channelScope, "China mainland domestic official registration channel");
+  equal(entry.rawData?.observedLocalDate, "2026-11-20");
+  equal(createRaceDetailViewModel({ ...response.body.race, registrationStatus: "unknown" }).registrationDisplay, "报名信息待确认");
   const hongKong = createPublicRaceDetailResult(graph, records[0].edition.editionId);
   equal(hongKong.status, 200); if (hongKong.status !== 200) return;
   equal(createRaceDetailViewModel(hongKong.body.race).registrationDisplay, "报名已结束");
