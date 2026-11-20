@@ -30,8 +30,8 @@
     "typecheck:miniprogram": "tsc -p miniprogram/tsconfig.json"
   },
   "dependencies": {
-    "@next/third-parties": "^16.3.2",
-    "next": "16.3.6",
+    "@next/third-parties": "16.4.6",
+    "next": "16.4.6",
     "pdf-parse": "2.4.5",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
@@ -44,5 +44,8 @@
     "tailwindcss": "^4.1.17",
     "typescript": "^5.9.3",
     "miniprogram-api-typings": "5.2.3"
+  },
+  "overrides": {
+    "source-map-js": "1.2.2"
   }
 }
