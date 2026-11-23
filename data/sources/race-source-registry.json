@@ -1115,6 +1115,66 @@
           "notes": "Third-party race listing and cross-check only, not primary_official and not approval of values. Its numbers match organizer rulebook but conflict with UTMB site. No production fact extraction enabled."
         }
       ]
+    },
+    {
+      "editionId": "outopia-mogan-cloud-flower-trail-2027",
+      "sources": [
+        {
+          "sourceId": "outopia-mogan-cloud-flower-trail-2027-official-regulations",
+          "url": "https://cdsxhw.saihuitong.com/event?id=910563&mid=86546",
+          "domain": "cdsxhw.saihuitong.com",
+          "tier": "primary_official",
+          "sourceType": "regulations",
+          "status": "active",
+          "isPrimary": true,
+          "notes": "深行户外当届赛会通主办方店铺；稳定 event=910563 与 mid=86546；赛事身份与各组起终点。"
+        },
+        {
+          "sourceId": "outopia-mogan-cloud-flower-trail-2027-official-schedule",
+          "url": "https://img.saihuitong.com/7112/richtext/17694080/sht/1a1fca3341a24c9.jpg",
+          "domain": "img.saihuitong.com",
+          "tier": "primary_official",
+          "sourceType": "regulations",
+          "status": "pending_review",
+          "isPrimary": false,
+          "notes": "主办方规程内嵌原始日程图。人工读图已核实；不启用自动图像提取。"
+        },
+        {
+          "sourceId": "outopia-mogan-cloud-flower-trail-2027-partner-registration",
+          "url": "https://reg.zuicool.com/54221",
+          "domain": "reg.zuicool.com",
+          "tier": "trusted_structured",
+          "sourceType": "registration_platform",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "合作报名页；按组读取爬升、总时限与报名状态。16K两枪及已报满仅此渠道；总体报名中不代表16K可报。"
+        }
+      ]
+    },
+    {
+      "editionId": "huangshan-huizhou-ancient-city-trail-2027",
+      "sources": [
+        {
+          "sourceId": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+          "url": "https://reg.zuicool.com/38938",
+          "domain": "reg.zuicool.com",
+          "tier": "trusted_structured",
+          "sourceType": "registration_platform",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "现行合作报名页；日期仅用正文与分组，不用冲突页头03-28/29。20K约500m；一大一小为同组SKU；静态数据不证明终点。"
+        },
+        {
+          "sourceId": "huangshan-huizhou-ancient-city-trail-2027-official-regulations",
+          "url": "https://mp.weixin.qq.com/s/nsx_mLjU7QlX0LYczljLLg",
+          "domain": "mp.weixin.qq.com",
+          "tier": "primary_official",
+          "sourceType": "regulations",
+          "status": "pending_review",
+          "isPrimary": false,
+          "notes": "交付包 E01–E03 为原规程截图研究转录，本ZIP无三张原截图。公众号原文被验证页阻挡；待取得可复核全文。Human指定03-27/28，由当届合作页正文交叉支持。"
+        }
+      ]
     }
   ]
 }

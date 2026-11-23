@@ -6,4 +6,7 @@ export const existingTwelveEditionIds = [
 ];
 export const newPublicEditionIds = ["guangzhou-100-2027", "nanjing-marathon-2026", "shaoxing-marathon-2026", "shenzhen-marathon-2026", "hengqin-marathon-2026", "fuzhou-marathon-2026", "panda-shudao-shan-2027"];
 export const november2027EditionIds = ["standard-chartered-hong-kong-marathon-2027", "ultra-trail-mogan-by-utmb-2027"];
-export const expectedPublicEditionIds = [...existingTwelveEditionIds, ...newPublicEditionIds, ...november2027EditionIds];
+export const outopiaEditionId = "outopia-mogan-cloud-flower-trail-2027";
+export const huangshanEditionId = "huangshan-huizhou-ancient-city-trail-2027";
+export const expectedPublicEditionIds = [...existingTwelveEditionIds, ...newPublicEditionIds, ...november2027EditionIds, outopiaEditionId];
+export const expectedCanonicalEditionIds = [...expectedPublicEditionIds, huangshanEditionId];

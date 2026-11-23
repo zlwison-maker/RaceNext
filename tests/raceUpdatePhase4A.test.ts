@@ -20,6 +20,7 @@ import type {
   OfficialSourceIngestionState,
 } from "../types/officialSourceIngestion.ts";
 import type { PendingChangeStore, RaceGraphSnapshot, RaceSourceRegistry } from "../types/raceUpdate.ts";
+import { huangshanEditionId } from "./fixtures/contentBatch20261020.ts";
 import { groupDetails } from "./fixtures/ninghaiOfficialResponses.ts";
 
 const canonicalSnapshot = JSON.parse(await readFile(new URL("../data/canonical/race-graph-v1.json", import.meta.url), "utf8")) as RaceGraphSnapshot;
@@ -173,7 +174,15 @@ test("Phase 4A checks all eligible model/JSON sources and unchanged hashes produ
   equal(first.report.summary.modelCalls, modelRequiredCount);
   equal(providerCalls.length, modelRequiredCount);
   deepEqual([...providerCalls].sort(), modelSources.map(({ editionId, source }) => sourceKey({ editionId, sourceId: source.sourceId })).sort());
-  ok(first.report.editions.every(({ health }) => health === "HEALTHY"));
+  for (const coverage of first.report.editions) {
+    const trustedOnly = coverage.editionId === huangshanEditionId;
+    equal(coverage.health, trustedOnly ? "PARTIAL" : "HEALTHY");
+    if (trustedOnly) {
+      equal(coverage.officialSourcesSuccessful, 0);
+      equal(coverage.trustedSourcesSuccessful, 1);
+      equal(coverage.failedSources, 0);
+    }
+  }
   equal(first.report.summary.canonicalWrites, 0);
 
   const jsonReports = first.report.extraction.sources.filter(({ protocol }) => protocol === "deterministic-json");
@@ -261,7 +270,9 @@ test("Phase 4A isolates one source failure and marks only its Edition PARTIAL", 
     fetcher,
   });
   equal(result.report.editions.find(({ editionId }) => editionId === failedEditionId)?.health, "PARTIAL");
-  ok(result.report.editions.filter(({ editionId }) => editionId !== failedEditionId).every(({ health }) => health === "HEALTHY"));
+  for (const coverage of result.report.editions.filter(({ editionId }) => editionId !== failedEditionId)) {
+    equal(coverage.health, coverage.editionId === huangshanEditionId ? "PARTIAL" : "HEALTHY");
+  }
   equal(result.report.sourceFailures.length, 1);
   deepEqual(result.report.sourceFailures[0], {
     editionId: failedEditionId,
@@ -428,7 +439,7 @@ test("Shenzhen remains PARTIAL and passes minimum health when the legacy TLS sou
   equal(coverage.health, "PARTIAL");
   deepEqual(coverage.sourceGap, []);
   ok(result.report.editions.filter(({ editionId: candidate }) => candidate !== editionId)
-    .every(({ health }) => health === "HEALTHY"));
+    .every(({ editionId: candidate, health }) => health === (candidate === huangshanEditionId ? "PARTIAL" : "HEALTHY")));
   deepEqual(result.report.sourceFailures.filter(({ editionId: candidate }) => candidate === editionId), [{
     editionId,
     sourceId: failedSourceId,

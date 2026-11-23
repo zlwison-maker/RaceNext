@@ -52,6 +52,7 @@ test("homepage keeps current and future races ordered by raceDate, with unknown 
       "standard-chartered-hong-kong-marathon-2027",
       "hk100-2027",
       "panda-shudao-shan-2027",
+      "outopia-mogan-cloud-flower-trail-2027",
       "ultra-trail-mogan-by-utmb-2027",
       "unknown-date",
     ],

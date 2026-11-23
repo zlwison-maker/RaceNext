@@ -1,3 +1,4 @@
+import { batch20261123RaceGuides } from "./batch-20261123.ts";
 import { batch20261119RaceGuides } from "./batch-20261119.ts";
 import { batch20261020RaceGuides } from "./batch-20261020.ts";
 import { beijingMarathonRaceGuide } from "./beijing-marathon.ts";
@@ -18,6 +19,7 @@ import type { RaceEditorialContent } from "../../types/raceDetail.ts";
 const raceGuidesByEventId = {
   ...batch20261020RaceGuides,
   ...batch20261119RaceGuides,
+  ...batch20261123RaceGuides,
   "beijing-marathon": beijingMarathonRaceGuide,
   "chengdu-marathon": chengduMarathonRaceGuide,
   "chongqing-marathon": chongqingMarathonRaceGuide,

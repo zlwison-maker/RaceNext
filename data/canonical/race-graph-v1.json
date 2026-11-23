@@ -11189,6 +11189,1673 @@
           }
         }
       ]
+    },
+    {
+      "event": {
+        "eventId": "outopia-mogan-cloud-flower-trail",
+        "canonicalName": "Outopia 莫干山云间花径越野跑",
+        "aliases": [
+          "Outopia莫干山云间花径越野跑"
+        ],
+        "eventType": "trail",
+        "homeCountry": "中国",
+        "homeProvince": "浙江省",
+        "homeCity": "湖州市",
+        "officialWebsite": "https://cdsxhw.saihuitong.com/event?id=910563&mid=86546",
+        "organizer": "成都深行户外运动有限公司",
+        "lifecycleStatus": "active",
+        "createdAt": "2026-11-23T07:58:18.817Z",
+        "updatedAt": "2026-11-23T07:58:18.817Z",
+        "governance": {
+          "sources": [
+            {
+              "sourceType": "official",
+              "sourceName": "outopia-mogan-cloud-flower-trail-2027-official-regulations",
+              "sourceUrl": "https://cdsxhw.saihuitong.com/event?id=910563&mid=86546",
+              "sourceRecordId": "outopia-mogan-cloud-flower-trail-2027-official-regulations",
+              "crawledAt": "2026-11-23T07:54:57.918906+00:00",
+              "confidence": 0.98,
+              "rawData": {
+                "editionYear": 2027,
+                "contentHash": "060498683792ba683097e542224c7c8c483397d18be5642b07ef8484e19155a4",
+                "fetchedAt": "2026-11-23T07:54:57.918906+00:00",
+                "latestRelevantOfficialEditionYear": 2027,
+                "canonicalName": "Outopia 莫干山云间花径越野跑",
+                "editionName": "2027 Outopia 莫干山云间花径越野跑",
+                "raceDate": "2027-03-28",
+                "endDate": null,
+                "activityDateRange": [
+                  "2027-03-26",
+                  "2027-03-28"
+                ],
+                "venue": "郡安里",
+                "organizer": "成都深行户外运动有限公司",
+                "directDomainFetch": "www.utms.com.cn TLS validation failed; same event id and organizer store retrieved via cdsxhw.saihuitong.com",
+                "evidenceText": "主办单位： 成都深行户外运动有限公司",
+                "evidenceLocator": "normalized HTML text chars 1525–1543",
+                "preferredDomainUrl": "https://www.utms.com.cn/event?id=910563&mid=86546"
+              }
+            }
+          ],
+          "fieldSources": {
+            "canonicalName": {
+              "field": "canonicalName",
+              "sourceType": "official",
+              "sourceName": "outopia-mogan-cloud-flower-trail-2027-official-regulations",
+              "confidence": 0.98,
+              "updatedAt": "2026-11-23T07:58:18.817Z"
+            }
+          },
+          "sourcePriority": {
+            "official": 100,
+            "registration_platform": 85
+          },
+          "confidence": 0.98,
+          "verified": true,
+          "verificationStatus": "verified",
+          "verifiedAt": "2026-11-23T07:58:18.817Z",
+          "missingFields": [],
+          "lastCrawledAt": "2026-11-23T07:54:57.918906+00:00",
+          "lastUpdatedAt": "2026-11-23T07:58:18.817Z",
+          "schemaVersion": "race-graph-v1",
+          "dataQualityLevel": "B",
+          "reviewNotes": "2027 Outopia独立品牌身份，与莫干山UTMB及凯乐石其他赛事区分。",
+          "internalFlags": []
+        }
+      },
+      "edition": {
+        "editionId": "outopia-mogan-cloud-flower-trail-2027",
+        "eventId": "outopia-mogan-cloud-flower-trail",
+        "editionName": "2027 Outopia 莫干山云间花径越野跑",
+        "editionYear": 2027,
+        "raceDate": "2027-03-28",
+        "endDate": null,
+        "coverImage": "/races/outopia-mogan-cloud-flower-trail/2027/display-v1.jpg",
+        "heroImage": "/races/outopia-mogan-cloud-flower-trail/2027/display-v1.jpg",
+        "primaryCategoryId": "outopia-mogan-cloud-flower-trail-2027-yjzf-41k",
+        "primaryCategoryName": "云间追风 YJZF 41K",
+        "country": "中国",
+        "province": "浙江省",
+        "city": "湖州市",
+        "district": "德清县",
+        "venue": "郡安里",
+        "region": "east_china",
+        "timezone": "Asia/Shanghai",
+        "registrationStatus": "registration_open",
+        "registrationOpenDate": "2026-11-19",
+        "registrationCloseDate": null,
+        "registrationUrl": "https://reg.zuicool.com/54221",
+        "officialWebsite": "https://cdsxhw.saihuitong.com/event?id=910563&mid=86546",
+        "rulebookUrl": "https://cdsxhw.saihuitong.com/event?id=910563&mid=86546",
+        "lifecycleStatus": "active",
+        "raceDistanceKm": 41,
+        "raceDistances": [
+          16,
+          31,
+          41
+        ],
+        "createdAt": "2026-11-23T07:58:18.817Z",
+        "updatedAt": "2026-11-23T07:58:18.817Z",
+        "governance": {
+          "sources": [
+            {
+              "sourceType": "official",
+              "sourceName": "outopia-mogan-cloud-flower-trail-2027-official-regulations",
+              "sourceUrl": "https://cdsxhw.saihuitong.com/event?id=910563&mid=86546",
+              "sourceRecordId": "outopia-mogan-cloud-flower-trail-2027-official-regulations",
+              "crawledAt": "2026-11-23T07:54:57.918906+00:00",
+              "confidence": 0.98,
+              "rawData": {
+                "editionYear": 2027,
+                "contentHash": "060498683792ba683097e542224c7c8c483397d18be5642b07ef8484e19155a4",
+                "fetchedAt": "2026-11-23T07:54:57.918906+00:00",
+                "latestRelevantOfficialEditionYear": 2027,
+                "canonicalName": "Outopia 莫干山云间花径越野跑",
+                "editionName": "2027 Outopia 莫干山云间花径越野跑",
+                "raceDate": "2027-03-28",
+                "endDate": null,
+                "activityDateRange": [
+                  "2027-03-26",
+                  "2027-03-28"
+                ],
+                "venue": "郡安里",
+                "organizer": "成都深行户外运动有限公司",
+                "directDomainFetch": "www.utms.com.cn TLS validation failed; same event id and organizer store retrieved via cdsxhw.saihuitong.com",
+                "evidenceText": "主办单位： 成都深行户外运动有限公司",
+                "evidenceLocator": "normalized HTML text chars 1525–1543",
+                "preferredDomainUrl": "https://www.utms.com.cn/event?id=910563&mid=86546"
+              }
+            },
+            {
+              "sourceType": "official",
+              "sourceName": "outopia-mogan-cloud-flower-trail-2027-official-schedule",
+              "sourceUrl": "https://img.saihuitong.com/7112/richtext/17694080/sht/1a1fca3341a24c9.jpg",
+              "sourceRecordId": "outopia-mogan-cloud-flower-trail-2027-official-schedule",
+              "crawledAt": "2026-11-23T07:55:49.794354+00:00",
+              "confidence": 0.98,
+              "rawData": {
+                "editionYear": 2027,
+                "contentHash": "e9e702b8e91608ec34c48e7c33b4efe4b4b851077927e86871eab7edc4df061f",
+                "fetchedAt": "2026-11-23T07:55:49.794354+00:00",
+                "raceDate": "2027-03-28",
+                "endDate": null,
+                "editionIdentityParentSourceRecordId": "outopia-mogan-cloud-flower-trail-2027-official-regulations",
+                "evidenceText": "2027年3月28日 41K 06:00/06:30; 31K 07:00/07:30/08:00; 16K 09:00/09:30",
+                "manualImageRead": true,
+                "olderResearchThirdWaveNotInLatestSources": "10:00",
+                "imageDimensions": [
+                  1060,
+                  998
+                ],
+                "evidenceLocator": "当届规程嵌入图「赛事日程」表，3月28日发枪区"
+              }
+            },
+            {
+              "sourceType": "registration_platform",
+              "sourceName": "outopia-mogan-cloud-flower-trail-2027-partner-registration",
+              "sourceUrl": "https://reg.zuicool.com/54221",
+              "sourceRecordId": "outopia-mogan-cloud-flower-trail-2027-partner-registration",
+              "crawledAt": "2026-11-23T07:54:09.063596+00:00",
+              "confidence": 0.92,
+              "rawData": {
+                "editionYear": 2027,
+                "contentHash": "9499a417bd58fcfd7cc7cfee598e81f752f93703ba07d2bde6921c6b3677452c",
+                "fetchedAt": "2026-11-23T07:54:09.063596+00:00",
+                "latestRelevantOfficialEditionYear": 2027,
+                "editionName": "2027 Outopia 莫干山云间花径越野跑",
+                "raceDate": "2027-03-28",
+                "endDate": null,
+                "venue": "郡安里",
+                "registrationStatus": "registration_open",
+                "registrationUrl": "https://reg.zuicool.com/54221",
+                "channel": "最酷合作报名入口",
+                "registrationCapacityNotGuaranteed": true,
+                "registrationOpenDate": "2026-11-19",
+                "channelCloseText": "2027-01-31 23:59:59",
+                "soldOutOnChannel": [
+                  "FYZH16km"
+                ],
+                "evidenceText": "2027 Outopia莫干山云间花径越野跑 报名中",
+                "evidenceLocator": "normalized HTML text chars 109–135"
+              }
+            }
+          ],
+          "fieldSources": {
+            "editionName": {
+              "field": "editionName",
+              "sourceType": "official",
+              "sourceName": "outopia-mogan-cloud-flower-trail-2027-official-regulations",
+              "confidence": 0.98,
+              "updatedAt": "2026-11-23T07:58:18.817Z"
+            },
+            "raceDate": {
+              "field": "raceDate",
+              "sourceType": "official",
+              "sourceName": "outopia-mogan-cloud-flower-trail-2027-official-schedule",
+              "confidence": 0.98,
+              "updatedAt": "2026-11-23T07:58:18.817Z"
+            },
+            "venue": {
+              "field": "venue",
+              "sourceType": "official",
+              "sourceName": "outopia-mogan-cloud-flower-trail-2027-official-regulations",
+              "confidence": 0.98,
+              "updatedAt": "2026-11-23T07:58:18.817Z"
+            },
+            "registrationStatus": {
+              "field": "registrationStatus",
+              "sourceType": "registration_platform",
+              "sourceName": "outopia-mogan-cloud-flower-trail-2027-partner-registration",
+              "confidence": 0.92,
+              "updatedAt": "2026-11-23T07:58:18.817Z"
+            },
+            "registrationUrl": {
+              "field": "registrationUrl",
+              "sourceType": "registration_platform",
+              "sourceName": "outopia-mogan-cloud-flower-trail-2027-partner-registration",
+              "confidence": 0.92,
+              "updatedAt": "2026-11-23T07:58:18.817Z"
+            },
+            "registrationOpenDate": {
+              "field": "registrationOpenDate",
+              "sourceType": "registration_platform",
+              "sourceName": "outopia-mogan-cloud-flower-trail-2027-partner-registration",
+              "confidence": 0.92,
+              "updatedAt": "2026-11-23T07:58:18.817Z"
+            }
+          },
+          "sourcePriority": {
+            "official": 100,
+            "registration_platform": 85
+          },
+          "confidence": 0.98,
+          "verified": true,
+          "verificationStatus": "verified",
+          "verifiedAt": "2026-11-23T07:58:18.817Z",
+          "missingFields": [
+            "registrationCloseDate"
+          ],
+          "lastCrawledAt": "2026-11-23T07:55:49.794354+00:00",
+          "lastUpdatedAt": "2026-11-23T07:58:18.817Z",
+          "schemaVersion": "race-graph-v1",
+          "dataQualityLevel": "B",
+          "reviewNotes": "比赛日仅3月28日；26/27为报到和活动，保留于Evidence。总体合作入口开放，16K渠道已报满。",
+          "internalFlags": [],
+          "publicationGate": {
+            "requestedEditionYear": 2027,
+            "latestRelevantOfficialEditionYear": 2027,
+            "latestOfficialEditionSourceRecordId": "outopia-mogan-cloud-flower-trail-2027-official-regulations",
+            "primarySourceRecordId": "outopia-mogan-cloud-flower-trail-2027-official-regulations",
+            "secondarySourceRecordId": "outopia-mogan-cloud-flower-trail-2027-partner-registration",
+            "raceDateSourceRecordIds": [
+              "outopia-mogan-cloud-flower-trail-2027-official-regulations",
+              "outopia-mogan-cloud-flower-trail-2027-partner-registration"
+            ],
+            "dateEvidenceStatus": "verified",
+            "conflictStatus": "none",
+            "publishable": true,
+            "checkedAt": "2026-11-23T07:58:18.817Z"
+          }
+        }
+      },
+      "categories": [
+        {
+          "categoryId": "outopia-mogan-cloud-flower-trail-2027-yjzf-41k",
+          "editionId": "outopia-mogan-cloud-flower-trail-2027",
+          "categoryName": "云间追风 YJZF 41K",
+          "shortName": "云间追风 YJZF 41K",
+          "displayOrder": 1,
+          "distanceKm": 41,
+          "elevationGain": 2814,
+          "elevationLoss": null,
+          "cutoffTimeHours": 12,
+          "startAt": null,
+          "startTimes": [
+            "2027-03-28T06:00:00+08:00",
+            "2027-03-28T06:30:00+08:00"
+          ],
+          "startLocation": "郡安里",
+          "finishLocation": "郡安里",
+          "registrationUrl": null,
+          "coursePoints": null,
+          "coursePointDataStatus": "unknown",
+          "createdAt": "2026-11-23T07:58:18.817Z",
+          "updatedAt": "2026-11-23T07:58:18.817Z",
+          "governance": {
+            "sources": [
+              {
+                "sourceType": "registration_platform",
+                "sourceName": "outopia-mogan-cloud-flower-trail-2027-partner-registration",
+                "sourceUrl": "https://reg.zuicool.com/54221",
+                "sourceRecordId": "outopia-mogan-cloud-flower-trail-2027-partner-registration",
+                "crawledAt": "2026-11-23T07:54:09.063596+00:00",
+                "confidence": 0.92,
+                "rawData": {
+                  "editionYear": 2027,
+                  "contentHash": "9499a417bd58fcfd7cc7cfee598e81f752f93703ba07d2bde6921c6b3677452c",
+                  "fetchedAt": "2026-11-23T07:54:09.063596+00:00",
+                  "categoryId": "outopia-mogan-cloud-flower-trail-2027-yjzf-41k",
+                  "categoryName": "云间追风 YJZF 41K",
+                  "raceDate": "2027-03-28",
+                  "distanceKm": 41,
+                  "elevationGain": 2814,
+                  "cutoffTimeHours": 12,
+                  "startTimes": [
+                    "2027-03-28T06:00:00+08:00",
+                    "2027-03-28T06:30:00+08:00"
+                  ],
+                  "evidenceText": "云间追风YJZF41km组：出发时间3月28日6:00第一枪/6:30第二枪，关门时间3月28日18:00第一枪/18:30第二枪，关门时长12h，累计爬升2814m，ITRA拟2分",
+                  "evidenceLocator": "normalized HTML text chars 379–470"
+                }
+              },
+              {
+                "sourceType": "official",
+                "sourceName": "outopia-mogan-cloud-flower-trail-2027-official-regulations",
+                "sourceUrl": "https://cdsxhw.saihuitong.com/event?id=910563&mid=86546",
+                "sourceRecordId": "outopia-mogan-cloud-flower-trail-2027-official-regulations",
+                "crawledAt": "2026-11-23T07:54:57.918906+00:00",
+                "confidence": 0.98,
+                "rawData": {
+                  "editionYear": 2027,
+                  "contentHash": "060498683792ba683097e542224c7c8c483397d18be5642b07ef8484e19155a4",
+                  "fetchedAt": "2026-11-23T07:54:57.918906+00:00",
+                  "categoryId": "outopia-mogan-cloud-flower-trail-2027-yjzf-41k",
+                  "distanceKm": 41,
+                  "startLocation": "郡安里",
+                  "finishLocation": "郡安里",
+                  "evidenceText": "(1)云间追风YJZF4 1 km组 路线：郡安里（ S303 ， 109K+900 ）－ S303 ， 111K+900 （原晓于线） - 莫干山武陵村－大树下－慢时光民宿－莫干山白云饭店－怪石角－石门卡－杨坞坑－碧坞－天泉山－后坞西坞里－干庙坞－高阳山－渔村－仙人坑外村－岭坑里 －山鸠坞－莫皋坞－郡安里",
+                  "evidenceLocator": "normalized HTML text chars 1853–2007"
+                }
+              },
+              {
+                "sourceType": "official",
+                "sourceName": "outopia-mogan-cloud-flower-trail-2027-official-schedule",
+                "sourceUrl": "https://img.saihuitong.com/7112/richtext/17694080/sht/1a1fca3341a24c9.jpg",
+                "sourceRecordId": "outopia-mogan-cloud-flower-trail-2027-official-schedule",
+                "crawledAt": "2026-11-23T07:55:49.794354+00:00",
+                "confidence": 0.98,
+                "rawData": {
+                  "editionYear": 2027,
+                  "contentHash": "e9e702b8e91608ec34c48e7c33b4efe4b4b851077927e86871eab7edc4df061f",
+                  "fetchedAt": "2026-11-23T07:55:49.794354+00:00",
+                  "raceDate": "2027-03-28",
+                  "endDate": null,
+                  "editionIdentityParentSourceRecordId": "outopia-mogan-cloud-flower-trail-2027-official-regulations",
+                  "evidenceText": "2027年3月28日 41K 06:00/06:30; 31K 07:00/07:30/08:00; 16K 09:00/09:30",
+                  "manualImageRead": true,
+                  "olderResearchThirdWaveNotInLatestSources": "10:00",
+                  "imageDimensions": [
+                    1060,
+                    998
+                  ],
+                  "evidenceLocator": "当届规程嵌入图「赛事日程」表，3月28日发枪区",
+                  "categoryId": "outopia-mogan-cloud-flower-trail-2027-yjzf-41k",
+                  "startTimes": [
+                    "2027-03-28T06:00:00+08:00",
+                    "2027-03-28T06:30:00+08:00"
+                  ]
+                }
+              }
+            ],
+            "fieldSources": {
+              "categoryName": {
+                "field": "categoryName",
+                "sourceType": "registration_platform",
+                "sourceName": "outopia-mogan-cloud-flower-trail-2027-partner-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "distanceKm": {
+                "field": "distanceKm",
+                "sourceType": "official",
+                "sourceName": "outopia-mogan-cloud-flower-trail-2027-official-regulations",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "elevationGain": {
+                "field": "elevationGain",
+                "sourceType": "registration_platform",
+                "sourceName": "outopia-mogan-cloud-flower-trail-2027-partner-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "cutoffTimeHours": {
+                "field": "cutoffTimeHours",
+                "sourceType": "registration_platform",
+                "sourceName": "outopia-mogan-cloud-flower-trail-2027-partner-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "startTimes": {
+                "field": "startTimes",
+                "sourceType": "official",
+                "sourceName": "outopia-mogan-cloud-flower-trail-2027-official-schedule",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "startLocation": {
+                "field": "startLocation",
+                "sourceType": "official",
+                "sourceName": "outopia-mogan-cloud-flower-trail-2027-official-regulations",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "finishLocation": {
+                "field": "finishLocation",
+                "sourceType": "official",
+                "sourceName": "outopia-mogan-cloud-flower-trail-2027-official-regulations",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              }
+            },
+            "sourcePriority": {
+              "official": 100,
+              "registration_platform": 85
+            },
+            "confidence": 0.98,
+            "verified": true,
+            "verificationStatus": "verified",
+            "verifiedAt": "2026-11-23T07:58:18.817Z",
+            "missingFields": [
+              "coursePoints"
+            ],
+            "lastCrawledAt": "2026-11-23T07:55:49.794354+00:00",
+            "lastUpdatedAt": "2026-11-23T07:58:18.817Z",
+            "schemaVersion": "race-graph-v1",
+            "dataQualityLevel": "B",
+            "reviewNotes": "当届主办方路线与日程图加合作报名页。16K仅两枪及最酷已满；未推算绝对关门、CP或Strategy。",
+            "internalFlags": []
+          }
+        },
+        {
+          "categoryId": "outopia-mogan-cloud-flower-trail-2027-zmsh-31k",
+          "editionId": "outopia-mogan-cloud-flower-trail-2027",
+          "categoryName": "逐梦山海 ZMSH 31K",
+          "shortName": "逐梦山海 ZMSH 31K",
+          "displayOrder": 2,
+          "distanceKm": 31,
+          "elevationGain": 2010,
+          "elevationLoss": null,
+          "cutoffTimeHours": 9.5,
+          "startAt": null,
+          "startTimes": [
+            "2027-03-28T07:00:00+08:00",
+            "2027-03-28T07:30:00+08:00",
+            "2027-03-28T08:00:00+08:00"
+          ],
+          "startLocation": "郡安里",
+          "finishLocation": "郡安里",
+          "registrationUrl": null,
+          "coursePoints": null,
+          "coursePointDataStatus": "unknown",
+          "createdAt": "2026-11-23T07:58:18.817Z",
+          "updatedAt": "2026-11-23T07:58:18.817Z",
+          "governance": {
+            "sources": [
+              {
+                "sourceType": "registration_platform",
+                "sourceName": "outopia-mogan-cloud-flower-trail-2027-partner-registration",
+                "sourceUrl": "https://reg.zuicool.com/54221",
+                "sourceRecordId": "outopia-mogan-cloud-flower-trail-2027-partner-registration",
+                "crawledAt": "2026-11-23T07:54:09.063596+00:00",
+                "confidence": 0.92,
+                "rawData": {
+                  "editionYear": 2027,
+                  "contentHash": "9499a417bd58fcfd7cc7cfee598e81f752f93703ba07d2bde6921c6b3677452c",
+                  "fetchedAt": "2026-11-23T07:54:09.063596+00:00",
+                  "categoryId": "outopia-mogan-cloud-flower-trail-2027-zmsh-31k",
+                  "categoryName": "逐梦山海 ZMSH 31K",
+                  "raceDate": "2027-03-28",
+                  "distanceKm": 31,
+                  "elevationGain": 2010,
+                  "cutoffTimeHours": 9.5,
+                  "startTimes": [
+                    "2027-03-28T07:00:00+08:00",
+                    "2027-03-28T07:30:00+08:00",
+                    "2027-03-28T08:00:00+08:00"
+                  ],
+                  "evidenceText": "逐梦山海ZMSH31km组：出发时间3月28日7:00第一枪/7:30第二枪/8:00第三枪，关门时间3月28日16:30第一枪/17:00第二枪/17:30第三枪，关门时长9.5h，累计爬升2010m，ITRA拟2分",
+                  "evidenceLocator": "normalized HTML text chars 502–611"
+                }
+              },
+              {
+                "sourceType": "official",
+                "sourceName": "outopia-mogan-cloud-flower-trail-2027-official-regulations",
+                "sourceUrl": "https://cdsxhw.saihuitong.com/event?id=910563&mid=86546",
+                "sourceRecordId": "outopia-mogan-cloud-flower-trail-2027-official-regulations",
+                "crawledAt": "2026-11-23T07:54:57.918906+00:00",
+                "confidence": 0.98,
+                "rawData": {
+                  "editionYear": 2027,
+                  "contentHash": "060498683792ba683097e542224c7c8c483397d18be5642b07ef8484e19155a4",
+                  "fetchedAt": "2026-11-23T07:54:57.918906+00:00",
+                  "categoryId": "outopia-mogan-cloud-flower-trail-2027-zmsh-31k",
+                  "distanceKm": 31,
+                  "startLocation": "郡安里",
+                  "finishLocation": "郡安里",
+                  "evidenceText": "(2)逐梦山海ZMSH3 1 km组 路线：郡安里（ S303 ， 109K+900 ）－ S303 ， 111K+900 （原晓于线） - 莫干山武陵村－大树下－费家园－杨坞坑－碧坞－天泉山－后坞－石门卡－莫干山－莫皋坞－郡安里",
+                  "evidenceLocator": "normalized HTML text chars 2167–2282"
+                }
+              },
+              {
+                "sourceType": "official",
+                "sourceName": "outopia-mogan-cloud-flower-trail-2027-official-schedule",
+                "sourceUrl": "https://img.saihuitong.com/7112/richtext/17694080/sht/1a1fca3341a24c9.jpg",
+                "sourceRecordId": "outopia-mogan-cloud-flower-trail-2027-official-schedule",
+                "crawledAt": "2026-11-23T07:55:49.794354+00:00",
+                "confidence": 0.98,
+                "rawData": {
+                  "editionYear": 2027,
+                  "contentHash": "e9e702b8e91608ec34c48e7c33b4efe4b4b851077927e86871eab7edc4df061f",
+                  "fetchedAt": "2026-11-23T07:55:49.794354+00:00",
+                  "raceDate": "2027-03-28",
+                  "endDate": null,
+                  "editionIdentityParentSourceRecordId": "outopia-mogan-cloud-flower-trail-2027-official-regulations",
+                  "evidenceText": "2027年3月28日 41K 06:00/06:30; 31K 07:00/07:30/08:00; 16K 09:00/09:30",
+                  "manualImageRead": true,
+                  "olderResearchThirdWaveNotInLatestSources": "10:00",
+                  "imageDimensions": [
+                    1060,
+                    998
+                  ],
+                  "evidenceLocator": "当届规程嵌入图「赛事日程」表，3月28日发枪区",
+                  "categoryId": "outopia-mogan-cloud-flower-trail-2027-zmsh-31k",
+                  "startTimes": [
+                    "2027-03-28T07:00:00+08:00",
+                    "2027-03-28T07:30:00+08:00",
+                    "2027-03-28T08:00:00+08:00"
+                  ]
+                }
+              }
+            ],
+            "fieldSources": {
+              "categoryName": {
+                "field": "categoryName",
+                "sourceType": "registration_platform",
+                "sourceName": "outopia-mogan-cloud-flower-trail-2027-partner-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "distanceKm": {
+                "field": "distanceKm",
+                "sourceType": "official",
+                "sourceName": "outopia-mogan-cloud-flower-trail-2027-official-regulations",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "elevationGain": {
+                "field": "elevationGain",
+                "sourceType": "registration_platform",
+                "sourceName": "outopia-mogan-cloud-flower-trail-2027-partner-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "cutoffTimeHours": {
+                "field": "cutoffTimeHours",
+                "sourceType": "registration_platform",
+                "sourceName": "outopia-mogan-cloud-flower-trail-2027-partner-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "startTimes": {
+                "field": "startTimes",
+                "sourceType": "official",
+                "sourceName": "outopia-mogan-cloud-flower-trail-2027-official-schedule",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "startLocation": {
+                "field": "startLocation",
+                "sourceType": "official",
+                "sourceName": "outopia-mogan-cloud-flower-trail-2027-official-regulations",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "finishLocation": {
+                "field": "finishLocation",
+                "sourceType": "official",
+                "sourceName": "outopia-mogan-cloud-flower-trail-2027-official-regulations",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              }
+            },
+            "sourcePriority": {
+              "official": 100,
+              "registration_platform": 85
+            },
+            "confidence": 0.98,
+            "verified": true,
+            "verificationStatus": "verified",
+            "verifiedAt": "2026-11-23T07:58:18.817Z",
+            "missingFields": [
+              "coursePoints"
+            ],
+            "lastCrawledAt": "2026-11-23T07:55:49.794354+00:00",
+            "lastUpdatedAt": "2026-11-23T07:58:18.817Z",
+            "schemaVersion": "race-graph-v1",
+            "dataQualityLevel": "B",
+            "reviewNotes": "当届主办方路线与日程图加合作报名页。16K仅两枪及最酷已满；未推算绝对关门、CP或Strategy。",
+            "internalFlags": []
+          }
+        },
+        {
+          "categoryId": "outopia-mogan-cloud-flower-trail-2027-fyzh-16k",
+          "editionId": "outopia-mogan-cloud-flower-trail-2027",
+          "categoryName": "飞越竹海 FYZH 16K",
+          "shortName": "飞越竹海 FYZH 16K",
+          "displayOrder": 3,
+          "distanceKm": 16,
+          "elevationGain": 1099,
+          "elevationLoss": null,
+          "cutoffTimeHours": 5.5,
+          "startAt": null,
+          "startTimes": [
+            "2027-03-28T09:00:00+08:00",
+            "2027-03-28T09:30:00+08:00"
+          ],
+          "startLocation": "郡安里",
+          "finishLocation": "郡安里",
+          "registrationUrl": null,
+          "coursePoints": null,
+          "coursePointDataStatus": "unknown",
+          "createdAt": "2026-11-23T07:58:18.817Z",
+          "updatedAt": "2026-11-23T07:58:18.817Z",
+          "governance": {
+            "sources": [
+              {
+                "sourceType": "registration_platform",
+                "sourceName": "outopia-mogan-cloud-flower-trail-2027-partner-registration",
+                "sourceUrl": "https://reg.zuicool.com/54221",
+                "sourceRecordId": "outopia-mogan-cloud-flower-trail-2027-partner-registration",
+                "crawledAt": "2026-11-23T07:54:09.063596+00:00",
+                "confidence": 0.92,
+                "rawData": {
+                  "editionYear": 2027,
+                  "contentHash": "9499a417bd58fcfd7cc7cfee598e81f752f93703ba07d2bde6921c6b3677452c",
+                  "fetchedAt": "2026-11-23T07:54:09.063596+00:00",
+                  "categoryId": "outopia-mogan-cloud-flower-trail-2027-fyzh-16k",
+                  "categoryName": "飞越竹海 FYZH 16K",
+                  "raceDate": "2027-03-28",
+                  "distanceKm": 16,
+                  "elevationGain": 1099,
+                  "cutoffTimeHours": 5.5,
+                  "startTimes": [
+                    "2027-03-28T09:00:00+08:00",
+                    "2027-03-28T09:30:00+08:00"
+                  ],
+                  "registrationAvailability": "sold_out_on_partner_channel",
+                  "unsupportedEarlierStart": "10:00",
+                  "evidenceText": "飞越竹海FYZH16km组：出发时间3月28日9:00第一枪/9:30第二枪，关门时间3月28日14:30第一枪/15:00第二枪，关门时长5.5h，累计爬升1099m，ITRA拟1分",
+                  "evidenceLocator": "normalized HTML text chars 649–741"
+                }
+              },
+              {
+                "sourceType": "official",
+                "sourceName": "outopia-mogan-cloud-flower-trail-2027-official-regulations",
+                "sourceUrl": "https://cdsxhw.saihuitong.com/event?id=910563&mid=86546",
+                "sourceRecordId": "outopia-mogan-cloud-flower-trail-2027-official-regulations",
+                "crawledAt": "2026-11-23T07:54:57.918906+00:00",
+                "confidence": 0.98,
+                "rawData": {
+                  "editionYear": 2027,
+                  "contentHash": "060498683792ba683097e542224c7c8c483397d18be5642b07ef8484e19155a4",
+                  "fetchedAt": "2026-11-23T07:54:57.918906+00:00",
+                  "categoryId": "outopia-mogan-cloud-flower-trail-2027-fyzh-16k",
+                  "distanceKm": 16,
+                  "startLocation": "郡安里",
+                  "finishLocation": "郡安里",
+                  "evidenceText": "(3)飞越竹海FYZH16km组 郡安里（ S303 ， 109K+900 ）－ S303 ， 111K+900 （原晓于线） - 莫干山武陵村－大树下－慢时光民宿－莫干山白云饭店－裸心堡－莫皋坞－郡安里",
+                  "evidenceLocator": "normalized HTML text chars 2447–2549"
+                }
+              },
+              {
+                "sourceType": "official",
+                "sourceName": "outopia-mogan-cloud-flower-trail-2027-official-schedule",
+                "sourceUrl": "https://img.saihuitong.com/7112/richtext/17694080/sht/1a1fca3341a24c9.jpg",
+                "sourceRecordId": "outopia-mogan-cloud-flower-trail-2027-official-schedule",
+                "crawledAt": "2026-11-23T07:55:49.794354+00:00",
+                "confidence": 0.98,
+                "rawData": {
+                  "editionYear": 2027,
+                  "contentHash": "e9e702b8e91608ec34c48e7c33b4efe4b4b851077927e86871eab7edc4df061f",
+                  "fetchedAt": "2026-11-23T07:55:49.794354+00:00",
+                  "raceDate": "2027-03-28",
+                  "endDate": null,
+                  "editionIdentityParentSourceRecordId": "outopia-mogan-cloud-flower-trail-2027-official-regulations",
+                  "evidenceText": "2027年3月28日 41K 06:00/06:30; 31K 07:00/07:30/08:00; 16K 09:00/09:30",
+                  "manualImageRead": true,
+                  "olderResearchThirdWaveNotInLatestSources": "10:00",
+                  "imageDimensions": [
+                    1060,
+                    998
+                  ],
+                  "evidenceLocator": "当届规程嵌入图「赛事日程」表，3月28日发枪区",
+                  "categoryId": "outopia-mogan-cloud-flower-trail-2027-fyzh-16k",
+                  "startTimes": [
+                    "2027-03-28T09:00:00+08:00",
+                    "2027-03-28T09:30:00+08:00"
+                  ]
+                }
+              }
+            ],
+            "fieldSources": {
+              "categoryName": {
+                "field": "categoryName",
+                "sourceType": "registration_platform",
+                "sourceName": "outopia-mogan-cloud-flower-trail-2027-partner-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "distanceKm": {
+                "field": "distanceKm",
+                "sourceType": "official",
+                "sourceName": "outopia-mogan-cloud-flower-trail-2027-official-regulations",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "elevationGain": {
+                "field": "elevationGain",
+                "sourceType": "registration_platform",
+                "sourceName": "outopia-mogan-cloud-flower-trail-2027-partner-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "cutoffTimeHours": {
+                "field": "cutoffTimeHours",
+                "sourceType": "registration_platform",
+                "sourceName": "outopia-mogan-cloud-flower-trail-2027-partner-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "startTimes": {
+                "field": "startTimes",
+                "sourceType": "official",
+                "sourceName": "outopia-mogan-cloud-flower-trail-2027-official-schedule",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "startLocation": {
+                "field": "startLocation",
+                "sourceType": "official",
+                "sourceName": "outopia-mogan-cloud-flower-trail-2027-official-regulations",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "finishLocation": {
+                "field": "finishLocation",
+                "sourceType": "official",
+                "sourceName": "outopia-mogan-cloud-flower-trail-2027-official-regulations",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              }
+            },
+            "sourcePriority": {
+              "official": 100,
+              "registration_platform": 85
+            },
+            "confidence": 0.98,
+            "verified": true,
+            "verificationStatus": "verified",
+            "verifiedAt": "2026-11-23T07:58:18.817Z",
+            "missingFields": [
+              "coursePoints"
+            ],
+            "lastCrawledAt": "2026-11-23T07:55:49.794354+00:00",
+            "lastUpdatedAt": "2026-11-23T07:58:18.817Z",
+            "schemaVersion": "race-graph-v1",
+            "dataQualityLevel": "B",
+            "reviewNotes": "当届主办方路线与日程图加合作报名页。16K仅两枪及最酷已满；未推算绝对关门、CP或Strategy。",
+            "internalFlags": []
+          }
+        }
+      ]
+    },
+    {
+      "event": {
+        "eventId": "huangshan-huizhou-ancient-city-trail",
+        "canonicalName": "黄山徽州古城百公里越野赛",
+        "aliases": [
+          "黄山徽州古城越野赛",
+          "Huangshan Huizhou Ancient City 100K Trail Run"
+        ],
+        "eventType": "trail",
+        "homeCountry": "中国",
+        "homeProvince": "安徽省",
+        "homeCity": "黄山市",
+        "officialWebsite": null,
+        "organizer": null,
+        "lifecycleStatus": "active",
+        "createdAt": "2026-11-23T07:58:18.817Z",
+        "updatedAt": "2026-11-23T07:58:18.817Z",
+        "governance": {
+          "sources": [
+            {
+              "sourceType": "registration_platform",
+              "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+              "sourceUrl": "https://reg.zuicool.com/38938",
+              "sourceRecordId": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+              "crawledAt": "2026-11-23T07:54:09.089700+00:00",
+              "confidence": 0.92,
+              "rawData": {
+                "editionYear": 2027,
+                "contentHash": "66532757532912fa1df43afc4897eac7d26b422f0885a4bd5f9564209f47548f",
+                "fetchedAt": "2026-11-23T07:54:09.089700+00:00",
+                "latestRelevantOfficialEditionYear": 2027,
+                "editionName": "2027 黄山徽州古城百公里越野赛",
+                "raceDate": "2027-03-27",
+                "endDate": "2027-03-28",
+                "venue": "徽州古城府前广场",
+                "registrationStatus": "registration_open",
+                "registrationUrl": "https://reg.zuicool.com/38938",
+                "channel": "最酷合作报名入口",
+                "registrationCapacityNotGuaranteed": true,
+                "channelEarlyBirdEnd": "2026-11-30 23:59:59",
+                "pageHeaderDates": [
+                  "2027-03-28",
+                  "2027-03-29"
+                ],
+                "dateDecision": "Human instructed to use 2027-03-27/28 from supplied rulebook transcription, corroborated by current partner body and all category dates.",
+                "evidenceText": "2027黄山徽州古城百公里越野赛 报名中",
+                "evidenceLocator": "normalized HTML text chars 103–123",
+                "dateEvidenceText": "2027黄山徽州古城百公里越野赛定于2027年3月27日-28日在黄山市歙县徽州古城府前广场开赛",
+                "dateEvidenceLocator": "normalized HTML text chars 1399–1447",
+                "humanRulebookTranscription": "inputs/two-races-20261123/evidence/2027_黄山徽州古城百公里越野赛_Research_Package_V4_住宿重研_20261123.md E01–E03. Original three screenshots are referenced, not included in the ZIP. WeChat returned verification interstitial; no direct article content observed."
+              }
+            }
+          ],
+          "fieldSources": {
+            "canonicalName": {
+              "field": "canonicalName",
+              "sourceType": "registration_platform",
+              "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+              "confidence": 0.92,
+              "updatedAt": "2026-11-23T07:58:18.817Z"
+            }
+          },
+          "sourcePriority": {
+            "official": 100,
+            "registration_platform": 85
+          },
+          "confidence": 0.98,
+          "verified": true,
+          "verificationStatus": "verified",
+          "verifiedAt": "2026-11-23T07:58:18.817Z",
+          "missingFields": [],
+          "lastCrawledAt": "2026-11-23T07:54:09.089700+00:00",
+          "lastUpdatedAt": "2026-11-23T07:58:18.817Z",
+          "schemaVersion": "race-graph-v1",
+          "dataQualityLevel": "B",
+          "reviewNotes": "2027春赛，与2026秋季环新安江分开，不继承历史赞助、路线或组别事实。",
+          "internalFlags": []
+        }
+      },
+      "edition": {
+        "editionId": "huangshan-huizhou-ancient-city-trail-2027",
+        "eventId": "huangshan-huizhou-ancient-city-trail",
+        "editionName": "2027 黄山徽州古城百公里越野赛",
+        "editionYear": 2027,
+        "raceDate": "2027-03-27",
+        "endDate": "2027-03-28",
+        "coverImage": "/races/huangshan-huizhou-ancient-city-trail/2027/display-v1.jpg",
+        "heroImage": "/races/huangshan-huizhou-ancient-city-trail/2027/display-v1.jpg",
+        "primaryCategoryId": "huangshan-huizhou-ancient-city-trail-2027-100k",
+        "primaryCategoryName": "高山流水 100K",
+        "country": "中国",
+        "province": "安徽省",
+        "city": "黄山市",
+        "district": "歙县",
+        "venue": "徽州古城府前广场",
+        "region": "east_china",
+        "timezone": "Asia/Shanghai",
+        "registrationStatus": "registration_open",
+        "registrationOpenDate": null,
+        "registrationCloseDate": null,
+        "registrationUrl": "https://reg.zuicool.com/38938",
+        "officialWebsite": null,
+        "rulebookUrl": "https://mp.weixin.qq.com/s/nsx_mLjU7QlX0LYczljLLg",
+        "lifecycleStatus": "active",
+        "raceDistanceKm": 100,
+        "raceDistances": [
+          20,
+          35,
+          50,
+          75,
+          100
+        ],
+        "createdAt": "2026-11-23T07:58:18.817Z",
+        "updatedAt": "2026-11-23T07:58:18.817Z",
+        "governance": {
+          "sources": [
+            {
+              "sourceType": "registration_platform",
+              "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+              "sourceUrl": "https://reg.zuicool.com/38938",
+              "sourceRecordId": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+              "crawledAt": "2026-11-23T07:54:09.089700+00:00",
+              "confidence": 0.92,
+              "rawData": {
+                "editionYear": 2027,
+                "contentHash": "66532757532912fa1df43afc4897eac7d26b422f0885a4bd5f9564209f47548f",
+                "fetchedAt": "2026-11-23T07:54:09.089700+00:00",
+                "latestRelevantOfficialEditionYear": 2027,
+                "editionName": "2027 黄山徽州古城百公里越野赛",
+                "raceDate": "2027-03-27",
+                "endDate": "2027-03-28",
+                "venue": "徽州古城府前广场",
+                "registrationStatus": "registration_open",
+                "registrationUrl": "https://reg.zuicool.com/38938",
+                "channel": "最酷合作报名入口",
+                "registrationCapacityNotGuaranteed": true,
+                "channelEarlyBirdEnd": "2026-11-30 23:59:59",
+                "pageHeaderDates": [
+                  "2027-03-28",
+                  "2027-03-29"
+                ],
+                "dateDecision": "Human instructed to use 2027-03-27/28 from supplied rulebook transcription, corroborated by current partner body and all category dates.",
+                "evidenceText": "2027黄山徽州古城百公里越野赛 报名中",
+                "evidenceLocator": "normalized HTML text chars 103–123",
+                "dateEvidenceText": "2027黄山徽州古城百公里越野赛定于2027年3月27日-28日在黄山市歙县徽州古城府前广场开赛",
+                "dateEvidenceLocator": "normalized HTML text chars 1399–1447",
+                "humanRulebookTranscription": "inputs/two-races-20261123/evidence/2027_黄山徽州古城百公里越野赛_Research_Package_V4_住宿重研_20261123.md E01–E03. Original three screenshots are referenced, not included in the ZIP. WeChat returned verification interstitial; no direct article content observed."
+              }
+            }
+          ],
+          "fieldSources": {
+            "editionName": {
+              "field": "editionName",
+              "sourceType": "registration_platform",
+              "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+              "confidence": 0.92,
+              "updatedAt": "2026-11-23T07:58:18.817Z"
+            },
+            "raceDate": {
+              "field": "raceDate",
+              "sourceType": "registration_platform",
+              "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+              "confidence": 0.92,
+              "updatedAt": "2026-11-23T07:58:18.817Z"
+            },
+            "venue": {
+              "field": "venue",
+              "sourceType": "registration_platform",
+              "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+              "confidence": 0.92,
+              "updatedAt": "2026-11-23T07:58:18.817Z"
+            },
+            "registrationStatus": {
+              "field": "registrationStatus",
+              "sourceType": "registration_platform",
+              "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+              "confidence": 0.92,
+              "updatedAt": "2026-11-23T07:58:18.817Z"
+            },
+            "registrationUrl": {
+              "field": "registrationUrl",
+              "sourceType": "registration_platform",
+              "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+              "confidence": 0.92,
+              "updatedAt": "2026-11-23T07:58:18.817Z"
+            },
+            "endDate": {
+              "field": "endDate",
+              "sourceType": "registration_platform",
+              "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+              "confidence": 0.92,
+              "updatedAt": "2026-11-23T07:58:18.817Z"
+            }
+          },
+          "sourcePriority": {
+            "official": 100,
+            "registration_platform": 85
+          },
+          "confidence": 0.98,
+          "verified": true,
+          "verificationStatus": "verified",
+          "verifiedAt": "2026-11-23T07:58:18.817Z",
+          "missingFields": [
+            "registrationCloseDate"
+          ],
+          "lastCrawledAt": "2026-11-23T07:54:09.089700+00:00",
+          "lastUpdatedAt": "2026-11-23T07:58:18.817Z",
+          "schemaVersion": "race-graph-v1",
+          "dataQualityLevel": "B",
+          "reviewNotes": "Human指定当届规程日期3月27–28，合作页正文与组别一致；页头3月28–29作为冲突证据保留。全组终点待核及图片裁切严重，Edition走现有do_not_publish。",
+          "internalFlags": [
+            "do_not_publish"
+          ],
+          "publicationGate": {
+            "requestedEditionYear": 2027,
+            "latestRelevantOfficialEditionYear": 2027,
+            "latestOfficialEditionSourceRecordId": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+            "primarySourceRecordId": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+            "secondarySourceRecordId": null,
+            "raceDateSourceRecordIds": [
+              "huangshan-huizhou-ancient-city-trail-2027-partner-registration"
+            ],
+            "dateEvidenceStatus": "verified",
+            "conflictStatus": "none",
+            "publishable": true,
+            "checkedAt": "2026-11-23T07:58:18.817Z"
+          }
+        }
+      },
+      "categories": [
+        {
+          "categoryId": "huangshan-huizhou-ancient-city-trail-2027-100k",
+          "editionId": "huangshan-huizhou-ancient-city-trail-2027",
+          "categoryName": "高山流水 100K",
+          "shortName": "高山流水 100K",
+          "displayOrder": 1,
+          "distanceKm": 100,
+          "elevationGain": 4900,
+          "elevationLoss": null,
+          "cutoffTimeHours": 26,
+          "startAt": "2027-03-27T05:30:00+08:00",
+          "startTimes": [
+            "2027-03-27T05:30:00+08:00"
+          ],
+          "startLocation": "徽州古城府前广场",
+          "finishLocation": null,
+          "registrationUrl": null,
+          "coursePoints": null,
+          "coursePointDataStatus": "unknown",
+          "createdAt": "2026-11-23T07:58:18.817Z",
+          "updatedAt": "2026-11-23T07:58:18.817Z",
+          "governance": {
+            "sources": [
+              {
+                "sourceType": "registration_platform",
+                "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+                "sourceUrl": "https://reg.zuicool.com/38938",
+                "sourceRecordId": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+                "crawledAt": "2026-11-23T07:54:09.089700+00:00",
+                "confidence": 0.92,
+                "rawData": {
+                  "editionYear": 2027,
+                  "contentHash": "66532757532912fa1df43afc4897eac7d26b422f0885a4bd5f9564209f47548f",
+                  "fetchedAt": "2026-11-23T07:54:09.089700+00:00",
+                  "categoryId": "huangshan-huizhou-ancient-city-trail-2027-100k",
+                  "categoryName": "高山流水 100K",
+                  "raceDate": "2027-03-27",
+                  "distanceKm": 100,
+                  "elevationGain": 4900,
+                  "cutoffTimeHours": 26,
+                  "startTimes": [
+                    "2027-03-27T05:30:00+08:00"
+                  ],
+                  "elevationGainQualifier": "约 / subject to final course release",
+                  "evidenceText": "高山流水100K：1000人，累计爬升约4900m，出发时间3月27日5:30，关门时间3月28日7:30，关门时间26小时",
+                  "evidenceLocator": "normalized HTML text chars 489–551"
+                }
+              },
+              {
+                "sourceType": "manual",
+                "sourceName": "交付包竞赛规程转录 E01–E03",
+                "sourceUrl": "https://mp.weixin.qq.com/s/nsx_mLjU7QlX0LYczljLLg",
+                "sourceRecordId": "huangshan-huizhou-ancient-city-trail-2027-official-regulations",
+                "confidence": 0.8,
+                "rawData": {
+                  "editionYear": 2027,
+                  "startLocation": "徽州古城府前广场",
+                  "evidenceLocator": "inputs/two-races-20261123/evidence/2027_黄山徽州古城百公里越野赛_Research_Package_V4_住宿重研_20261123.md E01–E03. Original three screenshots are referenced, not included in the ZIP. WeChat returned verification interstitial; no direct article content observed.",
+                  "scope": "出发主会场，未独立取得原规程逐组起终点。"
+                }
+              }
+            ],
+            "fieldSources": {
+              "categoryName": {
+                "field": "categoryName",
+                "sourceType": "registration_platform",
+                "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "distanceKm": {
+                "field": "distanceKm",
+                "sourceType": "registration_platform",
+                "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "elevationGain": {
+                "field": "elevationGain",
+                "sourceType": "registration_platform",
+                "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "cutoffTimeHours": {
+                "field": "cutoffTimeHours",
+                "sourceType": "registration_platform",
+                "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "startTimes": {
+                "field": "startTimes",
+                "sourceType": "registration_platform",
+                "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "startAt": {
+                "field": "startAt",
+                "sourceType": "registration_platform",
+                "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "startLocation": {
+                "field": "startLocation",
+                "sourceType": "manual",
+                "sourceName": "交付包竞赛规程转录 E01–E03",
+                "confidence": 0.8,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              }
+            },
+            "sourcePriority": {
+              "official": 100,
+              "registration_platform": 85,
+              "manual": 80
+            },
+            "confidence": 0.9,
+            "verified": false,
+            "verificationStatus": "pending",
+            "verifiedAt": null,
+            "missingFields": [
+              "coursePoints",
+              "finishLocation"
+            ],
+            "lastCrawledAt": "2026-11-23T07:54:09.089700+00:00",
+            "lastUpdatedAt": "2026-11-23T07:58:18.817Z",
+            "schemaVersion": "race-graph-v1",
+            "dataQualityLevel": "C",
+            "reviewNotes": "2027合作入口直接核对本组标称距离、分枪、累计爬升约值、总关门时长。主会场结合交付规程转录作起点参考；缺组别终点直证保持Pending，不得用会场或往届推断。",
+            "internalFlags": []
+          }
+        },
+        {
+          "categoryId": "huangshan-huizhou-ancient-city-trail-2027-75k",
+          "editionId": "huangshan-huizhou-ancient-city-trail-2027",
+          "categoryName": "渔樵问答 75K",
+          "shortName": "渔樵问答 75K",
+          "displayOrder": 2,
+          "distanceKm": 75,
+          "elevationGain": 3100,
+          "elevationLoss": null,
+          "cutoffTimeHours": 19,
+          "startAt": "2027-03-27T06:30:00+08:00",
+          "startTimes": [
+            "2027-03-27T06:30:00+08:00"
+          ],
+          "startLocation": "徽州古城府前广场",
+          "finishLocation": null,
+          "registrationUrl": null,
+          "coursePoints": null,
+          "coursePointDataStatus": "unknown",
+          "createdAt": "2026-11-23T07:58:18.817Z",
+          "updatedAt": "2026-11-23T07:58:18.817Z",
+          "governance": {
+            "sources": [
+              {
+                "sourceType": "registration_platform",
+                "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+                "sourceUrl": "https://reg.zuicool.com/38938",
+                "sourceRecordId": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+                "crawledAt": "2026-11-23T07:54:09.089700+00:00",
+                "confidence": 0.92,
+                "rawData": {
+                  "editionYear": 2027,
+                  "contentHash": "66532757532912fa1df43afc4897eac7d26b422f0885a4bd5f9564209f47548f",
+                  "fetchedAt": "2026-11-23T07:54:09.089700+00:00",
+                  "categoryId": "huangshan-huizhou-ancient-city-trail-2027-75k",
+                  "categoryName": "渔樵问答 75K",
+                  "raceDate": "2027-03-27",
+                  "distanceKm": 75,
+                  "elevationGain": 3100,
+                  "cutoffTimeHours": 19,
+                  "startTimes": [
+                    "2027-03-27T06:30:00+08:00"
+                  ],
+                  "elevationGainQualifier": "约 / subject to final course release",
+                  "evidenceText": "渔樵问答75K：1500人，累计爬升约3100m，出发时间3月27日6:30，关门时间3月28日1:30，关门时间19小时",
+                  "evidenceLocator": "normalized HTML text chars 618–679"
+                }
+              },
+              {
+                "sourceType": "manual",
+                "sourceName": "交付包竞赛规程转录 E01–E03",
+                "sourceUrl": "https://mp.weixin.qq.com/s/nsx_mLjU7QlX0LYczljLLg",
+                "sourceRecordId": "huangshan-huizhou-ancient-city-trail-2027-official-regulations",
+                "confidence": 0.8,
+                "rawData": {
+                  "editionYear": 2027,
+                  "startLocation": "徽州古城府前广场",
+                  "evidenceLocator": "inputs/two-races-20261123/evidence/2027_黄山徽州古城百公里越野赛_Research_Package_V4_住宿重研_20261123.md E01–E03. Original three screenshots are referenced, not included in the ZIP. WeChat returned verification interstitial; no direct article content observed.",
+                  "scope": "出发主会场，未独立取得原规程逐组起终点。"
+                }
+              }
+            ],
+            "fieldSources": {
+              "categoryName": {
+                "field": "categoryName",
+                "sourceType": "registration_platform",
+                "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "distanceKm": {
+                "field": "distanceKm",
+                "sourceType": "registration_platform",
+                "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "elevationGain": {
+                "field": "elevationGain",
+                "sourceType": "registration_platform",
+                "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "cutoffTimeHours": {
+                "field": "cutoffTimeHours",
+                "sourceType": "registration_platform",
+                "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "startTimes": {
+                "field": "startTimes",
+                "sourceType": "registration_platform",
+                "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "startAt": {
+                "field": "startAt",
+                "sourceType": "registration_platform",
+                "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "startLocation": {
+                "field": "startLocation",
+                "sourceType": "manual",
+                "sourceName": "交付包竞赛规程转录 E01–E03",
+                "confidence": 0.8,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              }
+            },
+            "sourcePriority": {
+              "official": 100,
+              "registration_platform": 85,
+              "manual": 80
+            },
+            "confidence": 0.9,
+            "verified": false,
+            "verificationStatus": "pending",
+            "verifiedAt": null,
+            "missingFields": [
+              "coursePoints",
+              "finishLocation"
+            ],
+            "lastCrawledAt": "2026-11-23T07:54:09.089700+00:00",
+            "lastUpdatedAt": "2026-11-23T07:58:18.817Z",
+            "schemaVersion": "race-graph-v1",
+            "dataQualityLevel": "C",
+            "reviewNotes": "2027合作入口直接核对本组标称距离、分枪、累计爬升约值、总关门时长。主会场结合交付规程转录作起点参考；缺组别终点直证保持Pending，不得用会场或往届推断。",
+            "internalFlags": []
+          }
+        },
+        {
+          "categoryId": "huangshan-huizhou-ancient-city-trail-2027-50k",
+          "editionId": "huangshan-huizhou-ancient-city-trail-2027",
+          "categoryName": "夕阳箫鼓 50K",
+          "shortName": "夕阳箫鼓 50K",
+          "displayOrder": 3,
+          "distanceKm": 50,
+          "elevationGain": 2100,
+          "elevationLoss": null,
+          "cutoffTimeHours": 14,
+          "startAt": null,
+          "startTimes": [
+            "2027-03-27T07:30:00+08:00",
+            "2027-03-27T08:00:00+08:00"
+          ],
+          "startLocation": "徽州古城府前广场",
+          "finishLocation": null,
+          "registrationUrl": null,
+          "coursePoints": null,
+          "coursePointDataStatus": "unknown",
+          "createdAt": "2026-11-23T07:58:18.817Z",
+          "updatedAt": "2026-11-23T07:58:18.817Z",
+          "governance": {
+            "sources": [
+              {
+                "sourceType": "registration_platform",
+                "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+                "sourceUrl": "https://reg.zuicool.com/38938",
+                "sourceRecordId": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+                "crawledAt": "2026-11-23T07:54:09.089700+00:00",
+                "confidence": 0.92,
+                "rawData": {
+                  "editionYear": 2027,
+                  "contentHash": "66532757532912fa1df43afc4897eac7d26b422f0885a4bd5f9564209f47548f",
+                  "fetchedAt": "2026-11-23T07:54:09.089700+00:00",
+                  "categoryId": "huangshan-huizhou-ancient-city-trail-2027-50k",
+                  "categoryName": "夕阳箫鼓 50K",
+                  "raceDate": "2027-03-27",
+                  "distanceKm": 50,
+                  "elevationGain": 2100,
+                  "cutoffTimeHours": 14,
+                  "startTimes": [
+                    "2027-03-27T07:30:00+08:00",
+                    "2027-03-27T08:00:00+08:00"
+                  ],
+                  "elevationGainQualifier": "约 / subject to final course release",
+                  "evidenceText": "夕阳箫鼓50K：2000人，累计爬升约2100m，出发时间3月27日7:30第一枪/8:00第二枪，关门时间3月27日22:00第一枪/22:30第二枪，关门时间14小时",
+                  "evidenceLocator": "normalized HTML text chars 742–827"
+                }
+              },
+              {
+                "sourceType": "manual",
+                "sourceName": "交付包竞赛规程转录 E01–E03",
+                "sourceUrl": "https://mp.weixin.qq.com/s/nsx_mLjU7QlX0LYczljLLg",
+                "sourceRecordId": "huangshan-huizhou-ancient-city-trail-2027-official-regulations",
+                "confidence": 0.8,
+                "rawData": {
+                  "editionYear": 2027,
+                  "startLocation": "徽州古城府前广场",
+                  "evidenceLocator": "inputs/two-races-20261123/evidence/2027_黄山徽州古城百公里越野赛_Research_Package_V4_住宿重研_20261123.md E01–E03. Original three screenshots are referenced, not included in the ZIP. WeChat returned verification interstitial; no direct article content observed.",
+                  "scope": "出发主会场，未独立取得原规程逐组起终点。"
+                }
+              }
+            ],
+            "fieldSources": {
+              "categoryName": {
+                "field": "categoryName",
+                "sourceType": "registration_platform",
+                "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "distanceKm": {
+                "field": "distanceKm",
+                "sourceType": "registration_platform",
+                "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "elevationGain": {
+                "field": "elevationGain",
+                "sourceType": "registration_platform",
+                "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "cutoffTimeHours": {
+                "field": "cutoffTimeHours",
+                "sourceType": "registration_platform",
+                "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "startTimes": {
+                "field": "startTimes",
+                "sourceType": "registration_platform",
+                "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "startLocation": {
+                "field": "startLocation",
+                "sourceType": "manual",
+                "sourceName": "交付包竞赛规程转录 E01–E03",
+                "confidence": 0.8,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              }
+            },
+            "sourcePriority": {
+              "official": 100,
+              "registration_platform": 85,
+              "manual": 80
+            },
+            "confidence": 0.9,
+            "verified": false,
+            "verificationStatus": "pending",
+            "verifiedAt": null,
+            "missingFields": [
+              "coursePoints",
+              "finishLocation"
+            ],
+            "lastCrawledAt": "2026-11-23T07:54:09.089700+00:00",
+            "lastUpdatedAt": "2026-11-23T07:58:18.817Z",
+            "schemaVersion": "race-graph-v1",
+            "dataQualityLevel": "C",
+            "reviewNotes": "2027合作入口直接核对本组标称距离、分枪、累计爬升约值、总关门时长。主会场结合交付规程转录作起点参考；缺组别终点直证保持Pending，不得用会场或往届推断。",
+            "internalFlags": []
+          }
+        },
+        {
+          "categoryId": "huangshan-huizhou-ancient-city-trail-2027-35k",
+          "editionId": "huangshan-huizhou-ancient-city-trail-2027",
+          "categoryName": "阳春白雪 35K",
+          "shortName": "阳春白雪 35K",
+          "displayOrder": 4,
+          "distanceKm": 35,
+          "elevationGain": 1100,
+          "elevationLoss": null,
+          "cutoffTimeHours": 9,
+          "startAt": null,
+          "startTimes": [
+            "2027-03-28T08:00:00+08:00",
+            "2027-03-28T08:30:00+08:00"
+          ],
+          "startLocation": "徽州古城府前广场",
+          "finishLocation": null,
+          "registrationUrl": null,
+          "coursePoints": null,
+          "coursePointDataStatus": "unknown",
+          "createdAt": "2026-11-23T07:58:18.817Z",
+          "updatedAt": "2026-11-23T07:58:18.817Z",
+          "governance": {
+            "sources": [
+              {
+                "sourceType": "registration_platform",
+                "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+                "sourceUrl": "https://reg.zuicool.com/38938",
+                "sourceRecordId": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+                "crawledAt": "2026-11-23T07:54:09.089700+00:00",
+                "confidence": 0.92,
+                "rawData": {
+                  "editionYear": 2027,
+                  "contentHash": "66532757532912fa1df43afc4897eac7d26b422f0885a4bd5f9564209f47548f",
+                  "fetchedAt": "2026-11-23T07:54:09.089700+00:00",
+                  "categoryId": "huangshan-huizhou-ancient-city-trail-2027-35k",
+                  "categoryName": "阳春白雪 35K",
+                  "raceDate": "2027-03-28",
+                  "distanceKm": 35,
+                  "elevationGain": 1100,
+                  "cutoffTimeHours": 9,
+                  "startTimes": [
+                    "2027-03-28T08:00:00+08:00",
+                    "2027-03-28T08:30:00+08:00"
+                  ],
+                  "elevationGainQualifier": "约 / subject to final course release",
+                  "evidenceText": "阳春白雪35K：2500人，累计爬升约1100m，出发时间3月28日8:00第一枪/8:30第二枪，关门时间3月28日17:00第一枪/17:30第二枪，关门时间9小时",
+                  "evidenceLocator": "normalized HTML text chars 890–974"
+                }
+              },
+              {
+                "sourceType": "manual",
+                "sourceName": "交付包竞赛规程转录 E01–E03",
+                "sourceUrl": "https://mp.weixin.qq.com/s/nsx_mLjU7QlX0LYczljLLg",
+                "sourceRecordId": "huangshan-huizhou-ancient-city-trail-2027-official-regulations",
+                "confidence": 0.8,
+                "rawData": {
+                  "editionYear": 2027,
+                  "startLocation": "徽州古城府前广场",
+                  "evidenceLocator": "inputs/two-races-20261123/evidence/2027_黄山徽州古城百公里越野赛_Research_Package_V4_住宿重研_20261123.md E01–E03. Original three screenshots are referenced, not included in the ZIP. WeChat returned verification interstitial; no direct article content observed.",
+                  "scope": "出发主会场，未独立取得原规程逐组起终点。"
+                }
+              }
+            ],
+            "fieldSources": {
+              "categoryName": {
+                "field": "categoryName",
+                "sourceType": "registration_platform",
+                "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "distanceKm": {
+                "field": "distanceKm",
+                "sourceType": "registration_platform",
+                "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "elevationGain": {
+                "field": "elevationGain",
+                "sourceType": "registration_platform",
+                "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "cutoffTimeHours": {
+                "field": "cutoffTimeHours",
+                "sourceType": "registration_platform",
+                "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "startTimes": {
+                "field": "startTimes",
+                "sourceType": "registration_platform",
+                "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "startLocation": {
+                "field": "startLocation",
+                "sourceType": "manual",
+                "sourceName": "交付包竞赛规程转录 E01–E03",
+                "confidence": 0.8,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              }
+            },
+            "sourcePriority": {
+              "official": 100,
+              "registration_platform": 85,
+              "manual": 80
+            },
+            "confidence": 0.9,
+            "verified": false,
+            "verificationStatus": "pending",
+            "verifiedAt": null,
+            "missingFields": [
+              "coursePoints",
+              "finishLocation"
+            ],
+            "lastCrawledAt": "2026-11-23T07:54:09.089700+00:00",
+            "lastUpdatedAt": "2026-11-23T07:58:18.817Z",
+            "schemaVersion": "race-graph-v1",
+            "dataQualityLevel": "C",
+            "reviewNotes": "2027合作入口直接核对本组标称距离、分枪、累计爬升约值、总关门时长。主会场结合交付规程转录作起点参考；缺组别终点直证保持Pending，不得用会场或往届推断。",
+            "internalFlags": []
+          }
+        },
+        {
+          "categoryId": "huangshan-huizhou-ancient-city-trail-2027-20k",
+          "editionId": "huangshan-huizhou-ancient-city-trail-2027",
+          "categoryName": "春江花月 20K",
+          "shortName": "春江花月 20K",
+          "displayOrder": 5,
+          "distanceKm": 20,
+          "elevationGain": 500,
+          "elevationLoss": null,
+          "cutoffTimeHours": 6,
+          "startAt": null,
+          "startTimes": [
+            "2027-03-28T09:00:00+08:00",
+            "2027-03-28T09:30:00+08:00"
+          ],
+          "startLocation": "徽州古城府前广场",
+          "finishLocation": null,
+          "registrationUrl": null,
+          "coursePoints": null,
+          "coursePointDataStatus": "unknown",
+          "createdAt": "2026-11-23T07:58:18.817Z",
+          "updatedAt": "2026-11-23T07:58:18.817Z",
+          "governance": {
+            "sources": [
+              {
+                "sourceType": "registration_platform",
+                "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+                "sourceUrl": "https://reg.zuicool.com/38938",
+                "sourceRecordId": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+                "crawledAt": "2026-11-23T07:54:09.089700+00:00",
+                "confidence": 0.92,
+                "rawData": {
+                  "editionYear": 2027,
+                  "contentHash": "66532757532912fa1df43afc4897eac7d26b422f0885a4bd5f9564209f47548f",
+                  "fetchedAt": "2026-11-23T07:54:09.089700+00:00",
+                  "categoryId": "huangshan-huizhou-ancient-city-trail-2027-20k",
+                  "categoryName": "春江花月 20K",
+                  "raceDate": "2027-03-28",
+                  "distanceKm": 20,
+                  "elevationGain": 500,
+                  "cutoffTimeHours": 6,
+                  "startTimes": [
+                    "2027-03-28T09:00:00+08:00",
+                    "2027-03-28T09:30:00+08:00"
+                  ],
+                  "elevationGainQualifier": "约 / subject to final course release",
+                  "evidenceText": "春江花月20K：1000人，累计爬升约500m，出发时间3月28日9:00第一枪/9:30第二枪，关门时间3月28日15:00第一枪/15:30第二枪，关门时间6小时",
+                  "evidenceLocator": "normalized HTML text chars 1037–1120"
+                }
+              },
+              {
+                "sourceType": "manual",
+                "sourceName": "交付包竞赛规程转录 E01–E03",
+                "sourceUrl": "https://mp.weixin.qq.com/s/nsx_mLjU7QlX0LYczljLLg",
+                "sourceRecordId": "huangshan-huizhou-ancient-city-trail-2027-official-regulations",
+                "confidence": 0.8,
+                "rawData": {
+                  "editionYear": 2027,
+                  "startLocation": "徽州古城府前广场",
+                  "evidenceLocator": "inputs/two-races-20261123/evidence/2027_黄山徽州古城百公里越野赛_Research_Package_V4_住宿重研_20261123.md E01–E03. Original three screenshots are referenced, not included in the ZIP. WeChat returned verification interstitial; no direct article content observed.",
+                  "scope": "出发主会场，未独立取得原规程逐组起终点。"
+                }
+              }
+            ],
+            "fieldSources": {
+              "categoryName": {
+                "field": "categoryName",
+                "sourceType": "registration_platform",
+                "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "distanceKm": {
+                "field": "distanceKm",
+                "sourceType": "registration_platform",
+                "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "elevationGain": {
+                "field": "elevationGain",
+                "sourceType": "registration_platform",
+                "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "cutoffTimeHours": {
+                "field": "cutoffTimeHours",
+                "sourceType": "registration_platform",
+                "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "startTimes": {
+                "field": "startTimes",
+                "sourceType": "registration_platform",
+                "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              },
+              "startLocation": {
+                "field": "startLocation",
+                "sourceType": "manual",
+                "sourceName": "交付包竞赛规程转录 E01–E03",
+                "confidence": 0.8,
+                "updatedAt": "2026-11-23T07:58:18.817Z"
+              }
+            },
+            "sourcePriority": {
+              "official": 100,
+              "registration_platform": 85,
+              "manual": 80
+            },
+            "confidence": 0.9,
+            "verified": false,
+            "verificationStatus": "pending",
+            "verifiedAt": null,
+            "missingFields": [
+              "coursePoints",
+              "finishLocation"
+            ],
+            "lastCrawledAt": "2026-11-23T07:54:09.089700+00:00",
+            "lastUpdatedAt": "2026-11-23T07:58:18.817Z",
+            "schemaVersion": "race-graph-v1",
+            "dataQualityLevel": "C",
+            "reviewNotes": "2027合作入口直接核对本组标称距离、分枪、累计爬升约值、总关门时长。主会场结合交付规程转录作起点参考；缺组别终点直证保持Pending，不得用会场或往届推断。",
+            "internalFlags": []
+          }
+        }
+      ]
     }
   ]
 }

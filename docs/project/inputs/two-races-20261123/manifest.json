@@ -1,0 +1,142 @@
+{
+  "created_at": "2026-11-23",
+  "purpose": "RaceNext controlled Draft PR integration package",
+  "appid": "wx0e6ed4f51db9d078",
+  "source_files": [],
+  "events": [
+    {
+      "key": "outopia",
+      "name": "2027 Outopia 莫干山云间花径越野跑",
+      "eventId_candidate": "outopia-mogan-cloud-flower-trail",
+      "editionId_candidate": "outopia-mogan-cloud-flower-trail-2027",
+      "delivery_file": "RACENEXT_2027_OUTOPIA_MOGAN_FINAL_INTEGRATION_20261123.md",
+      "research_reference": "evidence/2027_Outopia_莫干山云间花径越野跑_Research_Package_V3_住宿重研_20261123.md",
+      "image_original": "assets/outopia-mogan-cloud-flower-2027-original.png",
+      "image_sha256": "b55583b761e17124d3afea9c2cda2e81424dba61a8697714734feb241ee8eff7",
+      "image_width": 702,
+      "image_height": 468,
+      "image_bytes": 292874,
+      "image_gate": "LOW_RESOLUTION_AND_CROP_QA_PENDING",
+      "image_usage_rights": "NOT_DOCUMENTED",
+      "hotels": [
+        {
+          "rank": 1,
+          "hotelName": "莫干山郡安里度假酒店",
+          "recommendationTitle": "41K 早枪，优先考虑郡安里",
+          "recommendationReason": "2027 年比赛从郡安里出发、完赛，酒店就在同一度假区。对 06:00 出发的跑者来说，可以减少从庾村或外城区赶往赛场的不确定性。",
+          "provider": "ctrip",
+          "hotelId": "1748643",
+          "appId": "wx0e6ed4f51db9d078",
+          "path": "/pages/hotel/detail/index?id=1748643&inday=2026-11-25&outday=2026-11-26&biz=1&ouid=link&AllianceID=9729651&sid=327120872&guid=10650054344_share_9729651_1795415855631&sct=open_platform"
+        },
+        {
+          "rank": 2,
+          "hotelName": "莫干山铂尔曼酒店",
+          "recommendationTitle": "竹源路上的常规酒店选择",
+          "recommendationReason": "酒店位于莫干山镇竹源路118号，和郡安里度假酒店在同一条路上。想住在起跑片区、又偏好常规酒店服务的跑者，可以把两家放在一起比较。",
+          "provider": "ctrip",
+          "hotelId": "135454224",
+          "appId": "wx0e6ed4f51db9d078",
+          "path": "/pages/hotel/detail/index?id=135454224&inday=2026-11-25&outday=2026-11-26&biz=1&ouid=link&AllianceID=9729651&sid=327120872&guid=10650054344_share_9729651_1795415893917&sct=open_platform"
+        },
+        {
+          "rank": 3,
+          "hotelName": "莫干山依尔山居民宿（莫干庾村店）",
+          "recommendationTitle": "竹源路民宿备选",
+          "recommendationReason": "民宿位于庾村竹源路，酒店位置资料标注在郡安里景区附近。想住民宿、又希望优先考虑赛事主会场周边的跑者，可以关注这一家。",
+          "provider": "ctrip",
+          "hotelId": "4682318",
+          "appId": "wx0e6ed4f51db9d078",
+          "path": "/pages/hotel/detail/index?id=4682318&inday=2026-11-25&outday=2026-11-26&biz=1&ouid=link&AllianceID=9729651&sid=327120872&guid=10650054344_share_9729651_1795415924432&sct=open_platform"
+        },
+        {
+          "rank": 4,
+          "hotelName": "莫干山街角美宿（庾村广场店）",
+          "recommendationTitle": "庾村镇区的结伴住宿",
+          "recommendationReason": "位于竹源路68号，处在庾村与郡安里之间的道路片区。适合结伴参赛、希望住在镇区民宿且兼顾赛前吃饭的跑者比较。",
+          "provider": "ctrip",
+          "hotelId": "8340871",
+          "appId": "wx0e6ed4f51db9d078",
+          "path": "/pages/hotel/detail/index?id=8340871&inday=2026-11-25&outday=2026-11-26&biz=1&ouid=link&AllianceID=9729651&sid=327120872&guid=10650054344_share_9729651_1795418085921&sct=open_platform"
+        },
+        {
+          "rank": 5,
+          "hotelName": "莫干山季梵山居民宿（庾村店）",
+          "recommendationTitle": "有越野跑者入住记录的庾村民宿",
+          "recommendationReason": "位于庾村，适合想把赛前晚餐、休息都安排在镇区的跑者。它有接待其他越野赛事跑者的历史记录，尤其值得与庾村广场周边酒店一起比较。",
+          "provider": "ctrip",
+          "hotelId": "134014969",
+          "appId": "wx0e6ed4f51db9d078",
+          "path": "/pages/hotel/detail/index?id=134014969&inday=2026-11-25&outday=2026-11-26&biz=1&ouid=link&AllianceID=9729651&sid=327120872&guid=10650054344_share_9729651_1795418111503&sct=open_platform"
+        }
+      ]
+    },
+    {
+      "key": "huangshan",
+      "name": "2027 黄山徽州古城百公里越野赛",
+      "eventId_candidate": "huangshan-huizhou-ancient-city-trail",
+      "editionId_candidate": "huangshan-huizhou-ancient-city-trail-2027",
+      "delivery_file": "RACENEXT_2027_HUANGSHAN_HUIZHOU_FINAL_INTEGRATION_20261123.md",
+      "research_reference": "evidence/2027_黄山徽州古城百公里越野赛_Research_Package_V4_住宿重研_20261123.md",
+      "image_original": "assets/huangshan-huizhou-ancient-city-2027-original.jpeg",
+      "image_sha256": "4a8ccec3bc5ea97e1011f89fb1079a9e79a66f1e6275ec31fe9420b4801da22b",
+      "image_width": 750,
+      "image_height": 289,
+      "image_bytes": 57331,
+      "image_gate": "LOW_RESOLUTION_AND_CROP_QA_PENDING",
+      "image_usage_rights": "NOT_DOCUMENTED",
+      "hotels": [
+        {
+          "rank": 1,
+          "hotelName": "歙县吴怡本堂民宿",
+          "recommendationTitle": "有春季赛事住客记录的古城民宿",
+          "recommendationReason": "位于徽州古城打箍井街，靠近府前广场一带。2025 年有参赛住客提到从这里前往古城越野赛起点很方便，适合把清晨步行到场放在第一位的跑者比较。",
+          "provider": "ctrip",
+          "hotelId": "68030616",
+          "appId": "wx0e6ed4f51db9d078",
+          "path": "/pages/hotel/detail/index?id=68030616&inday=2026-11-25&outday=2026-11-26&biz=1&ouid=link&AllianceID=9729651&sid=327120872&guid=10650054344_share_9729651_1795418165019&sct=open_platform"
+        },
+        {
+          "rank": 2,
+          "hotelName": "徽映十笏民宿（黄山歙县徽州古城店）",
+          "recommendationTitle": "有其他越野赛事住客体验的古城外缘民宿",
+          "recommendationReason": "民宿位于徽州花苑、古城外缘。曾有其他届次的越野跑者入住并反馈店家对赛后整理较为体贴，适合希望住在古城外侧、重视入住服务的跑者比较。",
+          "provider": "ctrip",
+          "hotelId": "133572961",
+          "appId": "wx0e6ed4f51db9d078",
+          "path": "/pages/hotel/detail/index?id=133572961&inday=2026-11-25&outday=2026-11-26&biz=1&ouid=link&AllianceID=9729651&sid=327120872&guid=10650054344_share_9729651_1795418196421&sct=open_platform"
+        },
+        {
+          "rank": 3,
+          "hotelName": "花筑·歙县微城民宿（徽州古城店）",
+          "recommendationTitle": "古城徽园片区近会场备选",
+          "recommendationReason": "位于徽州古城徽园片区，酒店位置资料显示徽州府衙就在附近。想前一晚住进古城、减少凌晨从歙县其他街区赶来的路程，可以把它列入优先比较。",
+          "provider": "ctrip",
+          "hotelId": "131987433",
+          "appId": "wx0e6ed4f51db9d078",
+          "path": "/pages/hotel/detail/index?id=131987433&inday=2026-11-25&outday=2026-11-26&biz=1&ouid=link&AllianceID=9729651&sid=327120872&guid=10650054344_share_9729651_1795416488727&sct=open_platform"
+        },
+        {
+          "rank": 4,
+          "hotelName": "歙县井陌民宿",
+          "recommendationTitle": "徽州古城老街民宿",
+          "recommendationReason": "民宿位于徽州古城十字街，靠近许国石坊与府衙区域。如果希望把赛前休息和古城内用餐安排在一起，这是与徽园片区不同的民宿选择。",
+          "provider": "ctrip",
+          "hotelId": "61002071",
+          "appId": "wx0e6ed4f51db9d078",
+          "path": "/pages/hotel/detail/index?biz=1&id=61002071&inday=2026-11-23&outday=2026-11-24&ouid=link&AllianceID=9729651&sid=327120872&guid=10650054344_share_9729651_1795416522622&sct=open_platform"
+        },
+        {
+          "rank": 5,
+          "hotelName": "歙县新安宾馆·Designer酒店（徽州古城店）",
+          "recommendationTitle": "古城旁的常规酒店备选",
+          "recommendationReason": "酒店位于徽州古城旁，适合更习惯常规酒店服务、不一定要住进古城深处的跑者。比起赛前临时在县城内打车，先住在古城周边更便于规划到场路线。",
+          "provider": "ctrip",
+          "hotelId": "23865199",
+          "appId": "wx0e6ed4f51db9d078",
+          "path": "/pages/hotel/detail/index?id=23865199&inday=2026-11-25&outday=2026-11-26&biz=1&ouid=link&AllianceID=9729651&sid=327120872&guid=10650054344_share_9729651_1795418276495&sct=open_platform"
+        }
+      ]
+    }
+  ]
+}
