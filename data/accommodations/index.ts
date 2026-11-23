@@ -1,4 +1,4 @@
-import { batch20261123Hotels, batch20261123Recommendations } from "./batch-20261123.ts";
+import { batch20261123Hotels, batch20261123Recommendations, heldHuangshanHotelRecommendationId } from "./batch-20261123.ts";
 import { batch20261119Hotels, batch20261119Recommendations } from "./batch-20261119.ts";
 import { batch20261020Hotels, batch20261020Recommendations } from "./batch-20261020.ts";
 import type { Hotel, RaceAccommodationRecommendation } from "../../types/accommodation.ts";
@@ -577,7 +577,7 @@ const hotels: Hotel[] = [
 const recommendations: RaceAccommodationRecommendation[] = [
   ...batch20261020Recommendations,
   ...batch20261119Recommendations,
-  ...batch20261123Recommendations,
+  ...batch20261123Recommendations.filter(({ recommendationId }) => recommendationId !== heldHuangshanHotelRecommendationId),
   {
     recommendationId: "beijing-marathon-2026-echarm-qianmen",
     editionId: "beijing-marathon-2026",

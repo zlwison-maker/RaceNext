@@ -1,0 +1,192 @@
+{
+  "checkedAt": "2026-11-23T10:38:40.516Z",
+  "main": "68f190fb767258c3f18e6cd66b6653c0b48141de",
+  "before": "6e19cf5a09d49b26f20255f61f43d370f456ab1e",
+  "publicCount": 23,
+  "oldDetailsUnchanged": 21,
+  "previousOutopiaHttpPayloadUnchanged": true,
+  "oldResponseTimestampIgnored": "dataUpdatedAt",
+  "factGatePassed": 23,
+  "endpoints": [
+    {
+      "path": "/api/races",
+      "status": 200,
+      "sha256": "a02dd793df17e99ba19b730260ce8881ad3137e6a4f4a4a2b324e46a51907c29"
+    },
+    {
+      "path": "/api/races/kailas-gongga-100-2026",
+      "status": 200,
+      "sha256": "53c2dc63bb76a174d814bfb3757337809ca99b233d25f1f6bea8d7d4eabfc885"
+    },
+    {
+      "path": "/api/races/beijing-marathon-2026",
+      "status": 200,
+      "sha256": "496f72f0cb57dd78d6cb47710bbac4c324d35fd009f7f04bd01ef4801a133b05"
+    },
+    {
+      "path": "/api/races/xian-marathon-2026",
+      "status": 200,
+      "sha256": "ca017c80bb63e70d11cd1e5c9c35410e374ce77a8b7083a0d6ab3a7d120f14d2"
+    },
+    {
+      "path": "/api/races/chengdu-marathon-2026",
+      "status": 200,
+      "sha256": "465a336374c419dd5ae8415d1c7aa15db04a542dbfb49a9e3c5575fee86ade8a"
+    },
+    {
+      "path": "/api/races/tsaigu-kuocang-2026",
+      "status": 200,
+      "sha256": "7011c14111b672a317b9271d3ec25fd935bfced0d86e3df71a730fd8f9a1552a"
+    },
+    {
+      "path": "/api/races/ninghai-ultra-trail-2026",
+      "status": 200,
+      "sha256": "7422abb04fc20dddaf0096a813ceab117c0db88385adc87f823c2d4bd8227f41"
+    },
+    {
+      "path": "/api/races/nanjing-marathon-2026",
+      "status": 200,
+      "sha256": "1a857dbedf0533e1ecd0e7713f36b315de1554cbb15a30623976c57c772bbb75"
+    },
+    {
+      "path": "/api/races/shaoxing-marathon-2026",
+      "status": 200,
+      "sha256": "ff028a3a514496d5fce508abfce4908c3c10feecf0f4af289c0695ed1cbbc2e0"
+    },
+    {
+      "path": "/api/races/shanghai-marathon-2026",
+      "status": 200,
+      "sha256": "e8428852d46ff84179d5f0c3fcc30acb8bc3a16d091f98b9deeb6c58c15ecf4a"
+    },
+    {
+      "path": "/api/races/shenzhen-marathon-2026",
+      "status": 200,
+      "sha256": "8e9fb25cf9a2831c347fb7450166bdd988e02b7265ab09095126da3a4c548f1c"
+    },
+    {
+      "path": "/api/races/guangzhou-marathon-2026",
+      "status": 200,
+      "sha256": "492021e14fe0bf57777329a062e2a64fea0bf8308754ca8a0d2bf91bc880cfab"
+    },
+    {
+      "path": "/api/races/shenzhen-100-2026",
+      "status": 200,
+      "sha256": "8e3905735902bbc817c31170f1986b7b1f8078fb4d3e2e60936835b98745b3c5"
+    },
+    {
+      "path": "/api/races/fuzhou-marathon-2026",
+      "status": 200,
+      "sha256": "1c172b25ac114730a849600a62993c0426eef5774c76690cc7fbba34df261699"
+    },
+    {
+      "path": "/api/races/hengqin-marathon-2026",
+      "status": 200,
+      "sha256": "83c8b5e6f39a08756c17c43c1bc0a366db9ed2754aa8e74ae7a46284c0adb1ef"
+    },
+    {
+      "path": "/api/races/chongqing-marathon-2027",
+      "status": 200,
+      "sha256": "94785d91d91a3f6489e42e015de76a927231967b71c19f7e2475e1cd715b447a"
+    },
+    {
+      "path": "/api/races/xiamen-marathon-2027",
+      "status": 200,
+      "sha256": "94fa7d262084469c1d0551a536beec481aedbe1697ad292862fb7554ade7a2a0"
+    },
+    {
+      "path": "/api/races/guangzhou-100-2027",
+      "status": 200,
+      "sha256": "a98e8e5de3b66753d66c2ff5df660b516588297cc2ab5c9bbb90d390f1807058"
+    },
+    {
+      "path": "/api/races/standard-chartered-hong-kong-marathon-2027",
+      "status": 200,
+      "sha256": "5205cd57477f2b9761cfa9c0198e913784a3a2c48b979b3bcca70085fc72a6bc"
+    },
+    {
+      "path": "/api/races/hk100-2027",
+      "status": 200,
+      "sha256": "27e14ff54e6172a7c2a4f158a0ccd1ce834ffac3f52fd316de4848dd315245a3"
+    },
+    {
+      "path": "/api/races/panda-shudao-shan-2027",
+      "status": 200,
+      "sha256": "895bb832c6495a367f9bdb307b772f098b8d33979fa5812ac3c40810dead0da8"
+    },
+    {
+      "path": "/api/races/huangshan-huizhou-ancient-city-trail-2027",
+      "status": 200,
+      "sha256": "d3d2bc84831577c343c34b552edbcaaf012e968589d15d0339a2b878f4ea8e16"
+    },
+    {
+      "path": "/api/races/outopia-mogan-cloud-flower-trail-2027",
+      "status": 200,
+      "sha256": "3a6d61c05b1a9dfd520edeafa2f416c5bafbd9ddc5efbcf1516e2087e9c9b0f8"
+    },
+    {
+      "path": "/api/races/ultra-trail-mogan-by-utmb-2027",
+      "status": 200,
+      "sha256": "1089d30779a497ad1c490d94a9888530f29685f1f8a140ae3476fdbc18de21b7"
+    }
+  ],
+  "newDetails": {
+    "huangshan-huizhou-ancient-city-trail-2027": {
+      "groups": 5,
+      "exposedHotels": 4,
+      "unavailableCategoryLocations": 10
+    },
+    "outopia-mogan-cloud-flower-trail-2027": {
+      "groups": 3,
+      "exposedHotels": 5,
+      "unavailableCategoryLocations": 0
+    }
+  },
+  "assets": [
+    {
+      "path": "/races/outopia-mogan-cloud-flower-trail/2027/display-v1.jpg",
+      "httpStatus": 200,
+      "conditionalStatus": 304,
+      "width": 702,
+      "height": 468,
+      "bytes": 61696,
+      "sha256": "111a0e9b4de80102849ba4824cebfb63c4390fac9bf530daaa64aad76b554581"
+    },
+    {
+      "path": "/races/outopia-mogan-cloud-flower-trail/2027/share-cover-5x4.jpg",
+      "httpStatus": 200,
+      "conditionalStatus": 304,
+      "width": 585,
+      "height": 468,
+      "bytes": 62439,
+      "sha256": "002e61beb3080b8cfa4ba53a2cc7838cbddbd6a0234ed4a0816c27f624ad752d"
+    },
+    {
+      "path": "/races/huangshan-huizhou-ancient-city-trail/2027/display-v2.jpg",
+      "httpStatus": 200,
+      "conditionalStatus": 304,
+      "width": 1080,
+      "height": 608,
+      "bytes": 201540,
+      "sha256": "4ccf46ebc6ed6001f7dd8f507db7d7a9d7e93f2a383ed0f12aed7fefdb508ca4"
+    },
+    {
+      "path": "/races/huangshan-huizhou-ancient-city-trail/2027/share-cover-5x4.jpg",
+      "httpStatus": 200,
+      "conditionalStatus": 304,
+      "width": 750,
+      "height": 600,
+      "bytes": 231277,
+      "sha256": "01a6908da8996d0b293691d1f50141d811dd6b27ebe0cf5e3567fba91ea03c52"
+    },
+    {
+      "path": "/races/huangshan-huizhou-ancient-city-trail/2027/original-v2.jpg",
+      "httpStatus": 200,
+      "conditionalStatus": 304,
+      "width": 1080,
+      "height": 608,
+      "bytes": 231628,
+      "sha256": "adea7fb25ee90b49c9c1301c82e44a970ab7d99c1b7452eb67275bf36e3842ed"
+    }
+  ],
+  "noInternalDataInPublicJson": true
+}

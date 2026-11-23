@@ -12056,8 +12056,8 @@
         "editionYear": 2027,
         "raceDate": "2027-03-27",
         "endDate": "2027-03-28",
-        "coverImage": "/races/huangshan-huizhou-ancient-city-trail/2027/display-v1.jpg",
-        "heroImage": "/races/huangshan-huizhou-ancient-city-trail/2027/display-v1.jpg",
+        "coverImage": "/races/huangshan-huizhou-ancient-city-trail/2027/display-v2.jpg",
+        "heroImage": "/races/huangshan-huizhou-ancient-city-trail/2027/display-v2.jpg",
         "primaryCategoryId": "huangshan-huizhou-ancient-city-trail-2027-100k",
         "primaryCategoryName": "高山流水 100K",
         "country": "中国",
@@ -12083,7 +12083,7 @@
           100
         ],
         "createdAt": "2026-11-23T07:58:18.817Z",
-        "updatedAt": "2026-11-23T07:58:18.817Z",
+        "updatedAt": "2026-11-23T10:36:29.460Z",
         "governance": {
           "sources": [
             {
@@ -12176,13 +12176,11 @@
             "registrationCloseDate"
           ],
           "lastCrawledAt": "2026-11-23T07:54:09.089700+00:00",
-          "lastUpdatedAt": "2026-11-23T07:58:18.817Z",
+          "lastUpdatedAt": "2026-11-23T10:36:29.460Z",
           "schemaVersion": "race-graph-v1",
           "dataQualityLevel": "B",
-          "reviewNotes": "Human指定当届规程日期3月27–28，合作页正文与组别一致；页头3月28–29作为冲突证据保留。全组终点待核及图片裁切严重，Edition走现有do_not_publish。",
-          "internalFlags": [
-            "do_not_publish"
-          ],
+          "reviewNotes": "Human指定当届规程日期3月27–28，合作报名正文与组别一致，页头3月28–29作为冲突证据保留。府前广场为已核验赛事主会场，不能据此推断每组实际起终点。Human 2026-11-23批准核心事实确证后独立发布；组别未证起终点留空。",
+          "internalFlags": [],
           "publicationGate": {
             "requestedEditionYear": 2027,
             "latestRelevantOfficialEditionYear": 2027,
@@ -12214,13 +12212,13 @@
           "startTimes": [
             "2027-03-27T05:30:00+08:00"
           ],
-          "startLocation": "徽州古城府前广场",
+          "startLocation": null,
           "finishLocation": null,
           "registrationUrl": null,
           "coursePoints": null,
           "coursePointDataStatus": "unknown",
           "createdAt": "2026-11-23T07:58:18.817Z",
-          "updatedAt": "2026-11-23T07:58:18.817Z",
+          "updatedAt": "2026-11-23T10:36:29.460Z",
           "governance": {
             "sources": [
               {
@@ -12304,13 +12302,6 @@
                 "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
                 "confidence": 0.92,
                 "updatedAt": "2026-11-23T07:58:18.817Z"
-              },
-              "startLocation": {
-                "field": "startLocation",
-                "sourceType": "manual",
-                "sourceName": "交付包竞赛规程转录 E01–E03",
-                "confidence": 0.8,
-                "updatedAt": "2026-11-23T07:58:18.817Z"
               }
             },
             "sourcePriority": {
@@ -12323,14 +12314,15 @@
             "verificationStatus": "pending",
             "verifiedAt": null,
             "missingFields": [
+              "startLocation",
               "coursePoints",
               "finishLocation"
             ],
             "lastCrawledAt": "2026-11-23T07:54:09.089700+00:00",
-            "lastUpdatedAt": "2026-11-23T07:58:18.817Z",
+            "lastUpdatedAt": "2026-11-23T10:36:29.460Z",
             "schemaVersion": "race-graph-v1",
             "dataQualityLevel": "C",
-            "reviewNotes": "2027合作入口直接核对本组标称距离、分枪、累计爬升约值、总关门时长。主会场结合交付规程转录作起点参考；缺组别终点直证保持Pending，不得用会场或往届推断。",
+            "reviewNotes": "合作入口按组确认当届标称距离、分枪、累计爬升约值与总关门时长。规程转录仅保留主会场参考。逐组起终点待直接取证，保留内部 Pending。",
             "internalFlags": []
           }
         },
@@ -12348,13 +12340,13 @@
           "startTimes": [
             "2027-03-27T06:30:00+08:00"
           ],
-          "startLocation": "徽州古城府前广场",
+          "startLocation": null,
           "finishLocation": null,
           "registrationUrl": null,
           "coursePoints": null,
           "coursePointDataStatus": "unknown",
           "createdAt": "2026-11-23T07:58:18.817Z",
-          "updatedAt": "2026-11-23T07:58:18.817Z",
+          "updatedAt": "2026-11-23T10:36:29.460Z",
           "governance": {
             "sources": [
               {
@@ -12438,13 +12430,6 @@
                 "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
                 "confidence": 0.92,
                 "updatedAt": "2026-11-23T07:58:18.817Z"
-              },
-              "startLocation": {
-                "field": "startLocation",
-                "sourceType": "manual",
-                "sourceName": "交付包竞赛规程转录 E01–E03",
-                "confidence": 0.8,
-                "updatedAt": "2026-11-23T07:58:18.817Z"
               }
             },
             "sourcePriority": {
@@ -12457,14 +12442,15 @@
             "verificationStatus": "pending",
             "verifiedAt": null,
             "missingFields": [
+              "startLocation",
               "coursePoints",
               "finishLocation"
             ],
             "lastCrawledAt": "2026-11-23T07:54:09.089700+00:00",
-            "lastUpdatedAt": "2026-11-23T07:58:18.817Z",
+            "lastUpdatedAt": "2026-11-23T10:36:29.460Z",
             "schemaVersion": "race-graph-v1",
             "dataQualityLevel": "C",
-            "reviewNotes": "2027合作入口直接核对本组标称距离、分枪、累计爬升约值、总关门时长。主会场结合交付规程转录作起点参考；缺组别终点直证保持Pending，不得用会场或往届推断。",
+            "reviewNotes": "合作入口按组确认当届标称距离、分枪、累计爬升约值与总关门时长。规程转录仅保留主会场参考。逐组起终点待直接取证，保留内部 Pending。",
             "internalFlags": []
           }
         },
@@ -12483,13 +12469,13 @@
             "2027-03-27T07:30:00+08:00",
             "2027-03-27T08:00:00+08:00"
           ],
-          "startLocation": "徽州古城府前广场",
+          "startLocation": null,
           "finishLocation": null,
           "registrationUrl": null,
           "coursePoints": null,
           "coursePointDataStatus": "unknown",
           "createdAt": "2026-11-23T07:58:18.817Z",
-          "updatedAt": "2026-11-23T07:58:18.817Z",
+          "updatedAt": "2026-11-23T10:36:29.460Z",
           "governance": {
             "sources": [
               {
@@ -12567,13 +12553,6 @@
                 "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
                 "confidence": 0.92,
                 "updatedAt": "2026-11-23T07:58:18.817Z"
-              },
-              "startLocation": {
-                "field": "startLocation",
-                "sourceType": "manual",
-                "sourceName": "交付包竞赛规程转录 E01–E03",
-                "confidence": 0.8,
-                "updatedAt": "2026-11-23T07:58:18.817Z"
               }
             },
             "sourcePriority": {
@@ -12586,14 +12565,15 @@
             "verificationStatus": "pending",
             "verifiedAt": null,
             "missingFields": [
+              "startLocation",
               "coursePoints",
               "finishLocation"
             ],
             "lastCrawledAt": "2026-11-23T07:54:09.089700+00:00",
-            "lastUpdatedAt": "2026-11-23T07:58:18.817Z",
+            "lastUpdatedAt": "2026-11-23T10:36:29.460Z",
             "schemaVersion": "race-graph-v1",
             "dataQualityLevel": "C",
-            "reviewNotes": "2027合作入口直接核对本组标称距离、分枪、累计爬升约值、总关门时长。主会场结合交付规程转录作起点参考；缺组别终点直证保持Pending，不得用会场或往届推断。",
+            "reviewNotes": "合作入口按组确认当届标称距离、分枪、累计爬升约值与总关门时长。规程转录仅保留主会场参考。逐组起终点待直接取证，保留内部 Pending。",
             "internalFlags": []
           }
         },
@@ -12612,13 +12592,13 @@
             "2027-03-28T08:00:00+08:00",
             "2027-03-28T08:30:00+08:00"
           ],
-          "startLocation": "徽州古城府前广场",
+          "startLocation": null,
           "finishLocation": null,
           "registrationUrl": null,
           "coursePoints": null,
           "coursePointDataStatus": "unknown",
           "createdAt": "2026-11-23T07:58:18.817Z",
-          "updatedAt": "2026-11-23T07:58:18.817Z",
+          "updatedAt": "2026-11-23T10:36:29.460Z",
           "governance": {
             "sources": [
               {
@@ -12696,13 +12676,6 @@
                 "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
                 "confidence": 0.92,
                 "updatedAt": "2026-11-23T07:58:18.817Z"
-              },
-              "startLocation": {
-                "field": "startLocation",
-                "sourceType": "manual",
-                "sourceName": "交付包竞赛规程转录 E01–E03",
-                "confidence": 0.8,
-                "updatedAt": "2026-11-23T07:58:18.817Z"
               }
             },
             "sourcePriority": {
@@ -12715,14 +12688,15 @@
             "verificationStatus": "pending",
             "verifiedAt": null,
             "missingFields": [
+              "startLocation",
               "coursePoints",
               "finishLocation"
             ],
             "lastCrawledAt": "2026-11-23T07:54:09.089700+00:00",
-            "lastUpdatedAt": "2026-11-23T07:58:18.817Z",
+            "lastUpdatedAt": "2026-11-23T10:36:29.460Z",
             "schemaVersion": "race-graph-v1",
             "dataQualityLevel": "C",
-            "reviewNotes": "2027合作入口直接核对本组标称距离、分枪、累计爬升约值、总关门时长。主会场结合交付规程转录作起点参考；缺组别终点直证保持Pending，不得用会场或往届推断。",
+            "reviewNotes": "合作入口按组确认当届标称距离、分枪、累计爬升约值与总关门时长。规程转录仅保留主会场参考。逐组起终点待直接取证，保留内部 Pending。",
             "internalFlags": []
           }
         },
@@ -12741,13 +12715,13 @@
             "2027-03-28T09:00:00+08:00",
             "2027-03-28T09:30:00+08:00"
           ],
-          "startLocation": "徽州古城府前广场",
+          "startLocation": null,
           "finishLocation": null,
           "registrationUrl": null,
           "coursePoints": null,
           "coursePointDataStatus": "unknown",
           "createdAt": "2026-11-23T07:58:18.817Z",
-          "updatedAt": "2026-11-23T07:58:18.817Z",
+          "updatedAt": "2026-11-23T10:36:29.460Z",
           "governance": {
             "sources": [
               {
@@ -12825,13 +12799,6 @@
                 "sourceName": "huangshan-huizhou-ancient-city-trail-2027-partner-registration",
                 "confidence": 0.92,
                 "updatedAt": "2026-11-23T07:58:18.817Z"
-              },
-              "startLocation": {
-                "field": "startLocation",
-                "sourceType": "manual",
-                "sourceName": "交付包竞赛规程转录 E01–E03",
-                "confidence": 0.8,
-                "updatedAt": "2026-11-23T07:58:18.817Z"
               }
             },
             "sourcePriority": {
@@ -12844,14 +12811,15 @@
             "verificationStatus": "pending",
             "verifiedAt": null,
             "missingFields": [
+              "startLocation",
               "coursePoints",
               "finishLocation"
             ],
             "lastCrawledAt": "2026-11-23T07:54:09.089700+00:00",
-            "lastUpdatedAt": "2026-11-23T07:58:18.817Z",
+            "lastUpdatedAt": "2026-11-23T10:36:29.460Z",
             "schemaVersion": "race-graph-v1",
             "dataQualityLevel": "C",
-            "reviewNotes": "2027合作入口直接核对本组标称距离、分枪、累计爬升约值、总关门时长。主会场结合交付规程转录作起点参考；缺组别终点直证保持Pending，不得用会场或往届推断。",
+            "reviewNotes": "合作入口按组确认当届标称距离、分枪、累计爬升约值与总关门时长。规程转录仅保留主会场参考。逐组起终点待直接取证，保留内部 Pending。",
             "internalFlags": []
           }
         }

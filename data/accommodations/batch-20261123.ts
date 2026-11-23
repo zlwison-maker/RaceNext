@@ -114,6 +114,9 @@ export const batch20261123Hotels: Hotel[] = [
   }
 ];
 
+// Historical walkability is documented. The 2027 check-in entrance and pre-dawn access remain unverified.
+export const heldHuangshanHotelRecommendationId = "huangshan-huizhou-ancient-city-trail-2027-ctrip-68030616";
+
 export const batch20261123Recommendations: RaceAccommodationRecommendation[] = [
   {
     "recommendationId": "outopia-mogan-cloud-flower-trail-2027-ctrip-1748643-outopia-2027",

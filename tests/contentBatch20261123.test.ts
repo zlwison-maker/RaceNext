@@ -1,9 +1,14 @@
 import { deepEqual, equal, ok } from "node:assert/strict";
 import { createHash } from "node:crypto";
-import { existsSync, readFileSync } from "node:fs";
+import { readFileSync } from "node:fs";
 import { registerHooks } from "node:module";
 import { test } from "node:test";
 import sharp from "sharp";
+import {
+  batch20261123Hotels,
+  batch20261123Recommendations,
+  heldHuangshanHotelRecommendationId,
+} from "../data/accommodations/batch-20261123.ts";
 import { getRaceAccommodationRecommendations } from "../data/accommodations/index.ts";
 import { getRaceEditorialContent } from "../data/race-guides/index.ts";
 import { getRaceStrategyContent } from "../data/race-strategies/index.ts";
@@ -82,7 +87,11 @@ test("all ten approved hotels and opaque actions survive storage and existing re
   });
   try {
     for (const entry of manifest.events) {
-      const recommendations = getRaceAccommodationRecommendations(entry.editionId_candidate);
+      const recommendations = batch20261123Recommendations.filter(({ editionId }) => editionId === entry.editionId_candidate)
+        .map(recommendation => ({ recommendation, hotel: batch20261123Hotels.find(({ hotelId }) => hotelId === recommendation.hotelId)! }));
+      deepEqual(getRaceAccommodationRecommendations(entry.editionId_candidate), recommendations.filter(
+        ({ recommendation }) => recommendation.recommendationId !== heldHuangshanHotelRecommendationId,
+      ));
       equal(recommendations.length, 5);
       for (const [position, { hotel, recommendation }] of recommendations.entries()) {
         const approved = entry.hotels[position];
@@ -144,7 +153,7 @@ test("Outopia exposes each official wave, retains channel-level 16K sellout evid
   }
 });
 
-test("Huangshan keeps the corroborated competition dates and five pending finishes and stays out of the Public API", () => {
+test("Huangshan publishes its five proven Categories, leaving unresolved locations and one risky hotel out", () => {
   for (const record of [outopia, huangshan]) {
     const gate = evaluatePrePublishFactGate(record, registry.editions.find(e => e.editionId === record.edition.editionId));
     deepEqual(gate.issues, []);
@@ -163,10 +172,40 @@ test("Huangshan keeps the corroborated competition dates and five pending finish
   ]);
   ok(huangshan.categories.slice(2).every(({ startAt }) => startAt === null));
   equal(huangshan.categories[4].governance.sources[0].rawData?.elevationGainQualifier, "约 / subject to final course release");
-  ok(huangshan.edition.governance.internalFlags?.includes("do_not_publish"));
-  ok(huangshan.categories.every(c => c.finishLocation === null && c.governance.verificationStatus === "pending" &&
-    c.governance.missingFields.includes("finishLocation") && c.coursePoints === null));
-  equal(createPublicRaceDetailResult(graph, huangshanEditionId).status, 404);
+  ok(huangshan.categories.every(c => c.startLocation === null && c.finishLocation === null
+    && c.governance.verificationStatus === "pending" && c.governance.missingFields.includes("startLocation")
+    && c.governance.missingFields.includes("finishLocation") && c.coursePoints === null));
+  const result = createPublicRaceDetailResult(graph, huangshanEditionId);
+  equal(result.status, 200);
+  if (result.status !== 200) return;
+  const { race } = result.body;
+  equal(race.location.venue, "徽州古城府前广场");
+  equal(race.raceStrategy, null);
+  deepEqual(race.categories.map(c => c.categoryId), huangshan.categories.map(c => c.categoryId));
+  ok(race.categories.every(c => c.startLocation === null && c.finishLocation === null && c.coursePoints === null));
+  let view = createRaceDetailViewModel(race);
+  equal(view.heroImage, race.coverImage);
+  equal(view.heroMode, "aspectFill");
+  equal(view.heroFocalPoint, "50% 50%");
+  equal(view.showCategorySelector, true);
+  const share = createRaceShareConfig(view);
+  const sharePath = "/races/huangshan-huizhou-ancient-city-trail/2027/share-cover-5x4.jpg";
+  equal(share.appMessage.imageUrl, sharePath);
+  equal(share.timeline.imageUrl, sharePath);
+  for (const category of race.categories) {
+    view = selectRaceCategory(view, category.categoryId);
+    equal(view.selectedCategoryId, category.categoryId);
+    const times = category.startTimes!.map(time => time.slice(11, 16));
+    const facts = view.selectedCategory!.executionFacts;
+    ok(times.every(time => facts.some(fact => fact.value.includes(time))), category.categoryId);
+    ok(facts.every(({ key }) => key !== "start" && key !== "finish" && key !== "startFinish"));
+  }
+  deepEqual(view.accommodationRecommendations.map(({ wechatAction }) => wechatAction?.path),
+    manifest.events[1].hotels.slice(1).map(({ path }) => path));
+  equal(race.accommodationRecommendations.some(({ recommendationId }) => recommendationId === heldHuangshanHotelRecommendationId), false);
+  for (const key of ["governance", "rawData", "fieldSources", "missingFields", "verificationStatus", "mergeTrace"]) {
+    ok(!JSON.stringify(race).includes('"' + key + '":'));
+  }
   const list = createPublicRaceListResult(graph);
   equal(list.status, 200);
   if (list.status === 200) deepEqual(new Set(list.body.races.map(({ editionId }) => editionId)), new Set(expectedPublicEditionIds));
@@ -183,11 +222,80 @@ test("source photo bytes match the supplied originals and no undersized image is
     const display = await sharp(read(`${folder}/display-v1.jpg`)).metadata();
     deepEqual([image.width, image.height], [entry.image_width, entry.image_height]);
     deepEqual([display.width, display.height], [image.width, image.height]);
-    const share = new URL(`../${folder}/share-cover-5x4.jpg`, import.meta.url);
-    if (entry.editionId_candidate === huangshanEditionId) equal(existsSync(share), false);
-    else {
-      const metadata = await sharp(readFileSync(share)).metadata();
-      deepEqual([metadata.width, metadata.height], [585, 468]);
-    }
+    const share = await sharp(read(folder + "/share-cover-5x4.jpg")).metadata();
+    const expected = entry.editionId_candidate === huangshanEditionId ? [750, 600] : [585, 468];
+    deepEqual([share.width, share.height], expected);
+  }
+  const folder = "public/races/huangshan-huizhou-ancient-city-trail/2027";
+  const original = read(folder + "/original-v2.jpg");
+  const display = read(folder + "/display-v2.jpg");
+  equal(original.length, 231628);
+  equal(createHash("sha256").update(original).digest("hex"), "adea7fb25ee90b49c9c1301c82e44a970ab7d99c1b7452eb67275bf36e3842ed");
+  for (const bytes of [original, display]) {
+    const { width, height, format } = await sharp(bytes).metadata();
+    deepEqual([width, height, format], [1080, 608, "jpeg"]);
+  }
+  ok(display.length < original.length);
+});
+
+test("a directly evidenced endpoint still renders for its own Category only", () => {
+  const record = structuredClone(huangshan);
+  const category = record.categories[0];
+  category.startLocation = "测试出发点";
+  const source = category.governance.sources[0];
+  source.rawData!.startLocation = category.startLocation;
+  category.governance.fieldSources.startLocation = {
+    field: "startLocation", sourceType: source.sourceType, sourceName: source.sourceName,
+  };
+  category.governance.missingFields = category.governance.missingFields.filter(field => field !== "startLocation");
+
+  const result = createPublicRaceDetailResult({ ...graph, records: [record] }, huangshanEditionId);
+  equal(result.status, 200);
+  if (result.status !== 200) return;
+  const view = createRaceDetailViewModel(result.body.race);
+  equal(view.selectedCategory?.executionFacts.find(({ key }) => key === "start")?.value, "测试出发点");
+  ok(result.body.race.categories.slice(1).every(c => c.startLocation === null));
+});
+
+test("the optional location allowance rejects absent core evidence, inconsistent facts and unresolved conflicts", async t => {
+  type Record = typeof huangshan;
+  const cases: Array<[string, (record: Record) => void]> = [
+    ["missing Edition date", ({ edition }) => { edition.raceDate = null; }],
+    ["unresolved Edition year", ({ edition }) => { edition.governance.publicationGate!.latestRelevantOfficialEditionYear = 2026; }],
+    ["absent Category identity", ({ categories: [category] }) => { category.categoryName = ""; }],
+    ["wrong Category scope", ({ categories: [category] }) => { category.governance.sources[0].rawData!.categoryId = huangshan.categories[1].categoryId; }],
+    ["historical core evidence", ({ categories: [category] }) => { category.governance.sources[0].rawData!.editionYear = 2026; }],
+    ["distance differs from the official label", ({ categories: [category] }) => { category.distanceKm = 103; }],
+    ["not all waves are supported", ({ categories: [category] }) => { category.startTimes!.push("2027-03-27T06:00:00+08:00"); }],
+    ["mandatory field is pending", ({ categories: [category] }) => { category.governance.missingFields.push("cutoffTimeHours"); }],
+    ["explicit category conflict", ({ categories: [category] }) => { category.governance.internalFlags = ["distance_conflict_needs_review"]; }],
+    ["verified label does not bypass a known endpoint conflict", ({ categories: [category] }) => {
+      category.governance.verified = true;
+      category.governance.verificationStatus = "verified";
+      category.governance.internalFlags = ["finish_location_conflict_needs_review"];
+    }],
+    ["evidenced finish cannot be erased", ({ categories: [category] }) => { category.governance.sources[0].rawData!.finishLocation = "当届有明确证据的终点"; }],
+    ["filled location has no direct support", ({ categories: [category] }) => {
+      category.startLocation = "徽州古城府前广场";
+      category.governance.missingFields = category.governance.missingFields.filter(field => field !== "startLocation");
+    }],
+    ["unresolved endpoint gets no allowance even when left blank", ({ categories: [category] }) => {
+      category.governance.mergeTrace = [{
+        field: "finishLocation",
+        selectedSource: "placeholder",
+        reason: "Two inconsistent observations remain unresolved.",
+        candidates: [
+          { sourceType: "official", sourceName: "rules", value: "A" },
+          { sourceType: "registration_platform", sourceName: "entry", value: "B" },
+        ],
+      }];
+    }],
+  ];
+  for (const [name, mutate] of cases) {
+    await t.test(name, () => {
+      const record = structuredClone(huangshan);
+      mutate(record);
+      equal(createPublicRaceDetailResult({ ...graph, records: [record] }, huangshanEditionId).status, 404);
+    });
   }
 });
