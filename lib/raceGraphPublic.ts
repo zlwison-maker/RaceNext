@@ -22,7 +22,7 @@ type CanonicalGovernance = {
   verificationStatus?: string | null;
   internalFlags?: string[] | null;
   missingFields?: string[] | null;
-  fieldSources?: Record<string, { sourceType?: string | null }> | null;
+  fieldSources?: Record<string, { sourceType?: string | null; sourceName?: string | null }> | null;
   mergeTrace?: Array<{
     field?: string | null;
     selectedSource?: string | null;
@@ -171,7 +171,7 @@ export function isEditionPublishable(record: CanonicalRecord): boolean {
   if (!isGovernancePublishable(event.governance) || !isGovernancePublishable(edition.governance)) return false;
   if (!evaluatePrePublishFactGate(record as PrePublishRaceGraphRecord).publishable) return false;
 
-  const publicCategories = categories.filter((category) => isCategoryPublishable(category, edition.editionId));
+  const publicCategories = categories.filter((category) => isCategoryPublishable(category, edition));
   if (edition.primaryCategoryId && !publicCategories.some(({ categoryId }) => categoryId === edition.primaryCategoryId)) {
     return false;
   }
@@ -252,7 +252,7 @@ function toPublicRaceDetail(record: CanonicalRecord): PublicRaceDetail {
     registrationStatus: edition.registrationStatus,
     registrationUrl: edition.registrationUrl ?? null,
     categories: record.categories
-      .filter((category) => isCategoryPublishable(category, edition.editionId))
+      .filter((category) => isCategoryPublishable(category, edition))
       .sort((left, right) => left.displayOrder - right.displayOrder || left.categoryId.localeCompare(right.categoryId))
       .map((category) => toPublicCategory(category, edition.primaryCategoryId ?? null)),
     raceGuide: toPublicRaceGuide(editorialContent),
@@ -367,11 +367,11 @@ function toPublicCategory(category: CanonicalCategory, primaryCategoryId: string
   };
 }
 
-function isCategoryPublishable(category: CanonicalCategory, editionId: string): boolean {
+function isCategoryPublishable(category: CanonicalCategory, edition: CanonicalEdition): boolean {
   return Boolean(
     category
       && isNonEmptyString(category.categoryId)
-      && category.editionId === editionId
+      && category.editionId === edition.editionId
       && isNonEmptyString(category.categoryName)
       && Number.isFinite(category.displayOrder)
       && isOptionalNonNegativeFiniteNumber(category.elevationLoss)
@@ -381,16 +381,23 @@ function isCategoryPublishable(category: CanonicalCategory, editionId: string): 
         category.coursePoints,
         category.coursePointDataStatus,
       ).length === 0
-      && isCategoryGovernancePublishable(category),
+      && isCategoryGovernancePublishable(category, edition),
   );
 }
 
-function isCategoryGovernancePublishable(category: CanonicalCategory): boolean {
+function isCategoryGovernancePublishable(category: CanonicalCategory, edition: CanonicalEdition): boolean {
   const governance = category.governance;
-  if (isGovernancePublishable(governance)) return true;
-  if (!governance || governance.verificationStatus !== "pending") return false;
-
+  if (!governance) return false;
   const flags = governance.internalFlags ?? [];
+  if (flags.some(flag => flag === "start_location_conflict_needs_review" || flag === "finish_location_conflict_needs_review")
+    || governance.mergeTrace?.some(({ field, selectedSource, candidates }) =>
+      (field === "startLocation" || field === "finishLocation") && selectedSource === "placeholder" && (candidates?.length ?? 0) > 1)) {
+    return false;
+  }
+  if (isGovernancePublishable(governance)) return true;
+  if (governance.verificationStatus !== "pending") return false;
+  if (hasVerifiedCoreWithMissingLocations(category, edition)) return true;
+
   if (flags.length === 0 || flags.some((flag) => INTERNAL_NON_PRODUCTION_FLAGS.has(flag))) return false;
   if (flags.some((flag) => !flag.endsWith("_conflict_needs_review"))) return false;
   if (!governance.sources.some(({ sourceType }) => sourceType === "official")) return false;
@@ -416,6 +423,63 @@ function isCategoryGovernancePublishable(category: CanonicalCategory): boolean {
       && field !== "cutoffTimeHours"
       && field !== "startLocation"
       && field !== "finishLocation");
+}
+
+function hasVerifiedCoreWithMissingLocations(category: CanonicalCategory, edition: CanonicalEdition): boolean {
+  const { governance } = category;
+  const missing = governance.missingFields ?? [];
+  const locationFields = ["startLocation", "finishLocation"] as const;
+  if (!edition.raceDate || governance.internalFlags?.length) return false;
+  if (governance.mergeTrace?.some(({ selectedSource }) => selectedSource === "placeholder")) return false;
+  if (!missing.some(field => field === "startLocation" || field === "finishLocation")) return false;
+  if (missing.some(field => field !== "startLocation" && field !== "finishLocation"
+    && !(field === "coursePoints" && category.coursePoints == null))) return false;
+
+  const times = category.startTimes;
+  if (!isPositiveFiniteNumber(category.distanceKm) || !isPositiveFiniteNumber(category.cutoffTimeHours)) return false;
+  if (!isOptionalNonNegativeFiniteNumber(category.elevationGain)) return false;
+  if (!Array.isArray(times) || times.length === 0) return false;
+  const raceDate = edition.raceDate;
+  const endDate = edition.endDate ?? raceDate;
+  if (times.some(time => {
+    if (!isNonEmptyString(time)) return true;
+    const day = time.slice(0, 10);
+    return !Number.isFinite(Date.parse(time)) || day < raceDate || day > endDate;
+  })) return false;
+  if (category.startAt != null && (times.length !== 1 || category.startAt !== times[0])) return false;
+
+  const directSources = governance.sources.filter(({ sourceType, sourceRecordId, sourceUrl, rawData }) =>
+    (sourceType === "official" || sourceType === "registration_platform")
+      && isNonEmptyString(sourceRecordId)
+      && isNonEmptyString(sourceUrl)
+      && rawData?.editionYear === edition.editionYear
+      && rawData.categoryId === category.categoryId,
+  );
+  const hasBoundFact = (field: string, value: string | number | string[]): boolean => {
+    const binding = governance.fieldSources?.[field];
+    return directSources.some(({ sourceType, sourceName, rawData }) => {
+      if (binding?.sourceType !== sourceType || binding.sourceName !== sourceName) return false;
+      const observed = rawData?.[field];
+      return Array.isArray(value)
+        ? Array.isArray(observed) && observed.length === value.length && value.every((item, index) => item === observed[index])
+        : observed === value;
+    });
+  };
+  if (!hasBoundFact("categoryName", category.categoryName)
+    || !hasBoundFact("distanceKm", category.distanceKm)
+    || !hasBoundFact("cutoffTimeHours", category.cutoffTimeHours)
+    || !hasBoundFact("startTimes", times)) return false;
+  if (category.elevationGain != null && !hasBoundFact("elevationGain", category.elevationGain)) return false;
+  if (category.elevationLoss != null && !hasBoundFact("elevationLoss", category.elevationLoss)) return false;
+  if (category.registrationUrl != null && !hasBoundFact("registrationUrl", category.registrationUrl)) return false;
+
+  return locationFields.every(field => {
+    const value = category[field];
+    const observations = directSources.map(source => source.rawData?.[field]).filter(isNonEmptyString);
+    if (value == null) return missing.includes(field) && !governance.fieldSources?.[field] && observations.length === 0;
+    return isNonEmptyString(value) && !missing.includes(field) && hasBoundFact(field, value)
+      && observations.every(observed => observed === value);
+  });
 }
 
 function hasMatchingOfficialRawFact(

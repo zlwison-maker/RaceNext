@@ -1,0 +1,59 @@
+{
+  "editionId": "huangshan-huizhou-ancient-city-trail-2027",
+  "original": {
+    "publicPath": "/races/huangshan-huizhou-ancient-city-trail/2027/original-v2.jpg",
+    "width": 1080,
+    "height": 608,
+    "aspectRatio": 1.7763,
+    "format": "jpeg",
+    "fileSizeBytes": 231628,
+    "sha256": "adea7fb25ee90b49c9c1301c82e44a970ab7d99c1b7452eb67275bf36e3842ed",
+    "preservation": "New photo retained byte-for-byte; previous banner remains as original.jpeg."
+  },
+  "display": {
+    "publicPath": "/races/huangshan-huizhou-ancient-city-trail/2027/display-v2.jpg",
+    "width": 1080,
+    "height": 608,
+    "aspectRatio": 1.7763,
+    "format": "jpeg",
+    "fileSizeBytes": 201540,
+    "sha256": "4ccf46ebc6ed6001f7dd8f507db7d7a9d7e93f2a383ed0f12aed7fefdb508ca4"
+  },
+  "crops": [
+    {
+      "name": "cover-16x9",
+      "path": "docs/project/previews/pr58-final/huangshan-cover-16x9.jpg",
+      "width": 1072,
+      "height": 603,
+      "aspectRatio": 1.7778,
+      "format": "jpeg",
+      "fileSizeBytes": 301287,
+      "sha256": "161ffa1b9d93924797903c371b03d890c15841598098478d6f0bbfb20dbfa0b0"
+    },
+    {
+      "name": "hero-2x1",
+      "path": "docs/project/previews/pr58-final/huangshan-hero-2x1.jpg",
+      "width": 1080,
+      "height": 540,
+      "aspectRatio": 2,
+      "format": "jpeg",
+      "fileSizeBytes": 276921,
+      "sha256": "086502b7c645b7f53c4249807b9822cacf7093e83f5094db5fb63b390e892616"
+    }
+  ],
+  "share": {
+    "publicPath": "/races/huangshan-huizhou-ancient-city-trail/2027/share-cover-5x4.jpg",
+    "width": 750,
+    "height": 600,
+    "format": "jpeg",
+    "fileSizeBytes": 231277,
+    "sha256": "01a6908da8996d0b293691d1f50141d811dd6b27ebe0cf5e3567fba91ea03c52"
+  },
+  "source": {
+    "type": "user_provided",
+    "captureYear": null,
+    "credit": null,
+    "usageRightsStatus": "unverified"
+  },
+  "localCropInspection": "The two runners and central flower-field composition survive all three centered crops. No embedded title or logo. Device QA pending."
+}

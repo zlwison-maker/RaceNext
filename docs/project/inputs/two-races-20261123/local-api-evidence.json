@@ -1,0 +1,176 @@
+{
+  "checkedAt": "2026-11-23T08:06:06.841Z",
+  "baseline": "68f190fb767258c3f18e6cd66b6653c0b48141de",
+  "canonicalRecords": 23,
+  "editionDateFactGatePassed": 23,
+  "publicCount": 22,
+  "oldDetailsUnchanged": 21,
+  "unchangedFieldsIgnored": [
+    "dataUpdatedAt"
+  ],
+  "http200": [
+    {
+      "path": "/api/races",
+      "status": 200,
+      "sha256": "15de7119334cf327d2a35245a35bd735f56ca82bb6071ea6b52aa78af7f973df"
+    },
+    {
+      "path": "/api/races/kailas-gongga-100-2026",
+      "status": 200,
+      "sha256": "9b7a08dc073fdfb4ecf18d253a7acb5b593468098b9c16fd6ef92a3d462af4c9"
+    },
+    {
+      "path": "/api/races/beijing-marathon-2026",
+      "status": 200,
+      "sha256": "38a98875b24d8976a657e32c2cd77e71a29418400726472377889932eff62348"
+    },
+    {
+      "path": "/api/races/xian-marathon-2026",
+      "status": 200,
+      "sha256": "581c58ea17f62e609ef5363991351d50d2a7500239c3a70100f3ff876167ad90"
+    },
+    {
+      "path": "/api/races/chengdu-marathon-2026",
+      "status": 200,
+      "sha256": "ba96d6fb8ba0e24dea5fb716b9458d13489a341b3a28abe38b94087e4c14eb05"
+    },
+    {
+      "path": "/api/races/tsaigu-kuocang-2026",
+      "status": 200,
+      "sha256": "f9dbeff426781005a2e85a80dbd88fcbcf5a8f2d7eb899d48e106d31eb79c114"
+    },
+    {
+      "path": "/api/races/ninghai-ultra-trail-2026",
+      "status": 200,
+      "sha256": "52f5f4504c98dba014a5edf6ab9b08b7f285e69b570e4362297dfa60fdaf59e5"
+    },
+    {
+      "path": "/api/races/nanjing-marathon-2026",
+      "status": 200,
+      "sha256": "56d39c78cf6d47b2a413bb075c5da6639ced5df6ba68765d29a0c7f7923f520c"
+    },
+    {
+      "path": "/api/races/shaoxing-marathon-2026",
+      "status": 200,
+      "sha256": "8933df7b4d3f2b018ec112b36a5d09a13f748dbc45251d43a38ff3bd36e48a30"
+    },
+    {
+      "path": "/api/races/shanghai-marathon-2026",
+      "status": 200,
+      "sha256": "6c164fce6fb48ad1540ff261702fce4291f782eb4fe0bc2294cadadd0d592cdb"
+    },
+    {
+      "path": "/api/races/shenzhen-marathon-2026",
+      "status": 200,
+      "sha256": "630fdf5fae531e45e7ac04d46a84f615508390acf92c0329b5001cd351c50eea"
+    },
+    {
+      "path": "/api/races/guangzhou-marathon-2026",
+      "status": 200,
+      "sha256": "bd37515d73400148158b218d4fe3bacb52d537d896d7252a5bbeb40e70c4abd6"
+    },
+    {
+      "path": "/api/races/shenzhen-100-2026",
+      "status": 200,
+      "sha256": "691cb3abcd01c5682eb14eccfd20a6203dfcab7068349ff084c83b8eecd146d9"
+    },
+    {
+      "path": "/api/races/fuzhou-marathon-2026",
+      "status": 200,
+      "sha256": "61f6960a39d429c938a0da60b022fb173dc850daa8c43dd3cda28d1eaba81ae9"
+    },
+    {
+      "path": "/api/races/hengqin-marathon-2026",
+      "status": 200,
+      "sha256": "02a1a94d0d6a1b7a27f12b7fe9397cc42d249be7f91553992570f2ab26d71b42"
+    },
+    {
+      "path": "/api/races/chongqing-marathon-2027",
+      "status": 200,
+      "sha256": "1c79cc945e4fb6c90fd7a53c4cd5cd634917b4dae9b477549864eeb101fccf95"
+    },
+    {
+      "path": "/api/races/xiamen-marathon-2027",
+      "status": 200,
+      "sha256": "49c78a5770f4054122d7caec0a95a36e79d6addd143110b5d9983c5650132581"
+    },
+    {
+      "path": "/api/races/guangzhou-100-2027",
+      "status": 200,
+      "sha256": "d3c3686ac24d478f15b40d6db6ae90407e1f3b6ff8cfeee2a5dbd30bf961e7a3"
+    },
+    {
+      "path": "/api/races/standard-chartered-hong-kong-marathon-2027",
+      "status": 200,
+      "sha256": "5257732f017b505293c713a2c2c3874b8a0a2f88399a5e9ccbf5c15ae9ad4a51"
+    },
+    {
+      "path": "/api/races/hk100-2027",
+      "status": 200,
+      "sha256": "7e1d625a1fa85be0123a3350b0c4fb56f81b803230fc2481690b032030d9efc9"
+    },
+    {
+      "path": "/api/races/panda-shudao-shan-2027",
+      "status": 200,
+      "sha256": "5a2e4731f25113d8de32cfc7c7dac2eb2dbdf1321be18bd2efa05930c8988841"
+    },
+    {
+      "path": "/api/races/outopia-mogan-cloud-flower-trail-2027",
+      "status": 200,
+      "sha256": "f1b816432cf34d1e3e715cebf57e13b106124328f6c2d704b2fdba8d2ba80dd0"
+    },
+    {
+      "path": "/api/races/ultra-trail-mogan-by-utmb-2027",
+      "status": 200,
+      "sha256": "bf6ce8bcc13182bdac29fd9dddb2e1016af2cd5924b6b5c70cc2e66dfde76e6f"
+    }
+  ],
+  "outopia": {
+    "status": 200,
+    "groupCount": 3,
+    "visibleHotelActionsExact": 5
+  },
+  "huangshan": {
+    "status": 404,
+    "publicShareStatus": 404
+  },
+  "assets": [
+    {
+      "path": "/races/outopia-mogan-cloud-flower-trail/2027/display-v1.jpg",
+      "coldStatus": 200,
+      "conditionalStatus": 304,
+      "type": "image/jpeg",
+      "widths": [
+        702,
+        468
+      ],
+      "bytes": 61696,
+      "sha256": "111a0e9b4de80102849ba4824cebfb63c4390fac9bf530daaa64aad76b554581"
+    },
+    {
+      "path": "/races/outopia-mogan-cloud-flower-trail/2027/share-cover-5x4.jpg",
+      "coldStatus": 200,
+      "conditionalStatus": 304,
+      "type": "image/jpeg",
+      "widths": [
+        585,
+        468
+      ],
+      "bytes": 62439,
+      "sha256": "002e61beb3080b8cfa4ba53a2cc7838cbddbd6a0234ed4a0816c27f624ad752d"
+    },
+    {
+      "path": "/races/huangshan-huizhou-ancient-city-trail/2027/display-v1.jpg",
+      "coldStatus": 200,
+      "conditionalStatus": 304,
+      "type": "image/jpeg",
+      "widths": [
+        750,
+        289
+      ],
+      "bytes": 57331,
+      "sha256": "4a8ccec3bc5ea97e1011f89fb1079a9e79a66f1e6275ec31fe9420b4801da22b"
+    }
+  ],
+  "noGovernanceOrEvidenceInPublicJson": true
+}

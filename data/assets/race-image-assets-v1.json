@@ -1702,6 +1702,174 @@
         "sha256": "db8866592baa066b190cc531400d769ca1a695789971c1d0d098e27df279e92c",
         "derivation": "Human package offline display derivative; max_width_1600_without_enlargement; jpeg; no_crop; shared_cover_hero; source_hash=65e82569718df9b1439a4705b344c3e7c8a49baa11cb18c33f89afce9dd5053d"
       }
+    },
+    {
+      "assetId": "outopia-mogan-cloud-flower-trail-2027-cover",
+      "editionId": "outopia-mogan-cloud-flower-trail-2027",
+      "role": "cover",
+      "publicPath": "/races/outopia-mogan-cloud-flower-trail/2027/display-v1.jpg",
+      "originalPublicPath": "/races/outopia-mogan-cloud-flower-trail/2027/original.png",
+      "originalFilename": "outopia-mogan-cloud-flower-2027-original.png",
+      "imageYear": 2027,
+      "imageYearEvidence": "2027 edition year printed on supplied campaign KV.",
+      "qualityStatus": "needs_higher_resolution",
+      "width": 702,
+      "height": 468,
+      "aspectRatio": 1.5,
+      "format": "jpeg",
+      "fileSizeBytes": 61696,
+      "sha256": "111a0e9b4de80102849ba4824cebfb63c4390fac9bf530daaa64aad76b554581",
+      "source": {
+        "type": "user_provided",
+        "receivedAt": "2026-11-23",
+        "sourceUrl": null,
+        "usageRightsStatus": "unverified"
+      },
+      "notes": "Core logo, title and year survive center crop simulation. Source remains below resolution recommendation. Artwork date 03.27–03.28 is not the full organizer activity window 03.26–03.28. Device and usage rights QA pending.",
+      "original": {
+        "width": 702,
+        "height": 468,
+        "aspectRatio": 1.5,
+        "format": "png",
+        "fileSizeBytes": 292874,
+        "sha256": "b55583b761e17124d3afea9c2cda2e81424dba61a8697714734feb241ee8eff7"
+      },
+      "derived": {
+        "publicPath": "/races/outopia-mogan-cloud-flower-trail/2027/display-v1.jpg",
+        "width": 702,
+        "height": 468,
+        "aspectRatio": 1.5,
+        "format": "jpeg",
+        "fileSizeBytes": 61696,
+        "sha256": "111a0e9b4de80102849ba4824cebfb63c4390fac9bf530daaa64aad76b554581",
+        "derivation": "resize=max_width_1600_without_enlargement; encode=jpeg_quality_88_mozjpeg_progressive_4:4:4; shared cover/hero; source_hash=b55583b761e17124d3afea9c2cda2e81424dba61a8697714734feb241ee8eff7"
+      }
+    },
+    {
+      "assetId": "outopia-mogan-cloud-flower-trail-2027-hero",
+      "editionId": "outopia-mogan-cloud-flower-trail-2027",
+      "role": "hero",
+      "publicPath": "/races/outopia-mogan-cloud-flower-trail/2027/display-v1.jpg",
+      "originalPublicPath": "/races/outopia-mogan-cloud-flower-trail/2027/original.png",
+      "originalFilename": "outopia-mogan-cloud-flower-2027-original.png",
+      "imageYear": 2027,
+      "imageYearEvidence": "2027 edition year printed on supplied campaign KV.",
+      "qualityStatus": "needs_higher_resolution",
+      "width": 702,
+      "height": 468,
+      "aspectRatio": 1.5,
+      "format": "jpeg",
+      "fileSizeBytes": 61696,
+      "sha256": "111a0e9b4de80102849ba4824cebfb63c4390fac9bf530daaa64aad76b554581",
+      "source": {
+        "type": "user_provided",
+        "receivedAt": "2026-11-23",
+        "sourceUrl": null,
+        "usageRightsStatus": "unverified"
+      },
+      "notes": "Core logo, title and year survive center crop simulation. Source remains below resolution recommendation. Artwork date 03.27–03.28 is not the full organizer activity window 03.26–03.28. Device and usage rights QA pending.",
+      "original": {
+        "width": 702,
+        "height": 468,
+        "aspectRatio": 1.5,
+        "format": "png",
+        "fileSizeBytes": 292874,
+        "sha256": "b55583b761e17124d3afea9c2cda2e81424dba61a8697714734feb241ee8eff7"
+      },
+      "derived": {
+        "publicPath": "/races/outopia-mogan-cloud-flower-trail/2027/display-v1.jpg",
+        "width": 702,
+        "height": 468,
+        "aspectRatio": 1.5,
+        "format": "jpeg",
+        "fileSizeBytes": 61696,
+        "sha256": "111a0e9b4de80102849ba4824cebfb63c4390fac9bf530daaa64aad76b554581",
+        "derivation": "resize=max_width_1600_without_enlargement; encode=jpeg_quality_88_mozjpeg_progressive_4:4:4; shared cover/hero; source_hash=b55583b761e17124d3afea9c2cda2e81424dba61a8697714734feb241ee8eff7"
+      }
+    },
+    {
+      "assetId": "huangshan-huizhou-ancient-city-trail-2027-cover",
+      "editionId": "huangshan-huizhou-ancient-city-trail-2027",
+      "role": "cover",
+      "publicPath": "/races/huangshan-huizhou-ancient-city-trail/2027/display-v2.jpg",
+      "originalPublicPath": "/races/huangshan-huizhou-ancient-city-trail/2027/original-v2.jpg",
+      "originalFilename": "2027 徽州古城 cover&hero 新.jpg",
+      "imageYear": null,
+      "imageYearEvidence": null,
+      "qualityStatus": "needs_higher_resolution",
+      "width": 1080,
+      "height": 608,
+      "aspectRatio": 1.7763,
+      "format": "jpeg",
+      "fileSizeBytes": 201540,
+      "sha256": "4ccf46ebc6ed6001f7dd8f507db7d7a9d7e93f2a383ed0f12aed7fefdb508ca4",
+      "source": {
+        "type": "user_provided",
+        "receivedAt": "2026-11-23",
+        "sourceUrl": null,
+        "usageRightsStatus": "unverified"
+      },
+      "notes": "Human-selected photograph for the 2027 Edition. Capture year and photographer unverified. Center crops retain both runners and the main flower-field scene. No event logo or title in source. Device QA and usage rights confirmation pending. First-round banner retained as original.jpeg.",
+      "original": {
+        "width": 1080,
+        "height": 608,
+        "aspectRatio": 1.7763,
+        "format": "jpeg",
+        "fileSizeBytes": 231628,
+        "sha256": "adea7fb25ee90b49c9c1301c82e44a970ab7d99c1b7452eb67275bf36e3842ed"
+      },
+      "derived": {
+        "publicPath": "/races/huangshan-huizhou-ancient-city-trail/2027/display-v2.jpg",
+        "width": 1080,
+        "height": 608,
+        "aspectRatio": 1.7763,
+        "format": "jpeg",
+        "fileSizeBytes": 201540,
+        "sha256": "4ccf46ebc6ed6001f7dd8f507db7d7a9d7e93f2a383ed0f12aed7fefdb508ca4",
+        "derivation": "resize=max_width_1600_without_enlargement; encode=jpeg_quality_82_mozjpeg_progressive_4:2:0; shared cover/hero; source_hash=adea7fb25ee90b49c9c1301c82e44a970ab7d99c1b7452eb67275bf36e3842ed"
+      }
+    },
+    {
+      "assetId": "huangshan-huizhou-ancient-city-trail-2027-hero",
+      "editionId": "huangshan-huizhou-ancient-city-trail-2027",
+      "role": "hero",
+      "publicPath": "/races/huangshan-huizhou-ancient-city-trail/2027/display-v2.jpg",
+      "originalPublicPath": "/races/huangshan-huizhou-ancient-city-trail/2027/original-v2.jpg",
+      "originalFilename": "2027 徽州古城 cover&hero 新.jpg",
+      "imageYear": null,
+      "imageYearEvidence": null,
+      "qualityStatus": "needs_higher_resolution",
+      "width": 1080,
+      "height": 608,
+      "aspectRatio": 1.7763,
+      "format": "jpeg",
+      "fileSizeBytes": 201540,
+      "sha256": "4ccf46ebc6ed6001f7dd8f507db7d7a9d7e93f2a383ed0f12aed7fefdb508ca4",
+      "source": {
+        "type": "user_provided",
+        "receivedAt": "2026-11-23",
+        "sourceUrl": null,
+        "usageRightsStatus": "unverified"
+      },
+      "notes": "Human-selected photograph for the 2027 Edition. Capture year and photographer unverified. Center crops retain both runners and the main flower-field scene. No event logo or title in source. Device QA and usage rights confirmation pending. First-round banner retained as original.jpeg.",
+      "original": {
+        "width": 1080,
+        "height": 608,
+        "aspectRatio": 1.7763,
+        "format": "jpeg",
+        "fileSizeBytes": 231628,
+        "sha256": "adea7fb25ee90b49c9c1301c82e44a970ab7d99c1b7452eb67275bf36e3842ed"
+      },
+      "derived": {
+        "publicPath": "/races/huangshan-huizhou-ancient-city-trail/2027/display-v2.jpg",
+        "width": 1080,
+        "height": 608,
+        "aspectRatio": 1.7763,
+        "format": "jpeg",
+        "fileSizeBytes": 201540,
+        "sha256": "4ccf46ebc6ed6001f7dd8f507db7d7a9d7e93f2a383ed0f12aed7fefdb508ca4",
+        "derivation": "resize=max_width_1600_without_enlargement; encode=jpeg_quality_82_mozjpeg_progressive_4:2:0; shared cover/hero; source_hash=adea7fb25ee90b49c9c1301c82e44a970ab7d99c1b7452eb67275bf36e3842ed"
+      }
     }
   ]
 }

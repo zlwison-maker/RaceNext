@@ -1,0 +1,159 @@
+{
+  "observedAt": "2026-11-23T07:58:18.817Z",
+  "fetches": {
+    "outopia": {
+      "url": "https://www.utms.com.cn/event?id=910563&mid=86546",
+      "response": [
+        "000",
+        "https://www.utms.com.cn/event?id=910563&mid=86546"
+      ],
+      "exit": 60,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "fetchedAt": "2026-11-23T07:54:08.938499+00:00"
+    },
+    "outopia-reg": {
+      "url": "https://reg.zuicool.com/54221",
+      "response": [
+        "200",
+        "https://reg.zuicool.com/54221",
+        "text/html; charset=UTF-8"
+      ],
+      "exit": 0,
+      "bytes": 41202,
+      "sha256": "9499a417bd58fcfd7cc7cfee598e81f752f93703ba07d2bde6921c6b3677452c",
+      "fetchedAt": "2026-11-23T07:54:09.063596+00:00"
+    },
+    "huangshan": {
+      "url": "https://reg.zuicool.com/38938",
+      "response": [
+        "200",
+        "https://reg.zuicool.com/38938",
+        "text/html; charset=UTF-8"
+      ],
+      "exit": 0,
+      "bytes": 42427,
+      "sha256": "66532757532912fa1df43afc4897eac7d26b422f0885a4bd5f9564209f47548f",
+      "fetchedAt": "2026-11-23T07:54:09.089700+00:00"
+    },
+    "huangshan-rules": {
+      "url": "https://mp.weixin.qq.com/s/nsx_mLjU7QlX0LYczljLLg",
+      "response": [
+        "200",
+        "https://mp.weixin.qq.com/mp/wappoc_appmsgcaptcha",
+        "text/html; charset=UTF-8"
+      ],
+      "exit": 0,
+      "bytes": 18164,
+      "sha256": "30c15a9f0662ddfa15dbca7f7567ff890d0f0842270b835fea781e19d8d5a4b7",
+      "fetchedAt": "2026-11-23T07:54:08.990550+00:00"
+    },
+    "production": {
+      "url": "https://racenext.run/api/races",
+      "response": [
+        "200",
+        "https://racenext.run/api/races",
+        "application/json"
+      ],
+      "exit": 0,
+      "bytes": 13445,
+      "sha256": "350ffc9131aa0f67bba2236ea3244198225e93203865e9e7267596bca69082ec",
+      "fetchedAt": "2026-11-23T07:54:09.068025+00:00"
+    }
+  },
+  "outopiaOrganizer": {
+    "url": "https://cdsxhw.saihuitong.com/event?id=910563&mid=86546",
+    "sha256": "060498683792ba683097e542224c7c8c483397d18be5642b07ef8484e19155a4",
+    "fetchedAt": "2026-11-23T07:54:57.918906+00:00"
+  },
+  "outopiaSchedule": {
+    "url": "https://img.saihuitong.com/7112/richtext/17694080/sht/1a1fca3341a24c9.jpg",
+    "sha256": "e9e702b8e91608ec34c48e7c33b4efe4b4b851077927e86871eab7edc4df061f",
+    "fetchedAt": "2026-11-23T07:55:49.794354+00:00"
+  },
+  "huangshanWeChat": "HTTP 200 captcha body, not article or primary HTML evidence. Source priority explicitly follows provided rulebook transcription, corroborated by current partner body.",
+  "officialScheduleImageManualRead": {
+    "eventDay": "2027-03-28",
+    "groups": {
+      "41K": [
+        "06:00",
+        "06:30"
+      ],
+      "31K": [
+        "07:00",
+        "07:30",
+        "08:00"
+      ],
+      "16K": [
+        "09:00",
+        "09:30"
+      ]
+    }
+  },
+  "registrationLinkChecks": [
+    {
+      "url": "https://reg.zuicool.com/54221/216636",
+      "httpStatus": 200,
+      "finalHost": "zuicool.com",
+      "finalPath": "/so/signins",
+      "title": "登录",
+      "requestMethod": "GET"
+    },
+    {
+      "url": "https://reg.zuicool.com/54221/237474",
+      "httpStatus": 200,
+      "finalHost": "zuicool.com",
+      "finalPath": "/so/signins",
+      "title": "登录",
+      "requestMethod": "GET"
+    },
+    {
+      "url": "https://reg.zuicool.com/38938/279979",
+      "httpStatus": 200,
+      "finalHost": "zuicool.com",
+      "finalPath": "/so/signins",
+      "title": "登录",
+      "requestMethod": "GET"
+    },
+    {
+      "url": "https://reg.zuicool.com/38938/221880",
+      "httpStatus": 200,
+      "finalHost": "zuicool.com",
+      "finalPath": "/so/signins",
+      "title": "登录",
+      "requestMethod": "GET"
+    },
+    {
+      "url": "https://reg.zuicool.com/38938/202387",
+      "httpStatus": 200,
+      "finalHost": "zuicool.com",
+      "finalPath": "/so/signins",
+      "title": "登录",
+      "requestMethod": "GET"
+    },
+    {
+      "url": "https://reg.zuicool.com/38938/261153",
+      "httpStatus": 200,
+      "finalHost": "zuicool.com",
+      "finalPath": "/so/signins",
+      "title": "登录",
+      "requestMethod": "GET"
+    },
+    {
+      "url": "https://reg.zuicool.com/38938/208115",
+      "httpStatus": 200,
+      "finalHost": "zuicool.com",
+      "finalPath": "/so/signins",
+      "title": "登录",
+      "requestMethod": "GET"
+    },
+    {
+      "url": "https://reg.zuicool.com/38938/202378",
+      "httpStatus": 200,
+      "finalHost": "zuicool.com",
+      "finalPath": "/so/signins",
+      "title": "登录",
+      "requestMethod": "GET"
+    }
+  ]
+}

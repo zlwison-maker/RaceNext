@@ -1,4 +1,4 @@
-import { expectedPublicEditionIds } from "./fixtures/contentBatch20261020.ts";
+import { expectedCanonicalEditionIds, expectedPublicEditionIds } from "./fixtures/contentBatch20261020.ts";
 import { deepEqual, equal, ok } from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { test } from "node:test";
@@ -66,7 +66,7 @@ test("85K cubed remains one explicit team Category, never individual 85K or 255k
 test("All Edition Fact Gates and API pass after Human accepts supplied image; explicit publication holds still fail closed", () => {
   assertRaceGraphSnapshot(graph); assertRaceSourceRegistry(registry);
   const factReady = graph.records.filter(r => evaluatePrePublishFactGate(r, registry.editions.find(e => e.editionId === r.edition.editionId)).publishable);
-  equal(factReady.length, expectedPublicEditionIds.length);
+  deepEqual(new Set(factReady.map(({ edition }) => edition.editionId)), new Set(expectedCanonicalEditionIds));
   const list = createPublicRaceListResult(graph); equal(list.status, 200); if (list.status !== 200) return;
   equal(list.body.races.length, expectedPublicEditionIds.length); equal(createPublicRaceDetailResult(graph, fz.edition.editionId).status, 200);
   equal(createPublicRaceDetailResult(graph, panda.edition.editionId).status, 200);

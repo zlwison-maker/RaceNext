@@ -1,0 +1,110 @@
+[
+  {
+    "editionId": "outopia-mogan-cloud-flower-trail-2027",
+    "original": {
+      "path": "/races/outopia-mogan-cloud-flower-trail/2027/original.png",
+      "width": 702,
+      "height": 468,
+      "aspectRatio": 1.5,
+      "format": "png",
+      "fileSizeBytes": 292874,
+      "sha256": "b55583b761e17124d3afea9c2cda2e81424dba61a8697714734feb241ee8eff7"
+    },
+    "display": {
+      "path": "/races/outopia-mogan-cloud-flower-trail/2027/display-v1.jpg",
+      "width": 702,
+      "height": 468,
+      "aspectRatio": 1.5,
+      "format": "jpeg",
+      "fileSizeBytes": 61696,
+      "sha256": "111a0e9b4de80102849ba4824cebfb63c4390fac9bf530daaa64aad76b554581"
+    },
+    "crop": [
+      {
+        "mode": "cover-16x9",
+        "file": "docs/project/previews/two-races-20261123/outopia-cover-16x9.jpg",
+        "width": 688,
+        "height": 387,
+        "aspectRatio": 1.7778,
+        "format": "jpeg",
+        "fileSizeBytes": 59717,
+        "sha256": "4391b1c6d428764591412702026b59bbc3cb64134f449e07949ab73f06afa386"
+      },
+      {
+        "mode": "hero-2x1",
+        "file": "docs/project/previews/two-races-20261123/outopia-hero-2x1.jpg",
+        "width": 702,
+        "height": 351,
+        "aspectRatio": 2,
+        "format": "jpeg",
+        "fileSizeBytes": 51848,
+        "sha256": "14dc3d91afb552454ff8b4b3a763cd5b108dd493f8ea15af0d707f400a699e77"
+      },
+      {
+        "mode": "share-5x4",
+        "file": "public/races/outopia-mogan-cloud-flower-trail/2027/share-cover-5x4.jpg",
+        "width": 585,
+        "height": 468,
+        "aspectRatio": 1.25,
+        "format": "jpeg",
+        "fileSizeBytes": 62439,
+        "sha256": "002e61beb3080b8cfa4ba53a2cc7838cbddbd6a0234ed4a0816c27f624ad752d"
+      }
+    ],
+    "notes": "Core logo, title and year survive center crop simulation. Source remains below resolution recommendation. Artwork date 03.27–03.28 is not the full organizer activity window 03.26–03.28. Device and usage rights QA pending."
+  },
+  {
+    "editionId": "huangshan-huizhou-ancient-city-trail-2027",
+    "original": {
+      "path": "/races/huangshan-huizhou-ancient-city-trail/2027/original.jpeg",
+      "width": 750,
+      "height": 289,
+      "aspectRatio": 2.5952,
+      "format": "jpeg",
+      "fileSizeBytes": 57331,
+      "sha256": "4a8ccec3bc5ea97e1011f89fb1079a9e79a66f1e6275ec31fe9420b4801da22b"
+    },
+    "display": {
+      "path": "/races/huangshan-huizhou-ancient-city-trail/2027/display-v1.jpg",
+      "width": 750,
+      "height": 289,
+      "aspectRatio": 2.5952,
+      "format": "jpeg",
+      "fileSizeBytes": 57331,
+      "sha256": "4a8ccec3bc5ea97e1011f89fb1079a9e79a66f1e6275ec31fe9420b4801da22b"
+    },
+    "crop": [
+      {
+        "mode": "cover-16x9",
+        "file": "docs/project/previews/two-races-20261123/huangshan-cover-16x9.jpg",
+        "width": 512,
+        "height": 288,
+        "aspectRatio": 1.7778,
+        "format": "jpeg",
+        "fileSizeBytes": 59503,
+        "sha256": "f9df6e9aeb18e7b5a64f17a373f216a2e71b2a58a7a07ad4a46a515009613ddb"
+      },
+      {
+        "mode": "hero-2x1",
+        "file": "docs/project/previews/two-races-20261123/huangshan-hero-2x1.jpg",
+        "width": 578,
+        "height": 289,
+        "aspectRatio": 2,
+        "format": "jpeg",
+        "fileSizeBytes": 71815,
+        "sha256": "3457abacaf0ad9076fc283f8d8b8fba3d7366da28a1f31325a5c0e02c75b7bee"
+      },
+      {
+        "mode": "share-5x4",
+        "file": "docs/project/previews/two-races-20261123/huangshan-share-5x4.jpg",
+        "width": 360,
+        "height": 288,
+        "aspectRatio": 1.25,
+        "format": "jpeg",
+        "fileSizeBytes": 43129,
+        "sha256": "908a35d7173edb313b20cb028e548c3b254eb13750d47ea8eef3f2e87e40c631"
+      }
+    ],
+    "notes": "IMAGE_QA_HOLD. Center crops truncate main title and side artwork; staged Edition, no public share route. Author and usage rights unverified."
+  }
+]
