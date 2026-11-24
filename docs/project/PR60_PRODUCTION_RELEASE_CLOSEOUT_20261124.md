@@ -1,6 +1,6 @@
 # RaceNext PR #60 Production Release Closeout
 
-2026-11-24 17:19:19（北京时间），RaceNext 生产 Public API 从 **23 场增至 25 场**，新增 2027 眉山仁寿半程马拉松和 2027 大连100。Human 已验收发布前真机版本，并确认两场图片可用于生产。**线上正式版真机 Smoke QA 待 Human 验收。** [PR #60](https://github.com/zlwison-maker/RaceNext/pull/60) · [生产赛事列表](https://racenext.run/api/races)
+2026-11-24 17:19:19（北京时间），RaceNext 生产 Public API 从 **23 场增至 25 场**，新增 2027 眉山仁寿半程马拉松和 2027 大连100。Human 已验收发布前真机版本，并确认两场图片可用于生产。Human 已确认线上正式版真机 Smoke QA **PASS**，PR #60 发布验收已结项。 [PR #60](https://github.com/zlwison-maker/RaceNext/pull/60) · [生产赛事列表](https://racenext.run/api/races)
 
 ## Merge 与部署
 
@@ -34,4 +34,4 @@
 
 ## 线上正式版真机 Smoke QA
 
-**待 Human 验收。** 在当前线上小程序打开两场，检查首页 Cover V3、详情 Hero V2、单组与三组切换、好友与朋友圈分享、两场各 5 家住宿，并分别抽查一条携程落地。实际微信跳转、成交与归因未包含在生产 API 验收中。[发布前验收记录](RENSHOU_DALIAN100_INTEGRATION_20261124.md)
+**PASS。** Human 于 2026-11-24 确认线上环境验收通过，本次记录为线上正式版真机 Smoke QA 的整体结论。[发布前验收记录](RENSHOU_DALIAN100_INTEGRATION_20261124.md)
