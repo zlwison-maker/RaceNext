@@ -1,0 +1,300 @@
+{
+  "mode": "Built Next.js HTTP request handler with in-memory Node request/response stream; no port or device.",
+  "recordedAt": "2026-11-24T07:06:22.757Z",
+  "list": {
+    "status": 200,
+    "publicCount": 25,
+    "sha256": "f8cf0fdfd4d18523edf599dd4a3554d8eeef2541491bc8a67133fc1540ad808f"
+  },
+  "regression": {
+    "existingCount": 23,
+    "detailsComparedWithout": [
+      "dataUpdatedAt"
+    ],
+    "priorListRowsMatch": true
+  },
+  "details": [
+    {
+      "path": "/api/races/kailas-gongga-100-2026",
+      "status": 200,
+      "sha256": "71c5eab73a23380eedb772b8b40c4fce1201004b4fc37e1c62ae2f20ff54b406",
+      "baselineMatch": true,
+      "categoryCount": 3,
+      "hotelCount": 0
+    },
+    {
+      "path": "/api/races/beijing-marathon-2026",
+      "status": 200,
+      "sha256": "20e1a1881c3a56727d295d66b8623a33476514b7b147f86876c1ae21626c426e",
+      "baselineMatch": true,
+      "categoryCount": 1,
+      "hotelCount": 3
+    },
+    {
+      "path": "/api/races/xian-marathon-2026",
+      "status": 200,
+      "sha256": "66542bbaa79fddfff4f839a4b01059daedc38cd89b2bf739086235b0da3db99b",
+      "baselineMatch": true,
+      "categoryCount": 2,
+      "hotelCount": 3
+    },
+    {
+      "path": "/api/races/chengdu-marathon-2026",
+      "status": 200,
+      "sha256": "81cd772db7cb7537802abb8f984b1cc40fa7dfc80aebd138f911910ee8fc2b70",
+      "baselineMatch": true,
+      "categoryCount": 2,
+      "hotelCount": 5
+    },
+    {
+      "path": "/api/races/tsaigu-kuocang-2026",
+      "status": 200,
+      "sha256": "f59480e1e9138779cfdbeb9b8856b035cf75a4ad8f4f46f9aff675a2db157909",
+      "baselineMatch": true,
+      "categoryCount": 3,
+      "hotelCount": 5
+    },
+    {
+      "path": "/api/races/ninghai-ultra-trail-2026",
+      "status": 200,
+      "sha256": "d8d6927d46aa92f393a5645fe717f372338375702de08dc307b067af9ab086f9",
+      "baselineMatch": true,
+      "categoryCount": 3,
+      "hotelCount": 5
+    },
+    {
+      "path": "/api/races/nanjing-marathon-2026",
+      "status": 200,
+      "sha256": "12d6df2d778f0d5e6f073f79c4bb68f9975d40249c308a5ca49eb8d882f57b42",
+      "baselineMatch": true,
+      "categoryCount": 1,
+      "hotelCount": 5
+    },
+    {
+      "path": "/api/races/shaoxing-marathon-2026",
+      "status": 200,
+      "sha256": "8755061c495eff02dbcb090da065f5f456cf63e7ddb81d5c3c45a15454fa9ebf",
+      "baselineMatch": true,
+      "categoryCount": 2,
+      "hotelCount": 5
+    },
+    {
+      "path": "/api/races/shanghai-marathon-2026",
+      "status": 200,
+      "sha256": "3b356d81e94c06a677594bea0752aa23cabf8b154772b009b802e51358bf53ff",
+      "baselineMatch": true,
+      "categoryCount": 1,
+      "hotelCount": 5
+    },
+    {
+      "path": "/api/races/shenzhen-marathon-2026",
+      "status": 200,
+      "sha256": "320a872caf20d291f52ad9a212a803f808cb423c0fcaf3afec126b724576b896",
+      "baselineMatch": true,
+      "categoryCount": 1,
+      "hotelCount": 5
+    },
+    {
+      "path": "/api/races/guangzhou-marathon-2026",
+      "status": 200,
+      "sha256": "325931949bd194c7457549fb36e56c568161fcd5b1482ac0e288fc1d98f07d17",
+      "baselineMatch": true,
+      "categoryCount": 1,
+      "hotelCount": 5
+    },
+    {
+      "path": "/api/races/shenzhen-100-2026",
+      "status": 200,
+      "sha256": "cb796e35a1adc927533a867716260d4820fad87b232d028a9cd822cb9bfced84",
+      "baselineMatch": true,
+      "categoryCount": 5,
+      "hotelCount": 5
+    },
+    {
+      "path": "/api/races/fuzhou-marathon-2026",
+      "status": 200,
+      "sha256": "543d35ed903eaa1f661b065e32f55d3e6c00dcce2ab239316ddb0be490cebe63",
+      "baselineMatch": true,
+      "categoryCount": 2,
+      "hotelCount": 5
+    },
+    {
+      "path": "/api/races/hengqin-marathon-2026",
+      "status": 200,
+      "sha256": "5c7aae2d5d1454e66b4009a889d4c192c967fe16350beee841fac781c0585d9f",
+      "baselineMatch": true,
+      "categoryCount": 2,
+      "hotelCount": 5
+    },
+    {
+      "path": "/api/races/chongqing-marathon-2027",
+      "status": 200,
+      "sha256": "f754fe4227a4518b002c60de8a1e063c74e14de2444d0eb19056f6a247523d95",
+      "baselineMatch": true,
+      "categoryCount": 1,
+      "hotelCount": 5
+    },
+    {
+      "path": "/api/races/xiamen-marathon-2027",
+      "status": 200,
+      "sha256": "a15e257a25b0d0054b52e8e25ac9d364e1c895ab0dff18d8baf34fdacf2ad136",
+      "baselineMatch": true,
+      "categoryCount": 1,
+      "hotelCount": 5
+    },
+    {
+      "path": "/api/races/guangzhou-100-2027",
+      "status": 200,
+      "sha256": "1f13cb66f27e3c4da15fa9e41b0cc7d4b3fce353164b46d08087f0b02c838848",
+      "baselineMatch": true,
+      "categoryCount": 4,
+      "hotelCount": 5
+    },
+    {
+      "path": "/api/races/standard-chartered-hong-kong-marathon-2027",
+      "status": 200,
+      "sha256": "891d0ab673d63a1580ae648dce9a707c1d3fa6bc6accfdf3c8e381f6c8bb742c",
+      "baselineMatch": true,
+      "categoryCount": 1,
+      "hotelCount": 5
+    },
+    {
+      "path": "/api/races/hk100-2027",
+      "status": 200,
+      "sha256": "0ebd9d49b6c3ec10f0735c64c3623aa73e53ea61ecd5685e450b105142a0a1f2",
+      "baselineMatch": true,
+      "categoryCount": 3,
+      "hotelCount": 5
+    },
+    {
+      "path": "/api/races/meishan-renshou-half-marathon-2027",
+      "status": 200,
+      "sha256": "87244c2a6c8768d3db372dfd8efacde5f657997daa01af4308d167cd4a7f0e7c",
+      "baselineMatch": null,
+      "categoryCount": 1,
+      "hotelCount": 5
+    },
+    {
+      "path": "/api/races/panda-shudao-shan-2027",
+      "status": 200,
+      "sha256": "169c04fb65222f002621f3addd0cf48d418ee8b0b8f5161f9f1e6dd08b7272e8",
+      "baselineMatch": true,
+      "categoryCount": 5,
+      "hotelCount": 5
+    },
+    {
+      "path": "/api/races/huangshan-huizhou-ancient-city-trail-2027",
+      "status": 200,
+      "sha256": "fba10c31f45fb5668cb99b0cd7a80323bfb4b7e4d05a6f6e7cb8c0f55e9678a5",
+      "baselineMatch": true,
+      "categoryCount": 5,
+      "hotelCount": 4
+    },
+    {
+      "path": "/api/races/outopia-mogan-cloud-flower-trail-2027",
+      "status": 200,
+      "sha256": "a53193274de47411f2ffc13bdaa1a9e823e174ff3cc0183bf40f042d0ad975eb",
+      "baselineMatch": true,
+      "categoryCount": 3,
+      "hotelCount": 5
+    },
+    {
+      "path": "/api/races/ultra-trail-mogan-by-utmb-2027",
+      "status": 200,
+      "sha256": "12c1ef9223d991a4446dcae48bc4e266d1da05032db55dadac15e06ddca143d6",
+      "baselineMatch": true,
+      "categoryCount": 6,
+      "hotelCount": 5
+    },
+    {
+      "path": "/api/races/dalian-100-2027",
+      "status": 200,
+      "sha256": "950e3596c10668c1fcec17014875268c368f0bb23514c14790f9039f79cbb95e",
+      "baselineMatch": null,
+      "categoryCount": 3,
+      "hotelCount": 5
+    }
+  ],
+  "assets": [
+    {
+      "path": "/races/meishan-renshou-half-marathon/2027/cover-display.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "cacheControl": "public, max-age=0",
+      "etag": "W/\"15feb-1a20c5338c9\"",
+      "conditionalStatus": 304,
+      "sha256": "375fbcf247e0b704ce5ef59d7a31462baad33acc5e8e3804a8cc3bde3048d2e5",
+      "bytes": 90091
+    },
+    {
+      "path": "/races/meishan-renshou-half-marathon/2027/hero-display.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "cacheControl": "public, max-age=0",
+      "etag": "W/\"21861-1a20c5338f0\"",
+      "conditionalStatus": 304,
+      "sha256": "094e0f16bc2ab413525078f545af21e9192207bb1cd9cfc345ce0e93ed39890a",
+      "bytes": 137313
+    },
+    {
+      "path": "/races/meishan-renshou-half-marathon/2027/share-cover-5x4.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "cacheControl": "public, max-age=0",
+      "etag": "W/\"141b0-1a20c533c86\"",
+      "conditionalStatus": 304,
+      "sha256": "2480c4b23a68e1eed2b52f6e667c93b2c56da62f969d0602dd809472737ca249",
+      "bytes": 82352
+    },
+    {
+      "path": "/races/meishan-renshou-half-marathon/2027/original.png",
+      "status": 200,
+      "contentType": "image/png",
+      "cacheControl": "public, max-age=0",
+      "etag": "W/\"81d57-1a20c52924f\"",
+      "conditionalStatus": 304,
+      "sha256": "3fb619efc7b430d0c33cab88fafd54a2c7510f10ef6ce8572828f8714d8afd0c",
+      "bytes": 531799
+    },
+    {
+      "path": "/races/dalian-100/2027/cover-display.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "cacheControl": "public, max-age=0",
+      "etag": "W/\"135b7-1a20c53392a\"",
+      "conditionalStatus": 304,
+      "sha256": "1ea14cc0023dd3cae7c5d6e3e3b9242494d4ca65b0c1a5341f7715e0ab7fd763",
+      "bytes": 79287
+    },
+    {
+      "path": "/races/dalian-100/2027/hero-display.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "cacheControl": "public, max-age=0",
+      "etag": "W/\"2af85-1a20c533974\"",
+      "conditionalStatus": 304,
+      "sha256": "6e5731307c8c707ff2a62ffc90dee2b2ad47aac9aa770c8bc42ccc705bc7e7eb",
+      "bytes": 176005
+    },
+    {
+      "path": "/races/dalian-100/2027/share-cover-5x4.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "cacheControl": "public, max-age=0",
+      "etag": "W/\"11767-1a20c5429ab\"",
+      "conditionalStatus": 304,
+      "sha256": "5edab9fb94c1c8447a37488a432934ca30d5d248aa6e060228c88fc67e3ec66a",
+      "bytes": 71527
+    },
+    {
+      "path": "/races/dalian-100/2027/original.png",
+      "status": 200,
+      "contentType": "image/png",
+      "cacheControl": "public, max-age=0",
+      "etag": "W/\"21ebcb-1a20c529251\"",
+      "conditionalStatus": 304,
+      "sha256": "b51b490da7905ae265ebe7c66f402462e6f6fa354ee253624b5e6d2ed3fd4d7f",
+      "bytes": 2223051
+    }
+  ]
+}

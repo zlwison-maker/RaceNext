@@ -12824,6 +12824,1392 @@
           }
         }
       ]
+    },
+    {
+      "event": {
+        "eventId": "meishan-renshou-half-marathon",
+        "canonicalName": "眉山仁寿半程马拉松",
+        "aliases": [
+          "仁寿半马",
+          "眉山仁寿半马"
+        ],
+        "eventType": "road",
+        "homeCountry": "中国",
+        "homeProvince": "四川省",
+        "homeCity": "眉山市",
+        "officialWebsite": "https://www.sichuanbojiesports.com/races/2027-mei-mountain-ren-shou-half-marathon",
+        "organizer": "眉山市人民政府、四川省田径协会",
+        "lifecycleStatus": "active",
+        "createdAt": "2026-11-24T06:51:07Z",
+        "updatedAt": "2026-11-24T06:51:07Z",
+        "governance": {
+          "sources": [
+            {
+              "sourceType": "official",
+              "sourceName": "meishan-renshou-half-marathon-2027-official-home",
+              "sourceUrl": "https://www.sichuanbojiesports.com/races/2027-mei-mountain-ren-shou-half-marathon",
+              "sourceRecordId": "meishan-renshou-half-marathon-2027-official-home",
+              "crawledAt": "2026-11-24T06:51:07Z",
+              "confidence": 0.98,
+              "rawData": {
+                "editionYear": 2027,
+                "fetchedAt": "2026-11-24T06:51:07Z",
+                "evidenceLocator": "博捷体育当届赛事页，标题、开赛时间与报名日期区，及关联竞赛规程和报名须知。",
+                "editionName": "2027眉山仁寿半程马拉松暨跑遍四川（眉山站）",
+                "canonicalName": "眉山仁寿半程马拉松",
+                "raceDate": "2027-02-28",
+                "latestRelevantOfficialEditionYear": 2027,
+                "registrationOpenDate": "2026-11-18",
+                "registrationCloseDate": "2026-12-20",
+                "registrationOpenAt": "2026-11-18T14:00:00+08:00",
+                "registrationCloseAt": "2026-12-20T22:00:00+08:00",
+                "announcedStartAt": "2027-02-28T08:30:00+08:00"
+              }
+            }
+          ],
+          "fieldSources": {
+            "canonicalName": {
+              "field": "canonicalName",
+              "sourceType": "official",
+              "sourceName": "meishan-renshou-half-marathon-2027-official-home",
+              "confidence": 0.98,
+              "updatedAt": "2026-11-24T06:51:07Z"
+            }
+          },
+          "sourcePriority": {
+            "official": 100,
+            "registration_platform": 85
+          },
+          "confidence": 0.98,
+          "verified": true,
+          "verificationStatus": "verified",
+          "verifiedAt": "2026-11-24T06:51:07Z",
+          "missingFields": [],
+          "lastCrawledAt": "2026-11-24T06:51:07Z",
+          "lastUpdatedAt": "2026-11-24T06:51:07Z",
+          "schemaVersion": "race-graph-v1",
+          "dataQualityLevel": "B",
+          "reviewNotes": "当届官方品牌身份。",
+          "internalFlags": []
+        }
+      },
+      "edition": {
+        "editionId": "meishan-renshou-half-marathon-2027",
+        "eventId": "meishan-renshou-half-marathon",
+        "editionName": "2027眉山仁寿半程马拉松暨跑遍四川（眉山站）",
+        "editionYear": 2027,
+        "raceDate": "2027-02-28",
+        "endDate": null,
+        "coverImage": "/races/meishan-renshou-half-marathon/2027/cover-display-v3.jpg",
+        "heroImage": "/races/meishan-renshou-half-marathon/2027/hero-display-v2.jpg",
+        "primaryCategoryId": "meishan-renshou-half-marathon-2027-half",
+        "primaryCategoryName": "半程马拉松",
+        "country": "中国",
+        "province": "四川省",
+        "city": "眉山市",
+        "district": "仁寿县",
+        "venue": "仁寿体育场",
+        "region": "southwest_china",
+        "timezone": "Asia/Shanghai",
+        "registrationStatus": "registration_open",
+        "registrationOpenDate": "2026-11-18",
+        "registrationCloseDate": "2026-12-20",
+        "registrationUrl": "https://reg.zuicool.com/17623",
+        "officialWebsite": "https://www.sichuanbojiesports.com/races/2027-mei-mountain-ren-shou-half-marathon",
+        "rulebookUrl": "https://www.sichuanbojiesports.com/articles/331",
+        "lifecycleStatus": "active",
+        "raceDistanceKm": 21.0975,
+        "raceDistances": [
+          21.0975
+        ],
+        "createdAt": "2026-11-24T06:51:07Z",
+        "updatedAt": "2026-11-24T06:51:07Z",
+        "governance": {
+          "sources": [
+            {
+              "sourceType": "official",
+              "sourceName": "meishan-renshou-half-marathon-2027-official-home",
+              "sourceUrl": "https://www.sichuanbojiesports.com/races/2027-mei-mountain-ren-shou-half-marathon",
+              "sourceRecordId": "meishan-renshou-half-marathon-2027-official-home",
+              "crawledAt": "2026-11-24T06:51:07Z",
+              "confidence": 0.98,
+              "rawData": {
+                "editionYear": 2027,
+                "fetchedAt": "2026-11-24T06:51:07Z",
+                "evidenceLocator": "博捷体育当届赛事页，标题、开赛时间与报名日期区，及关联竞赛规程和报名须知。",
+                "editionName": "2027眉山仁寿半程马拉松暨跑遍四川（眉山站）",
+                "canonicalName": "眉山仁寿半程马拉松",
+                "raceDate": "2027-02-28",
+                "latestRelevantOfficialEditionYear": 2027,
+                "registrationOpenDate": "2026-11-18",
+                "registrationCloseDate": "2026-12-20",
+                "registrationOpenAt": "2026-11-18T14:00:00+08:00",
+                "registrationCloseAt": "2026-12-20T22:00:00+08:00",
+                "announcedStartAt": "2027-02-28T08:30:00+08:00"
+              }
+            },
+            {
+              "sourceType": "registration_platform",
+              "sourceName": "meishan-renshou-half-marathon-2027-zuicool-registration",
+              "sourceUrl": "https://reg.zuicool.com/17623",
+              "sourceRecordId": "meishan-renshou-half-marathon-2027-zuicool-registration",
+              "crawledAt": "2026-11-24T06:51:07Z",
+              "confidence": 0.92,
+              "rawData": {
+                "editionYear": 2027,
+                "fetchedAt": "2026-11-24T06:51:07Z",
+                "evidenceLocator": "当届报名页标题、半程报名项与正文开赛地点。直接读页。",
+                "editionName": "2027眉山仁寿半程马拉松暨跑遍四川（眉山站）",
+                "raceDate": "2027-02-28",
+                "venue": "仁寿体育场",
+                "registrationStatus": "registration_open",
+                "registrationUrl": "https://reg.zuicool.com/17623",
+                "lotteryResultAt": "2027-01-01T14:00:00+08:00",
+                "categoryId": "meishan-renshou-half-marathon-2027-half",
+                "categoryName": "半程马拉松",
+                "distanceKm": 21.0975,
+                "startAt": "2027-02-28T08:30:00+08:00",
+                "startTimes": [
+                  "2027-02-28T08:30:00+08:00"
+                ],
+                "startLocation": "仁寿体育场",
+                "fee": 200,
+                "qualificationRequired": true,
+                "qualificationRules": "报名截止日前24个月内至少有2次10公里及以上比赛成绩。",
+                "pickupLocationStatus": "unconfirmed"
+              }
+            }
+          ],
+          "fieldSources": {
+            "editionName": {
+              "field": "editionName",
+              "sourceType": "registration_platform",
+              "sourceName": "meishan-renshou-half-marathon-2027-zuicool-registration",
+              "confidence": 0.92,
+              "updatedAt": "2026-11-24T06:51:07Z"
+            },
+            "raceDate": {
+              "field": "raceDate",
+              "sourceType": "official",
+              "sourceName": "meishan-renshou-half-marathon-2027-official-home",
+              "confidence": 0.98,
+              "updatedAt": "2026-11-24T06:51:07Z"
+            },
+            "venue": {
+              "field": "venue",
+              "sourceType": "registration_platform",
+              "sourceName": "meishan-renshou-half-marathon-2027-zuicool-registration",
+              "confidence": 0.92,
+              "updatedAt": "2026-11-24T06:51:07Z"
+            },
+            "registrationOpenDate": {
+              "field": "registrationOpenDate",
+              "sourceType": "official",
+              "sourceName": "meishan-renshou-half-marathon-2027-official-home",
+              "confidence": 0.98,
+              "updatedAt": "2026-11-24T06:51:07Z"
+            },
+            "registrationCloseDate": {
+              "field": "registrationCloseDate",
+              "sourceType": "official",
+              "sourceName": "meishan-renshou-half-marathon-2027-official-home",
+              "confidence": 0.98,
+              "updatedAt": "2026-11-24T06:51:07Z"
+            },
+            "registrationStatus": {
+              "field": "registrationStatus",
+              "sourceType": "registration_platform",
+              "sourceName": "meishan-renshou-half-marathon-2027-zuicool-registration",
+              "confidence": 0.92,
+              "updatedAt": "2026-11-24T06:51:07Z"
+            },
+            "registrationUrl": {
+              "field": "registrationUrl",
+              "sourceType": "registration_platform",
+              "sourceName": "meishan-renshou-half-marathon-2027-zuicool-registration",
+              "confidence": 0.92,
+              "updatedAt": "2026-11-24T06:51:07Z"
+            }
+          },
+          "sourcePriority": {
+            "official": 100,
+            "registration_platform": 85
+          },
+          "confidence": 0.92,
+          "verified": true,
+          "verificationStatus": "verified",
+          "verifiedAt": "2026-11-24T06:51:07Z",
+          "missingFields": [],
+          "lastCrawledAt": "2026-11-24T06:51:07Z",
+          "lastUpdatedAt": "2026-11-24T06:51:07Z",
+          "schemaVersion": "race-graph-v1",
+          "dataQualityLevel": "B",
+          "reviewNotes": "预报名按抽签执行。终点、后续分区枪次、领物与赛日交通留待正式手册。",
+          "internalFlags": [],
+          "publicationGate": {
+            "requestedEditionYear": 2027,
+            "latestRelevantOfficialEditionYear": 2027,
+            "latestOfficialEditionSourceRecordId": "meishan-renshou-half-marathon-2027-official-home",
+            "primarySourceRecordId": "meishan-renshou-half-marathon-2027-official-home",
+            "secondarySourceRecordId": "meishan-renshou-half-marathon-2027-zuicool-registration",
+            "raceDateSourceRecordIds": [
+              "meishan-renshou-half-marathon-2027-official-home",
+              "meishan-renshou-half-marathon-2027-zuicool-registration"
+            ],
+            "dateEvidenceStatus": "verified",
+            "conflictStatus": "none",
+            "publishable": true,
+            "checkedAt": "2026-11-24T06:51:07Z"
+          }
+        }
+      },
+      "categories": [
+        {
+          "categoryId": "meishan-renshou-half-marathon-2027-half",
+          "editionId": "meishan-renshou-half-marathon-2027",
+          "categoryName": "半程马拉松",
+          "shortName": "半程马拉松",
+          "displayOrder": 1,
+          "distanceKm": 21.0975,
+          "elevationGain": null,
+          "elevationLoss": null,
+          "cutoffTimeHours": 3,
+          "startAt": "2027-02-28T08:30:00+08:00",
+          "startTimes": [
+            "2027-02-28T08:30:00+08:00"
+          ],
+          "startLocation": "仁寿体育场",
+          "finishLocation": null,
+          "registrationUrl": null,
+          "fee": 200,
+          "currency": "CNY",
+          "qualificationRequired": true,
+          "qualificationRules": "报名截止日前24个月内至少有2次10公里及以上比赛成绩。",
+          "coursePoints": null,
+          "coursePointDataStatus": "unknown",
+          "createdAt": "2026-11-24T06:51:07Z",
+          "updatedAt": "2026-11-24T06:51:07Z",
+          "governance": {
+            "sources": [
+              {
+                "sourceType": "registration_platform",
+                "sourceName": "meishan-renshou-half-marathon-2027-zuicool-registration",
+                "sourceUrl": "https://reg.zuicool.com/17623",
+                "sourceRecordId": "meishan-renshou-half-marathon-2027-zuicool-registration",
+                "crawledAt": "2026-11-24T06:51:07Z",
+                "confidence": 0.92,
+                "rawData": {
+                  "editionYear": 2027,
+                  "fetchedAt": "2026-11-24T06:51:07Z",
+                  "evidenceLocator": "当届报名页标题、半程报名项与正文开赛地点。直接读页。",
+                  "editionName": "2027眉山仁寿半程马拉松暨跑遍四川（眉山站）",
+                  "raceDate": "2027-02-28",
+                  "venue": "仁寿体育场",
+                  "registrationStatus": "registration_open",
+                  "registrationUrl": "https://reg.zuicool.com/17623",
+                  "lotteryResultAt": "2027-01-01T14:00:00+08:00",
+                  "categoryId": "meishan-renshou-half-marathon-2027-half",
+                  "categoryName": "半程马拉松",
+                  "distanceKm": 21.0975,
+                  "startAt": "2027-02-28T08:30:00+08:00",
+                  "startTimes": [
+                    "2027-02-28T08:30:00+08:00"
+                  ],
+                  "startLocation": "仁寿体育场",
+                  "fee": 200,
+                  "qualificationRequired": true,
+                  "qualificationRules": "报名截止日前24个月内至少有2次10公里及以上比赛成绩。",
+                  "pickupLocationStatus": "unconfirmed"
+                }
+              },
+              {
+                "sourceType": "registration_platform",
+                "sourceName": "meishan-renshou-half-marathon-2027-51sai-regulations",
+                "sourceUrl": "https://m.51sai.com/19068/des",
+                "sourceRecordId": "meishan-renshou-half-marathon-2027-51sai-regulations",
+                "crawledAt": "2026-11-24T06:51:07Z",
+                "confidence": 0.92,
+                "rawData": {
+                  "editionYear": 2027,
+                  "fetchedAt": "2026-11-24T06:51:07Z",
+                  "evidenceLocator": "我要赛当届规程正文可检索内容，竞赛办法（七）关门时间表半程末行。直开超时，无原页快照；马114当届规程全文第87–92行同文交叉核对，可能同源。",
+                  "categoryId": "meishan-renshou-half-marathon-2027-half",
+                  "categoryName": "半程马拉松",
+                  "distanceKm": 21.0975,
+                  "cutoffTimeHours": 3,
+                  "cutoffBasis": "按各分区发令累计",
+                  "corroboratingUrl": "https://ma114.net/event.asp?id=3969",
+                  "rawOfficialImageAccess": "issuer article loaded; linked image not readable in browser retrieval"
+                }
+              }
+            ],
+            "fieldSources": {
+              "categoryName": {
+                "field": "categoryName",
+                "sourceType": "registration_platform",
+                "sourceName": "meishan-renshou-half-marathon-2027-zuicool-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "distanceKm": {
+                "field": "distanceKm",
+                "sourceType": "registration_platform",
+                "sourceName": "meishan-renshou-half-marathon-2027-zuicool-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "startAt": {
+                "field": "startAt",
+                "sourceType": "registration_platform",
+                "sourceName": "meishan-renshou-half-marathon-2027-zuicool-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "startTimes": {
+                "field": "startTimes",
+                "sourceType": "registration_platform",
+                "sourceName": "meishan-renshou-half-marathon-2027-zuicool-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "startLocation": {
+                "field": "startLocation",
+                "sourceType": "registration_platform",
+                "sourceName": "meishan-renshou-half-marathon-2027-zuicool-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "fee": {
+                "field": "fee",
+                "sourceType": "registration_platform",
+                "sourceName": "meishan-renshou-half-marathon-2027-zuicool-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "qualificationRequired": {
+                "field": "qualificationRequired",
+                "sourceType": "registration_platform",
+                "sourceName": "meishan-renshou-half-marathon-2027-zuicool-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "qualificationRules": {
+                "field": "qualificationRules",
+                "sourceType": "registration_platform",
+                "sourceName": "meishan-renshou-half-marathon-2027-zuicool-registration",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "cutoffTimeHours": {
+                "field": "cutoffTimeHours",
+                "sourceType": "registration_platform",
+                "sourceName": "meishan-renshou-half-marathon-2027-51sai-regulations",
+                "confidence": 0.92,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              }
+            },
+            "sourcePriority": {
+              "official": 100,
+              "registration_platform": 85
+            },
+            "confidence": 0.92,
+            "verified": false,
+            "verificationStatus": "pending",
+            "verifiedAt": null,
+            "missingFields": [
+              "finishLocation"
+            ],
+            "lastCrawledAt": "2026-11-24T06:51:07Z",
+            "lastUpdatedAt": "2026-11-24T06:51:07Z",
+            "schemaVersion": "race-graph-v1",
+            "dataQualityLevel": "B",
+            "reviewNotes": "已公布08:30大会开赛。规程说明分枪，分区时刻待发布，3小时按各区发令；起点按当届报名页明确开赛地点，终点无当届直证。",
+            "internalFlags": []
+          }
+        }
+      ]
+    },
+    {
+      "event": {
+        "eventId": "dalian-100",
+        "canonicalName": "大连100越野赛",
+        "aliases": [
+          "大连100",
+          "大连一百"
+        ],
+        "eventType": "trail",
+        "homeCountry": "中国",
+        "homeProvince": "辽宁省",
+        "homeCity": "大连市",
+        "officialWebsite": "https://www.dl100k.com/",
+        "organizer": "大连市体育局、大连市文化和旅游局、雷越野（北京）体育发展有限公司",
+        "lifecycleStatus": "active",
+        "createdAt": "2026-11-24T06:51:07Z",
+        "updatedAt": "2026-11-24T06:51:07Z",
+        "governance": {
+          "sources": [
+            {
+              "sourceType": "official",
+              "sourceName": "dalian-100-2027-official-rules",
+              "sourceUrl": "https://dl100k.saihuitong.com/text?mid=81897",
+              "sourceRecordId": "dalian-100-2027-official-rules",
+              "crawledAt": "2026-11-24T06:51:07Z",
+              "confidence": 0.98,
+              "rawData": {
+                "editionYear": 2027,
+                "fetchedAt": "2026-11-24T06:51:07Z",
+                "evidenceLocator": "雷越野官方赛会通规程 §01赛事信息、§02比赛线路。直开2027全文。",
+                "editionName": "2027安踏冠军大连100越野赛",
+                "canonicalName": "大连100越野赛",
+                "latestRelevantOfficialEditionYear": 2027,
+                "venue": "傅家庄公园",
+                "organizer": "大连市体育局、大连市文化和旅游局、雷越野（北京）体育发展有限公司"
+              }
+            }
+          ],
+          "fieldSources": {
+            "canonicalName": {
+              "field": "canonicalName",
+              "sourceType": "official",
+              "sourceName": "dalian-100-2027-official-rules",
+              "confidence": 0.98,
+              "updatedAt": "2026-11-24T06:51:07Z"
+            }
+          },
+          "sourcePriority": {
+            "official": 100,
+            "registration_platform": 85
+          },
+          "confidence": 0.98,
+          "verified": true,
+          "verificationStatus": "verified",
+          "verifiedAt": "2026-11-24T06:51:07Z",
+          "missingFields": [],
+          "lastCrawledAt": "2026-11-24T06:51:07Z",
+          "lastUpdatedAt": "2026-11-24T06:51:07Z",
+          "schemaVersion": "race-graph-v1",
+          "dataQualityLevel": "B",
+          "reviewNotes": "当届主办方规程，区分历史四组。",
+          "internalFlags": []
+        }
+      },
+      "edition": {
+        "editionId": "dalian-100-2027",
+        "eventId": "dalian-100",
+        "editionName": "2027安踏冠军大连100越野赛",
+        "editionYear": 2027,
+        "raceDate": "2027-05-22",
+        "endDate": "2027-05-23",
+        "coverImage": "/races/dalian-100/2027/cover-display-v3.jpg",
+        "heroImage": "/races/dalian-100/2027/hero-display-v2.jpg",
+        "primaryCategoryId": "dalian-100-2027-100k",
+        "primaryCategoryName": "100KM 实力跑",
+        "country": "中国",
+        "province": "辽宁省",
+        "city": "大连市",
+        "district": "西岗区",
+        "venue": "傅家庄公园",
+        "region": "northeast_china",
+        "timezone": "Asia/Shanghai",
+        "registrationStatus": "registration_open",
+        "registrationOpenDate": "2026-11-22",
+        "registrationCloseDate": null,
+        "registrationUrl": "https://dl100k.saihuitong.com/event?id=910774&mid=81873",
+        "officialWebsite": "https://www.dl100k.com/",
+        "rulebookUrl": "https://dl100k.saihuitong.com/text?mid=81897",
+        "lifecycleStatus": "active",
+        "raceDistanceKm": 100,
+        "raceDistances": [
+          30,
+          50,
+          100
+        ],
+        "createdAt": "2026-11-24T06:51:07Z",
+        "updatedAt": "2026-11-24T06:51:07Z",
+        "governance": {
+          "sources": [
+            {
+              "sourceType": "official",
+              "sourceName": "dalian-100-2027-official-schedule",
+              "sourceUrl": "https://dl100k.saihuitong.com/text?mid=81901",
+              "sourceRecordId": "dalian-100-2027-official-schedule",
+              "crawledAt": "2026-11-24T06:51:07Z",
+              "confidence": 0.98,
+              "rawData": {
+                "editionYear": 2027,
+                "fetchedAt": "2026-11-24T06:51:07Z",
+                "evidenceLocator": "雷越野官方赛会通须知 §01比赛时间，§02比对报到领物与三项目比赛时段。直开2027全文。",
+                "editionName": "2027安踏冠军大连100越野赛",
+                "latestRelevantOfficialEditionYear": 2027,
+                "raceDate": "2027-05-22",
+                "endDate": "2027-05-23",
+                "activityDateRange": [
+                  "2027-05-21",
+                  "2027-05-23"
+                ],
+                "registrationAndEventDay": "2027-05-21"
+              }
+            },
+            {
+              "sourceType": "official",
+              "sourceName": "dalian-100-2027-official-rules",
+              "sourceUrl": "https://dl100k.saihuitong.com/text?mid=81897",
+              "sourceRecordId": "dalian-100-2027-official-rules",
+              "crawledAt": "2026-11-24T06:51:07Z",
+              "confidence": 0.98,
+              "rawData": {
+                "editionYear": 2027,
+                "fetchedAt": "2026-11-24T06:51:07Z",
+                "evidenceLocator": "雷越野官方赛会通规程 §01赛事信息、§02比赛线路。直开2027全文。",
+                "editionName": "2027安踏冠军大连100越野赛",
+                "canonicalName": "大连100越野赛",
+                "latestRelevantOfficialEditionYear": 2027,
+                "venue": "傅家庄公园",
+                "organizer": "大连市体育局、大连市文化和旅游局、雷越野（北京）体育发展有限公司"
+              }
+            },
+            {
+              "sourceType": "registration_platform",
+              "sourceName": "dalian-100-2027-zuicool-registration",
+              "sourceUrl": "https://reg.zuicool.com/44398",
+              "sourceRecordId": "dalian-100-2027-zuicool-registration",
+              "crawledAt": "2026-11-24T06:51:07Z",
+              "confidence": 0.92,
+              "rawData": {
+                "editionYear": 2027,
+                "fetchedAt": "2026-11-24T06:51:07Z",
+                "evidenceLocator": "最酷正式报名页页头比赛日期，两行报名入口，30K已截止，正文三组参数及活动窗口。",
+                "editionName": "2027安踏冠军大连100越野赛",
+                "raceDate": "2027-05-22",
+                "endDate": "2027-05-23",
+                "registrationOpenDate": "2026-11-22",
+                "registrationOpenAt": "2026-11-22T19:00:00+08:00",
+                "groupAvailability": {
+                  "100K": "open",
+                  "50K": "open",
+                  "30K": "closed"
+                }
+              }
+            },
+            {
+              "sourceType": "official",
+              "sourceName": "dalian-100-2027-official-entry-100k",
+              "sourceUrl": "https://dl100k.saihuitong.com/event?id=910774&mid=81873",
+              "sourceRecordId": "dalian-100-2027-official-entry-100k",
+              "crawledAt": "2026-11-24T06:51:07Z",
+              "confidence": 0.98,
+              "rawData": {
+                "editionYear": 2027,
+                "fetchedAt": "2026-11-24T06:51:07Z",
+                "evidenceLocator": "本组直接报名详情主按钮及集合地、目的地。附页推荐入口状态不参与判定。",
+                "editionName": "2027安踏冠军大连100越野赛",
+                "categoryId": "dalian-100-2027-100k",
+                "categoryName": "100KM 实力跑",
+                "distanceKm": 100,
+                "startLocation": "傅家庄公园",
+                "finishLocation": "傅家庄公园",
+                "registrationAvailability": "open",
+                "registrationUrl": "https://dl100k.saihuitong.com/event?id=910774&mid=81873",
+                "registrationStatus": "registration_open"
+              }
+            },
+            {
+              "sourceType": "official",
+              "sourceName": "dalian-100-2027-official-entry-50k",
+              "sourceUrl": "https://dl100k.saihuitong.com/event?id=911064&mid=81873",
+              "sourceRecordId": "dalian-100-2027-official-entry-50k",
+              "crawledAt": "2026-11-24T06:51:07Z",
+              "confidence": 0.98,
+              "rawData": {
+                "editionYear": 2027,
+                "fetchedAt": "2026-11-24T06:51:07Z",
+                "evidenceLocator": "本组直接报名详情主按钮及集合地、目的地。附页推荐入口状态不参与判定。",
+                "editionName": "2027安踏冠军大连100越野赛",
+                "categoryId": "dalian-100-2027-50k",
+                "categoryName": "50KM 进阶跑",
+                "distanceKm": 50,
+                "startLocation": "傅家庄公园",
+                "finishLocation": "傅家庄公园",
+                "registrationAvailability": "sold_out",
+                "registrationUrl": "https://dl100k.saihuitong.com/event?id=911064&mid=81873"
+              }
+            },
+            {
+              "sourceType": "official",
+              "sourceName": "dalian-100-2027-official-entry-30k",
+              "sourceUrl": "https://dl100k.saihuitong.com/event?id=911066&mid=81873",
+              "sourceRecordId": "dalian-100-2027-official-entry-30k",
+              "crawledAt": "2026-11-24T06:51:07Z",
+              "confidence": 0.98,
+              "rawData": {
+                "editionYear": 2027,
+                "fetchedAt": "2026-11-24T06:51:07Z",
+                "evidenceLocator": "本组直接报名详情主按钮及集合地、目的地。附页推荐入口状态不参与判定。",
+                "editionName": "2027安踏冠军大连100越野赛",
+                "categoryId": "dalian-100-2027-30k",
+                "categoryName": "30KM 潇洒跑",
+                "distanceKm": 30,
+                "startLocation": "傅家庄公园",
+                "finishLocation": "傅家庄公园",
+                "registrationAvailability": "sold_out",
+                "registrationUrl": "https://dl100k.saihuitong.com/event?id=911066&mid=81873"
+              }
+            }
+          ],
+          "fieldSources": {
+            "editionName": {
+              "field": "editionName",
+              "sourceType": "official",
+              "sourceName": "dalian-100-2027-official-rules",
+              "confidence": 0.98,
+              "updatedAt": "2026-11-24T06:51:07Z"
+            },
+            "raceDate": {
+              "field": "raceDate",
+              "sourceType": "official",
+              "sourceName": "dalian-100-2027-official-schedule",
+              "confidence": 0.98,
+              "updatedAt": "2026-11-24T06:51:07Z"
+            },
+            "endDate": {
+              "field": "endDate",
+              "sourceType": "official",
+              "sourceName": "dalian-100-2027-official-schedule",
+              "confidence": 0.98,
+              "updatedAt": "2026-11-24T06:51:07Z"
+            },
+            "venue": {
+              "field": "venue",
+              "sourceType": "official",
+              "sourceName": "dalian-100-2027-official-rules",
+              "confidence": 0.98,
+              "updatedAt": "2026-11-24T06:51:07Z"
+            },
+            "registrationStatus": {
+              "field": "registrationStatus",
+              "sourceType": "official",
+              "sourceName": "dalian-100-2027-official-entry-100k",
+              "confidence": 0.98,
+              "updatedAt": "2026-11-24T06:51:07Z"
+            },
+            "registrationUrl": {
+              "field": "registrationUrl",
+              "sourceType": "official",
+              "sourceName": "dalian-100-2027-official-entry-100k",
+              "confidence": 0.98,
+              "updatedAt": "2026-11-24T06:51:07Z"
+            },
+            "registrationOpenDate": {
+              "field": "registrationOpenDate",
+              "sourceType": "registration_platform",
+              "sourceName": "dalian-100-2027-zuicool-registration",
+              "confidence": 0.92,
+              "updatedAt": "2026-11-24T06:51:07Z"
+            }
+          },
+          "sourcePriority": {
+            "official": 100,
+            "registration_platform": 85
+          },
+          "confidence": 0.92,
+          "verified": true,
+          "verificationStatus": "verified",
+          "verifiedAt": "2026-11-24T06:51:07Z",
+          "missingFields": [
+            "registrationCloseDate"
+          ],
+          "lastCrawledAt": "2026-11-24T06:51:07Z",
+          "lastUpdatedAt": "2026-11-24T06:51:07Z",
+          "schemaVersion": "race-graph-v1",
+          "dataQualityLevel": "B",
+          "reviewNotes": "正式比赛5月22日至23日，5月21日为活动和报到。赛事级开放依据100K官方直达项；50K/30K同域主按钮满额，50K合作渠道仍呈可报名。推荐列表和历史菜单快照不覆盖单组主按钮。全场报名截止未知。",
+          "internalFlags": [],
+          "publicationGate": {
+            "requestedEditionYear": 2027,
+            "latestRelevantOfficialEditionYear": 2027,
+            "latestOfficialEditionSourceRecordId": "dalian-100-2027-official-schedule",
+            "primarySourceRecordId": "dalian-100-2027-official-schedule",
+            "secondarySourceRecordId": "dalian-100-2027-zuicool-registration",
+            "raceDateSourceRecordIds": [
+              "dalian-100-2027-official-schedule",
+              "dalian-100-2027-zuicool-registration"
+            ],
+            "dateEvidenceStatus": "verified",
+            "conflictStatus": "none",
+            "publishable": true,
+            "checkedAt": "2026-11-24T06:51:07Z"
+          }
+        }
+      },
+      "categories": [
+        {
+          "categoryId": "dalian-100-2027-100k",
+          "editionId": "dalian-100-2027",
+          "categoryName": "100KM 实力跑",
+          "shortName": "100KM 实力跑",
+          "displayOrder": 1,
+          "distanceKm": 100,
+          "elevationGain": 5536,
+          "elevationLoss": null,
+          "cutoffTimeHours": 30,
+          "startAt": "2027-05-22T06:00:00+08:00",
+          "startTimes": [
+            "2027-05-22T06:00:00+08:00"
+          ],
+          "startLocation": "傅家庄公园",
+          "finishLocation": "傅家庄公园",
+          "registrationUrl": null,
+          "itraPoints": 5,
+          "minAge": 18,
+          "qualificationRequired": true,
+          "qualificationRules": "一年内至少一次50公里及以上，或两次40公里及以上跑步比赛完赛证明。",
+          "coursePoints": null,
+          "coursePointDataStatus": "unknown",
+          "createdAt": "2026-11-24T06:51:07Z",
+          "updatedAt": "2026-11-24T06:51:07Z",
+          "governance": {
+            "sources": [
+              {
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-entry-100k",
+                "sourceUrl": "https://dl100k.saihuitong.com/event?id=910774&mid=81873",
+                "sourceRecordId": "dalian-100-2027-official-entry-100k",
+                "crawledAt": "2026-11-24T06:51:07Z",
+                "confidence": 0.98,
+                "rawData": {
+                  "editionYear": 2027,
+                  "fetchedAt": "2026-11-24T06:51:07Z",
+                  "evidenceLocator": "本组直接报名详情主按钮及集合地、目的地。附页推荐入口状态不参与判定。",
+                  "editionName": "2027安踏冠军大连100越野赛",
+                  "categoryId": "dalian-100-2027-100k",
+                  "categoryName": "100KM 实力跑",
+                  "distanceKm": 100,
+                  "startLocation": "傅家庄公园",
+                  "finishLocation": "傅家庄公园",
+                  "registrationAvailability": "open",
+                  "registrationUrl": "https://dl100k.saihuitong.com/event?id=910774&mid=81873",
+                  "registrationStatus": "registration_open"
+                }
+              },
+              {
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-rules",
+                "sourceUrl": "https://dl100k.saihuitong.com/text?mid=81897",
+                "sourceRecordId": "dalian-100-2027-official-rules",
+                "crawledAt": "2026-11-24T06:51:07Z",
+                "confidence": 0.98,
+                "rawData": {
+                  "editionYear": 2027,
+                  "fetchedAt": "2026-11-24T06:51:07Z",
+                  "evidenceLocator": "官方规程 §02 本组路线首末节点、爬升、总时限、ITRA；§03 参赛条件。",
+                  "categoryId": "dalian-100-2027-100k",
+                  "categoryName": "100KM 实力跑",
+                  "distanceKm": 100,
+                  "elevationGain": 5536,
+                  "cutoffTimeHours": 30,
+                  "startLocation": "傅家庄公园",
+                  "finishLocation": "傅家庄公园",
+                  "itraPoints": 5,
+                  "minAge": 18,
+                  "maxAge": 63,
+                  "qualificationRequired": true,
+                  "qualificationRules": "一年内至少一次50公里及以上，或两次40公里及以上跑步比赛完赛证明。"
+                }
+              },
+              {
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-schedule",
+                "sourceUrl": "https://dl100k.saihuitong.com/text?mid=81901",
+                "sourceRecordId": "dalian-100-2027-official-schedule",
+                "crawledAt": "2026-11-24T06:51:07Z",
+                "confidence": 0.98,
+                "rawData": {
+                  "editionYear": 2027,
+                  "fetchedAt": "2026-11-24T06:51:07Z",
+                  "evidenceLocator": "官方报名须知 §02 比赛时间，对应组别实际发枪和绝对终点关门。",
+                  "categoryId": "dalian-100-2027-100k",
+                  "raceDate": "2027-05-22",
+                  "startAt": "2027-05-22T06:00:00+08:00",
+                  "startTimes": [
+                    "2027-05-22T06:00:00+08:00"
+                  ],
+                  "finishCutoffAt": "2027-05-23T12:00:00+08:00"
+                }
+              },
+              {
+                "sourceType": "registration_platform",
+                "sourceName": "dalian-100-2027-zuicool-registration",
+                "sourceUrl": "https://reg.zuicool.com/44398",
+                "sourceRecordId": "dalian-100-2027-zuicool-registration",
+                "crawledAt": "2026-11-24T06:51:07Z",
+                "confidence": 0.92,
+                "rawData": {
+                  "editionYear": 2027,
+                  "fetchedAt": "2026-11-24T06:51:07Z",
+                  "evidenceLocator": "当届合作报名页对应组别参数。",
+                  "categoryId": "dalian-100-2027-100k",
+                  "distanceKm": 100,
+                  "actualCourseDistanceKm": 100.7,
+                  "elevationGain": 5536,
+                  "cutoffTimeHours": 30,
+                  "startAt": "2027-05-22T06:00:00+08:00",
+                  "finishCutoffAt": "2027-05-23T12:00:00+08:00",
+                  "itraPoints": 5,
+                  "registrationAvailability": "open"
+                }
+              }
+            ],
+            "fieldSources": {
+              "startLocation": {
+                "field": "startLocation",
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-rules",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "finishLocation": {
+                "field": "finishLocation",
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-rules",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "elevationGain": {
+                "field": "elevationGain",
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-rules",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "cutoffTimeHours": {
+                "field": "cutoffTimeHours",
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-rules",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "itraPoints": {
+                "field": "itraPoints",
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-rules",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "minAge": {
+                "field": "minAge",
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-rules",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "qualificationRequired": {
+                "field": "qualificationRequired",
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-rules",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "qualificationRules": {
+                "field": "qualificationRules",
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-rules",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "categoryName": {
+                "field": "categoryName",
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-entry-100k",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "distanceKm": {
+                "field": "distanceKm",
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-entry-100k",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "startAt": {
+                "field": "startAt",
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-schedule",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "startTimes": {
+                "field": "startTimes",
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-schedule",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              }
+            },
+            "sourcePriority": {
+              "official": 100,
+              "registration_platform": 85
+            },
+            "confidence": 0.92,
+            "verified": true,
+            "verificationStatus": "verified",
+            "verifiedAt": "2026-11-24T06:51:07Z",
+            "missingFields": [
+              "elevationLoss",
+              "coursePoints"
+            ],
+            "lastCrawledAt": "2026-11-24T06:51:07Z",
+            "lastUpdatedAt": "2026-11-24T06:51:07Z",
+            "schemaVersion": "race-graph-v1",
+            "dataQualityLevel": "B",
+            "reviewNotes": "主办方当届规程、组别报名详情、比赛日程及合作报名页互证。绝对关门与实际距离只留内部。未证下降和完整CP不填。",
+            "internalFlags": []
+          }
+        },
+        {
+          "categoryId": "dalian-100-2027-50k",
+          "editionId": "dalian-100-2027",
+          "categoryName": "50KM 进阶跑",
+          "shortName": "50KM 进阶跑",
+          "displayOrder": 2,
+          "distanceKm": 50,
+          "elevationGain": 2889,
+          "elevationLoss": null,
+          "cutoffTimeHours": 15,
+          "startAt": "2027-05-22T08:00:00+08:00",
+          "startTimes": [
+            "2027-05-22T08:00:00+08:00"
+          ],
+          "startLocation": "傅家庄公园",
+          "finishLocation": "傅家庄公园",
+          "registrationUrl": null,
+          "itraPoints": 3,
+          "minAge": 18,
+          "qualificationRequired": true,
+          "qualificationRules": "一年内至少一次50公里及以上，或两次40公里及以上跑步比赛完赛证明。",
+          "coursePoints": null,
+          "coursePointDataStatus": "unknown",
+          "createdAt": "2026-11-24T06:51:07Z",
+          "updatedAt": "2026-11-24T06:51:07Z",
+          "governance": {
+            "sources": [
+              {
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-entry-50k",
+                "sourceUrl": "https://dl100k.saihuitong.com/event?id=911064&mid=81873",
+                "sourceRecordId": "dalian-100-2027-official-entry-50k",
+                "crawledAt": "2026-11-24T06:51:07Z",
+                "confidence": 0.98,
+                "rawData": {
+                  "editionYear": 2027,
+                  "fetchedAt": "2026-11-24T06:51:07Z",
+                  "evidenceLocator": "本组直接报名详情主按钮及集合地、目的地。附页推荐入口状态不参与判定。",
+                  "editionName": "2027安踏冠军大连100越野赛",
+                  "categoryId": "dalian-100-2027-50k",
+                  "categoryName": "50KM 进阶跑",
+                  "distanceKm": 50,
+                  "startLocation": "傅家庄公园",
+                  "finishLocation": "傅家庄公园",
+                  "registrationAvailability": "sold_out",
+                  "registrationUrl": "https://dl100k.saihuitong.com/event?id=911064&mid=81873"
+                }
+              },
+              {
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-rules",
+                "sourceUrl": "https://dl100k.saihuitong.com/text?mid=81897",
+                "sourceRecordId": "dalian-100-2027-official-rules",
+                "crawledAt": "2026-11-24T06:51:07Z",
+                "confidence": 0.98,
+                "rawData": {
+                  "editionYear": 2027,
+                  "fetchedAt": "2026-11-24T06:51:07Z",
+                  "evidenceLocator": "官方规程 §02 本组路线首末节点、爬升、总时限、ITRA；§03 参赛条件。",
+                  "categoryId": "dalian-100-2027-50k",
+                  "categoryName": "50KM 进阶跑",
+                  "distanceKm": 50,
+                  "elevationGain": 2889,
+                  "cutoffTimeHours": 15,
+                  "startLocation": "傅家庄公园",
+                  "finishLocation": "傅家庄公园",
+                  "itraPoints": 3,
+                  "minAge": 18,
+                  "maxAge": 63,
+                  "qualificationRequired": true,
+                  "qualificationRules": "一年内至少一次50公里及以上，或两次40公里及以上跑步比赛完赛证明。"
+                }
+              },
+              {
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-schedule",
+                "sourceUrl": "https://dl100k.saihuitong.com/text?mid=81901",
+                "sourceRecordId": "dalian-100-2027-official-schedule",
+                "crawledAt": "2026-11-24T06:51:07Z",
+                "confidence": 0.98,
+                "rawData": {
+                  "editionYear": 2027,
+                  "fetchedAt": "2026-11-24T06:51:07Z",
+                  "evidenceLocator": "官方报名须知 §02 比赛时间，对应组别实际发枪和绝对终点关门。",
+                  "categoryId": "dalian-100-2027-50k",
+                  "raceDate": "2027-05-22",
+                  "startAt": "2027-05-22T08:00:00+08:00",
+                  "startTimes": [
+                    "2027-05-22T08:00:00+08:00"
+                  ],
+                  "finishCutoffAt": "2027-05-22T23:00:00+08:00"
+                }
+              },
+              {
+                "sourceType": "registration_platform",
+                "sourceName": "dalian-100-2027-zuicool-registration",
+                "sourceUrl": "https://reg.zuicool.com/44398",
+                "sourceRecordId": "dalian-100-2027-zuicool-registration",
+                "crawledAt": "2026-11-24T06:51:07Z",
+                "confidence": 0.92,
+                "rawData": {
+                  "editionYear": 2027,
+                  "fetchedAt": "2026-11-24T06:51:07Z",
+                  "evidenceLocator": "当届合作报名页对应组别参数。",
+                  "categoryId": "dalian-100-2027-50k",
+                  "distanceKm": 50,
+                  "actualCourseDistanceKm": 50.3,
+                  "elevationGain": 2889,
+                  "cutoffTimeHours": 15,
+                  "startAt": "2027-05-22T08:00:00+08:00",
+                  "finishCutoffAt": "2027-05-22T23:00:00+08:00",
+                  "itraPoints": 3,
+                  "registrationAvailability": "open"
+                }
+              }
+            ],
+            "fieldSources": {
+              "startLocation": {
+                "field": "startLocation",
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-rules",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "finishLocation": {
+                "field": "finishLocation",
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-rules",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "elevationGain": {
+                "field": "elevationGain",
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-rules",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "cutoffTimeHours": {
+                "field": "cutoffTimeHours",
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-rules",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "itraPoints": {
+                "field": "itraPoints",
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-rules",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "minAge": {
+                "field": "minAge",
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-rules",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "qualificationRequired": {
+                "field": "qualificationRequired",
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-rules",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "qualificationRules": {
+                "field": "qualificationRules",
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-rules",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "categoryName": {
+                "field": "categoryName",
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-entry-50k",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "distanceKm": {
+                "field": "distanceKm",
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-entry-50k",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "startAt": {
+                "field": "startAt",
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-schedule",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "startTimes": {
+                "field": "startTimes",
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-schedule",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              }
+            },
+            "sourcePriority": {
+              "official": 100,
+              "registration_platform": 85
+            },
+            "confidence": 0.92,
+            "verified": true,
+            "verificationStatus": "verified",
+            "verifiedAt": "2026-11-24T06:51:07Z",
+            "missingFields": [
+              "elevationLoss",
+              "coursePoints"
+            ],
+            "lastCrawledAt": "2026-11-24T06:51:07Z",
+            "lastUpdatedAt": "2026-11-24T06:51:07Z",
+            "schemaVersion": "race-graph-v1",
+            "dataQualityLevel": "B",
+            "reviewNotes": "主办方当届规程、组别报名详情、比赛日程及合作报名页互证。绝对关门与实际距离只留内部。未证下降和完整CP不填。",
+            "internalFlags": []
+          }
+        },
+        {
+          "categoryId": "dalian-100-2027-30k",
+          "editionId": "dalian-100-2027",
+          "categoryName": "30KM 潇洒跑",
+          "shortName": "30KM 潇洒跑",
+          "displayOrder": 3,
+          "distanceKm": 30,
+          "elevationGain": 1478,
+          "elevationLoss": null,
+          "cutoffTimeHours": 8,
+          "startAt": "2027-05-23T06:00:00+08:00",
+          "startTimes": [
+            "2027-05-23T06:00:00+08:00"
+          ],
+          "startLocation": "傅家庄公园",
+          "finishLocation": "傅家庄公园",
+          "registrationUrl": null,
+          "itraPoints": 1,
+          "minAge": 18,
+          "qualificationRequired": true,
+          "qualificationRules": "一年内至少一次20公里及以上跑步比赛完赛证明。",
+          "coursePoints": null,
+          "coursePointDataStatus": "unknown",
+          "createdAt": "2026-11-24T06:51:07Z",
+          "updatedAt": "2026-11-24T06:51:07Z",
+          "governance": {
+            "sources": [
+              {
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-entry-30k",
+                "sourceUrl": "https://dl100k.saihuitong.com/event?id=911066&mid=81873",
+                "sourceRecordId": "dalian-100-2027-official-entry-30k",
+                "crawledAt": "2026-11-24T06:51:07Z",
+                "confidence": 0.98,
+                "rawData": {
+                  "editionYear": 2027,
+                  "fetchedAt": "2026-11-24T06:51:07Z",
+                  "evidenceLocator": "本组直接报名详情主按钮及集合地、目的地。附页推荐入口状态不参与判定。",
+                  "editionName": "2027安踏冠军大连100越野赛",
+                  "categoryId": "dalian-100-2027-30k",
+                  "categoryName": "30KM 潇洒跑",
+                  "distanceKm": 30,
+                  "startLocation": "傅家庄公园",
+                  "finishLocation": "傅家庄公园",
+                  "registrationAvailability": "sold_out",
+                  "registrationUrl": "https://dl100k.saihuitong.com/event?id=911066&mid=81873"
+                }
+              },
+              {
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-rules",
+                "sourceUrl": "https://dl100k.saihuitong.com/text?mid=81897",
+                "sourceRecordId": "dalian-100-2027-official-rules",
+                "crawledAt": "2026-11-24T06:51:07Z",
+                "confidence": 0.98,
+                "rawData": {
+                  "editionYear": 2027,
+                  "fetchedAt": "2026-11-24T06:51:07Z",
+                  "evidenceLocator": "官方规程 §02 本组路线首末节点、爬升、总时限、ITRA；§03 参赛条件。",
+                  "categoryId": "dalian-100-2027-30k",
+                  "categoryName": "30KM 潇洒跑",
+                  "distanceKm": 30,
+                  "elevationGain": 1478,
+                  "cutoffTimeHours": 8,
+                  "startLocation": "傅家庄公园",
+                  "finishLocation": "傅家庄公园",
+                  "itraPoints": 1,
+                  "minAge": 18,
+                  "maxAge": 65,
+                  "qualificationRequired": true,
+                  "qualificationRules": "一年内至少一次20公里及以上跑步比赛完赛证明。"
+                }
+              },
+              {
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-schedule",
+                "sourceUrl": "https://dl100k.saihuitong.com/text?mid=81901",
+                "sourceRecordId": "dalian-100-2027-official-schedule",
+                "crawledAt": "2026-11-24T06:51:07Z",
+                "confidence": 0.98,
+                "rawData": {
+                  "editionYear": 2027,
+                  "fetchedAt": "2026-11-24T06:51:07Z",
+                  "evidenceLocator": "官方报名须知 §02 比赛时间，对应组别实际发枪和绝对终点关门。",
+                  "categoryId": "dalian-100-2027-30k",
+                  "raceDate": "2027-05-23",
+                  "startAt": "2027-05-23T06:00:00+08:00",
+                  "startTimes": [
+                    "2027-05-23T06:00:00+08:00"
+                  ],
+                  "finishCutoffAt": "2027-05-23T14:00:00+08:00"
+                }
+              },
+              {
+                "sourceType": "registration_platform",
+                "sourceName": "dalian-100-2027-zuicool-registration",
+                "sourceUrl": "https://reg.zuicool.com/44398",
+                "sourceRecordId": "dalian-100-2027-zuicool-registration",
+                "crawledAt": "2026-11-24T06:51:07Z",
+                "confidence": 0.92,
+                "rawData": {
+                  "editionYear": 2027,
+                  "fetchedAt": "2026-11-24T06:51:07Z",
+                  "evidenceLocator": "当届合作报名页对应组别参数。",
+                  "categoryId": "dalian-100-2027-30k",
+                  "distanceKm": 30,
+                  "actualCourseDistanceKm": 30.5,
+                  "elevationGain": 1478,
+                  "cutoffTimeHours": 8,
+                  "startAt": "2027-05-23T06:00:00+08:00",
+                  "finishCutoffAt": "2027-05-23T14:00:00+08:00",
+                  "itraPoints": 1,
+                  "registrationAvailability": "closed"
+                }
+              }
+            ],
+            "fieldSources": {
+              "startLocation": {
+                "field": "startLocation",
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-rules",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "finishLocation": {
+                "field": "finishLocation",
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-rules",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "elevationGain": {
+                "field": "elevationGain",
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-rules",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "cutoffTimeHours": {
+                "field": "cutoffTimeHours",
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-rules",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "itraPoints": {
+                "field": "itraPoints",
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-rules",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "minAge": {
+                "field": "minAge",
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-rules",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "qualificationRequired": {
+                "field": "qualificationRequired",
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-rules",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "qualificationRules": {
+                "field": "qualificationRules",
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-rules",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "categoryName": {
+                "field": "categoryName",
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-entry-30k",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "distanceKm": {
+                "field": "distanceKm",
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-entry-30k",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "startAt": {
+                "field": "startAt",
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-schedule",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              },
+              "startTimes": {
+                "field": "startTimes",
+                "sourceType": "official",
+                "sourceName": "dalian-100-2027-official-schedule",
+                "confidence": 0.98,
+                "updatedAt": "2026-11-24T06:51:07Z"
+              }
+            },
+            "sourcePriority": {
+              "official": 100,
+              "registration_platform": 85
+            },
+            "confidence": 0.92,
+            "verified": true,
+            "verificationStatus": "verified",
+            "verifiedAt": "2026-11-24T06:51:07Z",
+            "missingFields": [
+              "elevationLoss",
+              "coursePoints"
+            ],
+            "lastCrawledAt": "2026-11-24T06:51:07Z",
+            "lastUpdatedAt": "2026-11-24T06:51:07Z",
+            "schemaVersion": "race-graph-v1",
+            "dataQualityLevel": "B",
+            "reviewNotes": "主办方当届规程、组别报名详情、比赛日程及合作报名页互证。绝对关门与实际距离只留内部。未证下降和完整CP不填。",
+            "internalFlags": []
+          }
+        }
+      ]
     }
   ]
 }

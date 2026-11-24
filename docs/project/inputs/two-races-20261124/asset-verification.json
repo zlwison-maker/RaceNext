@@ -1,0 +1,98 @@
+[
+  {
+    "editionId": "meishan-renshou-half-marathon-2027",
+    "original": {
+      "publicPath": "/races/meishan-renshou-half-marathon/2027/original.png",
+      "width": 1080,
+      "height": 487,
+      "aspectRatio": 2.2177,
+      "format": "png",
+      "fileSizeBytes": 531799,
+      "sha256": "3fb619efc7b430d0c33cab88fafd54a2c7510f10ef6ce8572828f8714d8afd0c"
+    },
+    "sourceType": "user_provided",
+    "usageRightsStatus": "unverified",
+    "images": [
+      {
+        "role": "cover",
+        "publicPath": "/races/meishan-renshou-half-marathon/2027/cover-display-v3.jpg",
+        "width": 1088,
+        "height": 612,
+        "format": "jpeg",
+        "aspectRatio": 1.7778,
+        "fileSizeBytes": 150949,
+        "sha256": "7662c34534d39700a857de36d4fb6d6522c19158e5c3b6e630d1f35993ed930a",
+        "derivation": "From the approved 2:1 Hero. Resize proportionally to full width and continue the existing bottom edge to 16:9. The official heading, date and artwork retain the Hero proportions."
+      },
+      {
+        "role": "hero",
+        "publicPath": "/races/meishan-renshou-half-marathon/2027/hero-display-v2.jpg",
+        "width": 1050,
+        "height": 525,
+        "format": "jpeg",
+        "aspectRatio": 2,
+        "fileSizeBytes": 135139,
+        "sha256": "874ae3d4419d7000efa2768bc5f366b1faf47208273196657c4d7551b1cb5387",
+        "derivation": "Native 2:1 layout. Trim 15 source pixels at each side and continue the original top edge by 38 px. The original marks, title, date and bottom ribbons survive."
+      },
+      {
+        "role": "share",
+        "publicPath": "/races/meishan-renshou-half-marathon/2027/share-cover-5x4.jpg",
+        "width": 750,
+        "height": 600,
+        "format": "jpeg",
+        "aspectRatio": 1.25,
+        "fileSizeBytes": 82352,
+        "sha256": "2480c4b23a68e1eed2b52f6e667c93b2c56da62f969d0602dd809472737ca249"
+      }
+    ]
+  },
+  {
+    "editionId": "dalian-100-2027",
+    "original": {
+      "publicPath": "/races/dalian-100/2027/original.png",
+      "width": 2048,
+      "height": 709,
+      "aspectRatio": 2.8886,
+      "format": "png",
+      "fileSizeBytes": 2223051,
+      "sha256": "b51b490da7905ae265ebe7c66f402462e6f6fa354ee253624b5e6d2ed3fd4d7f"
+    },
+    "sourceType": "user_provided",
+    "usageRightsStatus": "unverified",
+    "images": [
+      {
+        "role": "cover",
+        "publicPath": "/races/dalian-100/2027/cover-display-v3.jpg",
+        "width": 1088,
+        "height": 612,
+        "format": "jpeg",
+        "aspectRatio": 1.7778,
+        "fileSizeBytes": 155691,
+        "sha256": "0e4a44095230ddb6f0e5e2e9494ba94ff657f3f82c2ecdb3e69814d1a7e763dd",
+        "derivation": "From the approved 2:1 Hero. Resize proportionally to full width and continue the existing water at the bottom to 16:9. The bridge, distance labels and anniversary marks retain the Hero proportions."
+      },
+      {
+        "role": "hero",
+        "publicPath": "/races/dalian-100/2027/hero-display-v2.jpg",
+        "width": 1440,
+        "height": 720,
+        "format": "jpeg",
+        "aspectRatio": 2,
+        "fileSizeBytes": 208169,
+        "sha256": "67929c17a5c0efaa26556c538600cbb01d5866ed63d8d5d4b25cdb2c1aacc9cc",
+        "derivation": "Native 2:1 layout. Trim 16 source pixels at each side, continue the existing sky and water to the canvas edges, and blend adapted water into the lower extension. The source distances and anniversary artwork remain legible."
+      },
+      {
+        "role": "share",
+        "publicPath": "/races/dalian-100/2027/share-cover-5x4.jpg",
+        "width": 750,
+        "height": 600,
+        "format": "jpeg",
+        "aspectRatio": 1.25,
+        "fileSizeBytes": 71527,
+        "sha256": "5edab9fb94c1c8447a37488a432934ca30d5d248aa6e060228c88fc67e3ec66a"
+      }
+    ]
+  }
+]
