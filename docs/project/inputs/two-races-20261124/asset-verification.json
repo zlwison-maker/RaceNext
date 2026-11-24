@@ -15,35 +15,25 @@
     "images": [
       {
         "role": "cover",
-        "publicPath": "/races/meishan-renshou-half-marathon/2027/cover-display.jpg",
-        "artWidth": 756,
-        "artHeight": 341,
-        "artPosition": {
-          "left": 166,
-          "top": 135
-        },
+        "publicPath": "/races/meishan-renshou-half-marathon/2027/cover-display-v2.jpg",
         "width": 1088,
         "height": 612,
-        "aspectRatio": 1.7778,
         "format": "jpeg",
-        "fileSizeBytes": 90091,
-        "sha256": "375fbcf247e0b704ce5ef59d7a31462baad33acc5e8e3804a8cc3bde3048d2e5"
+        "aspectRatio": 1.7778,
+        "fileSizeBytes": 94846,
+        "sha256": "404a2b76115ee01d4bc7071139231a4a6af21f619b05230cf8fa92b376fdf0f7",
+        "derivation": "Full-bleed 16:9. Background adapted with image generation from the original blue and race ribbons; gold 2027 is isolated from the approved original. Existing card title and date provide the race information."
       },
       {
         "role": "hero",
-        "publicPath": "/races/meishan-renshou-half-marathon/2027/hero-display.jpg",
-        "artWidth": 1080,
-        "artHeight": 487,
-        "artPosition": {
-          "left": 0,
-          "top": 26
-        },
-        "width": 1080,
-        "height": 540,
-        "aspectRatio": 2,
+        "publicPath": "/races/meishan-renshou-half-marathon/2027/hero-display-v2.jpg",
+        "width": 1050,
+        "height": 525,
         "format": "jpeg",
-        "fileSizeBytes": 137313,
-        "sha256": "094e0f16bc2ab413525078f545af21e9192207bb1cd9cfc345ce0e93ed39890a"
+        "aspectRatio": 2,
+        "fileSizeBytes": 135139,
+        "sha256": "874ae3d4419d7000efa2768bc5f366b1faf47208273196657c4d7551b1cb5387",
+        "derivation": "Native 2:1 layout. Trim 15 source pixels at each side and continue the original top edge by 38 px. The original marks, title, date and bottom ribbons survive."
       },
       {
         "role": "share",
@@ -73,35 +63,25 @@
     "images": [
       {
         "role": "cover",
-        "publicPath": "/races/dalian-100/2027/cover-display.jpg",
-        "artWidth": 756,
-        "artHeight": 262,
-        "artPosition": {
-          "left": 166,
-          "top": 175
-        },
+        "publicPath": "/races/dalian-100/2027/cover-display-v2.jpg",
         "width": 1088,
         "height": 612,
-        "aspectRatio": 1.7778,
         "format": "jpeg",
-        "fileSizeBytes": 79287,
-        "sha256": "1ea14cc0023dd3cae7c5d6e3e3b9242494d4ca65b0c1a5341f7715e0ab7fd763"
+        "aspectRatio": 1.7778,
+        "fileSizeBytes": 225765,
+        "sha256": "40d5c4462e091c0783d189d8874d56cae9dc28301d0756660185f4a8eba8cfa9",
+        "derivation": "Full-bleed 16:9. Image-generated adaptation of the supplied bridge and sunset plate gives the existing card title and date an uncluttered foreground."
       },
       {
         "role": "hero",
-        "publicPath": "/races/dalian-100/2027/hero-display.jpg",
-        "artWidth": 1440,
-        "artHeight": 499,
-        "artPosition": {
-          "left": 0,
-          "top": 110
-        },
+        "publicPath": "/races/dalian-100/2027/hero-display-v2.jpg",
         "width": 1440,
         "height": 720,
-        "aspectRatio": 2,
         "format": "jpeg",
-        "fileSizeBytes": 176005,
-        "sha256": "6e5731307c8c707ff2a62ffc90dee2b2ad47aac9aa770c8bc42ccc705bc7e7eb"
+        "aspectRatio": 2,
+        "fileSizeBytes": 208169,
+        "sha256": "67929c17a5c0efaa26556c538600cbb01d5866ed63d8d5d4b25cdb2c1aacc9cc",
+        "derivation": "Native 2:1 layout. Trim 16 source pixels at each side, continue the existing sky and water to the canvas edges, and blend adapted water into the lower extension. The source distances and anniversary artwork remain legible."
       },
       {
         "role": "share",

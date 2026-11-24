@@ -8,6 +8,11 @@ const projectRoot = join(import.meta.dirname, "..");
 const graphPath = join(projectRoot, "data/canonical/race-graph-v1.json");
 const graph = JSON.parse(readFileSync(graphPath, "utf8"));
 const checkOnly = process.argv.includes("--check");
+// These editions keep their device-reviewed share composition from the first cover.
+const shareSources = new Map([
+  ["meishan-renshou-half-marathon-2027", "/races/meishan-renshou-half-marathon/2027/cover-display.jpg"],
+  ["dalian-100-2027", "/races/dalian-100/2027/cover-display.jpg"],
+]);
 
 const outputs = [];
 // Staged Editions have no public share route.
@@ -17,8 +22,10 @@ for (const record of publicRecords) {
   const coverImage = record.edition?.coverImage;
   if (typeof coverImage !== "string" || !coverImage.startsWith("/races/")) continue;
 
-  const sourcePath = join(projectRoot, "public", coverImage);
-  const outputPath = join(dirname(sourcePath), "share-cover-5x4.jpg");
+  const coverPath = join(projectRoot, "public", coverImage);
+  const shareSource = shareSources.get(record.edition.editionId) ?? coverImage;
+  const sourcePath = join(projectRoot, "public", shareSource);
+  const outputPath = join(dirname(coverPath), "share-cover-5x4.jpg");
   const source = await sharp(sourcePath).metadata();
   if (!source.width || !source.height) throw new Error(`Missing cover dimensions: ${sourcePath}`);
   // Narrow supplied artwork keeps native pixels; existing wide-cover outputs stay unchanged.
