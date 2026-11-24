@@ -15,14 +15,14 @@
     "images": [
       {
         "role": "cover",
-        "publicPath": "/races/meishan-renshou-half-marathon/2027/cover-display-v2.jpg",
+        "publicPath": "/races/meishan-renshou-half-marathon/2027/cover-display-v3.jpg",
         "width": 1088,
         "height": 612,
         "format": "jpeg",
         "aspectRatio": 1.7778,
-        "fileSizeBytes": 94846,
-        "sha256": "404a2b76115ee01d4bc7071139231a4a6af21f619b05230cf8fa92b376fdf0f7",
-        "derivation": "Full-bleed 16:9. Background adapted with image generation from the original blue and race ribbons; gold 2027 is isolated from the approved original. Existing card title and date provide the race information."
+        "fileSizeBytes": 150949,
+        "sha256": "7662c34534d39700a857de36d4fb6d6522c19158e5c3b6e630d1f35993ed930a",
+        "derivation": "From the approved 2:1 Hero. Resize proportionally to full width and continue the existing bottom edge to 16:9. The official heading, date and artwork retain the Hero proportions."
       },
       {
         "role": "hero",
@@ -63,14 +63,14 @@
     "images": [
       {
         "role": "cover",
-        "publicPath": "/races/dalian-100/2027/cover-display-v2.jpg",
+        "publicPath": "/races/dalian-100/2027/cover-display-v3.jpg",
         "width": 1088,
         "height": 612,
         "format": "jpeg",
         "aspectRatio": 1.7778,
-        "fileSizeBytes": 225765,
-        "sha256": "40d5c4462e091c0783d189d8874d56cae9dc28301d0756660185f4a8eba8cfa9",
-        "derivation": "Full-bleed 16:9. Image-generated adaptation of the supplied bridge and sunset plate gives the existing card title and date an uncluttered foreground."
+        "fileSizeBytes": 155691,
+        "sha256": "0e4a44095230ddb6f0e5e2e9494ba94ff657f3f82c2ecdb3e69814d1a7e763dd",
+        "derivation": "From the approved 2:1 Hero. Resize proportionally to full width and continue the existing water at the bottom to 16:9. The bridge, distance labels and anniversary marks retain the Hero proportions."
       },
       {
         "role": "hero",

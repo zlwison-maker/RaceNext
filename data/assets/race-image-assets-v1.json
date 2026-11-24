@@ -1875,7 +1875,7 @@
       "assetId": "meishan-renshou-half-marathon-2027-cover",
       "editionId": "meishan-renshou-half-marathon-2027",
       "role": "cover",
-      "publicPath": "/races/meishan-renshou-half-marathon/2027/cover-display-v2.jpg",
+      "publicPath": "/races/meishan-renshou-half-marathon/2027/cover-display-v3.jpg",
       "originalPublicPath": "/races/meishan-renshou-half-marathon/2027/original.png",
       "originalFilename": "2027 眉山仁寿半程马拉松 cover&hero.png",
       "imageYear": 2027,
@@ -1885,15 +1885,15 @@
       "height": 612,
       "aspectRatio": 1.7778,
       "format": "jpeg",
-      "fileSizeBytes": 94846,
-      "sha256": "404a2b76115ee01d4bc7071139231a4a6af21f619b05230cf8fa92b376fdf0f7",
+      "fileSizeBytes": 150949,
+      "sha256": "7662c34534d39700a857de36d4fb6d6522c19158e5c3b6e630d1f35993ed930a",
       "source": {
         "type": "user_provided",
         "receivedAt": "2026-11-24",
         "sourceUrl": null,
         "usageRightsStatus": "unverified"
       },
-      "notes": "Full-bleed 16:9. Background adapted with image generation from the original blue and race ribbons; gold 2027 is isolated from the approved original. Existing card title and date provide the race information. Source rights and updated device appearance pending Human confirmation.",
+      "notes": "From the approved 2:1 Hero. Resize proportionally to full width and continue the existing bottom edge to 16:9. The official heading, date and artwork retain the Hero proportions. Source rights and updated device appearance pending Human confirmation.",
       "original": {
         "width": 1080,
         "height": 487,
@@ -1903,14 +1903,14 @@
         "sha256": "3fb619efc7b430d0c33cab88fafd54a2c7510f10ef6ce8572828f8714d8afd0c"
       },
       "derived": {
-        "publicPath": "/races/meishan-renshou-half-marathon/2027/cover-display-v2.jpg",
+        "publicPath": "/races/meishan-renshou-half-marathon/2027/cover-display-v3.jpg",
         "width": 1088,
         "height": 612,
         "format": "jpeg",
         "aspectRatio": 1.7778,
-        "fileSizeBytes": 94846,
-        "sha256": "404a2b76115ee01d4bc7071139231a4a6af21f619b05230cf8fa92b376fdf0f7",
-        "derivation": "Full-bleed 16:9. Background adapted with image generation from the original blue and race ribbons; gold 2027 is isolated from the approved original. Existing card title and date provide the race information. Original SHA-256 3fb619efc7b430d0c33cab88fafd54a2c7510f10ef6ce8572828f8714d8afd0c."
+        "fileSizeBytes": 150949,
+        "sha256": "7662c34534d39700a857de36d4fb6d6522c19158e5c3b6e630d1f35993ed930a",
+        "derivation": "From the approved 2:1 Hero. Resize proportionally to full width and continue the existing bottom edge to 16:9. The official heading, date and artwork retain the Hero proportions. Approved Hero SHA-256 874ae3d4419d7000efa2768bc5f366b1faf47208273196657c4d7551b1cb5387."
       }
     },
     {
@@ -1959,7 +1959,7 @@
       "assetId": "dalian-100-2027-cover",
       "editionId": "dalian-100-2027",
       "role": "cover",
-      "publicPath": "/races/dalian-100/2027/cover-display-v2.jpg",
+      "publicPath": "/races/dalian-100/2027/cover-display-v3.jpg",
       "originalPublicPath": "/races/dalian-100/2027/original.png",
       "originalFilename": "2027大连 100 cover&hero.png",
       "imageYear": 2027,
@@ -1969,15 +1969,15 @@
       "height": 612,
       "aspectRatio": 1.7778,
       "format": "jpeg",
-      "fileSizeBytes": 225765,
-      "sha256": "40d5c4462e091c0783d189d8874d56cae9dc28301d0756660185f4a8eba8cfa9",
+      "fileSizeBytes": 155691,
+      "sha256": "0e4a44095230ddb6f0e5e2e9494ba94ff657f3f82c2ecdb3e69814d1a7e763dd",
       "source": {
         "type": "user_provided",
         "receivedAt": "2026-11-24",
         "sourceUrl": null,
         "usageRightsStatus": "unverified"
       },
-      "notes": "Full-bleed 16:9. Image-generated adaptation of the supplied bridge and sunset plate gives the existing card title and date an uncluttered foreground. Source rights and updated device appearance pending Human confirmation.",
+      "notes": "From the approved 2:1 Hero. Resize proportionally to full width and continue the existing water at the bottom to 16:9. The bridge, distance labels and anniversary marks retain the Hero proportions. Source rights and updated device appearance pending Human confirmation.",
       "original": {
         "width": 2048,
         "height": 709,
@@ -1987,14 +1987,14 @@
         "sha256": "b51b490da7905ae265ebe7c66f402462e6f6fa354ee253624b5e6d2ed3fd4d7f"
       },
       "derived": {
-        "publicPath": "/races/dalian-100/2027/cover-display-v2.jpg",
+        "publicPath": "/races/dalian-100/2027/cover-display-v3.jpg",
         "width": 1088,
         "height": 612,
         "format": "jpeg",
         "aspectRatio": 1.7778,
-        "fileSizeBytes": 225765,
-        "sha256": "40d5c4462e091c0783d189d8874d56cae9dc28301d0756660185f4a8eba8cfa9",
-        "derivation": "Full-bleed 16:9. Image-generated adaptation of the supplied bridge and sunset plate gives the existing card title and date an uncluttered foreground. Original SHA-256 b51b490da7905ae265ebe7c66f402462e6f6fa354ee253624b5e6d2ed3fd4d7f."
+        "fileSizeBytes": 155691,
+        "sha256": "0e4a44095230ddb6f0e5e2e9494ba94ff657f3f82c2ecdb3e69814d1a7e763dd",
+        "derivation": "From the approved 2:1 Hero. Resize proportionally to full width and continue the existing water at the bottom to 16:9. The bridge, distance labels and anniversary marks retain the Hero proportions. Approved Hero SHA-256 67929c17a5c0efaa26556c538600cbb01d5866ed63d8d5d4b25cdb2c1aacc9cc."
       }
     },
     {

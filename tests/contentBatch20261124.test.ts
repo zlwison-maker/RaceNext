@@ -153,7 +153,7 @@ test("asset originals match the Manifest and compiled view models use the three 
     equal(createHash("sha256").update(original).digest("hex"), approved.image.sha256);
     deepEqual([source.width, source.height], [approved.image.width, approved.image.height]);
     const view = createRaceDetailViewModel(race);
-    equal(view.coverImage, `${prefix}/cover-display-v2.jpg`);
+    equal(view.coverImage, `${prefix}/cover-display-v3.jpg`);
     equal(view.heroImage, `${prefix}/hero-display-v2.jpg`);
     equal(view.heroMode, "aspectFill");
     const share = createRaceShareConfig(view);

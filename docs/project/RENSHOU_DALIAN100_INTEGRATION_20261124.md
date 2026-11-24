@@ -90,3 +90,9 @@ Human 确认其余内容真机验收通过，要求调整两场 Cover 和 Hero�
 仁寿 Hero 保留原版标识、标题及日期，微裁两侧并延续上缘。大连 Hero 保留左侧组三项、跨海桥、右侧十五周年和赛事字标，继续原画面的天空和海面，填满原有 2:1 容器。两张原件及已验收的分享图保留原字节，分享生成器对这两场沿用既有分享图源。新 Cover 和 Hero 使用版本化 URL，方便真机加载新版。
 
 [新版四图及首页叠字预览](previews/renshou-dalian100-cover-hero-v2-20261124.jpg) · [当前资产规格与哈希](inputs/two-races-20261124/asset-verification.json)
+
+## 首页封面统一使用已验收的 Hero
+
+Human 已确认两张 Hero。当前 Cover 直接从对应 Hero 等比缩放到 1088 px 宽，再沿底缘适配至 1088×612。仁寿沿用官方抬头、日期与彩带，大连沿用跨海桥、组别和十五周年标识。首页标题叠层保持既有布局。两张 Cover 使用 V3 版本化 URL，Hero 与分享资源的字节已和上一版本核对一致。
+
+[Cover 与 Hero 对照及首页叠字预览](previews/renshou-dalian100-cover-from-hero-20261124.jpg)
