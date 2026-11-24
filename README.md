@@ -4,7 +4,7 @@
 
 ## Current Status
 
-截至 2026-11-24，生产 Public API 公开 **23 场赛事**。PR #58 服务端部署与公网验收 PASS，发布前 Human Final Device QA PASS，线上正式版真机 Smoke QA 待完成。[发布归档](docs/project/PR58_PRODUCTION_RELEASE_CLOSEOUT_20261124.md) · [生产赛事列表](https://racenext.run/api/races)
+截至 2026-11-24，生产 Public API 公开 **23 场赛事**。PR #58 服务端部署与公网验收 PASS，发布前 Human Final Device QA PASS，Human 于 2026-11-24 确认线上正式版真机 Smoke QA PASS，PR #58 发布验收已结项。[发布归档](docs/project/PR58_PRODUCTION_RELEASE_CLOSEOUT_20261124.md) · [生产赛事列表](https://racenext.run/api/races)
 
 Current Phase:
 

@@ -1,6 +1,6 @@
 # RaceNext PR #58 Production Release Closeout
 
-2026-11-24，生产 Public API 从 **21 场增至 23 场**。Human 已确认两场图片使用权限，发布前微信 Final Device QA 和 GPT Code Review 均通过。服务端独立部署和生产 API PASS，**线上正式版真机 Smoke QA 待完成**。[PR #58](https://github.com/zlwison-maker/RaceNext/pull/58) · [公网验收数据](inputs/two-races-20261123/production-evidence.json)
+2026-11-24，生产 Public API 从 **21 场增至 23 场**。Human 已确认两场图片使用权限，发布前微信 Final Device QA 和 GPT Code Review 均通过。服务端独立部署和生产 API PASS。Human 于同日确认**线上正式版微信真机 Smoke QA 全部 PASS**，PR #58 发布验收正式结项。[PR #58](https://github.com/zlwison-maker/RaceNext/pull/58) · [公网验收数据](inputs/two-races-20261123/production-evidence.json)
 
 ## Merge 与部署
 
@@ -25,7 +25,7 @@
 | Outopia 莫干山云间花径 | 41K、31K、16K，16K 两枪 09:00 和 09:30 | A–E Race Guide 匹配审核版，5 家酒店及 5 条原始携程 Action 一致 |
 | 黄山徽州古城百公里 | 100K、75K、50K、35K、20K；2027-03-27 至 03-28，20K 爬升约 500 米，各组起终点保持 `null` | A–E Race Guide 匹配审核版，4 家酒店及 4 条原始携程 Action 一致，吴怡本堂单项 HOLD |
 
-两场均未公开未核实的 CP 或 Race Strategy。两个 Race Guide 与交付包原文的逐段比对由 PR 测试覆盖，生产响应与审核清单相匹配。**9/9** 条公开 Action 按原始清单精确比较 AppID、Hotel ID、完整 Path、参数顺序及原 2026 年入住日期。Analytics 契约未改动。携程实际跳转、成交及归因另行验证。[Outopia 生产详情](https://racenext.run/api/races/outopia-mogan-cloud-flower-trail-2027) · [黄山生产详情](https://racenext.run/api/races/huangshan-huizhou-ancient-city-trail-2027) · [原始交付清单](inputs/two-races-20261123/manifest.json) · [回归测试](../../tests/contentBatch20261123.test.ts)
+两场均未公开未核实的 CP 或 Race Strategy。两个 Race Guide 与交付包原文的逐段比对由 PR 测试覆盖，生产响应与审核清单相匹配。**9/9** 条公开 Action 按原始清单精确比较 AppID、Hotel ID、完整 Path、参数顺序及原 2026 年入住日期。Analytics 契约未改动。Human 线上真机 Smoke QA 包含携程跳转抽查。实际成交及归因仍未验证。[Outopia 生产详情](https://racenext.run/api/races/outopia-mogan-cloud-flower-trail-2027) · [黄山生产详情](https://racenext.run/api/races/huangshan-huizhou-ancient-city-trail-2027) · [原始交付清单](inputs/two-races-20261123/manifest.json) · [回归测试](../../tests/contentBatch20261123.test.ts)
 
 ## 图片权限及住宿 HOLD
 
@@ -35,4 +35,4 @@
 
 ## 线上真机 Smoke QA
 
-在微信打开正式版 RaceNext，刷新列表并找到两场。检查 Cover、Hero 和分享卡片，切换全部组别，确认黄山起终点未展示、共九家住宿可见且吴怡本堂隐藏。两场各抽查一条携程跳转，核对落地酒店。无需下单。
+2026-11-24，Human 完成微信正式版 Smoke QA 并确认全部 PASS。验收覆盖两场赛事列表及详情、Cover、Hero、分享卡片、组别切换、黄山未确认起终点的隐藏、九家公开住宿及吴怡本堂单项 HOLD，并抽查两场的携程跳转。

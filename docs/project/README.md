@@ -1,6 +1,6 @@
 # RaceNext Project Context
 
-截至 2026-11-24，RaceNext 生产 Public API 已公开 **23 场赛事**。PR #58 合并并部署 `70d57b14ba3d58191b1ea108921c966a7343633b`，包含 Outopia 莫干山和黄山徽州古城。发布前 Human Final Device QA PASS，线上正式版真机 Smoke QA 待完成。[PR #58 Production Release Closeout](PR58_PRODUCTION_RELEASE_CLOSEOUT_20261124.md) · [生产赛事列表](https://racenext.run/api/races)
+截至 2026-11-24，RaceNext 生产 Public API 已公开 **23 场赛事**。PR #58 合并并部署 `70d57b14ba3d58191b1ea108921c966a7343633b`，包含 Outopia 莫干山和黄山徽州古城。发布前 Human Final Device QA PASS，Human 于 2026-11-24 确认线上正式版真机 Smoke QA PASS，PR #58 发布验收已结项。[PR #58 Production Release Closeout](PR58_PRODUCTION_RELEASE_CLOSEOUT_20261124.md) · [生产赛事列表](https://racenext.run/api/races)
 
 历史基线（2026-11-20）为生产 Public API 公开 **21 场赛事**。[PR #56 安全修复](https://github.com/zlwison-maker/RaceNext/pull/56)和 [PR #55 两场赛事接入](https://github.com/zlwison-maker/RaceNext/pull/55)均已合并并完成生产发布，微信正式版真机验收 PASS。详见 [PR #55 Production Release Closeout](TWO_RACE_INTEGRATION_20261119.md#production-release-closeout2026-11-20)。
 
@@ -46,7 +46,7 @@
 
 14. [微信小程序 1.0.1 Release Handoff](MINIPROGRAM_RELEASE_1_0_1_HANDOFF.md) — **RELEASED / HUMAN CONFIRMED 2026-10-14**
 15. [PR #55 Production Release Closeout（含 PR #56 安全发布）](TWO_RACE_INTEGRATION_20261119.md#production-release-closeout2026-11-20) — **`RELEASE_PASS` / `SECURITY_PRODUCTION_PASS` / HUMAN DEVICE QA PASS，2026-11-20**
-16. [PR #58 Production Release Closeout](PR58_PRODUCTION_RELEASE_CLOSEOUT_20261124.md) — **PRODUCTION API PASS / ONLINE DEVICE SMOKE PENDING，2026-11-24**
+16. [PR #58 Production Release Closeout](PR58_PRODUCTION_RELEASE_CLOSEOUT_20261124.md) — **RELEASE CLOSED / PRODUCTION API PASS / HUMAN ONLINE DEVICE SMOKE PASS，2026-11-24**
 
 ### P1｜战略背景
 
