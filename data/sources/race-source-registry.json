@@ -1175,6 +1175,116 @@
           "notes": "交付包 E01–E03 为原规程截图研究转录，本ZIP无三张原截图。公众号原文被验证页阻挡；待取得可复核全文。Human指定03-27/28，由当届合作页正文交叉支持。"
         }
       ]
+    },
+    {
+      "editionId": "meishan-renshou-half-marathon-2027",
+      "sources": [
+        {
+          "sourceId": "meishan-renshou-half-marathon-2027-official-home",
+          "url": "https://www.sichuanbojiesports.com/races/2027-mei-mountain-ren-shou-half-marathon",
+          "domain": "www.sichuanbojiesports.com",
+          "tier": "primary_official",
+          "sourceType": "event_home",
+          "status": "active",
+          "isPrimary": true,
+          "notes": "2027当届博捷赛事详情，挂载独立规程和报名须知。"
+        },
+        {
+          "sourceId": "meishan-renshou-half-marathon-2027-zuicool-registration",
+          "url": "https://reg.zuicool.com/17623",
+          "domain": "reg.zuicool.com",
+          "tier": "trusted_structured",
+          "sourceType": "registration_platform",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "最酷当届合作报名项及资格。预报名中，中签后缴费。"
+        },
+        {
+          "sourceId": "meishan-renshou-half-marathon-2027-official-rules",
+          "url": "https://www.sichuanbojiesports.com/articles/331",
+          "domain": "www.sichuanbojiesports.com",
+          "tier": "primary_official",
+          "sourceType": "regulations",
+          "status": "pending_review",
+          "isPrimary": false,
+          "notes": "图载官方规程入口已直开，全文原图未能读取；不启用自动抽取。"
+        },
+        {
+          "sourceId": "meishan-renshou-half-marathon-2027-51sai-regulations",
+          "url": "https://m.51sai.com/19068/des",
+          "domain": "m.51sai.com",
+          "tier": "trusted_structured",
+          "sourceType": "registration_platform",
+          "status": "pending_review",
+          "isPrimary": false,
+          "notes": "合作平台同届规程表格正文可检索，直开超时；第三方转录同文，仅作字段支持，未归档原页。"
+        }
+      ]
+    },
+    {
+      "editionId": "dalian-100-2027",
+      "sources": [
+        {
+          "sourceId": "dalian-100-2027-official-rules",
+          "url": "https://dl100k.saihuitong.com/text?mid=81897",
+          "domain": "dl100k.saihuitong.com",
+          "tier": "primary_official",
+          "sourceType": "regulations",
+          "status": "active",
+          "isPrimary": true,
+          "notes": "雷越野官方赛会通当届竞赛规程，确认三个组别起终点及爬升、时限。"
+        },
+        {
+          "sourceId": "dalian-100-2027-official-schedule",
+          "url": "https://dl100k.saihuitong.com/text?mid=81901",
+          "domain": "dl100k.saihuitong.com",
+          "tier": "primary_official",
+          "sourceType": "registration_notice",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "官方2027报名须知，区分活动期、成绩时段及报到。"
+        },
+        {
+          "sourceId": "dalian-100-2027-zuicool-registration",
+          "url": "https://reg.zuicool.com/44398",
+          "domain": "reg.zuicool.com",
+          "tier": "trusted_structured",
+          "sourceType": "registration_platform",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "合作报名渠道，仅交叉核验，不能覆盖官方组别直达主按钮。"
+        },
+        {
+          "sourceId": "dalian-100-2027-official-entry-100k",
+          "url": "https://dl100k.saihuitong.com/event?id=910774&mid=81873",
+          "domain": "dl100k.saihuitong.com",
+          "tier": "primary_official",
+          "sourceType": "registration_platform",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "主办方当届指定组别直达报名。按页面自身按钮留该渠道状态，不代表其他渠道。"
+        },
+        {
+          "sourceId": "dalian-100-2027-official-entry-50k",
+          "url": "https://dl100k.saihuitong.com/event?id=911064&mid=81873",
+          "domain": "dl100k.saihuitong.com",
+          "tier": "primary_official",
+          "sourceType": "registration_platform",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "主办方当届指定组别直达报名。按页面自身按钮留该渠道状态，不代表其他渠道。"
+        },
+        {
+          "sourceId": "dalian-100-2027-official-entry-30k",
+          "url": "https://dl100k.saihuitong.com/event?id=911066&mid=81873",
+          "domain": "dl100k.saihuitong.com",
+          "tier": "primary_official",
+          "sourceType": "registration_platform",
+          "status": "active",
+          "isPrimary": false,
+          "notes": "主办方当届指定组别直达报名。按页面自身按钮留该渠道状态，不代表其他渠道。"
+        }
+      ]
     }
   ]
 }

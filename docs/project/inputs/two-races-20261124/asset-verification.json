@@ -1,0 +1,118 @@
+[
+  {
+    "editionId": "meishan-renshou-half-marathon-2027",
+    "original": {
+      "publicPath": "/races/meishan-renshou-half-marathon/2027/original.png",
+      "width": 1080,
+      "height": 487,
+      "aspectRatio": 2.2177,
+      "format": "png",
+      "fileSizeBytes": 531799,
+      "sha256": "3fb619efc7b430d0c33cab88fafd54a2c7510f10ef6ce8572828f8714d8afd0c"
+    },
+    "sourceType": "user_provided",
+    "usageRightsStatus": "unverified",
+    "images": [
+      {
+        "role": "cover",
+        "publicPath": "/races/meishan-renshou-half-marathon/2027/cover-display.jpg",
+        "artWidth": 756,
+        "artHeight": 341,
+        "artPosition": {
+          "left": 166,
+          "top": 135
+        },
+        "width": 1088,
+        "height": 612,
+        "aspectRatio": 1.7778,
+        "format": "jpeg",
+        "fileSizeBytes": 90091,
+        "sha256": "375fbcf247e0b704ce5ef59d7a31462baad33acc5e8e3804a8cc3bde3048d2e5"
+      },
+      {
+        "role": "hero",
+        "publicPath": "/races/meishan-renshou-half-marathon/2027/hero-display.jpg",
+        "artWidth": 1080,
+        "artHeight": 487,
+        "artPosition": {
+          "left": 0,
+          "top": 26
+        },
+        "width": 1080,
+        "height": 540,
+        "aspectRatio": 2,
+        "format": "jpeg",
+        "fileSizeBytes": 137313,
+        "sha256": "094e0f16bc2ab413525078f545af21e9192207bb1cd9cfc345ce0e93ed39890a"
+      },
+      {
+        "role": "share",
+        "publicPath": "/races/meishan-renshou-half-marathon/2027/share-cover-5x4.jpg",
+        "width": 750,
+        "height": 600,
+        "format": "jpeg",
+        "aspectRatio": 1.25,
+        "fileSizeBytes": 82352,
+        "sha256": "2480c4b23a68e1eed2b52f6e667c93b2c56da62f969d0602dd809472737ca249"
+      }
+    ]
+  },
+  {
+    "editionId": "dalian-100-2027",
+    "original": {
+      "publicPath": "/races/dalian-100/2027/original.png",
+      "width": 2048,
+      "height": 709,
+      "aspectRatio": 2.8886,
+      "format": "png",
+      "fileSizeBytes": 2223051,
+      "sha256": "b51b490da7905ae265ebe7c66f402462e6f6fa354ee253624b5e6d2ed3fd4d7f"
+    },
+    "sourceType": "user_provided",
+    "usageRightsStatus": "unverified",
+    "images": [
+      {
+        "role": "cover",
+        "publicPath": "/races/dalian-100/2027/cover-display.jpg",
+        "artWidth": 756,
+        "artHeight": 262,
+        "artPosition": {
+          "left": 166,
+          "top": 175
+        },
+        "width": 1088,
+        "height": 612,
+        "aspectRatio": 1.7778,
+        "format": "jpeg",
+        "fileSizeBytes": 79287,
+        "sha256": "1ea14cc0023dd3cae7c5d6e3e3b9242494d4ca65b0c1a5341f7715e0ab7fd763"
+      },
+      {
+        "role": "hero",
+        "publicPath": "/races/dalian-100/2027/hero-display.jpg",
+        "artWidth": 1440,
+        "artHeight": 499,
+        "artPosition": {
+          "left": 0,
+          "top": 110
+        },
+        "width": 1440,
+        "height": 720,
+        "aspectRatio": 2,
+        "format": "jpeg",
+        "fileSizeBytes": 176005,
+        "sha256": "6e5731307c8c707ff2a62ffc90dee2b2ad47aac9aa770c8bc42ccc705bc7e7eb"
+      },
+      {
+        "role": "share",
+        "publicPath": "/races/dalian-100/2027/share-cover-5x4.jpg",
+        "width": 750,
+        "height": 600,
+        "format": "jpeg",
+        "aspectRatio": 1.25,
+        "fileSizeBytes": 71527,
+        "sha256": "5edab9fb94c1c8447a37488a432934ca30d5d248aa6e060228c88fc67e3ec66a"
+      }
+    ]
+  }
+]
