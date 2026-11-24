@@ -1,0 +1,285 @@
+{
+  "checkedAt": "2026-11-24T03:29:45.387Z",
+  "origin": "https://racenext.run",
+  "previousCount": 21,
+  "productionCount": 23,
+  "commitSha": "70d57b14ba3d58191b1ea108921c966a7343633b",
+  "publicHash": "435478a5ac8d2c080aac275033b5acef9205d82dc292710e413bc6e3a7f5fa5e",
+  "regressionDetails": 21,
+  "ignoredRegressionField": "dataUpdatedAt",
+  "endpoints": [
+    {
+      "path": "/api/races",
+      "sha256": "a02dd793df17e99ba19b730260ce8881ad3137e6a4f4a4a2b324e46a51907c29",
+      "status": 200
+    },
+    {
+      "path": "/api/races/kailas-gongga-100-2026",
+      "sha256": "53c2dc63bb76a174d814bfb3757337809ca99b233d25f1f6bea8d7d4eabfc885",
+      "status": 200
+    },
+    {
+      "path": "/api/races/beijing-marathon-2026",
+      "sha256": "496f72f0cb57dd78d6cb47710bbac4c324d35fd009f7f04bd01ef4801a133b05",
+      "status": 200
+    },
+    {
+      "path": "/api/races/xian-marathon-2026",
+      "sha256": "ca017c80bb63e70d11cd1e5c9c35410e374ce77a8b7083a0d6ab3a7d120f14d2",
+      "status": 200
+    },
+    {
+      "path": "/api/races/chengdu-marathon-2026",
+      "sha256": "465a336374c419dd5ae8415d1c7aa15db04a542dbfb49a9e3c5575fee86ade8a",
+      "status": 200
+    },
+    {
+      "path": "/api/races/tsaigu-kuocang-2026",
+      "sha256": "7011c14111b672a317b9271d3ec25fd935bfced0d86e3df71a730fd8f9a1552a",
+      "status": 200
+    },
+    {
+      "path": "/api/races/ninghai-ultra-trail-2026",
+      "sha256": "7422abb04fc20dddaf0096a813ceab117c0db88385adc87f823c2d4bd8227f41",
+      "status": 200
+    },
+    {
+      "path": "/api/races/nanjing-marathon-2026",
+      "sha256": "1a857dbedf0533e1ecd0e7713f36b315de1554cbb15a30623976c57c772bbb75",
+      "status": 200
+    },
+    {
+      "path": "/api/races/shaoxing-marathon-2026",
+      "sha256": "ff028a3a514496d5fce508abfce4908c3c10feecf0f4af289c0695ed1cbbc2e0",
+      "status": 200
+    },
+    {
+      "path": "/api/races/shanghai-marathon-2026",
+      "sha256": "e8428852d46ff84179d5f0c3fcc30acb8bc3a16d091f98b9deeb6c58c15ecf4a",
+      "status": 200
+    },
+    {
+      "path": "/api/races/shenzhen-marathon-2026",
+      "sha256": "8e9fb25cf9a2831c347fb7450166bdd988e02b7265ab09095126da3a4c548f1c",
+      "status": 200
+    },
+    {
+      "path": "/api/races/guangzhou-marathon-2026",
+      "sha256": "492021e14fe0bf57777329a062e2a64fea0bf8308754ca8a0d2bf91bc880cfab",
+      "status": 200
+    },
+    {
+      "path": "/api/races/shenzhen-100-2026",
+      "sha256": "8e3905735902bbc817c31170f1986b7b1f8078fb4d3e2e60936835b98745b3c5",
+      "status": 200
+    },
+    {
+      "path": "/api/races/fuzhou-marathon-2026",
+      "sha256": "1c172b25ac114730a849600a62993c0426eef5774c76690cc7fbba34df261699",
+      "status": 200
+    },
+    {
+      "path": "/api/races/hengqin-marathon-2026",
+      "sha256": "83c8b5e6f39a08756c17c43c1bc0a366db9ed2754aa8e74ae7a46284c0adb1ef",
+      "status": 200
+    },
+    {
+      "path": "/api/races/chongqing-marathon-2027",
+      "sha256": "94785d91d91a3f6489e42e015de76a927231967b71c19f7e2475e1cd715b447a",
+      "status": 200
+    },
+    {
+      "path": "/api/races/xiamen-marathon-2027",
+      "sha256": "94fa7d262084469c1d0551a536beec481aedbe1697ad292862fb7554ade7a2a0",
+      "status": 200
+    },
+    {
+      "path": "/api/races/guangzhou-100-2027",
+      "sha256": "a98e8e5de3b66753d66c2ff5df660b516588297cc2ab5c9bbb90d390f1807058",
+      "status": 200
+    },
+    {
+      "path": "/api/races/standard-chartered-hong-kong-marathon-2027",
+      "sha256": "5205cd57477f2b9761cfa9c0198e913784a3a2c48b979b3bcca70085fc72a6bc",
+      "status": 200
+    },
+    {
+      "path": "/api/races/hk100-2027",
+      "sha256": "27e14ff54e6172a7c2a4f158a0ccd1ce834ffac3f52fd316de4848dd315245a3",
+      "status": 200
+    },
+    {
+      "path": "/api/races/panda-shudao-shan-2027",
+      "sha256": "895bb832c6495a367f9bdb307b772f098b8d33979fa5812ac3c40810dead0da8",
+      "status": 200
+    },
+    {
+      "path": "/api/races/huangshan-huizhou-ancient-city-trail-2027",
+      "sha256": "d3d2bc84831577c343c34b552edbcaaf012e968589d15d0339a2b878f4ea8e16",
+      "status": 200
+    },
+    {
+      "path": "/api/races/outopia-mogan-cloud-flower-trail-2027",
+      "sha256": "3a6d61c05b1a9dfd520edeafa2f416c5bafbd9ddc5efbcf1516e2087e9c9b0f8",
+      "status": 200
+    },
+    {
+      "path": "/api/races/ultra-trail-mogan-by-utmb-2027",
+      "sha256": "1089d30779a497ad1c490d94a9888530f29685f1f8a140ae3476fdbc18de21b7",
+      "status": 200
+    }
+  ],
+  "internalFieldLeaks": 0,
+  "races": [
+    {
+      "editionId": "outopia-mogan-cloud-flower-trail-2027",
+      "groups": [
+        {
+          "name": "云间追风 YJZF 41K",
+          "distanceKm": 41,
+          "elevationGain": 2814,
+          "startTimes": [
+            "2027-03-28T06:00:00+08:00",
+            "2027-03-28T06:30:00+08:00"
+          ]
+        },
+        {
+          "name": "逐梦山海 ZMSH 31K",
+          "distanceKm": 31,
+          "elevationGain": 2010,
+          "startTimes": [
+            "2027-03-28T07:00:00+08:00",
+            "2027-03-28T07:30:00+08:00",
+            "2027-03-28T08:00:00+08:00"
+          ]
+        },
+        {
+          "name": "飞越竹海 FYZH 16K",
+          "distanceKm": 16,
+          "elevationGain": 1099,
+          "startTimes": [
+            "2027-03-28T09:00:00+08:00",
+            "2027-03-28T09:30:00+08:00"
+          ]
+        }
+      ],
+      "guideSha256": "56c1be0772d8bfd6e3a28bf63608b5817247efd9c2a81437196c5a699749232d",
+      "hotelChecks": [
+        {
+          "hotelId": "1748643",
+          "actionSha256": "02837b7fe3a55370b14d8ca4ae5db41486fe0d116e6337002bc156fa35b584fc"
+        },
+        {
+          "hotelId": "135454224",
+          "actionSha256": "97ce5e6922ba6512a9045de3e36a98cc0cb11b0fc1020b258cf3acfb9dbaba4e"
+        },
+        {
+          "hotelId": "4682318",
+          "actionSha256": "14b72dc7c93d1d102fe8a814b87e6e0a0aa862b83d7e7fac9fe8bb18f7a95da3"
+        },
+        {
+          "hotelId": "8340871",
+          "actionSha256": "8c2b411483c9bd6cbf26957cdcc8832137c52b2f7f4e7268e1d9c2f11fc61f31"
+        },
+        {
+          "hotelId": "134014969",
+          "actionSha256": "4e4a57c623940bd2f4f61206317b17bdd090f28c83d80f9914fcbede44fe1312"
+        }
+      ]
+    },
+    {
+      "editionId": "huangshan-huizhou-ancient-city-trail-2027",
+      "groups": [
+        {
+          "name": "高山流水 100K",
+          "distanceKm": 100,
+          "elevationGain": 4900,
+          "startTimes": [
+            "2027-03-27T05:30:00+08:00"
+          ]
+        },
+        {
+          "name": "渔樵问答 75K",
+          "distanceKm": 75,
+          "elevationGain": 3100,
+          "startTimes": [
+            "2027-03-27T06:30:00+08:00"
+          ]
+        },
+        {
+          "name": "夕阳箫鼓 50K",
+          "distanceKm": 50,
+          "elevationGain": 2100,
+          "startTimes": [
+            "2027-03-27T07:30:00+08:00",
+            "2027-03-27T08:00:00+08:00"
+          ]
+        },
+        {
+          "name": "阳春白雪 35K",
+          "distanceKm": 35,
+          "elevationGain": 1100,
+          "startTimes": [
+            "2027-03-28T08:00:00+08:00",
+            "2027-03-28T08:30:00+08:00"
+          ]
+        },
+        {
+          "name": "春江花月 20K",
+          "distanceKm": 20,
+          "elevationGain": 500,
+          "startTimes": [
+            "2027-03-28T09:00:00+08:00",
+            "2027-03-28T09:30:00+08:00"
+          ]
+        }
+      ],
+      "guideSha256": "7cd04af57ba86dd9f29f705b30df1697da952b52b7f33de7fee5a56fc1a1b6f9",
+      "hotelChecks": [
+        {
+          "hotelId": "133572961",
+          "actionSha256": "9cf054483418995f6786faa9eaef8ba8e55d1aaaf008c4e16840707aaca317de"
+        },
+        {
+          "hotelId": "131987433",
+          "actionSha256": "56d483d83c0e6e0646a62fd7d79980fdfbf7f85f3448bc627bc2bc44ca74aa3b"
+        },
+        {
+          "hotelId": "61002071",
+          "actionSha256": "ad165562be15a788cb5fe11d8bf9ef75486fb4706c8b905891302952790995bf"
+        },
+        {
+          "hotelId": "23865199",
+          "actionSha256": "0b815184713805e2b4cdd4ce17249d64bd4072559cfded3e8ef78ec613dfd3e0"
+        }
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "path": "/races/outopia-mogan-cloud-flower-trail/2027/display-v1.jpg",
+      "status": 200,
+      "bytes": 61696,
+      "sha256": "111a0e9b4de80102849ba4824cebfb63c4390fac9bf530daaa64aad76b554581"
+    },
+    {
+      "path": "/races/outopia-mogan-cloud-flower-trail/2027/share-cover-5x4.jpg",
+      "status": 200,
+      "bytes": 62439,
+      "sha256": "002e61beb3080b8cfa4ba53a2cc7838cbddbd6a0234ed4a0816c27f624ad752d"
+    },
+    {
+      "path": "/races/huangshan-huizhou-ancient-city-trail/2027/display-v2.jpg",
+      "status": 200,
+      "bytes": 201540,
+      "sha256": "4ccf46ebc6ed6001f7dd8f507db7d7a9d7e93f2a383ed0f12aed7fefdb508ca4"
+    },
+    {
+      "path": "/races/huangshan-huizhou-ancient-city-trail/2027/share-cover-5x4.jpg",
+      "status": 200,
+      "bytes": 231277,
+      "sha256": "01a6908da8996d0b293691d1f50141d811dd6b27ebe0cf5e3567fba91ea03c52"
+    }
+  ],
+  "heldHotelId": "68030616"
+}

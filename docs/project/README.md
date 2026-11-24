@@ -1,6 +1,8 @@
 # RaceNext Project Context
 
-截至 2026-11-20，RaceNext 生产 Public API 已公开 **21 场赛事**。[PR #56 安全修复](https://github.com/zlwison-maker/RaceNext/pull/56)和 [PR #55 两场赛事接入](https://github.com/zlwison-maker/RaceNext/pull/55)均已合并并完成生产发布，微信正式版真机验收 PASS。详见 [PR #55 Production Release Closeout](TWO_RACE_INTEGRATION_20261119.md#production-release-closeout2026-11-20)。
+截至 2026-11-24，RaceNext 生产 Public API 已公开 **23 场赛事**。PR #58 合并并部署 `70d57b14ba3d58191b1ea108921c966a7343633b`，包含 Outopia 莫干山和黄山徽州古城。发布前 Human Final Device QA PASS，Human 于 2026-11-24 确认线上正式版真机 Smoke QA PASS，PR #58 发布验收已结项。[PR #58 Production Release Closeout](PR58_PRODUCTION_RELEASE_CLOSEOUT_20261124.md) · [生产赛事列表](https://racenext.run/api/races)
+
+历史基线（2026-11-20）为生产 Public API 公开 **21 场赛事**。[PR #56 安全修复](https://github.com/zlwison-maker/RaceNext/pull/56)和 [PR #55 两场赛事接入](https://github.com/zlwison-maker/RaceNext/pull/55)均已合并并完成生产发布，微信正式版真机验收 PASS。详见 [PR #55 Production Release Closeout](TWO_RACE_INTEGRATION_20261119.md#production-release-closeout2026-11-20)。
 
 历史基线（2026-11-17）：1.9 七场内容与事实修复已分别通过 PR #44 / #45 合入 `main`，当时 Canonical 为 19 个 Edition。[初次七场 Handoff](SEVEN_RACE_CONTENT_INTEGRATION_20261020.md)、[福州/熊猫补证](PR44_FUZHOU_PANDA_FACT_SUPPLEMENT_20261020.md)及[P0 修复 Handoff](SEVEN_RACE_P0_FACT_CONTENT_QA_20261020.md)继续保留各自时点结论。宁海 2026 CNH-60、UTNH-100、YNH-25 三组 CoursePoint 已正式发布并完成微信真机 QA。
 
@@ -33,8 +35,8 @@
 5. [RaceNext 小程序详情页与分享标准 V1](MINIPROGRAM_DETAIL_SHARE_STANDARD_V1.md) — **CURRENT / FROZEN**
 6. [RaceNext 赛事详情页内容撰写规范 V1](RACE_DETAIL_CONTENT_STANDARD_V1.md) — **CURRENT**
 7. [RaceNext 越野赛事详情页内容标准 V1](TRAIL_RACE_DETAIL_STANDARD_V1.md) — **CURRENT**
-8. [RaceNext 赛事住宿推荐与内容生产标准 V1.1](ACCOMMODATION_CONTENT_STANDARD_V1_1.md) — **CURRENT / Source of Truth**；当前赛事住宿推荐、AI Research、Human Approved Set、Final Accommodation Package、Production Board、Ctrip Action 与长期维护标准。
-9. [RaceNext 赛事住宿推荐与内容生产标准 V1](ACCOMMODATION_CONTENT_STANDARD_V1.md) — **HISTORICAL / Superseded by V1.1**；保留历史版本，不再作为当前执行标准。
+8. **RaceNext 赛事住宿推荐与内容生产标准 V1.2** — 当前执行版本。仓库保留 [V1.1](ACCOMMODATION_CONTENT_STANDARD_V1_1.md) 和 [V1](ACCOMMODATION_CONTENT_STANDARD_V1.md) 历史正文。V1.2 正文由 Human 在项目资料维护，现有仓库可查阅[本轮适用记录](PR58_PRODUCTION_RELEASE_CLOSEOUT_20261124.md#图片权限及住宿-hold)。
+9. **RaceNext 新增赛事研究交付标准 V1** — 当前新增赛事研究交付索引。正文由 Human 在项目资料维护，现有仓库可查阅[交付包执行依据](inputs/two-races-20261119/RACENEXT_2027_TWO_RACES_CODEX_DEVELOPMENT_INSTRUCTIONS_20261119.md)。
 10. [RaceNext 图片资产标准 V1](RACENEXT_IMAGE_ASSET_STANDARD_V1.md) — **CURRENT / FROZEN**
 11. [First5 图片资产交付报告](FIRST5_IMAGE_ASSET_DELIVERY_REPORT.md) — **CURRENT**
 12. [Trail Course Point Schema V0.1](TRAIL_COURSE_POINT_SCHEMA_V0_1.md) — **CURRENT / MINIMAL**
@@ -44,10 +46,11 @@
 
 14. [微信小程序 1.0.1 Release Handoff](MINIPROGRAM_RELEASE_1_0_1_HANDOFF.md) — **RELEASED / HUMAN CONFIRMED 2026-10-14**
 15. [PR #55 Production Release Closeout（含 PR #56 安全发布）](TWO_RACE_INTEGRATION_20261119.md#production-release-closeout2026-11-20) — **`RELEASE_PASS` / `SECURITY_PRODUCTION_PASS` / HUMAN DEVICE QA PASS，2026-11-20**
+16. [PR #58 Production Release Closeout](PR58_PRODUCTION_RELEASE_CLOSEOUT_20261124.md) — **RELEASE CLOSED / PRODUCTION API PASS / HUMAN ONLINE DEVICE SMOKE PASS，2026-11-24**
 
 ### P1｜战略背景
 
-16. RaceNext Investor BP 202608 (`reference/RaceNext_Investor_BP_202608.pdf`) — **REFERENCE / 2026.08 / Not Found**
+17. RaceNext Investor BP 202608 (`reference/RaceNext_Investor_BP_202608.pdf`) — **REFERENCE / 2026.08 / Not Found**
 
 Investor BP 用于理解战略与商业背景，不是代码实现约束，也不能自动生成开发需求。
 
@@ -75,7 +78,7 @@ Investor BP 用于理解战略与商业背景，不是代码实现约束，也�
 
 正式流程：Human 提供赛事名称 → GPT 按现有冻结标准完成完整赛事 Research Package → Human Review → Human 确定住宿 Approved Set 与 Ctrip Action → Codex 完成正式数据 / 内容接入 → 测试、Draft PR、发布验收。
 
-ChatGPT Work 云端批量研究实验自 2026-11-17 起暂停。保留实验历史，不把失败结果改写为内容标准问题，也不降低 Race Facts、Race Guide、Runner / Media Evidence、Trail Strategy、Accommodation V1.1 或风险交付标准。
+ChatGPT Work 云端批量研究实验自 2026-11-17 起暂停。保留实验历史，不把失败结果改写为内容标准问题，也不降低 Race Facts、Race Guide、Runner / Media Evidence、Trail Strategy、当前住宿标准 V1.2 或风险交付标准。
 
 ### B. 普通赛事事实更新
 
