@@ -1,4 +1,4 @@
-import { expectedPublicEditionIds } from "./fixtures/contentBatch20261020.ts";
+import { dalianEditionId, expectedPublicEditionIds, renshouEditionId } from "./fixtures/contentBatch20261020.ts";
 import { equal, ok, rejects, throws } from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { test } from "node:test";
@@ -39,6 +39,12 @@ test("release is dynamic, excludes metadata-only triggers, and validates all Pub
     () => buildCanonicalReleaseManifest(invalid, registry, sha),
     /PUBLIC_FACT_GATE/,
   );
+});
+test("approved November 24 batch is included in the Canonical release manifest", () => {
+  const manifest = buildCanonicalReleaseManifest(snapshot, registry, sha);
+  for (const editionId of [renshouEditionId, dalianEditionId]) {
+    ok(manifest.expected.some(({ path }) => path === `/api/races/${editionId}`), editionId);
+  }
 });
 test("production smoke checks every expected DTO and rejects stale, leaking or failing API without disabling HTTPS", async () => {
   const manifest = buildCanonicalReleaseManifest(snapshot, registry, sha);

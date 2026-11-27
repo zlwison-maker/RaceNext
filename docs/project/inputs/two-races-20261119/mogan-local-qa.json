@@ -1,0 +1,239 @@
+{
+  "observedAt": "2026-11-19T10:53:27.430Z",
+  "environment": "isolated local next start, not production or device QA",
+  "origin": "http://127.0.0.1:34971",
+  "baseCommit": "de4f0c6758970926fa60a8167feff9d642c104d6",
+  "api": [
+    {
+      "path": "/api/races",
+      "status": 200
+    },
+    {
+      "path": "/api/races/kailas-gongga-100-2026",
+      "status": 200
+    },
+    {
+      "path": "/api/races/beijing-marathon-2026",
+      "status": 200
+    },
+    {
+      "path": "/api/races/xian-marathon-2026",
+      "status": 200
+    },
+    {
+      "path": "/api/races/chengdu-marathon-2026",
+      "status": 200
+    },
+    {
+      "path": "/api/races/tsaigu-kuocang-2026",
+      "status": 200
+    },
+    {
+      "path": "/api/races/ninghai-ultra-trail-2026",
+      "status": 200
+    },
+    {
+      "path": "/api/races/nanjing-marathon-2026",
+      "status": 200
+    },
+    {
+      "path": "/api/races/shaoxing-marathon-2026",
+      "status": 200
+    },
+    {
+      "path": "/api/races/shanghai-marathon-2026",
+      "status": 200
+    },
+    {
+      "path": "/api/races/shenzhen-marathon-2026",
+      "status": 200
+    },
+    {
+      "path": "/api/races/guangzhou-marathon-2026",
+      "status": 200
+    },
+    {
+      "path": "/api/races/shenzhen-100-2026",
+      "status": 200
+    },
+    {
+      "path": "/api/races/fuzhou-marathon-2026",
+      "status": 200
+    },
+    {
+      "path": "/api/races/hengqin-marathon-2026",
+      "status": 200
+    },
+    {
+      "path": "/api/races/chongqing-marathon-2027",
+      "status": 200
+    },
+    {
+      "path": "/api/races/xiamen-marathon-2027",
+      "status": 200
+    },
+    {
+      "path": "/api/races/guangzhou-100-2027",
+      "status": 200
+    },
+    {
+      "path": "/api/races/standard-chartered-hong-kong-marathon-2027",
+      "status": 200
+    },
+    {
+      "path": "/api/races/hk100-2027",
+      "status": 200
+    },
+    {
+      "path": "/api/races/panda-shudao-shan-2027",
+      "status": 200
+    },
+    {
+      "path": "/api/races/ultra-trail-mogan-by-utmb-2027",
+      "status": 200
+    }
+  ],
+  "publicRaceCount": 21,
+  "otherPublicDetailsPreserved": 20,
+  "mogan": {
+    "categories": [
+      {
+        "categoryId": "ultra-trail-mogan-by-utmb-2027-dmg",
+        "label": "DMG 100K",
+        "name": "DMG 100K",
+        "isPrimaryCategory": true,
+        "coreFacts": [
+          {
+            "key": "distance",
+            "label": "距离",
+            "value": "100 km"
+          },
+          {
+            "key": "elevationGain",
+            "label": "爬升",
+            "value": "5,000 m"
+          },
+          {
+            "key": "cutoff",
+            "label": "关门时间",
+            "value": "28 h"
+          }
+        ],
+        "executionFacts": [
+          {
+            "key": "startAt",
+            "label": "出发时间",
+            "value": "2027.04.16 20:00"
+          },
+          {
+            "key": "startFinish",
+            "label": "起终点",
+            "value": "郡安里"
+          }
+        ],
+        "coursePointSection": null
+      },
+      {
+        "categoryId": "ultra-trail-mogan-by-utmb-2027-cmg",
+        "label": "CMG 65K",
+        "name": "CMG 65K",
+        "isPrimaryCategory": false,
+        "coreFacts": [
+          {
+            "key": "distance",
+            "label": "距离",
+            "value": "65 km"
+          },
+          {
+            "key": "elevationGain",
+            "label": "爬升",
+            "value": "3,400 m"
+          },
+          {
+            "key": "cutoff",
+            "label": "关门时间",
+            "value": "19 h"
+          }
+        ],
+        "executionFacts": [
+          {
+            "key": "startAt",
+            "label": "出发时间",
+            "value": "2027.04.17 07:00"
+          },
+          {
+            "key": "start",
+            "label": "起点",
+            "value": "裸心谷生态度假区"
+          },
+          {
+            "key": "finish",
+            "label": "终点",
+            "value": "郡安里"
+          }
+        ],
+        "coursePointSection": null
+      },
+      {
+        "categoryId": "ultra-trail-mogan-by-utmb-2027-mmg",
+        "label": "MMG 50K",
+        "name": "MMG 50K",
+        "isPrimaryCategory": false,
+        "coreFacts": [
+          {
+            "key": "distance",
+            "label": "距离",
+            "value": "50 km"
+          },
+          {
+            "key": "elevationGain",
+            "label": "爬升",
+            "value": "2,900 m"
+          },
+          {
+            "key": "cutoff",
+            "label": "关门时间",
+            "value": "15 h"
+          }
+        ],
+        "executionFacts": [
+          {
+            "key": "startAt",
+            "label": "出发时间",
+            "value": "2027.04.16 22:00"
+          },
+          {
+            "key": "startFinish",
+            "label": "起终点",
+            "value": "郡安里"
+          }
+        ],
+        "coursePointSection": null
+      }
+    ],
+    "registrationStatus": "unknown",
+    "registrationDisplay": "报名信息待确认",
+    "headerMetaDisplay": "2027.04.16–04.18 · 浙江 · 湖州市 · 报名信息待确认",
+    "hotelCount": 5,
+    "withheld": [
+      "NMG 35K",
+      "EMG 20K",
+      "10K"
+    ],
+    "strategy": null
+  },
+  "sharedFallbackImpact": [
+    {
+      "editionId": "shenzhen-marathon-2026",
+      "change": "unknown status now displays 报名信息待确认; underlying API/data unchanged"
+    },
+    {
+      "editionId": "fuzhou-marathon-2026",
+      "change": "unknown status now displays 报名信息待确认; underlying API/data unchanged"
+    },
+    {
+      "editionId": "hengqin-marathon-2026",
+      "change": "unknown status now displays 报名信息待确认; underlying API/data unchanged"
+    }
+  ]
+}

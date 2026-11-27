@@ -1,4 +1,4 @@
-import { expectedPublicEditionIds } from "./fixtures/contentBatch20261020.ts";
+import { expectedCanonicalEditionIds, expectedPublicEditionIds, outopiaEditionId } from "./fixtures/contentBatch20261020.ts";
 import { createPublicRaceListResult } from "../lib/raceGraphPublic.ts";
 import { deepEqual, equal, ok } from "node:assert/strict";
 import { execFileSync } from "node:child_process";
@@ -220,7 +220,7 @@ test("all public race Covers have deterministic centered 5:4 JPEG derivatives; n
     new URL("../data/canonical/race-graph-v1.json", import.meta.url),
     "utf8",
   )) as { records: Array<{ edition: { coverImage: string; editionId: string } }> };
-  equal(canonical.records.length, 19);
+  deepEqual(new Set(canonical.records.map(({ edition }) => edition.editionId)), new Set(expectedCanonicalEditionIds));
   const list = createPublicRaceListResult(canonical);
   equal(list.status, 200);
   if (list.status !== 200) return;
@@ -239,8 +239,9 @@ test("all public race Covers have deterministic centered 5:4 JPEG derivatives; n
     equal(bytes[bytes.length - 1], 0xd9);
     const metadata = await sharp(bytes).metadata();
     equal(metadata.width! * 4, metadata.height! * 5);
-    if (edition.editionId === "panda-shudao-shan-2027") {
-      deepEqual([metadata.width, metadata.height], [235, 188]);
+    if (edition.editionId === "panda-shudao-shan-2027" || edition.editionId === outopiaEditionId) {
+      const expectedSize = edition.editionId === outopiaEditionId ? [585, 468] : [235, 188];
+      deepEqual([metadata.width, metadata.height], expectedSize);
       const cover = await sharp(readFileSync(new URL(`../public${edition.coverImage}`, import.meta.url))).metadata();
       ok(metadata.width! <= cover.width! && metadata.height! <= cover.height!);
     } else {

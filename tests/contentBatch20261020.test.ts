@@ -14,7 +14,7 @@ import { assertRaceSourceRegistry, activeFreshnessSources } from "../scripts/rac
 import { buildRaceDailyCheckTargets } from "../scripts/race-update/dailyCheck.ts";
 import { buildCanonicalReleaseManifest } from "../scripts/release/canonicalRelease.ts";
 import type { RaceGraphSnapshot, RaceSourceRegistry } from "../types/raceUpdate.ts";
-import { existingTwelveEditionIds, expectedPublicEditionIds, newPublicEditionIds } from "./fixtures/contentBatch20261020.ts";
+import { existingTwelveEditionIds, expectedCanonicalEditionIds, expectedPublicEditionIds, newPublicEditionIds } from "./fixtures/contentBatch20261020.ts";
 
 const read = (p: string) => readFileSync(new URL(`../${p}`, import.meta.url));
 const graph = JSON.parse(read("data/canonical/race-graph-v1.json").toString()) as RaceGraphSnapshot;
@@ -64,7 +64,7 @@ test("all 35 approved hotel names, order, copy and opaque Ctrip actions match V2
 
 test("existing Fact Gate accepts supplemented facts; Public API includes all seven Human-approved Editions", () => {
   assertRaceGraphSnapshot(graph); assertRaceSourceRegistry(registry);
-  equal(graph.records.length, 19); equal(newRecords.length, 7);
+  deepEqual(new Set(graph.records.map(({ edition }) => edition.editionId)), new Set(expectedCanonicalEditionIds)); equal(newRecords.length, 7);
   const list = createPublicRaceListResult(graph); equal(list.status, 200); if (list.status !== 200) return;
   deepEqual(new Set(list.body.races.map(r => r.editionId)), new Set(expectedPublicEditionIds));
   ok(existingTwelveEditionIds.every(id => list.body.races.some(r => r.editionId === id)));
@@ -106,7 +106,7 @@ test("official category precision, wave times and conflict isolation do not infe
 });
 
 test("new registry identities are unique, domain-matched and usable without changing daily discovery or approval rules", () => {
-  equal(registry.editions.length, 19);
+  equal(registry.editions.length, graph.records.length);
   const sourceIds = registry.editions.flatMap(e => e.sources.map(s => s.sourceId)); equal(new Set(sourceIds).size, sourceIds.length);
   for (const r of newRecords) {
     const e = registry.editions.find(e => e.editionId === r.edition.editionId)!; ok(e);

@@ -356,7 +356,7 @@ test("a single Half Marathon uses its official Category name and exact distance"
   });
 });
 
-test("header location falls back safely and omits an unknown registration status", () => {
+test("header location falls back safely and shows unconfirmed registration without an open claim", () => {
   const race = structuredClone(beijing);
   race.location = { country: "中国", province: null, city: null, district: null, venue: null };
   race.locationDisplay = "已核验赛事地点";
@@ -364,8 +364,8 @@ test("header location falls back safely and omits an unknown registration status
   const detail = createRaceDetailViewModel(race);
 
   equal(detail.headerLocationDisplay, "已核验赛事地点");
-  equal(detail.registrationDisplay, null);
-  equal(detail.headerMetaDisplay, "2026.10.18 周日 · 已核验赛事地点");
+  equal(detail.registrationDisplay, "报名信息待确认");
+  equal(detail.headerMetaDisplay, "2026.10.18 周日 · 已核验赛事地点 · 报名信息待确认");
 });
 
 test("long city copy remains complete in the compact header", () => {
@@ -409,8 +409,10 @@ test("a race without Accommodation still exposes its guide facts", () => {
   deepEqual(detail.selectedCategory?.coreFacts.map(({ value }) => value), ["42.195 km"]);
 });
 
-test("unknown registration status stays hidden", () => {
-  equal(createRaceDetailViewModel({ ...hk100, registrationStatus: "unknown" }).registrationDisplay, null);
+test("unknown registration status is explicitly unconfirmed without changing the source value", () => {
+  const race = { ...hk100, registrationStatus: "unknown" as const };
+  equal(createRaceDetailViewModel(race).registrationDisplay, "报名信息待确认");
+  equal(race.registrationStatus, "unknown");
 });
 
 test("Guangzhou and HK100 closed registration displays correctly", () => {

@@ -1,3 +1,4 @@
+import { expectedCanonicalEditionIds, expectedPublicEditionIds } from "./fixtures/contentBatch20261020.ts";
 import { deepEqual, equal, ok } from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { test } from "node:test";
@@ -62,24 +63,24 @@ test("85K cubed remains one explicit team Category, never individual 85K or 255k
   deepEqual(c.governance.sources[0].rawData?.teamEvidence, {feeForTwo:1760, feeForThree:2400, allMembersMustQualify:true, cpPunchGapMinutes:2});
 });
 
-test("19 Edition Fact Gates and API pass after Human accepts supplied image; explicit publication holds still fail closed", () => {
+test("All Edition Fact Gates and API pass after Human accepts supplied image; explicit publication holds still fail closed", () => {
   assertRaceGraphSnapshot(graph); assertRaceSourceRegistry(registry);
   const factReady = graph.records.filter(r => evaluatePrePublishFactGate(r, registry.editions.find(e => e.editionId === r.edition.editionId)).publishable);
-  equal(factReady.length, 19);
+  deepEqual(new Set(factReady.map(({ edition }) => edition.editionId)), new Set(expectedCanonicalEditionIds));
   const list = createPublicRaceListResult(graph); equal(list.status, 200); if (list.status !== 200) return;
-  equal(list.body.races.length, 19); equal(createPublicRaceDetailResult(graph, fz.edition.editionId).status, 200);
+  equal(list.body.races.length, expectedPublicEditionIds.length); equal(createPublicRaceDetailResult(graph, fz.edition.editionId).status, 200);
   equal(createPublicRaceDetailResult(graph, panda.edition.editionId).status, 200);
   deepEqual(panda.edition.governance.internalFlags, []);
   const assets = JSON.parse(read("data/assets/race-image-assets-v1.json").toString()).assets;
   const image = assets.find((a: {assetId: string}) => a.assetId === "panda-shudao-shan-2027-cover");
   deepEqual([image.width, image.height], [480, 189]); equal(image.qualityStatus, "needs_higher_resolution");
-  const manifest = buildCanonicalReleaseManifest(graph, registry, "a".repeat(40)); equal(manifest.expected.length, 20);
+  const manifest = buildCanonicalReleaseManifest(graph, registry, "a".repeat(40)); equal(manifest.expected.length, expectedPublicEditionIds.length + 1);
   ok(manifest.expected.some(e => e.path.endsWith(panda.edition.editionId)));
   // An explicit publication hold still blocks an otherwise fact-ready Edition.
   const held = structuredClone(graph);
   held.records.find(r => r.edition.editionId === panda.edition.editionId)!.edition.governance.internalFlags = ["do_not_publish"];
   const heldList = createPublicRaceListResult(held); equal(heldList.status, 200);
-  if (heldList.status === 200) equal(heldList.body.races.length, 18);
+  if (heldList.status === 200) equal(heldList.body.races.length, expectedPublicEditionIds.length - 1);
   equal(createPublicRaceDetailResult(held, panda.edition.editionId).status, 404);
   ok(!buildCanonicalReleaseManifest(held, registry, "a".repeat(40)).expected.some(e => e.path.endsWith(panda.edition.editionId)));
   const detail = createPublicRaceDetailResult(graph, panda.edition.editionId); equal(detail.status, 200);

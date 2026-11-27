@@ -1,0 +1,398 @@
+{
+  "observedAt": "2026-11-19T10:50:09.892Z",
+  "baseCommit": "de4f0c6758970926fa60a8167feff9d642c104d6",
+  "officialEntry": "https://lungkingos.lungking.com/s/evps2696",
+  "officialApiQueries": {
+    "getRaceInfo": {
+      "url": "https://lungkingos.lungking.com/index/app/race/detail/getRaceInfo",
+      "method": "POST read-only public detail lookup",
+      "parameters": {
+        "raceId": "2c908c04a1ce915301a1cf4a7b7a4862",
+        "tenantCode": "lungking"
+      },
+      "curlExit": 0,
+      "httpStatus": "200",
+      "bytes": 4754,
+      "contentHash": "8f35c2752fca784c72b84bce51dd4da9bb1b3ec5280ceb36d2d8b5928a3e2ffe",
+      "fetchedAt": "2026-11-19T10:47:08.401354+00:00"
+    },
+    "getCategoryList": {
+      "url": "https://lungkingos.lungking.com/index/app/race/detail/getCategoryList",
+      "method": "POST read-only public detail lookup",
+      "parameters": {
+        "raceId": "2c908c04a1ce915301a1cf4a7b7a4862",
+        "tenantCode": "lungking"
+      },
+      "curlExit": 0,
+      "httpStatus": "200",
+      "bytes": 3640,
+      "contentHash": "948b115643df22a59fb695707505eddd46cb6b7acfa81f7b15a26de32f93d7bf",
+      "fetchedAt": "2026-11-19T10:47:08.729900+00:00"
+    },
+    "getIntroduction": {
+      "url": "https://lungkingos.lungking.com/index/app/race/detail/getIntroduction",
+      "method": "POST read-only public detail lookup",
+      "parameters": {
+        "raceId": "2c908c04a1ce915301a1cf4a7b7a4862",
+        "tenantCode": "lungking"
+      },
+      "curlExit": 0,
+      "httpStatus": "200",
+      "bytes": 1004,
+      "contentHash": "851698da86b902b466b714fb9d4017abd65adb2e644e2d1db87367db0ce80480",
+      "fetchedAt": "2026-11-19T10:47:08.328386+00:00"
+    }
+  },
+  "officialRulebookImages": [
+    {
+      "file": "lungking-rules-1.image",
+      "url": "https://lungkingos.lungking.com/resource/image/a101f3f85f2ea99be10861636128e1136247ed6daf395b82ce54f91146727ee364e122be03ead27df6df95caaa7904db2922295983ca910d",
+      "curlExit": 0,
+      "contentHash": "9bec9bbf201cb0a4391a1ceb175064170afb94ff3178dafdc30bdef5df415f21",
+      "fetchedAt": "2026-11-19T10:47:32.732203+00:00"
+    },
+    {
+      "file": "lungking-rules-2.image",
+      "url": "https://lungkingos.lungking.com/resource/image/a101f3f85f2ea99bf0ceee714d07851d1cd92cbbe507a0490e0b6fccb48a7e252b53308fbc3d331e077ae6c2649ef3bf3986351d04b82b25",
+      "curlExit": 0,
+      "contentHash": "cea629c9e3623820162ef81840332627e88e3702858b75afb5454311009dc320",
+      "fetchedAt": "2026-11-19T10:47:32.666319+00:00"
+    },
+    {
+      "file": "lungking-rules-3.image",
+      "url": "https://lungkingos.lungking.com/resource/image/a101f3f85f2ea99b92678a8cf33c28b43aac348d211aa0e0488982a3f2ef41476d750dd983e74de2999428403b890c26ce7b577b95a4f4b8",
+      "curlExit": 0,
+      "contentHash": "d34659b2f833f847c4d9ac4eeb281c4cbb17159b7e08f9dbc6b93cdce86a8342",
+      "fetchedAt": "2026-11-19T10:47:32.517062+00:00"
+    }
+  ],
+  "categoryComparisons": [
+    {
+      "categoryId": "ultra-trail-mogan-by-utmb-2027-nmg",
+      "nominalDistanceKm": 35,
+      "website": {
+        "url": "https://mogan.utmb.world/races/NMG",
+        "pageDistanceKm": 36,
+        "elevationGain": 1900,
+        "startAt": "2027-04-17T09:00:00+08:00",
+        "cutoffTimeHours": 11,
+        "startLocation": "J.LALLI VALLEY",
+        "finishLocation": null
+      },
+      "organizerRulebook": {
+        "categoryId": "ultra-trail-mogan-by-utmb-2027-nmg",
+        "officialCategoryLabel": "NMG 35K",
+        "nominalDistanceKm": 35,
+        "actualCourseDistanceKm": 35.6,
+        "elevationGain": 2180,
+        "startAt": "2027-04-17T09:00:00+08:00",
+        "cutoffTimeHours": 11,
+        "startLocation": "郡安里",
+        "finishLocation": "郡安里"
+      },
+      "publication": "HOLD",
+      "reason": "official source values conflict; Human must adjudicate before publication"
+    },
+    {
+      "categoryId": "ultra-trail-mogan-by-utmb-2027-emg",
+      "nominalDistanceKm": 20,
+      "website": {
+        "url": "https://mogan.utmb.world/races/EMG",
+        "pageDistanceKm": 23,
+        "elevationGain": 1200,
+        "startAt": "2027-04-18T09:00:00+08:00",
+        "cutoffTimeHours": 7,
+        "startLocation": "J.LALLI VALLEY",
+        "finishLocation": null
+      },
+      "organizerRulebook": {
+        "categoryId": "ultra-trail-mogan-by-utmb-2027-emg",
+        "officialCategoryLabel": "EMG 20K",
+        "nominalDistanceKm": 20,
+        "actualCourseDistanceKm": 23,
+        "elevationGain": 1260,
+        "startAt": "2027-04-18T09:00:00+08:00",
+        "cutoffTimeHours": 7,
+        "startLocation": "郡安里",
+        "finishLocation": "郡安里"
+      },
+      "publication": "HOLD",
+      "reason": "official source values conflict; Human must adjudicate before publication"
+    },
+    {
+      "categoryId": "ultra-trail-mogan-by-utmb-2027-10k",
+      "nominalDistanceKm": 10,
+      "website": {
+        "url": "https://mogan.utmb.world/races/10K",
+        "pageDistanceKm": 10,
+        "elevationGain": 300,
+        "startAt": "2027-04-18T10:00:00+08:00",
+        "cutoffTimeHours": 3.5,
+        "startLocation": "J.LALLI VALLEY",
+        "finishLocation": null
+      },
+      "organizerRulebook": {
+        "categoryId": "ultra-trail-mogan-by-utmb-2027-10k",
+        "officialCategoryLabel": "FMG10K",
+        "nominalDistanceKm": 10,
+        "actualCourseDistanceKm": 11.3,
+        "elevationGain": 340,
+        "startAt": "2027-04-18T10:00:00+08:00",
+        "cutoffTimeHours": 3.5,
+        "startLocation": "郡安里",
+        "finishLocation": "郡安里"
+      },
+      "publication": "HOLD",
+      "reason": "official source values conflict; Human must adjudicate before publication"
+    }
+  ],
+  "registration": {
+    "canonicalStatus": "unknown",
+    "reason": "official website closed labels vs organizer APPLYING and current registration phase; channel/update cause not proven",
+    "entryDoesNotConferRacePlace": true
+  },
+  "chinesePages": {
+    "NMG": "HTTP 500 error page",
+    "EMG": "body key-figures says 10K, narrative says20K; do not use as EMG values",
+    "10K": "HTTP 500 error page"
+  },
+  "fetchedPages": {
+    "home-zh": {
+      "url": "https://mogan.utmb.world/zh-Hans",
+      "http": [
+        "200",
+        "https://mogan.utmb.world/zh-Hans",
+        "text/html; charset=utf-8"
+      ],
+      "bytes": 543442,
+      "sha256": "015a404d8e68a62e5154ac4b3697b66832bb114f258651d908b7218933a845d7",
+      "fetchedAt": "2026-11-19T10:47:01.448304+00:00",
+      "curlExit": 0
+    },
+    "reg-en": {
+      "url": "https://mogan.utmb.world/registrations",
+      "http": [
+        "200",
+        "https://mogan.utmb.world/registrations",
+        "text/html; charset=utf-8"
+      ],
+      "bytes": 509914,
+      "sha256": "cd5c4d57159d834cded5a923fa6d38bbba5c7087193a1a85e416ebac63873998",
+      "fetchedAt": "2026-11-19T10:47:04.933039+00:00",
+      "curlExit": 0
+    },
+    "reg-zh": {
+      "url": "https://mogan.utmb.world/zh-Hans/registrations",
+      "http": [
+        "200",
+        "https://mogan.utmb.world/zh-Hans/registrations",
+        "text/html; charset=utf-8"
+      ],
+      "bytes": 482861,
+      "sha256": "a41cd5244a49910ad01a1609e2e93d6c5c4afc7cfe30089a0c25ed2106030560",
+      "fetchedAt": "2026-11-19T10:45:14.126968+00:00",
+      "curlExit": 0
+    },
+    "rules-zh": {
+      "url": "https://mogan.utmb.world/zh-Hans/runners/rules-regulation",
+      "http": [
+        "200",
+        "https://mogan.utmb.world/zh-Hans/runners/rules-regulation",
+        "text/html; charset=utf-8"
+      ],
+      "bytes": 555432,
+      "sha256": "5733691d544ba1924051e7c3edf2ba66bfd390e55234d328fb7988f2b6e104de",
+      "fetchedAt": "2026-11-19T10:45:14.858861+00:00",
+      "curlExit": 0
+    },
+    "schedule": {
+      "url": "https://mogan.utmb.world/runners/schedule",
+      "http": [
+        "200",
+        "https://mogan.utmb.world/runners/schedule",
+        "text/html; charset=utf-8"
+      ],
+      "bytes": 497715,
+      "sha256": "ddc887cf68486237a4800fde377e2ccb058e511225671b621c6891ffe0bedbf8",
+      "fetchedAt": "2026-11-19T10:45:12.725988+00:00",
+      "curlExit": 0
+    },
+    "zuicool": {
+      "url": "https://zuicool.com/event/96948",
+      "http": [
+        "200",
+        "https://zuicool.com/event/96948",
+        "text/html; charset=UTF-8"
+      ],
+      "bytes": 64765,
+      "sha256": "dc594289697687fa119014712db8e6273139857986dd8e3607458e1b141356c3",
+      "fetchedAt": "2026-11-19T10:45:00.642690+00:00",
+      "curlExit": 0
+    },
+    "zuicool-news": {
+      "url": "https://zuicool.com/news/archives/322404",
+      "http": [
+        "200",
+        "https://zuicool.com/news/archives/322404",
+        "text/html; charset=UTF-8"
+      ],
+      "bytes": 31512,
+      "sha256": "7c1af22ce2fa5a6088b3983811edb00d5bd83a651aabeff9a554fa7e4695a532",
+      "fetchedAt": "2026-11-19T10:45:00.828498+00:00",
+      "curlExit": 0
+    },
+    "lungking": {
+      "url": "https://lungkingos.lungking.com/s/evps2696",
+      "http": [
+        "200",
+        "https://lungkingos.lungking.com/static/app/m/#/lungking/race/detail/2c908c04a1ce915301a1cf4a7b7a4862/info",
+        "text/html"
+      ],
+      "bytes": 2546,
+      "sha256": "daf55e2169141a885311576f6f454710c4c5aeaa58b478ad15d314ee794151e2",
+      "fetchedAt": "2026-11-19T10:45:01.002588+00:00",
+      "curlExit": 0
+    },
+    "DMG-zh": {
+      "url": "https://mogan.utmb.world/zh-Hans/races/DMG",
+      "http": [
+        "200",
+        "https://mogan.utmb.world/zh-Hans/races/DMG",
+        "text/html; charset=utf-8"
+      ],
+      "bytes": 545846,
+      "sha256": "72acf6bdb763094e389c3143eff46d77595297d73534441d829baf12ea9541a1",
+      "fetchedAt": "2026-11-19T10:45:25.845663+00:00",
+      "curlExit": 0
+    },
+    "CMG-zh": {
+      "url": "https://mogan.utmb.world/zh-Hans/races/CMG",
+      "http": [
+        "200",
+        "https://mogan.utmb.world/zh-Hans/races/CMG",
+        "text/html; charset=utf-8"
+      ],
+      "bytes": 536602,
+      "sha256": "8ddffb1bf44e7fadfea0c68d34c6408350eb6c571a627a300a4649bf5c318c63",
+      "fetchedAt": "2026-11-19T10:45:31.041326+00:00",
+      "curlExit": 0
+    },
+    "MMG-zh": {
+      "url": "https://mogan.utmb.world/zh-Hans/races/MMG",
+      "http": [
+        "200",
+        "https://mogan.utmb.world/zh-Hans/races/MMG",
+        "text/html; charset=utf-8"
+      ],
+      "bytes": 535392,
+      "sha256": "67c6b2e7ab6e8b7d6c5a1fe01aba3ba5f8d89969ba9718c0900fdb226ba966b5",
+      "fetchedAt": "2026-11-19T10:45:30.818499+00:00",
+      "curlExit": 0
+    },
+    "NMG-zh": {
+      "url": "https://mogan.utmb.world/zh-Hans/races/NMG",
+      "http": [
+        "500",
+        "https://mogan.utmb.world/zh-Hans/races/NMG",
+        "text/html; charset=utf-8"
+      ],
+      "bytes": 546560,
+      "sha256": "5d003d4061acf68d88b91bb6afee1d060dd5ca25a2c360622e5a0d9e8d033358",
+      "fetchedAt": "2026-11-19T10:45:35.552531+00:00",
+      "curlExit": 0
+    },
+    "NMG-en": {
+      "url": "https://mogan.utmb.world/races/NMG",
+      "http": [
+        "200",
+        "https://mogan.utmb.world/races/NMG",
+        "text/html; charset=utf-8"
+      ],
+      "bytes": 532928,
+      "sha256": "45b3042172aadfb4348eaa278a659bd1b2a33fff11c7b9bc2051e2771610b99f",
+      "fetchedAt": "2026-11-19T10:47:08.880592+00:00",
+      "curlExit": 0
+    },
+    "EMG-zh": {
+      "url": "https://mogan.utmb.world/zh-Hans/races/EMG",
+      "http": [
+        "200",
+        "https://mogan.utmb.world/zh-Hans/races/EMG",
+        "text/html; charset=utf-8"
+      ],
+      "bytes": 514965,
+      "sha256": "19c440beaa394357eeec44ed338f52e7bdb99d87eff49dbd1bf48bf70d7bf0bd",
+      "fetchedAt": "2026-11-19T10:47:05.610565+00:00",
+      "curlExit": 0
+    },
+    "EMG-en": {
+      "url": "https://mogan.utmb.world/races/EMG",
+      "http": [
+        "200",
+        "https://mogan.utmb.world/races/EMG",
+        "text/html; charset=utf-8"
+      ],
+      "bytes": 528959,
+      "sha256": "4133b7a97d822e1ec9993aed240c0e11d04ff083b82ae4f48a0ad0e5d475134b",
+      "fetchedAt": "2026-11-19T10:47:11.677581+00:00",
+      "curlExit": 0
+    },
+    "10K-zh": {
+      "url": "https://mogan.utmb.world/zh-Hans/races/10K",
+      "http": [
+        "500",
+        "https://mogan.utmb.world/zh-Hans/races/10K",
+        "text/html; charset=utf-8"
+      ],
+      "bytes": 546560,
+      "sha256": "2e81884594e69966bf090e86be0a667c2a68e80ab97679568afca20ba188c4d1",
+      "fetchedAt": "2026-11-19T10:45:53.447871+00:00",
+      "curlExit": 0
+    },
+    "10K-en": {
+      "url": "https://mogan.utmb.world/races/10K",
+      "http": [
+        "200",
+        "https://mogan.utmb.world/races/10K",
+        "text/html; charset=utf-8"
+      ],
+      "bytes": 515883,
+      "sha256": "5647cef88849d2d62f9a9e1582f1fcf8996ddda62a9358ce9365141c5c50c41c",
+      "fetchedAt": "2026-11-19T10:45:49.264206+00:00",
+      "curlExit": 0
+    }
+  },
+  "existingPublicNumericDiscrepancies": {
+    "DMG": {
+      "website": [
+        96,
+        5000
+      ],
+      "rulebook": [
+        96.5,
+        5110
+      ]
+    },
+    "CMG": {
+      "website": [
+        67,
+        3400
+      ],
+      "rulebook": [
+        67.6,
+        3350
+      ]
+    },
+    "MMG": {
+      "website": [
+        52,
+        2900
+      ],
+      "rulebook": [
+        52.5,
+        3030
+      ]
+    },
+    "action": "Existing numeric fields frozen, no automatic selection; this QA only changes their Chinese locations."
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "419352": {
+    "url": "https://hotels.ctrip.com/hotels/419352.html",
+    "http": [
+      "200",
+      "https://hotels.ctrip.com/hotels/419352.html",
+      "text/html; charset=utf-8"
+    ],
+    "bytes": 689088,
+    "sha256": "6e58fe4c75063a8826f89b648efe4ab2df6ff64c72cedbc558e765303e32274f",
+    "fetchedAt": "2026-11-19T08:19:02.386335+00:00",
+    "curlExit": 0,
+    "title": "香港美丽华酒店预订价格,联系电话位置地址【携程酒店】",
+    "humanSelectedName": "香港美丽华酒店（The Mira Hong Kong）"
+  },
+  "437133": {
+    "url": "https://hotels.ctrip.com/hotels/437133.html",
+    "http": [
+      "200",
+      "https://hotels.ctrip.com/hotels/437133.html",
+      "text/html; charset=utf-8"
+    ],
+    "bytes": 631687,
+    "sha256": "a36d1592446f9a57350136ffda68a86705d92ebbfde983ea5f2587a3c0a78a3e",
+    "fetchedAt": "2026-11-19T08:19:02.894620+00:00",
+    "curlExit": 0,
+    "title": "香港恒丰酒店预订价格,联系电话位置地址【携程酒店】",
+    "humanSelectedName": "香港恒丰酒店（Prudential Hotel）"
+  },
+  "370811": {
+    "url": "https://hotels.ctrip.com/hotels/370811.html",
+    "http": [
+      "200",
+      "https://hotels.ctrip.com/hotels/370811.html",
+      "text/html; charset=utf-8"
+    ],
+    "bytes": 696409,
+    "sha256": "399810440117d86df821a6c2214b601001a41f9fa9d64438df2ebdf78d8511a2",
+    "fetchedAt": "2026-11-19T08:19:03.662341+00:00",
+    "curlExit": 0,
+    "title": "香港富豪九龙酒店预订价格,联系电话位置地址【携程酒店】",
+    "humanSelectedName": "富豪九龙酒店（Regal Kowloon Hotel）"
+  },
+  "346244": {
+    "url": "https://hotels.ctrip.com/hotels/346244.html",
+    "http": [
+      "200",
+      "https://hotels.ctrip.com/hotels/346244.html",
+      "text/html; charset=utf-8"
+    ],
+    "bytes": 715089,
+    "sha256": "4e858d732060ea6b6e9735c0bd5094b3ddc8962187fab159da3f146f5bd0e3f0",
+    "fetchedAt": "2026-11-19T08:19:03.919813+00:00",
+    "curlExit": 0,
+    "title": "香港柏宁酒店．傲途格精选预订价格,联系电话位置地址【携程酒店】",
+    "humanSelectedName": "香港柏宁酒店（The Park Lane Hong Kong）"
+  },
+  "427031": {
+    "url": "https://hotels.ctrip.com/hotels/427031.html",
+    "http": [
+      "200",
+      "https://hotels.ctrip.com/hotels/427031.html",
+      "text/html; charset=utf-8"
+    ],
+    "bytes": 639161,
+    "sha256": "86c5c31409551cb0c37fea32af75f7df0a9565989fe7801c0fc4e568a81dc52f",
+    "fetchedAt": "2026-11-19T08:19:04.444384+00:00",
+    "curlExit": 0,
+    "title": "铜锣湾如心酒店预订价格,联系电话位置地址【携程酒店】",
+    "humanSelectedName": "铜锣湾如心酒店（Nina Hotel Causeway Bay）"
+  },
+  "1748643": {
+    "url": "https://hotels.ctrip.com/hotels/1748643.html",
+    "http": [
+      "200",
+      "https://hotels.ctrip.com/hotels/1748643.html",
+      "text/html; charset=utf-8"
+    ],
+    "bytes": 743188,
+    "sha256": "deb624abe09fc4fbc3ae42dee0a52d8f31c3b5aaeaeca9fdf60c31fa16808f8c",
+    "fetchedAt": "2026-11-19T08:19:04.475684+00:00",
+    "curlExit": 0,
+    "title": "莫干山郡安里度假酒店预订价格,联系电话位置地址【携程酒店】",
+    "humanSelectedName": "莫干山郡安里度假酒店"
+  },
+  "901389": {
+    "url": "https://hotels.ctrip.com/hotels/901389.html",
+    "http": [
+      "200",
+      "https://hotels.ctrip.com/hotels/901389.html",
+      "text/html; charset=utf-8"
+    ],
+    "bytes": 764175,
+    "sha256": "f658077d5feeca6ea1a32c50fe8e4d50ee65b60a983fa6b6f72e8f8093c53c51",
+    "fetchedAt": "2026-11-19T08:19:05.045901+00:00",
+    "curlExit": 0,
+    "title": "莫干山裸心谷度假村预订价格,联系电话位置地址【携程酒店】",
+    "humanSelectedName": "莫干山裸心谷度假村"
+  },
+  "8340871": {
+    "url": "https://hotels.ctrip.com/hotels/8340871.html",
+    "http": [
+      "200",
+      "https://hotels.ctrip.com/hotels/8340871.html",
+      "text/html; charset=utf-8"
+    ],
+    "bytes": 583510,
+    "sha256": "f33b27e3c5a215b90b60b76100de9f10169cbabb9112aa00b45e64b34e157cf5",
+    "fetchedAt": "2026-11-19T08:19:04.958029+00:00",
+    "curlExit": 0,
+    "title": "莫干山街角美宿(庾村广场店)预订价格,联系电话位置地址【携程酒店】",
+    "humanSelectedName": "莫干山街角美宿（庾村广场店）"
+  },
+  "60933147": {
+    "url": "https://hotels.ctrip.com/hotels/60933147.html",
+    "http": [
+      "200",
+      "https://hotels.ctrip.com/hotels/60933147.html",
+      "text/html; charset=utf-8"
+    ],
+    "bytes": 542690,
+    "sha256": "94131ad4ae9a3fb05fafdacbb1bd7a7cc0570a19ba86b6a76197567bc75b73cb",
+    "fetchedAt": "2026-11-19T08:19:05.891153+00:00",
+    "curlExit": 0,
+    "title": "莫干山丰赡楼民宿(庾村广场店)预订价格,联系电话位置地址【携程酒店】",
+    "humanSelectedName": "莫干山丰赡楼民宿（庾村广场店）"
+  },
+  "120729595": {
+    "url": "https://hotels.ctrip.com/hotels/120729595.html",
+    "http": [
+      "200",
+      "https://hotels.ctrip.com/hotels/120729595.html",
+      "text/html; charset=utf-8"
+    ],
+    "bytes": 731745,
+    "sha256": "752abd66ace1926993c24f510eff896b39045921a25772ebc8429a52c860bd68",
+    "fetchedAt": "2026-11-19T08:19:05.497112+00:00",
+    "curlExit": 0,
+    "title": "莫干山加怡颐珀金陵酒店预订价格,联系电话位置地址【携程酒店】",
+    "humanSelectedName": "莫干山加怡颐珀金陵酒店"
+  }
+}

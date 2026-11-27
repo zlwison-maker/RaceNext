@@ -1,0 +1,172 @@
+{
+  "origin": "http://127.0.0.1:34971",
+  "api": [
+    {
+      "path": "/api/races",
+      "status": 200
+    },
+    {
+      "path": "/api/races/kailas-gongga-100-2026",
+      "status": 200
+    },
+    {
+      "path": "/api/races/beijing-marathon-2026",
+      "status": 200
+    },
+    {
+      "path": "/api/races/xian-marathon-2026",
+      "status": 200
+    },
+    {
+      "path": "/api/races/chengdu-marathon-2026",
+      "status": 200
+    },
+    {
+      "path": "/api/races/tsaigu-kuocang-2026",
+      "status": 200
+    },
+    {
+      "path": "/api/races/ninghai-ultra-trail-2026",
+      "status": 200
+    },
+    {
+      "path": "/api/races/nanjing-marathon-2026",
+      "status": 200
+    },
+    {
+      "path": "/api/races/shaoxing-marathon-2026",
+      "status": 200
+    },
+    {
+      "path": "/api/races/shanghai-marathon-2026",
+      "status": 200
+    },
+    {
+      "path": "/api/races/shenzhen-marathon-2026",
+      "status": 200
+    },
+    {
+      "path": "/api/races/guangzhou-marathon-2026",
+      "status": 200
+    },
+    {
+      "path": "/api/races/shenzhen-100-2026",
+      "status": 200
+    },
+    {
+      "path": "/api/races/fuzhou-marathon-2026",
+      "status": 200
+    },
+    {
+      "path": "/api/races/hengqin-marathon-2026",
+      "status": 200
+    },
+    {
+      "path": "/api/races/chongqing-marathon-2027",
+      "status": 200
+    },
+    {
+      "path": "/api/races/xiamen-marathon-2027",
+      "status": 200
+    },
+    {
+      "path": "/api/races/guangzhou-100-2027",
+      "status": 200
+    },
+    {
+      "path": "/api/races/standard-chartered-hong-kong-marathon-2027",
+      "status": 200
+    },
+    {
+      "path": "/api/races/hk100-2027",
+      "status": 200
+    },
+    {
+      "path": "/api/races/panda-shudao-shan-2027",
+      "status": 200
+    },
+    {
+      "path": "/api/races/ultra-trail-mogan-by-utmb-2027",
+      "status": 200
+    }
+  ],
+  "legacyWebRoutes": [
+    {
+      "path": "/races/standard-chartered-hong-kong-marathon",
+      "status": 404
+    },
+    {
+      "path": "/races/ultra-trail-mogan-by-utmb",
+      "status": 404
+    }
+  ],
+  "images": [
+    {
+      "path": "/races/standard-chartered-hong-kong-marathon/2027/display-v1.jpg",
+      "type": "image/jpeg",
+      "coldStatus": 200,
+      "coldBodyBytes": 224394,
+      "contentLength": 224394,
+      "warmConditionalStatus": 304,
+      "warmBodyBytes": 0
+    },
+    {
+      "path": "/races/standard-chartered-hong-kong-marathon/2027/share-cover-5x4.jpg",
+      "type": "image/jpeg",
+      "coldStatus": 200,
+      "coldBodyBytes": 124254,
+      "contentLength": 124254,
+      "warmConditionalStatus": 304,
+      "warmBodyBytes": 0
+    },
+    {
+      "path": "/races/ultra-trail-mogan-by-utmb/2027/display-v1.jpg",
+      "type": "image/jpeg",
+      "coldStatus": 200,
+      "coldBodyBytes": 191202,
+      "contentLength": 191202,
+      "warmConditionalStatus": 304,
+      "warmBodyBytes": 0
+    },
+    {
+      "path": "/races/ultra-trail-mogan-by-utmb/2027/share-cover-5x4.jpg",
+      "type": "image/jpeg",
+      "coldStatus": 200,
+      "coldBodyBytes": 85348,
+      "contentLength": 85348,
+      "warmConditionalStatus": 304,
+      "warmBodyBytes": 0
+    }
+  ],
+  "miniProgramBinding": [
+    {
+      "editionId": "standard-chartered-hong-kong-marathon-2027",
+      "displayName": "渣打香港馬拉松2027",
+      "categories": [
+        "馬拉松"
+      ],
+      "hotels": 5,
+      "share": {
+        "title": "渣打香港馬拉松2027｜下一场参赛指南",
+        "path": "/pages/races/detail/index?editionId=standard-chartered-hong-kong-marathon-2027&source=share",
+        "imageUrl": "/races/standard-chartered-hong-kong-marathon/2027/share-cover-5x4.jpg"
+      }
+    },
+    {
+      "editionId": "ultra-trail-mogan-by-utmb-2027",
+      "displayName": "2027 莫干山越野赛 by UTMB®",
+      "categories": [
+        "DMG 100K",
+        "CMG 65K",
+        "MMG 50K"
+      ],
+      "hotels": 5,
+      "share": {
+        "title": "2027 莫干山越野赛 by UTMB®｜下一场参赛指南",
+        "path": "/pages/races/detail/index?editionId=ultra-trail-mogan-by-utmb-2027&source=share",
+        "imageUrl": "/races/ultra-trail-mogan-by-utmb/2027/share-cover-5x4.jpg"
+      }
+    }
+  ],
+  "oldPublicDetailsPreserved": 19
+}

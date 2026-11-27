@@ -4,6 +4,8 @@
 
 ## Current Status
 
+截至 2026-11-24，生产 Public API 公开 **25 场赛事**。PR #60 新增眉山仁寿半马和大连100，服务端部署、公网验收及发布前真机验收均已通过。Human 已确认微信线上正式版验收通过，PR #60 发布验收已结项。[发布归档](docs/project/PR60_PRODUCTION_RELEASE_CLOSEOUT_20261124.md) · [生产赛事列表](https://racenext.run/api/races)
+
 Current Phase:
 
 Phase 2｜Launch

@@ -44,8 +44,14 @@ test("public list returns only publishable canonical editions", () => {
     "chongqing-marathon-2027",
     "xiamen-marathon-2027",
     "guangzhou-100-2027",
+    "standard-chartered-hong-kong-marathon-2027",
     "hk100-2027",
+    "meishan-renshou-half-marathon-2027",
     "panda-shudao-shan-2027",
+    "huangshan-huizhou-ancient-city-trail-2027",
+    "outopia-mogan-cloud-flower-trail-2027",
+    "ultra-trail-mogan-by-utmb-2027",
+    "dalian-100-2027",
   ]);
   equal(result.body.races.length, expectedPublicEditionIds.length);
   ok(result.body.races.every(({ coverImage }) => Boolean(coverImage)));
